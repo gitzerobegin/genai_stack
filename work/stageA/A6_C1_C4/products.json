@@ -1404,7 +1404,7 @@
       "src": [
         "A6-S021"
       ],
-      "conf": "high"
+      "conf": "medium"
     },
     "category": {
       "v": "Managed agent/MCP gateway with emerging LLM inference routing; plus a LiteLLM-based reference pattern",

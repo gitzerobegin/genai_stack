@@ -44,7 +44,7 @@ As of 7 October 2026. All source IDs refer to `work/stageA/A1_L9_L8/sources.csv`
 - Unstructured ingest connectors (SharePoint, OneDrive, Confluence):
   - They compute a `permissions_version` SHA-256 ACL digest at index time. Under incremental mode (`reprocess_all=false`, `reprocess_on_permission_change=true`), an ACL-only change triggers reprocessing.
   - An unavailable permission fetch is recorded separately from an empty permission set.
-  - Confluence incremental indexing (content version plus ACL digest) was added in 1.11.20. (A1-S094)
+  - The ACL digest was introduced for OneDrive/SharePoint in 1.8.0, Teams channel files were added in 1.10.0, and Confluence incremental indexing (content version plus ACL digest) was added in 1.11.1. (A1-S094)
 - In the unstructured-ingest changelog, "redaction" refers to **credentials in error logs**, not PII in document content. No content-PII detection was found in the open-source ingest changelog (A1-S094).
 - Firecrawl:
   - It offers per-request PII redaction (`redactPII`, +4 credits/page), Zero Data Retention (+1 credit/page) and an opt-in prompt-injection check for JSON extraction (A1-S076, A1-S077).

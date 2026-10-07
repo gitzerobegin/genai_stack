@@ -1,0 +1,8 @@
+SOURCE ID: A3-S103
+URL: https://siliconangle.com/2025/06/17/browserbase-reels-40m-browser-automation-tools/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Browserbase raises Series B Series C funding valuation
+========================================================================
+
+Search-tool summary: SiliconANGLE says Notable Capital led the Series B investment; Kleiner Perkins and CRV also took part. The company is reportedly valued at $300 million, four times what it was worth in September. Sacra reports $40 million Series B in June 2025 at $300 million post-money and estimates $67.5 million raised in total. CB Insights dates the round April 22, 2025 (conflict). No Series C found.

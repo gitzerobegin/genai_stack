@@ -1,0 +1,8 @@
+SOURCE ID: A3-S105
+URL: https://e2b.dev/blog/series-a
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: E2B raises Series A funding sandboxes AI agents Insight Partners
+========================================================================
+
+Search-tool summary: In July 2025, E2B announced a $21 million Series A led by Insight Partners, with Decibel, Sunflower Capital, and Kaya also participating, plus angel investors including Docker's former CEO Scott Johnston. Prague-based (Czech Trade Offices). The company reported that 88% of Fortune 100 companies had signed up. Named customers include Hugging Face, Perplexity, Groq, and Manus. E2B's blog says hundreds of millions of cloud sandboxes initiated at more than half of the Fortune 500. Plans: strengthen open-source sandbox protocol; enterprise modules such as a secrets vault and monitoring tools.
