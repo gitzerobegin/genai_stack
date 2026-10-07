@@ -1532,10 +1532,13 @@
    "conf": "low"
   },
   "ecosystem": {
-   "v": "FOCUS provides a vendor-neutral schema for cost and usage data across cloud, SaaS and other technology categories, usable as a normalisation target",
+   "v": "FOCUS provides a vendor-neutral cost/usage schema (AI token fields scoped for FOCUS 1.5); cost platforms such as Vantage and CloudZero ingest provider token data via admin APIs for allocation",
    "label": "Verified fact",
    "src": [
-    "A7-S048"
+    "A7-S048",
+    "A7-S116",
+    "A7-S113",
+    "A7-S114"
    ],
    "conf": "high"
   },
@@ -1603,7 +1606,10 @@
    "A7-S048",
    "A7-S068",
    "A7-S070",
-   "A7-S081"
+   "A7-S081",
+   "A7-S113",
+   "A7-S114",
+   "A7-S116"
   ],
   "stage_a_notes": "Cloud-provider cost tags/labels for Bedrock, Azure OpenAI and Vertex AI could not be verified (AWS, Microsoft and docs.cloud.google.com blocked; search budget exhausted). LiteLLM and Portkey are profiled in C1 by another stream; this record covers only the cost-attribution pattern. Chargeback design itself is an architectural pattern, not a product.",
   "last_verified": "2026-10-07"
@@ -5719,10 +5725,11 @@
    "conf": "low"
   },
   "ecosystem": {
-   "v": "Apache Airflow ships an OpenLineage provider (apache-airflow-providers-openlineage 2.20.2, 29 September 2026); Egeria listed as related project",
+   "v": "Apache Airflow ships an OpenLineage provider (apache-airflow-providers-openlineage 2.20.2, 29 September 2026); Collibra documents an OpenLineage integration; Egeria listed as related project",
    "label": "Verified fact",
    "src": [
     "A7-S045",
+    "A7-S122",
     "A7-S041"
    ],
    "conf": "high"
@@ -5794,7 +5801,8 @@
    "A7-S042",
    "A7-S043",
    "A7-S044",
-   "A7-S045"
+   "A7-S045",
+   "A7-S122"
   ],
   "stage_a_notes": "H7: text search of the OpenLineage changelog found no GenAI-, LLM-, embedding- or vector-specific facets; tags facets and dbt meta capture exist and could carry classification labels. openlineage.io blocked, so integration docs not read.",
   "last_verified": "2026-10-07"

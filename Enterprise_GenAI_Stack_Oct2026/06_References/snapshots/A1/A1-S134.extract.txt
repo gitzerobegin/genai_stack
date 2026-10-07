@@ -1,0 +1,9 @@
+SOURCE ID: A1-S134
+URL: https://www.firecrawl.dev/privacy-policy
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Firecrawl data region EU data residency GDPR where is data processed
+========================================================================
+
+Extract (privacy policy, page approx. 650 days old): "Our servers are located in the United States and this is where your data and information will be stored. Europeans' information will be transferred out of the home country and into the United States. The United States might not have the same level of data protection as your country provides."
+Conflicts: an older Firecrawl comparison blog (approx. 411 days old) claims "EU data residency, ensuring data never leaves European servers"; a 2026 Firecrawl roundup refers to "The compliance posture (ZDR, SOC 2 Type 2, DPA, US data residency)". Comparison pages: SOC 2 Type II, GDPR compliance and DPA available; enterprise plans include zero data retention and a 99.9% SLA.

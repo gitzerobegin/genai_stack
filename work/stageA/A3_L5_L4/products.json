@@ -161,18 +161,20 @@
    }
   },
   "certifications": {
-   "v": "Vendor states SOC 2 Type I and HIPAA compliance for the managed cloud; SOC 2 Type II not found; Trust Center not accessible from research environment",
+   "v": "Vendor pages conflict: SOC 2 Type I (homepage/About), 'Type II audit in progress' (one article) and 'Type II for Enterprise' (one guide); HIPAA claimed; Trust Center report not seen",
    "label": "Verified fact",
    "src": [
-    "A3-S051"
+    "A3-S051",
+    "A3-S106"
    ],
-   "conf": "medium"
+   "conf": "low"
   },
   "gdpr_residency": {
-   "v": "Vendor states GDPR compliance; EU data region not publicly verified",
+   "v": "Vendor states GDPR compliant; no managed EU region found; residency addressed through self-hosted/private-cloud/air-gapped deployment",
    "label": "Verified fact",
    "src": [
-    "A3-S051"
+    "A3-S051",
+    "A3-S106"
    ],
    "conf": "low"
   },
@@ -304,7 +306,8 @@
    "A3-S053",
    "A3-S054",
    "A3-S080",
-   "A3-S081"
+   "A3-S081",
+   "A3-S106"
   ],
   "stage_a_notes": "Security/compliance claims come only from vendor marketing pages via search extract; the trust centre was not reachable. Benchmark scores are vendor-reported and apply to the managed platform. The open-source extraction pipeline no longer issues UPDATE/DELETE (memories accumulate), which matters for retention and right-to-erasure design; explicit delete/delete_all APIs remain.",
   "last_verified": "2026-10-07"
@@ -426,12 +429,14 @@
     "conf": "low"
    },
    "vpc_byoc": {
-    "v": "Yes (Zep: 'fully managed or in your cloud')",
+    "v": "Yes (BYOC on Enterprise; AWS, GCP, Azure)",
     "label": "Verified fact",
     "src": [
+     "A3-S089",
+     "A3-S090",
      "A3-S003"
     ],
-    "conf": "high"
+    "conf": "medium"
    },
    "private_cloud": {
     "v": "Not publicly verified",
@@ -456,42 +461,57 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "security_features": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "enterprise_support": {
-   "v": "Zep platform states SLAs, support and 'security guarantees' versus self-managed Graphiti",
+   "v": "SOC 2 Type II and HIPAA BAA on Enterprise plan only (not on Flex/Flex Plus); reports via Zep Trust Center",
    "label": "Verified fact",
    "src": [
-    "A3-S003"
+    "A3-S089",
+    "A3-S090"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Signs DPAs with EU customers; US hosting by default, EU residency available on request; right-to-be-forgotten and time-based retention/purge features (Zep Archive)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S107",
+    "A3-S089"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "BYOK (cloud with your own keys) and BYOC (your own VPC on AWS, GCP or Azure) on Enterprise; BYOK via AWS KMS in emerging-companies programme",
+   "label": "Verified fact",
+   "src": [
+    "A3-S089",
+    "A3-S090"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "IdP-based member sign-in (SAML not named); RBAC for dashboard (account/project roles) and ABAC policies for data reads/writes; audit logs cover web-app member actions only, not API/SDK calls; Enterprise retains audit and API logs 1 year",
+   "label": "Verified fact",
+   "src": [
+    "A3-S107"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Enterprise: custom pricing, negotiated credit rates, guaranteed SLA",
+   "label": "Verified fact",
+   "src": [
+    "A3-S089"
    ],
    "conf": "medium"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Flex US$125/month (50,000 credits); Flex Plus US$375/month (200,000 credits); Enterprise custom; emerging-companies programme US$13,000 first year",
+   "label": "Verified fact",
+   "src": [
+    "A3-S089",
+    "A3-S090"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Graphiti self-hosting cost is driven by the graph database (Neo4j/FalkorDB/Neptune) and LLM calls during ingestion; README warns of LLM rate-limit (429) errors at default concurrency",
@@ -511,12 +531,13 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "getzep/graphiti 31,529 GitHub stars; getzep/zep 4,951 stars (7 October 2026)",
+   "v": "getzep/graphiti 31,529 GitHub stars; getzep/zep 4,951 stars (7 October 2026). Backers named as Y Combinator and Engineering Capital; no 2025-2026 round found",
    "label": "Verified fact",
    "src": [
-    "A3-S054"
+    "A3-S054",
+    "A3-S090"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "maturity": {
    "v": "graphiti-core first released August 2024, 194 releases, still pre-1.0 (0.30.x); zep-cloud SDK on 3.x with a 4.0 beta in progress",
@@ -544,9 +565,11 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "No 2025-2026 funding round found; aggregator totals conflict (US$0.5M-2.4M)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S090"
+    ],
     "conf": "low"
    },
    "ecosystem_dependency": {
@@ -581,9 +604,12 @@
    "A3-S002",
    "A3-S003",
    "A3-S054",
-   "A3-S059"
+   "A3-S059",
+   "A3-S089",
+   "A3-S090",
+   "A3-S107"
   ],
-  "stage_a_notes": "Trust centre, pricing and funding pages for Zep were unreachable (host blocked; web-search budget exhausted). Graphiti's 'invalidate, not delete' design gives history and audit but needs explicit handling for right-to-erasure.",
+  "stage_a_notes": "Compliance is tier-gated: SOC 2 Type II/HIPAA only on Enterprise. Audit-log scope conflict: help page says web-app actions only, marketing says every request. Graphiti's 'invalidate, not delete' design gives history and audit; Zep platform adds explicit right-to-be-forgotten and retention purge.",
   "last_verified": "2026-10-07"
  },
  {
@@ -636,13 +662,13 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Pivot from an agent API server to Letta Code: CLI, desktop app, chat.letta.com, Slack/Telegram/Discord channels, remote computers, crons; agents rewrite their own memory blocks, skills and prompts ('dreaming'/sleep-time compute)",
+   "v": "'Letta's Next Phase' (March 2026): Letta Code as model-agnostic agent harness with git-backed memory (MemFS); legacy server memory tools (e.g. core_memory_replace), templates, server-side sleep-time agents and tool rules deprecated. Letta Code launched December 2025; desktop app April 2026",
    "label": "Verified fact",
    "src": [
-    "A3-S073",
-    "A3-S060"
+    "A3-S093",
+    "A3-S073"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "status_events": {
    "v": [
@@ -744,10 +770,12 @@
    "conf": "low"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Privacy policy: model inputs/outputs retained only for hosted services; no specific retention periods; agent state (memories, messages, tool calls) persisted in a database and retrievable after compaction",
+   "label": "Verified fact",
+   "src": [
+    "A3-S118"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Secrets feature exposes secrets as environment variables while obfuscating values from context (requires Letta sign-in)",
@@ -758,24 +786,30 @@
    "conf": "medium"
   },
   "access_controls": {
-   "v": "Permission modes to auto-approve or deny agent actions; enterprise SSO/RBAC not verified",
+   "v": "Enterprise tier: RBAC and SAML/OIDC SSO; Letta Code permission modes for agent actions",
    "label": "Verified fact",
    "src": [
+    "A3-S091",
     "A3-S073"
    ],
    "conf": "medium"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Enterprise tier with dedicated support",
+   "label": "Verified fact",
+   "src": [
+    "A3-S091"
+   ],
+   "conf": "medium"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Pro US$20/month with usage quota and pay-as-you-go overage (up to 20 stateful agents); LLM usage at underlying token cost; free with own model keys; Enterprise volume pricing",
+   "label": "Verified fact",
+   "src": [
+    "A3-S091"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -792,12 +826,13 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "letta-ai/letta 25,070 GitHub stars; letta-ai/letta-code 3,541 stars (7 October 2026)",
+   "v": "letta-ai/letta 25,070 and letta-code 3,541 GitHub stars (7 October 2026). US$10M seed led by Felicis (September 2024, Reported); no later round found",
    "label": "Verified fact",
    "src": [
-    "A3-S054"
+    "A3-S054",
+    "A3-S092"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "maturity": {
    "v": "Letta Code first published 24 October 2025; pre-1.0 with very rapid releases (eight releases 29 September to 4 October 2026)",
@@ -824,9 +859,11 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "US$10M seed (September 2024); no later round found",
+    "label": "Reported",
+    "src": [
+     "A3-S092"
+    ],
     "conf": "low"
    },
    "ecosystem_dependency": {
@@ -862,9 +899,13 @@
    "A3-S054",
    "A3-S060",
    "A3-S073",
-   "A3-S077"
+   "A3-S077",
+   "A3-S091",
+   "A3-S092",
+   "A3-S093",
+   "A3-S118"
   ],
-  "stage_a_notes": "Major repositioning: the graphic treats Letta as a memory product, but the V1 API server is retired and the product is now an agent harness (Letta Code). Funding, certifications and pricing could not be verified (docs.letta.com blocked; search budget exhausted).",
+  "stage_a_notes": "Major repositioning confirmed by Letta's own 'Next Phase' post (March 2026). No SOC 2 or trust centre found (searched letta.com and docs.letta.com, A3-S118). Memory and conversation state of cloud agents are hosted in Letta Cloud (A3-S091).",
   "last_verified": "2026-10-07"
  },
  {
@@ -880,12 +921,13 @@
    "conf": "high"
   },
   "company": {
-   "v": "Cognee (GitHub org topoteretes; PyPI authors Vasilije Markovic and Boris Arzentar)",
+   "v": "Cognee (Berlin-based; GitHub org topoteretes)",
    "label": "Verified fact",
    "src": [
-    "A3-S005"
+    "A3-S005",
+    "A3-S095"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "category": {
    "v": "Open-source AI memory platform building knowledge graphs plus vectors from documents, code and conversations",
@@ -975,10 +1017,12 @@
     "conf": "low"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (Enterprise BYOC)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S095"
+    ],
+    "conf": "medium"
    },
    "private_cloud": {
     "v": "Not publicly verified",
@@ -995,51 +1039,64 @@
     "conf": "high"
    },
    "on_prem": {
-    "v": "Yes (runs locally/self-hosted)",
+    "v": "Yes (on-prem and air-gapped self-hosting)",
     "label": "Verified fact",
     "src": [
+     "A3-S095",
      "A3-S005"
     ],
     "conf": "medium"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "security_features": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "access_controls": {
-   "v": "API defaults to multi-tenant mode in which every /api/v1 call requires an authenticated user; permissions guide for backend access control",
+   "v": "Cognee states it does not currently hold SOC 2, ISO 27001 or equivalent third-party certification; recommends self-hosting in customer's certified environment",
    "label": "Verified fact",
    "src": [
-    "A3-S005"
+    "A3-S095"
    ],
-   "conf": "high"
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "EU company; GDPR-aligned processes audited with heyData; DPA on request; access, erasure and portability rights supported; Enterprise BYOC data plane in customer's EU cloud account; Cloud tenants each get a dedicated managed Postgres project",
+   "label": "Verified fact",
+   "src": [
+    "A3-S095"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Encryption at rest and in transit; private deployment mode with zero external API calls; air-gapped self-hosting",
+   "label": "Verified fact",
+   "src": [
+    "A3-S095"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Multi-tenant mode with authenticated users by default (API); Enterprise SSO",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005",
+    "A3-S095"
+   ],
+   "conf": "medium"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Enterprise: SSO, SLAs, dedicated support engineer, BYOC (fixed-scope engagement, custom price)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S095"
+   ],
+   "conf": "medium"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Cloud free tier (1M tokens, one workspace); Standard US$1.00 per 1M tokens processed plus US$5 per extra workspace; Enterprise custom; self-hosted OSS free",
+   "label": "Verified fact",
+   "src": [
+    "A3-S095"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Can run free locally with small models; production graph on Postgres requires a licence",
@@ -1059,12 +1116,13 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "topoteretes/cognee 31,561 GitHub stars (7 October 2026)",
+   "v": "topoteretes/cognee 31,561 GitHub stars (7 October 2026); US$7.5M seed led by Pebblebed (February 2026, Reported) after US$1.5M (November 2024)",
    "label": "Verified fact",
    "src": [
-    "A3-S054"
+    "A3-S054",
+    "A3-S094"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "maturity": {
    "v": "First PyPI release 13 March 2024; 178 releases; post-1.0 (1.6.x)",
@@ -1090,9 +1148,11 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "US$7.5M seed February 2026 (aggregators differ: US$8.83M Series A / EUR 7.5M)",
+    "label": "Reported",
+    "src": [
+     "A3-S094"
+    ],
     "conf": "low"
    },
    "ecosystem_dependency": {
@@ -1121,9 +1181,11 @@
   "scores": null,
   "sources": [
    "A3-S005",
-   "A3-S054"
+   "A3-S054",
+   "A3-S094",
+   "A3-S095"
   ],
-  "stage_a_notes": "Funding, certifications and Cognee Cloud pricing/regions not verified (docs.cognee.ai blocked; search budget exhausted).",
+  "stage_a_notes": "Explicitly no SOC 2/ISO 27001 (vendor's own statement) but EU-based with GDPR process audit and erasure support: relevant for UK/EU FS. Wording varies between 'GDPR-compliant' and 'GDPR-aligned'.",
   "last_verified": "2026-10-07"
  },
  {
@@ -1164,14 +1226,14 @@
    "conf": "high"
   },
   "licence_model": {
-   "v": "Repository and SDK under MIT/Apache-2.0 (repo MIT, Python SDK Apache-2.0); hosted API proprietary; 'Supermemory local' self-host binary with separate Enterprise self-hosting",
+   "v": "Open core: repository MIT and SDK Apache-2.0, but the self-hosted server binary is not open source (free within a lite licence); hosted API proprietary",
    "label": "Verified fact",
    "src": [
     "A3-S066",
     "A3-S012",
-    "A3-S064"
+    "A3-S096"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "strategic_direction": {
    "v": "Bundles memory with RAG, connectors and multimodal extractors in one API; plugins for Claude Code, Cursor, Codex, OpenCode and others; vendor claims #1 on LongMemEval, LoCoMo and ConvoMem",
@@ -1240,43 +1302,55 @@
     "conf": "low"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
-   },
-   "private_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
-   },
-   "self_hosted": {
-    "v": "Yes (Supermemory local; Enterprise self-hosting referenced)",
+    "v": "Yes (dedicated deployment in customer AWS, GCP or Azure account)",
     "label": "Verified fact",
     "src": [
+     "A3-S122"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (dedicated infrastructure run by Supermemory)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S122"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes: Supermemory local free for individuals within a lite licence (server binary not open source); organisational self-hosting on Scale and Enterprise",
+    "label": "Verified fact",
+    "src": [
+     "A3-S096",
      "A3-S064"
     ],
-    "conf": "high"
+    "conf": "medium"
    },
    "on_prem": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (Enterprise air-gapped self-hosting)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S096"
+    ],
+    "conf": "medium"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 (from Scale tier) and HIPAA on Enterprise per pricing page; blog posts say SOC 2 Type 2 (report type not confirmed on pricing page)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S096"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Security page states GDPR compliant with access and erasure workflows; DPA signed on request; no managed EU region found; dedicated deployments in customer AWS/GCP/Azure for residency",
+   "label": "Verified fact",
+   "src": [
+    "A3-S122",
+    "A3-S096"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Not publicly verified",
@@ -1285,24 +1359,30 @@
    "conf": "low"
   },
   "access_controls": {
-   "v": "Namespaces isolate content per user/project; organisation endpoint in API; SSO/RBAC not verified",
+   "v": "SSO on Enterprise tier (protocols not documented); namespaces isolate content",
    "label": "Verified fact",
    "src": [
+    "A3-S096",
     "A3-S012"
    ],
    "conf": "medium"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Enterprise: custom contracts, DPA, SSO, custom integrations",
+   "label": "Verified fact",
+   "src": [
+    "A3-S096"
+   ],
+   "conf": "medium"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Free (US$5 monthly credits); Pro US$19; Max US$100; Scale US$399 per month; Enterprise custom",
+   "label": "Verified fact",
+   "src": [
+    "A3-S096"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -1319,12 +1399,13 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "supermemoryai/supermemory 31,146 GitHub stars (7 October 2026)",
+   "v": "supermemoryai/supermemory 31,146 GitHub stars (7 October 2026); seed US$2.6M (October 2025, later reported as US$3M) led by Susa Ventures, Browder Capital and SF1.vc (Reported)",
    "label": "Verified fact",
    "src": [
-    "A3-S054"
+    "A3-S054",
+    "A3-S097"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "maturity": {
    "v": "Python SDK first released 29 April 2025; 87 releases; v5 API just released",
@@ -1348,9 +1429,11 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Seed only (US$2.6-3M, October 2025)",
+    "label": "Reported",
+    "src": [
+     "A3-S097"
+    ],
     "conf": "low"
    },
    "ecosystem_dependency": {
@@ -1383,9 +1466,12 @@
    "A3-S012",
    "A3-S054",
    "A3-S064",
-   "A3-S066"
+   "A3-S066",
+   "A3-S096",
+   "A3-S097",
+   "A3-S122"
   ],
-  "stage_a_notes": "Benchmark leadership is a vendor claim. Funding, certifications, regions and pricing not verified (supermemory.ai blocked; search budget exhausted). Deletion: memories.forget/forget_matching and namespace delete endpoints in v5 SDK.",
+  "stage_a_notes": "Licence nuance: README says 'run it yourself', but pricing/docs say the server binary is not open source. Benchmark leadership is a vendor claim. Conflict: blog says self-hosting on all tiers; pricing FAQ limits to Scale/Enterprise (primary pricing used).",
   "last_verified": "2026-10-07"
  },
  {
@@ -1702,19 +1788,23 @@
   },
   "status_events": {
    "v": [
-    "October 2025: AgentCore GA (Memory included)"
+    "October 2025: AgentCore GA (Memory included)",
+    "August 2026: extraction from non-conversational JSON payloads"
    ],
    "label": "Verified fact",
    "src": [
-    "A3-S047"
+    "A3-S047",
+    "A3-S111"
    ],
    "conf": "medium"
   },
   "what_it_does": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Short-term memory stores raw session events (messages, tool calls); long-term memory extracts records via strategies (semantic, summary, user preference, episodic, custom model/prompt) retrievable by semantic search, grouped by namespaces",
+   "label": "Verified fact",
+   "src": [
+    "A3-S111"
+   ],
+   "conf": "medium"
   },
   "stack_position": {
    "v": "Platform-native alternative to independent L5 memory products",
@@ -1731,10 +1821,12 @@
    "conf": "medium"
   },
   "integration_model": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "AgentCore APIs (CreateMemory, ListMemoryRecords, DeleteMemoryRecord, BatchDeleteMemoryRecords); record streaming events; Strands Agents SDK integration; JSON-payload extraction (August 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S111"
+   ],
+   "conf": "medium"
   },
   "deployment": {
    "saas": {
@@ -1799,10 +1891,11 @@
    "conf": "low"
   },
   "security_features": {
-   "v": "VPC, PrivateLink, CloudFormation and resource tagging across all AgentCore services",
+   "v": "VPC, PrivateLink, CloudFormation and tagging across AgentCore; event expiry for short-term events (7-365 days per API reference, minimum value conflict); no built-in TTL for long-term records (AWS recommends a pruner using timestamp filters); per-user erasure by listing and deleting namespace records; deleting a memory resource removes all events and records; harness-managed memory cannot be deleted via Memory APIs",
    "label": "Verified fact",
    "src": [
-    "A3-S047"
+    "A3-S047",
+    "A3-S111"
    ],
    "conf": "medium"
   },
@@ -1895,9 +1988,277 @@
   "scores": null,
   "sources": [
    "A3-S047",
-   "A3-S048"
+   "A3-S048",
+   "A3-S111"
   ],
-  "stage_a_notes": "Added as material missing product (platform-native memory). Memory strategy types (semantic/summary/preference/episodic), retention and deletion controls could not be verified because docs.aws.amazon.com was blocked and the search budget was exhausted. Vertex AI Agent Engine Memory Bank is the Google equivalent (A3-S070, link-only, unverified).",
+  "stage_a_notes": "Added as material missing product (platform-native memory). Retention design matters for right-to-erasure: long-term records have no native TTL. Pricing and certifications for AgentCore not verified in this stream.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L5-gcp-vertex-memory-bank",
+  "layer": "L5",
+  "original_label": null,
+  "current_name": {
+   "v": "Vertex AI Agent Engine Memory Bank (newer docs: 'Agent Platform Memory Bank' in Gemini Enterprise Agent Platform)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108",
+    "A3-S109"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Google Cloud",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Cloud-platform managed agent long-term memory service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Public preview 8 July 2025; release notes state Sessions and Memory Bank generally available (date not captured); usage charging from 28 January 2026",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108",
+    "A3-S109"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Proprietary managed service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Integrated with Agent Development Kit and Agent Engine Sessions; samples for LangGraph and CrewAI; rebranding under Gemini Enterprise Agent Platform",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108",
+    "A3-S109"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "8 July 2025: public preview",
+    "GA (date not verified)",
+    "28 January 2026: billing starts"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S108",
+    "A3-S109"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Uses Gemini models to extract facts, preferences and context asynchronously from conversation history, consolidates them with existing memories (resolving contradictions), and retrieves them by scope (e.g. user ID) with optional embedding similarity search",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108",
+    "A3-S109"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Platform-native alternative to independent L5 memory products",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Google Cloud project; Agent Engine Sessions as a source; Gemini models",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "REST API and Vertex AI SDK; ADK memory service; LangGraph and CrewAI samples",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108",
+    "A3-S109"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Google Cloud managed)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S108"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S108"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A3-S108"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A3-S108"
+    ],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Scope is immutable and retrieval returns only exact-scope matches; optional TTL (default none; memory revisions default 365 days); delete by name and purge by filter with dry run; consolidation may delete contradicted memories or honour explicit 'forget' instructions; deleting the Agent Runtime instance deletes built-in memories",
+   "label": "Verified fact",
+   "src": [
+    "A3-S109"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Google Cloud IAM (assumed from platform; not separately verified)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Usage-based per-memory storage and retrieval charges from 28 January 2026 (rates not captured)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S109"
+   ],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "ADK, LangGraph, CrewAI",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Preview July 2025; GA by 2026",
+   "label": "Verified fact",
+   "src": [
+    "A3-S108",
+    "A3-S109"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Hyperscaler lock-in; memories tied to Agent Runtime instance",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Depends on Gemini for extraction",
+    "label": "Verified fact",
+    "src": [
+     "A3-S108"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Proprietary Google Cloud API",
+    "label": "Verified fact",
+    "src": [
+     "A3-S108"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S108",
+   "A3-S109"
+  ],
+  "stage_a_notes": "Added as material missing product (platform-native memory, H4). docs.cloud.google.com blocked for direct fetch; doc facts via search extract (A3-S109); blog snapshot (A3-S108). Original link-only citation A3-S070 retained.",
   "last_verified": "2026-10-07"
  },
  {
@@ -1963,21 +2324,22 @@
   "status_events": {
    "v": [
     "9 December 2025: donated by Anthropic to the Agentic AI Foundation (Linux Foundation); maintainer structure unchanged",
-    "8 September 2025: official MCP Registry launched in preview; API v0.1 still current on 7 October 2026 (no v1/GA endpoint)",
+    "8 September 2025: official MCP Registry launched in preview; API frozen at v0.1 (24 October 2025); Registry working-group charter lists 'Registry API v1 GA' as Ideating with no target date; /v0.1 live and /v1 absent on 7 October 2026",
     "18 June 2026: Enterprise-Managed Authorization extension declared stable",
     "28 July 2026: spec 2026-07-28 removes sessions and the initialize handshake (stateless core), adds Multi Round-Trip Requests, header-based routing, cacheable lists, extensions framework; deprecates Roots, Sampling, Logging, legacy HTTP+SSE and Dynamic Client Registration (in favour of Client ID Metadata Documents)",
     "8 April 2026: Den Delimarsky (Anthropic) became second Lead Maintainer; Clare Liguori (AWS) joined Core Maintainers"
    ],
    "label": "Verified fact",
    "src": [
+    "A3-S015",
+    "A3-S017",
     "A3-S018",
     "A3-S019",
     "A3-S036",
     "A3-S042",
-    "A3-S017",
-    "A3-S015",
     "A3-S057",
-    "A3-S082"
+    "A3-S082",
+    "A3-S114"
    ],
    "conf": "high"
   },
@@ -2204,7 +2566,8 @@
    "A3-S057",
    "A3-S058",
    "A3-S074",
-   "A3-S082"
+   "A3-S082",
+   "A3-S114"
   ],
   "stage_a_notes": "Conflict of interest: MCP originated at Anthropic; author is an Anthropic model. Independent criticism recorded: tool poisoning (MCPTox: 36.5% average attack success across 20 models, AAAI 2026), rug pulls, tool shadowing, IDE auto-execution CVEs across Cursor, Claude Code, Gemini CLI, Copilot and Amazon Q (CSA, July 2026), OWASP MCP Top 10 (MCP03 Tool Poisoning). Spec makes authorisation OPTIONAL; annotations are hints only. Adoption figures are project-reported.",
   "last_verified": "2026-10-07"
@@ -2222,12 +2585,13 @@
    "conf": "high"
   },
   "company": {
-   "v": "A2A Project under the Linux Foundation (contributed by Google, June 2025); accepted as a Growth Stage project of the Agentic AI Foundation in August 2026; TSC seats: Google, Microsoft, Cisco, AWS, Salesforce, ServiceNow, SAP, IBM",
+   "v": "A2A Project: contributed by Google to the Linux Foundation (2025); accepted as a Growth Stage project of the Agentic AI Foundation (AAIF announcement 17 August 2026; A2A blog 27 August 2026); TSC seats: Google, Microsoft, Cisco, AWS, Salesforce, ServiceNow, SAP, IBM",
    "label": "Verified fact",
    "src": [
     "A3-S065",
-    "A3-S025",
-    "A3-S040"
+    "A3-S116",
+    "A3-S117",
+    "A3-S025"
    ],
    "conf": "medium"
   },
@@ -2270,18 +2634,21 @@
   "status_events": {
    "v": [
     "August 2025: IBM's Agent Communication Protocol (ACP) merged into A2A; IBM joined the TSC",
-    "12 March 2026: A2A 1.0.0, first stable release (sources differ: Linux Foundation release dated 9 April 2026)",
-    "August 2026 (20 August per most sources): A2A joined the Agentic AI Foundation as a Growth Stage project"
+    "12 March 2026: A2A 1.0.0, first stable release (changelog; AAIF and Google also say March 2026; the 9 April 2026 Linux Foundation release is the one-year anniversary announcement)",
+    "26 May 2026: A2A 1.0.1",
+    "17 August 2026: AAIF announced A2A joining; A2A blog (27 August 2026) confirms acceptance as AAIF Growth Stage project"
    ],
    "label": "Verified fact",
    "src": [
     "A3-S032",
     "A3-S065",
     "A3-S079",
+    "A3-S116",
+    "A3-S026",
     "A3-S025",
-    "A3-S040"
+    "A3-S117"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "what_it_does": {
    "v": "Lets a client agent discover a remote agent via its Agent Card (/.well-known/agent-card.json), send messages and manage asynchronous, long-running tasks with streaming and push notifications; version negotiated via A2A-Version header",
@@ -2484,6 +2851,7 @@
   "scores": null,
   "sources": [
    "A3-S025",
+   "A3-S026",
    "A3-S030",
    "A3-S031",
    "A3-S032",
@@ -2492,9 +2860,11 @@
    "A3-S065",
    "A3-S075",
    "A3-S078",
-   "A3-S079"
+   "A3-S079",
+   "A3-S116",
+   "A3-S117"
   ],
-  "stage_a_notes": "Conflict on 1.0 date: changelog 12 March 2026 vs LF press 9 April 2026 (primary changelog used). AAIF join date: 20 August vs 17 August 2026 across secondary sources. IBM ACP is superseded. Card signing is optional, which limits trust guarantees.",
+  "stage_a_notes": "Date conflicts resolved: 1.0.0 = 12 March 2026 (primary changelog, AAIF and Google agree); AAIF move = AAIF post 17 August 2026, A2A post 27 August 2026 (secondary '20 August' not supported by a primary source). IBM ACP is superseded. Card signing is optional, which limits trust guarantees.",
   "last_verified": "2026-10-07"
  },
  {
@@ -2530,10 +2900,13 @@
    "conf": "high"
   },
   "version_or_lineup": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "No versioned releases: specification is a 'living document'; tagged releases with changelog are planned (AAIF proposal); no CHANGELOG.md in repository root on 7 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A3-S115",
+    "A3-S112"
+   ],
+   "conf": "medium"
   },
   "licence_model": {
    "v": "Open specification; repository code Apache-2.0, documentation CC-BY-4.0",
@@ -2684,16 +3057,14 @@
    "conf": "low"
   },
   "ecosystem": {
-   "v": "Supported by OpenAI Codex, Google Gemini CLI, Letta Code and (reported) VS Code/GitHub Copilot, Cursor; agentskills.io reported to list 40+ clients (September 2026)",
+   "v": "46 client products listed on agentskills.io showcase (e.g. ChatGPT & Codex, Gemini CLI, GitHub Copilot, VS Code, Cursor, Goose, Kiro, Junie, Databricks Genie Code, Snowflake Cortex Code, Mistral AI Vibe, Spring AI, Letta); OpenAI and Google primary docs confirm support",
    "label": "Verified fact",
    "src": [
+    "A3-S113",
     "A3-S033",
-    "A3-S034",
-    "A3-S073",
-    "A3-S027",
-    "A3-S035"
+    "A3-S034"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "adoption_signals": {
    "v": "agentskills/agentskills 25,954 GitHub stars (7 October 2026)",
@@ -2731,14 +3102,13 @@
     "conf": "low"
    },
    "ecosystem_dependency": {
-    "v": "Governance: no published charter or maintainer list found; one secondary source claims AAIF stewardship, while AAIF material says the format is owned by the Agent Skills specification",
+    "v": "Governance still Anthropic-led: maintainers are Anthropic employees, no steering body, listing/logo requests reviewed by the Anthropic team; an AAIF project proposal (September 2026) would add a TSC and published GOVERNANCE.md (acceptance not confirmed)",
     "label": "Verified fact",
     "src": [
-     "A3-S037",
-     "A3-S038",
-     "A3-S035"
+     "A3-S115",
+     "A3-S112"
     ],
-    "conf": "low"
+    "conf": "medium"
    },
    "proprietary_api": {
     "v": "None (open licence)",
@@ -2761,20 +3131,20 @@
   "classification": null,
   "scores": null,
   "sources": [
-   "A3-S027",
    "A3-S028",
    "A3-S029",
    "A3-S033",
    "A3-S034",
-   "A3-S035",
    "A3-S037",
    "A3-S038",
    "A3-S054",
    "A3-S061",
    "A3-S072",
-   "A3-S073"
+   "A3-S112",
+   "A3-S113",
+   "A3-S115"
   ],
-  "stage_a_notes": "Conflict of interest: Anthropic-originated. Licence conflict: secondary sources say MIT; primary repo says Apache-2.0 code / CC-BY-4.0 docs (primary used). AAIF stewardship unconfirmed. OWASP has an 'Agentic Skills Top 10' project (security interest). Independent adoption confirmed in OpenAI and Google primary docs.",
+  "stage_a_notes": "Conflict of interest: Anthropic-originated. Governance resolved as far as possible: Anthropic-maintained living spec, proposed for AAIF (issue #47, September 2026), not yet an AAIF project per available evidence; secondary claim of AAIF stewardship (A3-S035) is premature. Licence conflict: secondary says MIT; primary repo says Apache-2.0 code / CC-BY-4.0 docs. OWASP 'Agentic Skills Top 10' project exists.",
   "last_verified": "2026-10-07"
  },
  {
@@ -2790,13 +3160,14 @@
    "conf": "high"
   },
   "company": {
-   "v": "Composio (SDK copyright Sampark Inc.)",
+   "v": "Composio (SDK copyright Sampark Inc.; San Francisco)",
    "label": "Verified fact",
    "src": [
     "A3-S063",
-    "A3-S067"
+    "A3-S067",
+    "A3-S099"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "category": {
    "v": "Managed tool-integration platform for agents: 1000+ pre-authenticated toolkits, per-user sessions, authentication, triggers and a sandbox",
@@ -2824,12 +3195,13 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Session-based 'meta tools' that discover, authenticate and execute app tools at runtime instead of loading hundreds of tool definitions into context",
+   "v": "Session-based meta tools; markets an MCP Gateway product with governance (policy, audit, SSO)",
    "label": "Verified fact",
    "src": [
-    "A3-S008"
+    "A3-S008",
+    "A3-S119"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "status_events": {
    "v": [],
@@ -2883,16 +3255,20 @@
     "conf": "high"
    },
    "managed_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Yes (regional managed cloud handling)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S098"
+    ],
     "conf": "low"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (Enterprise VPC deployment)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S098"
+    ],
+    "conf": "medium"
    },
    "private_cloud": {
     "v": "Not publicly verified",
@@ -2901,55 +3277,73 @@
     "conf": "low"
    },
    "self_hosted": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (Enterprise fully self-hosted)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S098"
+    ],
+    "conf": "medium"
    },
    "on_prem": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Yes (on-premise option on Enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S098"
+    ],
     "conf": "low"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "security_features": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "access_controls": {
-   "v": "Per-session restriction of toolkits, tools, auth configs and connected accounts",
+   "v": "Vendor states SOC 2 Type II and ISO/IEC 27001:2022; evidence via trust centre (security.composio.dev)",
    "label": "Verified fact",
    "src": [
+    "A3-S098"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Managed cloud hosted in the US; EU-only residency requires self-hosted Enterprise deployment",
+   "label": "Verified fact",
+   "src": [
+    "A3-S119"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Credentials AES-256 encrypted and isolated from app code and LLM context; KMS key management on Enterprise; Zero Data Retention on Pro and above",
+   "label": "Verified fact",
+   "src": [
+    "A3-S098",
+    "A3-S119"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "SAML 2.0/OIDC SSO (Okta, Entra ID, Google Workspace) and SCIM 2.0 on Enterprise; action-level policy-as-code RBAC; per-call audit logs incl. denied calls, 7-day to 1-year retention, SIEM export; per-session tool restrictions",
+   "label": "Verified fact",
+   "src": [
+    "A3-S119",
+    "A3-S098",
     "A3-S008"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Enterprise: MSA/DPA/SLA, dedicated support, committed volume",
+   "label": "Verified fact",
+   "src": [
+    "A3-S098"
+   ],
+   "conf": "medium"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Metered by tool call: free 20,000 calls/month; US$29/month for 200,000; US$229/month for 2M; Enterprise custom (as reported on Composio comparison pages)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S098"
+   ],
+   "conf": "low",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not applicable (SaaS)",
@@ -2967,12 +3361,13 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "ComposioHQ/composio 30,464 GitHub stars (7 October 2026)",
+   "v": "ComposioHQ/composio 30,464 GitHub stars (7 October 2026); US$25M Series A led by Lightspeed (July 2025; US$29M total, Reported)",
    "label": "Verified fact",
    "src": [
-    "A3-S054"
+    "A3-S054",
+    "A3-S099"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "maturity": {
    "v": "Current Python SDK line first published December 2024; pre-1.0 with 2.0 in beta",
@@ -2996,10 +3391,12 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "US$25M Series A (July 2025)",
+    "label": "Reported",
+    "src": [
+     "A3-S099"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
     "v": "Not publicly verified",
@@ -3031,9 +3428,12 @@
    "A3-S008",
    "A3-S054",
    "A3-S063",
-   "A3-S067"
+   "A3-S067",
+   "A3-S098",
+   "A3-S099",
+   "A3-S119"
   ],
-  "stage_a_notes": "Certifications, pricing, funding and self-host/VPC options not verified (composio.dev blocked; search budget exhausted). Credential custody is a key due-diligence item.",
+  "stage_a_notes": "Now also positions as an MCP gateway (H3). Audit-log payload conflict: some pages say metadata only, another says inputs and outcomes captured. Credential custody remains the key due-diligence item. Most enterprise facts come from Composio marketing/comparison pages via search extract.",
   "last_verified": "2026-10-07"
  },
  {
@@ -3049,12 +3449,13 @@
    "conf": "high"
   },
   "company": {
-   "v": "Exa (Exa AI)",
+   "v": "Exa (Exa Labs, Inc.)",
    "label": "Verified fact",
    "src": [
-    "A3-S010"
+    "A3-S010",
+    "A3-S121"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "category": {
    "v": "Web search API for AI (search, contents, answer, streaming)",
@@ -3170,16 +3571,22 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 Type II (security, confidentiality, availability); 2026 bridge letter; HIPAA BAA for eligible Enterprise customers",
+   "label": "Verified fact",
+   "src": [
+    "A3-S100",
+    "A3-S121"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "DPA with EU SCCs (2021/914) and UK Addendum; GDPR/CCPA rights honoured; zero data retention on Enterprise; no EU processing region stated",
+   "label": "Verified fact",
+   "src": [
+    "A3-S121",
+    "A3-S100"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Not publicly verified",
@@ -3188,22 +3595,30 @@
    "conf": "low"
   },
   "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SSO and SCIM for the Exa Dashboard on Enterprise",
+   "label": "Verified fact",
+   "src": [
+    "A3-S121"
+   ],
+   "conf": "medium"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Enterprise: custom MSA/DPA, volume discounts, custom datasets",
+   "label": "Verified fact",
+   "src": [
+    "A3-S100",
+    "A3-S121"
+   ],
+   "conf": "medium"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Search US$7 per 1,000 requests; Monitors US$15 per 1,000; one page says from US$4 per 1,000 (conflict); Enterprise custom",
+   "label": "Verified fact",
+   "src": [
+    "A3-S100"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not applicable (SaaS)",
@@ -3220,12 +3635,13 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "exa-labs/exa-mcp-server 5,091 GitHub stars (7 October 2026)",
+   "v": "exa-mcp-server 5,091 GitHub stars (7 October 2026); US$85M Series B at US$700M (September 2025, Benchmark) and US$250M Series C at US$2.2B (May 2026, a16z) (Reported)",
    "label": "Verified fact",
    "src": [
-    "A3-S054"
+    "A3-S054",
+    "A3-S101"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "maturity": {
    "v": "exa-py first released January 2024; 130 releases",
@@ -3249,10 +3665,12 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Well funded: US$250M Series C May 2026 at US$2.2B valuation",
+    "label": "Reported",
+    "src": [
+     "A3-S101"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
     "v": "Not publicly verified",
@@ -3280,9 +3698,12 @@
   "scores": null,
   "sources": [
    "A3-S010",
-   "A3-S054"
+   "A3-S054",
+   "A3-S100",
+   "A3-S101",
+   "A3-S121"
   ],
-  "stage_a_notes": "Funding, certifications, pricing and zero-data-retention options not verified (exa.ai blocked; search budget exhausted).",
+  "stage_a_notes": "SOC 2 Type II confirmed via trust centre extract. No EU data residency found. Pricing conflict US$7 vs US$4 per 1,000 searches.",
   "last_verified": "2026-10-07"
  },
  {
@@ -3298,10 +3719,12 @@
    "conf": "high"
   },
   "company": {
-   "v": "Tavily (Tavily AI)",
+   "v": "Tavily, a wholly owned subsidiary of Nebius Group N.V. (acquisition announced 10 February 2026)",
    "label": "Verified fact",
    "src": [
-    "A3-S009"
+    "A3-S084",
+    "A3-S085",
+    "A3-S086"
    ],
    "conf": "high"
   },
@@ -3332,18 +3755,29 @@
    "conf": "medium"
   },
   "strategic_direction": {
-   "v": "Adds asynchronous research tasks with streaming and usage reporting; keyless trial mode",
+   "v": "Integration into Nebius AI cloud (Token Factory reported); Tavily states API, data policies and zero data retention unchanged; adds asynchronous research tasks and keyless trial mode",
    "label": "Verified fact",
    "src": [
+    "A3-S084",
+    "A3-S086",
     "A3-S009"
    ],
    "conf": "medium"
   },
   "status_events": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": [
+    "10 February 2026: Tavily announced it is joining Nebius; Nebius 6-K describes a merger making Tavily a wholly owned subsidiary, cash consideration",
+    "Nebius Q1 2026 filing accounts for the acquisition as completed: fair value of consideration US$189.7M (US$177.2M cash) plus an ARR-based earnout measured December 2026 and March 2027",
+    "Press reported a US$275M deal value (not disclosed by Nebius)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S084",
+    "A3-S085",
+    "A3-S086",
+    "A3-S087"
+   ],
+   "conf": "high"
   },
   "what_it_does": {
    "v": "Provides web search, content extraction, site crawl/map and multi-step research endpoints via API",
@@ -3419,16 +3853,21 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Vendor states SOC 2 certified; report type and period not confirmed (trust.tavily.com)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S088"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Vendor states GDPR and CCPA compliant; zero data retention described as core; EU processing region not found",
+   "label": "Verified fact",
+   "src": [
+    "A3-S088",
+    "A3-S084"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Not publicly verified",
@@ -3443,15 +3882,18 @@
    "conf": "low"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "pricing": {
-   "v": "Free for personal use up to 1,000 API credits per month; credit-based paid usage",
+   "v": "Enterprise plan (custom): custom rate limits, dedicated account manager, Slack channel, AI engineer support, uptime and support SLAs",
    "label": "Verified fact",
    "src": [
+    "A3-S088"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Free 1,000 credits per month; pay-as-you-go US$0.008 per credit; monthly plans US$0.0075-0.005 per credit; Enterprise custom",
+   "label": "Verified fact",
+   "src": [
+    "A3-S088",
     "A3-S009"
    ],
    "conf": "medium",
@@ -3495,16 +3937,21 @@
     "conf": "low"
    },
    "acquisition": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Acquired by Nebius (2026); roadmap now tied to a neocloud provider",
+    "label": "Verified fact",
+    "src": [
+     "A3-S084",
+     "A3-S085"
+    ],
+    "conf": "high"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Backed by Nebius balance sheet post-acquisition",
+    "label": "Verified fact",
+    "src": [
+     "A3-S086"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
     "v": "Not publicly verified",
@@ -3533,9 +3980,14 @@
   "sources": [
    "A3-S009",
    "A3-S054",
-   "A3-S083"
+   "A3-S083",
+   "A3-S084",
+   "A3-S085",
+   "A3-S086",
+   "A3-S087",
+   "A3-S088"
   ],
-  "stage_a_notes": "Acquisition status could NOT be verified: the brief asks to check a possible acquisition, but tavily.com and news sources were unreachable after the shared web-search budget was exhausted. No ownership change is visible in PyPI metadata (author 'Tavily AI'). Treat as open item.",
+  "stage_a_notes": "Acquisition resolved: Nebius (announced 10 February 2026; accounted as completed in Q1 2026 filings). Deal value: US$189.7M fair value per filing vs US$275M press report (filing used). CB Insights dates it May 2026 (conflict, secondary). SOC 2 type not confirmed. Original label 'Tavily – search API' is still accurate as a product, but ownership changed.",
   "last_verified": "2026-10-07"
  },
  {
@@ -3653,15 +4105,19 @@
     "conf": "low"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "VPC connectivity for large enterprise customers",
+    "label": "Verified fact",
+    "src": [
+     "A3-S102"
+    ],
     "conf": "low"
    },
    "private_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Yes (private cloud options for large enterprise customers)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S102"
+    ],
     "conf": "low"
    },
    "self_hosted": {
@@ -3678,28 +4134,36 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 Type II reports 2025 and 2026; 2026 penetration test; HIPAA with BAA on Scale/Enterprise",
+   "label": "Verified fact",
+   "src": [
+    "A3-S102"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Data residency controls US/EU/Asia for large enterprise customers; DPA available",
+   "label": "Verified fact",
+   "src": [
+    "A3-S102"
+   ],
+   "conf": "medium"
   },
   "security_features": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Isolated browsers; VPC connectivity and private cloud options for large enterprises",
+   "label": "Verified fact",
+   "src": [
+    "A3-S102"
+   ],
+   "conf": "medium"
   },
   "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SSO on enterprise tier",
+   "label": "Verified fact",
+   "src": [
+    "A3-S102"
+   ],
+   "conf": "medium"
   },
   "enterprise_support": {
    "v": "Not publicly verified",
@@ -3708,10 +4172,13 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Free; Developer US$20/month; Startup US$99/month; Scale/Enterprise custom",
+   "label": "Verified fact",
+   "src": [
+    "A3-S102"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not applicable (SaaS)",
@@ -3728,12 +4195,13 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "browserbase/stagehand 25,562 GitHub stars (7 October 2026)",
+   "v": "browserbase/stagehand 25,562 GitHub stars (7 October 2026); US$40M Series B led by Notable Capital (June 2025, reported US$300M valuation)",
    "label": "Verified fact",
    "src": [
-    "A3-S054"
+    "A3-S054",
+    "A3-S103"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "maturity": {
    "v": "Python SDK first released April 2024; 46 releases",
@@ -3757,10 +4225,12 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "US$40M Series B (June 2025); no Series C found",
+    "label": "Reported",
+    "src": [
+     "A3-S103"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
     "v": "Not publicly verified",
@@ -3790,9 +4260,11 @@
    "A3-S013",
    "A3-S054",
    "A3-S068",
-   "A3-S076"
+   "A3-S076",
+   "A3-S102",
+   "A3-S103"
   ],
-  "stage_a_notes": "Funding, SOC 2/HIPAA, regions and pricing not verified (browserbase.com blocked; search budget exhausted).",
+  "stage_a_notes": "Some trust-centre and plan pages are over a year old by metadata; plan naming (Scale vs Enterprise) inconsistent for BAA.",
   "last_verified": "2026-10-07"
  },
  {
@@ -3908,12 +4380,14 @@
     "conf": "high"
    },
    "vpc_byoc": {
-    "v": "Yes (in your own cloud for production)",
+    "v": "Yes (BYOC on AWS and GCP; Azure not yet per docs, listed on Enterprise page - conflict)",
     "label": "Verified fact",
     "src": [
+     "A3-S104",
+     "A3-S120",
      "A3-S062"
     ],
-    "conf": "high"
+    "conf": "medium"
    },
    "private_cloud": {
     "v": "Not publicly verified",
@@ -3937,16 +4411,22 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 Type II (covers E2B software and control plane; BYOC cloud account is customer's responsibility); HIPAA BAA on Enterprise; pen test and DPA in trust centre",
+   "label": "Verified fact",
+   "src": [
+    "A3-S104",
+    "A3-S120"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Managed regions US (default), EU and APAC (EU/APAC on Pro and above, enabled by support); regions do not share state; BYOC on AWS and GCP keeps traffic and logs in customer VPC",
+   "label": "Verified fact",
+   "src": [
+    "A3-S120",
+    "A3-S104"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "One Firecracker microVM per sandbox with own cgroup and network namespace; per-sandbox nftables egress firewall with domain allow/deny lists; secrets never cross API/logs/spans; short-lived workload identity tokens; per-sandbox access tokens for URLs",
@@ -3957,9 +4437,11 @@
    "conf": "high"
   },
   "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
+   "v": "SSO, SCIM and RBAC listed as planned on Enterprise page (page about 436 days old); Enterprise telemetry to customer OTLP endpoint and signed lifecycle webhooks",
+   "label": "Verified fact",
+   "src": [
+    "A3-S120"
+   ],
    "conf": "low"
   },
   "enterprise_support": {
@@ -3971,10 +4453,13 @@
    "conf": "medium"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Hobby free (one-time US$100 credit); Pro US$150/month plus usage; Enterprise custom with US$3,000/month minimum; per-second billing, paused sandboxes not billed",
+   "label": "Verified fact",
+   "src": [
+    "A3-S104"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Self-host cost drivers: KVM hosts, object storage for templates/snapshots, PostgreSQL, Redis and ClickHouse",
@@ -3993,12 +4478,13 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "e2b-dev/E2B 14,219 GitHub stars (7 October 2026)",
+   "v": "e2b-dev/E2B 14,219 GitHub stars (7 October 2026); US$21M Series A led by Insight Partners (July 2025); vendor claims 88% of Fortune 100 signed up",
    "label": "Verified fact",
    "src": [
-    "A3-S054"
+    "A3-S054",
+    "A3-S105"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "maturity": {
    "v": "SDK first released August 2023; 365 releases",
@@ -4024,10 +4510,12 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "US$21M Series A (July 2025)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S105"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
     "v": "Not publicly verified",
@@ -4054,9 +4542,12 @@
   "sources": [
    "A3-S007",
    "A3-S054",
-   "A3-S062"
+   "A3-S062",
+   "A3-S104",
+   "A3-S105",
+   "A3-S120"
   ],
-  "stage_a_notes": "Certifications, funding and pricing not verified (e2b.dev blocked; search budget exhausted). README fetched from e2b-dev/infra describes itself as 'E2B Runtime'.",
+  "stage_a_notes": "SOC 2 scope excludes customer BYOC cloud accounts. SSO/RBAC status may be outdated. Prague/US company per press.",
   "last_verified": "2026-10-07"
  },
  {

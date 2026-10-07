@@ -1,0 +1,9 @@
+SOURCE ID: A1-S135
+URL: https://mistral.ai/news/ocr-4/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral OCR self-hosted on-premises deployment enterprise Document AI data residency EU
+========================================================================
+
+Search result titles: "Mistral OCR 4 : SOTA OCR for Document Intelligence" (mistral.ai/news/ocr-4/); "Document AI and OCR" (mistral.ai/solutions/document-ai/); "Inference" (mistral.ai/cloud/inference/); "Mistral OCR" (mistral.ai/news/mistral-ocr/, deprecated).
+Extracts: OCR 4 runs in a single container for fully self-hosted deployments; self-managed deployment available to enterprise customers; "compact enough to deploy on a single container, keeping document data in your environment for residency, sovereignty, and compliance." Document AI "can be deployed on-premises or in a private cloud to meet strict compliance and data sovereignty requirements"; contact sales for enterprise deployments. Serverless managed API runs on Mistral infrastructure (hosted in the EU). 50% Batch-API discount ($2 per 1,000 pages). Original Mistral OCR page deprecated; on-prem access was "on a selective basis".
