@@ -1,0 +1,8 @@
+SOURCE ID: A4-S130
+URL: https://docs.together.ai/docs/zero-data-retention
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Together AI data retention zero data retention privacy settings training opt out EU region
+========================================================================
+
+"Together AI supports zero data retention (ZDR) at the organization level. With ZDR enabled, the prompts you send and the outputs models return are not stored by Together, and are not used for any secondary purpose." ZDR is off by default; enabled by an admin via "Store prompts and model responses" = No in Organization Settings > Privacy. Disabling storage also disables passthrough models. Not retroactive. Request metadata (token counts, model IDs, timestamps) retained for billing; uploaded fine-tuning/batch files retained until deleted. "Allow organization's data for training" off by default; Together does not train on your data without explicit consent. By default, prompts and responses are stored and may be used for product improvements unless ZDR is enabled. Privacy/security docs: private networking and VPC-based deployments, including in EU regions. Serverless endpoints do not allow region selection. Support article "EU Data Centers and Dedicated Model Deployment": dedicated endpoints on targeted data centres including EU locations only on Scale and Enterprise tier plans. GPU cluster locations page lists European sites in France, Netherlands, Sweden, Romania.

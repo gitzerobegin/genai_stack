@@ -1,0 +1,8 @@
+SOURCE ID: A4-S129
+URL: https://www.together.ai/blog/soc-2-compliance
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Together AI SOC 2 Type II HIPAA ISO 27001 trust center
+========================================================================
+
+Blog: "Together AI is now SOC 2 Type 2 certified, proving our encryption, access controls, and 24/7 monitoring meet the highest security standards." Blog references ISO 27001:2022 certification; "switch to open models" page states Together AI is SOC 2 Type 2 and ISO 27001:2022 compliant; managed storage page lists ISO 27001:2022 alongside SOC 2 Type II; dedicated inference page cites SOC 2 Type II and ISO 27001 with region-specific data residency options. HIPAA: blog says the company "adheres to the stringent requirements of HIPAA, including data encryption in transit and at rest, audit logging, and strict business associate agreements (BAAs) with our partners"; some model pages say "HIPAA compliant"; managed storage page "HIPAA-aligned options"; Deepgram post "HIPAA-ready". No dedicated trust centre page found in search results.

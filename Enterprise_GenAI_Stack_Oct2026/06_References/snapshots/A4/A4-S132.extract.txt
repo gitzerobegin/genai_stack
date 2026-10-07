@@ -1,0 +1,8 @@
+SOURCE ID: A4-S132
+URL: https://www.businesswire.com/news/home/20260701243402/en/Together-AI-Raises-00-Million-at-.3-Billion-Valuation-to-Make-Frontier-AI-Accessible-to-All
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Together AI raises funding Series B valuation 2025 2026
+========================================================================
+
+Business Wire press release (1 July 2026) and TechCrunch (2026/07/01, "Neocloud Together AI raises $800M, leaps to $8.3B valuation"): $800 million Series C at $8.3 billion post-money valuation, led by Aramco Ventures, with Vista Equity Partners, General Catalyst, Emergence Capital, Nvidia, March Capital, Pegatron and S Ventures participating. Company said annual bookings crossed $1.15 billion last quarter. Earlier: Series B February 2025, $305 million led by General Catalyst, co-led by Prosperity7, at $3.3B valuation (prior $1.25B March 2024). Sacra: ~$1.33B raised in total.

@@ -1,0 +1,8 @@
+SOURCE ID: A4-S131
+URL: https://docs.together.ai/docs/inference/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Together AI pricing serverless per million tokens dedicated endpoints GPU clusters
+========================================================================
+
+Serverless billed by usage, no minimums. Sample (input/output per 1M tokens): GPT-OSS 120B $0.15/$0.60; DeepSeek-V4-Flash-0731 $0.14/$0.28; Llama 3.3 70B Instruct Turbo $1.04/$1.04; Kimi K3 $3.00/$15.00. Dedicated endpoints billed per minute per running replica: H100 80GB $3.99/hr, B200 180GB $8.99/hr (docs table); main pricing page lists H100 dedicated at $5.49/hr (conflict). GPU clusters on-demand: H100 $3.99, H200 $5.99, B200 $8.19, B300 $9.99 per GPU-hour; reserved H100 from $3.19 (91-180 days). Provisioned Throughput $0.05 per PTU per minute; serverless has no uptime SLA, PTUs do.
