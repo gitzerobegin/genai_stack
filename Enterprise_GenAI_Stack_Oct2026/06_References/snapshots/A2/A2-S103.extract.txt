@@ -1,0 +1,8 @@
+SOURCE ID: A2-S103
+URL: https://qdrant.tech/blog/qdrant-1.17.x/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qdrant 1.16 OR 1.17 OR 1.18 release server latest version 2026
+========================================================================
+
+1.17 introduced a Relevance Feedback Query, search latency improvements, operational observability, Weighted RRF and audit access logging; 1.17.1 released 27 March. 1.16 (https://qdrant.tech/blog/qdrant-1.16.x/): tiered multitenancy with tenant promotion, disk-efficient vector search with inline storage, improved filtered vector search with ACORN.

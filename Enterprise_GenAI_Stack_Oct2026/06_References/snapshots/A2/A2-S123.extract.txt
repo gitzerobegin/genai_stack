@@ -1,0 +1,8 @@
+SOURCE ID: A2-S123
+URL: https://turbopuffer.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: turbopuffer pricing SOC 2 HIPAA BYOC regions object storage architecture (allowed: turbopuffer.com)
+========================================================================
+
+Tiers by minimum monthly usage: Launch $16/month minimum; Scale $256/month minimum; Enterprise >=$4,096/month with 35% usage premium (layout hard to read). Storage metered on raw logical bytes written (vectors 4 bytes/dim f32, 2 bytes/dim f16). Queries charged on data scanned (minimum 1.28 GB per namespace) and data returned; volume discounts (80% marginal 32-128 GB, 96% beyond 128 GB). HIPAA-ready BAA on Scale and Enterprise. Enterprise adds customer-managed encryption keys per namespace and private networking. DPA for GDPR/CCPA.

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S096
+URL: https://www.pinecone.io/security/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone trust center SOC 2 ISO 27001 HIPAA GDPR CMEK private endpoints SSO RBAC audit logs
+========================================================================
+
+Pinecone is HIPAA compliant (with BAA available upon request); GDPR-ready; encryption at rest and in transit, AES-256; one page cites TLS 1.2, security measures PDF (https://www.pinecone.io/legal/security-measures.pdf) cites TLS 1.3.

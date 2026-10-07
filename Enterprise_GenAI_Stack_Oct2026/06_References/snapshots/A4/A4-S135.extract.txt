@@ -1,0 +1,8 @@
+SOURCE ID: A4-S135
+URL: https://fireworks.ai/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Fireworks AI pricing per million tokens on-demand deployment GPU per hour
+========================================================================
+
+On-demand dedicated GPUs (pricing page, metadata ~167 days old): H100 80GB $8.00/hour; H200 141GB $8.00/hour; B200 180GB $13.00/hour; B300 288GB $15.00/hour; GB300 $20.00/hour; billed per GPU-second, scale to zero. Serverless per 1M tokens: unlisted models by size <4B $0.10, 4B-16B $0.20, >16B $0.90; MoE $0.50-$1.20; GLM-5.3 $1.40 input / $0.26 cached / $4.40 output; Kimi K3 $3 input / $15 output. Batch inference 50% of serverless pricing. Reserved capacity custom pricing. (Secondary 2026 review cites $7.00/hour H100/H200 — conflict.)

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S130
+URL: https://www.trychroma.com/security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Chroma Cloud pricing SOC 2 BYOC regions Chroma 1.x release
+========================================================================
+
+Chroma Cloud has completed a SOC 2 Type II examination against the Trust Services Criteria; AWS hosting across multiple Availability Zones. Changelog entry titled 'Customer-Managed Encryption Keys' exists (https://www.trychroma.com/changelog/cmek) - content not retrieved.

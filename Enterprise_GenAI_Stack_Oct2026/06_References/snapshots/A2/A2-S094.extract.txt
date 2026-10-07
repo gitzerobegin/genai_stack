@@ -1,0 +1,8 @@
+SOURCE ID: A2-S094
+URL: https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-s3-vectors-preview-native-support-storing-querying-vectors/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon S3 Vectors generally available limits pricing regions
+========================================================================
+
+July 2025: S3 Vectors announced in preview as first cloud object storage with native support for storing and querying vectors (5 Regions in preview; 50 million vectors per index in preview).

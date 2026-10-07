@@ -1,0 +1,8 @@
+SOURCE ID: A1-S113
+URL: https://reducto.ai/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Reducto pricing credits per page plans
+========================================================================
+
+Search-tool summary of official pricing page: per-product pricing per 1,000 pages: r-1 Parse $10, Extract $20, Deep Extract $40, Split $20, Deep Split $40, Classify $7.50, Edit $60 (or $15 for pre-filled pages). Enterprise pricing custom ("built for full control and custom needs", contact sales). Standard plan: pay-as-you-go, includes $150 in free usage; the same page also says Standard accounts include 15,000 free credits. Other Reducto/third-party pages describe credits at $0.015 per credit (1 credit per standard page; 2 for complex; agentic 2-4; batch 20% discount) - conflicting with official page.

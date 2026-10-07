@@ -1,0 +1,8 @@
+SOURCE ID: A2-S101
+URL: https://www.pinecone.io/blog/cascading-retrieval/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone integrated inference hosted models pinecone-rerank-v0 cohere-rerank bge-reranker pinecone-sparse-english-v0 hybrid (allowed: pinecone.io, docs.pinecone.io)
+========================================================================
+
+Hosted rerankers: pinecone-rerank-v0, cohere-rerank (v3.5), bge-reranker-v2-m3. Sparse embedding model pinecone-sparse-english-v0 (512-token max, DotProduct) for keyword and hybrid search. Sparse-only index type; reranking evaluates candidates from dense and sparse retrieval; vendor reports average 12% improvement over dense or sparse alone on BEIR (December 2024). Integrated inference blog: https://www.pinecone.io/blog/integrated-inference/ ('Embed, rerank, and retrieve your data with a single API').

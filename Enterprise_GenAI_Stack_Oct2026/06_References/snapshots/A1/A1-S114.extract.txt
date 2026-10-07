@@ -1,0 +1,9 @@
+SOURCE ID: A1-S114
+URL: https://reducto.ai/blog/reducto-series-b-funding
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Reducto raises Series B funding announcement
+========================================================================
+
+Search result titles: "Reducto Announces $108M in Funding to Define the Future of AI Document Intelligence" (reducto.ai/blog/reducto-series-b-funding); PR Newswire "Reducto Raises $75M Series B to Define the Future of AI Document Intelligence" (302581462); a16z on X "We are excited to be leading @reductoai's $75M Series B"; Reducto on X: "We raised $75M in Series B funding led by @a16z, bringing our total funding to $108M... We're launching a new pay-as-you-go tier with 15k free credits".
+Search-tool summary: announced October 14, 2025; $75M Series B led by Andreessen Horowitz; Benchmark, First Round Capital, BoxGroup and Y Combinator participated; total $108M; follows $24.5M Series A (April 2025). Monthly processing volume grew more than 6x since Series A, close to a billion pages processed. Named customers include Harvey, Rogo, Scale AI, financial institutions and Fortune 10 enterprises (per PR Newswire release).

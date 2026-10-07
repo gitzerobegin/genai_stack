@@ -1,0 +1,8 @@
+SOURCE ID: A4-S134
+URL: https://docs.fireworks.ai/guides/security_compliance/data_handling
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Fireworks AI data privacy zero data retention prompts not logged EU region data residency
+========================================================================
+
+"Fireworks has Zero Data Retention by default. Fireworks does not log or store prompt or generation data for any open models, without explicit user opt-in." Prompt and generation data exist only in volatile memory for the request; prompt caching may hold data in volatile memory for several minutes. Metadata (e.g. token counts) logged. Enterprise admins can enforce a ZDR policy that rejects requests/jobs that would persist customer content. Response API: conversations stored by default when store=True; automatically deleted after 30 days; store=False avoids retention. Terms of Service (last updated 10 July 2026): ZDR does not apply to features that require retention (Response API, training, fine-tuning, agent features). Training checkpoints and traces kept 30 days unless deleted. Anthropic used as sub-processor under a ZDR agreement. Data residency (docs.fireworks.ai/accounts/data-residency): restricts inference to a single region, rejecting out-of-region requests; available on Enterprise accounts; table lists None and US options (contact sales for others); fine-tuning blocked and FireRouter unavailable with residency enabled. Regions page lists EU_FRANKFURT_1, EU_ICELAND_1, EU_ICELAND_2 and US/EUROPE/APAC multi-regions for deployments; all single regions start at zero quota.

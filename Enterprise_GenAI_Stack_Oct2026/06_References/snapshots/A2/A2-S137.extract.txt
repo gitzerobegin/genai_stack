@@ -1,0 +1,8 @@
+SOURCE ID: A2-S137
+URL: https://www.mongodb.com/company/blog/product-release-announcements/mongodb-search-vector-search-now-run-anywhere
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MongoDB Community Edition vector search full-text search self-managed generally available mongot (allowed: mongodb.com)
+========================================================================
+
+General availability of MongoDB Search (full-text) and Vector Search for MongoDB Enterprise Advanced and MongoDB Community Edition (post ~3 months old, i.e. c. July 2026). Requires MongoDB 8.2 or later; runs on separate binary mongot alongside mongod. $search, $searchMeta, $vectorSearch, $rankFusion, $scoreFusion with functional parity to Atlas. Available in Community at no additional cost under the SSPL; mongot released under SSPL. Community: Linux, Docker, Kubernetes Operator; Enterprise self-managed deployed on Kubernetes via MongoDB Controllers for Kubernetes. Automated Embedding still public preview on Community. Preview announcement: https://www.mongodb.com/products/updates/public-preview-mongodb-community-edition-now-offers-native-full-text-and-vector-search/

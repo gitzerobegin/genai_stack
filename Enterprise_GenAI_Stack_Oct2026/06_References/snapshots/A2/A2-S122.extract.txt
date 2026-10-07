@@ -1,0 +1,8 @@
+SOURCE ID: A2-S122
+URL: https://zilliz.com/news/vector-database-company-zilliz-series-b-extension
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Zilliz funding 2025 2026 raise Series (allowed: zilliz.com)
+========================================================================
+
+August 2022: $60 million Series B extension led by a growth fund under Aramco Ventures, with Temasek's Pavilion Capital and Hillhouse Capital; total investment $113 million. No 2025-2026 round found.

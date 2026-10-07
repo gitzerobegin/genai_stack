@@ -1,0 +1,8 @@
+SOURCE ID: A2-S138
+URL: https://www.mongodb.com/products/platform/trust
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MongoDB Atlas trust center SOC 2 ISO 27001 HIPAA customer key management encryption Vector Search dedicated search nodes pricing (allowed: mongodb.com)
+========================================================================
+
+Atlas adheres to ISO/IEC 27001 (2022), SOC 2 Type II, PCI DSS, HITRUST, CSA STAR, GDPR; FedRAMP Moderate for Atlas for Government. Atlas has undergone a HIPAA examination validated by a qualified third-party assessor (technical and organisational measures). Trust Portal (https://trust.mongodb.com/) lists a SOC 2 + HITRUST Mapping Report for Apr 2025 to Sep 2025; for standalone VoyageAI product, see VoyageAI Trust Portal.

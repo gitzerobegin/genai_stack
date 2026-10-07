@@ -1,0 +1,8 @@
+SOURCE ID: A2-S117
+URL: https://milvus.io/docs/release_notes.md
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Milvus 2.6 OR 3.0 release latest version 2026 Zilliz (allowed: milvus.io, zilliz.com, github.com)
+========================================================================
+
+Milvus 3.0.2 dated September 20, 2026 (latest); 3.0.1 September 9, 2026; 3.0.0 GA July 29, 2026: lake-native architecture, External Collection support, online schema add/backfill/drop, sparse index rebuilt around SINDI, StructArray and faceted search. 2.6.24 released September 16, 2026. GitHub: 3.0 stable not guaranteed compatible with 2.6 servers. Milvus 2.6 announced June 2025 (cost reduction, faster BM25 full-text search, JSON path indexing).

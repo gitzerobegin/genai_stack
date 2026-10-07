@@ -1,0 +1,8 @@
+SOURCE ID: A2-S141
+URL: https://www.mongodb.com/company/blog/product-release-announcements/introducing-rerank-3-and-native-rerank
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Introducing rerank-3 and Native Reranking MongoDB Vector Search $rerank hybrid (allowed: mongodb.com)
+========================================================================
+
+About one week old (c. 30 September 2026): rerank-3 and rerank-3-lite; vendor claim rerank-3 outperforms Cohere Rerank v4.0 Pro by 2.14% and Qwen3-Reranker-8B by 3.31% overall. $rerank is an index-less aggregation stage that rescoring candidates with rerank-3 or rerank-3-lite. Earlier post (https://www.mongodb.com/company/blog/product-release-announcements/improving-agent-retrieval-native-reranking-hybrid-search, ~3 months old): hybrid search ($rankFusion RRF, $scoreFusion) generally available; native reranking $rerank in public preview on Atlas clusters running MongoDB 8.3. Docs ($rerank stage, https://www.mongodb.com/docs/vector-search/query/aggregation-stages/rerank/): requires 8.3+, numDocsToRerank <=1000, must enable Native Reranking per project; docs list rerank-2.5/-lite, rerank-2/-lite models (rerank-3 not yet in docs).

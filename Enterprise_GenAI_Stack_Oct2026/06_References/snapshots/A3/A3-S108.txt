@@ -1,0 +1,148 @@
+SOURCE ID: A3-S108
+URL: https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-memory-bank-in-public-preview
+FINAL URL: https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-memory-bank-in-public-preview
+TITLE: Vertex AI Memory Bank in public preview | Google Cloud Blog
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Vertex AI Memory Bank in public preview | Google Cloud Blog
+Jump to Content
+Cloud
+Blog
+Contact sales 
+Get started for free 
+Cloud
+Blog
+Contact sales 
+Get started for free 
+AI & Machine Learning
+Announcing Vertex AI Agent Engine Memory Bank available for everyone in preview
+July 8, 2025
+Kimberly Milam
+Software Engineer, Vertex AI
+George Lee
+Product Manager, Cloud AI Research
+Try Gemini Enterprise today
+The front door to AI in the workplace
+Try now 
+Developers are racing to productize agents, but a common limitation is the absence of memory. Without memory, agents treat each interaction as the first, asking repetitive questions and failing to recall user preferences. This lack of contextual awareness makes it difficult for an agent to personalize their assistance–and leaves developers frustrated. 
+
+How we normally mitigate memory problems: 
+So far, a common approach to this problem has been to leverage the LLM’s context window. However, directly inserting entire session dialogues into an LLM's context window is both expensive and computationally inefficient, leading to higher inference costs and slower response times. Also, as the amount of information fed into an LLM grows, especially with irrelevant or misleading details, the quality of the model's output significantly declines, leading to issues like “
+lost in the middle
+” and “
+context rot
+”. 
+
+How we can solve it now: 
+Today, we’re excited to announce the public preview of 
+Memory Bank
+, the newest managed service of the Vertex AI Agent Engine, to help you build highly personalized conversational agents to facilitate more natural, contextual, and continuous engagements. Memory Bank helps us address memory problems in four ways: 
+
+Personalize interactions: 
+Go beyond generic scripts. Remember user preferences, key events, and past choices to tailor every response.
+
+Maintain continuity:
+ Pick up conversations seamlessly where they left off across multiple sessions, even if days or weeks have passed.
+
+Provide better context: 
+Arm your agent with the necessary background on a user, leading to more relevant, insightful, and helpful responses.
+
+Improve user experience: 
+Eliminate the frustration of repeating information and create more natural, efficient, and engaging conversations.
+
+$300 in free credit to try Google Cloud AI and ML
+Build and test your proof of concept with $300 in free credit for new customers. Plus, all customers get free monthly usage of 20+ products, including AI APIs.
+Start building for free 
+Where you can access it: 
+Memory Bank
+ is integrated with the 
+Agent Development Kit (ADK)
+ and 
+Agent Engine Sessions
+. You can 
+define an agent using ADK
+, 
+enable Agent Engine Sessions
+ to store and manage conversation history 
+within individual sessions. 
+Now, you can 
+enable
+
+Memory Bank
+ to provide long-term memory for agents to store, retrieve, and manage relevant information 
+across multiple sessions
+. You can also use Memory Bank to manage your memories with other agent frameworks including LangGraph and CrewAI.
+
+Here’s how Memory Bank works
+
+It understands and extracts memories from interactions: 
+Using Gemini models, Memory Bank can analyze a user's conversation history with the agent (stored in Agent Engine Sessions) to extract key facts, preferences, and context to generate new memories. This happens asynchronously in the background, without you needing to build complex extraction pipelines.
+
+It stores and updates memories intelligently:
+ Key information—like "My preferred temperature is 71 degrees," or "I prefer aisle seats on flights" — is stored persistently and organized by your defined scope, such as user ID. When new information arises, Memory Bank (using Gemini) can consolidate it with existing memories, resolving contradictions and keeping the memories up to date.
+
+It recalls relevant information:
+ When a user starts a new conversation (session), the agent can retrieve these stored memories. This can be a simple retrieval of all facts or a more advanced similarity search (using embeddings) to find the memories most relevant to the current topic, ensuring the agent is always equipped with the right context.
+
+A diagram illustrating how an AI agent uses conversation history from Agent Engine Sessions to generate and retrieve persistent memories about the user from Memory Bank.
+This entire process is grounded in 
+Google Research’s novel research method (accepted by ACL 2025)
+, which enables an intelligent, topic-based approach to how agents learn and recall information, setting a new standard for agent memory performance.
+
+Let’s take an example. Imagine you’re a retailer in the beauty industry. You have a personal beauty companion equipped with memory that recommends products and skincare routines.
+As shown in the illustration, the agent is able to remember the user’s skin type (maintaining context) even after it evolves over time and be able to make personalized recommendations. This is the power of an agent with long-term memory.
+
+Get started today with Memory Bank
+
+You can integrate Memory Bank into your agent in two primary ways:
+
+Develop an agent with Google Agent Development Kit (ADK) for an out-of-the-box experience
+
+Develop an agent that orchestrates API calls to Memory Bank if you are building your agent with any other framework.
+
+To get started, please refer to the official 
+user guide
+ and the 
+developer blog
+. For hands-on examples, the 
+Google Cloud Generative AI repository on GitHub
+ offers a variety of sample notebooks, including integration with ADK and deployment to the Agent Engine runtime. For those wishing to try Memory Bank with third-party frameworks, we also provide notebook samples for LangGraph and CrewAI.
+
+Memory Bank with ADK agent
+
+Memory Bank with CrewAI agent
+
+Memory Bank with LangGraph agent
+
+If you're a developer using Agent Development Kit (ADK) but have never used Google Cloud before, you can still start by using our 
+new express mode registration
+ for Agent Engine Sessions and Memory Bank. Here’s how it works:
+
+Sign up with your Gmail account to receive an API key
+
+Use the key to access Agent Engine Sessions and Memory Bank
+
+Build and test your agent within the free tier usage quotas
+
+Seamlessly upgrade to a full Google Cloud project when you are ready for production
+
+If you want to know more about Memory Bank, join the 
+Vertex AI Google Cloud community
+ to share your experiences, ask questions, and collaborate on new projects.
+Posted in
+AI & Machine Learning
+Related articles
+AI infrastructure
+What’s new in AI infrastructure and orchestration in September
+By Alex Barrett • 19-minute read
+AI & Machine Learning
+Empower your agents with the Google Cloud CLI remote MCP server
+By Prosper Nwankpa • 6-minute read
+Startups
+Why your startup needs open models alongside frontier APIs
+By Darren Mowry • 7-minute read
+Developers & Practitioners
+Best practices guide for customizing Gemini models via Reinforcement Learning (RL)
+By Jiaqi Pan • 6-minute read

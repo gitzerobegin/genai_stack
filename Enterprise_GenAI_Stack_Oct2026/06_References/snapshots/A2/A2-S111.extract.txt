@@ -1,0 +1,8 @@
+SOURCE ID: A2-S111
+URL: https://weaviate.io/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Weaviate Cloud pricing SOC 2 HIPAA ISO 27001 BYOC EU region trust (allowed: weaviate.io, trust.weaviate.io, docs.weaviate.io)
+========================================================================
+
+Plans: Free, Flex (pay-as-you-go, from $45 per month), Premium. Premium Dedicated is the only column marked HIPAA compliant. SOC 2 Type II independently audited via Drata. Premium Dedicated lists ~40 regions across GCP, AWS and Azure; list prices vary by provider and region. September 2026 update moved backup rates to a common base with regional adjustments. BYOC rates shown (CPU $0.003, memory $0.006; units not captured). Blog (https://weaviate.io/blog/weaviate-cloud-pricing-update) describes a different tier naming (Plus from $280/month) - conflict. Shared Cloud on AWS in US East (N. Virginia) and Europe (Frankfurt) (https://weaviate.io/blog/aws-shared-cloud-launch).

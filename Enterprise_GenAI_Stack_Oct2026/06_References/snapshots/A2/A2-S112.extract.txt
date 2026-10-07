@@ -1,0 +1,8 @@
+SOURCE ID: A2-S112
+URL: https://weaviate.io/blog/weaviate-iso-compliant
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Weaviate Cloud pricing SOC 2 HIPAA ISO 27001 BYOC EU region trust
+========================================================================
+
+Weaviate certified as compliant with ISO 27001:2022 for Information Security Management; certificates and audit reports on the trust portal at trust.weaviate.io.

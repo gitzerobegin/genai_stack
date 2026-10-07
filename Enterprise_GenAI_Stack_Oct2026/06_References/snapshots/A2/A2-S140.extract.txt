@@ -1,0 +1,8 @@
+SOURCE ID: A2-S140
+URL: https://www.mongodb.com/docs/atlas/billing/search-node/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MongoDB Atlas trust center SOC 2 ISO 27001 HIPAA customer key management encryption Vector Search dedicated search nodes pricing
+========================================================================
+
+Minimum 2 and maximum 32 Search Nodes per cluster; charged hourly per node (full hour); Dedicated Search Nodes only on M10+ tiers; available in a subset of AWS and Azure regions and all supported Google Cloud regions. Pricing page (https://www.mongodb.com/pricing) snapshot: Vector Search S20 (2 vCPU, 4 GB RAM) $0.12/hr up to S80 $3.26/hr (indicative, conflicting tables); Flex clusters $8-$30 per month; Dedicated from $60 per month (conflicting figure on pricing page).

@@ -1,0 +1,11 @@
+SOURCE ID: A1-S115
+URL: https://developers.llamaindex.ai/llamaparse/general/enterprise-readiness/compliance/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LlamaParse LlamaCloud security SOC 2 HIPAA GDPR EU region BYOC self-hosted
+========================================================================
+
+Search result titles: "Compliance" (developers.llamaindex.ai/llamaparse/general/enterprise-readiness/compliance/); "Regions - LlamaParse documentation" (developers.llamaindex.ai/llamaparse/general/regions/); "Self-Hosting & BYOC (Bring Your Own Cloud)" (developers.llamaindex.ai/llamaparse/self_hosting/); "Deployment & Data Residency"; "Enterprise Readiness".
+Extracts: "LlamaParse Platform has completed a SOC 2 Type II audit. The report is available through the Trust Center." "A HIPAA-compliant processing pipeline is available for Enterprise customers, with a Business Associate Agreement (BAA) available on request." GDPR: EU deployment, "the EU DPA, Standard Contractual Clauses, and our Article 27 representative". DPA, MSA and NDA available.
+Regions: available in North America and Europe; EU base URL api.cloud.eu.llamaindex.ai. "If interacting with LlamaCloud EU for example, all data provided will remain within the EU region for storage and processing." API keys are region-specific.
+Self-hosting/BYOC: "Bring Your Own Cloud (BYOC) - deploy LlamaParse Platform in your own cloud environment on Azure, AWS, or GCP"; on-premises / self-hosted deployment; Helm chart on Kubernetes (EKS, AKS, GKE or any conformant cluster); documents, embeddings and outputs never leave customer infrastructure; OIDC with Microsoft Entra ID and Okta; deploy within VPC with control over ingress/egress. Self-hosted LLM provider reference lists Anthropic and OpenAI as US providers, with an OpenAI EU option (parse_page_with_llm only).

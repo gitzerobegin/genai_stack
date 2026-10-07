@@ -1,0 +1,8 @@
+SOURCE ID: A2-S102
+URL: https://github.com/qdrant/qdrant/releases
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qdrant 1.16 OR 1.17 OR 1.18 release server latest version 2026 (allowed: qdrant.tech, github.com)
+========================================================================
+
+v1.19.2 marked Latest, released 5 October (2026): faster sparse vector upserts, persistent proxy segment state, startup warning when no API keys configured. v1.19.0 published 5 August (batched reads, io_uring for payload storage); v1.19.1 early September. v1.18.0: TurboQuant quantisation, create/delete named vectors in existing collections, low memory mode, strict mode rejecting updates at high memory; v1.18.3 on 17 July. GitHub discussion: cannot skip v1.16.x when upgrading (RocksDB to Gridstore migration).

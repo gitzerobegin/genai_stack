@@ -1,0 +1,8 @@
+SOURCE ID: A2-S118
+URL: https://zilliz.com/news/milvus-3-0-lake-native-vector-database
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Milvus 2.6 OR 3.0 release latest version 2026 Zilliz
+========================================================================
+
+Press release dated July 16, 2026. Production-grade indexes over vector data that stays in object storage and open data formats; storage engine Loon with Vortex default columnar format. Milvus 3.0 licensed under Apache 2.0 and remains a graduated LF AI & Data project. Zilliz Cloud uses Milvus 3.0 as core engine, extended into a fully managed 'Vector Lakebase'. Zilliz changelog (https://docs.zilliz.com/docs/changelogs): Milvus v3.0.x in Private Review for on-demand compute in Zilliz Cloud.

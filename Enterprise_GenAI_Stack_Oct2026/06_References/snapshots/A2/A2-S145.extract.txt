@@ -1,0 +1,8 @@
+SOURCE ID: A2-S145
+URL: https://cohere.com/enterprise-data-commitments
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere SSO SAML zero data retention data retention policy API enterprise audit logs (allowed: cohere.com, docs.cohere.com, trustcenter.cohere.com)
+========================================================================
+
+Enterprise default: automatically delete logged prompts and generations after 30 days (unless legal/contract requirement or flagged). Zero data retention available only to enterprise customers who make additional commitments; request via support@cohere.com; under ZDR no logs of prompts or generations, usage data still received. Standard Vault ZDR (https://docs.cohere.com/docs/model-vault/standard): inputs/outputs processed but not retained. SSO/SAML not found in results. Security page (https://cohere.com/security): API platform SOC 2 Type II compliant.

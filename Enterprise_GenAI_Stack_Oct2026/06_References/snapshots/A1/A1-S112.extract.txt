@@ -1,0 +1,9 @@
+SOURCE ID: A1-S112
+URL: https://llms.reducto.ai/trust-center-on-prem-zero-retention-hipaa-soc2-baa
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Reducto security SOC 2 HIPAA zero data retention VPC deployment
+========================================================================
+
+Search result titles: "Trust Center: Zero Data Retention (ZDR), on-prem, air-gapped" (llms.reducto.ai/trust-center-on-prem-zero-retention-hipaa-soc2-baa); "Security, Compliance, and Deployment: Reducto for Regulated and Enterprise Environments" (llms.reducto.ai/security-compliance-deployment); "On-Prem (Air-Gapped) Document Understanding" (llms.reducto.ai/on-prem-deployment-overview).
+Extracts: "Compliance: SOC 2 Type I and Type II completed; audit report available on request." "Business Associate Agreement (BAA): Legally-backed BAAs offered for HIPAA-mandated workflows (contact for BAA)." "API-submitted data auto-deletes within a maximum of 24 hours on Growth and Enterprise plans." Enterprise customers can set retention=0 per request or account-wide. "Customer data is never used for model training on Growth and Enterprise tiers." One page: ZDR "Default" on Growth/Enterprise; another: account-wide ZDR "Available for Enterprise and BAA customers"; third: "Configurable per tenant/use case". Customer VPC deployment: "No external storage, and SSO/SAML supported." Air-gapped: "all models, OCR assets, and updates are provided offline with no outbound network access required." EU and AU endpoints listed as an Enterprise option.

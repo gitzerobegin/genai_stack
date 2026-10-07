@@ -1,0 +1,12 @@
+SOURCE ID: A7-S111
+URL: https://www.ibm.com/new/announcements/from-governance-policies-to-governance-proof-with-enforcement-tracking-for-watsonx-orchestrate
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: watsonx.governance 2026 release agent governance new features (allowed_domains ibm.com)
+========================================================================
+
+- Enforcement Tracking (published 11 August 2026): "For agents in production, watsonx.governance will automatically retrieve evaluation metrics on a scheduled basis, while agents in development can be evaluated on demand before deployment." "These collected metrics are then evaluated against governance thresholds set by the business to determine whether the controls and policies are being met."
+- AI Asset Discovery (published 9 July 2026): "enables organizations to identify unmanaged AI agents, tools, MCP servers and foundation models across their development and deployment environments"; "continuously scans for AI assets and automatically reflects discovered updates in watsonx.governance".
+- Security metrics: Guardium AI Security data in the governance console; each AI use case shows vulnerability scan and pen-test results, real-time detections, 7/30-day trends. Agent Monitoring and Insights announced for "upcoming releases" (alerts when metrics cross thresholds); agent evaluation metrics aggregated at conversation, interaction and tool level; root cause analysis Q1 2026.
+- Think 2026 (16 June 2026): preview of regulatory horizon scanning bringing CUBE's regulatory intelligence into watsonx.governance; watsonx Orchestrate integration links agent activity to risks, controls and mitigations.
+- No 2026 version number found.

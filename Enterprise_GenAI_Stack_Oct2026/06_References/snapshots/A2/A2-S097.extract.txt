@@ -1,0 +1,8 @@
+SOURCE ID: A2-S097
+URL: https://docs.pinecone.io/guides/production/security-overview
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone trust center SOC 2 ISO 27001 HIPAA GDPR CMEK private endpoints SSO RBAC audit logs
+========================================================================
+
+CMEK enabled at the Pinecone project level, forcing all indexes in the project to be encrypted; the CMEK toggle cannot be subsequently changed (2024 blog: CMEK limited to AWS initially). AWS PrivateLink GA for serverless indexes. SSO available for all Enterprise users (Okta, Google Workforce, custom SAML). RBAC: API key roles for control and data plane; roles on projects/organisations for service accounts, API keys and users. Audit logs available only on Enterprise plans or with the HIPAA compliance add-on; gathered in batches every 30 minutes as JSON files. Sources: https://www.pinecone.io/blog/strengthening-security-and-control/ ; https://www.pinecone.io/blog/single-sign-on/

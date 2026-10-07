@@ -1,0 +1,8 @@
+SOURCE ID: A2-S124
+URL: https://turbopuffer.com/docs/architecture
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: turbopuffer pricing SOC 2 HIPAA BYOC regions object storage architecture
+========================================================================
+
+All durable state stored in object storage; compute nodes stateless. Writes go to a WAL in object storage (p50 write latency 165 ms for 500kB). Tiered NVMe SSD and memory caches. Cold query p50 874 ms for 1M documents vs p50 14 ms cached. Vector index SPFresh (centroid-based). Indexing nodes separate from query nodes. Namespace isolation as prefix on object storage.

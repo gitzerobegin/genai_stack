@@ -1,0 +1,8 @@
+SOURCE ID: A2-S093
+URL: https://aws.amazon.com/blogs/machine-learning/selecting-a-vector-store-for-amazon-bedrock-knowledge-bases/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: S3 Vectors Bedrock Knowledge Bases OpenSearch integration vector bucket index limits
+========================================================================
+
+Two OpenSearch integration patterns: (1) S3 Vectors as a low-cost storage engine inside OpenSearch managed clusters, retaining OpenSearch hybrid search and filtering; (2) one-time export from an S3 vector index into an OpenSearch Serverless collection for high-throughput or sub-100 ms workloads.

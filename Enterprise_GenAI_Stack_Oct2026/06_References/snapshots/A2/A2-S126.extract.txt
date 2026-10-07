@@ -1,0 +1,8 @@
+SOURCE ID: A2-S126
+URL: https://betakit.com/ex-shopify-engineers-raise-fresh-financing-to-scale-turbopuffers-ai-search/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: turbopuffer funding raise 2026 customers
+========================================================================
+
+December 19, 2025: undisclosed funding from existing backer Lachy Groom and new investor Thrive Capital; named clients Anthropic, Atlassian, Cursor, Notion; CEO Eskildsen claims profitable with revenue in the '10s of millions'; Ottawa company.

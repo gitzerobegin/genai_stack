@@ -1,0 +1,8 @@
+SOURCE ID: A2-S088
+URL: https://aws.amazon.com/about-aws/whats-new/2026/06/s3-vectors-reduces-query-charges-80-percent-large-indexes/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: S3 Vectors pricing per GB-month PUT query charge per TB example
+========================================================================
+
+June 2026: data processed charges for queries on vector indexes with over 10 million vectors have been reduced by up to 80%.

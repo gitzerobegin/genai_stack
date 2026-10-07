@@ -1,0 +1,8 @@
+SOURCE ID: A2-S110
+URL: https://weaviate.io/blog/weaviate-1-39-release
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Weaviate latest release 1.3x 2026 server version license BSD
+========================================================================
+
+Weaviate v1.39 available open-source and on Weaviate Cloud; promotes the Boost API and MMR diversity selection to general availability; adds 4-bit Rotational Quantization as a preview; experimental Search REST API.

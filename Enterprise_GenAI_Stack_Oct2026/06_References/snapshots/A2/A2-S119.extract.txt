@@ -1,0 +1,8 @@
+SOURCE ID: A2-S119
+URL: https://zilliz.com/trust-center
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Zilliz Cloud pricing BYOC SOC 2 ISO 27001 HIPAA GDPR EU regions trust center (allowed: zilliz.com, docs.zilliz.com)
+========================================================================
+
+Lists SOC 2 Type II and ISO/IEC 27001. SOC 2 Type II scope (https://zilliz.com/trust-center/soc-2) covers Zilliz Cloud Free, Serverless, Dedicated, and BYOC, excluding beta/preview features; report under NDA. GDPR-ready; HIPAA-ready. BYOC: data plane in customer cloud account; customer manages cloud account, VPC and storage encryption; Zilliz handles control plane and data plane software (shared responsibility model).

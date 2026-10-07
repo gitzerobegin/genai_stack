@@ -1,0 +1,8 @@
+SOURCE ID: A2-S142
+URL: https://www.mongodb.com/company/blog/product-release-announcements/europe-data-residency-for-atlas-embedding-reranking
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Europe Data Residency for Atlas Embedding and Reranking announcement (allowed: mongodb.com)
+========================================================================
+
+Dated September 1, 2026: Europe and US 'Geographies' for the Atlas Embedding and Reranking API; Europe Geography covers EEA cloud regions; processing on GPUs inside the Geography and request payloads retained for logging stored there; requests fail rather than fall back; API keys scoped to a Geography; 10% price premium. Public preview at announcement; MongoDB.local NYC 2026 roundup lists it as GA (date unconfirmed). Automated Embedding and Native Reranking don't support Geography targeting yet. Docs: https://www.mongodb.com/docs/voyageai/geographies/ (endpoints eu.ai.mongodb.com, us.ai.mongodb.com).

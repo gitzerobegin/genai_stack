@@ -1,0 +1,8 @@
+SOURCE ID: A4-S136
+URL: https://fireworks.ai/blog/series-c
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Fireworks AI raises Series C valuation funding 2025 2026
+========================================================================
+
+Business Wire (28 October 2025) and Fireworks blog: $250 million Series C at $4 billion valuation, led by Lightspeed Venture Partners, Index Ventures and Evantic, with Sequoia Capital participating; total funding $327 million. Aggregators (valueaddvc, siliconvalleyinvestclub) report a July 2026 Series D of $1.505 billion at $17.5 billion post-money led by Atreides, Index Ventures and TCV — not confirmed against a company release in this search.

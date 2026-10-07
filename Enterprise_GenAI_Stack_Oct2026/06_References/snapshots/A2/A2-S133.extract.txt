@@ -1,0 +1,8 @@
+SOURCE ID: A2-S133
+URL: https://www.elastic.co/blog/whats-new-elastic-9-5-0
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Elasticsearch 9.x latest release 2026 BBQ better binary quantization hybrid search RRF semantic_text (allowed: elastic.co)
+========================================================================
+
+Elastic 9.5 GA announced August 4, 2026; patch Elastic Stack 9.5.4 released (https://www.elastic.co/blog/elastic-stack-9-5-4-released). 9.5 adds technical-preview VectorDB index mode and auto-calibration for DiskBBQ (quantisation depth, preconditioning, oversampling); technical-preview multimodal 'semantic' field powered by jina-embeddings-v5-omni. Default semantic_text model switched to jina-v5. BBQ GA in 9.0/8.18; BBQ default in 9.1 (https://www.elastic.co/blog/whats-new-elastic-9-1-0); 9.4 DiskBBQ >=3x faster with restrictive filters, 2/4/7-bit quantisation. 9.0 retrievers combine linear and RRF; linear retriever supports l2_norm. semantic_text supports MMR diversification.

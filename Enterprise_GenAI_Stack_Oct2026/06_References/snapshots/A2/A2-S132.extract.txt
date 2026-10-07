@@ -1,0 +1,8 @@
+SOURCE ID: A2-S132
+URL: https://www.elastic.co/blog/elasticsearch-is-open-source-again
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Elasticsearch AGPL license option open source again Elastic License 2.0 SSPL (allowed: elastic.co, ir.elastic.co)
+========================================================================
+
+Late August 2024: Elastic added GNU AGPLv3 as a license option for the free portion of Elasticsearch and Kibana source code previously under SSPL 1.0 and ELv2; existing SSPL/ELv2 users unaffected; client libraries remain Apache 2.0; paid features remain proprietary. Press release: https://ir.elastic.co/News--Events/news/news-details/2024/Elastic-Announces-Open-Source-License-for-Elasticsearch-and-Kibana-Source-Code/default.aspx. Elastic staff forum: no downloadable distribution covered by AGPL at that time. Later Elastic article: core published under AGPL since version 8.16.

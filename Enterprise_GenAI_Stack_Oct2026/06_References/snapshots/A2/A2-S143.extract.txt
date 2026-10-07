@@ -1,0 +1,8 @@
+SOURCE ID: A2-S143
+URL: https://docs.voyageai.com/docs/faq
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Voyage AI MongoDB Embedding and Reranking API data retention zero data retention SOC 2 regions Atlas (allowed: mongodb.com, docs.voyageai.com, voyageai.com)
+========================================================================
+
+For Voyage-hosted model API endpoints, customers can opt out from Voyage storing and using their data for future model training so that there is a zero-day retention of the data; opt-out requires a payment method on file. Voyage Terms of Service (https://www.voyageai.com/tos) list SOC 2 and HIPAA under Privacy and Compliance.

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S084
+URL: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-regions-quotas.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon S3 Vectors generally available limits pricing regions
+========================================================================
+
+Regions table lists roughly 34 entries (approximate count by search tool), including AWS GovCloud (US-East), AWS GovCloud (US-West) and the AWS European Sovereign Cloud (Germany). GovCloud availability announced July 2026 (https://aws.amazon.com/about-aws/whats-new/2026/07/s3-vectors-available-aws-govcloud-regions/).
