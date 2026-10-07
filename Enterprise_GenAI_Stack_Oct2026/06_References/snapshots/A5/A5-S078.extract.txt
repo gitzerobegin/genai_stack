@@ -1,0 +1,10 @@
+SOURCE ID: A5-S078
+URL: https://huggingface.co/meta-models/Muse-Glimmer-30B
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Muse Glimmer open weights license Meta; Llama 4 license (allowed_domains ai.meta.com, about.fb.com, llama.com, ai.developer.meta.com, huggingface.co)
+========================================================================
+
+Search tool summary:
+- Muse Glimmer 30B model card: Authors Meta Superintelligence Lab; Model Release Date August 2026; License Apache 2.0 (all artifacts: BF16 weights, 4-bit variants, DFlash drafter). 30B model distilled from Muse Spark for autonomous agentic tasks on consumer hardware; no audio I/O.
+- Llama 4 Community License Agreement (effective 5 April 2025): non-exclusive royalty-free limited licence; "Built with Llama" attribution; licensees with >700M MAU must request a licence; California law.

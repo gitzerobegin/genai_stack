@@ -1,0 +1,8 @@
+SOURCE ID: A4-S148
+URL: https://blog.crewai.com/crewai-oss-1-0-we-are-going-ga/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CrewAI announces Series B funding 2026
+========================================================================
+
+Search across crewai.com, blog.crewai.com, TechCrunch, Business Wire, PR Newswire, Bloomberg, Fortune, VentureBeat found no CrewAI Series B announcement. TechCrunch (22 Oct 2024): CrewAI raised $18 million across seed and Series A (Boldstart Ventures, Craft Ventures, Earl Grey Capital, Insight Partners). CrewAI's own 2025 blog post puts total at roughly ~$20M raised. OSS 1.0 post: open-source core powering 1.4 billion agentic automations. CrewAI selected for Enterprise Tech 30 for the second year.

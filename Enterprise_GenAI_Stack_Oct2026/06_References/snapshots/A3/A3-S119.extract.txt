@@ -1,0 +1,8 @@
+SOURCE ID: A3-S119
+URL: https://composio.dev/blog/two-questions-every-security-review-asks-us
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Composio data residency EU region SSO SAML audit logs RBAC (allowed_domains composio.dev)
+========================================================================
+
+Search-tool summary of composio.dev pages: Composio's managed cloud is hosted in the US. One FAQ says the EU-only requirement needs the self-hosted Enterprise tier, not the managed cloud; VPC and self-hosted options address data residency. Composio supports SAML 2.0 and OIDC with Okta, Microsoft Entra ID, and Google Workspace; SCIM 2.0 for directory group-to-team mapping; SSO listed as Enterprise-tier. Logs each tool call with user, team, tool, action, outcome, including denied calls; retention configurable from 7 days to 1 year; CSV export; real-time in admin console; SIEM export. Conflict: several pages say metadata only/no payloads; another says audit logs capture input parameters and response outcomes. Zero Data Retention available on Pro tier and above. Action-level access control via policy-as-code; project is isolation boundary; Enterprise-tier action-level policy enforcement; recommends explicit allow-list per agent role. Composio markets an 'MCP Gateway' product (composio.dev/mcp-gateway).

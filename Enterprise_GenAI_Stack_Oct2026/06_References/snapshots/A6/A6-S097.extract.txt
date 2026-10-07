@@ -1,0 +1,13 @@
+SOURCE ID: A6-S097
+URL: https://auth0.com/blog/auth0-for-ai-agents-generally-available/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Auth0 for AI Agents generally available Token Vault pricing (site:auth0.com, okta.com)
+========================================================================
+
+Related: https://auth0.com/blog/announcing-auth0-for-ai-agents-powering-the-future-of-ai-securely/ ; https://www.okta.com/newsroom/articles/auth0-may-2026-product-innovations/ ; https://auth0.com/blog/auth0-auth-for-mcp-servers-generally-available/ ; https://auth0.com/blog/token-vault-with-organization-support-generally-available/ ; https://auth0.com/blog/auth0-agent-gateway-beta/
+
+Extract as returned by search tool:
+Auth0's GA announcement is dated Nov 19, 2025. It says Auth0 for AI Agents is now available in GA. Four capabilities at GA: User Authentication; Token Vault ("A secure, centralized authorization layer that integrates your AI agents with third-party APIs and external systems, such as Google Drive, Jira, or Slack"); Asynchronous Authorization (CIBA; push notifications through Guardian available, email and SMS coming soon); FGA for RAG.
+Auth0 first announced the product in January 2025 ("now available in Developer Preview"). At Oktane 2025 it said GA would be in November.
+Later (May 2026 announcement): Auth for MCP, Agent as Principal, On-Behalf-Of Token Exchange, Token Vault with Organizations Support, and FGA Permissions Index. "Auth0 for MCP and On-Behalf-Of Token Exchange are available today in GA, with FGA Permissions Index available in Developer Preview." Token Vault with Organizations support later labelled GA. Auth0 Agent Gateway announced in Beta (search title).

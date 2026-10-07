@@ -1,0 +1,16 @@
+SOURCE ID: A6-S093
+URL: https://www.protegrity.com/news/protegrity-ai-team-edition-to-secure-agentic-workflows
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Protegrity acquisition OR funding 2025 2026 AI Team Edition SOC 2 ISO 27001 (site:protegrity.com)
+========================================================================
+
+Related: https://docs.protegrity.com/aiteam-edition/techpreview/docs/about_team/ ; https://www.protegrity.com/news/protegrity-ai-team-edition-foundation-for-zero-model-exposure ; https://www.protegrity.com/news/protegrity-expands-team-to-advance-ai-innovation-and-data-protection ; https://www.protegrity.com/edition/enterprise ; https://developer.docs.protegrity.com/docs/migration/deved_migprep/
+
+Extract as returned by search tool:
+No 2025–2026 acquisition or funding news for Protegrity was found. The only growth-related item was an April 2026 hiring announcement, which describes investment in talent but mentions no financing.
+AI Team Edition launched as a product on November 17, 2025: "Protegrity, a global leader in data-centric security, is further expanding its reach in AI with the launch of Protegrity AI Team Edition."
+Maturity conflict: Protegrity's documentation says "it is currently in Tech Preview and is not available for General Availability (GA). It should not be used in production environments." An April 2026 press release ends with "Protegrity AI Team Edition is available now."
+The product page says current deployment is AWS-specific, while the architecture is built to support additional platforms in future releases.
+SOC 2: product materials describe audit support (dashboards provide compliance status for audits such as SOC 2 and HIPAA) rather than Protegrity's own SOC 2 report; no evidence of a SOC 2 Type II report for Protegrity as an organisation was found.
+A developer doc page "Preparing for AI Team Edition" covers migration from the Developer Edition. There is also an "AI Enterprise Edition" page.

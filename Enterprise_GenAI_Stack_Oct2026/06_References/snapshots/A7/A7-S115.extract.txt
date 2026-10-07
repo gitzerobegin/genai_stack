@@ -1,0 +1,13 @@
+SOURCE ID: A7-S115
+URL: https://www.finops.org/insights/2026-finops-framework/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: FinOps Foundation FinOps for AI guidance 2026 FOCUS AI token (allowed_domains finops.org)
+========================================================================
+
+- FinOps Framework 2026 adds a "FinOps for AI" technology category "addressing the cost complexity, spend unpredictability, and governance needs that come with AI investments spanning multiple technology categories"; new capability "Executive Strategy Alignment".
+- State of FinOps 2026: "FinOps for AI is the top forward-looking priority"; "98% now manage AI spend (up from 31% two years ago)"; top requested capability: "Granular monitoring of AI spend (tokens, LLM requests and GPU utilization)"; challenge: "pricing models vary widely across providers and services".
+- February 2026 mission change from cloud to technology value; new working groups on AI value, ITFM integration and executive alignment.
+- Tokenomics working group (SaaS model token costs): "instrument, measure for 30 to 60 days, establish a baseline, and then set budgets at 110 to 120% of baseline with alerts at 80% and 100%"; crawl/walk/run maturity.
+- "Who sets the AI budget?": separate experimental from run-rate AI spend; "Pair every financial cap with an engineering enforcement point. A budget without a quota is a number, not a control."; diagnose waste via input-to-output token ratio, cache hit rate, retry rate, tool calls per task.
+- FinOps Foundation and Linux Foundation announced intent to form the "Tokenomics Foundation" to create open standards for AI billing (formal launch not confirmed).

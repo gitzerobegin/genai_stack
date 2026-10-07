@@ -1,0 +1,8 @@
+SOURCE ID: A4-S144
+URL: https://openrouter.ai/business
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenRouter platform fee 5.5% credit purchase pricing enterprise
+========================================================================
+
+Business page lists Standard plan at 5.5%, Business at 8%, Enterprise custom (fee on credit purchases, not inference); Enterprise contracted via sales with a custom monthly minimum. Standard card top-ups: 5.5% fee with $0.80 minimum. No markup on provider pricing; failed requests not billed. BYOK: 5% fee on model cost after plan-dependent free allowance. Workspace budgets require Enterprise; SSO is an enterprise feature.

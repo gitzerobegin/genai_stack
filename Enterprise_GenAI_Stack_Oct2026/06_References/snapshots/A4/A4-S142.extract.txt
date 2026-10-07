@@ -1,0 +1,8 @@
+SOURCE ID: A4-S142
+URL: https://trust.openrouter.ai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenRouter SOC 2 Type II trust center compliance
+========================================================================
+
+Trust center compliance section lists SOC 2 Type 2 and links a compliance document. OpenRouter blog: "It's SOC 2 Type 2 compliant, with the full report at trust.openrouter.ai, supports GDPR, offers Zero Data Retention per request or account-wide". Some pages say only "SOC 2 compliant"; the Enterprise Access Agreement security schedule refers to a "SOC 2 Type II control framework". OpenRouter: "We don't offer a HIPAA business associate agreement (BAA) today."

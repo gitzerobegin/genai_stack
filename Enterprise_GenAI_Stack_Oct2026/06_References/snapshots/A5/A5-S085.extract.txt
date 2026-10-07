@@ -1,0 +1,12 @@
+SOURCE ID: A5-S085
+URL: https://www.anthropiccopyrightsettlement.com/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Bartz v. Anthropic final approval settlement $1.5 billion Judge Alsup order (allowed_domains courtlistener.com, cand.uscourts.gov, anthropiccopyrightsettlement.com, washingtonpost.com, cnbc.com, bloomberg.com, npr.org)
+========================================================================
+
+Search tool summary:
+- Settlement website: the Court granted final approval on 20 July 2026 (order on Important Documents page). Washington Post (21 July 2026): judge approved the US$1.5 billion settlement, about US$3,000 per book.
+- Preliminary approval by Judge William Alsup on 25 September 2025.
+- June 2025 Alsup ruling: training on the books was acceptable (fair use) but using millions of pirated books to build the library was not.
+- Settlement does not cover future works; Anthropic agreed to destroy datasets containing the allegedly pirated material; over US$100 million to plaintiffs' lawyers (NPR).

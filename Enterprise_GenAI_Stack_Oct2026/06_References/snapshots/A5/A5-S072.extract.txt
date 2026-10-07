@@ -1,0 +1,12 @@
+SOURCE ID: A5-S072
+URL: https://www.federalregister.gov/documents/2025/01/16/2025-00704/addition-of-entities-to-and-revision-of-entry-on-the-entity-list
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Zhipu AI Entity List Commerce Department BIS added January 2025 Z.ai
+========================================================================
+
+Search tool summary:
+- Federal Register rule published 16 January 2025 adds Beijing Zhipu Huazhang Technology Co., Ltd. (a.k.a. Zhipu AI; Beijing Knowledge Atlas Technology Co., Ltd.) and affiliates to the Entity List with a presumption of denial for all items subject to the EAR.
+- Rationale (per Kharon summary): advancing PRC military modernisation through advanced AI research.
+- Zhipu said the decision lacked factual basis; said no material business impact.
+- National Law Review: Zhipu, operating internationally as Z.ai, has been on the Entity List since January 2025 (90 FR 4619).

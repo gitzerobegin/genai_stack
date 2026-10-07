@@ -1,0 +1,11 @@
+SOURCE ID: A5-S061
+URL: https://questions-statements.parliament.uk/written-questions/detail/2025-01-28/HL4479/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: UK government DeepSeek guidance civil servants (allowed_domains gov.uk, ncsc.gov.uk, parliament.uk, ico.org.uk)
+========================================================================
+
+Search tool summary:
+- Written answer HL4479 (January 2025): use of DeepSeek is a personal choice; users should be alive to risks and consult NCSC advice; "as a Chinese company, data inputted into the model will be sent to China and thus is subject to Chinese law".
+- DWP Acceptable Use Policy (gov.uk): "Users must not attempt to access DeepSeek AI on DWP devices."
+- No standalone NCSC DeepSeek advisory or cross-government ban found.

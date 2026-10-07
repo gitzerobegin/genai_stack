@@ -1,0 +1,12 @@
+SOURCE ID: A5-S083
+URL: https://help.openai.com/en/articles/6825453-chatgpt-release-notes
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: "GPT-6 Astra" September 2026 introducing release date (allowed_domains openai.com, help.openai.com, deploymentsafety.openai.com)
+========================================================================
+
+Search tool summary:
+- ChatGPT release notes list "Introducing GPT-6 Astra" under 3 September 2026; access began with a limited set of organisations, broader availability for Plus, Pro, Business, Enterprise and API planned in following days.
+- "Path to Astra" post dated 1 September 2026: OpenAI held back parts of Astra's release for several weeks to strengthen cyber-misuse protections.
+- 3 September safety overview: most capable model yet broadly deployed; first at Critical cybersecurity threshold.
+- 4 September (OpenAI post quoted on developer forum, not confirmed on openai.com): Astra available to Pro, Enterprise, Business Premium in Work and Codex and live in the API; Plus and Business a few more days.

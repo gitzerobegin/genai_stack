@@ -1,0 +1,8 @@
+SOURCE ID: A4-S138
+URL: https://trust.cerebras.ai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cerebras inference SOC 2 HIPAA trust center data retention privacy
+========================================================================
+
+Trust Center lists SOC 2 Type 2, GDPR and CCPA; sections on backups, encryption at rest and in transit, access control, data privacy; detailed documentation on request. HIPAA not listed. Cerebras blog (January 2025): "Cerebras Inference runs 100% in our U.S.-based AI datacenters with zero data retention or transfer"; later post: all queries processed in Cerebras's own data centres, "with zero data retention or transfer". Training cloud page: "Your data, models, and outputs are never stored, logged, or reused by Cerebras" (training product). No BAA evidence found.

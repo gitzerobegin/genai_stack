@@ -1,0 +1,11 @@
+SOURCE ID: A7-S120
+URL: https://docs.paloaltonetworks.com/ai-runtime-security/activation-and-onboarding/prisma-airs-supported-regions
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Prisma AIRS FedRAMP authorized; Prisma AIRS AI Runtime Security regions EU data residency (allowed_domains paloaltonetworks.com)
+========================================================================
+
+- API Intercept Supported Regions page: regions Americas, EU-Germany, India, Singapore and Japan; "the region you choose determines the underlying region for data processing and storage". In EU-Germany, URL category detection sends extracted URLs to the Netherlands and contextual grounding for API Intercept runs via the Netherlands; Strata Logging Service available in EU-Germany. MCP server documentation gives a separate EU endpoint for API Intercept deployment profiles.
+- AI Runtime Firewall prerequisites page: supported Strata Cloud Manager/tenant regions US, UK, India, Canada and Singapore, and says all AI traffic is sent to the US region for threat inspection; another setup page: US regions only (older/conflicting pages).
+- AI Discovery with Cortex AISPM: "available in Americas Region SCM tenants only".
+- Palo Alto FedRAMP Authorized Services page: lists Prisma Cloud (Moderate and High), Prisma Access, Prisma SASE, Prisma Access Browser; Prisma AIRS not listed among authorised offerings in retrieved text.

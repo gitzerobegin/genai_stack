@@ -1,0 +1,8 @@
+SOURCE ID: A1-S127
+URL: https://www.firecrawl.dev/pricing.md
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Firecrawl pricing plans Hobby Standard Growth credits per month price
+========================================================================
+
+Free: 1,000 credits per month at $0, no credit card. Hobby: 5,000 credits/month, $19/month or $16/month billed annually ($190/year); 5 concurrent requests. Standard ("Recommended"): 100,000 credits/month, $99/month or $83/month annually ($990/year); 25 concurrent. Growth: 500,000 credits/month, $399/month or $333/month annually ($3,990/year); 50 concurrent. Hobby/Standard/Growth credits do not roll over. Pay-as-you-go top-ups: $5 = 1,000 credits (Hobby), 2,000 (Standard), 2,500 (Growth), 5,000 (Scale). Scale tier and Enterprise above.

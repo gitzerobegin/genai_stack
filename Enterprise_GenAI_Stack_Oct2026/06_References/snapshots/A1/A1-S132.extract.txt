@@ -1,0 +1,8 @@
+SOURCE ID: A1-S132
+URL: https://tracxn.com/d/companies/crawl4ai/__EgBR0RIx6L34MHENV_ItNiaxrP5zsR1oR97-bT7LWmg
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Crawl4AI funding raised investors Crawl4AI Cloud company
+========================================================================
+
+Search-tool summary: Tracxn describes Crawl4AI as an unfunded company based in Singapore, founded in 2024 by Hossein Unclecode (profile about a year old). GitHub README says using the cloud service funds the library; GitHub sponsorship page and SPONSORS.md list sponsor tiers. Crawl4AI Cloud docs: pay as you go, free credit to start; pricing page sets 1 credit = $0.001. Caution: lookalike site crawl4ai-cloud.com says hosted by Alpha Vantage Inc; affiliation with official crawl4ai.com not confirmed.

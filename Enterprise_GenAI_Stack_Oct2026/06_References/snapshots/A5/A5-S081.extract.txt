@@ -1,0 +1,11 @@
+SOURCE ID: A5-S081
+URL: https://techbriefly.com/2026/07/07/spacexai-rebrand/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SpaceX xAI merger SpaceXAI rebrand completed 2026
+========================================================================
+
+Search tool summary:
+- Merger of xAI into SpaceX closed 2 February 2026 via stock swap (combined entity valued ~US$1.25 trillion).
+- May 2026: Musk said xAI would cease to exist as a standalone company. ~6 July 2026: public rebrand to SpaceXAI (new logo, @SpaceXAI). Grok product and API names unchanged.
+- Unconfirmed report (4 October 2026) of a further rename to "SpaceXSI" based only on Musk's X posts.

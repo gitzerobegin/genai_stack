@@ -1,0 +1,11 @@
+SOURCE ID: A5-S069
+URL: https://www.kimi.com/en/blog/kimi-k3
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Kimi K3 release license modified MIT open weights pricing (allowed_domains moonshot.ai, kimi.com, platform.moonshot.ai, platform.kimi.ai, huggingface.co)
+========================================================================
+
+Search tool summary:
+- Moonshot launched Kimi K3 on 16 July 2026; full weights released by 27 July 2026; Hugging Face card: open-weight, native multimodal agentic model; 2.8T total parameters MoE; 1M context; native vision.
+- Licence: custom "Kimi K3 License" built on an MIT-style grant covering weights and code; conditions: third parties offering the model as a hosted service above a revenue threshold need a separate agreement with Moonshot; products with >100M MAU or >US$20M monthly revenue must display "Kimi K3". ("Modified MIT License" label appears on Kimi-K2.7-Code.) HF "State of Open Models" post characterises K3 terms as including some non-commercial/revenue-share restrictions (conflict).
+- API: US$3.00 input (uncached), US$0.30 cached input, US$15.00 output per 1M; flat pricing across 1M context.

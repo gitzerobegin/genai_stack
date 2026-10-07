@@ -1,0 +1,8 @@
+SOURCE ID: A3-S117
+URL: https://a2a-protocol.org/latest/blog/2026/08/27/a-new-chapter-for-a2a-joining-the-agentic-ai-foundation/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Linux Foundation press release A2A Agentic AI Foundation August 2026
+========================================================================
+
+Search-tool summary: A2A's own blog, dated August 27, 2026, says the Agent2Agent (A2A) protocol has officially been accepted as a Growth Stage project at the Agentic AI Foundation (AAIF). It also says A2A now sits alongside sibling projects like MCP, goose, and AGENTS.md.

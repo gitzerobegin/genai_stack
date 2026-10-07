@@ -1,0 +1,11 @@
+SOURCE ID: A5-S087
+URL: https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-deepseek-v4-flash-and-v4-pro-in-microsoft-foundry/4515174
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Microsoft Foundry DeepSeek V4 Kimi K3 GLM-5 models sold directly by Azure data processing (allowed_domains azure.microsoft.com, learn.microsoft.com, techcommunity.microsoft.com, ai.azure.com)
+========================================================================
+
+Search tool summary:
+- DeepSeek-V4-Pro, DeepSeek-V4-Flash and DeepSeek-V4-Flash-0731 (Preview) are Foundry Models sold directly by Azure (1M input); billed through Azure subscription, covered by Azure SLAs, supported by Microsoft.
+- Direct-from-Azure models: prompts and responses processed within customer-specified geography unless Global or DataZone deployment chosen; DataZone keeps processing within the zone; stored data stays in the designated geography.
+- Kimi K3 (FW-Kimi-K3) and GLM 5.1/5.2/5.3-Flash are offered via Fireworks on Foundry (Global and Data Zone options; Kimi K3 US Data Zone Standard); Microsoft describes a disclosed pass-through where inference runs on the Fireworks Inference Cloud on GPUs operated by Fireworks, i.e. outside the customer's Azure tenant.

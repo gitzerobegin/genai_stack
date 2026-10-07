@@ -1,0 +1,12 @@
+SOURCE ID: A7-S117
+URL: https://launchdarkly.com/blog/introducing-agentcontrol/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LaunchDarkly AgentControl renamed AI Configs announcement date; AI Configs is now GA (allowed_domains launchdarkly.com)
+========================================================================
+
+- "AI Configs is now GA: Runtime control for prompts and models" - blog dated May 28, 2025 ("it's now generally available"). Early access introduced at Launch Week 2024 ("Introducing LaunchDarkly AI Configs (early access)").
+- API docs: "This product name has changed, but the API has not. AgentControl was previously called AI Configs."
+- Video tutorial published April 1, 2026 notes AI Configs "have been rebranded as AgentControl and AgentControl configs".
+- "Introducing AgentControl" blog dated May 12, 2026: AgentControl as "the operational layer for managing agents in production".
+- March 11, 2026: "Online evals in AI Configs is now GA" (customisable judges). Also posts: "Introducing agents, trends, and approvals for AI Configs".

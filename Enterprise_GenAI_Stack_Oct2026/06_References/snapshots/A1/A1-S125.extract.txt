@@ -1,0 +1,9 @@
+SOURCE ID: A1-S125
+URL: https://www.braintrust.dev/docs/security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Braintrust trust center SOC 2 Type II ISO 27001 HIPAA
+========================================================================
+
+Search result titles: "Security - Braintrust" (braintrust.dev/docs/security); "Braintrust achieves SOC 2 Type II compliance - Blog - Braintrust" (braintrust.dev/blog/soc2); "Pricing - Braintrust".
+Search-tool summary: security documentation says SOC 2 Type II compliant; reports available through the Trust Center after mutual NDA. Supports HIPAA compliance requirements, administrative/physical/technical safeguards for PHI; Business Associate Agreement available. Pricing page: BAA required for HIPAA when handling PHI, available on Enterprise plans. No ISO 27001 certification found on security or pricing pages.

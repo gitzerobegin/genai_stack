@@ -1,0 +1,11 @@
+SOURCE ID: A7-S116
+URL: https://focus.finops.org/focus-1-5-release-scope/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: FinOps Foundation FinOps for AI guidance 2026 FOCUS AI token (allowed_domains focus.finops.org)
+========================================================================
+
+- Introducing FOCUS 1.2: "many SaaS vendors bill in virtual currencies, such as credits or tokens. Four new columns in the FOCUS Specification provide requirements for reporting the cost and usage of these credits or tokens."
+- FOCUS for AI page: "there are not specific columns related to AI, but rather SKU IDs indicating Token charges, Consumed Units specifying Tokens, and Consumed Quantity of tokens uses".
+- FOCUS 1.4 announced at FinOps X 2026 (invoice reconciliation, commitment details).
+- FOCUS 1.5 release scope: "FOCUS 1.5 is scoped to surface AI model identity and token consumption (input and output) in the Cost and Usage dataset", plus a standardised price sheet dataset. Stretch items: "Cached vs. fresh tokens and global vs. regional serving, carried as FOCUS-defined properties on SkuPriceDetails"; open question whether provisioned AI capacity maps onto the commitment model. Release date not confirmed.

@@ -1,0 +1,14 @@
+SOURCE ID: A5-S056
+URL: https://natlawreview.com/article/three-states-ban-deepseek-use-state-devices-and-networks
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DeepSeek ban government devices US states Texas Virginia New York
+========================================================================
+
+Search tool summary:
+- Texas: Governor Abbott's ban effective 31 January 2025 barred state employees from DeepSeek and RedNote and other PRC-affiliated apps (Webull, Tiger Brokers, Moomoo, Lemon8).
+- New York: 10 February 2025 ban on downloading DeepSeek on devices managed by the NY State Office of Information Technology.
+- Virginia: Gov. Youngkin executive order banning DeepSeek on state devices and networks (order number reported as 26 or 46, ~11 February 2025).
+- Iowa: 19 February 2025 executive order.
+- Some agency-level bans elsewhere (e.g. Florida). Several US Commerce Department bureaus barred DeepSeek on government devices.
+- No 2026 reporting found confirming continued status.

@@ -1,0 +1,14 @@
+SOURCE ID: A6-S091
+URL: https://learn.microsoft.com/en-us/purview/dspm-for-ai-considerations
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Microsoft Purview Data Security Posture Management for AI DSPM for AI generally available licensing (site:learn.microsoft.com, techcommunity.microsoft.com, microsoft.com)
+========================================================================
+
+Related: https://learn.microsoft.com/en-us/purview/data-security-posture-management-get-started ; https://learn.microsoft.com/en-us/purview/ai-azure-services ; https://techcommunity.microsoft.com/blog/microsoft-purview-blog/microsoft-purview-%E2%80%93-data-security-posture-management-dspm-for-ai/4394685 ; https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/plan-for-microsoft-purview-gcc-deployments
+
+Extract as returned by search tool:
+For the classic version, Microsoft's documentation says you need "a Microsoft 365 E5 or Microsoft Purview Suite (formerly known as Microsoft 365 E5 Compliance) license."
+A Microsoft Tech Community post: "To cover Interaction, Prompts, and Response in DSPM for AI, the organization needs to have a Microsoft 365 E5 license." Covered sources include Microsoft 365 Copilot, Entra-registered AI apps, and ChatGPT Enterprise.
+In US Government GCC environments, only M365 Copilot and supported AI sites are currently available in DSPM for AI within GCC.
+Microsoft Learn also has "Use Microsoft Purview to manage data security & compliance for Microsoft Foundry".

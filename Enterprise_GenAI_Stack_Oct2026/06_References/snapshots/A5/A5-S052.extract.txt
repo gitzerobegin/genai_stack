@@ -1,0 +1,10 @@
+SOURCE ID: A5-S052
+URL: https://www.nist.gov/news-events/news/2026/07/caisi-assessment-zais-glm-52
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CAISI evaluation Qwen Kimi GLM (allowed_domains nist.gov)
+========================================================================
+
+Search tool summary:
+- GLM-5.2 (assessment dated around 8 July 2026; PDF 17 July 2026): probably the most capable open-weight model when released; overall capability similar to GPT-5.2 (December 2025); safeguards allow assistance with agentic cyber exploit development; appears potentially more robust against agent hijacking and jailbreaking than other evaluated PRC open-weight models.
+- GLM-5.3 (September 2026 cyber assessment): most cyber-capable open-weight model released to date; lags the US frontier by about four months on an aggregate of CAISI cyber benchmarks.

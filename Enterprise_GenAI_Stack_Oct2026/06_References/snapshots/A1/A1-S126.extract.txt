@@ -1,0 +1,9 @@
+SOURCE ID: A1-S126
+URL: https://docs.langchain.com/langsmith/engine-security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith ISO 27001 certification trust.langchain.com SOC 2 Type II
+========================================================================
+
+Search result titles: "LangSmith Engine security - Docs by LangChain"; "LangSmith shared responsibility model - Docs by LangChain"; "The 6 Best AI Agent Sandboxes for Isolated Code Execution" (langchain.com/resources/best-agent-sandboxes); "How to Access LangChain Security & Compliance ..." (support.langchain.com); "LangSmith for Enterprise".
+Extracts: Engine "operates under LangSmith's control environment, which is audited annually under SOC 2 Type II and certified to ISO 27001." LangChain sandboxes resource: "LangSmith is SOC 2 Type II certified, ISO 27001:2022 certified, HIPAA compliant, and GDPR compliant." Shared responsibility docs: annual third-party audits and penetration testing, SOC 2 Type II. Support article: Trust Center hosts SOC 2 Type II audit reports, security policies, penetration test executive summaries. Enterprise page lists SOC 2 Type II, HIPAA and GDPR (no ISO).

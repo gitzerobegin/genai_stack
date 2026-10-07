@@ -1,0 +1,8 @@
+SOURCE ID: A4-S145
+URL: https://lmstudio.ai/blog/free-for-work
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LM Studio free for work commercial use terms license app
+========================================================================
+
+Blog "LM Studio is free for use at work": app terms previously required companies to contact LM Studio for a separate commercial licence; that requirement is removed; no form or outreach needed. App Terms of Service (lmstudio.ai/app-terms): software licensed for personal and/or internal business purposes; prohibits modifying or creating derivative works, integrating except through published interfaces, sublicensing, distributing, selling or offering as a service to third parties, and reverse engineering. Hub Terms: personal or internal business use. LM Link free during Preview; paid plans planned for GA. Paid Enterprise plan for SSO and model/MCP gating. Model licences are separate (e.g. gpt-oss Apache-2.0). Page dates not shown in extract.

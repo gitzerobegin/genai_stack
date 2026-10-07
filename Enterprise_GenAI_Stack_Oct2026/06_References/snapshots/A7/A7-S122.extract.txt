@@ -1,0 +1,11 @@
+SOURCE ID: A7-S122
+URL: https://productresources.collibra.com/docs/collibra/latest/Content/Cloud/Intro/co_cloud-introduction.htm
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Collibra platform SaaS only deployment AI governance pricing edition (allowed_domains collibra.com)
+========================================================================
+
+Collibra docs: "the Collibra Platform Cloud operates on a distributed microservices architecture. It is primarily deployed as a Software-as-a-Service (SaaS) solution, managed by Collibra on leading public cloud platforms, including Amazon Web Services (AWS) and Google Cloud Platform (GCP)."
+Collibra blog "Enhancing unified governance: Collibra Cloud Sites and OpenLineage integration" (about 16 months old, i.e. c. mid-2025): fully managed Cloud Sites requested from settings, provisioning up to 2 business days; OpenLineage integration for lineage.
+Homepage: "The Enterprise AI Control Plane"; "Collibra is designed to be platform-agnostic" (AWS SageMaker, Azure AI Foundry, Databricks). AI Command Center: "With templates for the EU AI Act, NIST AI RMF and custom assessments, teams can document risk levels, controls, performance metrics and required approvals." Earlier press release "Collibra Introduces Collibra AI Governance" (built on the Collibra Data Intelligence Platform).
+No pricing or editions found.

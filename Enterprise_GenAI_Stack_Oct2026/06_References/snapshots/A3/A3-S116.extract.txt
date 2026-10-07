@@ -1,0 +1,8 @@
+SOURCE ID: A3-S116
+URL: https://aaif.io/blog/a2a-joins-aaif
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Linux Foundation press release A2A Agentic AI Foundation August 2026 (allowed_domains linuxfoundation.org, aaif.io, a2a-protocol.org)
+========================================================================
+
+Search-tool summary: An AAIF blog post dated August 17, 2026 covers the move. It traces A2A's history: Google launched A2A in April 2025 and donated it to the Linux Foundation, and A2A v1.0, the first stable specification, shipped in March 2026. The post argues for neutral governance, noting that A2A's 150+ partner organizations include direct competitors. AAIF project page: aaif.io/projects/agent2agent. No separate Linux Foundation press release on A2A joining AAIF was found.

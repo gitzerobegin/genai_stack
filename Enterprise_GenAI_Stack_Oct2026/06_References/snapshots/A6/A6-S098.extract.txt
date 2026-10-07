@@ -1,0 +1,12 @@
+SOURCE ID: A6-S098
+URL: https://auth0.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Auth0 for AI Agents generally available Token Vault pricing (site:auth0.com, okta.com)
+========================================================================
+
+Extract as returned by search tool:
+The pricing page includes a Token Vault row in its comparison table. The connection allowance is 2 on Free, 3 plus an add-on on Essentials and Professional, and 4 plus an add-on on Enterprise. The snippet doesn't say what the add-on costs.
+Base prices shown: $0/month for Free (up to 25,000 monthly active users), $240/month for Professional; a $35/month tier appears to be Essentials (layout jumbled).
+The pricing page result was flagged as roughly 4,600 days old (indexing metadata), so figures may be out of date.
+Auth0 for Startups offers eligible companies one year of the B2B Professional plan free, including "3 Third-Party APIs * Token Vault".

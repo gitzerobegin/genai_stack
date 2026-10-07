@@ -1,0 +1,12 @@
+SOURCE ID: A5-S067
+URL: https://www.alibabacloud.com/help/en/model-studio/regions
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Alibaba Cloud Model Studio international deployment Singapore data storage ... (allowed_domains alibabacloud.com)
+========================================================================
+
+Search tool summary:
+- FAQ: "Alibaba Cloud strictly protects data privacy and never uses your data for model training." AES-256 encryption in transit and at rest; refers to International Product Terms of Service.
+- Requests go to the chosen region's endpoint; request data and results stored in that region; static data remains in the selected region; inference routed to nodes within the "service deployment scope".
+- US (Virginia): Global and US scopes. Germany (Frankfurt): Global and EU scopes (Frankfurt uses workspace-dedicated domain {WorkspaceId}.eu-central-1.maas.aliyuncs.com). Singapore: International scope only. China (Beijing): Chinese mainland scope only.
+- Each region has its own endpoint, API key and model list.

@@ -1,0 +1,12 @@
+SOURCE ID: A5-S070
+URL: https://platform.kimi.ai/docs/agreement/userprivacy
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Moonshot Kimi platform privacy policy data storage location API user data training (allowed_domains moonshot.ai, kimi.com, platform.*)
+========================================================================
+
+Search tool summary:
+- International API platform operated by Moonshot AI PTE. LTD. (Singapore): information stored on secure servers in Singapore; may be transferred abroad with safeguards. Policy last updated 30 April 2025; lists training/refining models as a purpose (legitimate interests or consent).
+- Mainland platform (Beijing Moonshot Technology): personal information kept within the PRC.
+- Kimi API help page: data submitted through the API (inputs and outputs) is not used to train or improve Kimi models; used solely to fulfil the request and not persistently stored for training.
+- Conflict between the broad training language in the international OpenPlatform policy and the API help page.

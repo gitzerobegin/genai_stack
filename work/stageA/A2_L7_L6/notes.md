@@ -2,13 +2,7 @@
 
 As of 7 October 2026. All facts carry source IDs from `sources.csv`; archive under `Enterprise_GenAI_Stack_Oct2026/06_References/snapshots/A2/`.
 
-**Research-coverage warning.** The web-search budget, which all Stage A agents share, ran out partway through this stream, while L6 (Pinecone) was being researched. Vendor domains are blocked by the egress policy: pinecone.io, qdrant.tech, milvus.io, zilliz.com, weaviate.io, turbopuffer.com, elastic.co, mongodb.com, trychroma.com, aws.amazon.com, postgresql.org, sec.gov, wikipedia and huggingface.co were each tried once and were all refused. As a result:
-
-- **L7** is researched in full.
-- **L6** rests on the searches completed before the cut-off (pgvector, pgvectorscale/VectorChord, Pinecone, Elastic trust centre, MongoDB/Voyage) and on PyPI pages for client SDKs.
-- **Amazon S3 Vectors** was not researched at all.
-
-Fields marked `Not publicly verified` in L6 mostly mean *not researched*, not *absent*. Stage B must not score them as gaps without a follow-up pass. Source IDs A2-S048 and A2-S049 are not allocated (numbering gap only).
+**Research coverage.** The first pass ran out of the shared web-search budget part-way through L6. A **follow-up pass on 7 October 2026** (sources A2-S081 to A2-S145) then completed L6: S3 Vectors, Pinecone, Qdrant, Weaviate, Milvus/Zilliz, turbopuffer, Chroma, Elasticsearch/OpenSearch and MongoDB. It also filled L7 enterprise gaps for OpenAI, Cohere and Voyage. Vendor domains remain blocked for direct fetch (each tried once), so most primary sources are search-tool extracts with confidence capped at `medium`. Remaining `Not publicly verified` fields are listed in (e). Source IDs A2-S048 and A2-S049 are not allocated (numbering gap only).
 
 ## (a) What changed since the original diagram
 
@@ -25,15 +19,15 @@ Fields marked `Not publicly verified` in L6 mostly mean *not researched*, not *a
 | EthicalAgents – embeddings | No such product found after 6 searches. The nearest match, Ethical Agentic AI Inc., is an AI-agent audit firm. | Not publicly verified | A2-S079 |
 | Ragoos – RAG re-rankers | No such product found after 6 searches. Near-misses are a restaurant, RAGus.ai, RaGOO and Ragie. | Not publicly verified | A2-S080 |
 | Postgres – + pgvector | pgvector 0.8.7 (5 October 2026), with 2026 CVE fixes in 0.8.2 and 0.8.7. pgvecto.rs is deprecated in favour of VectorChord. pgvectorscale continues under Tiger Data (formerly Timescale). | No change | A2-S061, A2-S062, A2-S063, A2-S064, A2-S066, A2-S067 |
-| Pinecone – managed | Still managed, now with BYOC (AWS/GCP/Azure) and Dedicated Read Nodes (GA April 2026). Repositioned as "knowledge infrastructure", with Nexus "knowledge engine for agents" GA 6 August 2026. New CEO in September 2025. SDK v10 (September 2026). | Mispositioned (descriptor understates BYOC/Nexus) | A2-S069, A2-S072, A2-S073, A2-S068, A2-S051 |
-| Qdrant – open source | Client 1.19.1 (16 September 2026). Qdrant Cloud adds server-side inference on paid plans. Server facts were not researched. | No change (limited evidence) | A2-S052 |
-| Milvus – vector search | Covers both open-source Milvus and Zilliz Cloud. PyMilvus 3.0.2 (September 2026); Milvus Lite 3.2.1 has been rebuilt with BM25. Server version unverified. | No change (limited evidence) | A2-S053, A2-S054 |
-| Weaviate – open source | Client 4.23.1 (7 September 2026). Nothing else was verified. | Not publicly verified (not researched) | A2-S055 |
-| turbopuffer – cloud vector store | Active SDK (2.11.0, 7 October 2026). The API offers ANN vector **and BM25 full-text** ranking. | No change (descriptor understates full-text) | A2-S056 |
-| Elasticsearch – hybrid search | Elastic, "the Search AI Company", acquired Jina AI and serves Jina models on Elastic Inference Service next to ELSER. Server is 9.x (inferred from the client). OpenSearch is the fork alternative. | No change | A2-S023, A2-S042, A2-S057, A2-S058, A2-S045 |
-| MongoDB – Atlas vector | Vector Search now ships with Voyage embedding and reranking built in: Automated Embedding is in public preview on Community Edition, and the Atlas Embedding and Reranking API is in public preview. | No change (scope widened) | A2-S078, A2-S077, A2-S008 |
-| Chroma – open source | chromadb 1.5.9 (5 May 2026), Apache-2.0. Chroma Cloud offers serverless vector, hybrid and full-text search. Chroma describes itself as "open-source data infrastructure for AI". | No change | A2-S060 |
-| S3 Vectors – AWS | Not researched (search budget exhausted; AWS domains blocked). | Not publicly verified | — |
+| Pinecone – managed | Still managed, now with BYOC (GA; AWS/GCP/Azure) and Dedicated Read Nodes (GA April 2026). Repositioned as "knowledge infrastructure", with Nexus "knowledge engine for agents" GA 6 August 2026. Hosts its own and Cohere rerankers plus a sparse model. SOC 2 Type II, ISO 27001, HIPAA BAA. New CEO September 2025; SDK v10 (September 2026). | Mispositioned (descriptor understates BYOC/Nexus/integrated inference) | A2-S069, A2-S072, A2-S073, A2-S068, A2-S051, A2-S095, A2-S097, A2-S101 |
+| Qdrant – open source | Server 1.19.2 (5 October 2026), Apache-2.0. Managed, Hybrid (in customer network) and Private Cloud. SOC 2 Type II and HIPAA. US$50M Series B (12 March 2026). | No change | A2-S102, A2-S108, A2-S106, A2-S105, A2-S107 |
+| Milvus – vector search | Milvus 3.0 GA 29 July 2026 (3.0.2, 20 September 2026), re-architected as "lake-native" (indexes over object storage/open formats); Apache-2.0; LF AI & Data graduated. Zilliz Cloud repositioned as "Vector Lakebase" with BYOC, SOC 2 Type II and ISO 27001. | Version label n/a; scope widened (repositioned) | A2-S117, A2-S118, A2-S119, A2-S120 |
+| Weaviate – open source | v1.39.7 (25 September 2026). Core still BSD-3-Clause, but a commercially licensed Enterprise Edition (`wl/`, licence key) is being introduced (1.40 RC). SOC 2 Type II, ISO 27001:2022, HIPAA on Premium Dedicated (AWS). BYOC available. | Mispositioned (descriptor "open source" now partial: open core) | A2-S109, A2-S115, A2-S111, A2-S112, A2-S113 |
+| turbopuffer – cloud vector store | Serverless vector **and BM25 full-text** search with object storage as system of record; BYOC on AWS/GCP/Azure; SOC 2 Type 2, HIPAA BAA (Scale+), per-namespace CMEK (Enterprise). Customers include Atlassian, Cursor, Notion, Anthropic (press). | No change (descriptor understates full-text/BYOC) | A2-S056, A2-S124, A2-S125, A2-S123, A2-S126 |
+| Elasticsearch – hybrid search | Elastic 9.5 (GA 4 August 2026): BBQ/DiskBBQ quantisation by default, RRF/linear hybrid retrievers, semantic_text defaulting to Jina v5, VectorDB index mode (preview). AGPLv3 licence option since 2024 alongside SSPL/ELv2. Acquired Jina AI. OpenSearch 3.9.0 (29 September 2026) is the fork alternative. | No change | A2-S133, A2-S132, A2-S023, A2-S136 |
+| MongoDB – Atlas vector | MongoDB Vector Search now GA self-managed (Community and Enterprise Advanced, 8.2+, SSPL) as well as Atlas; hybrid search GA; native `$rerank` with Voyage rerankers (preview); Atlas Embedding and Reranking API with EU Geography. | No change (scope widened; "Atlas" label too narrow) | A2-S137, A2-S141, A2-S142, A2-S078 |
+| Chroma – open source | chromadb 1.5.9 (5 May 2026), Apache-2.0, Rust core since 1.0 (March 2025). Chroma Cloud: SOC 2 Type II, regions AWS us-east-1 and GCP europe-west1, Team plan US$250/month, BYOC custom. "Open-source search/data infrastructure for AI". | No change | A2-S060, A2-S128, A2-S129, A2-S130, A2-S131 |
+| S3 Vectors – AWS | Amazon S3 Vectors: preview July 2025, **GA December 2025**; ~34 Regions incl. GovCloud and European Sovereign Cloud; 2 billion vectors/index, 4,096 dims, 10,000 top-K; storage US$0.06/GB-month; integrates with Bedrock Knowledge Bases and OpenSearch. | No change (label correct) | A2-S081, A2-S083, A2-S084, A2-S087, A2-S089, A2-S093 |
 
 ## (b) Ambiguities owned by A2
 
@@ -76,7 +70,7 @@ Fields marked `Not publicly verified` in L6 mostly mean *not researched*, not *a
 - **A16 (Milvus vs Zilliz): resolved by covering both in record `L6-milvus-zilliz`.**
   - Milvus Lite, Standalone and Distributed are open source (Apache-2.0); Zilliz Cloud is the managed service. Code moves between them with minimal changes [A2-S054].
   - Zilliz maintains PyMilvus [A2-S053].
-  - Zilliz Cloud commercial details are not verified.
+  - Follow-up: Milvus 3.0 GA 29 July 2026 (Apache-2.0, lake-native) [A2-S117, A2-S118]; Zilliz Cloud uses Milvus 3.0 as its engine ("Vector Lakebase"; 3.0 in Private Review for on-demand compute), with Serverless, Dedicated and BYOC tiers, SOC 2 Type II and ISO 27001 [A2-S118, A2-S119, A2-S120].
 
 ## (c) Hypothesis evidence (no verdicts)
 
@@ -85,20 +79,26 @@ Fields marked `Not publicly verified` in L6 mostly mean *not researched*, not *a
 **Hybrid and full-text search in "vector" stores**
 - turbopuffer's API ranks by ANN vector and by BM25 full-text, with filters [A2-S056].
 - Chroma Cloud "powers serverless vector, hybrid, and full-text search" [A2-S060].
-- Milvus Lite includes BM25 full-text search [A2-S054].
+- Milvus Lite includes BM25 full-text search [A2-S054]; Milvus 2.6 sped up BM25 and 3.0 rebuilt sparse indexing (SINDI) [A2-S117].
+- Qdrant 1.17 added weighted RRF [A2-S103]; Elasticsearch 9.x combines RRF and linear retrievers with BBQ-quantised vectors [A2-S133]; MongoDB hybrid search ($rankFusion/$scoreFusion) is GA [A2-S141]; OpenSearch 3.x added hybrid normalisation and RRF [A2-S136]; Pinecone offers sparse + dense "cascading retrieval" [A2-S101].
 - pgvector supports sparse vectors (sparsevec) alongside dense ones [A2-S063].
 
 **Vector features in general-purpose databases**
 - PostgreSQL has pgvector, now at 0.8.7 [A2-S061], and extension forks: pgvectorscale (Tiger Data) and VectorChord, the successor to pgvecto.rs [A2-S064, A2-S066].
-- MongoDB Vector Search runs on Atlas and on Community Edition [A2-S078].
+- MongoDB Search and Vector Search are GA for self-managed Community Edition and Enterprise Advanced (8.2+, SSPL) as well as Atlas [A2-S137].
 - Elasticsearch, a search engine, adds vector and hybrid retrieval through hosted inference [A2-S023, A2-S042].
 
 **Vendor repositioning**
 - Pinecone now describes itself as "knowledge infrastructure for AI". Its Nexus "knowledge engine for agents" (GA 6 August 2026) compiles data into task-specific artifacts and is queried in KnowQL. It includes field-level access control, citations, PII-aware ingestion and lineage [A2-S073, A2-S074].
 - Elastic calls itself "the Search AI Company" [A2-S023].
-- Chroma calls itself "open-source data infrastructure for AI" [A2-S060].
+- Chroma calls itself "open-source data infrastructure for AI" [A2-S060] (homepage title: "open-source search infrastructure for AI" [A2-S131]).
+- Milvus 3.0 is marketed as "lake-native" and Zilliz Cloud as a "Vector Lakebase" over object storage and open formats [A2-S118].
+- Qdrant frames itself as "composable vector search as core infrastructure" [A2-S107].
 
-**Object-store vectors.** Amazon S3 Vectors was not researched this run. This is a gap.
+**Object-store vectors**
+- Amazon S3 Vectors: GA December 2025 as object storage with native vector indexes (2 billion vectors per index, 10,000 indexes per bucket); priced on storage (US$0.06/GB-month), PUTs and per-query data processed [A2-S081, A2-S082, A2-S083, A2-S087]. AWS positions it as a cheap tier that hands hot vectors to OpenSearch, and as a Bedrock Knowledge Bases store [A2-S092, A2-S093, A2-S089]. It has no native BM25 [A2-S083 lists vector/metadata operations only].
+- turbopuffer keeps all durable state in object storage with SSD/memory caches (cold p50 874 ms vs cached 14 ms) [A2-S124].
+- Milvus 3.0 builds indexes over vectors that stay in object storage/open formats [A2-S118].
 
 **Retrieval quality evidence.** Anthropic's Contextual Retrieval study:
 - Combining contextual embeddings with contextual BM25 cut top-20 retrieval failures by 49%.
@@ -116,9 +116,10 @@ Fields marked `Not publicly verified` in L6 mostly mean *not researched*, not *a
 - OpenAI and Google: in this run, only embeddings were evidenced for each [A2-S001, A2-S004].
 
 **Embedding and reranking moving into stores**
-- MongoDB: Automated Embedding with Voyage, and the Atlas Embedding and Reranking API [A2-S078, A2-S077]. A native reranking and hybrid search announcement was seen by title only [A2-S078].
+- MongoDB: Automated Embedding with Voyage, the Atlas Embedding and Reranking API [A2-S078, A2-S077], and an index-less `$rerank` aggregation stage using Voyage cross-encoders (preview, MongoDB 8.3+) [A2-S141].
 - Elastic: Elastic Inference Service serves Jina embeddings next to ELSER, and Elastic acquired Jina's rerankers [A2-S042, A2-S023].
-- Pinecone: server-side embedding via `create_for_model` [A2-S051]. Pinecone hosted rerank models were not verified this run.
+- Pinecone: server-side embedding via `create_for_model` [A2-S051]; hosted rerankers pinecone-rerank-v0, Cohere Rerank 3.5 and bge-reranker-v2-m3, plus sparse model pinecone-sparse-english-v0 [A2-S101].
+- Elastic: semantic_text now defaults to Jina v5 embeddings; 9.5 previews a multimodal semantic field on jina-embeddings-v5-omni [A2-S133].
 - Qdrant Cloud: server-side inference [A2-S052].
 
 **Late interaction.** Sentence Transformers v6 added a Multi-Vector Encoder for ColBERT-style late interaction [A2-S029, A2-S028]. ColPali-specific evidence was not gathered.
@@ -155,7 +156,7 @@ None of the candidates below was added to `products.json`: the search budget ran
 
 - **L6: Azure AI Search.** Microsoft's managed hybrid (BM25 + vector + semantic ranker) retrieval service; the default for Azure-centred enterprises. Not researched.
 - **L6: Vertex AI Vector Search / Agent Retrieval (Google).** Google docs now include an "Agent Retrieval" vector-search-2 section with automatic embedding generation. It appeared only as a URL in a search result list (docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/embeddings/autogenerating-embeddings, seen in the search behind A2-S038). Not researched.
-- **L6: OpenSearch (incl. Amazon OpenSearch Service).** The fork alternative to Elasticsearch, noted in `L6-elasticsearch`. opensearch-py 3.2.0 (27 April 2026, Apache-2.0) [A2-S058]. Server facts not researched.
+- **L6: OpenSearch (incl. Amazon OpenSearch Service).** The fork alternative to Elasticsearch, noted in `L6-elasticsearch`. OpenSearch 3.9.0 released 29 September 2026; hybrid/RRF, quantisation and a 2026 roadmap for composable reranking pipelines [A2-S136]; S3 Vectors integration [A2-S093]. Not given its own record (kept inside L6-elasticsearch).
 - **L6: Oracle AI Vector Search / SQL Server vector type.** General-purpose databases with vector support, relevant to H5. Not researched.
 - **L7: Amazon Bedrock embeddings and Rerank API.** AWS-native embed and rerank. A Bedrock Rerank API announcement (December 2024) appeared in a search result list only. Not researched.
 - **L7: Google Vertex AI ranking API.** Google's reranker, which would complete the Gemini embed-plus-rerank pairing. Not researched.
@@ -163,20 +164,25 @@ None of the candidates below was added to `products.json`: the search budget ran
 
 ## (e) Gaps: what could not be verified, and why
 
-1. **Shared web-search budget exhausted (200 calls per turn across all agents).** Hit while researching Pinecone. Everything below in this list follows from that, because no further searches were possible.
-2. **Amazon S3 Vectors.** Entirely unresearched: GA status, limits, pricing, regions. Highest-priority follow-up.
-3. **Qdrant, Weaviate, Milvus/Zilliz, turbopuffer, Chroma.** Server versions and server licences (Qdrant, Weaviate), managed-cloud pricing, BYOC/hybrid offerings, SOC 2/ISO/HIPAA, EU regions, SSO/RBAC/audit logs, CMK, and 2025–2026 funding are unverified. Only PyPI client facts are verified.
-4. **Pinecone.** Price list (beyond the US$20/month Builder tier), certifications, CMK, SSO/RBAC/audit logs and built-in reranking are not verified. The Frankfurt region is known from a headline only.
-5. **Elasticsearch.** Server version (inferred 9.x from the client) and licence (Elastic License/SSPL/AGPL options) not verified. Cluster pricing not verified.
-6. **MongoDB Vector Search.** Certifications, pricing, GA status of self-managed vector search, and the content of the "native reranking and hybrid search" announcement are not verified.
-7. **pgvector.** Extension licence not verified this run, and the CVE number in 0.8.7 (CVE-2026-103484) looks unusual. pgvectorscale's latest version was not found (last seen 0.6, March 2025).
-8. **L7 enterprise controls.** Not found for:
-   - SSO/RBAC/audit logs for Voyage, Cohere and Jina
-   - HIPAA BAAs for Cohere and Voyage
-   - EU residency for Voyage, Cohere-hosted and Qwen-hosted endpoints
-   - CMK for any embedding API
-   - Whether OpenAI's EU residency covers `/embeddings`
-   - Whether the hosted Jina API is in Elastic's SOC 2 scope
-9. **Prices not found:** Cohere Rerank per-search price and Jina API per-token price.
-10. **Benchmarks.** The live MTEB leaderboard (huggingface.co) is blocked, so no current rank is asserted.
-11. **Direct fetch blocked.** All vendor domains except pypi.org, cloud.google.com/blog, anthropic.com and docs.claude.com are blocked by policy. Primary sources were therefore read through search-tool extracts, which caps confidence at `medium` unless a second source agrees.
+The first pass exhausted the shared web-search budget. The follow-up pass on 7 October 2026 closed most L6 gaps. These items remain open:
+
+1. **S3 Vectors.** HIPAA eligibility and certification scope of S3 Vectors specifically. CloudTrail data-event coverage. Exact region list (count approximate, ~34). Non-US-region price variation.
+2. **Pinecone.** CMEK cloud coverage beyond AWS. The pricing-page snapshot may be stale (the storage rate conflicts: US$0.33 vs US$0.25/GB import). Frankfurt region launch date.
+3. **Qdrant.** ISO 27001 (not found). SSO/RBAC for Qdrant Cloud. Current managed pricing (structured-data figures only).
+4. **Weaviate.** Whether the Enterprise Edition licence PR is merged and shipped in a stable release; no official announcement found. Whether BYOC is in certification scope. Tier naming/pricing conflicts. 2025–2026 funding.
+5. **Milvus/Zilliz.** Zilliz Dedicated price per unit (captured figure anomalous). BYOC pricing. Zilliz Cloud 2.6 GA date conflict.
+6. **turbopuffer.** Region list. Funding amounts; revenue is from an aggregator only.
+7. **Chroma.** CMEK details (changelog title only). Reason for no PyPI release since May 2026.
+8. **Elasticsearch.** Which Elastic Cloud subscription includes SSO/audit logging (self-managed: Platinum). Cluster pricing.
+9. **MongoDB.** GA date of self-managed Search (inferred c. July 2026 from page age). GA status of EU Geography (preview at launch; later roundup says GA). rerank-3 support in `$rerank` docs. Search Node price tables conflict.
+10. **pgvector.** Extension licence. The CVE number in 0.8.7 (CVE-2026-103484) looks unusual. Managed-Postgres host features. pgvectorscale latest version (last seen 0.6, March 2025).
+11. **L7 enterprise controls.**
+    - Cohere SSO/SAML and audit-log export (not found).
+    - Voyage/Atlas API SOC 2 report scope; MongoDB points to a separate VoyageAI Trust Portal.
+    - CMK for hosted embedding APIs (none found for OpenAI, Cohere or Voyage).
+    - Jina API SOC 2 scope.
+    - Qwen-hosted EU region.
+12. **Prices not found.** Cohere Rerank per-search price and Jina API per-token price.
+13. **Benchmarks.** Live MTEB leaderboard blocked; no current rank asserted.
+14. **Missing-product candidates.** Azure AI Search, Vertex AI Vector Search/Agent Retrieval, Oracle/SQL Server vectors, Bedrock embeddings/Rerank, Vertex ranking API and Mixedbread/ZeroEntropy were not researched.
+15. **Conflict of interest.** Anthropic (the author's parent) is a named turbopuffer customer [A2-S126] and authored A2-S070 and A2-S071.

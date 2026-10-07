@@ -1,0 +1,14 @@
+SOURCE ID: A6-S095
+URL: https://www.skyflow.com/gdpr-compliance
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Skyflow 2026 funding acquisition SOC 2 ISO 27001 data residency EU LLM privacy vault (site:skyflow.com)
+========================================================================
+
+Related: https://www.skyflow.com/data-privacy-vault ; https://www.skyflow.com/post/generative-ai-data-privacy-skyflow-llm-privacy-vault ; https://www.skyflow.com/solutions/by-compliance/soc-2 ; https://docs.skyflow.com/docs/fundamentals/product-overview ; https://www.skyflow.com/press ; https://www.skyflow.com/post/indonesias-pdp-law-ease-compliance-with-skyflow
+
+Extract as returned by search tool:
+Skyflow's site says it complies with ISO 27001, SOC 2 Type 1 and Type 2, PCI Level 1, GDPR, HIPAA, and more. One regional blog describes Skyflow as "certified SOC2 Type 2, ISO 27001, and PCI Level 1 compliant."
+The LLM Privacy Vault "is built on our global data privacy vault infrastructure that is available in over 100 countries", which lets customers keep sensitive data in a vault in their chosen country or region. For GDPR, customers can store all sensitive personal data in Skyflow's EU data privacy vaults; the company says it can "host your vaults in the EU or anywhere else in the world." A regional deployment exists in AWS Jakarta.
+LLM privacy vault: de-identifies sensitive data through tokenization or masking and includes a sensitive data dictionary that defines terms that should not be sent to LLMs. The docs say it prevents sensitive data from leaking into models, prompts, RAG systems, tools, traces, and agent workflows, and that data can be rehydrated when access is authorized.
+No acquisition of or by Skyflow found. Press page lists a Dentsu Ventures investment (no amount/date), a Runtime Data Control for Enterprise AI Search launch and a partnership with Coralogix.

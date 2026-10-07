@@ -806,13 +806,12 @@
   "layer": "C5",
   "original_label": null,
   "current_name": {
-   "v": "LaunchDarkly AI Configs",
+   "v": "LaunchDarkly AgentControl (formerly AI Configs; API unchanged)",
    "label": "Verified fact",
    "src": [
-    "A7-S059",
-    "A7-S089"
+    "A7-S117"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "company": {
    "v": "LaunchDarkly",
@@ -831,9 +830,10 @@
    "conf": "high"
   },
   "version_or_lineup": {
-   "v": "launchdarkly-server-sdk-ai (Python) 1.2.0 released 17 July 2026",
+   "v": "AI Configs GA 28 May 2025; online evals GA 11 March 2026; renamed AgentControl (launch post 12 May 2026; rebrand noted by 1 April 2026); Python AI SDK launchdarkly-server-sdk-ai 1.2.0 (17 July 2026)",
    "label": "Verified fact",
    "src": [
+    "A7-S117",
     "A7-S059"
    ],
    "conf": "high"
@@ -847,16 +847,24 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Repositioned from prompt/model configuration to an operational layer for agents in production: agents, tools, trends, approvals, online evals with custom judges",
+   "label": "Verified fact",
+   "src": [
+    "A7-S117"
+   ],
+   "conf": "medium"
   },
   "status_events": {
-   "v": [],
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": [
+    "28 May 2025: AI Configs GA",
+    "11 March 2026: online evals GA",
+    "12 May 2026: 'Introducing AgentControl' (AI Configs renamed AgentControl)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A7-S117"
+   ],
+   "conf": "medium"
   },
   "what_it_does": {
    "v": "Applications request an AI Config per user context; LaunchDarkly returns the model name, parameters and messages, with variable interpolation and a code-side default used if the service is unavailable. A tracker records token usage, latency and success rates per configuration.",
@@ -895,9 +903,10 @@
     "v": "Yes",
     "label": "Verified fact",
     "src": [
-     "A7-S089"
+     "A7-S089",
+     "A7-S119"
     ],
-    "conf": "medium"
+    "conf": "high"
    },
    "managed_cloud": {
     "v": "Not publicly verified",
@@ -912,10 +921,12 @@
     "conf": "low"
    },
    "private_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (dedicated US federal instance, FedRAMP Moderate)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S119"
+    ],
+    "conf": "medium"
    },
    "self_hosted": {
     "v": "Not publicly verified",
@@ -931,16 +942,20 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 Type II, ISO 27001, ISO 27701, FedRAMP Moderate (Federal instance), EU-U.S. Data Privacy Framework; annual SOC 2 Type 2 audit and twice-yearly penetration tests per Security Program Addendum",
+   "label": "Verified fact",
+   "src": [
+    "A7-S119"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "GDPR/CCPA privacy programme; EU-hosted offering supporting EU data residency advertised (regions not detailed); multi-tenant with exceptions for large and US federal customers",
+   "label": "Verified fact",
+   "src": [
+    "A7-S119"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Not publicly verified",
@@ -955,16 +970,21 @@
    "conf": "low"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Enterprise plan with custom pricing; 'Enterprise uptime SLA' advertised",
+   "label": "Verified fact",
+   "src": [
+    "A7-S118",
+    "A7-S119"
+   ],
+   "conf": "high"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Developer: US$0 (limited AgentControl run entitlements); Foundation: US$10 per service connection/month incl. 5,000 AI runs, US$5 per additional 1,000 runs; Enterprise: custom. An AI run = each model call or judge run (as read 7 October 2026; cached snippets of different ages)",
+   "label": "Verified fact",
+   "src": [
+    "A7-S118"
+   ],
+   "conf": "medium"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -1037,9 +1057,12 @@
   "scores": null,
   "sources": [
    "A7-S059",
-   "A7-S089"
+   "A7-S089",
+   "A7-S117",
+   "A7-S118",
+   "A7-S119"
   ],
-  "stage_a_notes": "launchdarkly.com blocked and search budget exhausted: certifications, regions, pricing and AI Configs GA date not verified. Relevant pattern: experiment/rollout semantics applied to prompts and model choice.",
+  "stage_a_notes": "AgentControl is an add-on whose availability depends on plan. EU residency scope (which data stays in the EU) not detailed in sources.",
   "last_verified": "2026-10-07"
  },
  {
@@ -1598,10 +1621,10 @@
    "conf": "high"
   },
   "company": {
-   "v": "Helicone (Y Combinator company); acquisition status not publicly verified - no acquisition notice in the repository README as of 7 October 2026",
+   "v": "Helicone, acquired by Mintlify (announced and completed 3 March 2026)",
    "label": "Verified fact",
    "src": [
-    "A7-S046"
+    "A7-S112"
    ],
    "conf": "medium"
   },
@@ -1632,18 +1655,22 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Repositioned from logging proxy to 'AI Gateway & LLM Observability Platform': 100+ models via one OpenAI-compatible API with routing and fallbacks, plus prompt management and fine-tuning partners",
+   "v": "After acquisition, founders moved to Mintlify to work on AI knowledge infrastructure; Helicone in maintenance mode",
    "label": "Verified fact",
    "src": [
-    "A7-S046"
+    "A7-S112"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "status_events": {
-   "v": [],
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": [
+    "3 March 2026: acquired by Mintlify; product in maintenance mode (security and bug fixes, new model support; standalone feature development wound down)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A7-S112"
+   ],
+   "conf": "medium"
   },
   "what_it_does": {
    "v": "Proxies or logs LLM requests, then tracks cost, latency and quality per request, session and user; supports prompt versioning and an AI gateway with fallbacks.",
@@ -1772,10 +1799,10 @@
    "conf": "low"
   },
   "adoption_signals": {
-   "v": "Y Combinator-backed (README badge)",
+   "v": "Helicone states 14.2 trillion tokens processed and 16,000 organisations served over three years",
    "label": "Verified fact",
    "src": [
-    "A7-S046"
+    "A7-S112"
    ],
    "conf": "medium"
   },
@@ -1795,10 +1822,12 @@
     "conf": "low"
    },
    "acquisition": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Acquired by Mintlify (March 2026); maintenance mode",
+    "label": "Verified fact",
+    "src": [
+     "A7-S112"
+    ],
+    "conf": "medium"
    },
    "funding": {
     "v": "Not publicly verified",
@@ -1819,12 +1848,13 @@
     "conf": "low"
    },
    "maturity": {
-    "v": "Release activity on npm stopped after November 2025 (activity signal only)",
+    "v": "Feature development wound down; npm releases stopped after November 2025",
     "label": "Verified fact",
     "src": [
+     "A7-S112",
      "A7-S047"
     ],
-    "conf": "medium"
+    "conf": "high"
    }
   },
   "assessment": null,
@@ -1833,9 +1863,10 @@
   "sources": [
    "A7-S005",
    "A7-S046",
-   "A7-S047"
+   "A7-S047",
+   "A7-S112"
   ],
-  "stage_a_notes": "Brief asked to check a reported acquisition: could not be verified (helicone.ai blocked; web-search budget exhausted before this check). Stage B should re-check Helicone ownership and activity before recommending it.",
+  "stage_a_notes": "Maintenance-mode status rests partly on a secondary migration post; licence of the separate Rust AI Gateway reported as GPL-3.0 (secondary). Stage B: treat as non-strategic.",
   "last_verified": "2026-10-07"
  },
  {
@@ -1879,9 +1910,10 @@
    "conf": "low"
   },
   "strategic_direction": {
-   "v": "Exposes cost data to AI assistants through the Vantage MCP Server (hosted at mcp.vantage.sh with OAuth 2.1 over Streamable HTTP, or self-hosted via npx); legacy SSE endpoint scheduled for retirement on 30 November 2026",
+   "v": "AI cost management: native Anthropic API (GA September 2025), Claude Enterprise (July 2026) and OpenAI integrations; Managed AI Tags (vntg:ai: model, provider, token type) normalise AI spend across providers; hosted MCP server (OAuth 2.1) for cost queries",
    "label": "Verified fact",
    "src": [
+    "A7-S113",
     "A7-S090"
    ],
    "conf": "high"
@@ -1893,9 +1925,10 @@
    "conf": "low"
   },
   "what_it_does": {
-   "v": "Lets users query organisation cloud cost spend, cost tagging and provider integrations; the MCP server lists, queries and creates Vantage resources.",
+   "v": "Ingests cloud and AI-provider billing (token counts by model, workspace, API key, service tier for Anthropic; by model and operation for OpenAI) and allocates costs via virtual tagging and hierarchical allocation; exposes data through API and MCP.",
    "label": "Verified fact",
    "src": [
+    "A7-S113",
     "A7-S090"
    ],
    "conf": "high"
@@ -1913,9 +1946,10 @@
    "conf": "low"
   },
   "integration_model": {
-   "v": "Vantage API (API tokens), hosted and local MCP server",
+   "v": "Provider admin API keys (Anthropic Admin API, Claude Enterprise Analytics API), cloud billing integrations; Vantage API and MCP server; internal VQL schema maps to FOCUS",
    "label": "Verified fact",
    "src": [
+    "A7-S113",
     "A7-S090"
    ],
    "conf": "high"
@@ -1991,10 +2025,12 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Managed AI Tags at no additional cost; AI provider costs count toward Vantage quota tiers (tier prices not verified)",
+   "label": "Verified fact",
+   "src": [
+    "A7-S113"
+   ],
+   "conf": "medium"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -2062,9 +2098,10 @@
   "classification": null,
   "scores": null,
   "sources": [
-   "A7-S090"
+   "A7-S090",
+   "A7-S113"
   ],
-  "stage_a_notes": "vantage.sh blocked and search budget exhausted: AI/LLM provider cost integrations (e.g. OpenAI, Anthropic), FOCUS support, certifications, pricing and ownership not verified.",
+  "stage_a_notes": "Certifications, EU region, pricing tiers and ownership not verified.",
   "last_verified": "2026-10-07"
  },
  {
@@ -2108,10 +2145,12 @@
    "conf": "low"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Publishes extensive AI-pricing content and positions on AI cost allocation: integrations for OpenAI, Anthropic direct API, Amazon Bedrock, Claude Platform on AWS and Azure OpenAI",
+   "label": "Verified fact",
+   "src": [
+    "A7-S114"
+   ],
+   "conf": "medium"
   },
   "status_events": {
    "v": [],
@@ -2120,9 +2159,10 @@
    "conf": "low"
   },
   "what_it_does": {
-   "v": "The open-source CloudZero Agent collects Kubernetes resource and metrics telemetry (webhook server, collector, shipper) and uploads it to the CloudZero platform for cost allocation and analysis.",
+   "v": "Ingests token-level usage and cost from AI providers and cloud bills and allocates it by customer, feature, team, product and environment via the CostFormation engine; a Kubernetes agent supplies container telemetry.",
    "label": "Verified fact",
    "src": [
+    "A7-S114",
     "A7-S091"
    ],
    "conf": "high"
@@ -2236,10 +2276,12 @@
    "conf": "low"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Vendor claims to be the first cloud cost platform to integrate directly with Anthropic; reports customers' Bedrock spend typically 1.5x-2x initial estimates",
+   "label": "Verified fact",
+   "src": [
+    "A7-S114"
+   ],
+   "conf": "medium"
   },
   "maturity": {
    "v": "Not publicly verified",
@@ -2289,9 +2331,10 @@
   "classification": null,
   "scores": null,
   "sources": [
-   "A7-S091"
+   "A7-S091",
+   "A7-S114"
   ],
-  "stage_a_notes": "cloudzero.com blocked and search budget exhausted: AI-spend features, FOCUS support, certifications, pricing and ownership not verified.",
+  "stage_a_notes": "Certifications, EU region, pricing and ownership not verified. Claims are from CloudZero's own blog.",
   "last_verified": "2026-10-07"
  },
  {
@@ -2340,11 +2383,11 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Scope extended from cloud to SaaS, data centre and other technology categories; v1.2 added SaaS examples; conformance programme 'FinOps Certified FOCUS Conformant' for data generators",
+   "v": "FinOps Framework 2026 adds a 'FinOps for AI' technology category; State of FinOps 2026 ranks FinOps for AI the top forward-looking priority (98% of respondents manage AI spend); FOCUS 1.5 is scoped to surface AI model identity and input/output token consumption plus a price-sheet dataset; FinOps and Linux Foundations announced intent to form a Tokenomics Foundation for AI billing standards",
    "label": "Verified fact",
    "src": [
-    "A7-S048",
-    "A7-S049"
+    "A7-S115",
+    "A7-S116"
    ],
    "conf": "high"
   },
@@ -2466,12 +2509,13 @@
    "conf": "low"
   },
   "ecosystem": {
-   "v": "Text search of the FOCUS changelog (v0.5-v1.4) found no AI-, LLM- or token-specific columns; AI usage would be carried in generic usage/cost columns",
+   "v": "Tokens are representable today via FOCUS 1.2 virtual-currency columns and SKU/ConsumedUnit/ConsumedQuantity, with no AI-specific columns; AI-specific fields (model identity, input/output tokens; stretch: cached vs fresh tokens, global vs regional serving) are scoped for FOCUS 1.5 (release date not confirmed). Vendors such as Vantage map their schemas to FOCUS.",
    "label": "Verified fact",
    "src": [
-    "A7-S049"
+    "A7-S116",
+    "A7-S113"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "adoption_signals": {
    "v": "Not publicly verified",
@@ -2532,9 +2576,12 @@
    "A7-S048",
    "A7-S049",
    "A7-S050",
-   "A7-S096"
+   "A7-S096",
+   "A7-S113",
+   "A7-S115",
+   "A7-S116"
   ],
-  "stage_a_notes": "FinOps Foundation 'FinOps for AI' guidance could not be retrieved (finops.org blocked; search budget exhausted) - Not publicly verified. Conclusion about absence of token-specific columns is from a text search of the changelog only; Stage B should confirm against the v1.4 column list.",
+  "stage_a_notes": "Correction to first pass: a changelog text search for 'token' missed the FOCUS 1.2 virtual-currency (credits/tokens) columns. FinOps for AI practitioner guidance captured in notes (budgets at 110-120% of a 30-60-day baseline; pair caps with engineering quotas).",
   "last_verified": "2026-10-07"
  },
  {
@@ -2982,20 +3029,22 @@
    }
   },
   "certifications": {
-   "v": "FedRAMP status for Prisma AIRS not confirmed; API intercept 'not available in FedRAMP-authorized cloud environments'. SOC 2/ISO not verified.",
+   "v": "Prisma AIRS not listed among Palo Alto Networks' FedRAMP-authorised offerings (Prisma Cloud, Prisma Access, Prisma SASE are); API intercept unavailable in FedRAMP environments. SOC 2/ISO for AIRS not verified.",
    "label": "Verified fact",
    "src": [
+    "A7-S120",
     "A7-S031"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "gdpr_residency": {
-   "v": "Setup docs: Strata Cloud Manager tenant US regions only, logs stored in US, AI traffic sent to US for inspection; AI Model Security available in US, EU (Netherlands), Japan, Singapore; AI Skill Security US only; Japan local cloud announced June 2026",
+   "v": "API Intercept regions: Americas, EU-Germany, India, Singapore, Japan (region determines processing and storage), but in EU-Germany URL category detection and contextual grounding run via the Netherlands; older firewall setup pages state US-only inspection; AI Model Security in US, EU-Netherlands, Japan, Singapore; AI Skill Security and AI Discovery Americas only",
    "label": "Verified fact",
    "src": [
+    "A7-S120",
     "A7-S031"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "security_features": {
    "v": "Not publicly verified",
@@ -3102,9 +3151,10 @@
    "A7-S028",
    "A7-S031",
    "A7-S039",
-   "A7-S063"
+   "A7-S063",
+   "A7-S120"
   ],
-  "stage_a_notes": "Conflict: setup docs say all AI traffic is inspected in the US; a June 2026 blog announces a Japan local cloud and model security lists EU-Netherlands. Conflict on naming: 'AI Agent Gateway' (limited preview, March 2026) vs 'AI Gateway' (GA July 2026). Protect AI Guardian appears to have become Prisma AIRS AI Model Security (secondary sources only).",
+  "stage_a_notes": "Region documentation conflicts (newer API Intercept region table vs older firewall prerequisites). Conflict on naming: 'AI Agent Gateway' (preview, March 2026) vs 'AI Gateway' (GA July 2026). Protect AI Guardian appears to have become Prisma AIRS AI Model Security (secondary).",
   "last_verified": "2026-10-07"
  },
  {
@@ -4332,10 +4382,12 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Claims to meet SOC 2, GDPR and CCPA requirements (platform page; SOC 2 type not stated); no ISO 27001/42001 certificate found",
+   "label": "Verified fact",
+   "src": [
+    "A7-S121"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
    "v": "Not publicly verified",
@@ -4389,10 +4441,11 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "validmind package first published on PyPI 11 May 2023",
+   "v": "validmind package first published on PyPI 11 May 2023; vendor states Chartis ranked it No. 1 AI Governance Platform in RiskTech100 2026",
    "label": "Verified fact",
    "src": [
-    "A7-S003"
+    "A7-S003",
+    "A7-S121"
    ],
    "conf": "high"
   },
@@ -4457,9 +4510,10 @@
    "A7-S056",
    "A7-S057",
    "A7-S084",
-   "A7-S097"
+   "A7-S097",
+   "A7-S121"
   ],
-  "stage_a_notes": "Regulatory support (vendor claims, from docs): SR 26-2 [VF:A7-S051], SS1/23 [A7-S052], EU AI Act [A7-S053], OSFI E-23 [A7-S057]. NIST AI RMF and ISO/IEC 42001: not found in pages fetched (Not publicly verified). IMPORTANT for Stage B: ValidMind docs state SR 26-2 (Fed/FDIC/OCC, 17 April 2026) supersedes SR 11-7 and explicitly excludes generative and agentic AI from scope; regulator page (federalreserve.gov) was blocked, so this regulatory fact rests on a vendor document and needs primary confirmation. Certifications, SSO and pricing not verified (validmind.com blocked).",
+  "stage_a_notes": "Regulatory support (vendor claims): SR 26-2 [A7-S051], PRA SS1/23 [A7-S052], EU AI Act [A7-S053], OSFI E-23 [A7-S057]; NIST AI RMF and ISO/IEC 42001 discussed in blog content only, no product mapping verified [A7-S121]. ValidMind docs state SR 26-2 (17 April 2026) supersedes SR 11-7 and excludes generative/agentic AI; stream 8 has independently sourced SR 26-2 from regulators. Funding not found.",
   "last_verified": "2026-10-07"
  },
  {
@@ -4467,10 +4521,10 @@
   "layer": "C8",
   "original_label": null,
   "current_name": {
-   "v": "Credo AI (AI governance platform)",
+   "v": "Credo AI AI governance platform (AI Registry, policy packs, Govern AI Assistant)",
    "label": "Verified fact",
    "src": [
-    "A7-S092"
+    "A7-S102"
    ],
    "conf": "medium"
   },
@@ -4484,12 +4538,13 @@
    "conf": "high"
   },
   "category": {
-   "v": "AI governance platform",
+   "v": "AI governance platform (registry, policy packs, evidence, third-party AI risk)",
    "label": "Verified fact",
    "src": [
-    "A7-S092"
+    "A7-S102",
+    "A7-S110"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "version_or_lineup": {
    "v": "Not publicly verified",
@@ -4498,16 +4553,22 @@
    "conf": "low"
   },
   "licence_model": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Proprietary (SaaS and self-hosted); open-source Lens deprecated",
+   "label": "Verified fact",
+   "src": [
+    "A7-S107",
+    "A7-S123",
+    "A7-S092"
+   ],
+   "conf": "high"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Moving to agent governance: Agent Registry, runtime governance and Govern AI Assistant (GA in 2026); AIUC-1 agent standard integrated (Credo does not issue certification); policy packs for OMB M-25, Colorado ADMT, NAIC AI",
+   "label": "Verified fact",
+   "src": [
+    "A7-S102"
+   ],
+   "conf": "medium"
   },
   "status_events": {
    "v": [
@@ -4521,18 +4582,20 @@
    "conf": "high"
   },
   "what_it_does": {
-   "v": "Lens (deprecated) standardised model and data assessments and connected models to responsible-AI tools in notebooks or CI; current platform capabilities not verified.",
+   "v": "Auto-discovers and catalogues AI systems in an AI Registry, applies pre-built policy packs (EU AI Act, NIST AI RMF, ISO 42001, SOC 2) from a knowledge graph of 160+ policies and 110+ controls, and generates audit-ready evidence and audit trails.",
    "label": "Verified fact",
    "src": [
-    "A7-S092"
+    "A7-S102"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "stack_position": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "C8 enterprise AI governance (policy/compliance evidence) rather than model-level validation; vendor contrasts this with SR 11-7 model risk management",
+   "label": "Verified fact",
+   "src": [
+    "A7-S110"
+   ],
+   "conf": "medium"
   },
   "dependencies": {
    "v": "Not publicly verified",
@@ -4541,17 +4604,23 @@
    "conf": "low"
   },
   "integration_model": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Integrations with Microsoft Azure, IBM watsonx, Databricks, Collibra and 30+ partners; audit-log APIs; SCIM provisioning",
+   "label": "Verified fact",
+   "src": [
+    "A7-S102",
+    "A7-S110",
+    "A7-S123"
+   ],
+   "conf": "high"
   },
   "deployment": {
    "saas": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (AWS US; Azure EU)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S107"
+    ],
+    "conf": "medium"
    },
    "managed_cloud": {
     "v": "Not publicly verified",
@@ -4572,29 +4641,37 @@
     "conf": "low"
    },
    "self_hosted": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (Kubernetes, EKS validated, Replicated)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S123"
+    ],
+    "conf": "medium"
    },
    "on_prem": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (air-gapped install supported)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S123"
+    ],
+    "conf": "medium"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 Type II (report dated 31 December 2025; Q3 2026 bridge letter) covering security, availability, confidentiality; no ISO 27001/42001 certificate found",
+   "label": "Verified fact",
+   "src": [
+    "A7-S107"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "EU hosting on Microsoft Azure in Europe; US hosting on AWS",
+   "label": "Verified fact",
+   "src": [
+    "A7-S107"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Not publicly verified",
@@ -4603,16 +4680,20 @@
    "conf": "low"
   },
   "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SSO via OIDC (SAML via dex) for self-hosted; SCIM; audit logs and audit-log APIs; role scopes in tokens",
+   "label": "Verified fact",
+   "src": [
+    "A7-S123"
+   ],
+   "conf": "medium"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Advisory services; vendor claims governance workflows stood up in 4 weeks",
+   "label": "Verified fact",
+   "src": [
+    "A7-S102"
+   ],
+   "conf": "medium"
   },
   "pricing": {
    "v": "Not publicly verified",
@@ -4633,10 +4714,12 @@
    "conf": "low"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Vendor-stated: Visionary in Gartner's inaugural Magic Quadrant for AI Governance Platforms; Leader per Forrester and IDC; Fast Company Most Innovative 2026",
+   "label": "Verified fact",
+   "src": [
+    "A7-S102"
+   ],
+   "conf": "medium"
   },
   "maturity": {
    "v": "Not publicly verified",
@@ -4658,9 +4741,11 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Total funding reported c. US$39-42m; last disclosed round US$21m Series B, July 2024",
+    "label": "Reported",
+    "src": [
+     "A7-S108"
+    ],
     "conf": "low"
    },
    "ecosystem_dependency": {
@@ -4687,9 +4772,14 @@
   "scores": null,
   "sources": [
    "A7-S092",
-   "A7-S093"
+   "A7-S093",
+   "A7-S102",
+   "A7-S107",
+   "A7-S108",
+   "A7-S110",
+   "A7-S123"
   ],
-  "stage_a_notes": "credo.ai blocked and search budget exhausted: current product, certifications (incl. ISO 42001), deployment, pricing, regulatory-framework claims and any 2025-2026 funding or acquisition are Not publicly verified. Only the deprecation of the open-source Lens library is verified.",
+  "stage_a_notes": "Regulatory claims (vendor): EU AI Act, NIST AI RMF, ISO 42001 policy packs [A7-S102]; no SR 11-7/SR 26-2 or PRA SS1/23 pack found [A7-S110]. Pricing not verified.",
   "last_verified": "2026-10-07"
  },
  {
@@ -4722,9 +4812,11 @@
    "conf": "high"
   },
   "version_or_lineup": {
-   "v": "ibm-watsonx-gov Python SDK 1.5.2 released 18 September 2026",
+   "v": "Continuous SaaS updates (IBM Cloud catalog updated 20 July 2026); v2.2.0 introduced policy packs; 2026 features: AI Asset Discovery (9 July 2026), Enforcement Tracking (11 August 2026), Guardium security metrics; SDK ibm-watsonx-gov 1.5.2 (18 September 2026)",
    "label": "Verified fact",
    "src": [
+    "A7-S103",
+    "A7-S111",
     "A7-S058"
    ],
    "conf": "high"
@@ -4738,10 +4830,12 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Agentic governance: automatic retrieval of agent evaluation metrics against governance thresholds, discovery of unmanaged agents, tools, MCP servers and models, regulatory horizon scanning (CUBE) previewed at Think 2026, integration with watsonx Orchestrate",
+   "label": "Verified fact",
+   "src": [
+    "A7-S111"
+   ],
+   "conf": "medium"
   },
   "status_events": {
    "v": [],
@@ -4750,19 +4844,22 @@
    "conf": "low"
   },
   "what_it_does": {
-   "v": "The SDK evaluates metrics for AI applications and prompt templates, produces model insights and performs model risk evaluation for the watsonx.governance service.",
+   "v": "Inventories AI use cases and models, evaluates models, prompt templates and agents, monitors them in production and ties metrics to risks, controls and approvals; Compliance Accelerators map obligations to controls.",
    "label": "Verified fact",
    "src": [
-    "A7-S058",
-    "A7-S094"
+    "A7-S103",
+    "A7-S111",
+    "A7-S058"
    ],
    "conf": "high"
   },
   "stack_position": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "C8 governance consuming L9 evaluation/monitoring evidence and C7 security findings (Guardium)",
+   "label": "Verified fact",
+   "src": [
+    "A7-S111"
+   ],
+   "conf": "medium"
   },
   "dependencies": {
    "v": "Not publicly verified",
@@ -4781,10 +4878,12 @@
   },
   "deployment": {
    "saas": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (IBM Cloud, AWS)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S103"
+    ],
+    "conf": "medium"
    },
    "managed_cloud": {
     "v": "Not publicly verified",
@@ -4805,23 +4904,29 @@
     "conf": "low"
    },
    "self_hosted": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (software in customer-managed AWS/Azure; licences on both marketplaces)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S103"
+    ],
+    "conf": "medium"
    },
    "on_prem": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (on-premises and hybrid)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S103"
+    ],
+    "conf": "medium"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "FedRAMP-authorised watsonx.governance on AWS GovCloud (IBM page); SOC 2/ISO not verified",
+   "label": "Verified fact",
+   "src": [
+    "A7-S103"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
    "v": "Not publicly verified",
@@ -4848,10 +4953,12 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Lite free tier; Essentials pay-as-you-go (model evaluation US$0.64 per evaluation, about 100 free); GRC per-instance and per-concurrent-user charges; AWS SaaS bundle US$38,160 (1 instance, 12,000 evaluations/year, 5 use cases, 25 concurrent users); self-managed priced per virtual processor core; indicative, varies by country",
+   "label": "Verified fact",
+   "src": [
+    "A7-S103"
+   ],
+   "conf": "medium"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -4866,10 +4973,12 @@
    "conf": "low"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "IBM states Leader in 2026 IDC MarketScape for AI-enabled financial GRC (with OpenPages)",
+   "label": "Verified fact",
+   "src": [
+    "A7-S103"
+   ],
+   "conf": "medium"
   },
   "maturity": {
    "v": "Not publicly verified",
@@ -4920,9 +5029,11 @@
   "scores": null,
   "sources": [
    "A7-S058",
-   "A7-S094"
+   "A7-S094",
+   "A7-S103",
+   "A7-S111"
   ],
-  "stage_a_notes": "ibm.com blocked and search budget exhausted: deployment (SaaS/Cloud Pak for Data on-prem), certifications, EU regions, pricing and regulatory claims (EU AI Act, NIST AI RMF, ISO 42001, SR 11-7) Not publicly verified. SDK capability (evaluation of prompt templates) is relevant to H8 (governance consuming eval evidence).",
+  "stage_a_notes": "Regulatory claims (vendor): EU AI Act, NIST AI RMF, ISO 42001 (product page, policy packs); SR 11-7 and NYC LL144 via Compliance Accelerators (June 2025) [A7-S103]. PRA SS1/23 and SR 26-2: no IBM claim found. Pricing table garbled in source; confirm.",
   "last_verified": "2026-10-07"
  },
  {
@@ -4930,22 +5041,29 @@
   "layer": "C8",
   "original_label": null,
   "current_name": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "ModelOp Center (positioned as 'Enterprise AI Command Center')",
+   "label": "Verified fact",
+   "src": [
+    "A7-S098",
+    "A7-S104"
+   ],
+   "conf": "high"
   },
   "company": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "ModelOp (privately held, Chicago; raised US$10m led by Baird Capital - date not confirmed)",
+   "label": "Verified fact",
+   "src": [
+    "A7-S104"
+   ],
+   "conf": "medium"
   },
   "category": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "AI governance and AI lifecycle automation software",
+   "label": "Verified fact",
+   "src": [
+    "A7-S098"
+   ],
+   "conf": "medium"
   },
   "version_or_lineup": {
    "v": "Not publicly verified",
@@ -4954,16 +5072,21 @@
    "conf": "low"
   },
   "licence_model": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Proprietary",
+   "label": "Verified fact",
+   "src": [
+    "A7-S109"
+   ],
+   "conf": "medium"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Governs ML, GenAI, agentic, internal and third-party AI from intake to retirement; inline protections for agentic systems (prompt injection, PII leakage, unsafe tool use); vendor claims Visionary in 2026 Gartner Magic Quadrant for AI Governance Platforms",
+   "label": "Verified fact",
+   "src": [
+    "A7-S098",
+    "A7-S104"
+   ],
+   "conf": "high"
   },
   "status_events": {
    "v": [],
@@ -4972,16 +5095,21 @@
    "conf": "low"
   },
   "what_it_does": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Maintains an inventory of AI systems with self-service intake, risk tiering and approvals; applies controls from internal policies and regulations via 25+ governance process templates and 100+ tests/controls; risk-based workflows can block non-compliant actions.",
+   "label": "Verified fact",
+   "src": [
+    "A7-S098"
+   ],
+   "conf": "medium"
   },
   "stack_position": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "C8 governance control plane with lifecycle automation; vendor positions Collibra as data governance and Credo as compliance-focused",
+   "label": "Verified fact",
+   "src": [
+    "A7-S098",
+    "A7-S110"
+   ],
+   "conf": "high"
   },
   "dependencies": {
    "v": "Not publicly verified",
@@ -4990,10 +5118,13 @@
    "conf": "low"
   },
   "integration_model": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Out-of-the-box connectors and REST APIs; AWS SageMaker, S3, Redshift, DocumentDB",
+   "label": "Verified fact",
+   "src": [
+    "A7-S104",
+    "A7-S109"
+   ],
+   "conf": "high"
   },
   "deployment": {
    "saas": {
@@ -5009,10 +5140,12 @@
     "conf": "low"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (Kubernetes/Amazon EKS via AWS Marketplace)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S109"
+    ],
+    "conf": "medium"
    },
    "private_cloud": {
     "v": "Not publicly verified",
@@ -5021,16 +5154,20 @@
     "conf": "low"
    },
    "self_hosted": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A7-S109"
+    ],
+    "conf": "medium"
    },
    "on_prem": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (homepage lists Cloud, On-Premise, Hybrid)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S109"
+    ],
+    "conf": "medium"
    }
   },
   "certifications": {
@@ -5064,10 +5201,12 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Available through AWS Marketplace; list pricing not published",
+   "label": "Verified fact",
+   "src": [
+    "A7-S109"
+   ],
+   "conf": "medium"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -5134,8 +5273,13 @@
   "assessment": null,
   "classification": null,
   "scores": null,
-  "sources": [],
-  "stage_a_notes": "Candidate from brief. No primary source reachable (modelop.com blocked; no public PyPI/GitHub package found; web-search budget exhausted before ModelOp searches). All fields Not publicly verified; Stage B should not score without fresh evidence.",
+  "sources": [
+   "A7-S098",
+   "A7-S104",
+   "A7-S109",
+   "A7-S110"
+  ],
+  "stage_a_notes": "Regulatory claims (vendor): EU AI Act, NIST AI RMF, OCC SR 11-7 (some pages cite SR 26-2), ISO 42001, OSFI E-23 AI extensions templates [A7-S098, A7-S110]; PRA SS1/23 not found. Certifications (SOC 2/ISO), SaaS availability, SSO/RBAC and EU region not verified.",
   "last_verified": "2026-10-07"
  },
  {
@@ -5143,22 +5287,31 @@
   "layer": "C8",
   "original_label": null,
   "current_name": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Collibra AI Governance / AI Command Center (Collibra 'Enterprise AI Control Plane')",
+   "label": "Verified fact",
+   "src": [
+    "A7-S099",
+    "A7-S122"
+   ],
+   "conf": "high"
   },
   "company": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Collibra (acquired trail ML, Munich, announced 5 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A7-S105",
+    "A7-S101"
+   ],
+   "conf": "high"
   },
   "category": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "AI governance on a data intelligence/governance platform (AI use-case registry, assessments, controls)",
+   "label": "Verified fact",
+   "src": [
+    "A7-S099",
+    "A7-S122"
+   ],
+   "conf": "high"
   },
   "version_or_lineup": {
    "v": "Not publicly verified",
@@ -5167,34 +5320,51 @@
    "conf": "low"
   },
   "licence_model": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Proprietary SaaS",
+   "label": "Verified fact",
+   "src": [
+    "A7-S122"
+   ],
+   "conf": "medium"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Repositioned as 'The Enterprise AI Control Plane'; adding agent-powered continuous assessment and runtime enforcement via trail ML; code-first registry CLI; AIUC-1 templates (May 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A7-S122",
+    "A7-S105",
+    "A7-S099"
+   ],
+   "conf": "high"
   },
   "status_events": {
-   "v": [],
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": [
+    "January 2025: ISO 42001 certification (Schellman); AI Pact signatory",
+    "5 October 2026: acquisition of trail ML announced (price undisclosed)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A7-S100",
+    "A7-S105"
+   ],
+   "conf": "high"
   },
   "what_it_does": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Provides an AI use-case register and model/agent asset domains, links use cases to model versions and agents from integrated AI platforms, runs EU AI Act and NIST AI RMF assessment templates and 46 controls mapped to EU AI Act, NIST and BCBS 239 articles.",
+   "label": "Verified fact",
+   "src": [
+    "A7-S099"
+   ],
+   "conf": "medium"
   },
   "stack_position": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "C8 governance anchored in the data catalogue and lineage layer (bridges H7 data lineage and AI inventory)",
+   "label": "Verified fact",
+   "src": [
+    "A7-S099",
+    "A7-S122"
+   ],
+   "conf": "high"
   },
   "dependencies": {
    "v": "Not publicly verified",
@@ -5203,23 +5373,30 @@
    "conf": "low"
   },
   "integration_model": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Platform-agnostic connectors to AWS SageMaker, Azure AI Foundry, Databricks; developer CLI manifests; OpenLineage integration",
+   "label": "Verified fact",
+   "src": [
+    "A7-S122",
+    "A7-S099"
+   ],
+   "conf": "high"
   },
   "deployment": {
    "saas": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (managed on AWS and GCP)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S122"
+    ],
+    "conf": "medium"
    },
    "managed_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (Cloud Sites)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S122"
+    ],
+    "conf": "medium"
    },
    "vpc_byoc": {
     "v": "Not publicly verified",
@@ -5247,10 +5424,13 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 1, SOC 2, ISO 27001, 27017, 27018, ISO 42001, FedRAMP, ITAR, HIPAA, TISAX; CSA STAR self-assessment",
+   "label": "Verified fact",
+   "src": [
+    "A7-S106",
+    "A7-S100"
+   ],
+   "conf": "high"
   },
   "gdpr_residency": {
    "v": "Not publicly verified",
@@ -5314,10 +5494,12 @@
     "conf": "low"
    },
    "acquisition": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Acquirer (trail ML, October 2026)",
+    "label": "Verified fact",
+    "src": [
+     "A7-S105"
+    ],
+    "conf": "medium"
    },
    "funding": {
     "v": "Not publicly verified",
@@ -5347,8 +5529,15 @@
   "assessment": null,
   "classification": null,
   "scores": null,
-  "sources": [],
-  "stage_a_notes": "Candidate from brief. collibra.com blocked; only an unrelated 2022 'collibra-core' API client exists on PyPI; web-search budget exhausted. All fields Not publicly verified, including classification/PII integration relevant to H7.",
+  "sources": [
+   "A7-S099",
+   "A7-S100",
+   "A7-S101",
+   "A7-S105",
+   "A7-S106",
+   "A7-S122"
+  ],
+  "stage_a_notes": "Regulatory claims (vendor): EU AI Act, NIST AI RMF, BCBS 239, OSFI E-23 inventory; ISO 42001 held by Collibra itself [A7-S099, A7-S100, A7-S110]. SR 11-7/SR 26-2 and PRA SS1/23 product support not found (a Collibra blog describes SR 26-2 excluding GenAI/agentic AI). Pricing, EU region list and SSO not verified.",
   "last_verified": "2026-10-07"
  },
  {

@@ -1,0 +1,14 @@
+SOURCE ID: A5-S080
+URL: https://docs.x.ai/developers/faq/security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: xAI enterprise security SOC 2 data retention zero data retention API training GDPR (allowed_domains x.ai, docs.x.ai, trust.x.ai)
+========================================================================
+
+Search tool summary:
+- Business/pricing pages list SOC 2 (Type I & II); API FAQ: SOC 2 Type 2 compliant; Trust Center under NDA. HIPAA-eligible deployments with BAA. Product pages mention GDPR, DPAs and EU data residency options (voice, imagine).
+- API FAQ: never trains on API inputs or outputs without explicit permission. Enterprise terms allow xAI to create and own de-identified/aggregated data derived from use, except under ZDR.
+- Default: API requests and responses stored encrypted for 30 days for abuse auditing.
+- ZDR: team-level Console setting; content deleted at the earlier of one hour after inference or delivery; no logs/backups; disables stateful Responses, Files, Collections, Batch APIs.
+- Default endpoint gives no processing-region guarantee; US endpoint us.api.x.ai covers handling, inference, moderation and retained data (not Files, Collections, server-side tools).
+- Grok on Google Cloud Vertex AI governed by Google Cloud policies.

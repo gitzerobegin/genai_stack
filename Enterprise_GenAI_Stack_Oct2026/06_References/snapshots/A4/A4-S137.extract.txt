@@ -1,0 +1,8 @@
+SOURCE ID: A4-S137
+URL: https://www.cerebras.ai/press-release/cerebras-systems-announces-pricing-of-initial-public-offering
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cerebras IPO Nasdaq CBRS 2026 listing priced
+========================================================================
+
+Cerebras priced its IPO at $185 per share on May 13, 2026; trading on Nasdaq under CBRS began the next day. Offering: 30,000,000 Class A shares at $185.00, underwriters' 30-day option for up to 4,500,000 additional shares; proceeds about $5.55 billion (initially marketed at $150-$160). Secondary coverage (Yahoo Finance/Motley Fool): opened at $350, closed first day $311.07 (+68.15%); "biggest IPO of 2026 so far". Around 5 October 2026 shares traded ~$183-184 (secondary, Kalkine). Lock-up expiry listed 10 November (MarketBeat, secondary). Market-cap figures conflict across sources (~$39.8B vs ~$56.4B fully diluted).

@@ -1,0 +1,9 @@
+SOURCE ID: A7-S123
+URL: https://docs.selfhost.credo.ai/docs/self-hosted/installation/common/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Credo AI deployment options SaaS VPC on-premises SSO RBAC audit log (allowed_domains credo.ai)
+========================================================================
+
+docs.selfhost.credo.ai: "Credo AI is designed to run on any distribution of Kubernetes"; Amazon EKS is the validated platform; installation can be online, air-gapped, on an existing cluster or embedded cluster; deployment uses Replicated's kotsadmin. Self-hosted requires an OIDC identity provider and OAuth2 authorization server; SAML via optional bundled dex; local user authentication not available. Private VPC S3 endpoint supported for storage. Okta guide references a credoai.roles scope.
+trust.credo.ai lists documents "Audit Logs - Overview", "Audit Log APIs" and SCIM provisioning configuration; SaaS hosted on AWS (US) and Azure (EU). Product page: automated evidence generation and audit trails.

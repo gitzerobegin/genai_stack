@@ -1,0 +1,8 @@
+SOURCE ID: A4-S139
+URL: https://inference-docs.cerebras.ai/support/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cerebras inference pricing per million tokens developer plan enterprise; Cerebras data centers Europe
+========================================================================
+
+Pay-per-token (Exploration) tier rates per 1M tokens: Llama 3.1 8B $0.10 in / $0.10 out; Llama 3.3 70B $0.85 / $1.20; Qwen 3 32B $0.40 / $0.80; DeepSeek R1 Distill Llama 70B $2.20 / $2.50; ~1,700-2,600 tokens/s. Free tier capped at 8,192-token context. Enterprise: custom flat monthly pricing on 3, 6 or 12-month contracts based on max tokens per minute; fine-tuned models, custom SLAs, dedicated support; billing via AWS Marketplace available. Cerebras Code: Pro $50/month, Max $200/month. (Page labels pay-per-token in places as "coming soon"; older 2024 launch rates differ.)

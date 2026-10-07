@@ -1,0 +1,12 @@
+SOURCE ID: A5-S050
+URL: https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CAISI evaluation DeepSeek V4 Pro findings May 2026 (allowed_domains nist.gov)
+========================================================================
+
+Search tool summary:
+- CAISI evaluated the open-weight DeepSeek V4 Pro in April 2026 and published 1 May 2026.
+- CAISI evaluations indicate DeepSeek V4's capabilities lag the frontier by about 8 months; most capable PRC model CAISI had evaluated to date.
+- DeepSeek's own data puts V4 about level with Opus 4.6 and GPT-5.4; CAISI's evaluations (including non-public benchmarks) put it roughly on par with GPT-5.
+- CAISI reported V4 is more cost-efficient than other models of similar capability.

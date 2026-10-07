@@ -1,0 +1,11 @@
+SOURCE ID: A7-S121
+URL: https://validmind.com/platform/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ValidMind SOC 2 Type II NIST AI RMF ISO 42001 funding 2025 2026 (allowed_domains validmind.com)
+========================================================================
+
+ValidMind platform page: lists security features including data encryption, multi-factor authentication, secure APIs, incident reporting and automated backups, and states the company meets the requirements of SOC 2, GDPR and CCPA (SOC 2 type not stated).
+ValidMind blog: "industry standards such as ISO/IEC 42001 or NIST AI RMF 1.0 can offer certification or demonstration of robust AI governance"; NIST AI RMF article describes Govern, Map, Measure, Manage functions (frameworks discussed; no ValidMind certification stated).
+ValidMind announcement: "Chartis named ValidMind the No. 1 AI Governance Platform in 2026 RiskTech100".
+No funding information found.

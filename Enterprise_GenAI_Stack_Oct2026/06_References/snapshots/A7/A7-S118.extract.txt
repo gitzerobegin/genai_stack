@@ -1,0 +1,12 @@
+SOURCE ID: A7-S118
+URL: https://launchdarkly.com/pricing/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LaunchDarkly AI Configs generally available pricing plans (allowed_domains launchdarkly.com)
+========================================================================
+
+- Developer: $0 forever, unlimited seats; limited entitlements for AgentControl config evaluation runs; plan converts to read-only if usage keeps exceeding limits.
+- Foundation (pay as you go): "$10 per Service Connection / mo", "5k AI Runs included / mo"; "$5 per additional 1k runs".
+- Enterprise: custom/contracted pricing; volume discounts and custom AI run tier; quotes based on traffic and infrastructure.
+- An AI run is counted each time a model is called or a judge runs; observability traces do not affect run count. Self-serve plans billed monthly in arrears for overage. AgentControl is an add-on and access depends on plan.
+- Caveat: cached pricing snippets of different ages disagree on some rates (e.g. client-side MAU $8.33 vs $10 per 1k).

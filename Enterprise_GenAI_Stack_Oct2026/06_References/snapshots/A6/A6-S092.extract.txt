@@ -1,0 +1,9 @@
+SOURCE ID: A6-S092
+URL: https://learn.microsoft.com/en-us/answers/questions/5813926/dspm-for-ai-with-business-premium-add-on
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Microsoft Purview Data Security Posture Management for AI DSPM for AI generally available licensing (site:learn.microsoft.com, techcommunity.microsoft.com, microsoft.com)
+========================================================================
+
+Extract as returned by search tool:
+A Microsoft employee's reply in a Q&A thread says DSPM for AI is included in Microsoft Purview Suite for Business Premium add-on. A community reply from June 2026 agrees, saying that DSPM for AI and auto-labeling need the Purview Suite for Business Premium add-on ($10/user/month). An earlier answer in the same thread said the Business Premium add-on did not yet include the DSPM for AI preview functionality, and that the capability required E5 Compliance.

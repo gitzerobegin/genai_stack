@@ -1,0 +1,8 @@
+SOURCE ID: A4-S153
+URL: https://inference-docs.cerebras.ai/console/overview
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cerebras inference docs data privacy retention policy organization SSO roles
+========================================================================
+
+Cloud Console: roles Organization Admin (manage all members, settings, projects), Project Admin (manage API keys and members within assigned projects), Project Member (view and use API keys within assigned projects); Projects group API keys, rate limits and members; every API key belongs to exactly one project. API uses API-key Bearer authentication. No SSO/SAML documentation found. Privacy Policy (page ~567 days old): "We do not retain inputs and outputs associated with our training, inference and chatbot Services. We delete logs associated with our training, inference and chatbot Services when they are no longer necessary to provide services to you."; data "may be stored and processed in the United States and other countries outside the United States" unless otherwise agreed. Terms reference a Data Processing Agreement.

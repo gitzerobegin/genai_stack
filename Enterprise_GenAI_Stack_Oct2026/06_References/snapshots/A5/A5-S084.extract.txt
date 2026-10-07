@@ -1,0 +1,13 @@
+SOURCE ID: A5-S084
+URL: https://media.cadc.uscourts.gov/opinions/docs/2026/09/26-1049-2194984.pdf
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic supply chain risk designation D.C. Circuit opinion September 25 2026 Henderson dissent (allowed_domains cadc.uscourts.gov, courtlistener.com, washingtonpost.com, defense.gov, war.gov, cnbc.com, bloomberg.com, lawfaremedia.org)
+========================================================================
+
+Search tool summary:
+- Case No. 26-1049, Anthropic PBC v. United States Department of War; argued 19 May 2026, decided 25 September 2026. Majority opinion (43 pages) by Judge Katsas joined by Judge Rao; dissent (8 pages) by Judge Henderson.
+- Majority: the Department excluded Claude after Anthropic refused to relax contractual prohibitions on use of Claude for lethal autonomous warfare or domestic surveillance; rejected arbitrary-action, statutory (Federal Acquisition Supply Chain Security Act) and constitutional (First Amendment, due process) challenges; exclusion rested on refusal of a contract term, not advocacy.
+- Dissent: questioned whether Anthropic falls within the FASCSA definition of supply-chain risk.
+- Panel delayed effect to allow rehearing / en banc petition. Bloomberg: an earlier ruling lifting the ban appears to remain in place for now. CNBC: the DoD relied on two distinct designations litigated in two courts; a San Francisco federal judge ruled one designation illegal (August 2026; CNBC 28 August 2026 "Judge blocks Pentagon blacklist"); the D.C. ruling upheld the second.
+- Anthropic statement: "We respectfully disagree... considering all options, including further review."

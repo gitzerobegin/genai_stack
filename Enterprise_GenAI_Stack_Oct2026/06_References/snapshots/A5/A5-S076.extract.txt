@@ -1,0 +1,11 @@
+SOURCE ID: A5-S076
+URL: https://mistral.ai/news/mistral-large-4/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral Large 4 release open-weight multimodal (allowed_domains mistral.ai, docs.mistral.ai, huggingface.co)
+========================================================================
+
+Search tool summary:
+- Mistral changelog: Mistral Large 4 available in public preview as of 6 October 2026, open weights "coming soon"; launch post says weights by end of October 2026; HF placeholder mistralai/Mistral-Large-4.0-1T05-A52B estimates 31 October 2026.
+- Granular MoE multimodal; blog: 1T parameters / 49B active; API docs: 1.05T total / 52B active plus 1.6B vision encoder; 1M context (changelog).
+- Served on Mistral's European infrastructure; being red-teamed with cybersecurity leaders, vetted partners and state authorities; launch pricing 50% off for 2 weeks.

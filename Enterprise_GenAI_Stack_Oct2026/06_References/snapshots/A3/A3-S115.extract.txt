@@ -1,0 +1,8 @@
+SOURCE ID: A3-S115
+URL: https://github.com/aaif/project-proposals/issues/47
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Agent Skills specification version changelog governance steering contributing agentskills.io (allowed_domains agentskills.io, aaif.io, linuxfoundation.org, github.com)
+========================================================================
+
+Search-tool summary of the AAIF project proposal (GitHub issue #47 in aaif/project-proposals, dated as of September 2026): The spec is currently a living document; spec changes are merged on GitHub without a written approval rule. The roadmap calls for moving from a living document to tagged releases with a changelog, so implementers can declare and test against a specific version. Current state: decisions rest with the leadership team, and there is no separate steering body. The listed maintainers are Anthropic employees. Planned: the project would operate under the Technical Charter and a published GOVERNANCE.md defining maintainer roles and the spec-change approval rule; GOVERNANCE.md and MAINTAINERS.md to be published during onboarding. A Technical Steering Committee would start with engineers from organizations that ship production implementations joining Anthropic's maintainers, with composition and decision rules to be settled with the Linux Foundation during onboarding. This is a proposal (intended future state), not confirmed policy; acceptance status not found.

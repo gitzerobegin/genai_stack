@@ -1,0 +1,13 @@
+SOURCE ID: A5-S082
+URL: https://www.cnbc.com/2026/01/26/elon-musk-grok-eu-explicit-images-investigation.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Grok regulators investigation sexualised images Ofcom European Commission DSA xAI 2026 outcome
+========================================================================
+
+Search tool summary:
+- European Commission opened DSA proceedings on 26 January 2026 into whether X assessed/mitigated risks before deploying Grok functionalities in the EU; extended the December 2023 X investigation to Grok-based recommender.
+- Ofcom opened an Online Safety Act investigation into X on 12 January 2026 over undressed images of real people incl. children.
+- Irish DPC opened a GDPR inquiry into X on 17 February 2026; UK ICO formal investigation into Grok on 3 February 2026; California AG probe; Grok banned in Indonesia and Malaysia.
+- As of a 30 March 2026 law-firm note, investigations ongoing; no decision or fine found.
+- Note: these concern X / Grok consumer image features, the investigated entity is X.
