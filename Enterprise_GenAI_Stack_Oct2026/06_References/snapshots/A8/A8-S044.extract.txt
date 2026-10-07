@@ -1,0 +1,14 @@
+SOURCE ID: A8-S044
+URL: https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NIST AI RMF 1.0 revision update 2025 2026 Generative AI Profile NIST AI 600-1 agents profile (nist.gov)
+========================================================================
+
+Search results: "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile" (nist.gov/publications/...; nvlpubs NIST.AI.600-1.pdf); NCCoE concept paper "Accelerating the Adoption of Software and AI Agent Identity and Authorization" (Feb 2026); CAISI agent security slides
+Search-tool extract:
+- NIST AI 600-1 released July 26, 2024; earlier public draft withdrawn and superseded by the final version. AIRC: centres on 13 risks and more than 400 actions (an arXiv paper gives different counts).
+- No NIST AI RMF profile or AI 600-1 extension specifically for agents found.
+- NCCoE concept paper (February 2026) on identity standards and best practices applied to software agents, focusing on agentic AI applications; comment period closed.
+- CAISI slides: "released an RFI on Agent Security; over 500 responses received", input to inform "a SP 800-53 control overlay for securing AI agent systems"; tentative NISTIR 8605D "Controls for Securing Agentic AI Systems" (draft markings).
+- Cyber AI Profile (NISTIR 8596): "agentic AI may require special considerations with respect to all three Focus Areas".

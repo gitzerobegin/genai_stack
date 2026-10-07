@@ -1,0 +1,15 @@
+SOURCE ID: A8-S058
+URL: https://www.iosco.org/library/pubdocs/pdf/IOSCOPD823.pdf
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: IOSCO artificial intelligence capital markets final report (iosco.org)
+========================================================================
+
+Search results: IOSCO "FR/02/2026 May 2026 Supervisory Toolkit for AI Use in Capital Markets" (IOSCOPD823); "OR/07/2026" extract (IOSCOPD822); "Artificial Intelligence in Capital Markets: Use Cases, Risks, and Challenges" consultation report CR/01/2025 (IOSCOPD788, March 2025); 2021 final report on AI/ML by intermediaries and asset managers (IOSCOPD684)
+Search-tool extract:
+- FR/02/2026 (May 2026): supports member authorities in oversight of AI use by supervised entities; non-binding, non-prescriptive; three layers (areas for supervisory attention; oversight tools).
+- Asset-manager indicators include "Accuracy or consistency of AI-supported valuations relative to market benchmarks", "Incidents or alerts of AI-driven mis-selling or unsuitable recommendations", "Level and frequency of human intervention in AI-driven investment process".
+- AI-washing observed: "making false statements as to the level of implementation of AI systems in investment research or selection of securities, and reporting false performance attributed to AI systems ... specifically with respect to certain asset managers, fund managers, and issuers."
+- Concentration risk: reliance on a small number of AI technology providers may create single points of failure (algorithmic trading, robo-advising, asset management).
+- CR/01/2025 (March 2025): asset managers' AI use most often for robo-advising and asset management (60%) and investment research (40%).
+- 2021 final report: six measures (governance, testing, data quality, transparency).

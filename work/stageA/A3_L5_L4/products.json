@@ -1,0 +1,4327 @@
+[
+ {
+  "id": "L5-mem0",
+  "layer": "L5",
+  "original_label": "Mem0 – memory layer",
+  "current_name": {
+   "v": "Mem0 (open-source library and self-hosted server; Mem0 Platform managed service)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S001",
+    "A3-S080"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Mem0 (start-up; Y Combinator S24 per project README)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S001"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Agent memory layer: open-source memory library/server plus managed memory platform",
+   "label": "Verified fact",
+   "src": [
+    "A3-S001",
+    "A3-S080"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "mem0ai 2.2.1 on PyPI (25 September 2026). New memory algorithm announced April 2026; open-source v2.0.0 (14 April 2026) introduced breaking changes",
+   "label": "Verified fact",
+   "src": [
+    "A3-S001",
+    "A3-S053",
+    "A3-S081"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open core: open-source SDK/server under Apache-2.0; Mem0 Platform is proprietary and carries Platform-only features (graph memory, memory decay, temporal reasoning, Dream consolidation, webhooks, memory export)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S001",
+    "A3-S080"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "April 2026 algorithm: single-pass ADD-only extraction, entity linking, multi-signal retrieval (semantic + BM25 + entity) and temporal reasoning; vendor-reported LoCoMo 92.5 and LongMemEval 94.4 on the managed platform. Graph memory moved to Platform-only. Skills for coding agents include an 'OSS-to-Platform' migration skill",
+   "label": "Verified fact",
+   "src": [
+    "A3-S001",
+    "A3-S081"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "14 April 2026: open-source v2.0.0 removed all external graph store backends (Neo4j, Memgraph, Kuzu, Apache AGE); graph memory became a Platform-only feature",
+    "October 2025: US$24M combined seed and Series A led by Basis Set Ventures (Reported)",
+    "mem0ai/mem0-mcp repository archived (status on 7 October 2026)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S053",
+    "A3-S081",
+    "A3-S052",
+    "A3-S054"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Extracts facts from conversations and agent actions, stores them as memories scoped by user_id, agent_id and run_id, and retrieves them with entity-aware ranking. Core operations add, search, get, update, delete, delete_all and per-memory history exist in both the open-source Memory class and the hosted MemoryClient",
+   "label": "Verified fact",
+   "src": [
+    "A3-S080"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Memory service sitting on top of retrieval infrastructure: stores facts in a SQL database, embeddings in a third-party vector database and entities in an entity store; the open-source build defaults to a local Qdrant instance",
+   "label": "Verified fact",
+   "src": [
+    "A3-S053",
+    "A3-S080"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Requires an LLM and an embedder; Python package depends on openai, qdrant-client and sqlalchemy; you provision and pay for the vector store, LLM and embedder when self-hosting",
+   "label": "Verified fact",
+   "src": [
+    "A3-S001",
+    "A3-S080"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python and JavaScript SDKs plus REST API (self-hosted server or hosted); integrations documented for LangGraph and CrewAI; vector store support includes Qdrant, Chroma, PGVector, Pinecone, Oracle, Milvus, MongoDB, Redis, Valkey, Elasticsearch, OpenSearch, Supabase, Upstash and Azure (Python)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S001",
+    "A3-S080",
+    "A3-S053"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S049",
+     "A3-S080"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (vendor states private Kubernetes deployment inside customer VPC)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S051"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (vendor claim)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S051"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (vendor claim: private Kubernetes)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S051"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (docker compose server; library)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S001"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (Enterprise on-prem; vendor also claims air-gapped)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S049",
+     "A3-S051"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Vendor states SOC 2 Type I and HIPAA compliance for the managed cloud; SOC 2 Type II not found; Trust Center not accessible from research environment",
+   "label": "Verified fact",
+   "src": [
+    "A3-S051"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Vendor states GDPR compliance; EU data region not publicly verified",
+   "label": "Verified fact",
+   "src": [
+    "A3-S051"
+   ],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Vendor states BYOK encryption across deployment models; self-hosted server has authentication on by default",
+   "label": "Verified fact",
+   "src": [
+    "A3-S051",
+    "A3-S001"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Enterprise plan lists SSO and audit logs; Platform has multi-organisation/multi-project structure with member roles and a project-wide event feed (add/search/delete events) usable for audit; open source has no org/project concept and only per-memory history",
+   "label": "Verified fact",
+   "src": [
+    "A3-S049",
+    "A3-S080"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Enterprise plan with SLA support; Pro plan includes private Slack support",
+   "label": "Verified fact",
+   "src": [
+    "A3-S049"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Hobby free (10,000 adds / 1,000 retrievals per month); Starter US$19 per month; Pro US$249 per month (graph memory, Dream); Enterprise custom (on-prem, SSO, audit logs, SLA)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S049"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Self-hosting cost is driven by the vector store, LLM calls for extraction and the embedder, all provisioned and paid for by the customer",
+   "label": "Verified fact",
+   "src": [
+    "A3-S080"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "Broad vector-store support (14+ in Python); TypeScript SDK adds Amazon S3 Vectors and Neptune Analytics; LangGraph and CrewAI integrations",
+   "label": "Verified fact",
+   "src": [
+    "A3-S053",
+    "A3-S001"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "66,777 GitHub stars (7 October 2026). Reported at Series A (October 2025): 14M downloads, API calls grew from 35M (Q1) to 186M (Q3 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054",
+    "A3-S052"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "First PyPI release 18 May 2024; 192 releases; v2.x with frequent releases (eight between 4 August and 25 September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S001"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Functional divergence: graph memory, decay, temporal reasoning, Dream, webhooks and export are Platform-only",
+    "label": "Verified fact",
+    "src": [
+     "A3-S080"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "US$24M raised October 2025; no 2026 round found",
+    "label": "Reported",
+    "src": [
+     "A3-S052"
+    ],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Depends on third-party LLM, embedder and vector database choices",
+    "label": "Verified fact",
+    "src": [
+     "A3-S080"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Platform API is proprietary; OSS API surface was aligned with Platform in 2026",
+    "label": "Verified fact",
+    "src": [
+     "A3-S081"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Breaking changes in 2026 (removed parameters, ADD-only extraction, graph removed from OSS)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S081"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S001",
+   "A3-S049",
+   "A3-S051",
+   "A3-S052",
+   "A3-S053",
+   "A3-S054",
+   "A3-S080",
+   "A3-S081"
+  ],
+  "stage_a_notes": "Security/compliance claims come only from vendor marketing pages via search extract; the trust centre was not reachable. Benchmark scores are vendor-reported and apply to the managed platform. The open-source extraction pipeline no longer issues UPDATE/DELETE (memories accumulate), which matters for retention and right-to-erasure design; explicit delete/delete_all APIs remain.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L5-zep",
+  "layer": "L5",
+  "original_label": "Zep – graph memory",
+  "current_name": {
+   "v": "Zep (managed context-graph platform, 'Zep Cloud') and Graphiti (open-source temporal knowledge-graph framework)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003",
+    "A3-S059"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Zep (getzep)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S059"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Managed agent memory / context-graph infrastructure; Graphiti is the open-source temporal knowledge-graph library underneath",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "zep-cloud Python SDK 3.30.0 (24 September 2026), 4.0.0b1 pre-release (6 October 2026); graphiti-core 0.30.2 (8 September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S002",
+    "A3-S003"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Zep platform proprietary; Graphiti Apache-2.0; Zep Community Edition deprecated and unsupported",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003",
+    "A3-S059"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Positions Zep as 'context infrastructure' powered by a proprietary Context Graph Engine built for millions of per-user/entity context graphs; ships agent plugins for Claude Code, Codex, Cursor, Claude Desktop/Cowork and ChatGPT",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003",
+    "A3-S059"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "Zep Community Edition deprecated; code moved to legacy/ folder (status on 7 October 2026; date of deprecation not verified)",
+    "Graphiti: Kuzu backend deprecated because upstream Kuzu project is unmaintained"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S059",
+    "A3-S003"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Graphiti builds temporal context graphs: entities, facts with validity windows (bi-temporal), episodes with provenance and communities; old facts are invalidated rather than deleted; retrieval is hybrid semantic, keyword and graph search. Zep adds managed users, threads and message storage, dashboard and pre-configured retrieval (vendor claims sub-200ms)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Spans L5 memory and L6 knowledge store: a temporal knowledge graph that ingests chat history and business data; the graphic's 'graph memory' descriptor matches Graphiti's design",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Graphiti requires Neo4j 5.26, FalkorDB 1.1.2 or Amazon Neptune (with OpenSearch Serverless for full text); Kuzu deprecated; defaults to OpenAI for LLM and embeddings and needs an LLM with structured output. Zep Cloud uses its proprietary graph engine (no third-party graph DB)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Zep SDKs for Python, TypeScript and Go; framework integrations for Google ADK, Microsoft Agent Framework, AutoGen, AG2, CrewAI, LangGraph, LiveKit, Pydantic AI, Strands Agents, Mastra and Vercel AI SDK; Graphiti offers an MCP server and FastAPI REST service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S059",
+    "A3-S003"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S003"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Yes (Zep: 'fully managed or in your cloud')",
+    "label": "Verified fact",
+    "src": [
+     "A3-S003"
+    ],
+    "conf": "high"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Graphiti only (self-hosted framework); Zep Community Edition is deprecated",
+    "label": "Verified fact",
+    "src": [
+     "A3-S003",
+     "A3-S059"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Zep platform states SLAs, support and 'security guarantees' versus self-managed Graphiti",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Graphiti self-hosting cost is driven by the graph database (Neo4j/FalkorDB/Neptune) and LLM calls during ingestion; README warns of LLM rate-limit (429) errors at default concurrency",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Integrations across major agent frameworks; Graphiti backends Neo4j, FalkorDB, Neptune",
+   "label": "Verified fact",
+   "src": [
+    "A3-S059",
+    "A3-S003"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "getzep/graphiti 31,529 GitHub stars; getzep/zep 4,951 stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "graphiti-core first released August 2024, 194 releases, still pre-1.0 (0.30.x); zep-cloud SDK on 3.x with a 4.0 beta in progress",
+   "label": "Verified fact",
+   "src": [
+    "A3-S003",
+    "A3-S002"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Managed platform uses a proprietary graph engine; open-source alternative is Graphiti only (Community Edition deprecated)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S003",
+     "A3-S059"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Graphiti depends on third-party graph databases and structured-output LLMs",
+    "label": "Verified fact",
+    "src": [
+     "A3-S003"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Zep Cloud API proprietary",
+    "label": "Verified fact",
+    "src": [
+     "A3-S003"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "SDK 4.0 in beta implies upcoming breaking changes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S002"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S002",
+   "A3-S003",
+   "A3-S054",
+   "A3-S059"
+  ],
+  "stage_a_notes": "Trust centre, pricing and funding pages for Zep were unreachable (host blocked; web-search budget exhausted). Graphiti's 'invalidate, not delete' design gives history and audit but needs explicit handling for right-to-erasure.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L5-letta",
+  "layer": "L5",
+  "original_label": "Letta – stateful agents",
+  "current_name": {
+   "v": "Letta (formerly MemGPT); current product is Letta Code, a stateful agent harness, with Letta Cloud",
+   "label": "Verified fact",
+   "src": [
+    "A3-S060",
+    "A3-S073"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Letta (letta-ai)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S060"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Stateful agent harness/runtime with self-editing memory; not a standalone memory library",
+   "label": "Verified fact",
+   "src": [
+    "A3-S073"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Letta Code 0.34.4 (4 October 2026; PyPI 'letta' and npm '@letta-ai/letta-code'); letta-client Python SDK 1.12.1 (2 June 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S004",
+    "A3-S077",
+    "A3-S014"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source Apache-2.0 (Letta Code); Letta Cloud hosted service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S004",
+    "A3-S077",
+    "A3-S073"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Pivot from an agent API server to Letta Code: CLI, desktop app, chat.letta.com, Slack/Telegram/Discord channels, remote computers, crons; agents rewrite their own memory blocks, skills and prompts ('dreaming'/sleep-time compute)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S073",
+    "A3-S060"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "Letta V1 API server retired to an 'archive' branch; active source moved to letta-ai/letta-code (status on 7 October 2026)",
+    "PyPI package 'letta' now installs the Letta Code CLI, 'not a Python SDK or API server'",
+    "AgentFile (.af) export/import deprecated and removed from Letta Code",
+    "lettabot repository archived, replaced by Letta Code channels"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S060",
+    "A3-S004",
+    "A3-S073",
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Runs long-lived agents with memory, identity and conversation history; memory blocks and all context are tracked in a git-backed memory filesystem (MemFS) that can sync to a GitHub repository; supports message search across agents, subagents, hooks, permissions and secrets",
+   "label": "Verified fact",
+   "src": [
+    "A3-S073"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Straddles L3 (agent harness) and L5 (memory); the graphic's 'stateful agents' descriptor is accurate, but Letta is not a drop-in memory layer for other frameworks",
+   "label": "Verified fact",
+   "src": [
+    "A3-S073"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Bring-your-own LLM provider keys; Letta Cloud is the default backend storing agent state; local mode keeps agents on disk; Python wheel bundles a Node.js runtime",
+   "label": "Verified fact",
+   "src": [
+    "A3-S004",
+    "A3-S073"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Letta Agent SDK (TypeScript), letta-client for the Letta API (Python), 'letta server' App Server, Agent Skills folders (.agents/skills), messaging channels",
+   "label": "Verified fact",
+   "src": [
+    "A3-S060",
+    "A3-S004",
+    "A3-S073"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Letta Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S073"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes ('letta server' for local or self-hosted agents)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S060"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Secrets feature exposes secrets as environment variables while obfuscating values from context (requires Letta sign-in)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S073"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Permission modes to auto-approve or deny agent actions; enterprise SSO/RBAC not verified",
+   "label": "Verified fact",
+   "src": [
+    "A3-S073"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Works with OpenAI, Anthropic, Z.ai and local models; installs skills from GitHub, ClawHub and Hermes Skills Hub",
+   "label": "Verified fact",
+   "src": [
+    "A3-S073"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "letta-ai/letta 25,070 GitHub stars; letta-ai/letta-code 3,541 stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "Letta Code first published 24 October 2025; pre-1.0 with very rapid releases (eight releases 29 September to 4 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S077",
+    "A3-S004"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Agent state held in Letta Cloud by default",
+    "label": "Verified fact",
+    "src": [
+     "A3-S073"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Depends on external LLM providers",
+    "label": "Verified fact",
+    "src": [
+     "A3-S073"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Product architecture changed in 2025-2026 (V1 server retired, AgentFile removed)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S060",
+     "A3-S073"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S004",
+   "A3-S014",
+   "A3-S054",
+   "A3-S060",
+   "A3-S073",
+   "A3-S077"
+  ],
+  "stage_a_notes": "Major repositioning: the graphic treats Letta as a memory product, but the V1 API server is retired and the product is now an agent harness (Letta Code). Funding, certifications and pricing could not be verified (docs.letta.com blocked; search budget exhausted).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L5-cognee",
+  "layer": "L5",
+  "original_label": "Cognee – knowledge graphs",
+  "current_name": {
+   "v": "Cognee",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Cognee (GitHub org topoteretes; PyPI authors Vasilije Markovic and Boris Arzentar)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source AI memory platform building knowledge graphs plus vectors from documents, code and conversations",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "cognee 1.6.3 (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open core: Apache-2.0 library; production-ready Postgres-as-graph store is a licensed product; Cognee Cloud managed service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Since 1.0, the whole memory layer can run on one Postgres instance (demo feature in OSS); small-model local extraction (GLiNER) without an LLM key; plugins and MCP for agents",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Turns documents, code and conversations into a self-hosted knowledge graph agents can search; operations include remember, recall, improve (enrich/apply feedback) and forget (remove an item or dataset); retrieval selects graph, vector or code context",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Spans L5 memory and L6/L8 (ingestion into graph and vector stores); graphic's 'knowledge graphs' descriptor is accurate",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Default embedded stores: SQLite (relational), LanceDB (vector) and the 'ladybug' graph package; optional Neo4j, Amazon Neptune and Postgres/PGVector; Redis-compatible cache",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python library, CLI, REST API (port 8000), UI and MCP server (port 8001) via Docker",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Cognee Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S005"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S005"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (runs locally/self-hosted)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S005"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "API defaults to multi-tenant mode in which every /api/v1 call requires an authenticated user; permissions guide for backend access control",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Can run free locally with small models; production graph on Postgres requires a licence",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "Community plugins repository (cognee-community); MCP server",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005",
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "topoteretes/cognee 31,561 GitHub stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "First PyPI release 13 March 2024; 178 releases; post-1.0 (1.6.x)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S005"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Production Postgres graph is a licensed (non-open) component",
+    "label": "Verified fact",
+    "src": [
+     "A3-S005"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Relies on embedded LanceDB and graph package or external graph DBs",
+    "label": "Verified fact",
+    "src": [
+     "A3-S005"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S005",
+   "A3-S054"
+  ],
+  "stage_a_notes": "Funding, certifications and Cognee Cloud pricing/regions not verified (docs.cognee.ai blocked; search budget exhausted).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L5-supermemory",
+  "layer": "L5",
+  "original_label": "Supermemory – memory API",
+  "current_name": {
+   "v": "Supermemory",
+   "label": "Verified fact",
+   "src": [
+    "A3-S012",
+    "A3-S064"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Supermemory",
+   "label": "Verified fact",
+   "src": [
+    "A3-S064"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Memory and context engine API: memory extraction, user profiles, hybrid RAG search, connectors and file processing",
+   "label": "Verified fact",
+   "src": [
+    "A3-S064"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Python SDK 5.0.0 (6 October 2026) for the namespace-first v5 API (breaking change from 3.x)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S012"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Repository and SDK under MIT/Apache-2.0 (repo MIT, Python SDK Apache-2.0); hosted API proprietary; 'Supermemory local' self-host binary with separate Enterprise self-hosting",
+   "label": "Verified fact",
+   "src": [
+    "A3-S066",
+    "A3-S012",
+    "A3-S064"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Bundles memory with RAG, connectors and multimodal extractors in one API; plugins for Claude Code, Cursor, Codex, OpenCode and others; vendor claims #1 on LongMemEval, LoCoMo and ConvoMem",
+   "label": "Verified fact",
+   "src": [
+    "A3-S064"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "6 October 2026: v5 SDK moves to namespace-first API (MIGRATION from 3.x required)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S012"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Extracts facts from conversations, maintains user profiles, handles temporal changes and contradictions, automatically forgets expired information and returns context via hybrid search over documents and memories",
+   "label": "Verified fact",
+   "src": [
+    "A3-S064"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Combines L5 memory, L6 retrieval and L8 ingestion (connectors, OCR, transcription) behind one API",
+   "label": "Verified fact",
+   "src": [
+    "A3-S064"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Self-hosted build embeds a graph engine and local embeddings (bge-base-en-v1.5 by default) and stores data in a local directory; any OpenAI-compatible LLM",
+   "label": "Verified fact",
+   "src": [
+    "A3-S064"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "REST API, Python/TypeScript SDKs, hosted MCP server, framework wrappers (Vercel AI SDK, LangChain, LangGraph, OpenAI Agents SDK, Mastra, Agno, Claude Memory Tool, n8n); connectors for Google Drive, Gmail, Notion, OneDrive and GitHub",
+   "label": "Verified fact",
+   "src": [
+    "A3-S064",
+    "A3-S012"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S064"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (Supermemory local; Enterprise self-hosting referenced)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S064"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Namespaces isolate content per user/project; organisation endpoint in API; SSO/RBAC not verified",
+   "label": "Verified fact",
+   "src": [
+    "A3-S012"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Plugins for coding agents and MCP clients; framework wrappers listed above",
+   "label": "Verified fact",
+   "src": [
+    "A3-S064"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "supermemoryai/supermemory 31,146 GitHub stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "Python SDK first released 29 April 2025; 87 releases; v5 API just released",
+   "label": "Verified fact",
+   "src": [
+    "A3-S012"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Hosted API proprietary",
+    "label": "Verified fact",
+    "src": [
+     "A3-S064"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Major API version change October 2026",
+    "label": "Verified fact",
+    "src": [
+     "A3-S012"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S012",
+   "A3-S054",
+   "A3-S064",
+   "A3-S066"
+  ],
+  "stage_a_notes": "Benchmark leadership is a vendor claim. Funding, certifications, regions and pricing not verified (supermemory.ai blocked; search budget exhausted). Deletion: memories.forget/forget_matching and namespace delete endpoints in v5 SDK.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L5-langmem",
+  "layer": "L5",
+  "original_label": "LangMem – long-term",
+  "current_name": {
+   "v": "LangMem",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "LangChain",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source memory utilities library for LangGraph agents",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "langmem 0.0.30 (27 October 2025); no newer PyPI release as of 7 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, MIT",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Extracts information from conversations, provides hot-path memory management/search tools for agents, a background memory manager that consolidates knowledge, and prompt refinement to optimise agent behaviour",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Library inside L3 (LangGraph) using LangGraph's long-term memory store; not a separate memory service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "langgraph, langchain-core, langsmith and trustcall; persistence via LangGraph BaseStore (InMemoryStore loses data on restart)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python API; native integration with LangGraph long-term memory store, available in LangGraph Platform deployments",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No standalone SaaS (runs inside LangGraph Platform deployments)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S006"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (library)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S006"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (library)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S006"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable (library); inherits controls of the hosting platform and store",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free (MIT library)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Cost driven by the chosen LangGraph store backend and LLM calls for extraction",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "LangGraph/LangChain ecosystem",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "langchain-ai/langmem 1,696 GitHub stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "Pre-1.0 (0.0.x); last PyPI release 27 October 2025, about 11 months before review date",
+   "label": "Verified fact",
+   "src": [
+    "A3-S006"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Tied to LangGraph store abstractions",
+    "label": "Verified fact",
+    "src": [
+     "A3-S006"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Depends on LangGraph/LangChain",
+    "label": "Verified fact",
+    "src": [
+     "A3-S006"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "No PyPI release for about 11 months; still 0.0.x",
+    "label": "Verified fact",
+    "src": [
+     "A3-S006"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S006",
+   "A3-S054"
+  ],
+  "stage_a_notes": "Release cadence has stalled (repo still updated 6 October 2026). Whether LangChain has superseded LangMem with built-in LangGraph/LangSmith memory features could not be verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L5-aws-agentcore-memory",
+  "layer": "L5",
+  "original_label": null,
+  "current_name": {
+   "v": "Amazon Bedrock AgentCore Memory",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Amazon Web Services",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Cloud-platform managed agent memory service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Generally available since October 2025 as part of Amazon Bedrock AgentCore; AgentCore harness GA auto-provisions managed memory",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047",
+    "A3-S048"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Proprietary managed service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Self-managed memory strategy gives control of extraction and consolidation pipelines; bundled into AgentCore harness",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047",
+    "A3-S048"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "October 2025: AgentCore GA (Memory included)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "Platform-native alternative to independent L5 memory products",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "AWS account; part of Amazon Bedrock AgentCore",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (AWS managed)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "VPC and AWS PrivateLink supported",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "AgentCore available in 15 AWS Regions (EU regions not individually verified)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S048"
+   ],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "VPC, PrivateLink, CloudFormation and resource tagging across all AgentCore services",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "AWS IAM (assumed from platform; not separately verified for Memory)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "GA October 2025",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Hyperscaler lock-in",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary AWS API",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S047",
+   "A3-S048"
+  ],
+  "stage_a_notes": "Added as material missing product (platform-native memory). Memory strategy types (semantic/summary/preference/episodic), retention and deletion controls could not be verified because docs.aws.amazon.com was blocked and the search budget was exhausted. Vertex AI Agent Engine Memory Bank is the Google equivalent (A3-S070, link-only, unverified).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L4-mcp",
+  "layer": "L4",
+  "original_label": "MCP – tools standard",
+  "current_name": {
+   "v": "Model Context Protocol (MCP)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S015",
+    "A3-S058"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Open-source project hosted by the Agentic AI Foundation (AAIF), a directed fund under the Linux Foundation; originated at Anthropic (created by David Soria Parra and Justin Spahr-Summers) and donated on 9 December 2025",
+   "label": "Verified fact",
+   "src": [
+    "A3-S018",
+    "A3-S058"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open protocol specification for connecting agents/LLM applications to tools, resources and prompts",
+   "label": "Verified fact",
+   "src": [
+    "A3-S058",
+    "A3-S015"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Specification 2026-07-28 (released 28 July 2026; previous 2025-11-25). Tier 1 SDKs: TypeScript, Python, Go, C#; Python 'mcp' 2.3.0 (2 October 2026); TypeScript '@modelcontextprotocol/sdk' 1.32.1 (5 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S015",
+    "A3-S057",
+    "A3-S011",
+    "A3-S074"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open specification; specification repository and SDKs MIT-licensed",
+   "label": "Verified fact",
+   "src": [
+    "A3-S058",
+    "A3-S011",
+    "A3-S074"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Roadmap (22 August 2026): agentic messaging primitives (server-initiated events, Tasks), HTTP-native transport unification, agent identity and enterprise security (DPoP, Workload Identity Federation, ID-JAG, token exchange; engagement with IETF OAuth and WIMSE), progressive tool discovery for large catalogues, SDK conformance",
+   "label": "Verified fact",
+   "src": [
+    "A3-S016"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "9 December 2025: donated by Anthropic to the Agentic AI Foundation (Linux Foundation); maintainer structure unchanged",
+    "8 September 2025: official MCP Registry launched in preview; API v0.1 still current on 7 October 2026 (no v1/GA endpoint)",
+    "18 June 2026: Enterprise-Managed Authorization extension declared stable",
+    "28 July 2026: spec 2026-07-28 removes sessions and the initialize handshake (stateless core), adds Multi Round-Trip Requests, header-based routing, cacheable lists, extensions framework; deprecates Roots, Sampling, Logging, legacy HTTP+SSE and Dynamic Client Registration (in favour of Client ID Metadata Documents)",
+    "8 April 2026: Den Delimarsky (Anthropic) became second Lead Maintainer; Clare Liguori (AWS) joined Core Maintainers"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S018",
+    "A3-S019",
+    "A3-S036",
+    "A3-S042",
+    "A3-S017",
+    "A3-S015",
+    "A3-S057",
+    "A3-S082"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Defines how clients (agent hosts) discover and call server-exposed tools, resources and prompts over JSON-RPC; as of 2026-07-28 each request is self-describing and stateless, with optional server/discover, and long-running work via the Tasks extension",
+   "label": "Verified fact",
+   "src": [
+    "A3-S015",
+    "A3-S057"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L4 connectivity standard; the 2026-07-28 release puts method and tool names in Mcp-Method/Mcp-Name HTTP headers so gateways, rate limiters and WAFs can route and authorise without parsing bodies",
+   "label": "Verified fact",
+   "src": [
+    "A3-S015"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Transports stdio and Streamable HTTP; remote authorisation relies on an external OAuth 2.1 authorisation server",
+   "label": "Verified fact",
+   "src": [
+    "A3-S055",
+    "A3-S057"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Open protocol with official SDKs (TypeScript, Python, Go, C# Tier 1; Rust beta); first-class client support reported in ChatGPT, Claude, Cursor, Gemini, Microsoft Copilot and VS Code (December 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S015",
+    "A3-S018"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (implementations can be self-hosted; the specification itself is not a hosted service)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Yes (implementations can be self-hosted; the specification itself is not a hosted service)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable (open specification)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not applicable (open specification)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Authorisation is OPTIONAL. When used: OAuth 2.1 (draft-13) with PKCE; servers MUST publish Protected Resource Metadata (RFC 9728); clients MUST send Resource Indicators (RFC 8707); servers MUST validate token audience; token passthrough forbidden; RFC 9207 issuer validation; DCR deprecated for Client ID Metadata Documents. Tool annotations are untrusted hints",
+   "label": "Verified fact",
+   "src": [
+    "A3-S055",
+    "A3-S056",
+    "A3-S057",
+    "A3-S020"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Enterprise-Managed Authorization extension (stable 18 June 2026): IdP issues an Identity Assertion JWT Authorization Grant (ID-JAG) exchanged for MCP access tokens, giving central policy and audit; Okta (Cross App Access) first IdP; adopted by Anthropic clients, VS Code and servers incl. Asana, Atlassian, Canva, Figma, Linear and Supabase",
+   "label": "Verified fact",
+   "src": [
+    "A3-S017"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Not applicable (community specification); support comes from implementers",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free open specification and SDKs",
+   "label": "Verified fact",
+   "src": [
+    "A3-S058",
+    "A3-S011"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Cost lies in hosting MCP servers, gateways and the authorisation server",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Launch partners for 2026-07-28 include AWS (AgentCore; Tasks extension contributed by AWS), Cloudflare, Google Cloud, Microsoft Foundry, Figma, Netlify, Supabase, Honeycomb, FastMCP/Horizon and Runlayer; official Registry with public and private sub-registries",
+   "label": "Verified fact",
+   "src": [
+    "A3-S015",
+    "A3-S019"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "97M monthly SDK downloads and 10,000 active servers (December 2025); close to 0.5bn monthly downloads across Tier 1 SDKs and >1bn total each for TypeScript and Python (July 2026, project claim); modelcontextprotocol/servers 91,068 GitHub stars",
+   "label": "Verified fact",
+   "src": [
+    "A3-S018",
+    "A3-S015",
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "Initial release November 2024 (first SDK on PyPI 20 November 2024); formal deprecation policy with 12-month minimum window; 2026-07-28 contained breaking changes",
+   "label": "Verified fact",
+   "src": [
+    "A3-S011",
+    "A3-S015"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Low protocol lock-in (open MIT specification with multiple SDKs)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not applicable: vendor-neutral foundation stewardship under the Linux Foundation",
+    "label": "Verified fact",
+    "src": [
+     "A3-S018"
+    ],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "AAIF membership-funded; 247 member organisations (August 2026)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S041"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Governance concentration: both Lead Maintainers are Anthropic staff; Anthropic states continued investment",
+    "label": "Verified fact",
+    "src": [
+     "A3-S082",
+     "A3-S018"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "None (open specification)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S058"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Breaking changes in 2026-07-28 (sessions removed); MCP Registry still preview/v0.1",
+    "label": "Verified fact",
+    "src": [
+     "A3-S015",
+     "A3-S042"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S011",
+   "A3-S015",
+   "A3-S016",
+   "A3-S017",
+   "A3-S018",
+   "A3-S019",
+   "A3-S020",
+   "A3-S036",
+   "A3-S041",
+   "A3-S042",
+   "A3-S054",
+   "A3-S055",
+   "A3-S056",
+   "A3-S057",
+   "A3-S058",
+   "A3-S074",
+   "A3-S082"
+  ],
+  "stage_a_notes": "Conflict of interest: MCP originated at Anthropic; author is an Anthropic model. Independent criticism recorded: tool poisoning (MCPTox: 36.5% average attack success across 20 models, AAAI 2026), rug pulls, tool shadowing, IDE auto-execution CVEs across Cursor, Claude Code, Gemini CLI, Copilot and Amazon Q (CSA, July 2026), OWASP MCP Top 10 (MCP03 Tool Poisoning). Spec makes authorisation OPTIONAL; annotations are hints only. Adoption figures are project-reported.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L4-a2a",
+  "layer": "L4",
+  "original_label": "A2A – agent-to-agent",
+  "current_name": {
+   "v": "Agent2Agent (A2A) Protocol",
+   "label": "Verified fact",
+   "src": [
+    "A3-S078"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "A2A Project under the Linux Foundation (contributed by Google, June 2025); accepted as a Growth Stage project of the Agentic AI Foundation in August 2026; TSC seats: Google, Microsoft, Cisco, AWS, Salesforce, ServiceNow, SAP, IBM",
+   "label": "Verified fact",
+   "src": [
+    "A3-S065",
+    "A3-S025",
+    "A3-S040"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Open protocol for communication and interoperability between opaque agent applications",
+   "label": "Verified fact",
+   "src": [
+    "A3-S078"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Specification 1.0.0 (12 March 2026), patch 1.0.1 (26 May 2026); A2A Python SDK a2a-sdk 1.2.2 (5 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S079",
+    "A3-S078",
+    "A3-S075"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open specification and SDKs, Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A3-S075",
+    "A3-S025"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "v1.0 adds multi-tenancy, multi-protocol bindings, verb-style operations, signed Agent Cards and modernised OAuth flows; joined AAIF alongside MCP as separate project with own TSC (August 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S030",
+    "A3-S040"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "August 2025: IBM's Agent Communication Protocol (ACP) merged into A2A; IBM joined the TSC",
+    "12 March 2026: A2A 1.0.0, first stable release (sources differ: Linux Foundation release dated 9 April 2026)",
+    "August 2026 (20 August per most sources): A2A joined the Agentic AI Foundation as a Growth Stage project"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S032",
+    "A3-S065",
+    "A3-S079",
+    "A3-S025",
+    "A3-S040"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Lets a client agent discover a remote agent via its Agent Card (/.well-known/agent-card.json), send messages and manage asynchronous, long-running tasks with streaming and push notifications; version negotiated via A2A-Version header",
+   "label": "Verified fact",
+   "src": [
+    "A3-S078",
+    "A3-S030"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L4 agent-to-agent interoperability, complementary to MCP (agent-to-tool)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S040"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "HTTP-based bindings (JSON-RPC, gRPC, REST); security via declared securitySchemes incl. OAuth 2.0 and OpenID Connect",
+   "label": "Verified fact",
+   "src": [
+    "A3-S078"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Official SDKs (Python, JavaScript and others); Agent Cards advertise supportedInterfaces with protocol binding and version",
+   "label": "Verified fact",
+   "src": [
+    "A3-S075",
+    "A3-S031",
+    "A3-S054"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (implementations can be self-hosted; the specification itself is not a hosted service)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Yes (implementations can be self-hosted; the specification itself is not a hosted service)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable (open specification)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not applicable (open specification)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Agent Cards MAY be signed with JWS (RFC 7515) over RFC 8785-canonicalised JSON; clients SHOULD verify when present. OAuth flows modernised (device code, PKCE; implicit/password removed). The protocol does not define scope, validity or revocation semantics for authorisation obtained in the AUTH_REQUIRED task state",
+   "label": "Verified fact",
+   "src": [
+    "A3-S078",
+    "A3-S079",
+    "A3-S031"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Authenticated extended Agent Card available only after client authenticates with a declared scheme",
+   "label": "Verified fact",
+   "src": [
+    "A3-S078"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Not applicable (community specification)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free open specification",
+   "label": "Verified fact",
+   "src": [
+    "A3-S075"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "More than 150 supporting organisations and availability in major cloud platforms (April 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S025"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "a2aproject/A2A 26,049 GitHub stars (7 October 2026); 150+ organisations (April 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054",
+    "A3-S025"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "First public spec 2025; 1.0 stable March 2026 with breaking changes to the interaction protocol (Agent Card backward-compatible)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S079",
+    "A3-S030"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Low (open specification)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not applicable: Linux Foundation/AAIF stewardship",
+    "label": "Verified fact",
+    "src": [
+     "A3-S025",
+     "A3-S040"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Multi-vendor TSC (eight companies)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S065"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "None (Apache-2.0)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S075"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Some SDKs and tools lag the 1.0 card restructuring (third-party implementer reports)",
+    "label": "Reported",
+    "src": [
+     "A3-S030"
+    ],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S025",
+   "A3-S030",
+   "A3-S031",
+   "A3-S032",
+   "A3-S040",
+   "A3-S054",
+   "A3-S065",
+   "A3-S075",
+   "A3-S078",
+   "A3-S079"
+  ],
+  "stage_a_notes": "Conflict on 1.0 date: changelog 12 March 2026 vs LF press 9 April 2026 (primary changelog used). AAIF join date: 20 August vs 17 August 2026 across secondary sources. IBM ACP is superseded. Card signing is optional, which limits trust guarantees.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L4-agent-skills",
+  "layer": "L4",
+  "original_label": "Agent Skills – reusable skills",
+  "current_name": {
+   "v": "Agent Skills (SKILL.md open format)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S061",
+    "A3-S029"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Originated at Anthropic (launched 16 October 2025; published as an open standard 18 December 2025); specification maintained in the agentskills/agentskills repository and agentskills.io",
+   "label": "Verified fact",
+   "src": [
+    "A3-S028",
+    "A3-S029",
+    "A3-S061"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open packaging format for procedural knowledge: folders with SKILL.md (name and description required) plus optional scripts, references and assets",
+   "label": "Verified fact",
+   "src": [
+    "A3-S061",
+    "A3-S037"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Open specification; repository code Apache-2.0, documentation CC-BY-4.0",
+   "label": "Verified fact",
+   "src": [
+    "A3-S061"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Portable across agent products; AAIF 'Skills Over MCP' working group exploring delivery of skills via MCP; Claude adds org-wide admin provisioning and a partner skills directory",
+   "label": "Verified fact",
+   "src": [
+    "A3-S038",
+    "A3-S029"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "18 December 2025: published as an open standard"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S029"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Agents load only skill names/descriptions at start-up, read the full SKILL.md when a task matches (progressive disclosure) and may execute bundled scripts",
+   "label": "Verified fact",
+   "src": [
+    "A3-S061"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Sits between L3 agent harness and L4 tools: packaged instructions plus code, often wrapping MCP tools",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "A skills-compatible agent with file access; scripts require a code-execution environment (Claude requires Code Execution and File Creation)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S029",
+    "A3-S061"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Filesystem convention (.agents/skills and vendor paths); Claude API /v1/skills endpoint; adopted by OpenAI Codex and Google Gemini CLI",
+   "label": "Verified fact",
+   "src": [
+    "A3-S029",
+    "A3-S033",
+    "A3-S034"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "No (open specification; deployment depends on each implementation)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (implementations can be self-hosted; the specification itself is not a hosted service)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Yes (implementations can be self-hosted; the specification itself is not a hosted service)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable (open format)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not applicable (open format)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "No signing or provenance in the core format found; Anthropic warns malicious skills may exfiltrate data and advises installing only from trusted sources; Gemini CLI docs advise inspecting third-party skills",
+   "label": "Verified fact",
+   "src": [
+    "A3-S072",
+    "A3-S034",
+    "A3-S037"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Claude Team/Enterprise admins can provision skills centrally (vendor feature, not part of the standard)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S029"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Not applicable (open format)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free open format",
+   "label": "Verified fact",
+   "src": [
+    "A3-S061"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Supported by OpenAI Codex, Google Gemini CLI, Letta Code and (reported) VS Code/GitHub Copilot, Cursor; agentskills.io reported to list 40+ clients (September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S033",
+    "A3-S034",
+    "A3-S073",
+    "A3-S027",
+    "A3-S035"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "agentskills/agentskills 25,954 GitHub stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "Specification repository created 16 December 2025; no versioned releases found",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Low format lock-in (plain Markdown folders), but vendor-specific discovery paths and admin features vary",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Governance: no published charter or maintainer list found; one secondary source claims AAIF stewardship, while AAIF material says the format is owned by the Agent Skills specification",
+    "label": "Verified fact",
+    "src": [
+     "A3-S037",
+     "A3-S038",
+     "A3-S035"
+    ],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "None (open licence)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S061"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Young (under 1 year as open standard)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S029"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S027",
+   "A3-S028",
+   "A3-S029",
+   "A3-S033",
+   "A3-S034",
+   "A3-S035",
+   "A3-S037",
+   "A3-S038",
+   "A3-S054",
+   "A3-S061",
+   "A3-S072",
+   "A3-S073"
+  ],
+  "stage_a_notes": "Conflict of interest: Anthropic-originated. Licence conflict: secondary sources say MIT; primary repo says Apache-2.0 code / CC-BY-4.0 docs (primary used). AAIF stewardship unconfirmed. OWASP has an 'Agentic Skills Top 10' project (security interest). Independent adoption confirmed in OpenAI and Google primary docs.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L4-composio",
+  "layer": "L4",
+  "original_label": "Composio – integrations",
+  "current_name": {
+   "v": "Composio",
+   "label": "Verified fact",
+   "src": [
+    "A3-S063"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Composio (SDK copyright Sampark Inc.)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S063",
+    "A3-S067"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Managed tool-integration platform for agents: 1000+ pre-authenticated toolkits, per-user sessions, authentication, triggers and a sandbox",
+   "label": "Verified fact",
+   "src": [
+    "A3-S063"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Python SDK composio 0.25.0 (29 September 2026); 2.0.0b0 pre-release (31 August 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S008"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "SDKs MIT; platform is a hosted proprietary service (API key from dashboard)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S067",
+    "A3-S063"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Session-based 'meta tools' that discover, authenticate and execute app tools at runtime instead of loading hundreds of tool definitions into context",
+   "label": "Verified fact",
+   "src": [
+    "A3-S008"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Verified fact",
+   "src": [
+    "A3-S008"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Creates per-user sessions whose tools an agent calls across 1000+ apps; handles OAuth/connected accounts and restricts toolkits, tools, auth configs and connected accounts per session",
+   "label": "Verified fact",
+   "src": [
+    "A3-S063",
+    "A3-S008"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L4 integration/tool-hub; also acts as a managed credential broker for third-party apps",
+   "label": "Verified fact",
+   "src": [
+    "A3-S063"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Composio hosted API",
+   "label": "Verified fact",
+   "src": [
+    "A3-S063"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python/TypeScript SDKs, CLI, provider adapters for OpenAI Agents, Claude Agent SDK, Vercel AI SDK, LangChain; remote MCP server",
+   "label": "Verified fact",
+   "src": [
+    "A3-S063",
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S063"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Per-session restriction of toolkits, tools, auth configs and connected accounts",
+   "label": "Verified fact",
+   "src": [
+    "A3-S008"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable (SaaS)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Provider adapters for major agent frameworks; maintains awesome-claude-skills list (76,670 stars)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S063",
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "ComposioHQ/composio 30,464 GitHub stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "Current Python SDK line first published December 2024; pre-1.0 with 2.0 in beta",
+   "label": "Verified fact",
+   "src": [
+    "A3-S008"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Holds end-user OAuth tokens for third-party apps: high switching cost",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary hosted API",
+    "label": "Verified fact",
+    "src": [
+     "A3-S063"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "SDK pre-1.0; 2.0 beta",
+    "label": "Verified fact",
+    "src": [
+     "A3-S008"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S008",
+   "A3-S054",
+   "A3-S063",
+   "A3-S067"
+  ],
+  "stage_a_notes": "Certifications, pricing, funding and self-host/VPC options not verified (composio.dev blocked; search budget exhausted). Credential custody is a key due-diligence item.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L4-exa",
+  "layer": "L4",
+  "original_label": "Exa – search API",
+  "current_name": {
+   "v": "Exa",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Exa (Exa AI)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Web search API for AI (search, contents, answer, streaming)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "exa-py 2.25.0 (1 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "SDK MIT; search API proprietary",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Search with structured output schemas and streamed answers",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Searches the web with date/domain filters, returns page contents/highlights, generates answers and supports structured output via output_schema",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L4 tool (web retrieval) feeding agents; overlaps L8 web extraction",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Exa hosted API (API key)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python and JavaScript SDKs; MCP server (exa-mcp-server)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010",
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S010"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable (SaaS)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "MCP server for agent clients",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "exa-labs/exa-mcp-server 5,091 GitHub stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "exa-py first released January 2024; 130 releases",
+   "label": "Verified fact",
+   "src": [
+    "A3-S010"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Proprietary index; moderate switching cost",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary API",
+    "label": "Verified fact",
+    "src": [
+     "A3-S010"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S010",
+   "A3-S054"
+  ],
+  "stage_a_notes": "Funding, certifications, pricing and zero-data-retention options not verified (exa.ai blocked; search budget exhausted).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L4-tavily",
+  "layer": "L4",
+  "original_label": "Tavily – search API",
+  "current_name": {
+   "v": "Tavily",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Tavily (Tavily AI)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Search, extract, crawl, map and research API for agents",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "tavily-python 0.8.5 (6 October 2026); @tavily/core 0.7.14 (6 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009",
+    "A3-S083"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary API; JavaScript SDK MIT; Python SDK licence not stated in PyPI metadata",
+   "label": "Verified fact",
+   "src": [
+    "A3-S083",
+    "A3-S009"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Adds asynchronous research tasks with streaming and usage reporting; keyless trial mode",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Provides web search, content extraction, site crawl/map and multi-step research endpoints via API",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L4 tool (web retrieval) for agents; overlaps L8",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Tavily hosted API",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python/JS SDKs; supports custom HTTP session injection so enterprises can proxy traffic through an API gateway for central auth, logging and policy; MCP server",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009",
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S009"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free for personal use up to 1,000 API credits per month; credit-based paid usage",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable (SaaS)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "MCP server (tavily-mcp)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "tavily-mcp 2,422 and tavily-python 1,420 GitHub stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "tavily-python first released September 2023; 69 releases",
+   "label": "Verified fact",
+   "src": [
+    "A3-S009"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary API",
+    "label": "Verified fact",
+    "src": [
+     "A3-S009"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S009",
+   "A3-S054",
+   "A3-S083"
+  ],
+  "stage_a_notes": "Acquisition status could NOT be verified: the brief asks to check a possible acquisition, but tavily.com and news sources were unreachable after the shared web-search budget was exhausted. No ownership change is visible in PyPI metadata (author 'Tavily AI'). Treat as open item.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L4-browserbase",
+  "layer": "L4",
+  "original_label": "Browserbase – cloud browsers",
+  "current_name": {
+   "v": "Browserbase (cloud browser infrastructure) and Stagehand (open-source browser automation SDK)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S013",
+    "A3-S076"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Browserbase Inc.",
+   "label": "Verified fact",
+   "src": [
+    "A3-S068"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Managed headless-browser infrastructure for agents",
+   "label": "Verified fact",
+   "src": [
+    "A3-S013"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "browserbase Python SDK 1.20.0 (24 September 2026); Stagehand 4.1.0 (9 September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S013",
+    "A3-S076"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "SDK Apache-2.0; Stagehand MIT; browser service proprietary",
+   "label": "Verified fact",
+   "src": [
+    "A3-S013",
+    "A3-S068"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Agent skills collection and Stagehand integrations with coding agents; standalone MCP server repository archived",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "browserbase/mcp-server-browserbase repository archived (status on 7 October 2026)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Creates remote browser sessions that Playwright/Puppeteer connect to over CDP; Stagehand adds AI-driven interaction and data extraction",
+   "label": "Verified fact",
+   "src": [
+    "A3-S013",
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L4 tool runtime (browser execution); overlaps L8 web extraction",
+   "label": "Verified fact",
+   "src": [
+    "A3-S013"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Browserbase hosted service; Playwright/CDP client",
+   "label": "Verified fact",
+   "src": [
+    "A3-S013"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "REST API, Python/Node SDKs, CDP connect URL, Stagehand SDK, agent skills",
+   "label": "Verified fact",
+   "src": [
+    "A3-S013",
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S013"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable (SaaS)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Stagehand works with Claude Code, Codex, Mastra and others (repo description)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "browserbase/stagehand 25,562 GitHub stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "Python SDK first released April 2024; 46 releases",
+   "label": "Verified fact",
+   "src": [
+    "A3-S013"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary service",
+    "label": "Verified fact",
+    "src": [
+     "A3-S013"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S013",
+   "A3-S054",
+   "A3-S068",
+   "A3-S076"
+  ],
+  "stage_a_notes": "Funding, SOC 2/HIPAA, regions and pricing not verified (browserbase.com blocked; search budget exhausted).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L4-e2b",
+  "layer": "L4",
+  "original_label": "E2B – code sandboxes",
+  "current_name": {
+   "v": "E2B",
+   "label": "Verified fact",
+   "src": [
+    "A3-S007",
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "E2B",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Secure cloud sandboxes (Firecracker microVMs) for running AI-generated code",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "e2b SDK 2.53.1 and e2b-code-interpreter 2.10.3 (6 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S007"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source: SDK MIT; E2B Runtime (control plane, orchestrator, in-VM agent) Apache-2.0; E2B Cloud hosted service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S007",
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Positions itself as 'the AI agent cloud': snapshot-resume microVMs, pause/resume, forking running sandboxes, persistent volumes, secrets and workload identity",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Starts isolated sandboxes from pre-booted templates, runs commands and code, exposes ports via sandbox URLs and pauses idle sandboxes",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062",
+    "A3-S007"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L4 tool runtime (code execution); also a C7 sandboxing control",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Self-hosting needs Linux with KVM; runtime uses PostgreSQL, Redis, ClickHouse and object storage",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python/JavaScript SDKs and CLI; REST API; envd in-VM API over Connect RPC/REST",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (E2B Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S062"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (dedicated deployment run by E2B inside customer account)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S062"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Yes (in your own cloud for production)",
+    "label": "Verified fact",
+    "src": [
+     "A3-S062"
+    ],
+    "conf": "high"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes for evaluation (E2B Embed single host; GCP Terraform and Kubernetes manifests) - vendor says not a production pattern",
+    "label": "Verified fact",
+    "src": [
+     "A3-S062"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "One Firecracker microVM per sandbox with own cgroup and network namespace; per-sandbox nftables egress firewall with domain allow/deny lists; secrets never cross API/logs/spans; short-lived workload identity tokens; per-sandbox access tokens for URLs",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Enterprise dedicated deployments offered",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Self-host cost drivers: KVM hosts, object storage for templates/snapshots, PostgreSQL, Redis and ClickHouse",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "OpenTelemetry export built in",
+   "label": "Verified fact",
+   "src": [
+    "A3-S062"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "e2b-dev/E2B 14,219 GitHub stars (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S054"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "SDK first released August 2023; 365 releases",
+   "label": "Verified fact",
+   "src": [
+    "A3-S007"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Open-source runtime reduces lock-in",
+    "label": "Verified fact",
+    "src": [
+     "A3-S062"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S007",
+   "A3-S054",
+   "A3-S062"
+  ],
+  "stage_a_notes": "Certifications, funding and pricing not verified (e2b.dev blocked; search budget exhausted). README fetched from e2b-dev/infra describes itself as 'E2B Runtime'.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L4-aws-agentcore-gateway-identity",
+  "layer": "L4",
+  "original_label": null,
+  "current_name": {
+   "v": "Amazon Bedrock AgentCore Gateway and AgentCore Identity",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Amazon Web Services",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Managed MCP tool gateway and agent identity/credential service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "GA October 2025; Gateway three-legged OAuth for MCP targets GA and VPC egress (April 2026); supports MCP 2026-07-28 stateless core",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047",
+    "A3-S048",
+    "A3-S015"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Proprietary managed service",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "AWS contributed the MCP Tasks extension and supports the stateless 2026-07-28 spec in AgentCore",
+   "label": "Verified fact",
+   "src": [
+    "A3-S015"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "October 2025: GA",
+    "April 2026: Gateway 3LO for MCP targets GA; VPC egress for Gateway and Identity"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A3-S047",
+    "A3-S048"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Gateway converts APIs and Lambda functions into agent tools and fronts existing MCP servers with IAM or OAuth authorisation; Identity provides identity-aware authorisation, a vault for refresh tokens and integrations with OAuth services",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L4 governance sub-layer (MCP gateway) plus C4 agent identity",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "AWS account and Amazon Bedrock AgentCore",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "MCP (server-facing and client-facing), OAuth, IAM",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "VPC, PrivateLink and VPC egress supported",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047",
+     "A3-S048"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "15 AWS Regions (EU coverage not individually verified)",
+   "label": "Verified fact",
+   "src": [
+    "A3-S048"
+   ],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Refresh-token vault; IAM or OAuth for agent-to-tool calls; private networking",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Identity-aware authorisation; per-user tokens via 3LO for MCP targets",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047",
+    "A3-S048"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "GA October 2025",
+   "label": "Verified fact",
+   "src": [
+    "A3-S047"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Hyperscaler lock-in",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary AWS API",
+    "label": "Verified fact",
+    "src": [
+     "A3-S047"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S015",
+   "A3-S047",
+   "A3-S048"
+  ],
+  "stage_a_notes": "Added as material missing product: MCP gateway plus agent identity (H3). Peers named in MCP primary sources but not profiled: Microsoft Foundry toolbox (unified MCP endpoint with governance, identity, observability), Runlayer, FastMCP Horizon (A3-S015).",
+  "last_verified": "2026-10-07"
+ }
+]

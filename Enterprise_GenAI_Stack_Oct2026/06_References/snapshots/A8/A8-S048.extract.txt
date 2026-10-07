@@ -1,0 +1,16 @@
+SOURCE ID: A8-S048
+URL: https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/supervisory-statement/2021/ss221-march-21.pdf
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SS2/21 outsourcing ... exit plans stressed exit updated (bankofengland.co.uk)
+========================================================================
+
+Search results: "Supervisory Statement" SS2/21 (bankofengland.co.uk/-/media/boe/files/prudential-regulation/supervisory-statement/2021/ss221-march-21.pdf); "PS7/26" Operational incident and third-party reporting policy statement (bankofengland.co.uk/prudential-regulation/publication/2026/march/...); 2026 updated outsourcing SS for CSDs and RPSOs
+Search-tool extract:
+- SS2/21 Chapter 10: documented exit plan "for material outsourcing arrangements where such an exit is considered possible, explicitly catering for the unexpected termination of an outsourcing agreement".
+- Stressed exit: "last resort risk mitigation strategy when disruption cannot be managed through other business continuity measures, such as the insolvency or liquidation of a service provider"; focus on outcome (continued provision of important business services) not method; routes include bringing in-house or transferring to an alternative/back-up provider.
+- "Firms should begin to develop their business continuity and exit plans, in particular for stressed exits, during the pre-outsourcing phase once they have determined that a planned outsourcing arrangement is material." Plans tested as soon as practically possible.
+- "Firms should actively consider temporary measures that can help ensure the ongoing provision of important business services following a disruption and/or a stressed exit".
+- Original March 2021 PDF marked superseded on 31 December 2024, pointing to live web version.
+- 2026 PRA policy statement (PS7/26): "further clarified how firms should identify MTP [material third party] arrangements by setting out further expectations and examples in supervisory statement (SS) 2/21".
+- Search tool could not confirm the 31 March 2022 effective date from results.

@@ -1,0 +1,9 @@
+SOURCE ID: A6-S073
+URL: https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/bedrock-runtime/2023-09-30/service-2.json
+ACCESSED: 2026-10-07
+TYPE: filtered extract of a direct fetch (AWS API model JSON published in the boto/botocore repository, develop branch; file too large for the snapshot tool, so the relevant fields are reproduced verbatim with HTML tags stripped)
+========================================================================
+
+Operations: ['ApplyGuardrail', 'Converse', 'ConverseStream', 'CountTokens', 'GetAsyncInvoke', 'InvokeGuardrailChecks', 'InvokeModel', 'InvokeModelWithBidirectionalStream', 'InvokeModelWithResponseStream', 'ListAsyncInvokes', 'StartAsyncInvoke']
+ApplyGuardrail: The action to apply a guardrail. For troubleshooting some of the common errors you might encounter when using the ApplyGuardrail API, see Troubleshooting Amazon Bedrock API Error Codes in the Amazon Bedrock User Guide
+InvokeGuardrailChecks: Evaluates messages against inline guardrail checks. You specify the check configurations directly in the request, and Amazon Bedrock returns per-check results with severity or confidence scores.

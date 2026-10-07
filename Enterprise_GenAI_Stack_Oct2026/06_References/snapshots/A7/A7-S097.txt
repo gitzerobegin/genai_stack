@@ -1,0 +1,128 @@
+SOURCE ID: A7-S097
+URL: https://raw.githubusercontent.com/validmind/documentation/main/site/about/overview-llm-features.qmd
+FINAL URL: https://raw.githubusercontent.com/validmind/documentation/main/site/about/overview-llm-features.qmd
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+---
+# Copyright © 2023-2026 ValidMind Inc. All rights reserved.
+# Refer to the LICENSE file in the root of this repository for details.
+# SPDX-License-Identifier: AGPL-3.0 AND ValidMind Commercial
+title: "Large language model features"
+date: last-modified
+---
+
+{{< var vm.product >}} offers several specialized features that use large language models (LLMs) to streamline risk management and ensure regulatory compliance. Here's how we approach these features and what you need to know.
+
+::: {.attn}
+## {{< fa list-check >}} Our philosophy
+
+:::: {.flex .flex-wrap .justify-around}
+
+::: {.w-25-ns .pt3 .pr4}
+![Document checker](overview-llm-features-check-document.png){fig-alt="A screenshot showing the LLM feature for checking documents that can be accessed with the Check Document button"}
+
+:::
+
+::: {.w-75-ns}
+At {{< var vm.product >}}, our approach to AI features, particularly in testing and risk management, reflects a philosophy of _drinking our own champagne_ or using our own products. This means that while we create risk management tools for our users, we also rigorously apply these tools and practices within our own product development.
+
+Our testing methodologies and philosophy around testing are readily available, and we openly share information about our approach. Specific test results are also available on request, allowing us to demonstrate the same standards of robustness and compliance that we promote for our users.
+:::
+
+::::
+
+:::
+
+## Our features
+
+{{< var vm.product >}} enhances documentation, testing, and compliance workflows, providing your team with tools for effective risk governance.
+
+::: {.column-margin .pl3 .pt6}
+![Document checker in progress](overview-llm-features-check-document-in-progress.gif){fig-alt="A screenshot showing the LLM feature for checking documents that can be accessed with the Check Document button" .screenshot}
+:::
+
+:::: {.flex .flex-wrap .justify-around}
+
+::: {.w-50-ns .pr2}
+### Test interpretation
+
+Interprets results from tests run within {{< var vm.product >}}. This feature generates a description of the tests, highlights key insights from the outcomes, and provides a summary with actionable takeaways.
+
+::: {.feature}
+Why it matters
+: Test interpretation makes it easier for developers and validators to understand the implications of each test.
+:::
+
+:::
+
+::: {.w-50-ns .pl2 .pr2}
+### Qualitative checks
+
+Leverages metadata from the inventory, test outcomes, and additional data provided to create qualitative sections within documentation.
+
+::: {.feature}
+Why it matters
+: Qualitative checks ensure that essential contextual information is accurately documented and aligned with the record's purpose and scope.
+:::
+
+:::
+
+::::
+
+:::: {.flex .flex-wrap .justify-around}
+
+::: {.w-50-ns .pr2}
+### Risk assessment
+
+Using data from test results, generates a tailored risk assessment for each section of documentation. This feature aids in identifying potential risks based on the record's performance and results.
+
+::: {.feature}
+Why it matters
+: Risk assessment provides a foundation for better-informed decision-making.
+
+:::
+
+:::
+
+::: {.w-50-ns .pl2 .pr2}
+### {{< var validmind.checker >}}
+
+Reviews documents such as documentation or validation reports to ensure documents align with relevant regulatory requirements.
+
+::: {.feature}
+Why it matters
+: Document checks help teams maintain compliance with specific regulations by flagging areas that may need revision.
+:::
+
+:::
+
+::::
+
+## What's next
+
+:::: {.flex .flex-wrap .justify-around}
+
+::: {.w-50-ns .pr3}
+### A commitment to transparency
+
+Understanding our policies shouldn’t feel like deciphering code, so we’ve made our legal texts as clear and accessible as possible.
+
+These documents detail our [AI usage policy](https://validmind.com/about/legal/ai-usage-policy/) and more:
+
+[Legal Ease](https://validmind.com/about/legal/){.button}
+
+:::
+
+::: {.w-50-ns .pr3}
+### Try it yourself
+
+Discover how {{< var vm.product >}}’s LLM-powered platform, purpose-built for risk management teams, enables streamlined and confident testing, documentation, validation, and governance of generative AI systems and processes.
+
+[Request a Demo](https://validmind.com/request-demo/){.button .button-green}
+
+:::
+
+::::

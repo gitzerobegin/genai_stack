@@ -1,0 +1,14 @@
+SOURCE ID: A8-S060
+URL: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ%3AL_202601744
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Regulation 2026/1744 Article 4 AI literacy shall take measures (eur-lex, Service Desk, digital-strategy)
+========================================================================
+
+Search results: EUR-Lex Regulation (EU) 2026/1744 (OJ L, HTML and PDF); AI Act Service Desk "Article 4: AI literacy"; Commission "AI Literacy - Questions & Answers"; consolidated text 02024R1689-20260727
+Search-tool extract:
+- Amended Article 4(1): "Providers and deployers of AI systems shall take measures to support the development of AI literacy of their staff and other persons dealing with the operation and use of AI systems on their behalf" [taking into account technical knowledge, experience, education and training and the context of use and persons affected]. "This obligation does not require providers or deployers to guarantee any specific level of AI literacy of any individual."
+- Article 4(2): Commission and Member States support, particular attention to SMEs; "the Commission shall publish practical examples of how to comply with that obligation on the single information platform referred to in Article 62(3), point (b)."
+- Article 4(3): "The Board shall adopt recommendations, taking into account European competence frameworks, to support the Commission and Member States in the promotion of AI literacy required under paragraph 1".
+- Recital 8: stringent obligations to ensure a sufficient level of AI literacy would not suit all providers and deployers; Article 4 amended to require measures. Commission's proposal would have moved the duty to Commission/Member States; final text keeps obligation on providers and deployers.
+- Date of effect 27/07/2026. Supervision and enforcement of Article 4 by national market surveillance authorities from 2 August 2026, not the AI Office.

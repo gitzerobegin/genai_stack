@@ -1,0 +1,5169 @@
+[
+ {
+  "id": "L7-openai",
+  "layer": "L7",
+  "original_label": "OpenAI – Embeddings 3",
+  "current_name": {
+   "v": "OpenAI embeddings: text-embedding-3-large and text-embedding-3-small",
+   "label": "Verified fact",
+   "src": [
+    "A2-S001",
+    "A2-S002"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "OpenAI",
+   "label": "Verified fact",
+   "src": [
+    "A2-S002"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Hosted text-embedding model API",
+   "label": "Verified fact",
+   "src": [
+    "A2-S003"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "text-embedding-3-large (most capable; 3,072 dims default) and text-embedding-3-small, both released 25 January 2024; text-embedding-ada-002 still listed. No newer OpenAI embedding model found as of 7 October 2026.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S001",
+    "A2-S002"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Proprietary; available only as a hosted API",
+   "label": "Verified fact",
+   "src": [
+    "A2-S001",
+    "A2-S003"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [
+    "25 January 2024: text-embedding-3-small/-large launched; ada-002 not deprecated at launch"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S002"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Converts text into dense vectors for search, clustering and recommendation. Output defaults to 3,072 dimensions for 3-large and can be shortened via the 'dimensions' parameter; maximum input 8,192 tokens.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S001",
+    "A2-S003"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L7 embedding model; placement in the graphic is correct. Embedding only (no first-party reranker found), so a separate reranker is needed for two-stage retrieval.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "OpenAI API platform (cloud service)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S003"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "REST /v1/embeddings endpoint and OpenAI SDKs; Batch API at half the standard per-token price for 3-large",
+   "label": "Verified fact",
+   "src": [
+    "A2-S003",
+    "A2-S035"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S001"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No (no downloadable weights published)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "No",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type 2 (API and business products); ISO/IEC 27001:2022 and 27701:2019; CSA STAR Level 1; BAA for HIPAA available on request",
+   "label": "Verified fact",
+   "src": [
+    "A2-S036"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "European data residency for API Projects created with the Europe region (in-region handling with zero data retention); DPA available; default API retention up to 30 days, ZDR on request for eligible endpoints",
+   "label": "Verified fact",
+   "src": [
+    "A2-S037"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "AES-256 at rest, TLS 1.2+ in transit; customer API data not used for training by default. CMK/BYOK for the API not verified.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S037"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "SSO/MFA advertised for the API platform; SCIM, RBAC granularity and audit-log scope not verified in this run",
+   "label": "Verified fact",
+   "src": [
+    "A2-S036"
+   ],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "text-embedding-3-large US$0.13 per 1M tokens (Batch US$0.065); text-embedding-3-small US$0.02 per 1M tokens",
+   "label": "Verified fact",
+   "src": [
+    "A2-S001",
+    "A2-S035"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable: hosted only; cost is per token",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "GA since January 2024; no successor model announced in the ~2.7 years since",
+   "label": "Verified fact",
+   "src": [
+    "A2-S002",
+    "A2-S001"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Vectors are model-specific: changing provider or model requires re-embedding the corpus",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Low relevance (OpenAI is the model owner)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary hosted API only",
+    "label": "Verified fact",
+    "src": [
+     "A2-S001"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Stable but ageing generation (January 2024); successor timing unknown",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S001",
+   "A2-S002",
+   "A2-S003",
+   "A2-S035",
+   "A2-S036",
+   "A2-S037"
+  ],
+  "stage_a_notes": "Graphic label 'Embeddings 3' matches the text-embedding-3 generation, which is still OpenAI's current embedding generation as of 7 October 2026 (no newer model found). No OpenAI reranker product was found in this run (searches were not exhaustive). Pricing conflict: community threads (~2025) reported the pricing page briefly showing US$0.065 for 3-large; current model page shows US$0.13 standard / US$0.065 Batch. Whether EU data residency covers the /embeddings endpoint was not confirmed ('supported API endpoints' only). Azure-hosted availability not checked.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L7-gemini-embedding",
+  "layer": "L7",
+  "original_label": "Gemini – Embedding 2",
+  "current_name": {
+   "v": "Gemini Embedding 2 (model id gemini-embedding-2)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S004",
+    "A2-S005"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Google (Google DeepMind / Google Cloud)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S004"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Hosted multimodal embedding model API",
+   "label": "Verified fact",
+   "src": [
+    "A2-S004",
+    "A2-S005"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "gemini-embedding-2: preview 10 March 2026 (gemini-embedding-2-preview), GA 22 April 2026; text-only gemini-embedding-001 remains available",
+   "label": "Verified fact",
+   "src": [
+    "A2-S004",
+    "A2-S005",
+    "A2-S039"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary; hosted API only (Gemini API and Vertex AI / Gemini Enterprise Agent Platform)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S004"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Google's first natively multimodal embedding model: text, images, video, audio and documents in one embedding space; positioned for agentic multimodal RAG; Gemini File Search API gained multimodal support",
+   "label": "Verified fact",
+   "src": [
+    "A2-S004",
+    "A2-S005"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "10 March 2026: gemini-embedding-2-preview released",
+    "22 April 2026: gemini-embedding-2 GA on Gemini API and Vertex AI",
+    "2026: Google Cloud documentation renames Vertex AI generative AI docs to 'Gemini Enterprise Agent Platform'"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S004",
+    "A2-S005",
+    "A2-S039"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Maps text, images (up to 6 per request), video, audio (no transcription step) and PDFs (up to 6 pages) into a shared vector space across 100+ languages; 8,192 text-token input; Matryoshka output 128-3,072 dims (3,072/1,536/768 recommended) with automatic normalisation; multiple inputs in one request produce one aggregated embedding; task_type parameter not supported.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S004",
+    "A2-S005"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L7 embedding model; placement correct. Also reached through Google platform services (File Search, Memory Bank), so it can be consumed implicitly inside higher layers.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Google Gemini API or Google Cloud Vertex AI (Gemini Enterprise Agent Platform)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S004",
+    "A2-S039"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Gemini API and Vertex AI SDK/REST; Batch API at 50% of standard price",
+   "label": "Verified fact",
+   "src": [
+    "A2-S005",
+    "A2-S038"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Gemini Developer API)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S005"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (Google Cloud Vertex AI / Gemini Enterprise Agent Platform; global, us and eu endpoints)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S039"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No (no downloadable weights)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Generative AI on Vertex AI: SOC 2, ISO/IEC 27001, ISO/IEC 42001, HIPAA, FedRAMP High (scope per product/feature; per-model coverage for gemini-embedding-2 not confirmed)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S043"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Available on the 'eu' multi-region endpoint, which keeps data within EU member states (UK and Switzerland excluded); batch supported in global, us and eu",
+   "label": "Verified fact",
+   "src": [
+    "A2-S039"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Vertex AI supports customer-managed encryption keys (CMEK) with location rules; applicability to gemini-embedding-2 calls not confirmed",
+   "label": "Verified fact",
+   "src": [
+    "A2-S039"
+   ],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Gemini API paid tier per 1M tokens: text US$0.20, image US$0.45, audio US$6.50, video US$12.00; Batch: text US$0.10, image US$0.225, audio US$3.25, video US$6.00; free tier available. Vertex AI: text US$0.20 online / US$0.10 batch, image US$0.45 online.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S038"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable: hosted only",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Box is integrating Gemini Embedding 2 multimodal capabilities into the Box Agentic Platform (Google Cloud blog)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S047"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "GA since 22 April 2026 (about 5.5 months)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S004"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Model-specific vectors plus Google platform coupling (File Search, Memory Bank); re-embedding needed to switch",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not applicable (Google)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary hosted API only",
+    "label": "Verified fact",
+    "src": [
+     "A2-S004"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "GA April 2026; pricing page and docs were still being updated at time of research",
+    "label": "Verified fact",
+    "src": [
+     "A2-S038",
+     "A2-S039"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S004",
+   "A2-S005",
+   "A2-S038",
+   "A2-S039",
+   "A2-S043",
+   "A2-S047"
+  ],
+  "stage_a_notes": "Graphic label 'Embedding 2' is correct: gemini-embedding-2 went GA on 22 April 2026. Google docs are being renamed from Vertex AI to 'Gemini Enterprise Agent Platform' (URLs and pricing page use the new name); writers should mention both names. Vertex pricing table still labelled the model 'Preview' at time of search while the model page says GA - pricing page appears to lag. Video length limit conflict: launch blog says up to 120 s; Vertex docs say 80 s with audio / 120 s without. EU multi-region endpoint excludes UK and Switzerland - relevant for UK FS. CMEK applicability to online embedding calls not confirmed; certification scope is stated for 'Generative AI on Vertex AI' generally, not per model. Google also offers a separate ranking API (not researched in this run).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L7-voyage",
+  "layer": "L7",
+  "original_label": "Voyage AI – Voyage-3",
+  "current_name": {
+   "v": "Voyage AI by MongoDB (Voyage 4 embedding family; Rerank 3 rerankers)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S007",
+    "A2-S006",
+    "A2-S034"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Voyage AI, acquired by MongoDB, Inc. (closed 17 February 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S033"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Embedding and reranking models (hosted API, marketplace model packages, one open-weight model)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S007",
+    "A2-S044"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Voyage 4 (launched 15 January 2026): voyage-4-large, voyage-4, voyage-4-lite, voyage-4-nano (open weights); plus voyage-code-4, voyage-context-4 (contextualised chunk embeddings), voyage-multimodal-3.5 (text, image, video); domain models voyage-finance-2 and voyage-law-2. Rerankers: rerank-3 and rerank-3-lite (30 September 2026), rerank-2.5 series retained for existing users.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S006",
+    "A2-S007",
+    "A2-S034",
+    "A2-S071"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary hosted models; voyage-4-nano is open-weight under Apache 2.0",
+   "label": "Verified fact",
+   "src": [
+    "A2-S006",
+    "A2-S071"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Being folded into MongoDB: Embedding and Reranking API on Atlas (public preview) and Automated Embedding in MongoDB Vector Search (public preview on Community Edition; Atlas 'coming soon' as of January 2026). Voyage 4 models share one embedding space so documents and queries can use different model sizes.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S008",
+    "A2-S077",
+    "A2-S078",
+    "A2-S006"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "17 February 2025: acquired by MongoDB (announced 24 February 2025)",
+    "August 2025: rerank-2.5 / rerank-2.5-lite with instruction following",
+    "15 January 2026: Voyage 4 family launched; Voyage 3.x becomes previous generation",
+    "30 September 2026: rerank-3 / rerank-3-lite launched; rerank-2.5 becomes previous generation"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S033",
+    "A2-S006",
+    "A2-S034"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "General-purpose, code, domain-specific, contextualised and multimodal embedding models plus instruction-following rerankers (32K-token context). voyage-4: 32,000-token context, 1,024 default dims (256/512/2,048 options), multiple quantisation options including binary.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S007",
+    "A2-S006",
+    "A2-S034"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L7, covering both embedding and reranking; increasingly also embedded inside L6 (MongoDB Vector Search automated embedding).",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Voyage/MongoDB hosted API, or AWS SageMaker (GPU instances such as ml.g5.xlarge) for marketplace model packages; voyage-4-nano runs anywhere (Hugging Face weights)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S044",
+    "A2-S071"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "REST API and SDKs; Atlas Embedding and Reranking API; AWS and Azure Marketplace; automated embedding inside MongoDB Vector Search",
+   "label": "Verified fact",
+   "src": [
+    "A2-S033",
+    "A2-S077",
+    "A2-S078"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S007",
+     "A2-S044"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (AWS Marketplace, Azure Marketplace, MongoDB Atlas)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S033",
+     "A2-S077"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Yes (model package deployed in the customer's AWS account and VPC via SageMaker)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S044"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Partial (voyage-4-nano open weights only)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S071"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 and HIPAA listed on Voyage AI homepage (trust-centre detail and BAA terms not verified)",
+   "label": "Reported",
+   "src": [
+    "A2-S044"
+   ],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "In-VPC marketplace deployment keeps data flow and API access in the customer's account (AWS acts as sub-processor)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S044"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "voyage-4 US$0.06 per 1M tokens, first 200M tokens free per model; rerank-3 US$0.05 and rerank-3-lite US$0.02 per 1M tokens",
+   "label": "Verified fact",
+   "src": [
+    "A2-S007",
+    "A2-S034"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Marketplace self-deployment requires SageMaker GPU instances (e.g. ml.g5.xlarge); default quotas are often zero",
+   "label": "Verified fact",
+   "src": [
+    "A2-S044"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Recommended in Anthropic's Claude embeddings documentation; available via AWS and Azure marketplaces; native in MongoDB",
+   "label": "Verified fact",
+   "src": [
+    "A2-S071",
+    "A2-S033",
+    "A2-S078"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Frequent model generations (rerank-2.5 Aug 2025, Voyage 4 Jan 2026, rerank-3 Sep 2026); MongoDB-integrated APIs still in public preview",
+   "label": "Verified fact",
+   "src": [
+    "A2-S034",
+    "A2-S006",
+    "A2-S077"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Shared Voyage 4 embedding space reduces re-embedding within the family; switching vendor still requires re-embedding",
+    "label": "Verified fact",
+    "src": [
+     "A2-S006"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Acquired by MongoDB (Feb 2025); roadmap now tied to MongoDB",
+    "label": "Verified fact",
+    "src": [
+     "A2-S033",
+     "A2-S078"
+    ],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Increasing coupling to MongoDB Atlas for the native experience",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary API except voyage-4-nano",
+    "label": "Verified fact",
+    "src": [
+     "A2-S071"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S006",
+   "A2-S007",
+   "A2-S008",
+   "A2-S033",
+   "A2-S034",
+   "A2-S044",
+   "A2-S071",
+   "A2-S077",
+   "A2-S078"
+  ],
+  "stage_a_notes": "Ownership confirmed: MongoDB acquired Voyage AI (closed 17 February 2025 per MongoDB 10-K; announced 24 February 2025; consideration US$160.9M). Label 'Voyage-3' is stale: Voyage 4 family launched 15 January 2026; voyage-3-large/3.5 are now 'previous generation'. Reranker generation moved to rerank-3 on 30 September 2026 (one week before this review). An older MongoDB blog still calls rerank-2.5 current - superseded. SOC 2 / HIPAA rest on a homepage listing reported by the search tool; trust-centre detail, BAA availability, EU region and CMK not verified. Anthropic's Claude docs recommend Voyage AI as an embeddings provider (Anthropic has no embedding model) - note author conflict of interest when citing.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L7-cohere",
+  "layer": "L7",
+  "original_label": "Cohere – Embed v3 + Rerank",
+  "current_name": {
+   "v": "Cohere Embed 5 (embed-v5.0-pro, embed-v5.0-fast) and Cohere Rerank 4 (rerank-v4.0-pro, rerank-v4.0-fast)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S012",
+    "A2-S010"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Cohere Inc. (pending business combination with Aleph Alpha, signed 16 September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S018"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Embedding and reranking models (hosted API, cloud marketplaces, private deployment)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S011",
+    "A2-S015"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Embed 5 (30 September 2026): Pro and Fast tiers in a shared embedding space; embed-v4.0 still listed. Rerank 4 (11 December 2025): Pro and Fast; Rerank 3.5 still available on Azure.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S012",
+    "A2-S010",
+    "A2-S011"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary models (hosted API, marketplace and private deployments)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S015"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Enterprise/sovereign AI positioning: private on-prem/VPC deployment, Model Vault single-tenant hosting, and a transatlantic combination with Aleph Alpha (Berlin/Toronto HQs)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S015",
+    "A2-S012",
+    "A2-S018"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "2025: Embed v4 (multimodal, 128K context) released",
+    "August 2025: US$500M raise at US$6.8B valuation",
+    "11 December 2025: Rerank v4.0 released",
+    "24 April 2026: Cohere and Aleph Alpha announce plan to combine",
+    "16 September 2026: definitive business combination agreement signed, subject to regulatory approval",
+    "30 September 2026: Embed 5 released"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S011",
+    "A2-S017",
+    "A2-S010",
+    "A2-S018",
+    "A2-S012"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Embed 5 embeds text, images and mixed text-image inputs (e.g. PDF pages) into one vector; 100+ languages; 128K-token context; Matryoshka 256-2,048 dims; float, int8 and binary outputs. Rerank 4 reorders candidates by relevance with 32K-token context and handles multilingual text and JSON documents.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S012",
+    "A2-S009"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L7, covering embedding and reranking from one vendor; correctly placed.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Cohere API, or partner clouds (Microsoft Foundry, Amazon SageMaker), or customer infrastructure for private deployments",
+   "label": "Verified fact",
+   "src": [
+    "A2-S012",
+    "A2-S015"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Cohere Embed and Rerank APIs (v2), SDKs, Azure AI Foundry and SageMaker endpoints; LangChain integration",
+   "label": "Verified fact",
+   "src": [
+    "A2-S011",
+    "A2-S012"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S015"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (Microsoft Foundry, Amazon SageMaker; Model Vault single-tenant)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S012"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Yes (VPC deployment)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S015"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (Model Vault single-tenant)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S012"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (private deployment)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S015"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S015"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II (annual; report under mNDA), ISO 27001, ISO 42001, UK Cyber Essentials; HIPAA listed as an FAQ entry (BAA not confirmed)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S014"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "For private and third-party partner deployments Cohere does not access or process customer prompts/generations; EU hosted-region details not verified",
+   "label": "Verified fact",
+   "src": [
+    "A2-S014"
+   ],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Private on-prem/VPC deployments with no Cohere access to customer data; Encrypted Vault product for regulated workloads",
+   "label": "Verified fact",
+   "src": [
+    "A2-S015",
+    "A2-S014"
+   ],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Embed 5 Pro US$0.12 and Fast US$0.08 per 1M text tokens; images US$0.40 per 1M tokens (both). Rerank billed per search (rate not found). Model Vault: e.g. Embed 5 Pro Small US$3.00/hour or US$2,000/month; Rerank 4 Pro Large US$10.00/hour or US$6,500/month per instance.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S013",
+    "A2-S016"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Dedicated (Vault) instances billed per instance-hour or month",
+   "label": "Verified fact",
+   "src": [
+    "A2-S016"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Available on Microsoft Foundry/Azure, Amazon SageMaker; LangChain integration",
+   "label": "Verified fact",
+   "src": [
+    "A2-S011",
+    "A2-S012"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Funding: US$500M at US$6.8B (August 2025); press reports (September 2026) of talks at a US$20B valuation (unconfirmed)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S017",
+    "A2-S019"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "Mature product line; frequent generations (Embed v4 2025, Rerank 4 Dec 2025, Embed 5 Sep 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S011",
+    "A2-S010",
+    "A2-S012"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Model-specific vectors; Pro/Fast shared space limits re-embedding within Embed 5 only",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Cohere is the acquirer/combining party with Aleph Alpha; deal pending regulatory approval",
+    "label": "Verified fact",
+    "src": [
+     "A2-S018"
+    ],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Reported talks for a US$2-3B raise at US$20B valuation (not finalised)",
+    "label": "Reported",
+    "src": [
+     "A2-S019"
+    ],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary models",
+    "label": "Verified fact",
+    "src": [
+     "A2-S015"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S009",
+   "A2-S010",
+   "A2-S011",
+   "A2-S012",
+   "A2-S013",
+   "A2-S014",
+   "A2-S015",
+   "A2-S016",
+   "A2-S017",
+   "A2-S018",
+   "A2-S019"
+  ],
+  "stage_a_notes": "Label 'Embed v3' is two generations stale: Embed v4 (2025) and Embed 5 (30 September 2026, embed-v5.0-pro / embed-v5.0-fast). Embed v4 date conflict in changelog extracts (15 April 2025 vs a 16 September 2025 section header). Rerank is at v4.0 (11 December 2025; pro and fast), with v3.5 still offered on Azure. Rerank per-search price not found (Cohere bills rerank per search). Aleph Alpha combination signed 16 September 2026 but not closed (regulatory approval pending) - treat as pending, not completed. US$20B round is press-reported only (Globe and Mail via PYMNTS). HIPAA appears only as a trust-centre FAQ entry; BAA not confirmed.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L7-qwen3-embedding",
+  "layer": "L7",
+  "original_label": "Qwen3 – Embeddings",
+  "current_name": {
+   "v": "Qwen3-Embedding and Qwen3-Reranker (open weights); Qwen3-VL-Embedding / Qwen3-VL-Reranker (multimodal); hosted as text-embedding-v4 and qwen3-rerank on Alibaba Cloud Model Studio",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S021",
+    "A2-S022"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Alibaba Group (Qwen team; Alibaba Cloud)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S022"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-weight embedding and reranking models, also offered as hosted API",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S022"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Qwen3-Embedding and Qwen3-Reranker in 0.6B, 4B and 8B (June 2025; 32K context; 119 languages); Qwen3-VL-Embedding and Qwen3-VL-Reranker (January 2026); hosted text-embedding-v4, qwen3.7-text-embedding, qwen3-rerank, qwen3-vl-rerank",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S021",
+    "A2-S022"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Open weights, Apache 2.0 (Qwen3-Embedding/Reranker); hosted API proprietary service",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Extending to multimodal retrieval (Qwen3-VL-Embedding/Reranker) and newer hosted embedding versions (qwen3.7-text-embedding, 201 languages)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S021",
+    "A2-S022"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "June 2025: Qwen3-Embedding and Qwen3-Reranker released (Apache 2.0)",
+    "January 2026: Qwen3-VL-Embedding and Qwen3-VL-Reranker paper/release"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S021"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Text embedding and reranking models built on Qwen3 foundation models; hosted text-embedding-v4 supports 64-2,048 dims (1,024 default).",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S022"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L7; family covers both embed and rerank, so the graphic understates it.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Self-host on GPU/CPU from Hugging Face/ModelScope weights, or Alibaba Cloud Model Studio",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S022"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Hugging Face / ModelScope weights; Model Studio API including OpenAI-compatible batch API",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S022"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Alibaba Cloud Model Studio)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S022"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (open weights)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S020"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (open weights)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S020"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Model Studio pricing lists Singapore, Hong Kong and Beijing regions; no EU region verified",
+   "label": "Verified fact",
+   "src": [
+    "A2-S022"
+   ],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Model Studio: text-embedding-v4 US$0.07 per 1M tokens (Singapore; US$0.072 Beijing); qwen3.7-text-embedding US$0.07 (Singapore); qwen3-rerank US$0.10 per 1M input tokens (Singapore), output free; 1M free tokens for 90 days. Open weights free.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S022"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Self-hosting cost driven by GPU size: 0.6B runs on modest hardware; 8B needs a datacentre GPU for production throughput",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "8B embedding ranked No.1 on MTEB multilingual (score 70.58) as of 5 June 2025 (vendor-reported); Jina reports its v3.5 reranker beating Qwen3-Reranker-4B on BEIR",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S026"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "Open-weight release June 2025; multimodal successor January 2026",
+   "label": "Verified fact",
+   "src": [
+    "A2-S020",
+    "A2-S021"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Low: Apache 2.0 open weights can be self-hosted",
+    "label": "Verified fact",
+    "src": [
+     "A2-S020"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Hosted API concentrated in Alibaba Cloud regions; jurisdiction review may apply for regulated firms",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S020",
+   "A2-S021",
+   "A2-S022",
+   "A2-S026"
+  ],
+  "stage_a_notes": "Graphic shows embeddings only; the Qwen3 family includes rerankers (Qwen3-Reranker 0.6B/4B/8B) and a 2026 multimodal pair (Qwen3-VL-Embedding/-Reranker). The MTEB #1 claim is dated 5 June 2025 (vendor model card); current leaderboard rank not verified (leaderboard host blocked). A Qwen blog sentence reportedly calls the series 'proprietary', conflicting with the Apache 2.0 statements; Apache 2.0 used. Alibaba Cloud Model Studio prices: text-embedding-v4 (Qwen3-Embedding series) and a newer qwen3.7-text-embedding; regions listed are Singapore, Hong Kong, Beijing - no EU region verified. Qwen3-VL embedding licence not verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L7-jina",
+  "layer": "L7",
+  "original_label": "Jina AI – Embeddings v3",
+  "current_name": {
+   "v": "Jina AI search foundation models (jina-embeddings-v5-text, jina-embeddings-v5-omni, jina-reranker-v3.5), part of Elastic",
+   "label": "Verified fact",
+   "src": [
+    "A2-S025",
+    "A2-S026",
+    "A2-S024"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Jina AI GmbH, acquired by Elastic N.V. (completed October 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S023",
+    "A2-S024"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Embedding and reranking models (hosted API, Elastic Inference Service, on-prem licence, open weights for non-commercial use)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S042",
+    "A2-S024"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "jina-embeddings-v5-text small (677M params, 32,768-token context, 1,024 dims) and nano (239M) - February 2026; jina-embeddings-v5-omni small and nano - May 2026 (default API embedding model); jina-reranker-v3.5 (0.6B listwise) - July 2026; jina-reranker-m0 (multimodal) also listed",
+   "label": "Verified fact",
+   "src": [
+    "A2-S025",
+    "A2-S026"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Model weights CC-BY-NC-4.0 (commercial use via Jina API, cloud marketplaces, Elastic Inference Service or on-prem licence); jina-embeddings-v4 under Qwen Research Licence (no commercial use)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S024",
+    "A2-S042"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Being integrated into Elastic: Jina models served on Elastic Inference Service alongside ELSER; rerankers for visual and long-context multilingual documents",
+   "label": "Verified fact",
+   "src": [
+    "A2-S023",
+    "A2-S027",
+    "A2-S042"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "7-9 October 2025: acquired by Elastic",
+    "February 2026: jina-embeddings-v5-text",
+    "May 2026: jina-embeddings-v5-omni",
+    "June 2026: v5-omni small/nano available on Elastic Inference Service",
+    "July 2026: jina-reranker-v3.5"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S023",
+    "A2-S025",
+    "A2-S027",
+    "A2-S026"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Multilingual and multimodal embedding models (text, image, audio, video, PDF in one space) and listwise rerankers; v3.5 reranker reports 63.20 nDCG@10 on BEIR and up to 1.56x faster than v3 on long documents (vendor-reported).",
+   "label": "Verified fact",
+   "src": [
+    "A2-S025",
+    "A2-S026"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L7 embed + rerank; now also a native component of Elasticsearch (L6) via Elastic Inference Service.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Jina hosted API; or Elastic Cloud (EIS); or Docker containers on customer infrastructure (on-prem licence)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S042",
+    "A2-S045"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Jina Embedding and Reranker APIs (token-billed); Elasticsearch open inference API / EIS; Hugging Face weights; vLLM recipes",
+   "label": "Verified fact",
+   "src": [
+    "A2-S042",
+    "A2-S025"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Jina API)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S042"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (Elastic Inference Service on Elastic Cloud; cloud marketplaces)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S042"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (commercial on-prem licence; Docker containers, air-gapped supported)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S042",
+     "A2-S045"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S042",
+     "A2-S045"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Elastic Cloud: ISO 27001, ISO 27017, ISO 27018, SOC 2 Type II; coverage of the hosted Jina API not confirmed",
+   "label": "Verified fact",
+   "src": [
+    "A2-S045"
+   ],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Jina data processing now governed by Elastic's data processing terms; region details not verified",
+   "label": "Verified fact",
+   "src": [
+    "A2-S024"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Customer data encrypted in transit and at rest with per-customer keys; request data not used for training (Jina legal page)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S045"
+   ],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "API-key access managed by customer; other controls not verified",
+   "label": "Verified fact",
+   "src": [
+    "A2-S045"
+   ],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Jina API billed per token processed (rates not retrieved); EIS billed per million input tokens on Elastic Cloud; on-prem annual licence via Elastic Sales. Rate limits: Free 100 RPM/100K TPM, Paid 500 RPM/2M TPM, Premium 5,000 RPM/50M TPM.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S042"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "On-prem licence priced by models deployed and inference hardware, not per token",
+   "label": "Verified fact",
+   "src": [
+    "A2-S042"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Elasticsearch integration via open inference API and EIS; Hugging Face; vLLM",
+   "label": "Verified fact",
+   "src": [
+    "A2-S042",
+    "A2-S025"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Rapid cadence: three model releases in Feb-Jul 2026 after acquisition",
+   "label": "Verified fact",
+   "src": [
+    "A2-S025",
+    "A2-S026"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Commercial use effectively routes through Elastic (API, EIS or on-prem licence)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Acquired by Elastic (October 2025)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S023"
+    ],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Weights downloadable but non-commercial licence",
+    "label": "Verified fact",
+    "src": [
+     "A2-S024"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S023",
+   "A2-S024",
+   "A2-S025",
+   "A2-S026",
+   "A2-S027",
+   "A2-S042",
+   "A2-S045"
+  ],
+  "stage_a_notes": "Ownership changed: Elastic completed the acquisition of Jina AI (SEC filings give 7 October 2025; press release 9 October 2025; consideration US$43.4M per Elastic FY2026 10-K, interim filings showed slightly different figures). Label 'v3' stale: jina-embeddings-v5-text (February 2026), v5-omni (May 2026, text/image/audio/video/PDF, text vectors identical to v5-text) and jina-reranker-v3.5 (July 2026). Parameter counts for v5-omni conflict (blog 1.6B/0.9B vs model pages ~1.74B/1.04B). Free-token allowance conflicts (1M vs 10M). Jina's own policies predate the acquisition. Whether the hosted Jina API is in Elastic's SOC 2 scope is not confirmed.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L7-sentence-transformers",
+  "layer": "L7",
+  "original_label": "SBERT – Sentence transformers",
+  "current_name": {
+   "v": "Sentence Transformers (sentence-transformers library; SBERT.net)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Hugging Face (maintainer Tom Aarsen); originally developed by UKP Lab, TU Darmstadt (author Nils Reimers)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029",
+    "A2-S028"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source Python library for embedding, reranker (cross-encoder), sparse-encoder and multi-vector models",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "6.1.0, released 18 September 2026 (6.0.0 on 18 August 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029",
+    "A2-S032"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029",
+    "A2-S028"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Broadening from dense embeddings to Cross-Encoder rerankers (v4), Sparse Encoders (v5) and Multi-Vector Encoders for ColBERT-style late interaction (v6)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S028",
+    "A2-S029"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "Late 2023: Tom Aarsen took over maintainership",
+    "c. late 2025: project formally transitioned from UKP Lab to Hugging Face (date not confirmed)",
+    "18 August 2026: v6.0.0",
+    "18 September 2026: v6.1.0"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S028",
+    "A2-S032"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Computes embeddings, cross-encoder similarity scores, sparse embeddings and token-level multi-vector embeddings, and trains/fine-tunes such models; over 15,000 pre-trained models on Hugging Face.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L7 tooling (library/runtime for self-hosted models), not a hosted model; complements rather than competes with API vendors.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Python >=3.10; PyTorch/transformers ecosystem; optional image and audio extras",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python library; models from Hugging Face Hub",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No (library)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S029"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S029"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable (open-source library)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Not applicable (runs in customer environment)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free, open source (Apache-2.0)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "CPU/GPU compute for inference and fine-tuning; cost scales with model size and corpus volume",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Hugging Face Hub; many MTEB leaderboard models load via the library",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Over 15,000 pre-trained Sentence Transformers models on Hugging Face",
+   "label": "Verified fact",
+   "src": [
+    "A2-S029"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "Introduced 2019; eight releases between May and September 2026",
+   "label": "Verified fact",
+   "src": [
+    "A2-S028",
+    "A2-S032"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Low: Apache-2.0 library, model-agnostic",
+    "label": "Verified fact",
+    "src": [
+     "A2-S029"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Stewardship moved to Hugging Face",
+    "label": "Verified fact",
+    "src": [
+     "A2-S028"
+    ],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Depends on Hugging Face stewardship and a small maintainer team",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S028",
+   "A2-S029",
+   "A2-S032"
+  ],
+  "stage_a_notes": "Maintainer changed formally: project moved from UKP Lab (TU Darmstadt) to Hugging Face; Tom Aarsen (Hugging Face) is maintainer; exact announcement date not confirmed by the search tool. Latest version 6.1.0 (18 September 2026) from PyPI, which is authoritative. v6.0 added Multi-Vector Encoder (ColBERT-style late interaction) - relevant to H6. Library, not a model vendor: the graphic's 'SBERT' tile conflates the library with the original SBERT models.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L7-nvidia-nemo-retriever",
+  "layer": "L7",
+  "original_label": "NVIDIA – Embed",
+  "current_name": {
+   "v": "NVIDIA NeMo Retriever embedding and reranking NIM microservices (Nemotron embedding/reranking models)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S030",
+    "A2-S031"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "NVIDIA",
+   "label": "Verified fact",
+   "src": [
+    "A2-S030"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Containerised embedding and reranking inference microservices (NIM) with NVIDIA models",
+   "label": "Verified fact",
+   "src": [
+    "A2-S031",
+    "A2-S040"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Embedding NIM 2.3: nemotron-3-embed-1b, llama-nemotron-embed-1b-v2, llama-nemotron-embed-vl-1b-v2 (multimodal). Reranking NIM 2.0.0: llama-nemotron-rerank-vl-1b-v2 (multimodal, NGC update 3 August 2026), llama-nemotron-rerank-1b-v2, llama-nemotron-rerank-500m-v2 (8,192-token max).",
+   "label": "Verified fact",
+   "src": [
+    "A2-S031",
+    "A2-S030"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Proprietary container (NVIDIA Software License Agreement + AI product terms); models under NVIDIA Open Model License (varies by model); production use requires NVIDIA AI Enterprise",
+   "label": "Verified fact",
+   "src": [
+    "A2-S041",
+    "A2-S040"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Moving to multimodal (text + image) embedding and reranking as defaults in the NeMo Retriever Helm chart",
+   "label": "Verified fact",
+   "src": [
+    "A2-S031",
+    "A2-S030"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "Reranking NIM 1.11.0: multimodal reranker llama-nemotron-rerank-vl-1b-v2 introduced",
+    "Reranking NIM 2.0.0: major runtime upgrade",
+    "Embedding NIM 2.3: nemotron-3-embed-1b"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S030",
+    "A2-S031"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "GPU-optimised microservices that serve NVIDIA embedding and reranking models behind an API, deployable via Helm on Kubernetes or Docker, as part of the NeMo Retriever RAG pipeline.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S031",
+    "A2-S030"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L7 runtime + models (embed and rerank) - straddles L7 and L2 (serving). Graphic label 'Embed' understates the reranking component.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "NVIDIA GPUs; NGC container registry; Kubernetes/Helm for the NeMo Retriever chart",
+   "label": "Verified fact",
+   "src": [
+    "A2-S031"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "NIM REST APIs; NVIDIA API catalog Retrieval APIs for hosted trial; Helm chart",
+   "label": "Verified fact",
+   "src": [
+    "A2-S031"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes for development (NVIDIA API catalog); partner-hosted serverless NIM for production",
+    "label": "Verified fact",
+    "src": [
+     "A2-S031",
+     "A2-S040"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (any cloud or data centre with supported GPUs)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S040"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S040"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable to self-hosted containers; NVIDIA-hosted service certifications not researched",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Runs in customer environment when self-hosted",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free for research/development/test via NVIDIA Developer Program (up to 16 GPUs); production requires NVIDIA AI Enterprise from US$4,500 per GPU per year or ~US$1 per GPU per hour in cloud; 90-day trial",
+   "label": "Verified fact",
+   "src": [
+    "A2-S040"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "GPU-bound: licence is per GPU plus GPU infrastructure",
+   "label": "Verified fact",
+   "src": [
+    "A2-S040"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Frequent releases (NIM 2.x; Helm 26.08.1 recommended)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S031"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Ties retrieval serving to NVIDIA GPUs and the AI Enterprise licence",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Production depends on NVIDIA AI Enterprise subscription",
+    "label": "Verified fact",
+    "src": [
+     "A2-S040"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary container licence; per-model licences differ",
+    "label": "Verified fact",
+    "src": [
+     "A2-S041"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S030",
+   "A2-S031",
+   "A2-S040",
+   "A2-S041"
+  ],
+  "stage_a_notes": "Resolved A14 as NVIDIA NeMo Retriever embedding and reranking NIM microservices (the models are branded Llama Nemotron / Nemotron 3 Embed). No single official 'latest' list; dates inconsistent across NGC/HF pages. Licensing is two-layer (container vs model) and an NGC page cites a different agreement - check per NIM. Certifications are not applicable to self-hosted containers; NVIDIA-hosted API catalog terms not researched. Helm chart warns the text-only reranker silently degrades multimodal reranking.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L7-ethicalagents",
+  "layer": "L7",
+  "original_label": "EthicalAgents – embeddings",
+  "current_name": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "company": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "category": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "No evidence the product exists; near-miss 'Ethical Agentic AI' is an audit firm",
+    "label": "Verified fact",
+    "src": [
+     "A2-S079"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S079"
+  ],
+  "stage_a_notes": "No credible primary source found for a product or company named 'EthicalAgents' offering embeddings. Searches (7 October 2026, all extended mode unless noted): (1) \"EthicalAgents\" embeddings; (2) Ethical Agents AI embedding model company; (3) ethicalagents.ai; (4) EthicalAgents huggingface embedding model (standard; huggingface.co, github.com, pypi.org); (5) \"The Full AI Stack Explained\" Harish Kumar embeddings rerankers EthicalAgents Ragoos; (6) \"Ethical Agents\" OR \"EthicalAgent\" embedding API vector reranking product. Closest match: Ethical Agentic AI Inc. (ethicalagentic.ai), an AI-agent audit/certification firm, not an embeddings vendor (A2-S079). Record kept as a placeholder; do not recommend.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L7-ragoos",
+  "layer": "L7",
+  "original_label": "Ragoos – RAG re-rankers",
+  "current_name": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "company": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "category": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "No evidence the product exists; nearest RAG-related name is Ragie (different company)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S080"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S080"
+  ],
+  "stage_a_notes": "No credible primary source found for a product or company named 'Ragoos' offering RAG rerankers. Searches (7 October 2026, extended mode unless noted): (1) \"Ragoos\" reranker; (2) Ragoos RAG re-ranking startup; (3) ragoos.com OR ragoos.ai; (4) Ragoos (standard; huggingface.co, github.com, pypi.org, producthunt.com, crunchbase.com, linkedin.com); (5) \"Ragoos\" AI OR RAG OR retrieval OR rerank; (6) the graphic-title query shared with EthicalAgents. Results: a Bengaluru pizza restaurant (Ragoos), RAGus.ai (web scraper), RaGOO (genome tool), Ragos (CNC machinery), and Ragie (RAG-as-a-service with LLM re-ranking) (A2-S080). None matches. Possibly a mis-rendered or AI-generated tile; do not recommend.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-pgvector",
+  "layer": "L6",
+  "original_label": "Postgres – + pgvector",
+  "current_name": {
+   "v": "PostgreSQL with the pgvector extension",
+   "label": "Verified fact",
+   "src": [
+    "A2-S061"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "pgvector open-source project (lead author Andrew Kane per Python client) on PostgreSQL",
+   "label": "Verified fact",
+   "src": [
+    "A2-S050",
+    "A2-S061"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Vector search extension for a general-purpose relational database",
+   "label": "Verified fact",
+   "src": [
+    "A2-S061"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "pgvector 0.8.7 (5 October 2026); earlier 2026 releases 0.8.2 (Feb), 0.8.3 (17 Jun), 0.8.4 (30 Jun), 0.8.6 (29 Jul). Python client pgvector 0.5.0 (6 July 2026).",
+   "label": "Verified fact",
+   "src": [
+    "A2-S061",
+    "A2-S062",
+    "A2-S063",
+    "A2-S050"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Open source (extension licence not verified this run; pgvector-python is MIT)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S050"
+   ],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Maintenance and security fixes on the 0.8.x line in 2026 (HNSW vacuuming, IVFFlat memory); supports dense and sparse (sparsevec) vectors",
+   "label": "Verified fact",
+   "src": [
+    "A2-S063",
+    "A2-S061"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "February 2026: 0.8.2 fixes CVE-2026-3172 (parallel HNSW build buffer overflow)",
+    "5 October 2026: 0.8.7 fixes IVFFlat build memory overflow allowing arbitrary code execution",
+    "Adjacent: pgvecto.rs deprecated in favour of VectorChord (early 2025); Timescale renamed Tiger Data (17 June 2025), pgvectorscale continues"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S062",
+    "A2-S061",
+    "A2-S066",
+    "A2-S067",
+    "A2-S064",
+    "A2-S065"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Adds vector data types (including sparsevec) and HNSW and IVFFlat approximate-nearest-neighbour indexes to PostgreSQL, so vectors live alongside relational data and SQL filters.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S063",
+    "A2-S061"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L6 retrieval store inside the operational/analytical database tier; strong fit where transactional integration and SQL filtering matter.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "PostgreSQL server (Postgres 18 referenced in 2026 fixes)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S063"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "SQL; client libraries such as pgvector-python",
+   "label": "Verified fact",
+   "src": [
+    "A2-S050"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S061"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S061"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Depends on the hosting Postgres service; not applicable to the extension",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Depends on hosting choice",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free, open source",
+   "label": "Verified fact",
+   "src": [
+    "A2-S050",
+    "A2-S061"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Cost is Postgres compute/RAM (HNSW indexes are memory-hungry) and storage; no separate vector service",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Extensions: pgvectorscale (Tiger Data; up to 16,000 dims) and VectorChord (successor to pgvecto.rs)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S064",
+    "A2-S066"
+   ],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Active 0.8.x maintenance with five 2026 releases",
+   "label": "Verified fact",
+   "src": [
+    "A2-S061",
+    "A2-S062",
+    "A2-S063"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Low: open-source extension on open-source database",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Two security fixes in 2026 require timely patching",
+    "label": "Verified fact",
+    "src": [
+     "A2-S061",
+     "A2-S062"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S050",
+   "A2-S061",
+   "A2-S062",
+   "A2-S063",
+   "A2-S064",
+   "A2-S065",
+   "A2-S066",
+   "A2-S067"
+  ],
+  "stage_a_notes": "pgvector itself is an extension; enterprise features (certifications, residency, SSO, CMK) come from whichever Postgres service hosts it (RDS/Aurora, Cloud SQL/AlloyDB, Azure, Supabase, Neon etc.) - not researched this run (web-search budget exhausted). Extension licence not verified this run (Python client is MIT). Security: two 2026 CVEs (HNSW parallel build Feb 2026; IVFFlat build Oct 2026) - patch cadence matters. CVE number for 0.8.7 (CVE-2026-103484) is as reported by the search tool and looks unusual; verify. Adjacent extensions: pgvectorscale (Timescale, renamed Tiger Data June 2025; 0.6 March 2025 raised dims to 16,000; no newer version found); pgvecto.rs deprecated in favour of VectorChord (TensorChord) since early 2025.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-pinecone",
+  "layer": "L6",
+  "original_label": "Pinecone – managed",
+  "current_name": {
+   "v": "Pinecone (vector database; Pinecone Nexus knowledge engine)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S051",
+    "A2-S073"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Pinecone Systems, Inc. (New York); CEO Ash Ashutosh since September 2025, founder Edo Liberty Chief Scientist",
+   "label": "Verified fact",
+   "src": [
+    "A2-S051",
+    "A2-S072",
+    "A2-S068"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Managed vector database / knowledge infrastructure for AI",
+   "label": "Verified fact",
+   "src": [
+    "A2-S051",
+    "A2-S073"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Managed service (serverless on-demand and Dedicated Read Nodes; BYOC); Python SDK 10.0.0 (3 September 2026) introduces schema-based document indexes and a deployment parameter; Nexus GA 6 August 2026",
+   "label": "Verified fact",
+   "src": [
+    "A2-S051",
+    "A2-S072",
+    "A2-S069",
+    "A2-S073"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary managed service; Python SDK Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A2-S051"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Repositioning from vector database to knowledge infrastructure for agents: Nexus context compiler + composable retriever with KnowQL query language, field-level access control, citations, PII-aware ingestion and lineage; Microsoft OneLake integration (June 2026); Pinecone Marketplace (May 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S073",
+    "A2-S074"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "September 2025: Ash Ashutosh appointed CEO",
+    "April 2026: Dedicated Read Nodes GA",
+    "May 2026: Nexus early access, Marketplace launch, US$20/month Builder tier",
+    "3 June 2026: Nexus + Microsoft OneLake integration",
+    "July 2026: Nexus public preview",
+    "6 August 2026: Nexus GA",
+    "3 September 2026: Python SDK v10 (breaking API changes)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S068",
+    "A2-S072",
+    "A2-S074",
+    "A2-S073",
+    "A2-S051"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Fully managed vector/document index with metadata filtering, namespaces and server-side embedding (create_for_model), plus Nexus for compiling enterprise data into task-specific knowledge artifacts for agents.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S051",
+    "A2-S073"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L6; with Nexus it also reaches into L5 memory/knowledge and L8 ingestion territory.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Pinecone cloud on AWS, GCP or Azure; BYOC runs in the customer's Kubernetes cluster with FoundationDB for metadata",
+   "label": "Verified fact",
+   "src": [
+    "A2-S069"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "REST API and SDKs (Python v10); integrated inference (server-side embedding); Marketplace; OneLake connector for Nexus",
+   "label": "Verified fact",
+   "src": [
+    "A2-S051",
+    "A2-S073",
+    "A2-S074"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S051"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (AWS, GCP, Azure regions)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S069",
+     "A2-S051"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (Enterprise; AWS, GCP, Azure; Dedicated Read Node indexes only; zero vendor access)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S069"
+    ],
+    "conf": "high"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "No",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Frankfurt cloud region announced (newsroom headline; date not retrieved); Nexus BYOC data-residency reference exists",
+   "label": "Reported",
+   "src": [
+    "A2-S076"
+   ],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "BYOC: data plane in customer VPC; no SSH, VPN or inbound access needed by Pinecone",
+   "label": "Verified fact",
+   "src": [
+    "A2-S069"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Nexus: field-level access control (other platform controls not verified this run)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S073"
+   ],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Standard and Enterprise plans (DRN recommended for production on both)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S072"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Builder tier US$20/month (May 2026); BYOC: flat platform fee plus per-Dedicated-Read-Node rate plus customer cloud costs; other rates not verified",
+   "label": "Verified fact",
+   "src": [
+    "A2-S074",
+    "A2-S069"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "BYOC nodes billed whether idle or busy",
+   "label": "Verified fact",
+   "src": [
+    "A2-S069"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "Microsoft OneLake (Nexus); Pinecone Marketplace",
+   "label": "Verified fact",
+   "src": [
+    "A2-S073",
+    "A2-S074"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "US$138M total funding (Andreessen Horowitz, ICONIQ, Menlo, Wing); Series B US$100M at US$750M (2023); ZoomInfo DRN customer story (April 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S072",
+    "A2-S075"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "Core service mature; Nexus GA since August 2026; SDK v10 is a breaking change",
+   "label": "Verified fact",
+   "src": [
+    "A2-S073",
+    "A2-S051"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "High: proprietary API and service; Nexus/KnowQL deepens coupling",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "No acquisition reported; leadership change in 2025",
+    "label": "Verified fact",
+    "src": [
+     "A2-S068",
+     "A2-S075"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Last disclosed round 2023 (US$100M Series B)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S075"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary service",
+    "label": "Verified fact",
+    "src": [
+     "A2-S051"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S051",
+   "A2-S068",
+   "A2-S069",
+   "A2-S072",
+   "A2-S073",
+   "A2-S074",
+   "A2-S075",
+   "A2-S076"
+  ],
+  "stage_a_notes": "Web-search budget for the run was exhausted while researching Pinecone; pricing (beyond the US$20/month Builder tier), certifications (SOC 2/ISO/HIPAA), CMK, SSO/RBAC and built-in rerank models were NOT verified this run although they are expected to exist - Stage B should not score them as absent without checking. Pinecone repositioning: 'knowledge infrastructure for AI' and Nexus 'knowledge engine for agents' (GA 6 August 2026, deployed in customer cloud) - key H5 evidence. Nexus status conflict: one page banner said Public Preview, newsroom says GA from 6 August 2026 (GA used). Funding total US$138M; no 2026 round or acquisition found (an aggregator claim of a 2025 Series C conflicts and was disregarded). Frankfurt region known only from a newsroom headline (undated).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-qdrant",
+  "layer": "L6",
+  "original_label": "Qdrant – open source",
+  "current_name": {
+   "v": "Qdrant vector search engine",
+   "label": "Verified fact",
+   "src": [
+    "A2-S052"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Qdrant (client authored by Andrey Vasnetsov)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S052"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Vector search engine (open source) with managed Qdrant Cloud",
+   "label": "Verified fact",
+   "src": [
+    "A2-S052"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Python client qdrant-client 1.19.1 (16 September 2026); server version not verified",
+   "label": "Verified fact",
+   "src": [
+    "A2-S052"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Client Apache-2.0; server licence not verified this run",
+   "label": "Verified fact",
+   "src": [
+    "A2-S052"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Vector search engine with client-side local mode (same API without a server) and FastEmbed integration; Qdrant Cloud offers server-side inference with predefined models on paid plans.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S052"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L6 dedicated vector search engine; placement correct.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "REST/gRPC API (OpenAPI), Python client with sync/async, FastEmbed (ONNX) embeddings, Qdrant Cloud inference",
+   "label": "Verified fact",
+   "src": [
+    "A2-S052"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Qdrant Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S052"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (Docker)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S052"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Active client release cadence (1.19.1 in September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S052"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S052"
+  ],
+  "stage_a_notes": "Web-search budget exhausted before Qdrant was researched; vendor site blocked. Only the PyPI client page was available. Server version, server licence, Qdrant Cloud pricing, Hybrid/Private Cloud offerings, certifications, funding and EU regions are all unverified this run - Stage B must not infer absence.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-milvus-zilliz",
+  "layer": "L6",
+  "original_label": "Milvus – vector search",
+  "current_name": {
+   "v": "Milvus (open source) and Zilliz Cloud (managed Milvus)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S053",
+    "A2-S054"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Milvus open-source project (LF AI & Data status not verified); Zilliz maintains PyMilvus and offers Zilliz Cloud",
+   "label": "Verified fact",
+   "src": [
+    "A2-S053",
+    "A2-S054"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Distributed vector database (open source) plus managed cloud service",
+   "label": "Verified fact",
+   "src": [
+    "A2-S054"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "PyMilvus 3.0.2 (18 September 2026); compatibility table lists Milvus up to 2.6.x; Milvus Lite 3.2.1 (25 August 2026). Server release not verified.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S053",
+    "A2-S054"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Open source, Apache-2.0 (PyMilvus and Milvus Lite)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S053",
+    "A2-S054"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Vector database with deployment tiers: Milvus Lite (local .db file, segment-level FAISS indexes, scalar filtering, BM25 full-text search), Milvus Standalone, Milvus Distributed, and Zilliz Cloud.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S054"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L6 dedicated vector database; placement correct.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "pymilvus SDK (gRPC); same API across Lite, Standalone, Distributed and Zilliz Cloud",
+   "label": "Verified fact",
+   "src": [
+    "A2-S054"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Zilliz Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S054"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (Standalone, Distributed)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S054"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S054"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Milvus Lite marked Beta on PyPI; PyMilvus major version 3 released 2026",
+   "label": "Verified fact",
+   "src": [
+    "A2-S054",
+    "A2-S053"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S053",
+   "A2-S054"
+  ],
+  "stage_a_notes": "A16: both open-source Milvus and managed Zilliz Cloud are covered in this one record. Web-search budget exhausted before Milvus/Zilliz was researched; vendor sites blocked. Evidence is limited to PyPI: pymilvus 3.0.2 (September 2026; PyMilvus team email at zilliz.com) - its compatibility table stops at Milvus 2.6.x, so whether a Milvus 3.0 server exists is unconfirmed. Milvus Lite 3.2.1 was rebuilt in pure Python with BM25 full-text search. Zilliz Cloud pricing, BYOC, certifications and funding not verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-weaviate",
+  "layer": "L6",
+  "original_label": "Weaviate – open source",
+  "current_name": {
+   "v": "Weaviate",
+   "label": "Verified fact",
+   "src": [
+    "A2-S055"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Weaviate",
+   "label": "Verified fact",
+   "src": [
+    "A2-S055"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Vector database (open source) with managed cloud",
+   "label": "Verified fact",
+   "src": [
+    "A2-S055"
+   ],
+   "conf": "low"
+  },
+  "version_or_lineup": {
+   "v": "Python client weaviate-client 4.23.1 (7 September 2026); 4.x actively supported, 3.x deprecated; server version not verified",
+   "label": "Verified fact",
+   "src": [
+    "A2-S055"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Python client BSD 3-clause; server licence not verified this run",
+   "label": "Verified fact",
+   "src": [
+    "A2-S055"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "L6 dedicated vector database; placement correct.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Python client (v4)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S055"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S055"
+  ],
+  "stage_a_notes": "Web-search budget exhausted before Weaviate was researched; vendor site blocked. Only the PyPI client is verified. Server version, BSL/licence status of server, Weaviate Cloud tiers, built-in rerank/hybrid modules, certifications, funding and EU regions are unverified - Stage B must not infer absence.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-turbopuffer",
+  "layer": "L6",
+  "original_label": "turbopuffer – cloud vector store",
+  "current_name": {
+   "v": "turbopuffer",
+   "label": "Verified fact",
+   "src": [
+    "A2-S056"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "turbopuffer (Turbopuffer, info@turbopuffer.com)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S056"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Hosted vector and full-text search service",
+   "label": "Verified fact",
+   "src": [
+    "A2-S056"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Managed service; Python SDK 2.11.0 (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S056"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary service; Python SDK MIT",
+   "label": "Verified fact",
+   "src": [
+    "A2-S056"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Namespaced search API supporting approximate-nearest-neighbour vector queries and BM25 full-text ranking with attribute filters.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S056"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L6 retrieval store (vector + full-text), placement correct; the BM25 support supports the H5 'retrieval store' framing.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "HTTP API; generated Python SDK (sync and async)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S056"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (region-specific endpoints)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S056"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Region selected per client (e.g. gcp-us-central1); EU region list not verified",
+   "label": "Verified fact",
+   "src": [
+    "A2-S056"
+   ],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Very frequent SDK releases (2.11.0 on 7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S056"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S056"
+  ],
+  "stage_a_notes": "Web-search budget exhausted before turbopuffer was researched; vendor site blocked. PyPI shows an actively released SDK (2.11.0 on 7 October 2026) whose API offers ANN vector ranking and BM25 full-text ranking with filters, and region-pinned endpoints (e.g. gcp-us-central1). Architecture (object-storage-first), pricing, BYOC, certifications and EU regions unverified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-elasticsearch",
+  "layer": "L6",
+  "original_label": "Elasticsearch – hybrid search",
+  "current_name": {
+   "v": "Elasticsearch (Elastic Search AI Platform)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S023",
+    "A2-S057"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Elastic N.V. (NYSE: ESTC)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S023"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Search engine with full-text (BM25), vector and hybrid retrieval; general-purpose search platform",
+   "label": "Verified fact",
+   "src": [
+    "A2-S023",
+    "A2-S042"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Elasticsearch 9.x line (Python client 9.5.1, 9 September 2026; clients forward-compatible with same-major server)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S057"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "'Search AI Company': acquired Jina AI for multimodal/multilingual embeddings and rerankers complementing ELSER; Elastic Inference Service hosts Jina v5-omni models",
+   "label": "Verified fact",
+   "src": [
+    "A2-S023",
+    "A2-S027",
+    "A2-S042"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "7-9 October 2025: Elastic completes acquisition of Jina AI",
+    "June 2026: jina-embeddings-v5-omni on Elastic Inference Service"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S023",
+    "A2-S027"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Distributed search and analytics engine; with Elastic Inference Service it embeds content (ELSER, Jina models) and serves rerankers, combining lexical and vector retrieval.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S023",
+    "A2-S042"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L6 retrieval store with built-in L7 inference; a 'retrieval/knowledge store' rather than a pure vector DB.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "REST API, official language clients (e.g. Python 9.5.1), open inference API, Elastic Inference Service",
+   "label": "Verified fact",
+   "src": [
+    "A2-S057",
+    "A2-S042"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Elastic Cloud Hosted and Serverless)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S042"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (self-managed clusters; Jina models via on-prem licence)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S042",
+     "A2-S045"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S045"
+    ],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Elastic Cloud: ISO 27001, ISO 27017, ISO 27018, SOC 2 Type II (report via Trust Center)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S045"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Elastic Inference Service billed per million tokens on Elastic Cloud (consumption-based); cluster pricing not verified",
+   "label": "Verified fact",
+   "src": [
+    "A2-S042"
+   ],
+   "conf": "low",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Jina models, ELSER; OpenSearch fork as alternative (opensearch-py 3.2.0, Apache-2.0)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S023",
+    "A2-S058"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Elastic is an acquirer (Jina AI)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S023"
+    ],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S023",
+   "A2-S027",
+   "A2-S042",
+   "A2-S045",
+   "A2-S057",
+   "A2-S058"
+  ],
+  "stage_a_notes": "Elastic brands itself 'the Search AI Company'. Acquired Jina AI (October 2025) and serves Jina embedding models on Elastic Inference Service next to its own ELSER sparse model - embed + store converge (H5/H6). Server version inferred only from client 9.5.1 compatibility (9.x); exact server release and licence (Elastic License/SSPL/AGPL options) not verified this run (search budget exhausted). OpenSearch (fork) noted as alternative: opensearch-py 3.2.0 (27 April 2026, Apache-2.0); OpenSearch server facts not verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-mongodb-atlas-vector-search",
+  "layer": "L6",
+  "original_label": "MongoDB – Atlas vector",
+  "current_name": {
+   "v": "MongoDB Vector Search (Atlas Vector Search; also on Community Edition)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S078",
+    "A2-S008"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "MongoDB, Inc. (owner of Voyage AI since February 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S033"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Vector search built into a general-purpose document database",
+   "label": "Verified fact",
+   "src": [
+    "A2-S078"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Atlas Vector Search; Automated Embedding (public preview, Community Edition; Atlas announced as coming soon in January 2026); Embedding and Reranking API on Atlas (public preview); PyMongo 4.18.2 (24 September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S078",
+    "A2-S077",
+    "A2-S059"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Vertical integration of retrieval: Voyage AI embeddings/rerankers native in the database (automated embedding, Atlas Embedding and Reranking API); announcement on native reranking and hybrid search for agent retrieval",
+   "label": "Verified fact",
+   "src": [
+    "A2-S008",
+    "A2-S077",
+    "A2-S078"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "17 February 2025: MongoDB acquires Voyage AI",
+    "January 2026: Voyage 4 + Automated Embedding (public preview on Community Edition)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A2-S033",
+    "A2-S008"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Indexes and queries vectors alongside operational documents; can generate embeddings automatically with Voyage models and call Voyage rerankers via the Atlas API.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S078",
+    "A2-S077"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L6 inside the operational database; with Voyage it spans L6 and L7.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "MongoDB Atlas or MongoDB Community Edition; Voyage AI models for automated embedding",
+   "label": "Verified fact",
+   "src": [
+    "A2-S078"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "MongoDB query API/aggregation via official drivers (e.g. PyMongo); Atlas Embedding and Reranking API",
+   "label": "Verified fact",
+   "src": [
+    "A2-S059",
+    "A2-S077"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (MongoDB Atlas)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S077"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (Community Edition; automated embedding in public preview)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S078"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "MongoDB is acquirer (Voyage AI)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S033"
+    ],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Embedding/reranking integrations in public preview",
+    "label": "Verified fact",
+    "src": [
+     "A2-S077",
+     "A2-S078"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S008",
+   "A2-S033",
+   "A2-S059",
+   "A2-S077",
+   "A2-S078"
+  ],
+  "stage_a_notes": "Self-managed availability: Automated Embedding in MongoDB Vector Search was in public preview on Community Edition (January 2026), indicating vector search is available outside Atlas; GA status of self-managed vector search not verified. Native reranking and hybrid search announcement found by title only. Certifications, pricing, regions and CMK not verified this run (search budget exhausted).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-chroma",
+  "layer": "L6",
+  "original_label": "Chroma – open source",
+  "current_name": {
+   "v": "Chroma (open source) and Chroma Cloud",
+   "label": "Verified fact",
+   "src": [
+    "A2-S060"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Chroma (Jeff Huber, Anton Troynikov listed as authors)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S060"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Open-source embedding/vector database with serverless cloud service",
+   "label": "Verified fact",
+   "src": [
+    "A2-S060"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "chromadb 1.5.9 (5 May 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S060"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A2-S060"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Positions itself as 'the open-source data infrastructure for AI'; Chroma Cloud offers serverless vector, hybrid and full-text search",
+   "label": "Verified fact",
+   "src": [
+    "A2-S060"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Embedded or client-server database for documents and embeddings with a small API (create collection, add, query); Chroma Cloud adds serverless hybrid and full-text search.",
+   "label": "Verified fact",
+   "src": [
+    "A2-S060"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L6; strong for prototyping/embedded use, Cloud targets production.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Python and JavaScript clients; in-memory, persistent or client-server mode",
+   "label": "Verified fact",
+   "src": [
+    "A2-S060"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Chroma Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A2-S060"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S060"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A2-S060"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Open source free; Chroma Cloud sign-up includes US$5 free credits (other rates not verified)",
+   "label": "Verified fact",
+   "src": [
+    "A2-S060"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A2-S060"
+  ],
+  "stage_a_notes": "Latest chromadb on PyPI is 1.5.9 (5 May 2026) - no release for five months at time of check; may indicate Rust-core release moved elsewhere or slower cadence; verify. Chroma Cloud (serverless vector, hybrid and full-text search) confirmed via PyPI README; pricing beyond US$5 free credit, certifications, BYOC and regions not verified this run (search budget exhausted). Chroma now calls itself 'open-source data infrastructure for AI' (H5 repositioning evidence).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L6-s3-vectors",
+  "layer": "L6",
+  "original_label": "S3 Vectors – AWS",
+  "current_name": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "company": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "category": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [],
+  "stage_a_notes": "NOT RESEARCHED: the shared web-search budget was exhausted before Amazon S3 Vectors could be searched, and aws.amazon.com / docs.aws.amazon.com are blocked by the egress policy. GA status, limits, pricing, regions and integrations (Bedrock Knowledge Bases, OpenSearch) are all unverified as of 7 October 2026. Priority item for a follow-up research pass.",
+  "last_verified": "2026-10-07"
+ }
+]

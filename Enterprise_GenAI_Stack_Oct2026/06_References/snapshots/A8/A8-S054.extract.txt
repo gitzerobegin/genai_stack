@@ -1,0 +1,13 @@
+SOURCE ID: A8-S054
+URL: https://iapp.org/news/a/european-general-court-dismisses-latombe-challenge-upholds-eu-us-data-privacy-framework
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Latombe v Commission General Court EU-US Data Privacy Framework judgment appeal
+========================================================================
+
+Search results (law-firm/IAPP commentary): A&O Shearman "EU-US Data Privacy Framework: impact of court ruling"; IAPP "European General Court dismisses Latombe challenge, upholds EU-US Data Privacy Framework"; WilmerHale "European Court of Justice to Review Challenge to EU-U.S. Data Privacy Framework" (1 Dec 2025)
+Search-tool extract:
+- General Court judgment 3 September 2025 upheld the DPF adequacy decision; review limited to the situation when the decision was adopted, declining to address post-2023 developments.
+- Commission must continuously monitor the legal framework and could suspend, amend or repeal the decision.
+- Latombe appealed on 31 October 2025 (C-703/25 P); framework remains in effect while the appeal is pending; companies relying on the DPF can continue to do so.
+- Unverified social-media report that the CJEU granted Microsoft permission to intervene.

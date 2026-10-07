@@ -1,0 +1,16 @@
+SOURCE ID: A8-S059
+URL: https://www.esma.europa.eu/document/public-statement-ai-and-investment-services
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ESMA statement artificial intelligence investment services (esma.europa.eu)
+========================================================================
+
+Search results: ESMA "Public Statement on AI and investment services" (ESMA35-335435667-5924, 30 May 2024); "ESMA provides guidance to firms using artificial intelligence in investment services"; "Supervisory Briefing on Algorithmic Trading in the EU" (February 2026); Joint ESMA-EBA consultation on suitability of management body members (EBA/CP/2026/03, 25 February 2026)
+Search-tool extract:
+- 30 May 2024 statement gives initial guidance to firms using AI when providing investment services to retail clients, grounded in MiFID II organisational, conduct and best-interest obligations.
+- "Firms' decisions remain the responsibility of management bodies, irrespective of whether those decisions are taken by people or AI-based tools."
+- Firms should "establish robust governance structures, conduct regular AI model testing, and monitor AI systems"; ex-ante controls on accuracy of information supplied to AI systems; "sufficiently frequent ex-post controls".
+- Third-party AI solutions: due diligence and controls (outsourcing). Chatbots: "transparently disclose to clients the use of such technology". Heightened diligence for advice and portfolio management (suitability).
+- Feb 2026 algorithmic trading briefing: MiFID II/RTS 6 do not specifically address AI; reliance on external technology providers does not alter regulatory obligations.
+- Feb 2026 joint consultation treats understanding of AI as essential for management body governance.
+- No standalone 2025/2026 ESMA statement on AI for UCITS/AIF managers found.

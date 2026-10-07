@@ -1,0 +1,2919 @@
+SOURCE ID: A1-S102
+URL: https://cloud.google.com/security/compliance/services-in-scope
+FINAL URL: https://cloud.google.com/security/compliance/services-in-scope
+TITLE: Google Cloud Platform Services in Scope by Compliance Program  |  Security
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Google Cloud Platform Services in Scope by Compliance Program  |  Security
+
+      Skip to main content
+
+    Docs
+
+    Support
+
+English
+
+Deutsch
+
+Español
+
+Español – América Latina
+
+Français
+
+Indonesia
+
+Italiano
+
+Português
+
+Português – Brasil
+
+中文 – 简体
+
+中文 – 繁體
+
+日本語
+
+한국어
+
+  Console
+
+Sign in
+
+          Security
+
+Contact Us
+
+Start free
+
+          Home
+
+          Security
+
+      Google Cloud Platform Services in Scope by Compliance Program
+
+      Stay organized with collections
+
+      Save and categorize content based on your preferences.
+
+Last modified: September 28, 2026 | 
+Previous Versions
+
+Capitalized terms have the meaning stated in the applicable agreement between
+Customer or Partner and Google.
+
+The following Services fall within the scope of one or more of: Google's
+ISO 27001 Certification, ISO 27017 Certification, ISO 27018 Certification, PCI
+DSS Certification, SOC 1 Report, SOC 2 Report and SOC 3 Report and Penetration Testing Report.
+A 
+done
+ in the table below indicates that the
+Service (row) is in scope for the specified certification or report (column).
+
+Service
+
+ISO 27001, 27017, 27018 Certifications
+
+SOC 1, 2, 3 Reports
+
+PCI DSS Certification
+
+Penetration Testing
+
+Access Approval
+
+done
+
+done
+
+done
+
+done
+
+Access Context Manager
+
+done
+
+done
+
+done
+
+done
+
+Access Transparency
+
+done
+
+done
+
+done
+
+done
+
+Advanced API Security
+
+done
+
+done
+
+done
+
+done
+
+Agent Assist
+
+done
+
+done
+
+done
+
+done
+
+Agent Conversation on Gemini Enterprise Agent Platform
+
+done
+
+done
+
+done
+
+done
+
+Agent Search on Gemini Enterprise Agent Platform
+
+done
+
+done
+
+done
+
+done
+
+AI Platform Deep Learning Container
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+AlloyDB
+
+done
+
+done
+
+done
+
+done
+
+Anti-Money Laundering AI
+
+done
+
+done
+
+done
+
+done
+
+API Gateway
+
+done
+
+done
+
+done
+
+done
+
+Apigee
+
+done
+
+done
+
+done
+
+done
+
+App Engine
+
+done
+
+done
+
+done
+
+done
+
+App Hub
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Application Integration
+
+done
+
+done
+
+done
+
+done
+
+Artifact Analysis
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Artifact Registry
+
+done
+
+done
+
+done
+
+done
+
+Assured Workloads for Government
+
+done
+
+done
+
+done
+
+done
+
+Audit Manager
+
+done
+
+done
+
+done
+
+AutoML Tables
+
+done
+
+done
+
+done
+
+done
+
+Backup for GKE
+
+done
+
+done
+
+done
+
+done
+
+Bare Metal HSM
+
+done
+ (ISO 27001 only)
+
+done
+ (SOC 2/3 only)
+
+done
+
+done
+
+Bare Metal Rack HSM
+
+done
+ (ISO 27001 only)
+
+done
+ (SOC 2/3 only)
+
+done
+
+done
+
+Bare Metal Solution
+
+done
+
+done
+
+done
+
+done
+
+Batch
+
+done
+
+done
+
+done
+
+done
+
+BigQuery
+
+done
+
+done
+
+done
+
+done
+
+BigQuery Data Transfer Service
+
+done
+
+done
+
+done
+
+done
+
+Bigtable
+
+done
+
+done
+
+done
+
+done
+
+Binary Authorization
+
+done
+
+done
+
+done
+
+done
+
+Certificate Authority Service
+
+done
+
+done
+
+done
+
+done
+
+Certificate Manager
+
+done
+
+done
+
+done
+
+done
+
+Chrome Enterprise Premium
+
+done
+
+done
+
+done
+
+done
+
+Cloud Asset Inventory
+
+done
+
+done
+
+done
+
+done
+
+Cloud Billing
+
+done
+
+done
+
+done
+
+done
+
+Cloud Build
+
+done
+
+done
+
+done
+
+done
+
+Cloud CDN
+
+done
+
+done
+
+done
+
+done
+
+Cloud Composer
+
+done
+
+done
+
+done
+
+done
+
+Cloud Console Platform
+
+done
+
+done
+
+done
+
+done
+
+Cloud Console App
+
+done
+
+done
+
+done
+
+done
+
+Cloud Data Fusion
+
+done
+
+done
+
+done
+
+done
+
+Cloud Deployment Manager
+
+done
+
+done
+
+done
+
+done
+
+Cloud DNS
+
+done
+
+done
+
+done
+
+done
+
+Cloud Domains
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Cloud Endpoints
+
+done
+
+done
+
+done
+
+done
+
+Cloud External Key Manager (Cloud EKM)
+
+done
+
+done
+
+done
+
+done
+
+Cloud Filestore
+
+done
+
+done
+
+done
+
+done
+
+Cloud Functions
+
+done
+
+done
+
+done
+
+done
+
+Cloud Functions for Firebase
+
+done
+
+done
+
+done
+
+done
+
+Cloud Healthcare
+
+done
+
+done
+
+done
+
+done
+
+Cloud HSM
+
+done
+
+done
+
+done
+
+done
+
+Cloud IDS
+
+done
+
+done
+
+done
+
+done
+
+Cloud Interconnect
+
+done
+
+done
+
+done
+
+done
+
+Cloud Key Management Service
+
+done
+
+done
+
+done
+
+done
+
+Cloud Load Balancing
+
+done
+
+done
+
+done
+
+done
+
+Cloud Logging
+
+done
+
+done
+
+done
+
+done
+
+Cloud Monitoring
+
+done
+
+done
+
+done
+
+done
+
+Cloud NAT (Network Address Translation)
+
+done
+
+done
+
+done
+
+done
+
+Cloud Natural Language API
+
+done
+
+done
+
+done
+
+done
+
+Cloud Next Generation Firewall (Cloud NGFW)
+
+done
+
+done
+
+done
+
+done
+
+Cloud Profiler
+
+done
+
+done
+
+done
+
+done
+
+Cloud Quotas
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Cloud Router
+
+done
+
+done
+
+done
+
+done
+
+Cloud Run
+
+done
+
+done
+
+done
+
+done
+
+Cloud Scheduler
+
+done
+
+done
+
+done
+
+done
+
+Cloud SDK
+
+done
+
+done
+
+done
+
+done
+
+Cloud Service Mesh
+
+done
+
+done
+
+done
+
+done
+
+Cloud Shell
+
+done
+
+done
+
+done
+
+done
+
+Cloud Source Repositories
+
+done
+
+done
+
+done
+
+done
+
+Cloud SQL
+
+done
+
+done
+
+done
+
+done
+
+Cloud Storage
+
+done
+
+done
+
+done
+
+done
+
+Cloud Storage for Firebase
+
+done
+
+done
+
+done
+
+done
+
+Cloud Tasks
+
+done
+
+done
+
+done
+
+done
+
+Cloud Trace
+
+done
+
+done
+
+done
+
+done
+
+Cloud Translation
+
+done
+
+done
+
+done
+
+done
+
+Cloud Vision
+
+done
+
+done
+
+done
+
+done
+
+Cloud VPN
+
+done
+
+done
+
+done
+
+done
+
+Cloud Workstations
+
+done
+
+done
+
+done
+
+done
+
+Compute Engine
+
+done
+
+done
+
+done
+
+done
+
+Config Connector
+
+done
+
+done
+
+done
+
+done
+
+Config Controller
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Config Sync
+
+done
+
+done
+
+done
+
+done
+
+Connect
+
+done
+
+done
+
+done
+
+done
+
+Conversational AI (formerly Contact Center AI)
+
+done
+
+done
+
+done
+
+done
+
+Conversational Insights
+
+done
+
+done
+
+done
+
+done
+
+CX Agent Studio
+
+done
+
+done
+
+done
+
+done
+
+Data Catalog
+
+done
+
+done
+
+done
+
+done
+
+Database Center
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Database Migration Service
+
+done
+
+done
+
+done
+
+done
+
+Dataflow
+
+done
+
+done
+
+done
+
+done
+
+Dataform
+
+done
+
+done
+
+done
+
+done
+
+Dataplex
+
+done
+
+done
+
+done
+
+done
+
+Dataproc
+
+done
+
+done
+
+done
+
+done
+
+Dataproc Metastore
+
+done
+
+done
+
+done
+
+done
+
+Datastore
+
+done
+
+done
+
+done
+
+done
+
+DataStream
+
+done
+
+done
+
+done
+
+done
+
+Developer Connect
+
+done
+
+done
+
+done
+
+Dialogflow
+
+done
+
+done
+
+done
+
+done
+
+Document AI
+
+done
+
+done
+
+done
+
+done
+
+Document AI Warehouse
+
+done
+
+done
+
+done
+
+done
+
+Earth Engine
+
+done
+
+done
+
+done
+
+Eventarc
+
+done
+
+done
+
+done
+
+done
+
+Firebase A/B Testing
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase AI Logic
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Firebase App Check
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Firebase App Distribution
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase App Hosting
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Authentication
+
+done
+
+done
+
+done
+
+done
+
+Firebase Cloud Messaging
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Console
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Crashlytics
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Data Connect
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Firebase Dynamic Links
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Hosting
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Firebase In-App Messaging
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Machine Learning (ML)
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Performance Monitoring
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Realtime Database
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Registry
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Remote Config
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Firebase Rules
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Firebase Test Lab
+
+done
+
+done
+
+done
+
+done
+
+Firestore
+
+done
+
+done
+
+done
+
+done
+
+Food Ordering AI Agent
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+GCVE
+
+done
+
+done
+
+done
+
+done
+
+Gemini Enterprise Agent Platform
+
+done
+
+done
+
+done
+
+done
+
+Gemini Enterprise Agent Platform Colab Enterprise
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Gemini Enterprise (including Agentspace)
+
+done
+
+done
+
+done
+
+done
+
+Gemini Code Assist
+
+done
+
+done
+
+done
+
+done
+
+Gemini for Google Cloud
+
+done
+
+done
+
+done
+
+done
+
+Gemini in BigQuery
+
+done
+
+done
+
+done
+
+done
+
+Gemini in Firebase
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Gemini Notebook Enterprise
+
+done
+
+done
+
+done
+
+done
+
+Generative AI on Gemini Enterprise Agent Platform (formerly Generative AI on Vertex AI)
+
+done
+
+done
+
+done
+
+done
+
+GKE Identity Service
+
+done
+
+done
+
+done
+
+done
+
+Google Cloud Armor
+
+done
+
+done
+
+done
+
+done
+
+Google Cloud Backup and DR
+
+done
+
+done
+
+done
+
+done
+
+Google Cloud Contact Center as a Service (CCaaS)
+
+done
+
+done
+
+done
+
+done
+
+Google Cloud Deploy
+
+done
+
+done
+
+done
+
+done
+
+Google Cloud Identity-Aware Proxy
+
+done
+
+done
+
+done
+
+done
+
+Google Cloud Marketplace
+
+done
+
+done
+
+done
+
+done
+
+Google Cloud NetApp Volumes
+
+done
+
+done
+
+done
+
+done
+
+Google Cloud Skills Boost
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Google Distributed Cloud connected
+
+done
+ (ISO 27001 only)
+
+done
+ (SOC 2 only)
+
+done
+
+done
+
+Google Kubernetes Engine
+
+done
+
+done
+
+done
+
+done
+
+Google Public DNS
+
+done
+ (ISO 27001 only)
+
+Healthcare Data Engine (HDE)
+
+done
+
+done
+
+done
+
+done
+
+Hub
+
+done
+
+done
+
+done
+
+done
+
+Identity & Access Management (IAM)
+
+done
+
+done
+
+done
+
+done
+
+Identity Platform
+
+done
+
+done
+
+done
+
+done
+
+Infrastructure Manager
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Integration Connectors
+
+done
+
+done
+
+done
+
+done
+
+Key Access Justification (Access Sovereignty)
+
+done
+
+done
+
+done
+
+done
+
+Knative serving
+
+done
+
+done
+
+done
+
+done
+
+Looker (Google Cloud core)
+
+done
+
+done
+
+done
+
+done
+
+Looker Studio
+
+done
+
+done
+
+done
+
+done
+
+Managed Lustre
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+Managed Service for Apache Kafka
+
+done
+
+done
+
+done
+
+done
+
+Managed Service for Microsoft Active Directory (AD)
+
+done
+
+done
+
+done
+
+done
+
+Media CDN
+
+done
+
+done
+
+done
+
+done
+
+Memorystore
+
+done
+
+done
+
+done
+
+done
+
+Migrate to Virtual Machines
+
+done
+
+done
+
+done
+
+done
+
+Migration Center
+
+done
+
+done
+
+done
+
+done
+
+Model Armor
+
+done
+
+done
+
+done
+
+done
+
+Network Connectivity Center
+
+done
+
+done
+
+done
+
+done
+
+Network Intelligence Center
+
+done
+
+done
+
+done
+
+done
+
+Network Security Integration
+
+done
+
+done
+
+done
+
+done
+
+Network Service Tiers
+
+done
+
+done
+
+done
+
+done
+
+Organization Policy Service (formerly Cloud Org Policy)
+
+done
+
+done
+
+done
+
+done
+
+Parallelstore
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Persistent Disk
+
+done
+
+done
+
+done
+
+done
+
+Personalized Service Health
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Policy Controller
+
+done
+
+done
+
+done
+
+done
+
+Privileged Access Manager
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Pub/Sub
+
+done
+
+done
+
+done
+
+done
+
+Ray on Vertex
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+reCAPTCHA Enterprise
+
+done
+
+done
+
+done
+
+done
+
+Recommendations AI
+
+done
+
+done
+
+Recommender
+
+done
+
+done
+
+done
+
+done
+
+Resource Manager API
+
+done
+
+done
+
+done
+
+done
+
+Retail Search
+
+done
+
+done
+
+Risk Manager
+
+done
+
+done
+
+done
+
+done
+
+SaaS Runtime
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+SecLM
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Secret Manager
+
+done
+
+done
+
+done
+
+done
+
+Secure Source Manager
+
+done
+
+done
+
+done
+
+done
+
+Secure Web Proxy (Cloud SWP)
+
+done
+
+done
+
+done
+
+done
+
+Security Command Center
+
+done
+
+done
+
+done
+
+done
+
+Sensitive Data Protection
+
+done
+
+done
+
+done
+
+done
+
+Service Directory
+
+done
+
+done
+
+done
+
+done
+
+Service Infrastructure
+
+done
+
+done
+
+done
+
+done
+
+Spanner
+
+done
+
+done
+
+done
+
+done
+
+Spectrum Access System
+
+done
+
+done
+
+done
+
+Speech-to-Text
+
+done
+
+done
+
+done
+
+done
+
+Storage Transfer Service
+
+done
+
+done
+
+done
+
+done
+
+Tables
+
+done
+(ISO 27001 only)
+
+done
+
+Talent Solution
+
+done
+
+done
+
+done
+
+done
+
+Text-to-Speech
+
+done
+
+done
+
+done
+
+done
+
+Traffic Director
+
+done
+
+done
+
+done
+
+done
+
+Transcoder API
+
+done
+
+done
+
+Transfer Appliance
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Vertex AI Workbench Instances
+
+done
+ (ISO 27001 only)
+
+done
+
+done
+
+done
+
+Video Intelligence API
+
+done
+
+done
+
+done
+
+done
+
+Video Stitcher API
+
+done
+
+done
+
+done
+
+Virtual Private Cloud
+
+done
+
+done
+
+done
+
+done
+
+VirusTotal
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+VPC Service Controls
+
+done
+
+done
+
+done
+
+done
+
+Web Risk API
+
+done
+
+done
+
+done
+
+done
+
+Workflows
+
+done
+
+done
+
+done
+
+done
+
+Workload Manager
+
+done
+
+done
+
+done
+
+done
+
+Assured Open Source Software
+
+done
+(ISO 27001 only)
+
+BigQuery Omni
+
+done
+
+done
+
+done
+
+done
+
+Binary Authorization – Software
+
+done
+(ISO 27001 only)
+
+Cloud Logging – Software
+
+done
+(ISO 27001 only)
+
+Cloud Monitoring – Software
+
+done
+(ISO 27001 only)
+
+Config Connector - Software
+
+done
+(ISO 27001 only)
+
+Config Controller - Software
+
+done
+(ISO 27001 only)
+
+Config Sync - Software
+
+done
+(ISO 27001 only)
+
+Connect – Software
+
+done
+(ISO 27001 only)
+
+GKE Identity Service - Software
+
+done
+(ISO 27001 only)
+
+GKE on AWS
+
+done
+ (ISO 27001 only)
+
+GKE on Azure
+
+done
+ (ISO 27001 only)
+
+Google Distributed Cloud Hosted (GDCH) - Software
+
+done
+  (ISO 27001 only)
+
+Google Distributed Cloud Virtual (GDCV) for Bare Metal
+
+done
+  (ISO 27001 only)
+
+Google Distributed Cloud Virtual (GDCV) for VMware
+
+done
+  (ISO 27001 only)
+
+Knative serving - Software
+
+done
+(ISO 27001 only)
+
+Migrate to Containers
+
+done
+(ISO 27001 only)
+
+Network Gateway for Google Distributed Cloud
+
+done
+ (ISO 27001 only)
+
+Policy Controller - Software
+
+done
+(ISO 27001 only)
+
+Service Mesh – Software
+
+done
+(ISO 27001 only)
+
+Speech-to-Text On-Prem
+
+done
+(ISO 27001 only)
+
+Google Workspace and Cloud Identity Services in Scope by Compliance Program
+
+Capitalized terms have the meaning stated in the applicable agreement between
+Customer and Google.
+
+The following Services fall within the scope of one or more of: Google's ISO 27001 Certification, ISO 27017
+Certification, ISO 27018 Certification, SOC 1 Report, SOC 2 Report and SOC 3
+Report and Penetration Testing Report. A 
+done
+ in the table below indicates that
+the Service (row) is in scope for the specified certification or report (column).
+
+Service
+
+ISO 27001, 27017, 27018 Certifications
+
+SOC 1, 2, 3 Reports
+
+Penetration Testing
+
+Admin Console
+
+done
+
+done
+
+done
+
+Alert Center API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Apps Email Audit API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Apps Script
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+AppSheet
+
+done
+
+done
+
+done
+
+Assignments
+
+done
+
+done
+
+done
+
+Calendar
+
+done
+
+done
+
+done
+
+Calendar API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Classroom
+
+done
+
+done
+
+done
+
+Cloud Identity
+
+done
+
+done
+
+done
+
+Cloud Search
+
+done
+
+done
+
+done
+
+Contacts
+
+done
+
+done
+
+done
+
+Data Transfer API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Directory API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Docs
+
+done
+
+done
+
+done
+
+Domain Shared Contacts API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Drive
+
+done
+
+done
+
+done
+
+Drive Activity API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Drive Rest API
+
+done
+(ISO 27001 only)
+
+done
+
+Enterprise License Manager
+
+done
+(ISO 27001 only)
+
+done
+
+Forms
+
+done
+
+done
+
+done
+
+Gemini app
+
+done
+
+done
+
+done
+
+Gemini in Workspace
+
+done
+
+done
+
+done
+
+Gemini Notebook
+
+done
+
+done
+
+done
+
+Gmail
+
+done
+
+done
+
+done
+
+Gmail Rest API
+
+done
+(ISO 27001 only)
+
+done
+
+Google Beam
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Google Chat
+
+done
+
+done
+
+done
+
+Google Meet
+
+done
+
+done
+
+done
+
+Google Vids
+
+done
+
+done
+
+done
+
+Google Workspace Migrate
+
+done
+
+done
+
+done
+
+Google Workspace Studio
+
+done
+
+done
+
+done
+
+Groups
+
+done
+
+done
+
+done
+
+Groups Migration API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Groups Settings API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Keep
+
+done
+
+done
+
+done
+
+Mobile Device Management
+
+done
+
+done
+
+done
+
+People API
+
+done
+(ISO 27001 only)
+
+done
+
+Read Along
+
+done
+
+done
+
+done
+
+Reports API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Reseller API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+SAML-based SSO API
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Service Mesh
+
+done
+
+done
+
+done
+
+Sheets
+
+done
+
+done
+
+done
+
+Sheets API
+
+done
+(ISO 27001 only)
+
+done
+
+Sites
+
+done
+
+done
+
+done
+
+Slides
+
+done
+
+done
+
+done
+
+Tasks
+
+done
+
+done
+
+done
+
+Tasks API
+
+done
+(ISO 27001 only)
+
+done
+
+Vault
+
+done
+
+done
+
+done
+
+Voice
+
+done
+
+done
+
+done
+
+Other Services in Scope by Compliance Program
+
+Capitalized terms have the meaning stated in the applicable agreement between Customer or Partner and Google.
+
+These Services fall within the scope of one or more of: Google's ISO 27001 Certification, ISO 27017 Certification, ISO 27018 Certification,
+SOC 1 Report, SOC 2 Report and SOC 3 Report and Penetration Testing Report. A 
+done
+ in the table below indicates
+that the Service (row) is in scope for the specified certification or report (column).
+
+Service
+
+ISO 27001, 27017, 27018 Certifications
+
+SOC 1, 2, 3 Reports
+
+PCI DSS Certification
+
+Penetration Testing
+
+Looker (original)
+
+done
+
+done
+
+done
+
+Google SecOps - SIEM
+
+done
+
+done
+
+done
+
+done
+
+Google SecOps - SOAR
+
+done
+
+done
+
+done
+
+done
+
+GTI for Google Security Operations
+
+done
+
+done
+
+done
+
+done
+
+Mandiant Consulting Services
+
+done
+
+done
+(SOC 2 and 3 only)
+
+done
+
+Mandiant Security Validation
+
+done
+
+done
+(SOC 2 and 3 only)
+
+done
+
+Mandiant Advantage Threat Intelligence
+
+done
+
+done
+(SOC 2 and 3 only)
+
+done
+
+Mandiant Attack Surface Management
+
+done
+
+done
+(SOC 2 and 3 only)
+
+done
+
+Mandiant Managed Services
+
+done
+
+done
+(SOC 2 and 3 only)
+
+done
+
+done
+
+Google Threat Intelligence
+
+done
+(ISO 27001 only)
+
+done
+
+done
+
+Previous Versions
+
+July 16, 2026
+
+May 11, 2026
+
+August 13, 2025
+
+July 21, 2025
+
+July 03, 2025
+
+July 01, 2025
+
+April 04, 2025
+
+January 30, 2025
+
+September 05, 2024
+
+September 04, 2024
+
+March 25, 2024
+
+February 05, 2024
+
+January 08, 2024
+
+October 12, 2023
+
+September 25, 2023
+
+September 22, 2023
+
+September 11, 2023
+
+July 13, 2023
+
+June 14, 2023
+
+June 07, 2023
+
+May 09, 2023
+
+January 06, 2023
+
+October 18, 2022
+
+October 11, 2022
+
+September 19, 2022
+
+August 17, 2022
+
+July 19, 2022
+
+February 24, 2022
+
+February 02, 2022
+
+December 13, 2021
+
+October 06, 2021
+
+April 13, 2021
+
+January 27, 2021
+
+December 01, 2020
+
+July 20, 2020
+
+June 23, 2020
+
+April 03, 2020
+
+February 14, 2020
+
+January 30, 2020
+
+January 13, 2020
+
+April 09, 2019
+
+January 16, 2019
+
+December 11, 2018
+
+November 13, 2017
+
+July 20, 2017
+
+June 14, 2017
+
+Except as otherwise noted, the content of this page is licensed under the 
+Creative Commons Attribution 4.0 License
+, and code samples are licensed under the 
+Apache 2.0 License
+. For details, see the 
+Google Developers Site Policies
+. Java is a registered trademark of Oracle and/or its affiliates.

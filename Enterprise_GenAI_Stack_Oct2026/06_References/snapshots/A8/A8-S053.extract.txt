@@ -1,0 +1,12 @@
+SOURCE ID: A8-S053
+URL: https://eur-lex.europa.eu/eli/C/2025/6610/oj/eng
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: C-703/25 P Latombe v Commission appeal (curia, eur-lex)
+========================================================================
+
+Search results: EUR-Lex OJ C/2025/6610 "Appeal brought on 31 October 2025 by Philippe Latombe against the judgment of the General Court ... in Case T-553/23" (Case C-703/25 P); InfoCuria C-703/25 P; CJEU press release cp250106en (September 2025); Judgment of the General Court of 3 September 2025 (CELEX 62023TA0553)
+Search-tool extract:
+- General Court (Tenth Chamber, Extended Composition) judgment of 3 September 2025 in T-553/23 dismissed Latombe's action to annul Commission Implementing Decision (EU) 2023/1795 (EU-US Data Privacy Framework). The court rejected the plea that the Data Protection Review Court is not independent; "there is nothing in Schrems II to suggest that that collection must necessarily be subject to prior authorisation issued by an independent authority."
+- Appeal lodged 31 October 2025 (C-703/25 P); parties Commission, Ireland, United States. Seeks set-aside and annulment of Decision 2023/1795; four grounds (DPRC independence; formal nature of founding text; bulk collection without prior authorisation; presidential power to update bulk-collection objectives vs Zakharov).
+- InfoCuria lists the case as Pending; an order dated 4 June 2026 appears among case documents (content not shown).

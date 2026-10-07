@@ -1,0 +1,13 @@
+SOURCE ID: A8-S057
+URL: https://www.federalregister.gov/documents/2025/06/17/2025-11110/withdrawal-of-proposed-regulatory-actions
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SEC withdraws proposed rule predictive data analytics (sec.gov, federalregister.gov)
+========================================================================
+
+Search results: Federal Register "Withdrawal of Proposed Regulatory Actions" (2025-11110, 17 June 2025); SEC.gov rules page s7-12-23 (June 2025); Federal Register "Conflicts of Interest Associated With the Use of Predictive Data Analytics by Broker-Dealers and Investment Advisers" (2023-16377, 9 August 2023)
+Search-tool extract:
+- The SEC formally withdrew its predictive data analytics proposal (File S7-12-23) in June 2025 as part of a batch of withdrawn proposals issued between March 2022 and November 2023; notice dated June 17, 2025. The agency will not finalise them; revisiting a topic would require a new proposal.
+- The proposal (published August 9, 2023) aimed to eliminate or neutralise conflicts of interest when broker-dealers and advisers use technology that forecasts or guides investor behaviour.
+- Comment letters argued "covered technology" was broad enough to reach spreadsheets and retirement calculators.
+- Stated reasons for withdrawal not found in results.

@@ -5,7 +5,7 @@ TYPE: search-tool extract (direct fetch blocked by research-environment egress p
 FOUND VIA: PyPI JSON API https://pypi.org/pypi/ktransformers/json
 ========================================================================
 
-PyPI package ktransformers version 0.7.0.post4 (released per PyPI JSON). README excerpt:
+PyPI package ktransformers version 0.7.0.post4 README excerpt (direct fetch of PyPI JSON API; excerpted):
 ## 🔥 Updates
 * **Aug 26, 2026**: Added native support for **GLM-5.3-flash**, bringing 1M-token context and multimodal input to consumer GPUs. ([Tutorial](./doc/en/kt-kernel/GLM-5.3-Flash-Tutorial.md))
 * **Aug 25, 2026**: Uploaded a new easy-to-use [KTransformers × LlamaFactory MoE Fine-Tuning Cookbook](./doc/en/SFT/KTransformers-Fine-Tuning_Cookbook.md), covering hardware checks, installation, BF16/FP8/INT8 recipes, LoRA and full fine-tuning, resource planning, and troubleshooting.
@@ -22,4 +22,4 @@ PyPI package ktransformers version 0.7.0.post4 (released per PyPI JSON). README 
 * **Feb 13, 2026**: MiniMax-M2.5 Day0 Support! ([Tutorial](./doc/en/MiniMax-M2.5.md))
 * **Feb 12, 2026**: GLM-5 Day0 Support! ([Tutorial](./doc/en/kt-kernel/GLM-5-Tutorial.md))
 * **Jan 27, 2026**: Kimi-K2.5 Day0 Support! ([Tutorial](./doc/en/Kimi-K2.5.md)) ([SFT Tutorial](./doc/en/SFT_Installation_Guide_KimiK2.5.md))
-* **Jan 22, 2026**: Support [CPU-GPU Expert Scheduling](./doc/en/kt-kernel/experts-sched-Tutorial.md), [Native BF16 and FP8 per channel Precision](./doc/en/kt-kernel/
+* **

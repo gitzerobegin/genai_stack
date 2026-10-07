@@ -1,0 +1,14 @@
+SOURCE ID: A8-S050
+URL: https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-management-third-party-risk-delivering-more-proportionate-and
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: EBA Guidelines on outsourcing arrangements ... DORA third-party risk management non-ICT (eba.europa.eu)
+========================================================================
+
+Search results: EBA press release "The EBA publishes its final Guidelines on the management of third-party risk, delivering a more proportionate and consistent framework aligned with DORA" (18 September 2026); Final report on GL on third-party risk management (eba.europa.eu/sites/default/files/2026-09/...); EBA topic pages "Guidelines on outsourcing arrangements" and "Guidelines on third party risk management"; consultation 8 July - 8 October 2025
+Search-tool extract:
+- Final guidelines on the sound management of third-party risk for non-ICT services published 18 September 2026 [search tool gave reference EBA/GL/2026/09]. They "revise and update the previous EBA Guidelines on outsourcing, published in 2019, in line with the Digital Operational Resilience Act (DORA)". Not yet applicable.
+- Repeal clause: "EBA Guidelines on outsourcing of 25 February 2019 are repealed with effect from [date]"; exact application date not confirmed. Two-year transitional period.
+- ICT services stay under DORA; non-ICT guidelines cover non-ICT services; hybrid arrangements require judgement.
+- Focus on arrangements supporting critical or important functions; lifecycle: risk assessment and due diligence, contracting, subcontracting, monitoring, documentation and exit strategies.
+- Legal basis Article 74 CRD (Directive 2013/36/EU).

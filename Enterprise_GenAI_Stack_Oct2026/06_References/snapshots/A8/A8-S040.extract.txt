@@ -1,0 +1,13 @@
+SOURCE ID: A8-S040
+URL: https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OWASP Top 10 for LLM Applications 2025 list LLM01 prompt injection (genai.owasp.org, owasp.org)
+========================================================================
+
+Search results: "OWASP Top 10 for LLM Applications 2025" (genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/); "OWASP Reveals Updated 2025 Top 10 Risks for LLMs..." (genai.owasp.org/2024/11/17/...); OWASP Stuttgart chapter slides 11 Feb 2025
+Search-tool extract:
+- The OWASP Foundation announced an update to the OWASP Top 10 for LLM Applications and Generative AI Project in November 2024 (release date appears as November 17 on one OWASP page and November 19 in the press release).
+- 2025 entries (per OWASP chapter slide deck): LLM01 Prompt Injection; LLM02 Sensitive Information Disclosure; LLM03 Supply Chain; LLM04 Data and Model Poisoning; LLM05 Improper Output Handling; LLM06 Excessive Agency; LLM07 System Prompt Leakage; LLM08 Vector and Embedding Weaknesses; LLM09 Misinformation; LLM10 Unbounded Consumption.
+- System Prompt Leakage was added to address an area with real-world exploits that the community highly requested.
+- Search tool noted the LLM01 label was not explicitly shown in results; the chapter slides list "Prompt injection" as top entry.

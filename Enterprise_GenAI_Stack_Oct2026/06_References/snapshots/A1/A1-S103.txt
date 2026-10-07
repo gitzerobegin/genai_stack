@@ -1,0 +1,333 @@
+SOURCE ID: A1-S103
+URL: https://raw.githubusercontent.com/mlflow/mlflow/master/README.md
+FINAL URL: https://raw.githubusercontent.com/mlflow/mlflow/master/README.md
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+The Open Source AI Engineering Platform for Agents, LLMs & Models
+
+MLflow is the largest open source **AI engineering platform for agents, LLMs, and ML models**. MLflow enables teams of all sizes to [debug](https://mlflow.org/llm-tracing),
+[evaluate](https://mlflow.org/llm-evaluation), [monitor](https://mlflow.org/ai-monitoring), and [optimize](https://mlflow.org/prompt-optimization) production-quality AI applications while
+controlling costs and managing access to models and data. With over **60 million monthly downloads**,
+thousands of organizations rely on MLflow each day to ship AI to production with confidence.
+
+MLflow's comprehensive feature set for agents and LLM applications includes production-grade [observability](https://mlflow.org/docs/latest/genai/tracing), [evaluation](https://mlflow.org/docs/latest/genai/eval-monitor),
+[prompt management](https://mlflow.org/docs/latest/genai/prompt-registry), [prompt optimization](https://mlflow.org/prompt-optimization) and an [AI Gateway](https://mlflow.org/docs/latest/genai/governance/ai-gateway) for managing costs and model access.
+Learn more at [MLflow for LLMs and Agents](https://mlflow.org/docs/latest/genai).
+
+[![Python SDK](https://img.shields.io/pypi/v/mlflow)](https://pypi.org/project/mlflow/)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/mlflow)](https://pepy.tech/projects/mlflow)
+[![License](https://img.shields.io/github/license/mlflow/mlflow)](https://github.com/mlflow/mlflow/blob/master/LICENSE.txt)
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mlflow/mlflow)
+
+Website
+ ·
+
+Try Demo
+ ·
+
+Docs
+ ·
+
+News
+ ·
+
+Events
+
+## Get Started in 3 Simple Steps
+
+From zero to full-stack LLMOps in minutes. No complex setup or major code changes required. [Get Started →](https://mlflow.org/docs/latest/genai/tracing/quickstart/)
+
+> **Fastest start — set up tracing with the MLflow setup wizard**
+>
+> ```bash
+> curl -LsSf https://mlflow.org/wizard/setup.sh | sh
+> ```
+>
+> Run this from your project's Git repository with Claude Code, Codex, or OpenCode installed. The wizard guides you through connecting to an MLflow server or Databricks workspace, then launches your coding agent to add tracing to your app. Prefer to wire it up yourself? Follow the three steps below.
+
+**1. Start MLflow Server**
+
+```bash
+uvx mlflow server
+```
+
+**2. Enable Logging**
+
+```python
+import mlflow
+
+mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.openai.autolog()
+```
+
+**3. Run Your Code**
+
+```python
+from openai import OpenAI
+
+client = OpenAI()
+client.responses.create(
+    model="gpt-5.4-mini",
+    input="Hello!",
+)
+```
+
+Explore traces and metrics in the MLflow UI at `http://localhost:5000`.
+
+## LLMs & Agents
+
+MLflow provides everything you need to build, debug, evaluate, and deploy production-quality LLM applications and AI agents. Supports Python, TypeScript/JavaScript, Java and any other programming language. MLflow also natively integrates with [OpenTelemetry](https://opentelemetry.io/) and MCP.
+
+Observability
+
+Capture complete traces of your LLM applications and agents for deep behavioral insights. Built on OpenTelemetry, supporting any LLM provider and agent framework. Monitor production quality, costs, and safety.
+
+Getting Started →
+
+Try Demo →
+
+Evaluation
+
+Run systematic evaluations, track quality metrics over time, and catch regressions before they reach production. Choose from 50+ built-in metrics and LLM judges, or define your own.
+
+Getting Started →
+
+Try Demo →
+
+Prompts & Optimization
+
+Version, test, and deploy prompts with full lineage tracking. 
+Automatically optimize prompts
+ with state-of-the-art algorithms to improve performance.
+
+Getting Started →
+
+Try Demo →
+
+AI Gateway
+
+Unified API gateway for all LLM providers. Route requests, manage rate limits, handle fallbacks, and control costs through an OpenAI-compatible interface with built-in credential management, guardrails and traffic splitting for A/B testing.
+
+Getting Started →
+
+## Model Training
+
+For machine learning and deep learning model development, MLflow provides a full suite of tools to manage the ML lifecycle:
+
+- [**Experiment Tracking**](https://mlflow.org/docs/latest/ml/tracking/) — Track models, parameters, metrics, and evaluation results across experiments
+- [**Model Evaluation**](https://mlflow.org/docs/latest/ml/evaluation/) — Automated evaluation tools integrated with experiment tracking
+- [**Model Registry**](https://mlflow.org/docs/latest/ml/model-registry/) — Collaboratively manage the full lifecycle of ML models
+- [**Deployment**](https://mlflow.org/docs/latest/ml/deployment/) — Deploy models to batch and real-time scoring on Docker, Kubernetes, Azure ML, AWS SageMaker, and more
+
+Learn more at [MLflow for Model Training](https://mlflow.org/docs/latest/ml).
+
+## Integrations
+
+MLflow supports all agent frameworks, LLM providers, tools, and programming languages. We offer one-line automatic tracing for more than 60 frameworks. See the [full integrations list](https://mlflow.org/docs/latest/genai/tracing/integrations/).
+
+### OpenTelemetry
+
+OpenTelemetry
+
+### Agent Frameworks (Python)
+
+LangChain
+
+LangGraph
+
+OpenAI Agent
+
+DSPy
+
+PydanticAI
+
+Google ADK
+
+Microsoft Agent
+
+CrewAI
+
+LlamaIndex
+
+AutoGen
+
+Strands
+
+LiveKit Agents
+
+Agno
+
+Bedrock AgentCore
+
+Smolagents
+
+Semantic Kernel
+
+DeepAgent
+
+AG2
+
+Haystack
+
+Koog
+
+txtai
+
+Pipecat
+
+Watsonx
+
+### Agent Frameworks (TypeScript)
+
+LangChain
+
+LangGraph
+
+Vercel AI SDK
+
+Mastra
+
+VoltAgent
+
+### Agent Frameworks (Java)
+
+Spring AI
+
+Quarkus LangChain4j
+
+### Model Providers
+
+OpenAI
+
+Anthropic
+
+Databricks
+
+Gemini
+
+Amazon Bedrock
+
+LiteLLM
+
+Mistral
+
+xAI / Grok
+
+Ollama
+
+Groq
+
+DeepSeek
+
+Qwen
+
+Moonshot AI
+
+Cohere
+
+BytePlus
+
+Novita AI
+
+FireworksAI
+
+Together AI
+
+### Gateways
+
+Databricks
+
+LiteLLM Proxy
+
+Vercel AI Gateway
+
+OpenRouter
+
+Portkey
+
+Helicone
+
+Kong AI Gateway
+
+PydanticAI Gateway
+
+TrueFoundry
+
+### Tools & No-Code
+
+Instructor
+
+Claude Code
+
+Opencode
+
+Langfuse
+
+Arize / Phoenix
+
+Goose
+
+Langflow
+
+## Hosting MLflow
+
+MLflow can be used in a variety of environments, including your local environment, on-premises clusters, cloud platforms, and managed services. Being an open-source platform, MLflow is **vendor-neutral** — whether you're building AI agents, LLM applications, or ML models, you have access to MLflow's core capabilities.
+
+Databricks
+
+Amazon SageMaker
+
+Azure ML
+
+Nebius
+
+Red Hat OpenShift AI
+
+Self-Hosted
+
+## 💭 Support
+
+- For help or questions about MLflow usage (e.g. "how do I do X?") visit the [documentation](https://mlflow.org/docs/latest).
+- In the documentation, you can ask the question to our AI-powered chat bot. Click on the **"Ask AI"** button at the bottom right.
+- Join the [virtual events](https://lu.ma/mlflow?k=c) like office hours and meetups.
+- To report a bug, file a documentation issue, or submit a feature request, please [open a GitHub issue](https://github.com/mlflow/mlflow/issues/new/choose).
+- For release announcements and other discussions, please subscribe to our mailing list (mlflow-users@googlegroups.com)
+  or join us on [Slack](https://go.mlflow.org/slack).
+
+## 🤝 Contributing
+
+We happily welcome contributions to MLflow!
+
+- Submit [bug reports](https://github.com/mlflow/mlflow/issues/new?template=bug_report_template.yaml) and [feature requests](https://github.com/mlflow/mlflow/issues/new?template=feature_request_template.yaml)
+- Contribute for [good-first-issues](https://github.com/mlflow/mlflow/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) and [help-wanted](https://github.com/mlflow/mlflow/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+- Writing about MLflow and sharing your experience
+
+Please see our [contribution guide](CONTRIBUTING.md) to learn more about contributing to MLflow.
+
+## ⭐️ Star History
+
+## ✏️ Citation
+
+If you use MLflow in your research, please cite it using the "Cite this repository" button at the top of the [GitHub repository page](https://github.com/mlflow/mlflow), which will provide you with citation formats including APA and BibTeX.
+
+## 👥 Core Members
+
+MLflow is currently maintained by the following core members with significant contributions from hundreds of exceptionally talented community members.
+
+- [Ben Wilson](https://github.com/BenWilson2)
+- [Corey Zumar](https://github.com/dbczumar)
+- [Daniel Lok](https://github.com/daniellok-db)
+- [Gabriel Fu](https://github.com/gabrielfu)
+- [Harutaka Kawamura](https://github.com/harupy)
+- [Humair Khan](https://github.com/HumairAK)
+- [Joel Robin P](https://github.com/joelrobin18)
+- [Matthew Prahl](https://github.com/mprahl)
+- [Pat Sukprasert](https://github.com/PattaraS)
+- [Serena Ruan](https://github.com/serena-ruan)
+- [Tomu Hirata](https://github.com/TomeHirata)
+- [Weichen Xu](https://github.com/WeichenXu123)
+- [Yuki Watanabe](https://github.com/B-Step62)

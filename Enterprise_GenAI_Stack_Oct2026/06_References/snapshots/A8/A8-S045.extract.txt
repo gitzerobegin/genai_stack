@@ -1,0 +1,12 @@
+SOURCE ID: A8-S045
+URL: https://www.iso.org/standard/42001
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ISO/IEC 42001:2023 publication date (iso.org)
+========================================================================
+
+Search results: "ISO/IEC 42001:2023 - AI management systems" (iso.org/standard/42001); "ISO/IEC 42001 explained"
+Search-tool extract:
+- ISO page lists the standard as Edition 1, dated 2023-12, status published; Technical Committee ISO/IEC JTC 1/SC 42.
+- Described as the first international standard specifying requirements for an artificial-intelligence management system.
+- No amendment, revision or Amd 1 to ISO/IEC 42001:2023 found in results.

@@ -1,0 +1,15 @@
+SOURCE ID: A8-S052
+URL: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/international-transfers/receiving-personal-information-from-the-eea/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: European Commission renews adequacy decisions United Kingdom (commission, ec, edpb, ico, gov.uk)
+========================================================================
+
+Search results: ICO "Receiving personal information from the EEA"; Commission "Data protection adequacy for non-EU countries"; EDPB "Draft UK adequacy decisions: EDPB adopts opinions" (2025); EDPB Opinion 27/2025; GOV.UK "EU adopts 'adequacy' decisions allowing data to continue flowing freely to the UK"
+Search-tool extract:
+- The Commission adopted the renewal decisions on 19 December 2025 (GDPR and LED); ICO: both adequacy decisions last until 27 December 2031.
+- Technical extensions of the UK adequacy decisions under GDPR and LED dated 24 June 2025 (six months) to allow assessment of the Data (Use and Access) Act.
+- Commission endorsed draft LED decision 22 July 2025; EDPB Opinion 27/2025 adopted 16 October 2025; separate EDPB opinion on GDPR draft around 20 October 2025.
+- EDPB asked the Commission to monitor: onward-transfer adequacy test, automated decision-making, ICO structure changes, Technical Capability Notices (encryption), national security exemptions.
+- The Commission must monitor UK developments on an ongoing basis; decisions can be amended, suspended or repealed.
+- (Extract states the DUAA "came into force on 20 August 2025" - refers to first commencement.)

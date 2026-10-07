@@ -1,0 +1,13 @@
+SOURCE ID: A8-S042
+URL: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OWASP Top 10 for Agentic Applications release date ASI01 (genai.owasp.org, owasp.org)
+========================================================================
+
+Search results: "OWASP Top 10 for Agentic Applications - The Benchmark for Agentic Security in the Age of Autonomous AI" (genai.owasp.org/2025/12/09/...); "OWASP Top 10 for Agentic Applications for 2026" (genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/); "OWASP GenAI Exploit Round-up Report Q1 2026"
+Search-tool extract:
+- Released December 2025: OWASP launch blog post dated December 9, 2025; press release dated Dec. 10, 2025; presented at a summit in London on December 10.
+- ASI01 is Agent Goal Hijack (illustrated with hidden prompts turning copilots into exfiltration engines; EchoLeak case).
+- Official title: "OWASP Top 10 for Agentic Applications for 2026"; "a globally peer-reviewed framework that identifies the most critical security risks facing autonomous and agentic AI systems", developed with more than 100 contributors. Identifiers in the form ASI01:2026.
+- Separate earlier resource: "Agentic AI - Threats and Mitigations".

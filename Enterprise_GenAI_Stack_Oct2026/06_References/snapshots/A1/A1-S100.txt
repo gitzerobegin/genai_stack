@@ -1,0 +1,224 @@
+SOURCE ID: A1-S100
+URL: https://www.datadoghq.com/security/
+FINAL URL: https://www.datadoghq.com/trust/
+TITLE: Trust Hub | Datadog
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Trust Hub | Datadog
+
+Datadog Trust Hub
+Our mission is to build and preserve our customer’s trust in the Datadog platform by prioritizing safety and transparency.
+Security and Compliance
+Our commitment to security and compliance is embedded in every part of our business. Use the Trust Center to learn about our security and compliance posture and request access to our documentation.
+READ
+MORE
+
+Privacy
+Datadog takes great pride in our respect for customer and employee privacy and has a team dedicated to ensuring that the company meets its global privacy requirements and protects the privacy of individuals.
+READ
+MORE
+
+Legal
+Datadog understands the importance of creating transparency for our customers, when it comes to legal matters. Use Datadog's Legal page to view sample agreements, legal-focused policies and other helpful resources.
+READ
+MORE
+
+Platform Safety
+
+Platform Security
+
+Bug Bounty
+
+Report Issues
+
+Platform Safety
+
+Platform Security
+
+Bug Bounty
+
+Report Issues
+Table of Contents
+Platform Safety
+Safety and Security
+To ensure a safe and trustworthy user experience, Datadog builds security into our platform through safe design and proactive monitoring.
+Safety Center
+Datadog provides security alerts and best practices dynamically in your organization in the 
+Safety Center
+. Admins of an organization can visit this page to review recommendations and take action on high priority security warnings and alerts. The Safety Center can be found in Organization Settings.
+Security Contacts
+You can set primary and secondary email addresses to receive security notifications for your Datadog organization, keeping you informed about important account safety events and notifying the appropriate individuals promptly. Upon detecting security issues, like publicly exposed Datadog keys needing rotation (see Token Safety below), your assigned Security Contact will be notified. This proactive approach lets you quickly address and mitigate potential security risks. To configure Security Contacts for your organization you must have organization management permissions.
+Token Safety
+Datadog proactively and automatically detects if one of your private Datadog API or application keys is accidentally uploaded to a public GitHub repository. If a valid key is detected, you’ll receive an email notification with instructions on how to secure your account. In the event of a confirmed key leak, Datadog immediately sends an email notification to the key creator/owner. By default, the key creator/owner receives the email notification. If the key creator is no longer part of your organization, then the administrators of your organization will be notified. To notify additional contacts about a key leak, configure Security Contacts. If you receive a leaked key notification, follow these the remediation steps outlined in the email as soon as possible to ensure the security of your account.
+Password Safety
+To protect your account from brute force and password-spraying attacks, Datadog automatically restricts the use of unsafe passwords, e.g. passwords that appear in third-party, non-Datadog data breaches. Datadog maintains a database of hashed passwords obtained from third-party, non-Datadog data breaches. When you sign in, a hashed version of your password is checked against this list. This check follows guidelines established by the National Institute of Standards and Technology.
+Content Safety
+Many of Datadog’s products combine live data, rich Markdown text, and collaborative features that enable users to create meaningful content. As a proactive safety measure, Datadog protects you against potentially harmful links that may be found in user-generated content. If you try to access a potentially unsafe link, Datadog displays a warning that shows the full URL and gives you the option of continuing to that site or returning to the previous page.
+Platform Security
+Platform Security
+Datadog provides platform security controls that help customers manage access, protect accounts, apply least-privilege permissions, and monitor activity within their Datadog organizations.
+SAML
+Datadog supports SAML-based single sign-on, enabling customers to authenticate users through their identity provider. Customers can learn more about SAML configurations in Datadog’s 
+SAML documentation
+.
+Multi-factor Authentication (MFA)
+Datadog supports multi-factor authentication for user accounts. Customers can configure authentication methods and MFA settings within their Datadog organization to align with their internal access control requirements. Additional information is available in Datadog’s 
+MFA documentation
+.
+Role Based Access Control (RBAC)
+Datadog includes default roles, including Admin, Standard, and Read-Only, and supports custom roles for more granular access management. Customers can use role-based access control to grant users only the permissions they need. Learn more about permissions and role configurations in Datadog’s 
+RBAC documentation
+.
+Session Management
+Organization administrators can configure session controls for web access, including maximum session duration and idle session timeout. These settings help limit the lifespan of authenticated sessions and automatically sign users out after a defined period of inactivity. Additional details are available in Datadog’s 
+organization settings documentation
+.
+Audit Trail
+Datadog Audit Trail helps customers monitor user and system activity within their organization, including who performed an action, what action was taken, and relevant context about the activity. Learn more about 
+Datadog Audit Trail
+.
+API & Application Key Management
+Customers can manage API keys and application keys using controls designed to support scoped access, key lifecycle management, and least-privilege practices. Additional details are available in Datadog’s 
+API and application key management documentation
+.
+Services Status
+Current and historical uptime figures, along with corresponding incident and resolution notes for our services, are available on the 
+Datadog status page
+.
+Bug Bounty
+Program
+Datadog hosts its private Bug Bounty Program with HackerOne. If you’re an independent security expert or researcher and believe you’ve discovered a security-related issue on our platform, we appreciate you disclosing the issue to us responsibly and thank you for your time and expertise.
+If you are 
+eligible
+ and want to participate in our private Bug Bounty Program, send us an email at 
+bugbounty@datadoghq.com
+ with your HackerOne username or the email you want an invitation for.
+You will report the vulnerability directly in the HackerOne platform and all communication after submission will be conducted there. Before submitting an issue, please read our guidelines and scope of the program.
+Eligibility
+Datadog employees or contractors—current or former—are not eligible to participate in this program. Please read the complete 
+eligibility requirements
+ before joining the program.
+Scope
+The scope of the Bug Bounty Program includes Datadog’s products, services, and systems. Vulnerabilities found in vendor systems fall outside of this policy’s scope and should be reported directly to the vendor via their own disclosure programs.
+The following describes what systems and types of research are covered under this program. Always be careful to verify whose assets you are testing while performing research.
+Corporate websites:
+https
+://www
+.datadoghq.com
+https
+://www
+.coscreen.co/
+https
+://vector.dev/
+Web Applications:
+https
+://app.
+datadoghq.com
+https
+://app.cloudcraft.co
+API:
+https
+://api.
+datadoghq.com
+https
+://api.cloudcraft.co
+Datadog Mobile App: 
+iOS
+, 
+Android
+Agent and integrations code (only the latest versions are in-scope)
+Datadog Agent 7+
+Datadog Integrations
+Datadog Docker agent
+Datadog-official SDKs and libraries
+ - Any of the libraries listed with “Datadog” as the author and marked as “Official”
+Vector agent
+ (only the latest versions are in-scope)
+Coscreen clients
+ (only the latest versions are in-scope)
+Rules of Engagement
+The following is intended to give security researchers clear guidelines for conducting vulnerability discovery activities to limit the potential for company and/or customer data to be at risk:
+Do add a prefix 
+Bugbounty-
+ to your Datadog org name.
+Do report a potential security issue immediately.
+Do NOT attack other users. If you are testing the ability to access another customer’s data, do not iterate randomly. Create another test account or ask for assistance at 
+bugbounty@datadoghq.com
+.
+Do NOT attempt Denial of Service (DoS) attacks. If you notice performance interruption or degradation, immediately suspend all testing.
+Do NOT perform any phishing, spamming, social engineering, or other form of fraud on our employees or customers.
+Do NOT perform any physical attacks against Datadog’s property (including workstations, office spaces, servers, or networks) or otherwise try to discover risk beyond digital means against Datadog.
+Do NOT exploit a security issue you discover for any reason other than to validate your finding.
+Do NOT deface any Datadog-associated publicly available resource for a proof of concept (PoC) which explicitly states the vulnerability. For example, for a subdomain takeover PoC, upload a file with 
+hello world
+ in it.
+Out-of-Scope Vulnerabilities
+Any of the following (or related) activities will be automatically considered out of scope for the Bug Bounty Program:
+Application Vulnerabilities:
+Clickjacking or UI redressing (on pages with no sensitive actions)
+Content injection or “HTML injection” unless you can clearly show risk (other than social engineering)
+Cross-Site Request Forgery (CSRF) on features which are available to anonymous users
+Low-impact CSRF including, but not limited to, login, logout, and unauthenticated
+User session duration
+Username/email enumeration
+Same-site scripting and Self-XSS
+Self-exploitation (i.e., password reset links or cookie reuse)
+Missing flags on non-essential session cookies
+Missing security-related HTTP headers which do not lead directly to a vulnerability
+Open redirects on ad/analytics subdomains
+Presence of autocomplete attribute on web forms
+Reflected File Download (RFD) attacks
+Data Exposure:
+Banner or version disclosure of server or software
+Information disclosure that has no practical use for exploitation
+Descriptive/verbose/unique error pages (without proof of exploitability)
+Default configuration files which do not disclose sensitive information
+Denial of Service:
+Denial of Service (DoS) attacks
+Distributed Denial of Service (DDoS) attacks
+End of Life (EoL)/ Outdated Software:
+Any Datadog-developed software that is EoL or no longer supported
+Client side bugs which do not affect (and/or are exploitable on) the latest version of modern browsers
+Outdated dependencies without a working PoC
+Physical Security:
+Man-in-the-middle (MITM) attacks or those requiring physical access to the victim’s device
+Physical or social engineering attacks
+Security Best Practices:
+Missing SSL/TLS best practices
+Mixed content warnings
+Missing best practices in Content Security Policy
+Missing email security best practices (such as incomplete or missing SPF/DKIM/ DMARC) without a proof of exploitability
+Issues related to networking protocols or industry standards
+Miscellaneous:
+Bugs Datadog is already aware of (or ones previously submitted by another researcher)
+Pivoting, scanning, exploiting, or exfiltrating data from internal Datadog systems
+Pervasive issues or vulnerabilities such as heartbleed, meltdown, spectre, or others without a PoC
+Results of automated tools or scanners without a PoC
+Theoretical subdomain takeover claims with no supporting evidence
+Using unreported vulnerabilities to find other bugs
+Vulnerabilities in community-contributed API and DogStatsD client libraries
+Public zero-day vulnerabilities that have had an official patch for less than one month will be awarded on a case by case basis.
+Disclosure Policy
+The Disclosure Policy of Datadog’s private Bug Bounty Program follows HackerOne’s 
+private program disclosure policy
+ and Datadog’s HackerOne 
+program policy
+. This program is subject to strict confidentiality requirements. You will need consent from Datadog for any disclosure outside of the program. Prior to accepting an invitation to Datadog’s private program, you should carefully review the program policies and the non-disclosure agreements required for participation.
+Report Issues
+Report Issues
+To report a security concern or suspected abuse, please contact us at:
+Security concerns: 
+security@datadoghq.com
+Suspected platform abuse: 
+abuse@datadoghq.com
+We will promptly get back to you within 24 hours. Our 
+PGP key
+ is available for download in case you need to encrypt communications with us. We request that you do not publicly disclose the issue until we have had a chance to review and address it as necessary.
+For inquiries related to known vulnerabilities on our products, please use the vulnerability inquiry request on the 
+Datadog support site
+.
+Get Started with Datadog
+
+×
