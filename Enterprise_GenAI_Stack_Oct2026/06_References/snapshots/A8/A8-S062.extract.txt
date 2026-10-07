@@ -1,0 +1,14 @@
+SOURCE ID: A8-S062
+URL: https://www.bankofengland.co.uk/prudential-regulation/publication/2026/march/operational-incident-and-third-party-reporting-policy-statement
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: PS7/26 operational incident and third-party reporting implementation date (bankofengland.co.uk, fca.org.uk)
+========================================================================
+
+Search results: PRA "PS7/26 Operational incident and third-party reporting" (March 2026); FCA "PS26/2: Operational incident and third party reporting"; FCA FG26/4 "Material Third Party Reporting"; PRA "SS2/21" March 2026 update (ss221-march-2026-update); SS1/26
+Search-tool extract:
+- "The implementation date for final rules and policy materials reflecting policy changes set out in this PS is 18 March 2027." (PRA PS7/26); FCA PS26/2 rules also start 18 March 2027.
+- Incident reporting: one report via FCA Connect in three phases; initial within 24 hours of determining threshold met; final within 30 working days of resolution.
+- Material third-party (MTP) arrangements: firms notify before entering into or significantly changing an MTP arrangement; via FCA Connect; not an approval process; annual register of third-party arrangements (90 calendar days to submit once window opens).
+- Updated SS1/26 (incident reporting) and revised SS2/21 (outsourcing and third-party risk) effective from 18 March 2027, published as part of PS7/26.
+- CP17/24 (December 2024) was the consultation.
