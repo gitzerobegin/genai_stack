@@ -1,0 +1,8 @@
+SOURCE ID: A3-S097
+URL: https://techcrunch.com/2025/10/06/a-19-year-old-nabs-backing-from-google-execs-for-his-ai-memory-startup-supermemory/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Supermemory raises seed funding Dhravya Shah
+========================================================================
+
+Search-tool summary: The seed round was led by Susa Ventures, Browder Capital, and SF1.vc. 'Per TechCrunch (Ivan Mehta, Oct 6 2025), Dhravya Shah raised a $2.6 million seed for Supermemory.' Later coverage (October 2026, Business Today) says $3 million; one summary notes the founder's X post describes the round as $3 million (possible post-close top-up). Backers include Jeff Dean, Dane Knecht, Logan Kilpatrick and David Cramer. Reported users include Cluely, Montra and Scira. NOTE: exact TechCrunch URL not returned by the search tool; URL here is the expected TechCrunch article path and should be treated as indicative; the dealroom item https://nz.dealroom.co/news/feed/supermemory-secures-2-6m-for-ai-memory was also returned.

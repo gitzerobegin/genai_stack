@@ -1,0 +1,8 @@
+SOURCE ID: A3-S094
+URL: https://pulse2.com/cognee-7-5-million-seed-funding-raised-for-building-enterprise-grade-memory-layer-for-ai-agents/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cognee funding seed round raised 2025 2026
+========================================================================
+
+Search-tool summary: Berlin-based AI infrastructure startup Cognee announced it raised $7.5 million in a seed funding round, dated February 23, 2026. Pebblebed led the round. 42CAP and Vermilion Ventures participated, along with angel investors from Google DeepMind, n8n, and Snowplow. The new capital will be used to expand Cognee's cloud platform, and the company also plans a high-performance Rust engine for on-device and edge use cases. Aggregators conflict: CB Insights records a Feb 19, 2026 Series A for $8.83M; Funding.tech.eu gives EUR 7.5M. Earlier: Cognee's own blog announced $1.5 million on November 18, 2024 (42CAP, Angel Invest, Combination VC).

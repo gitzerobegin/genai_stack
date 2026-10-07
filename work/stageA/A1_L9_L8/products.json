@@ -1,0 +1,5486 @@
+[
+ {
+  "id": "L9-langfuse",
+  "layer": "L9",
+  "original_label": "Langfuse – open source",
+  "current_name": {
+   "v": "Langfuse",
+   "label": "Verified fact",
+   "src": [
+    "A1-S073"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Langfuse, acquired by ClickHouse, Inc. (announced January 2026); repository copyright now 'ClickHouse, Inc.'",
+   "label": "Verified fact",
+   "src": [
+    "A1-S021",
+    "A1-S022",
+    "A1-S023",
+    "A1-S073"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-core LLM engineering platform: tracing/observability, prompt management, evaluations, datasets and playground",
+   "label": "Verified fact",
+   "src": [
+    "A1-S073"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Python SDK langfuse 4.17.0, released 5 October 2026 (server release number not verified)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S001"
+   ],
+   "conf": "high",
+   "asof": "2026-10-05"
+  },
+  "licence_model": {
+   "v": "Open core: MIT for all product capabilities (tracing, evals, prompt management, experiments, annotation, playground); code under ee/ directories needs a commercial licence key when self-hosted (SCIM, audit logging, data-retention policies, project-level RBAC, server-side ingestion masking)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S023",
+    "A1-S033"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Joined ClickHouse in January 2026; founders state the roadmap is unchanged and the commitment to open source and self-hosting remains; self-hosted Enterprise tier is now bundled with ClickHouse Cloud, BYOC or Private and priced additively",
+   "label": "Verified fact",
+   "src": [
+    "A1-S021",
+    "A1-S022",
+    "A1-S033"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "Acquired by ClickHouse, Inc.; announced with ClickHouse's US$400M Series D (January 2026; third-party pages date it 16 January 2026); terms undisclosed"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S021",
+    "A1-S022",
+    "A1-S073"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Instruments LLM applications and ingests traces of LLM calls, retrieval, embedding and agent actions; provides prompt versioning, LLM-as-a-judge and code evaluators, user feedback and manual labelling, datasets and experiments, a playground and a public API.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S073"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Cross-cutting observability and evaluation platform spanning development and production; graphic places it in L9 as 'open source', which is accurate for the core but omits the open-core split",
+   "label": "Verified fact",
+   "src": [
+    "A1-S073",
+    "A1-S033"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Built on ClickHouse (analytics store); self-hosted via Docker Compose, Kubernetes (Helm, preferred for production) or Terraform templates for AWS, Azure and GCP",
+   "label": "Verified fact",
+   "src": [
+    "A1-S073"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Native OTLP/HTTP endpoint (/api/public/otel, JSON and protobuf; no gRPC); Python SDK v3+ and JS SDK v4+ built on OpenTelemetry; maps gen_ai.* attributes to generations but Langfuse-specific attributes take precedence; OpenAPI spec and typed SDKs",
+   "label": "Verified fact",
+   "src": [
+    "A1-S032",
+    "A1-S073"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S030"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S073"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S073"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S033"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Langfuse Cloud: SOC 2 Type II and ISO 27001 (reports on request, Pro/Team/Enterprise); HIPAA-ready region with BAA on eligible plans; annual third-party penetration tests",
+   "label": "Verified fact",
+   "src": [
+    "A1-S029"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Isolated regions: EU (AWS eu-west-1, Ireland), US (us-west-2), HIPAA (us-west-2) and Japan (ap-northeast-1); DPA available; Postgres backups copied within the same jurisdiction; self-hosting for full isolation",
+   "label": "Verified fact",
+   "src": [
+    "A1-S029",
+    "A1-S030"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Annual third-party penetration tests (Cloud); server-side ingestion masking (Enterprise module); self-hosted telemetry on by default (opt-out, but always on with an EE licence key)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S029",
+    "A1-S033"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "SCIM, audit logs, project-level RBAC and retention policies are Enterprise modules when self-hosted; pages are inconsistent on whether SSO/RBAC sit in the open-source tier",
+   "label": "Verified fact",
+   "src": [
+    "A1-S033"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Enterprise plan (US$2,499/month on Cloud); SLA terms not published in sources reviewed",
+   "label": "Verified fact",
+   "src": [
+    "A1-S031"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Cloud: Hobby free (50k units/month, 30 days, 2 users); Core US$29/month; Pro US$199/month; Enterprise US$2,499/month; 100k units included on paid plans, then US$8 per 100k units, falling to US$6 per 100k above 50M; unit = trace + observation + score",
+   "label": "Verified fact",
+   "src": [
+    "A1-S031"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Self-hosted Enterprise pricing is additive to a ClickHouse commercial plan; infrastructure sizing not verified",
+   "label": "Verified fact",
+   "src": [
+    "A1-S033"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "OpenTelemetry-based; integration guides for OpenLLMetry, MLflow, vLLM, Spring AI, GitHub Copilot and Go/Java/C#/Ruby via OTel",
+   "label": "Verified fact",
+   "src": [
+    "A1-S032"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Over 20K GitHub stars and more than 26M SDK installs per month at end of 2025 (ClickHouse figures)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S021"
+   ],
+   "conf": "medium",
+   "asof": "2026-01-16"
+  },
+  "maturity": {
+   "v": "First PyPI release 12 July 2023; 555 PyPI releases to 5 October 2026 (frequent cadence)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S001"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "OTel ingestion lowers instrumentation lock-in; Langfuse-specific attributes and data model remain",
+    "label": "Verified fact",
+    "src": [
+     "A1-S032"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Already acquired by ClickHouse (January 2026)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S021",
+     "A1-S022"
+    ],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Parent ClickHouse raised US$400M Series D alongside the acquisition",
+    "label": "Verified fact",
+    "src": [
+     "A1-S021"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Storage tied to ClickHouse; self-host Enterprise commercially bundled with ClickHouse offerings",
+    "label": "Verified fact",
+    "src": [
+     "A1-S033",
+     "A1-S073"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Open API and MIT core; Enterprise modules licence-gated",
+    "label": "Verified fact",
+    "src": [
+     "A1-S023",
+     "A1-S033"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Three years of public releases; GA product",
+    "label": "Verified fact",
+    "src": [
+     "A1-S001"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S001",
+   "A1-S021",
+   "A1-S022",
+   "A1-S023",
+   "A1-S029",
+   "A1-S030",
+   "A1-S031",
+   "A1-S032",
+   "A1-S033",
+   "A1-S073"
+  ],
+  "stage_a_notes": "Pricing conflict: an older docs snapshot showed Core US$59 and custom Enterprise; current figures used. Date of acquisition: 16 Jan 2026 per comparisons citing ClickHouse; one wiki says 26 Jan. SDK major version 4 (PyPI) vs docs referencing 'Python SDK v3+' for OTel support; both OTel-based.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L9-langsmith",
+  "layer": "L9",
+  "original_label": "LangSmith – trace & eval",
+  "current_name": {
+   "v": "LangSmith",
+   "label": "Verified fact",
+   "src": [
+    "A1-S034",
+    "A1-S108"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "LangChain, Inc. (independent; US$125M Series B at US$1.25B valuation, 20 October 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S038"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Proprietary agent and LLM observability, evaluation and deployment platform (now also hosting LangSmith Fleet, Engine, Sandboxes and an LLM Gateway)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S034",
+    "A1-S039"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "SaaS (continuously released); Python SDK langsmith 0.14.4, released 2 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S002"
+   ],
+   "conf": "high",
+   "asof": "2026-10-02"
+  },
+  "licence_model": {
+   "v": "Proprietary platform; SDK MIT-licensed",
+   "label": "Verified fact",
+   "src": [
+    "A1-S002",
+    "A1-S108"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Interrupt 2026 (13-14 May): LangSmith Engine (public beta; clusters production failures and proposes fixes, can open PRs), SmithDB (claimed up to 15x faster; simpler self-hosting), Sandboxes GA, LLM Gateway with audit logging; Agent Builder renamed LangSmith Fleet; new Fleet pricing from 15 July 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S039"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "Agent Builder renamed LangSmith Fleet (2026)",
+    "LangSmith Deployment billing moved to usage-based model; existing customers migrated 1 October 2026"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S035",
+    "A1-S039"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Captures traces of LLM and agent runs, runs offline and online evaluations on datasets, manages prompts and hosts agent deployments; ingests native and OpenTelemetry traces.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S034",
+    "A1-S037",
+    "A1-S108"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Cross-cutting observability/evaluation plus agent deployment runtime; broader than the graphic's 'trace & eval' label",
+   "label": "Verified fact",
+   "src": [
+    "A1-S034",
+    "A1-S039"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Self-hosted: Kubernetes (min. 16 vCPU, 64 GB) or Docker, PostgreSQL, Redis, ClickHouse, optional blob storage",
+   "label": "Verified fact",
+   "src": [
+    "A1-S034"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Native SDKs (Python/JS); OTLP endpoint for any OTel exporter (x-api-key header); original OTel launch required OpenLLMetry conventions, newer guides use OTel GenAI conventions; native format recommended when LangSmith is sole backend; pytest plugin in SDK",
+   "label": "Verified fact",
+   "src": [
+    "A1-S037",
+    "A1-S108"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S036"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Yes (BYOC on AWS, Enterprise only)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S034"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (self-hosted in own cloud, Enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S034"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (Enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S034"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (air-gapped self-host positioned)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S034"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II; HIPAA (BAA on Enterprise plan only); ISO 27001 referenced only for the LangSmith Engine feature",
+   "label": "Verified fact",
+   "src": [
+    "A1-S036"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Managed cloud in US or EU (EU data stored in the Netherlands per academy page) on all tiers at no extra cost; DPA on request; trust centre trust.langchain.com",
+   "label": "Verified fact",
+   "src": [
+    "A1-S036"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Enterprise: custom SSO, ABAC and RBAC; audit logging for LLM Gateway administrative actions",
+   "label": "Verified fact",
+   "src": [
+    "A1-S035",
+    "A1-S039"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Enterprise plan with support SLA, custom seats and workspaces",
+   "label": "Verified fact",
+   "src": [
+    "A1-S035"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Developer US$0 (1 seat, 5k base traces/month); Plus US$39 per seat/month with 10k traces included, overage per trace; Enterprise custom, invoiced annually",
+   "label": "Verified fact",
+   "src": [
+    "A1-S035"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Self-hosting requires a Kubernetes cluster of at least 16 vCPU / 64 GB plus PostgreSQL, Redis and ClickHouse",
+   "label": "Verified fact",
+   "src": [
+    "A1-S034"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Works with LangChain/LangGraph and any framework via SDK or OTel; guides for Temporal, VS Code Copilot Chat and Microsoft Agent Framework",
+   "label": "Verified fact",
+   "src": [
+    "A1-S037"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "LangChain Series B investors include IVP (lead), Sequoia, Benchmark, CapitalG, Sapphire, ServiceNow, Workday, Cisco, Datadog and Databricks",
+   "label": "Verified fact",
+   "src": [
+    "A1-S038"
+   ],
+   "conf": "medium",
+   "asof": "2025-10-20"
+  },
+  "maturity": {
+   "v": "First langsmith SDK release on PyPI 26 June 2023; 536 releases to 2 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S002"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Native tracing format recommended over OTel for performance; OTel ingest available",
+    "label": "Verified fact",
+    "src": [
+     "A1-S037"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Well funded (US$125M Series B, October 2025)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S038"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Platform increasingly bundles LangChain agent runtime (Fleet, Deployment)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S039"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary platform; MIT SDK",
+    "label": "Verified fact",
+    "src": [
+     "A1-S002"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "GA product since 2023",
+    "label": "Verified fact",
+    "src": [
+     "A1-S002"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S002",
+   "A1-S034",
+   "A1-S035",
+   "A1-S036",
+   "A1-S037",
+   "A1-S038",
+   "A1-S039",
+   "A1-S108"
+  ],
+  "stage_a_notes": "Sacra reports an earlier July 2025 'Series B' at US$1.1B; LangChain's own post (Oct 2025) used. BYOC GA on AWS only in sources reviewed.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L9-braintrust",
+  "layer": "L9",
+  "original_label": "Braintrust – evals platform",
+  "current_name": {
+   "v": "Braintrust",
+   "label": "Verified fact",
+   "src": [
+    "A1-S028",
+    "A1-S043"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Braintrust (independent, venture-backed; no acquisition found)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S028"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Proprietary AI evaluation and observability platform, marketed as 'the active observability platform for agents'",
+   "label": "Verified fact",
+   "src": [
+    "A1-S043"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "SaaS; Python SDK braintrust 0.45.0, released 7 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S003"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "licence_model": {
+   "v": "Proprietary platform; Python SDK MIT",
+   "label": "Verified fact",
+   "src": [
+    "A1-S003"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "US$80M Series B (17 February 2026) to become the observability layer for production AI; Trace conference (February 2026) introduced Topics (trace clustering), Loop (AI-assisted prompt/model optimisation) and later Patterns; Braintrust Gateway routes and traces model calls",
+   "label": "Verified fact",
+   "src": [
+    "A1-S028",
+    "A1-S043"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Runs offline evaluations (experiments, datasets, scorers) and logs production traces; clusters traces into topics and uses an AI assistant (Loop) to propose prompt or model changes; a gateway routes LLM calls while recording traces.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S043",
+    "A1-S040"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Cross-cutting evaluation and observability; graphic's 'evals platform' understates the production tracing and gateway scope",
+   "label": "Verified fact",
+   "src": [
+    "A1-S043"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Hybrid: Braintrust-hosted control plane (UI, metadata, auth via Clerk) with data plane in customer AWS, GCP or Azure deployed by Terraform",
+   "label": "Verified fact",
+   "src": [
+    "A1-S041"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "SDKs; OTLP trace endpoint (api.braintrust.dev/otel, EU api-eu.braintrust.dev/otel) with Bearer auth; MCP endpoint; GitHub Action for evals on pull requests",
+   "label": "Verified fact",
+   "src": [
+    "A1-S042",
+    "A1-S109"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S042"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Yes (hybrid data plane in customer cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S041"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S041"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (Enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S041"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (air-gapping mentioned by vendor)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S041"
+    ],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II (annual audit, report via Trust Center under NDA); HIPAA support with BAA",
+   "label": "Verified fact",
+   "src": [
+    "A1-S041"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "US or EU data plane chosen at organisation creation and not changeable; DPA states EU storage and processing of data plane for Pro customers electing EU; control plane holds hashed keys and metadata",
+   "label": "Verified fact",
+   "src": [
+    "A1-S042"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "AES-256 at rest, TLS 1.2 in transit, API keys stored as one-way hashes; customer-managed KMS keys and private networking in hybrid",
+   "label": "Verified fact",
+   "src": [
+    "A1-S041"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Pro: more flexible permission roles; Enterprise: RBAC, deployment approvals, retention controls",
+   "label": "Verified fact",
+   "src": [
+    "A1-S040"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Enterprise: custom pricing, dedicated support",
+   "label": "Verified fact",
+   "src": [
+    "A1-S040"
+   ],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Starter free (usage-based, no platform fee); Pro US$249/month incl. 5 GB processed data (+US$3/GB) and 50k scores (+US$1.50 per 1k), 30-day retention; Enterprise custom",
+   "label": "Verified fact",
+   "src": [
+    "A1-S040"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "OTel ingest from any framework; integrations listed for Cloudflare Agents, LiveKit Agents, Claude Code (OTel)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S042"
+   ],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Seed US$5.1M (Greylock), Series A US$36M (Oct 2024), Series B US$80M led by ICONIQ (Feb 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S028"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "First braintrust SDK on PyPI 24 May 2023; 290 releases to 7 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S003"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "OTel ingest available; evaluation logic and datasets held in proprietary platform",
+    "label": "Verified fact",
+    "src": [
+     "A1-S042"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Axios reports US$800M valuation at Series B",
+    "label": "Reported",
+    "src": [
+     "A1-S027"
+    ],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary platform API",
+    "label": "Verified fact",
+    "src": [
+     "A1-S003"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "GA SaaS since 2023",
+    "label": "Verified fact",
+    "src": [
+     "A1-S003"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S003",
+   "A1-S027",
+   "A1-S028",
+   "A1-S040",
+   "A1-S041",
+   "A1-S042",
+   "A1-S043",
+   "A1-S109"
+  ],
+  "stage_a_notes": "Valuation (US$800M) is from Axios headline only (paywalled, link-only); vendor post does not state it. Starter allowances conflict between vendor post and third-party pages. OTLP logs support conflicting in docs. HIPAA wording varies ('fully compliant' vs 'supports with BAA').",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L9-arize-phoenix",
+  "layer": "L9",
+  "original_label": "Phoenix – Atrace",
+  "current_name": {
+   "v": "Arize Phoenix",
+   "label": "Verified fact",
+   "src": [
+    "A1-S066",
+    "A1-S107"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Arize AI, a Dynatrace company (Dynatrace completed the acquisition on 1 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S044",
+    "A1-S045"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Source-available (ELv2), self-hosted AI observability and evaluation platform",
+   "label": "Verified fact",
+   "src": [
+    "A1-S048",
+    "A1-S066",
+    "A1-S107"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "arize-phoenix 20.19.0, released 1 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S004"
+   ],
+   "conf": "high",
+   "asof": "2026-10-01"
+  },
+  "licence_model": {
+   "v": "Elastic License 2.0: free self-hosting, modification and redistribution, but may not be provided to third parties as a hosted or managed service; not OSI-approved although marketed as 'open source'; no feature gates",
+   "label": "Verified fact",
+   "src": [
+    "A1-S048",
+    "A1-S046",
+    "A1-S107"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Arize will continue to support Phoenix after the Dynatrace acquisition and integrate capabilities into Dynatrace over time; recent additions include PXI (built-in AI engineering agent) and a remote MCP server",
+   "label": "Verified fact",
+   "src": [
+    "A1-S045",
+    "A1-S066"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "Dynatrace signed a definitive agreement to acquire Arize, 13 August 2026 (US$915M cash and stock)",
+    "Acquisition completed 1 October 2026 (one report says 2 October)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S044",
+    "A1-S045"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Traces LLM applications with OpenTelemetry-based instrumentation and runs LLM-based response and retrieval evaluations, versioned datasets, experiments, a prompt playground and prompt management.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S066"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Cross-cutting tracing and evaluation for development and self-hosted production; it is the open product, while Arize AX is the commercial platform (graphic shows both as separate tiles)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S066"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "SQLite by default; PostgreSQL 14+ recommended for production; single-tenant per instance",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "OpenTelemetry with OpenInference instrumentation (Apache-2.0); same instrumentation routes to Phoenix or AX; REST API; built-in MCP endpoint; pytest plugin for eval-in-CI",
+   "label": "Verified fact",
+   "src": [
+    "A1-S049",
+    "A1-S066",
+    "A1-S106"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Phoenix Cloud referenced)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S046"
+    ],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes (AWS CloudFormation, Azure, Google Cloud Run templates)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S066"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S066"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (air-gapped supported)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S046"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Self-hosted: data remains in the customer environment; default web-analytics telemetry collects no trace or evaluation data and can be disabled (PHOENIX_TELEMETRY_ENABLED=false)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S066"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Authentication optional and off by default; when enabled supports secure cookies and Phoenix acts as an OAuth2 authorisation server for MCP and other clients",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S105"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Roles admin, member and viewer when auth enabled; login via OAuth2 identity providers; Arize states full SSO/RBAC/audit trails are provided through AX",
+   "label": "Verified fact",
+   "src": [
+    "A1-S105",
+    "A1-S046"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Community support only; dedicated support and SLAs via Arize AX",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Free to self-host, no usage caps",
+   "label": "Verified fact",
+   "src": [
+    "A1-S047",
+    "A1-S107"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Cost is the customer's compute and PostgreSQL; multi-team use requires multiple instances",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Out-of-the-box tracing for OpenAI Agents SDK, Claude Agent SDK, LangGraph, Vercel AI SDK, Mastra, CrewAI, LlamaIndex, DSPy and providers incl. OpenAI, Anthropic, Google GenAI, Bedrock, OpenRouter, LiteLLM",
+   "label": "Verified fact",
+   "src": [
+    "A1-S066"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "First PyPI release 18 January 2023; 700 releases to 1 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S004"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "OTel/OpenInference instrumentation is portable across backends",
+    "label": "Verified fact",
+    "src": [
+     "A1-S049",
+     "A1-S066"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Now owned by Dynatrace; capabilities to be integrated into Dynatrace over time",
+    "label": "Verified fact",
+    "src": [
+     "A1-S045"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Backed by Dynatrace (public company) after acquisition",
+    "label": "Verified fact",
+    "src": [
+     "A1-S044"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "ELv2 restricts offering Phoenix as a managed service",
+    "label": "Verified fact",
+    "src": [
+     "A1-S048"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Mature, frequently released",
+    "label": "Verified fact",
+    "src": [
+     "A1-S004"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S004",
+   "A1-S044",
+   "A1-S045",
+   "A1-S046",
+   "A1-S047",
+   "A1-S048",
+   "A1-S049",
+   "A1-S066",
+   "A1-S105",
+   "A1-S106",
+   "A1-S107"
+  ],
+  "stage_a_notes": "A4: the graphic's descriptor 'Atrace' is not a product name found anywhere; treated as garbled 'Arize trace/tracing'. Completion date 1 Oct 2026 per Dynatrace release (one trade report says 2 Oct). Vendor calls Phoenix 'open source' but ELv2 is source-available.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L9-arize-ax",
+  "layer": "L9",
+  "original_label": "Arize – RAG metrics",
+  "current_name": {
+   "v": "Arize AX",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S047"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Arize AI, a Dynatrace company (acquisition completed 1 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S044",
+    "A1-S045"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Commercial AI agent observability and evaluation platform (SaaS or licensed private deployment)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S047"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "SaaS; Python SDK arize 8.58.0, released 7 October 2026; tiers AX Free, AX Pro, AX Enterprise",
+   "label": "Verified fact",
+   "src": [
+    "A1-S007",
+    "A1-S047"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "licence_model": {
+   "v": "Proprietary; self-hosting requires a commercial licence; Python SDK Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S007"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Signal (scheduled worker grouping recurring failure patterns into issues), Alyx assistant, ADB data fabric; post-acquisition integration into Dynatrace planned",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S047",
+    "A1-S045"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "Dynatrace definitive agreement to acquire Arize, 13 August 2026 (US$915M, approx. US$815M cash)",
+    "Acquisition completed 1 October 2026"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S044",
+    "A1-S045"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Managed tracing, online and offline evaluation, monitoring and alerting for LLM and agent applications at high volume, with managed evaluation compute and multi-tenancy via organisations and spaces.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Cross-cutting production observability and evaluation; graphic's 'RAG metrics' descriptor understates scope",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S047"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Runs on Arize's proprietary adb OLAP database",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "OpenTelemetry and OpenInference instrumentation shared with Phoenix; documented Phoenix-to-AX migration via dual-writing",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S049"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S047"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Yes (VPC deployment, Enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S047"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (customer-managed cloud, commercial licence)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S046"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (commercial licence)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S046"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (on-prem / air-gapped, Enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S046",
+     "A1-S047"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "HIPAA listed as an Enterprise-plan feature; SOC 2 / ISO 27001 status not verified in this run",
+   "label": "Verified fact",
+   "src": [
+    "A1-S047"
+   ],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "SSO, RBAC and audit trails; multi-tenancy via organisations and spaces",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Dedicated support and SLAs (Enterprise)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S047"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "AX Free US$0 (25k spans, 1 GB, 15-day retention); AX Pro US$50/month (50k spans, 10 GB, 30 days, overages); AX Enterprise custom; no per-seat charges, unlimited users and evaluations",
+   "label": "Verified fact",
+   "src": [
+    "A1-S047"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Same integration catalogue as Phoenix via OpenInference",
+   "label": "Verified fact",
+   "src": [
+    "A1-S046",
+    "A1-S066"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Acquisition value US$915M (Dynatrace)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S044"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "arize SDK first published on PyPI 25 March 2020; 369 releases",
+   "label": "Verified fact",
+   "src": [
+    "A1-S007"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Proprietary backend; instrumentation portable via OTel/OpenInference",
+    "label": "Verified fact",
+    "src": [
+     "A1-S046",
+     "A1-S049"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Acquired by Dynatrace; roadmap to converge into Dynatrace platform",
+    "label": "Verified fact",
+    "src": [
+     "A1-S045"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Parent Dynatrace funded the deal from cash and credit facility",
+    "label": "Verified fact",
+    "src": [
+     "A1-S044"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Increasingly tied to Dynatrace platform",
+    "label": "Verified fact",
+    "src": [
+     "A1-S045"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary platform",
+    "label": "Verified fact",
+    "src": [
+     "A1-S046"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Commercial platform since 2020 (SDK history)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S007"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S007",
+   "A1-S044",
+   "A1-S045",
+   "A1-S046",
+   "A1-S047",
+   "A1-S049",
+   "A1-S066"
+  ],
+  "stage_a_notes": "A8: 'Arize – RAG metrics' resolved to Arize AX, the commercial platform; Phoenix is the ELv2 self-hosted product. EU region and SOC 2/ISO not verified (web search budget exhausted before the trust-centre query ran).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L9-deepeval",
+  "layer": "L9",
+  "original_label": "DeepEval – LLM unit tests",
+  "current_name": {
+   "v": "DeepEval",
+   "label": "Verified fact",
+   "src": [
+    "A1-S068"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Confident AI (maintainer; also sells the Confident AI evals and observability platform)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S068",
+    "A1-S051"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source LLM evaluation framework ('similar to Pytest but specialised for unit testing LLM apps')",
+   "label": "Verified fact",
+   "src": [
+    "A1-S068"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "deepeval 4.2.8, released 2 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S005"
+   ],
+   "conf": "high",
+   "asof": "2026-10-02"
+  },
+  "licence_model": {
+   "v": "Apache-2.0 (framework); Confident AI platform is commercial",
+   "label": "Verified fact",
+   "src": [
+    "A1-S051",
+    "A1-S005",
+    "A1-S068"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Agentic metrics (task completion, tool correctness, plan adherence), trajectory evaluation, JevEval metric; Confident AI positioned for organisation-wide quality standards, native red teaming and an MCP server",
+   "label": "Verified fact",
+   "src": [
+    "A1-S068"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Provides ready-made LLM-as-a-judge, statistical and NLP metrics (G-Eval, DAG, RAG metrics such as faithfulness and contextual recall/precision, agentic metrics) that run as test cases, including in CI/CD.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S068"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Developer-side evaluation library feeding CI; production observability comes from Confident AI or another platform. Graphic label 'LLM unit tests' is accurate.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S068"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Python library; metrics use any LLM as judge or local NLP models",
+   "label": "Verified fact",
+   "src": [
+    "A1-S068"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python and TypeScript integrations (LangChain/LangGraph callbacks, Pydantic AI, CrewAI, OpenAI Agents, AWS AgentCore, Google ADK, AI SDK, Mastra, LlamaIndex); 'integrates with any CI/CD environment'",
+   "label": "Verified fact",
+   "src": [
+    "A1-S068"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Confident AI platform)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S068"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (library runs locally)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S068"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Framework free (Apache-2.0); Confident AI pricing not verified",
+   "label": "Verified fact",
+   "src": [
+    "A1-S051"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Main cost driver is LLM-judge token spend per evaluation run",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Broad framework integrations listed above",
+   "label": "Verified fact",
+   "src": [
+    "A1-S068"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "First PyPI release 15 August 2023; 527 releases to 2 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S005"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Apache-2.0 library; low lock-in at framework level",
+    "label": "Verified fact",
+    "src": [
+     "A1-S051"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Commercial features steer to Confident AI",
+    "label": "Verified fact",
+    "src": [
+     "A1-S068"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Open-source",
+    "label": "Verified fact",
+    "src": [
+     "A1-S051"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Frequent releases since 2023",
+    "label": "Verified fact",
+    "src": [
+     "A1-S005"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S005",
+   "A1-S051",
+   "A1-S068"
+  ],
+  "stage_a_notes": "Confident AI certifications, pricing and funding not verified (search budget exhausted). OTel support for DeepEval not verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L9-promptfoo",
+  "layer": "L9",
+  "original_label": "Promptfoo – red-teaming",
+  "current_name": {
+   "v": "Promptfoo",
+   "label": "Verified fact",
+   "src": [
+    "A1-S062"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Promptfoo, now part of OpenAI (acquisition agreement announced 9 March 2026; README states 'Promptfoo is now part of OpenAI')",
+   "label": "Verified fact",
+   "src": [
+    "A1-S024",
+    "A1-S025",
+    "A1-S062"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source CLI and library for LLM evals and red teaming, plus Promptfoo Enterprise (SaaS and On-Prem)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S062",
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "promptfoo 0.124.0 (npm), published 6 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S020"
+   ],
+   "conf": "high",
+   "asof": "2026-10-06"
+  },
+  "licence_model": {
+   "v": "MIT (open source); Enterprise editions commercial",
+   "label": "Verified fact",
+   "src": [
+    "A1-S052",
+    "A1-S020",
+    "A1-S062",
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "OpenAI plans to integrate Promptfoo into OpenAI Frontier for automated red-teaming, security review of agentic workflows and risk/compliance monitoring, while continuing the open-source project",
+   "label": "Verified fact",
+   "src": [
+    "A1-S024",
+    "A1-S025"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "Acquired by OpenAI (announced 9 March 2026; terms undisclosed; README now says 'part of OpenAI')"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S024",
+    "A1-S025",
+    "A1-S062"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Runs automated evaluations of prompts, models and agents, red-teaming and vulnerability scanning, side-by-side model comparison, CI/CD checks and code scanning of pull requests for LLM security issues.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S062"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Spans pre-production evaluation and AI security testing (C7); the graphic's 'red-teaming' descriptor omits its general eval role",
+   "label": "Verified fact",
+   "src": [
+    "A1-S062",
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Node.js CLI (also brew and pip); evals run locally ('your prompts never leave your machine'); Enterprise On-Prem includes a dedicated runner",
+   "label": "Verified fact",
+   "src": [
+    "A1-S062",
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "CLI/library; CI/CD (GitHub Actions, GitLab CI, Jenkins); built-in OTLP receiver ingesting spans with OTel GenAI semantic conventions; API (Enterprise)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S064",
+    "A1-S065",
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Promptfoo Enterprise SaaS)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S063"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes (On-Prem on AWS, Azure, GCP)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S063"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S063"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (Enterprise On-Prem)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S063"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Community edition runs locally; Enterprise On-Prem keeps scans inside the network perimeter",
+   "label": "Verified fact",
+   "src": [
+    "A1-S062",
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Network isolation and dedicated runner in On-Prem edition",
+   "label": "Verified fact",
+   "src": [
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "RBAC and team management in Enterprise editions only",
+   "label": "Verified fact",
+   "src": [
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Enterprise: SLA, professional services, dedicated Slack",
+   "label": "Verified fact",
+   "src": [
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "pricing": {
+   "v": "Community free (MIT); Enterprise contact sales",
+   "label": "Verified fact",
+   "src": [
+    "A1-S063"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Cost driver is model/API spend for generated attacks and graders",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Providers incl. OpenAI, Anthropic, Azure, Bedrock, Ollama; SIEM and issue-tracker integrations in Enterprise; OWASP/NIST compliance reports",
+   "label": "Verified fact",
+   "src": [
+    "A1-S062",
+    "A1-S063",
+    "A1-S065"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Over 25% of Fortune 500 use Promptfoo (company claim); ~US$23M raised, US$86M valuation after July 2025 round (PitchBook)",
+   "label": "Reported",
+   "src": [
+    "A1-S026"
+   ],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "npm package created 3 May 2023; frequent releases",
+   "label": "Verified fact",
+   "src": [
+    "A1-S020"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "MIT licence; configs portable",
+    "label": "Verified fact",
+    "src": [
+     "A1-S052"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Owned by OpenAI; integrated into OpenAI Frontier",
+    "label": "Verified fact",
+    "src": [
+     "A1-S024",
+     "A1-S062"
+    ],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Backed by OpenAI",
+    "label": "Verified fact",
+    "src": [
+     "A1-S024"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Future roadmap tied to OpenAI Frontier priorities",
+    "label": "Verified fact",
+    "src": [
+     "A1-S024"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Open source",
+    "label": "Verified fact",
+    "src": [
+     "A1-S052"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Pre-1.0 version numbering (0.124.0) despite production use",
+    "label": "Verified fact",
+    "src": [
+     "A1-S020"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S020",
+   "A1-S024",
+   "A1-S025",
+   "A1-S026",
+   "A1-S052",
+   "A1-S062",
+   "A1-S063",
+   "A1-S064",
+   "A1-S065"
+  ],
+  "stage_a_notes": "Closing: OpenAI's release said closing subject to customary conditions; repository README (accessed 7 Oct 2026) states Promptfoo is now part of OpenAI, so treated as completed. Vendor neutrality concern for evaluating non-OpenAI models is a Stage B judgement.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L9-opik",
+  "layer": "L9",
+  "original_label": "Opik – comet",
+  "current_name": {
+   "v": "Opik",
+   "label": "Verified fact",
+   "src": [
+    "A1-S067"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Comet ML, Inc. (Comet)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S050",
+    "A1-S071",
+    "A1-S006"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source LLM observability, evaluation, prompt/agent optimisation and guardrails platform",
+   "label": "Verified fact",
+   "src": [
+    "A1-S067"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "opik 2.2.94 (Python SDK), released 7 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S006"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "licence_model": {
+   "v": "Apache-2.0 for the full platform (backend, UI, evaluation, online evaluation, optimiser)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S050",
+    "A1-S067"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Agent Optimizer SDK, Opik Guardrails, online evaluation rules, MCP server; positioned as free-to-self-host alternative to platforms gating self-hosting behind Enterprise plans",
+   "label": "Verified fact",
+   "src": [
+    "A1-S067",
+    "A1-S072"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Traces LLM calls and agent activity, runs datasets/experiments with LLM-as-a-judge metrics (hallucination, moderation, RAG), scores production traces with online evaluation rules, and provides dashboards, guardrails and prompt optimisation.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S067",
+    "A1-S072"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Cross-cutting observability and evaluation; can run standalone or inside the Comet MLOps platform",
+   "label": "Verified fact",
+   "src": [
+    "A1-S071"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Self-host via local Docker install (not production-ready) or Kubernetes/Helm; ClickHouse cold-tier and backup guides exist",
+   "label": "Verified fact",
+   "src": [
+    "A1-S069",
+    "A1-S067"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python and TypeScript SDKs, REST API, OpenTelemetry (HTTP transport only), PyTest integration for CI, MCP server",
+   "label": "Verified fact",
+   "src": [
+    "A1-S067",
+    "A1-S070"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Comet-hosted)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S069"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S069"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S069"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (as part of self-hosted Comet platform)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S071"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Self-hosted open-source deployment has all features but no user management",
+   "label": "Verified fact",
+   "src": [
+    "A1-S069"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free tier on cloud and free self-hosting; paid tiers not verified",
+   "label": "Verified fact",
+   "src": [
+    "A1-S067"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Integrations incl. Google ADK, Autogen, Flowise AI, Cloudflare Workers AI and OpenTelemetry",
+   "label": "Verified fact",
+   "src": [
+    "A1-S067"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "20,000+ GitHub stars (vendor README); claims scale of 40M+ traces/day",
+   "label": "Verified fact",
+   "src": [
+    "A1-S067"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "First PyPI release 2 September 2024; 635 releases to 7 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S006"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Apache-2.0 full platform; OTel ingest",
+    "label": "Verified fact",
+    "src": [
+     "A1-S050",
+     "A1-S070"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Enterprise user management tied to Comet platform",
+    "label": "Verified fact",
+    "src": [
+     "A1-S069",
+     "A1-S071"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Open source",
+    "label": "Verified fact",
+    "src": [
+     "A1-S050"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "About two years old; very frequent releases",
+    "label": "Verified fact",
+    "src": [
+     "A1-S006"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S006",
+   "A1-S050",
+   "A1-S067",
+   "A1-S069",
+   "A1-S070",
+   "A1-S071",
+   "A1-S072"
+  ],
+  "stage_a_notes": "A18: confirmed Opik is developed by Comet (the graphic's 'comet' descriptor is the owner, not a feature). Comet certifications, EU region and pricing not verified (search budget exhausted).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L9-mlflow-genai",
+  "layer": "L9",
+  "original_label": null,
+  "current_name": {
+   "v": "MLflow (GenAI capabilities: tracing, evaluation, prompt registry, AI Gateway)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S103"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "MLflow open-source project; code copyright Databricks, Inc.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S019",
+    "A1-S103"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source AI engineering platform for agents, LLMs and ML models",
+   "label": "Verified fact",
+   "src": [
+    "A1-S103"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "mlflow 3.17.0, released 7 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S019"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "licence_model": {
+   "v": "Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A1-S019"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Repositioned as 'The Open Source AI Engineering Platform for Agents, LLMs & Models' with OTel-based tracing, evaluation and monitoring, prompt optimisation and an AI Gateway",
+   "label": "Verified fact",
+   "src": [
+    "A1-S103"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Captures traces of LLM applications and agents (built on OpenTelemetry), evaluates and monitors quality, manages and optimises prompts, and offers an AI Gateway for cost and model access control, alongside classic ML lifecycle features.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S103"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Cross-cutting L9 plus gateway (C1) and prompt management (C5) functions",
+   "label": "Verified fact",
+   "src": [
+    "A1-S103"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Tracking server (local or managed); deployable on Docker, Kubernetes, Azure ML, SageMaker",
+   "label": "Verified fact",
+   "src": [
+    "A1-S103"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python, TypeScript/JavaScript, Java SDKs; natively integrates with OpenTelemetry and MCP",
+   "label": "Verified fact",
+   "src": [
+    "A1-S103"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (managed by Databricks, Amazon SageMaker, Azure ML, Nebius, Red Hat OpenShift AI)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S103"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S103"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S103"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S103"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (on-premises clusters)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S103"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Open source free; managed pricing set by each cloud provider",
+   "label": "Verified fact",
+   "src": [
+    "A1-S019",
+    "A1-S103"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Managed offerings on Databricks, SageMaker, Azure ML, Nebius, Red Hat OpenShift AI; tracing integrations incl. Databricks AI Gateway",
+   "label": "Verified fact",
+   "src": [
+    "A1-S103"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "First PyPI release 4 June 2018; 190 releases",
+   "label": "Verified fact",
+   "src": [
+    "A1-S019"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Apache-2.0, OTel-native",
+    "label": "Verified fact",
+    "src": [
+     "A1-S019",
+     "A1-S103"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Strong Databricks association",
+    "label": "Verified fact",
+    "src": [
+     "A1-S019"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Open source",
+    "label": "Verified fact",
+    "src": [
+     "A1-S019"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Mature project since 2018",
+    "label": "Verified fact",
+    "src": [
+     "A1-S019"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S019",
+   "A1-S103"
+  ],
+  "stage_a_notes": "Added as material omission: many regulated enterprises already run MLflow on Databricks/SageMaker/Azure ML. Governance body (Linux Foundation) not verified in this run.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L9-datadog-agent-observability",
+  "layer": "L9",
+  "original_label": null,
+  "current_name": {
+   "v": "Datadog Agent Observability (documented under the LLM Observability URL path)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Datadog, Inc.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "APM-vendor LLM/agent observability and evaluation module",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "SaaS module of the Datadog platform (continuous release)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Proprietary SaaS",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Agent-centric monitoring with automated Insights (root cause, impact, recommended fix), evaluations of quality, privacy and safety, sensitive-data scanning and prompt-injection detection",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097",
+    "A1-S099"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "Product documented as 'Agent Observability' at the llm_observability docs path (rename date not verified)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S097"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Monitors, troubleshoots and evaluates LLM-powered applications: traces each agent step and LLM call with latency, token usage, cost and errors, scans and redacts sensitive data and runs evaluations.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097",
+    "A1-S099"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Cross-cutting production observability integrated with Datadog APM and infrastructure monitoring",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Datadog platform; Datadog SDK auto-instrumentation or OTel",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097",
+    "A1-S098"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Accepts OpenTelemetry traces using OTel 1.37+ GenAI semantic conventions or OpenInference conventions; auto-instrumentation for OpenAI, LangChain, Bedrock, Anthropic",
+   "label": "Verified fact",
+   "src": [
+    "A1-S098",
+    "A1-S097"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S097"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Automatic sensitive-data scanning and redaction; prompt-injection identification",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Metered on number of LLM spans ingested (rates on Datadog pricing page)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Integrates with OpenAI, LangChain, AWS Bedrock, Anthropic; OTel and OpenInference ingestion",
+   "label": "Verified fact",
+   "src": [
+    "A1-S097",
+    "A1-S098"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "OTel/OpenInference ingest reduces instrumentation lock-in",
+    "label": "Verified fact",
+    "src": [
+     "A1-S098"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Requires Datadog platform",
+    "label": "Verified fact",
+    "src": [
+     "A1-S097"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary SaaS",
+    "label": "Verified fact",
+    "src": [
+     "A1-S097"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S097",
+   "A1-S098",
+   "A1-S099"
+  ],
+  "stage_a_notes": "Added as material omission: APM incumbents (Datadog; Dynatrace via Arize) now compete directly in L9. Trust Hub (A1-S100) page did not render certification list in snapshot; certifications NPV.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-firecrawl",
+  "layer": "L8",
+  "original_label": "Firecrawl – web to LLM-ready",
+  "current_name": {
+   "v": "Firecrawl",
+   "label": "Verified fact",
+   "src": [
+    "A1-S053"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Firecrawl (PyPI author listed as Mendable.ai)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S015",
+    "A1-S053"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Web data API for AI: scrape, crawl, map, search, extract, parse, browser interaction and an autonomous research agent",
+   "label": "Verified fact",
+   "src": [
+    "A1-S077",
+    "A1-S079"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Self-host guide pins server release v2.11.162; Python SDK firecrawl-py 4.49.3 released 7 October 2026; API v2",
+   "label": "Verified fact",
+   "src": [
+    "A1-S078",
+    "A1-S015"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "licence_model": {
+   "v": "Open core: server AGPL-3.0; SDKs and some UI components MIT; Agent, Browser, Interact, dashboards and enterprise controls are Cloud-only",
+   "label": "Verified fact",
+   "src": [
+    "A1-S053",
+    "A1-S079"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Expanding from scraping to agent tooling (Agent, Interact browser sessions, search, PII redaction, prompt-injection check) and enterprise controls",
+   "label": "Verified fact",
+   "src": [
+    "A1-S077",
+    "A1-S076",
+    "A1-S079"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Turns websites and documents into LLM-ready markdown or structured JSON via scrape/crawl/map/search endpoints, with LLM extraction, PDF parsing and an agent for web research; respects robots.txt by default.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S053",
+    "A1-S077"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 web acquisition and parsing; overlaps L4 (search/browser tools for agents)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S077",
+    "A1-S079"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Self-host: Docker Compose stack with PostgreSQL (pg_cron) and supporting services; LLM features need an OpenAI-compatible provider or Ollama; no verified minimum host size",
+   "label": "Verified fact",
+   "src": [
+    "A1-S078",
+    "A1-S079"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "REST API v2, Python/JS SDKs, CLI; webhooks",
+   "label": "Verified fact",
+   "src": [
+    "A1-S053",
+    "A1-S077"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S079"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes (self-host)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S078"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes (reduced feature set)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S078",
+     "A1-S079"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II",
+   "label": "Verified fact",
+   "src": [
+    "A1-S076"
+   ],
+   "conf": "high"
+  },
+  "gdpr_residency": {
+   "v": "DPA and custom contracts available (Enterprise); Zero Data Retention option for scrape and search; data region not verified",
+   "label": "Verified fact",
+   "src": [
+    "A1-S076"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Zero Data Retention (+1 credit/page), PII redaction (+4 credits/page), opt-in prompt-injection check for JSON extraction, static IP allowlisting, IP and API-key restrictions",
+   "label": "Verified fact",
+   "src": [
+    "A1-S076",
+    "A1-S077"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "SSO (SAML, OIDC), SCIM directory sync, per-key restrictions, spend limits per key/team (Enterprise)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S076"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Enterprise plans with dedicated support, custom credits, reserved concurrency",
+   "label": "Verified fact",
+   "src": [
+    "A1-S076"
+   ],
+   "conf": "high"
+  },
+  "pricing": {
+   "v": "Credit-based, billed in USD: scrape/crawl 1 credit per page, search 2 credits per 10 results, JSON extraction +4, ZDR +1, PII redaction +4; plan dollar prices on pricing page (not captured)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S077"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Self-hosting means owning authentication, TLS, persistence, monitoring, capacity and upgrades; advanced anti-bot services must be run separately",
+   "label": "Verified fact",
+   "src": [
+    "A1-S079"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "SDKs, CLI, X/LinkedIn routed via third-party providers with separate pricing",
+   "label": "Verified fact",
+   "src": [
+    "A1-S077",
+    "A1-S053"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "firecrawl-py first published 12 April 2024; 209 releases",
+   "label": "Verified fact",
+   "src": [
+    "A1-S015"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Cloud-only features (Agent, Browser, enterprise controls) create dependency on the SaaS",
+    "label": "Verified fact",
+    "src": [
+     "A1-S079"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "AGPL-3.0 server; copyleft obligations for modified network services",
+    "label": "Verified fact",
+    "src": [
+     "A1-S053"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Two-and-a-half years of public SDK releases",
+    "label": "Verified fact",
+    "src": [
+     "A1-S015"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S015",
+   "A1-S053",
+   "A1-S076",
+   "A1-S077",
+   "A1-S078",
+   "A1-S079"
+  ],
+  "stage_a_notes": "Funding and data region not verified (search budget exhausted). AGPL is material for enterprises embedding a modified server.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-docling",
+  "layer": "L8",
+  "original_label": "Docling – doc parser",
+  "current_name": {
+   "v": "Docling",
+   "label": "Verified fact",
+   "src": [
+    "A1-S057"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Docling Project, hosted by the LF AI & Data Foundation; started by IBM Research Zurich",
+   "label": "Verified fact",
+   "src": [
+    "A1-S057"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source document conversion and parsing toolkit (PDF, Office, HTML, images, audio) with VLM pipelines and chunking",
+   "label": "Verified fact",
+   "src": [
+    "A1-S057",
+    "A1-S111"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "docling 2.135.0, released 7 October 2026; docling-serve has a stable v1 API",
+   "label": "Verified fact",
+   "src": [
+    "A1-S008",
+    "A1-S082"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "licence_model": {
+   "v": "MIT (codebase); individual models carry their own licences",
+   "label": "Verified fact",
+   "src": [
+    "A1-S057",
+    "A1-S008"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "VLM support including IBM GraniteDocling, MCP server for agents, docling-serve API server, managed 'Docling for IBM watsonx'",
+   "label": "Verified fact",
+   "src": [
+    "A1-S057",
+    "A1-S082",
+    "A1-S110"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "Governance moved to LF AI & Data Foundation (date not verified); repository now under docling-project organisation"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S057"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Parses many document formats into a unified DoclingDocument representation and exports Markdown, JSON and other formats; supports OCR, VLM pipelines, ASR for audio/video and hybrid chunking.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S057",
+    "A1-S111"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 document parsing; runs locally or as an API service",
+   "label": "Verified fact",
+   "src": [
+    "A1-S057",
+    "A1-S082"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Python; LibreOffice for legacy Office/RTF; optional ASR extra and ffmpeg for media; optional VLMs",
+   "label": "Verified fact",
+   "src": [
+    "A1-S111"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python library and CLI, REST API (docling-serve), MCP server; integrations with agent frameworks",
+   "label": "Verified fact",
+   "src": [
+    "A1-S057",
+    "A1-S082"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Yes (Docling for IBM watsonx managed service)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S110"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S082"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S057",
+     "A1-S082"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S057"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Local/self-hosted processing keeps documents in the customer environment",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Commercial managed option via IBM watsonx",
+   "label": "Verified fact",
+   "src": [
+    "A1-S110"
+   ],
+   "conf": "high"
+  },
+  "pricing": {
+   "v": "Free (MIT); managed IBM watsonx pricing not captured",
+   "label": "Verified fact",
+   "src": [
+    "A1-S057",
+    "A1-S110"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "CPU is sufficient for standard pipelines; VLM and ASR pipelines benefit from GPU",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Format coverage: PDF, DOCX/XLSX/PPTX, legacy Office, ODF, EPUB, Apple iWork, Markdown, AsciiDoc, LaTeX, HTML, MHTML, CSV, images, audio, video",
+   "label": "Verified fact",
+   "src": [
+    "A1-S111"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "First PyPI release 15 July 2024; 223 releases to 7 October 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S008"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "MIT, vendor-neutral foundation governance",
+    "label": "Verified fact",
+    "src": [
+     "A1-S057"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Optional dependence on IBM Granite models",
+    "label": "Verified fact",
+    "src": [
+     "A1-S057"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Open source",
+    "label": "Verified fact",
+    "src": [
+     "A1-S057"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Two years old, rapid release cadence (minor version 135)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S008"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S008",
+   "A1-S057",
+   "A1-S082",
+   "A1-S110",
+   "A1-S111"
+  ],
+  "stage_a_notes": "Governance check: README states Docling is hosted as a project in the LF AI & Data Foundation; date of contribution not verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-llamaparse",
+  "layer": "L8",
+  "original_label": "LlamaParse – PDF / documents",
+  "current_name": {
+   "v": "LlamaParse (now the name of LlamaIndex's whole document platform: Parse, Extract, Index, Split, Agents; previously marketed as LlamaCloud)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S080",
+    "A1-S081"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "LlamaIndex, Inc.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S080"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Proprietary 'enterprise platform for agentic OCR, parsing, extraction, indexing'",
+   "label": "Verified fact",
+   "src": [
+    "A1-S080",
+    "A1-S081"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "SaaS; current Python SDK llama-cloud 2.17.0 (7 October 2026); legacy llama-cloud-services / llama-parse packages deprecated, maintained until 1 May 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S014",
+    "A1-S013",
+    "A1-S081"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "licence_model": {
+   "v": "Proprietary SaaS; SDKs MIT; companion open-source LiteParse is Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A1-S014",
+    "A1-S080"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "LlamaIndex states its primary focus has shifted from the OSS framework to LlamaParse, LiteParse and parsing benchmarks (ParseBench, ExtractBench)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S080"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "Platform branding consolidated under LlamaParse (README: 'LlamaParse is its own platform')",
+    "llama-cloud-services and llama-parse SDKs deprecated (maintenance to 1 May 2026)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S080",
+    "A1-S013"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Agentic OCR and parsing of 130+ formats with parse tiers, structured extraction, document splitting, managed ingest/index/RAG pipelines and deployable document agents.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S080",
+    "A1-S081"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 parsing plus managed indexing (L6) and document agents (L3); broader than the graphic's 'PDF / documents' tile",
+   "label": "Verified fact",
+   "src": [
+    "A1-S080"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "LlamaParse cloud service and API key",
+   "label": "Verified fact",
+   "src": [
+    "A1-S081"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "REST API, Python and TypeScript SDKs, MCP server; usable with or without the LlamaIndex framework",
+   "label": "Verified fact",
+   "src": [
+    "A1-S081",
+    "A1-S080"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S081"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "LlamaIndex framework, MCP clients, LiteParse (open-source local parser)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S080",
+    "A1-S081"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "llama-parse first on PyPI 2 February 2024; new llama-cloud SDK line >=1.0",
+   "label": "Verified fact",
+   "src": [
+    "A1-S013",
+    "A1-S014"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary API; SDK churn (package migration in 2026)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S013",
+     "A1-S014"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S013",
+   "A1-S014",
+   "A1-S080",
+   "A1-S081"
+  ],
+  "stage_a_notes": "Certifications, EU region, self-hosting/BYOC and pricing not verified (search budget exhausted; vendor sites blocked). Rename date not verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-crawl4ai",
+  "layer": "L8",
+  "original_label": "Crawl4AI – open crawler",
+  "current_name": {
+   "v": "Crawl4AI",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Open-source project by UncleCode, now also offering hosted Crawl4AI Cloud",
+   "label": "Verified fact",
+   "src": [
+    "A1-S009",
+    "A1-S056",
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source web crawler/scraper producing LLM-ready Markdown, plus a hosted API",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "v0.9.4, 23 September 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S009",
+    "A1-S074"
+   ],
+   "conf": "high",
+   "asof": "2026-09-23"
+  },
+  "licence_model": {
+   "v": "Apache-2.0 with an additional attribution requirement for distributions and public uses",
+   "label": "Verified fact",
+   "src": [
+    "A1-S056"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Launched Crawl4AI Cloud (search, answer, extraction without own LLM key, bot-wall handling, MCP) alongside the free library and Docker server",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "Crawl4AI Cloud hosted service launched (date not verified)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Crawls and scrapes websites into clean Markdown or structured data for RAG and agents, with browser automation, batch crawling and LLM-based extraction.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 web acquisition; overlaps L4 search tools via the cloud API",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Python with headless browsers; Docker server image (AMD64/ARM64)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python library, CLI, self-hosted REST API (/md, /crawl, /screenshot, /pdf, /execute_js), MCP, hosted API",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Crawl4AI Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S074"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S074"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S074"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S074"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Self-hosted server requires CRAWL4AI_API_TOKEN on every endpoint by default",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Library free; cloud pay-as-you-go (prices not captured)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Self-hosting cost is browser compute and proxies",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "MCP for Claude Code, Codex, Cursor, OpenCode",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Maintainer claims it is the most-starred crawler on GitHub (unverified count)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S074"
+   ],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "First PyPI release 25 September 2024; pre-1.0 (0.9.x)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S009"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Apache-2.0",
+    "label": "Verified fact",
+    "src": [
+     "A1-S056"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Open source with attribution clause",
+    "label": "Verified fact",
+    "src": [
+     "A1-S056"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Pre-1.0 versioning; single-maintainer origin",
+    "label": "Verified fact",
+    "src": [
+     "A1-S009",
+     "A1-S074"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S009",
+   "A1-S056",
+   "A1-S074"
+  ],
+  "stage_a_notes": "Funding/company structure behind Crawl4AI Cloud not verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-mineru",
+  "layer": "L8",
+  "original_label": "MinerU – PDF parser",
+  "current_name": {
+   "v": "MinerU",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "OpenDataLab MinerU Team",
+   "label": "Verified fact",
+   "src": [
+    "A1-S054",
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source document parsing tool and local document library with VLM-based parsing tiers",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055",
+    "A1-S010"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "MinerU 4.0 line; mineru 4.0.10 released 29 September 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S010",
+    "A1-S055"
+   ],
+   "conf": "high",
+   "asof": "2026-09-29"
+  },
+  "licence_model": {
+   "v": "'MinerU Open Source License': Apache-2.0 plus additional terms - separate commercial licence required above 100M MAU or US$20M monthly revenue (group-consolidated); attribution required for online services; rights terminate automatically on breach",
+   "label": "Verified fact",
+   "src": [
+    "A1-S054",
+    "A1-S010"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "MinerU 4.0 adds four parsing tiers (Flash/Basic/Standard/Advanced), a document library with citation locators for agent reading, multi-format input and a router for multiple services",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "MinerU 4.0 released (3.x to 4.0 migration guide)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Converts PDF, images, Office, OpenDocument, EPUB, OFD, HTML and CSV into Markdown/JSON and other formats, caches and searches results, and serves them to agents with stable citations.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 parsing/OCR; local-first with optional remote service (mineru.net)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "ONNX/PyTorch small models; llama.cpp, vLLM or LMDeploy for the VLM; Standard/Advanced tiers require GPU/MPS with 8 GB+ VRAM",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python SDK, V1 API, CLI, Gradio WebUI, multi-service Router; remote parsing only with explicit --remote",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (mineru.net web app / remote API)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S055"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S055"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S055"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S055"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Parses locally by default; documents are not uploaded to the official service unless remote parsing is explicitly configured",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Anonymous aggregated telemetry (no document content or file names), can be disabled",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free under MinerU licence below thresholds; commercial licence above thresholds (price not published)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S054"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "GPU with 8 GB+ VRAM needed for higher-quality tiers",
+   "label": "Verified fact",
+   "src": [
+    "A1-S055"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "mineru package first on PyPI 13 June 2025; 96 releases",
+   "label": "Verified fact",
+   "src": [
+    "A1-S010"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Custom licence with revenue/MAU thresholds and termination clause (not a pure OSI licence)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S054"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Major-version migration (3.x to 4.0) in 2026",
+    "label": "Verified fact",
+    "src": [
+     "A1-S055"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S010",
+   "A1-S054",
+   "A1-S055"
+  ],
+  "stage_a_notes": "Licence is not plain Apache-2.0: legal review needed for large FS firms (revenue threshold US$20M/month). Earlier licence history not verified in this run.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-reducto",
+  "layer": "L8",
+  "original_label": "Reducto – enterprise docs",
+  "current_name": {
+   "v": "Reducto",
+   "label": "Verified fact",
+   "src": [
+    "A1-S091"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Reducto (private company)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S091"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Proprietary document ingestion API: parse, extract, split, edit, classify and pipelines",
+   "label": "Verified fact",
+   "src": [
+    "A1-S093"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "SaaS API; Python SDK reductoai 0.24.0, released 8 September 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S090"
+   ],
+   "conf": "high",
+   "asof": "2026-09-08"
+  },
+  "licence_model": {
+   "v": "Proprietary API; Python SDK Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A1-S090"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "API that parses documents into structured output and extracts, splits, edits and classifies documents, with asynchronous jobs, pipelines and webhooks.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S093",
+    "A1-S091"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 parsing and structured extraction",
+   "label": "Verified fact",
+   "src": [
+    "A1-S093"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Reducto hosted API",
+   "label": "Verified fact",
+   "src": [
+    "A1-S092"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "REST API; Python SDK (sync/async); webhooks",
+   "label": "Verified fact",
+   "src": [
+    "A1-S091",
+    "A1-S093"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S092"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Regional API environments: production (platform.reducto.ai), EU (eu.platform.reducto.ai) and Australia (au.platform.reducto.ai)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S092",
+    "A1-S091"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "SDK first published on PyPI 12 October 2024",
+   "label": "Verified fact",
+   "src": [
+    "A1-S090"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary API",
+    "label": "Verified fact",
+    "src": [
+     "A1-S093"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S090",
+   "A1-S091",
+   "A1-S092",
+   "A1-S093"
+  ],
+  "stage_a_notes": "Certifications, VPC/on-prem options, pricing and funding not verified (search budget exhausted; vendor site blocked). EU endpoint verified from SDK source only.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-mistral-ocr",
+  "layer": "L8",
+  "original_label": "Mistral OCR – OCR",
+  "current_name": {
+   "v": "Mistral OCR (OCR API, /v1/ocr)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S083"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Mistral AI",
+   "label": "Verified fact",
+   "src": [
+    "A1-S083",
+    "A1-S084"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Hosted OCR / document understanding model API",
+   "label": "Verified fact",
+   "src": [
+    "A1-S083"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "OCR endpoint that processes a document (URL or file) and returns structured output, with optional bounding-box and document annotations in a requested format, table formatting, header/footer extraction, layout blocks and confidence scores.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S083"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 OCR; also usable as a model inside other parsers",
+   "label": "Verified fact",
+   "src": [
+    "A1-S083"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Mistral API (La Plateforme)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S083"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "REST /v1/ocr via Mistral SDKs; SDK can emit opt-in OpenTelemetry traces following GenAI semantic conventions",
+   "label": "Verified fact",
+   "src": [
+    "A1-S083",
+    "A1-S084"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S083"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Python SDK mistralai 3.1.0 (6 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S017"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary API",
+    "label": "Verified fact",
+    "src": [
+     "A1-S083"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S017",
+   "A1-S083",
+   "A1-S084"
+  ],
+  "stage_a_notes": "Current Mistral OCR model version (graphic says only 'OCR') could not be verified: docs.mistral.ai blocked and web-search budget exhausted before the query ran. Cross-check with stream covering Mistral L1.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-unstructured",
+  "layer": "L8",
+  "original_label": "Unstructured – ETL for docs",
+  "current_name": {
+   "v": "Unstructured: open-source 'unstructured' library and 'unstructured-ingest' connectors; commercial Transform v2 API / platform",
+   "label": "Verified fact",
+   "src": [
+    "A1-S075",
+    "A1-S094"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Unstructured (Unstructured-IO)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S075",
+    "A1-S012"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Document partitioning and ETL for LLMs: open-source library plus commercial hosted API",
+   "label": "Verified fact",
+   "src": [
+    "A1-S075"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "unstructured 0.27.16 (5 October 2026); unstructured-ingest 1.11.19 on PyPI (23 September 2026; changelog lists 1.11.21); unstructured-client SDK 0.46.2",
+   "label": "Verified fact",
+   "src": [
+    "A1-S011",
+    "A1-S095",
+    "A1-S094",
+    "A1-S012"
+   ],
+   "conf": "high",
+   "asof": "2026-10-05"
+  },
+  "licence_model": {
+   "v": "Open source Apache-2.0 (library and ingest); commercial API proprietary; client SDK MIT",
+   "label": "Verified fact",
+   "src": [
+    "A1-S011",
+    "A1-S095",
+    "A1-S012",
+    "A1-S075"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Open-source library 'is, and will stay, completely free'; higher-quality models offered via the Transform v2 API, which the vendor claims gives 2x table content accuracy and 58% less invented content than the library",
+   "label": "Verified fact",
+   "src": [
+    "A1-S075"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "Commercial API now branded 'Transform v2' (date not verified)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S075"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Partitions PDFs, HTML, Word and many other formats into structured elements, with chunking, and moves data from source connectors to destinations (vector DBs, warehouses).",
+   "label": "Verified fact",
+   "src": [
+    "A1-S075",
+    "A1-S094"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 ingestion/ETL, including connector-level permissions metadata relevant to H7",
+   "label": "Verified fact",
+   "src": [
+    "A1-S094"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Python; tesseract and poppler for PDFs/images; Docker images available",
+   "label": "Verified fact",
+   "src": [
+    "A1-S075"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python library, ingest connectors (SharePoint incl. Teams channel files, OneDrive, Confluence, Salesforce, Databricks, S3, Teradata, Milvus and others), hosted API with client SDK",
+   "label": "Verified fact",
+   "src": [
+    "A1-S094",
+    "A1-S012",
+    "A1-S075"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (hosted API)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S075"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes (open source)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S075"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes (open source)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S075"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (open source)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S075"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Ingest connectors emit a permissions_version ACL digest (SHA-256) so ACL-only changes trigger reprocessing; credential redaction in connector errors; library sends lightweight usage analytics by default",
+   "label": "Verified fact",
+   "src": [
+    "A1-S094",
+    "A1-S075"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Connector-level permission metadata captured from SharePoint, OneDrive and Confluence (ACL digest); platform RBAC/SSO not verified",
+   "label": "Verified fact",
+   "src": [
+    "A1-S094"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Large connector catalogue in unstructured-ingest",
+   "label": "Verified fact",
+   "src": [
+    "A1-S094"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "unstructured first on PyPI 6 September 2022; 237 releases",
+   "label": "Verified fact",
+   "src": [
+    "A1-S011"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Apache-2.0 library",
+    "label": "Verified fact",
+    "src": [
+     "A1-S011"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Best-quality models only via proprietary API",
+    "label": "Verified fact",
+    "src": [
+     "A1-S075"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Four-year-old library still pre-1.0",
+    "label": "Verified fact",
+    "src": [
+     "A1-S011"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S011",
+   "A1-S012",
+   "A1-S075",
+   "A1-S094",
+   "A1-S095"
+  ],
+  "stage_a_notes": "Unstructured Platform certifications, VPC/in-VPC deployment and pricing not verified (docs.unstructured.io blocked; search budget exhausted).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-apify",
+  "layer": "L8",
+  "original_label": "Apify – scrapers",
+  "current_name": {
+   "v": "Apify",
+   "label": "Verified fact",
+   "src": [
+    "A1-S085",
+    "A1-S087"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Apify Technologies s.r.o.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S016"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Web scraping and automation platform with an Actor marketplace (Apify Store), managed proxy and storage",
+   "label": "Verified fact",
+   "src": [
+    "A1-S087",
+    "A1-S089"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "SaaS platform; apify-client (Python) 3.2.1, released 25 September 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S016"
+   ],
+   "conf": "high",
+   "asof": "2026-09-25"
+  },
+  "licence_model": {
+   "v": "Proprietary platform; Python API client Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A1-S016"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Exposes Store Actors to AI agents through the Apify MCP server (mcp.apify.com)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S089"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Runs serverless 'Actors' (scrapers and automations) in isolated containers, routes traffic through Apify Proxy, and stores results in datasets, key-value stores and request queues reachable via API.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S087"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 web acquisition; overlaps L4 tools via MCP",
+   "label": "Verified fact",
+   "src": [
+    "A1-S087",
+    "A1-S089"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Hosted on AWS in a single region (us-east-1) across multiple Availability Zones; MongoDB Atlas, S3 and DynamoDB",
+   "label": "Verified fact",
+   "src": [
+    "A1-S086",
+    "A1-S087"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "REST API v2, JavaScript and Python clients, webhooks, MCP server, third-party connectors",
+   "label": "Verified fact",
+   "src": [
+    "A1-S087",
+    "A1-S089"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S087"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II (report via trust.apify.com)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S085"
+   ],
+   "conf": "high"
+  },
+  "gdpr_residency": {
+   "v": "Platform data hosted in AWS us-east-1 (no EU region documented)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S086"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Encryption in transit and at rest; tenant isolation; shared-responsibility model documented",
+   "label": "Verified fact",
+   "src": [
+    "A1-S086",
+    "A1-S085"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Usage measured in compute units (1 CU = 1 GB memory for 1 hour); CU price depends on subscription plan",
+   "label": "Verified fact",
+   "src": [
+    "A1-S088"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Apify Store Actors; MCP clients",
+   "label": "Verified fact",
+   "src": [
+    "A1-S089"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "apify-client first on PyPI 17 May 2021; 237 releases",
+   "label": "Verified fact",
+   "src": [
+    "A1-S016"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Actors and storage are platform-specific",
+    "label": "Verified fact",
+    "src": [
+     "A1-S087"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary platform API",
+    "label": "Verified fact",
+    "src": [
+     "A1-S087"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S016",
+   "A1-S085",
+   "A1-S086",
+   "A1-S087",
+   "A1-S088",
+   "A1-S089"
+  ],
+  "stage_a_notes": "Only US region documented: material for EU/UK FS data-residency. Third-party Actors in the Store are outside Apify's control (shared-responsibility page).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L8-google-document-ai",
+  "layer": "L8",
+  "original_label": null,
+  "current_name": {
+   "v": "Google Cloud Document AI",
+   "label": "Verified fact",
+   "src": [
+    "A1-S101",
+    "A1-S102"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Google Cloud (Alphabet)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S101"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Managed document OCR, parsing, extraction and classification service",
+   "label": "Verified fact",
+   "src": [
+    "A1-S101"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Processors incl. Enterprise Document OCR, Form Parser, Layout Parser (with initial chunking), Custom Extractor, classifier/splitter, Summarizer",
+   "label": "Verified fact",
+   "src": [
+    "A1-S101"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary cloud service",
+   "label": "Verified fact",
+   "src": [
+    "A1-S101"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Extracts text, structure and entities from documents via pre-trained and custom processors, including layout parsing with chunking for RAG.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S101"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L8 OCR/parsing as a hyperscaler managed service",
+   "label": "Verified fact",
+   "src": [
+    "A1-S101"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Google Cloud project",
+   "label": "Verified fact",
+   "src": [
+    "A1-S101"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S101"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "In scope for Google Cloud ISO 27001/27017/27018, SOC 1/2/3, PCI DSS and penetration testing",
+   "label": "Verified fact",
+   "src": [
+    "A1-S102"
+   ],
+   "conf": "high"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Enterprise Document OCR US$1.50 per 1,000 pages (1k-5M pages/month; US$0.60 above 5M; first 1,000 free); Form Parser and Custom Extractor US$30 per 1,000 pages (first 1M, US$20 above); Layout Parser US$10 per 1,000 pages; discounts for consumption models",
+   "label": "Verified fact",
+   "src": [
+    "A1-S101"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Processor outputs are Google-specific",
+    "label": "Verified fact",
+    "src": [
+     "A1-S101"
+    ],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Requires Google Cloud",
+    "label": "Verified fact",
+    "src": [
+     "A1-S101"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary API",
+    "label": "Verified fact",
+    "src": [
+     "A1-S101"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S101",
+   "A1-S102"
+  ],
+  "stage_a_notes": "Added as material omission (hyperscaler document AI services: Azure Document Intelligence and AWS Textract are equivalents but could not be fetched/searched in this run). Region list page blocked.",
+  "last_verified": "2026-10-07"
+ }
+]
