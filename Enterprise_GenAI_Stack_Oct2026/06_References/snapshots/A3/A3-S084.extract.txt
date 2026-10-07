@@ -1,0 +1,8 @@
+SOURCE ID: A3-S084
+URL: https://www.tavily.com/blog/tavily-is-joining-nebius
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Tavily joins acquisition announcement (allowed_domains tavily.com)
+========================================================================
+
+Search-tool summary: Tavily's February 10, 2026 post: 'Today, we're sharing an important milestone: Tavily is joining Nebius. Nebius builds infrastructure for the age of AI, and we are excited to join them.' Customer impact: 'Nothing changes about how you use Tavily today. The API remains the same, your data policies remain the same, and zero data retention remains core.' A more recent Tavily post describes the company as 'Recently acquired by Nebius, a NASDAQ-listed cloud and AI infrastructure company.' Tavily's September 2026 update separately mentions Tavily joining the Nebius AI Builder Program (a program membership, not an acquisition). Tavily blog also lists 'Big News from Tavily: Announcing 25M Series A to Power the Internet of Agents'.

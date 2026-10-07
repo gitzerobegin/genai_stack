@@ -1,0 +1,8 @@
+SOURCE ID: A3-S087
+URL: https://finance.yahoo.com/news/nebius-agrees-acquire-tavily-275-145527432.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Tavily acquired acquisition 2026
+========================================================================
+
+Search-tool summary: Yahoo Finance, citing people familiar with the matter, reported that the transaction values Tavily at $275 million, though the terms were not publicly disclosed.

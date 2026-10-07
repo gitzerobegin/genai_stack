@@ -1,0 +1,6284 @@
+[
+ {
+  "id": "L3-langgraph",
+  "layer": "L3",
+  "original_label": "LangGraph – workflow",
+  "current_name": {
+   "v": "LangGraph (open-source framework); managed runtime now branded LangSmith Deployment (formerly LangGraph Platform)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S001",
+    "A4-S031"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "LangChain, Inc.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S001",
+    "A4-S032"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Low-level stateful agent and workflow orchestration framework (graph runtime) with a commercial managed deployment service",
+   "label": "Verified fact",
+   "src": [
+    "A4-S118",
+    "A4-S037"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "langgraph 1.2.14 on PyPI (released 6 October 2026); @langchain/langgraph 1.4.21 on npm (7 October 2026); 1.0.0 released 17 October 2025 (Python) / 18 October 2025 (JS)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S001",
+    "A4-S026"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, MIT (framework). LangSmith (Observability, Evaluation, Deployment) is proprietary SaaS / self-hosted enterprise software",
+   "label": "Verified fact",
+   "src": [
+    "A4-S001",
+    "A4-S026",
+    "A4-S036"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "LangGraph 1.0 positioned as 'the first stable major release in the durable agent framework space' with no breaking changes until 2.0; LangChain 1.0 create_agent runs on the LangGraph runtime; Deep Agents harness built on LangGraph. Interrupt 2026 (13-14 May 2026) launched LangSmith Engine, Managed Deep Agents, SmithDB, Context Hub, an LLM Gateway and Sandboxes GA; Agent Builder rebranded LangSmith Fleet (March 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S033",
+    "A4-S118",
+    "A4-S040"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "14 October 2025: LangGraph Platform renamed LangSmith Deployment; LangGraph Studio renamed LangSmith Studio",
+    "17 October 2025: LangGraph 1.0.0 GA on PyPI",
+    "1 October 2026: existing LangSmith Deployment customers move from per-run/uptime pricing to usage-based LSU pricing"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S031",
+    "A4-S001",
+    "A4-S036"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Provides low-level infrastructure for long-running, stateful workflows or agents: durable execution that resumes from where it left off, human-in-the-loop via interrupts, short- and long-term memory, streaming, and deployment through LangSmith. Deterministic code and LLM-driven decisions can be combined in one graph; a Functional API (@entrypoint/@task) offers a workflow style.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S118",
+    "A4-S039"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Agent orchestration runtime (L3). LangSmith Deployment is a separate agent-hosting runtime; LangSmith Observability/Evaluation sit in L9. The graphic's label 'workflow' captures only part of its role: LangGraph covers both deterministic workflows and agent loops.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S039",
+    "A4-S031"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Python >=3.10 (or JS/TS); checkpointer backend for persistence (durable, database-backed checkpointer recommended in production, e.g. Postgres via langgraph-checkpoint-postgres); LangSmith for deployment/observability (optional); any LLM provider via LangChain integrations",
+   "label": "Verified fact",
+   "src": [
+    "A4-S001",
+    "A4-S039"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python and JS/TS libraries; LangGraph SDK / Agent Server API for deployed graphs; LangChain model and tool integrations; tracing to LangSmith",
+   "label": "Verified fact",
+   "src": [
+    "A4-S118",
+    "A4-S037"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (LangSmith Deployment cloud; Plus plan or above)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S036"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (LangSmith Deployment managed cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S036",
+     "A4-S037"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (BYOC and hybrid: data plane in customer VPC; Enterprise plan)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S037"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (self-hosted LangSmith with Deployment control plane on Kubernetes; Enterprise plan)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S037"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (open-source library runs anywhere; full self-hosted platform requires Enterprise plan)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S001",
+     "A4-S037"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (self-hosted Kubernetes deployment of LangSmith; Enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S037"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "LangSmith: SOC 2 Type 2 and HIPAA per LangChain docs; ISO 27001 claimed on the enterprise page but absent from the EU data-residency announcement (conflict; confirm at trust.langchain.com). BAAs only on Enterprise plan. Not applicable to the OSS library itself.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S034",
+    "A4-S035"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "LangSmith regional instances: GCP EU (eu.smith.langchain.com), GCP US, GCP APAC, AWS US; available on all plans; region migration not supported; no EU legal entity for contracting; DPA on request",
+   "label": "Verified fact",
+   "src": [
+    "A4-S034"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "LangSmith Enterprise: SAML 2.0 / OIDC SSO with JIT provisioning, SCIM 2.0, workspace RBAC with custom roles; self-hosted v0.14: ABAC and audit logs (OCSF 1.7.0) enabled by default",
+   "label": "Verified fact",
+   "src": [
+    "A4-S038"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "LangSmith Enterprise plan (custom pricing, invoiced annually upfront)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S036"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "LangGraph OSS free (MIT). LangSmith Plus US$39 per seat per month (10k base traces/month then pay-as-you-go; 1 free small serverless deployment); Enterprise custom. Deployment billed on resources consumed in LangChain Standard Units (LSU), replacing per-run/uptime pricing (pricing page shows 1 LSU = US$1 in the Engine section)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S036"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Self-hosting requires a durable checkpointer database; self-hosted LangSmith Deployment runs control plane and Agent Servers on customer Kubernetes",
+   "label": "Verified fact",
+   "src": [
+    "A4-S039",
+    "A4-S037"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "LangChain integrations; Deep Agents; LangSmith; JS/TS port (LangGraph.js); NVIDIA Dynamo publishes a LangChain integration",
+   "label": "Verified fact",
+   "src": [
+    "A4-S118",
+    "A4-S026",
+    "A4-S098"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "README names Klarna, Replit and Elastic; LangChain raised US$125M at US$1.25B valuation (IVP lead) alongside the 1.0 releases (October 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S118",
+    "A4-S032"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "First PyPI release 8 January 2024; 1.0 GA October 2025 (Development Status: Production/Stable); frequent releases (1.2.14 on 6 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S001"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Framework is MIT and self-hostable; managed deployment, Studio and observability are proprietary LangSmith services",
+    "label": "Verified fact",
+    "src": [
+     "A4-S001",
+     "A4-S036"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "No acquisition or 2026 funding round found in LangChain's own announcements (a secondary-market listing of an unannounced 'Series C' valuation is unverified)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S040"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "US$125M Series B at US$1.25B (October 2025)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S032"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Tied to the LangChain ecosystem for higher-level abstractions and to LangSmith for deployment/observability",
+    "label": "Verified fact",
+    "src": [
+     "A4-S118",
+     "A4-S031"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Graph and checkpoint APIs are LangGraph-specific (no cross-framework standard)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S039"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Stable 1.x line with a no-breaking-changes commitment until 2.0",
+    "label": "Verified fact",
+    "src": [
+     "A4-S033"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S001",
+   "A4-S026",
+   "A4-S031",
+   "A4-S032",
+   "A4-S033",
+   "A4-S034",
+   "A4-S035",
+   "A4-S036",
+   "A4-S037",
+   "A4-S038",
+   "A4-S039",
+   "A4-S040",
+   "A4-S098",
+   "A4-S118"
+  ],
+  "stage_a_notes": "ISO 27001 for LangSmith is inconsistent across LangChain pages (A4-S034 vs A4-S035): treat as unconfirmed until trust.langchain.com is checked. LangSmith Deployment is the renamed LangGraph Platform; Stage B should not profile them separately. LangSmith (L9) is covered by stream A1.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-llamaindex",
+  "layer": "L3",
+  "original_label": "LlamaIndex – document agents",
+  "current_name": {
+   "v": "LlamaIndex (open-source framework, incl. Workflows); commercial platform now named LlamaParse (formerly LlamaCloud), which includes LlamaAgents",
+   "label": "Verified fact",
+   "src": [
+    "A4-S117",
+    "A4-S042"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "LlamaIndex, Inc. (run-llama)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S117"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "RAG / agentic application framework with an event-driven workflow engine; vendor's commercial focus is document parsing and document agents",
+   "label": "Verified fact",
+   "src": [
+    "A4-S117",
+    "A4-S041"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "llama-index / llama-index-core 0.14.25 (21 September 2026); llama-index-workflows 2.25.0 (25 September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S002",
+    "A4-S013"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, MIT (framework and workflows); LlamaParse platform is proprietary SaaS",
+   "label": "Verified fact",
+   "src": [
+    "A4-S002",
+    "A4-S013",
+    "A4-S127",
+    "A4-S117"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "README (2026): 'our primary focus has shifted towards LlamaParse, along with liteparse and our benchmarking efforts'; the OSS framework remains available as an open toolkit. LlamaAgents (document agents built on Workflows) in open preview from November 2025; LlamaAgents Builder (natural-language to Workflow code) February 2026",
+   "label": "Verified fact",
+   "src": [
+    "A4-S117",
+    "A4-S042"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "30 June 2025: Workflows 1.0 released as a standalone package (llama-index-workflows)",
+    "November 2025: LlamaAgents open preview",
+    "2026: LlamaCloud renamed LlamaParse",
+    "2026: vendor states primary focus shifted from OSS framework to LlamaParse"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S041",
+    "A4-S042",
+    "A4-S117"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Open-source framework for building agentic and RAG applications over data, with Workflows: a lightweight, event-driven, step-based engine for multi-step agentic applications in Python and TypeScript (typed state, resource injection, OpenTelemetry instrumentation). LlamaParse adds Parse, Extract, Index and LlamaAgents (deployed document agents).",
+   "label": "Verified fact",
+   "src": [
+    "A4-S117",
+    "A4-S041",
+    "A4-S013"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L3 for the framework/Workflows; the commercial product is mainly L8 (document extraction, LlamaParse) and the graphic's 'document agents' descriptor reflects that. The framework is no longer the vendor's primary focus.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S117"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Python >=3.9/3.10 or TypeScript; LLM and embedding providers; vector stores via integrations; LlamaParse API for managed parsing (optional)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S002"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Python/TS libraries; llamactl CLI to deploy Agent Workflows to LlamaCloud/LlamaParse or as a headless API; OpenTelemetry instrumentation",
+   "label": "Verified fact",
+   "src": [
+    "A4-S042",
+    "A4-S041"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (LlamaParse / LlamaAgents managed cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S042",
+     "A4-S117"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (LlamaAgents managed cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S042"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (LlamaAgents: 'bring-your-own infrastructure' option)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S042"
+    ],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (OSS framework)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S002"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Framework free (MIT). LlamaParse metered in credits; third-party pages report ~US$1.25 per 1,000 credits in 2026 and ~10,000 free credits per month; vendor pricing page not retrieved",
+   "label": "Reported",
+   "src": [
+    "A4-S043"
+   ],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Self-hosted framework cost is driven by LLM/embedding tokens and the chosen vector store, not the library",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Large integration catalogue (LLMs, vector stores); Workflows usable outside the LlamaIndex ecosystem; LlamaParse usable with or without the framework",
+   "label": "Verified fact",
+   "src": [
+    "A4-S117",
+    "A4-S041"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Funding reported as US$27.5M (Greylock, Norwest; Series A May 2025) by Tracxn; another source reports US$19M (conflict)",
+   "label": "Reported",
+   "src": [
+    "A4-S043"
+   ],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Framework first released February 2023; still 0.x versioning (0.14.25); Workflows 1.0 since June 2025 and now 2.x",
+   "label": "Verified fact",
+   "src": [
+    "A4-S002",
+    "A4-S013",
+    "A4-S041"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "OSS MIT framework; managed agents/parsing are proprietary",
+    "label": "Verified fact",
+    "src": [
+     "A4-S127",
+     "A4-S117"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Series A-stage funding per secondary trackers",
+    "label": "Reported",
+    "src": [
+     "A4-S043"
+    ],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Vendor priority is LlamaParse; framework investment may decline",
+    "label": "Verified fact",
+    "src": [
+     "A4-S117"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Workflows API is LlamaIndex-specific",
+    "label": "Verified fact",
+    "src": [
+     "A4-S041"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Framework still pre-1.0 versioning after three years",
+    "label": "Verified fact",
+    "src": [
+     "A4-S002"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S002",
+   "A4-S013",
+   "A4-S041",
+   "A4-S042",
+   "A4-S043",
+   "A4-S117",
+   "A4-S127"
+  ],
+  "stage_a_notes": "Material change vs graphic: the vendor's own README says its primary focus has shifted to LlamaParse (document parsing/extraction); the OSS framework continues but is no longer the core product. LlamaParse is profiled by stream A7/L8. 'LlamaCloud' is now 'LlamaParse' per vendor newsletters (search extract only).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-pydantic-ai",
+  "layer": "L3",
+  "original_label": "Pydantic AI – type-safe",
+  "current_name": {
+   "v": "Pydantic AI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S003"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Pydantic Services Inc.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S003",
+    "A4-S046"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Typed Python agent framework (agent loop) with optional graph library (pydantic_graph) and durable-execution integrations",
+   "label": "Verified fact",
+   "src": [
+    "A4-S119",
+    "A4-S044"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "pydantic-ai 2.54.0 (3 October 2026); v2.0.0 released 23 June 2026; v1 line still patched (1.107.7 on 30 September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S003"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, MIT",
+   "label": "Verified fact",
+   "src": [
+    "A4-S003",
+    "A4-S119"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "v2 (first beta 20 May 2026) introduced a capability layer, a leaner core and 'the Harness'; durability is moving onto the capability layer (runtime extension point tracked for after v2). AI Gateway merged into Pydantic Logfire (adds failover, load balancing, DLP, spend caps)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S044",
+    "A4-S046"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "5 September 2025: v1.0.0",
+    "23 June 2026: v2.0.0 (breaking: pydantic_graph.persistence removed)",
+    "Pydantic AI Gateway (gateway.pydantic.dev) deprecated and moved into Logfire"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S003",
+    "A4-S044",
+    "A4-S046"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "A typed, extensible agent loop for Python with model-agnostic providers, structured outputs and tools; pydantic_graph provides graph-based control flow; durable execution is attached as a capability via Temporal, DBOS or Prefect (plus Harness packages such as AWS Lambda and Step Persistence).",
+   "label": "Verified fact",
+   "src": [
+    "A4-S119",
+    "A4-S044",
+    "A4-S045"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L3 agent framework; observability via Logfire (L9) and gateway via Logfire (C1) are separate commercial products",
+   "label": "Verified fact",
+   "src": [
+    "A4-S046"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Python >=3.10; Pydantic; model provider SDKs; optional Temporal/DBOS/Prefect for durability",
+   "label": "Verified fact",
+   "src": [
+    "A4-S003",
+    "A4-S045"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Python library; MCP support; OpenTelemetry via Logfire; durable-execution capabilities (TemporalDurability, DBOSDurability, PrefectDurability)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S045",
+    "A4-S119"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S003"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S003"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (library)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S003"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (library)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S003"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable to the open-source library; Logfire certifications out of scope for this record",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Not applicable (library; data flows go to the customer's chosen model provider)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Logfire AI Gateway (separate product) offers DLP scanning of prompts/completions for secrets and PII, and spend caps",
+   "label": "Verified fact",
+   "src": [
+    "A4-S046"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Not applicable (library)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free (MIT)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S003"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Costs are model tokens plus any durable-execution backend (Temporal cluster, database for DBOS)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Temporal, DBOS and Prefect integrations co-maintained with those vendors; Logfire; GitHub Agentic Workflows harness",
+   "label": "Verified fact",
+   "src": [
+    "A4-S045",
+    "A4-S119"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Pydantic raised a US$12.5M Series A led by Sequoia (announced with Logfire GA, c. late 2024); no later round found",
+   "label": "Verified fact",
+   "src": [
+    "A4-S046"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "First release May 2024; 1.0 September 2025; 2.0 June 2026; Development Status: Production/Stable; 344 releases on PyPI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S003"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "MIT library; model-agnostic",
+    "label": "Verified fact",
+    "src": [
+     "A4-S003",
+     "A4-S119"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Series A only found (US$12.5M)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S046"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Relies on third-party engines (Temporal/DBOS/Prefect) for durability",
+    "label": "Verified fact",
+    "src": [
+     "A4-S045"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Agent and graph APIs are framework-specific",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Two major versions in ~10 months (v1 Sept 2025, v2 June 2026), with breaking graph-persistence changes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S003",
+     "A4-S044"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S003",
+   "A4-S044",
+   "A4-S045",
+   "A4-S046",
+   "A4-S119"
+  ],
+  "stage_a_notes": "H2: v2 removed graph persistence (pydantic_graph.persistence) and moved durability to agent-level capabilities, i.e. graph = deterministic control flow, durability delegated to workflow engines.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-crewai",
+  "layer": "L3",
+  "original_label": "CrewAI – multi-agent",
+  "current_name": {
+   "v": "CrewAI (open-source framework: Crews and Flows); commercial platform CrewAI AMP (Agent Management Platform; previously CrewAI Enterprise)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S004",
+    "A4-S049"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "crewAI, Inc.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S126"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Multi-agent orchestration framework (role-based Crews) with event-driven Flows, plus a commercial agent management platform",
+   "label": "Verified fact",
+   "src": [
+    "A4-S004",
+    "A4-S050"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "crewai 1.15.24 (7 October 2026); 1.0.0 released 20 October 2025",
+   "label": "Verified fact",
+   "src": [
+    "A4-S004"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, MIT (framework); CrewAI AMP proprietary",
+   "label": "Verified fact",
+   "src": [
+    "A4-S004",
+    "A4-S126",
+    "A4-S047"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Vendor recommends Flows as the outer 'process definition' with Crews invoked inside for autonomous collaborative steps; AMP adds deployment, SSO/RBAC, PII redaction and policies",
+   "label": "Verified fact",
+   "src": [
+    "A4-S050",
+    "A4-S047"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "20 October 2025: CrewAI 1.0.0",
+    "CrewAI Enterprise rebranded CrewAI AMP (one blog used 'AOP')"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S004",
+    "A4-S049"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Crews: teams of role-playing agents that collaborate autonomously. Flows: event-driven, stateful process definitions (@start, @listen, @router, and_/or_) giving granular control; Flows can trigger Crews. AMP deploys and manages these in CrewAI cloud, customer VPC or on-premises.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S004",
+    "A4-S050",
+    "A4-S049"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L3 multi-agent framework; AMP also acts as an agent runtime/management platform",
+   "label": "Verified fact",
+   "src": [
+    "A4-S049"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Python >=3.10,<3.14; standalone (not built on LangChain); LLM providers via integrations",
+   "label": "Verified fact",
+   "src": [
+    "A4-S004"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python library and CLI; crewai-tools package; AMP deployment",
+   "label": "Verified fact",
+   "src": [
+    "A4-S004",
+    "A4-S049"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (CrewAI cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S047"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S047"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (customer VPC on AWS, Azure or GCP)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S047",
+     "A4-S049"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (private VPC)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S049"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (OSS framework)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S004"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (AMP on customer infrastructure; HPE pre-installed hardware offer)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S049"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type 2 (report dated June 2026 listed in trust centre); HIPAA audit report dated February 2026 listed (described as 'Type 1'; scope/BAA not shown)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S048"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Enterprise plan: PII redaction, policies, workload identity",
+   "label": "Verified fact",
+   "src": [
+    "A4-S047"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Enterprise plan: SSO, RBAC",
+   "label": "Verified fact",
+   "src": [
+    "A4-S047"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Enterprise plan with 45-day onboarding; forward-deployed engineering and training sold separately",
+   "label": "Verified fact",
+   "src": [
+    "A4-S047"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Free tier: 50 workflow executions/month; Enterprise custom-priced (pricing page metadata about a year old)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S047"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Multi-agent Crews multiply LLM calls per task; token cost dominates",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "crewai-tools; AMP; HPE on-prem partnership",
+   "label": "Verified fact",
+   "src": [
+    "A4-S004",
+    "A4-S049"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Series B of ~US$20M (15 April 2026) per PitchBook/Forge; totals reported as US$38.5M–44.5M; earlier US$18M seed+Series A (October 2024, TechCrunch via Wikipedia); no vendor announcement found",
+   "label": "Reported",
+   "src": [
+    "A4-S051"
+   ],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "First release November 2023; 1.0 in October 2025; very high release frequency (461 PyPI releases incl. nightly dev builds)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S004"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "MIT framework; AMP proprietary",
+    "label": "Verified fact",
+    "src": [
+     "A4-S126",
+     "A4-S047"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Series B reported by aggregators only",
+    "label": "Reported",
+    "src": [
+     "A4-S051"
+    ],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Standalone framework (independent of LangChain)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S004"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Crew/Flow abstractions are CrewAI-specific",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "1.x since October 2025",
+    "label": "Verified fact",
+    "src": [
+     "A4-S004"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S004",
+   "A4-S047",
+   "A4-S048",
+   "A4-S049",
+   "A4-S050",
+   "A4-S051",
+   "A4-S126"
+  ],
+  "stage_a_notes": "Original descriptor 'multi-agent' covers Crews only; Flows are the deterministic layer (H2). Series B unconfirmed by primary source.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-openai-agents-sdk",
+  "layer": "L3",
+  "original_label": "Agent SDK (OpenAI logo)",
+  "current_name": {
+   "v": "OpenAI Agents SDK (Python: openai-agents; JS/TS: @openai/agents)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S005",
+    "A4-S024"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "OpenAI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S005"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source, provider-agnostic multi-agent SDK (agent loop, handoffs, guardrails, sessions, tracing, sandbox harness)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S120",
+    "A4-S052"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "openai-agents 0.23.1 (2 October 2026); @openai/agents 0.19.0 (5 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S005",
+    "A4-S024"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, MIT",
+   "label": "Verified fact",
+   "src": [
+    "A4-S005",
+    "A4-S024"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "15 April 2026 'next evolution': model-native harness (configurable memory, sandbox-aware orchestration, Codex-like filesystem tools, MCP/skills/AGENTS.md), native sandbox execution with Blaxel, Cloudflare, Daytona, E2B, Modal, Runloop, Vercel, snapshot/rehydration; TypeScript parity May 2026. OpenAI also launched a hosted Agents API (public beta 10 September 2026) running a managed Codex harness, and is retiring Agent Builder in favour of the Agents SDK",
+   "label": "Verified fact",
+   "src": [
+    "A4-S053",
+    "A4-S055",
+    "A4-S054"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "4 March 2025: first PyPI release",
+    "3 June 2026: Agent Builder (AgentKit) deprecation announced; shutdown 30 November 2026; Agents SDK is the code-based migration path",
+    "26 August 2026: Assistants API sunset (Responses API is the replacement)",
+    "10 September 2026: separate hosted Agents API in public beta"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S005",
+    "A4-S054",
+    "A4-S056",
+    "A4-S055"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Lightweight framework for multi-agent workflows: agents with tools, handoffs (delegated agent takes over the conversation) or agents-as-tools, input/output guardrails, sessions (persistent memory, resumable approvals), built-in tracing, voice/realtime agents and sandboxed agents. Supports OpenAI Responses and Chat Completions APIs and 100+ other LLMs.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S120",
+    "A4-S052"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L3 agent framework. The hosted Agents API is a managed agent runtime (distinct product); tracing defaults to OpenAI's dashboard (L9 overlap)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S055",
+    "A4-S052"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Python >=3.10 or Node; an LLM provider (OpenAI by default); optional sandbox provider; optional Temporal/DBOS for durability",
+   "label": "Verified fact",
+   "src": [
+    "A4-S005",
+    "A4-S053",
+    "A4-S052"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Python/TS libraries; MCP; custom trace processors; Temporal and DBOS integrations for durable long-running workflows incl. human-in-the-loop",
+   "label": "Verified fact",
+   "src": [
+    "A4-S052",
+    "A4-S053"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No for the SDK (library); hosted alternative is the separate Agents API (beta)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S055"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "No for the SDK; Agents API runs in OpenAI-hosted or customer-connected sandboxes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S055"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (library)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S005"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (library; model calls still go to the chosen provider)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S005",
+     "A4-S120"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable to the MIT library; OpenAI platform certifications covered by the L1 stream",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "SDK: inherits the configured model provider. Hosted Agents API (separate product): US data residency only and no Zero Data Retention support at launch",
+   "label": "Verified fact",
+   "src": [
+    "A4-S055"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Harness separated from compute so credentials stay away from model-generated code; sandbox snapshot and rehydration",
+   "label": "Verified fact",
+   "src": [
+    "A4-S053"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Not applicable (library)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "SDK free (MIT); model usage billed by provider. Hosted Agents API: sandboxes at standard container rates plus model usage",
+   "label": "Verified fact",
+   "src": [
+    "A4-S005",
+    "A4-S055"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Sandboxed agents add container/sandbox-provider cost on top of tokens",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Sandbox partners (Blaxel, Cloudflare, Daytona, E2B, Modal, Runloop, Vercel); Temporal, DBOS; Amazon Bedrock Managed Agents built with OpenAI on the Agents API",
+   "label": "Verified fact",
+   "src": [
+    "A4-S053",
+    "A4-S052",
+    "A4-S055"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "First release March 2025; still 0.x versioning (0.23.1); frequent releases (123 on PyPI)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S005"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "MIT and provider-agnostic, but defaults (tracing, hosted tools) favour OpenAI services",
+    "label": "Verified fact",
+    "src": [
+     "A4-S120",
+     "A4-S052"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not applicable (OpenAI-owned)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "OpenAI frequently retires adjacent products (Assistants API sunset 26 August 2026; Agent Builder shutdown 30 November 2026)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S056",
+     "A4-S054"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Hosted tools and the hosted Agents API are OpenAI-proprietary",
+    "label": "Verified fact",
+    "src": [
+     "A4-S055"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Pre-1.0 versioning",
+    "label": "Verified fact",
+    "src": [
+     "A4-S005"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S005",
+   "A4-S024",
+   "A4-S052",
+   "A4-S053",
+   "A4-S054",
+   "A4-S055",
+   "A4-S056",
+   "A4-S120"
+  ],
+  "stage_a_notes": "A7: one of three 'Agent SDK' tiles. Distinguish the open-source Agents SDK (this record) from the hosted Agents API (beta, US-only residency, no ZDR) and from AgentKit/Agent Builder (being shut down 30 November 2026).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-claude-agent-sdk",
+  "layer": "L3",
+  "original_label": "Agent SDK (Anthropic logo)",
+  "current_name": {
+   "v": "Claude Agent SDK (Python: claude-agent-sdk; TypeScript: @anthropic-ai/claude-agent-sdk); formerly Claude Code SDK",
+   "label": "Verified fact",
+   "src": [
+    "A4-S006",
+    "A4-S023",
+    "A4-S028"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Anthropic, PBC",
+   "label": "Verified fact",
+   "src": [
+    "A4-S092",
+    "A4-S027"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Agent harness SDK that embeds Claude Code's agent loop, built-in tools and context management as a library",
+   "label": "Verified fact",
+   "src": [
+    "A4-S027"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "claude-agent-sdk 0.2.164 (6 October 2026; PyPI classifier 'Development Status: 3 - Alpha'); @anthropic-ai/claude-agent-sdk 0.3.293 (7 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S006",
+    "A4-S023"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Python repository LICENSE is MIT; npm package licence field reads 'SEE LICENSE IN README.md'; Anthropic docs state use of the SDK is governed by Anthropic's Commercial Terms of Service (except components under their own licence)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S092",
+    "A4-S006",
+    "A4-S023",
+    "A4-S027"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Positioned for agents beyond coding; Anthropic also offers Claude Managed Agents (beta), a hosted agent harness with Anthropic-managed or self-hosted sandboxes, as the hosted alternative",
+   "label": "Verified fact",
+   "src": [
+    "A4-S028",
+    "A4-S027",
+    "A4-S124"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "29 September 2025: Claude Code SDK renamed Claude Agent SDK (packages claude-code-sdk -> claude-agent-sdk, @anthropic-ai/claude-code -> @anthropic-ai/claude-agent-sdk)",
+    "claude-code-sdk marked deprecated and no longer maintained (last release 0.0.25, 29 September 2025)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S029",
+    "A4-S028",
+    "A4-S011"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Gives developers the same tools, agent loop and context management that power Claude Code, programmable in Python and TypeScript: built-in file/shell/web tools, hooks, subagents, MCP, permissions, sessions (resume/fork), skills, commands, memory and plugins.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S027"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L3 agent harness (autonomous agent loop). It is not a deterministic workflow engine; it runs as a supervised CLI subprocess per session",
+   "label": "Verified fact",
+   "src": [
+    "A4-S027",
+    "A4-S122"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Bundled Claude Code CLI binary (spawned as a subprocess per session over stdio); Python >=3.10 or Node; Claude models via the Claude API, or provider endpoints on Amazon Bedrock or Google Cloud's Agent Platform; durable store needed to persist session transcripts beyond local disk",
+   "label": "Verified fact",
+   "src": [
+    "A4-S006",
+    "A4-S122"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python/TS libraries; MCP for tools/data; hooks; CLI subprocess with JSON output for other languages",
+   "label": "Verified fact",
+   "src": [
+    "A4-S027"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No for the SDK; hosted alternative is Claude Managed Agents (beta)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S027",
+     "A4-S124"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "No for the SDK; Managed Agents runs in Anthropic-managed cloud sandboxes or self-hosted sandboxes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S124"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Yes (self-hosted in customer containers/Kubernetes)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S122"
+    ],
+    "conf": "high"
+   },
+   "private_cloud": {
+    "v": "Yes (self-hosted)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S122"
+    ],
+    "conf": "high"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S122"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (process runs on customer infrastructure; model inference remains a cloud API call)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S122"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable to the SDK; Anthropic platform certifications are covered in the L1 Anthropic record (stream A5)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "SDK inherits the API arrangement: ZDR is available per organisation for eligible Claude API features and for Claude Code used with Commercial-org API keys; Claude Managed Agents is excluded from ZDR (session transcripts persist until deleted); on Bedrock / Google Cloud the cloud provider is the data processor",
+   "label": "Verified fact",
+   "src": [
+    "A4-S123"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Permission modes controlling which tools run automatically or need approval; hooks; recommended sandboxed containers for process isolation and network control",
+   "label": "Verified fact",
+   "src": [
+    "A4-S027",
+    "A4-S122"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Third-party products may not offer claude.ai login or rate limits unless previously approved; API-key authentication required",
+   "label": "Verified fact",
+   "src": [
+    "A4-S027"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "SDK has no separate charge identified; usage billed as Claude API tokens (pricing covered by L1 stream)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "One long-lived subprocess per concurrent session (own shell, working directory and transcript), so compute scales with concurrent sessions rather than requests",
+   "label": "Verified fact",
+   "src": [
+    "A4-S122"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "MCP, Claude Code plugins/skills; runs on Claude API, Amazon Bedrock or Google Cloud; OpenAI publishes a migration cookbook from the Claude Agent SDK to its Agents SDK and Anthropic publishes the reverse",
+   "label": "Verified fact",
+   "src": [
+    "A4-S027",
+    "A4-S122",
+    "A4-S028"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Renamed and relaunched September 2025; 0.x versioning; Python package classified Alpha; very frequent releases (149 on PyPI)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S006",
+    "A4-S029"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Model lock-in: built around Claude models and the Claude Code binary",
+    "label": "Verified fact",
+    "src": [
+     "A4-S027",
+     "A4-S122"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not applicable (Anthropic-owned)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Depends on the Claude Code CLI release cadence (bundled binary)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S006"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Use governed by Anthropic Commercial Terms; branding restrictions (may not present as 'Claude Code')",
+    "label": "Verified fact",
+    "src": [
+     "A4-S027"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Alpha development status; pre-1.0",
+    "label": "Verified fact",
+    "src": [
+     "A4-S006"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S006",
+   "A4-S011",
+   "A4-S023",
+   "A4-S027",
+   "A4-S028",
+   "A4-S029",
+   "A4-S092",
+   "A4-S122",
+   "A4-S123",
+   "A4-S124"
+  ],
+  "stage_a_notes": "Conflict of interest: Anthropic product, profiled by an Anthropic model; same rubric applied. Licence nuance: MIT repo licence vs docs stating Commercial Terms govern use, and npm 'SEE LICENSE IN README.md' (record both). Limitations recorded: Claude-only models, subprocess-per-session hosting model, Alpha status, Managed Agents excluded from ZDR. A7 resolved: separate product from OpenAI and Mistral.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-mistral-agents",
+  "layer": "L3",
+  "original_label": "Mistral – Agents SDK",
+  "current_name": {
+   "v": "Mistral Agents API (exposed through the mistralai Python and TypeScript client SDKs, with an 'agents' extra) and Mistral Workflows (mistralai-workflows SDK); no separately branded 'Mistral Agents SDK' product found",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057",
+    "A4-S007",
+    "A4-S061"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Mistral AI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057",
+    "A4-S125"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Hosted agent API (stateful conversations, connectors, handoffs) plus a Temporal-based durable workflow platform",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057",
+    "A4-S058"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "mistralai (Python) 3.1.0 (6 October 2026; 3.0.0 on 28 September 2026); @mistralai/mistralai 2.7.0 (9 September 2026); mistralai-workflows 3.15.0 (14 September 2026, Beta)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S007",
+    "A4-S025",
+    "A4-S061"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Client SDKs Apache-2.0; mistralai-workflows Apache-2.0; Agents API and Workflows control plane are proprietary hosted services",
+   "label": "Verified fact",
+   "src": [
+    "A4-S125",
+    "A4-S025",
+    "A4-S061"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Agents API launched as a dedicated agentic API alongside chat completions; Studio adds built-in and custom MCP connectors with human-in-the-loop approvals; Mistral Workflows (v3.0 public, c. September 2026) built on Temporal with Mistral-hosted control plane and customer-run workers",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057",
+    "A4-S058"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "SDK 3.0.0 (28 September 2026): HTTPX2, code_interpreter/web_search tools removed from chat/agents completions (use Conversations API or an agent)",
+    "Le Chat rebranded (Work/Vibe naming in docs); Le Chat agents cannot be used programmatically"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S059",
+    "A4-S007",
+    "A4-S057"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Agents API: create persistent agents with built-in connectors (code execution, web search, image generation, document library/RAG, MCP), stateful conversations that can be branched, and handoffs between agents executed server-side or client-side. Workflows: Python SDK with decorators for retries, timeouts, tracing, rate limiting and human-in-the-loop, with event-history durability.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057",
+    "A4-S058",
+    "A4-S061"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "L3, but as a vendor-hosted agent runtime rather than a portable framework; Workflows is a durable workflow engine (H2)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057",
+    "A4-S058"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Mistral cloud (La Plateforme/Studio); Mistral models; Workflows workers on customer Kubernetes via Helm connecting to Mistral-hosted Temporal cluster",
+   "label": "Verified fact",
+   "src": [
+    "A4-S058"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "REST API and client SDKs (Python/TS); MCP connectors; Workflows Python SDK",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057",
+    "A4-S061"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S057"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S057"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (partial: Workflows workers run in customer Kubernetes; control plane Mistral-hosted)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S058"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (partial: Workflows LocalSession for experimental or on-premises use)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S058"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Mistral AI: SOC 2 Type II, ISO/IEC 27001:2022, ISO/IEC 27701:2019 (company-level; scope/dates not seen)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S060"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Third-party summaries say EU hosting by default with optional US endpoint and ZDR negotiable via enterprise sales; Agents API conversations can be run with store=False (history not stored on Mistral cloud)",
+   "label": "Reported",
+   "src": [
+    "A4-S060",
+    "A4-S057"
+   ],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Connector tool allow/deny lists; human-in-the-loop approval for sensitive actions",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Workflows requires customer-operated worker infrastructure (Kubernetes)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S058"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "MCP connectors (built-in and custom); Temporal (Workflows engine)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057",
+    "A4-S058"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Agents API under client.beta namespace in SDK examples; Workflows SDK classified Beta; durable agents in Public Preview",
+   "label": "Verified fact",
+   "src": [
+    "A4-S057",
+    "A4-S061"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Hosted, Mistral-model-centric API; state lives in Mistral cloud unless store=False",
+    "label": "Verified fact",
+    "src": [
+     "A4-S057"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Workflows depends on Temporal (Mistral-hosted)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S058"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary Agents/Conversations API",
+    "label": "Verified fact",
+    "src": [
+     "A4-S057"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Beta / public-preview status for key components; breaking SDK major versions in March and September 2026",
+    "label": "Verified fact",
+    "src": [
+     "A4-S061",
+     "A4-S007"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S007",
+   "A4-S025",
+   "A4-S057",
+   "A4-S058",
+   "A4-S059",
+   "A4-S060",
+   "A4-S061",
+   "A4-S125"
+  ],
+  "stage_a_notes": "A17: no distinct 'Mistral Agents SDK' found. Agents are an API (Agents & Conversations) accessed through the general mistralai SDKs; Mistral Workflows is a separate durable-execution SDK built on Temporal. Treat the graphic tile as 'Mistral Agents API (+ Workflows)'.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-vercel-ai-sdk",
+  "layer": "L3",
+  "original_label": "AI SDK – AI SDK (triangle logo)",
+  "current_name": {
+   "v": "AI SDK (by Vercel); npm package 'ai'",
+   "label": "Verified fact",
+   "src": [
+    "A4-S022",
+    "A4-S069"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Vercel, Inc.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S070",
+    "A4-S069"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Provider-agnostic TypeScript toolkit for AI applications and agents (generation, structured output, tool-loop agents, UI hooks)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S069"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "ai 7.0.131 (7 October 2026); 7.0.0 released 25 June 2026 (6.0.0 22 December 2025; 5.0.0 31 July 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S022"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A4-S022",
+    "A4-S070"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Defaults to the Vercel AI Gateway for model access (direct provider packages also supported); ToolLoopAgent abstraction; companion Workflow SDK (npm 'workflow' 5.1.0) makes TS/JS functions durable",
+   "label": "Verified fact",
+   "src": [
+    "A4-S069",
+    "A4-S071",
+    "A4-S106"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "25 June 2026: AI SDK 7.0.0",
+    "30 September 2026: Workflow SDK 5.0.0"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S022",
+    "A4-S106"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Unified API across model providers for text and structured generation, tool calling and agents (ToolLoopAgent), plus AI SDK UI hooks for React, Svelte, Vue and Angular and streaming agent responses to the browser.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S069"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L3 (TypeScript agent/app framework) with an application/UI layer component; model routing via Vercel AI Gateway overlaps L2/C1",
+   "label": "Verified fact",
+   "src": [
+    "A4-S069"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Node.js 22+; provider packages (@ai-sdk/openai, @ai-sdk/anthropic, @ai-sdk/google, ...) or Vercel AI Gateway",
+   "label": "Verified fact",
+   "src": [
+    "A4-S069"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "TypeScript library; provider adapters; AI Gateway model strings; UI framework hooks",
+   "label": "Verified fact",
+   "src": [
+    "A4-S069"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S069"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S069"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (library runs in any Node runtime)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S069"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (library)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S069"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not applicable (library)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free (Apache-2.0); AI Gateway usage priced separately (not retrieved)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S070"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Not material for the library",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Next.js, React, Svelte, Vue, Angular; providers OpenAI, Anthropic, Google and others; Vercel Sandbox; Workflow SDK",
+   "label": "Verified fact",
+   "src": [
+    "A4-S069",
+    "A4-S071"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Package name 'ai' reused; AI SDK 3.0 February 2024; major version roughly every 6 months (5.0 July 2025, 6.0 December 2025, 7.0 June 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S022"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Default model access via Vercel AI Gateway (optional; direct providers supported)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S069"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not applicable (Vercel-owned)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Optimised for the Vercel/Next.js ecosystem",
+    "label": "Verified fact",
+    "src": [
+     "A4-S069"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "APIs are AI SDK-specific",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Frequent major versions (three in ~11 months)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S022"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S022",
+   "A4-S069",
+   "A4-S070",
+   "A4-S071",
+   "A4-S106"
+  ],
+  "stage_a_notes": "A15 resolved: the triangle-logo 'AI SDK' tile is Vercel's AI SDK (npm 'ai'), confirmed by npm description 'AI SDK by Vercel'. Vercel company certifications/funding not verified in this run.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-microsoft-agent-framework",
+  "layer": "L3",
+  "original_label": "Agent Framework – Microsoft",
+  "current_name": {
+   "v": "Microsoft Agent Framework (MAF)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S066",
+    "A4-S008"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Microsoft Corporation",
+   "label": "Verified fact",
+   "src": [
+    "A4-S067"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Multi-language agent and multi-agent workflow framework (Python, .NET, Go)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S066"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "agent-framework (Python) 1.20.0 (2 October 2026); 1.0.0 GA 2 April 2026 (Development Status: Production/Stable); durable extensions agent-framework-durabletask and agent-framework-azurefunctions still beta (1.0.0b260922)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S008",
+    "A4-S101",
+    "A4-S102"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, MIT",
+   "label": "Verified fact",
+   "src": [
+    "A4-S067",
+    "A4-S008"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Declared 'enterprise-ready successor' to both Semantic Kernel and AutoGen; graph-based workflows (sequential, concurrent, handoff, group collaboration) with checkpointing, streaming, human-in-the-loop and time-travel; Foundry Hosted Agents; A2A and MCP interoperability; declarative YAML agents; Agent Skills",
+   "label": "Verified fact",
+   "src": [
+    "A4-S066",
+    "A4-S012",
+    "A4-S068"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "1 October 2025: first public preview on PyPI",
+    "2 April 2026: 1.0.0 GA",
+    "Semantic Kernel README: 'Semantic Kernel is now Microsoft Agent Framework'",
+    "AutoGen placed in maintenance mode (no new features; community managed); last autogen-agentchat release 0.7.5 on 30 September 2025"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S008",
+    "A4-S012",
+    "A4-S068",
+    "A4-S021"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Builds agents (chat-client based, multi-provider) and multi-agent workflows; middleware; OpenTelemetry observability; DevUI; durable agents via Durable Task or Azure Durable Functions that persist state and recover from failures.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S066",
+    "A4-S101",
+    "A4-S102"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L3; explicitly separates Agents from graph-based Workflows within one framework",
+   "label": "Verified fact",
+   "src": [
+    "A4-S066"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Python >=3.10 or .NET (Go SDK separate repo); providers incl. Microsoft Foundry, Azure OpenAI, OpenAI, GitHub Copilot SDK; optional Durable Task / Azure Functions",
+   "label": "Verified fact",
+   "src": [
+    "A4-S008",
+    "A4-S066",
+    "A4-S101"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Python packages (agent-framework-core, -foundry, preview -copilotstudio), NuGet for .NET; A2A and MCP; OpenTelemetry",
+   "label": "Verified fact",
+   "src": [
+    "A4-S008",
+    "A4-S066",
+    "A4-S012"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No for the framework; Foundry Hosted Agents provides managed hosting",
+    "label": "Verified fact",
+    "src": [
+     "A4-S066"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (Foundry Hosted Agents; Azure Durable Functions)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S066",
+     "A4-S102"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S008"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (library)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S008"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable to the MIT library; Azure/Foundry certifications out of scope for this record",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Inherits the chosen model provider/hosting (e.g. Azure region)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Microsoft states 1.0 comes with stable APIs and a commitment to long-term support",
+   "label": "Verified fact",
+   "src": [
+    "A4-S012",
+    "A4-S068"
+   ],
+   "conf": "high"
+  },
+  "pricing": {
+   "v": "Free (MIT); hosting and models billed separately",
+   "label": "Verified fact",
+   "src": [
+    "A4-S067"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Durable agents require a Durable Task scheduler or Azure Functions",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Microsoft Foundry, Azure OpenAI, OpenAI, Copilot Studio, GitHub Copilot SDK; A2A; MCP",
+   "label": "Verified fact",
+   "src": [
+    "A4-S066",
+    "A4-S008"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "GA since April 2026; weekly-to-fortnightly minor releases (1.13 on 30 July 2026 to 1.20 on 2 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S008"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "MIT and multi-provider, but first-class integrations are Microsoft Foundry/Azure",
+    "label": "Verified fact",
+    "src": [
+     "A4-S066"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not applicable (Microsoft-owned)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Durable hosting relies on Durable Task / Azure Functions (beta packages)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S101",
+     "A4-S102"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Workflow/agent APIs are MAF-specific; interoperability via A2A/MCP",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Young GA (April 2026) but successor to two mature Microsoft frameworks",
+    "label": "Verified fact",
+    "src": [
+     "A4-S008",
+     "A4-S012"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S008",
+   "A4-S012",
+   "A4-S021",
+   "A4-S066",
+   "A4-S067",
+   "A4-S068",
+   "A4-S101",
+   "A4-S102"
+  ],
+  "stage_a_notes": "Relationship: MAF supersedes Semantic Kernel (README banner) and AutoGen (maintenance mode). Stage B should flag SK/AutoGen references as Superseded. The AG2 fork (ag2 1.1.2, Apache-2.0) continues independently of Microsoft.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-google-adk",
+  "layer": "L3",
+  "original_label": null,
+  "current_name": {
+   "v": "Agent Development Kit (ADK)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114",
+    "A4-S017"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Google",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source, code-first agent framework with a graph-based deterministic Workflow Runtime",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "google-adk 2.11.0 (2 October 2026); 2.0.0 on 19 May 2026; 1.0.0 on 20 May 2025; also Java, Kotlin, Go and TypeScript ports",
+   "label": "Verified fact",
+   "src": [
+    "A4-S017",
+    "A4-S114"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "ADK 2.0 adds a Workflow Runtime (routing, fan-out/fan-in, loops, retry, state, human-in-the-loop, nested workflows) and a Task API for agent-to-agent delegation; optimised for Gemini but model-agnostic",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "19 May 2026: ADK 2.0.0"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S017"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Builds, evaluates and deploys agents and multi-agent hierarchies with tools (OpenAPI, MCP), tool-confirmation HITL, and deterministic graph workflows; deploys to Cloud Run or Vertex AI Agent Engine.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L3 framework; Vertex AI Agent Engine is the managed runtime",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Python (or Java/Kotlin/Go/TS); Gemini or other models",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Libraries; MCP and OpenAPI tools; A2A delegation via Task API",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S114"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (Vertex AI Agent Engine, Cloud Run)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S114"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (library runs inside the customer's own environment)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S114"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes (library)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S114"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable to the library",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Inherits hosting/model choice",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free (Apache-2.0)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S114"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "1.0 May 2025; 2.0 May 2026",
+   "label": "Verified fact",
+   "src": [
+    "A4-S017"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Apache-2.0; Gemini-optimised",
+    "label": "Verified fact",
+    "src": [
+     "A4-S114"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Google Cloud deployment targets",
+    "label": "Verified fact",
+    "src": [
+     "A4-S114"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Framework-specific APIs",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Two major versions in 12 months",
+    "label": "Verified fact",
+    "src": [
+     "A4-S017"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S017",
+   "A4-S114"
+  ],
+  "stage_a_notes": "Added as material omission: hyperscaler agent framework with an explicit deterministic workflow runtime (H2 evidence).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-aws-strands-agentcore",
+  "layer": "L3",
+  "original_label": null,
+  "current_name": {
+   "v": "Strands Agents (open-source SDK) and Amazon Bedrock AgentCore (managed agent runtime and services)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S115",
+    "A4-S116"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Amazon Web Services",
+   "label": "Verified fact",
+   "src": [
+    "A4-S116"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Model-driven agent SDK plus framework-agnostic managed agent platform (Runtime, Memory, Gateway, Identity)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S115",
+    "A4-S116"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "strands-agents 1.58.1 (6 October 2026; 1.0.0 15 July 2025); bedrock-agentcore SDK 1.24.1 (7 October 2026; classifier Alpha)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S018",
+    "A4-S121"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "SDKs Apache-2.0; AgentCore is a proprietary AWS managed service",
+   "label": "Verified fact",
+   "src": [
+    "A4-S018",
+    "A4-S121",
+    "A4-S116"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "AgentCore deploys and operates agents 'using any framework and model' (Strands, LangGraph, CrewAI, AutoGen or custom) with session-isolated Runtime, Memory, Gateway (APIs to MCP tools) and Identity; supports AG-UI protocol.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S116"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L3 framework (Strands) and managed agent runtime (AgentCore); AgentCore Gateway/Identity overlap L4/C4",
+   "label": "Verified fact",
+   "src": [
+    "A4-S116"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S116"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (AgentCore)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S116"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (Strands SDK)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S018"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Strands 1.0 July 2025; AgentCore SDK still Alpha-classified",
+   "label": "Verified fact",
+   "src": [
+    "A4-S018",
+    "A4-S121"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "AgentCore is AWS-only; Strands is portable Apache-2.0",
+    "label": "Verified fact",
+    "src": [
+     "A4-S116",
+     "A4-S018"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "AWS services",
+    "label": "Verified fact",
+    "src": [
+     "A4-S116"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "AgentCore APIs proprietary",
+    "label": "Verified fact",
+    "src": [
+     "A4-S116"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "SDK Alpha",
+    "label": "Verified fact",
+    "src": [
+     "A4-S121"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S018",
+   "A4-S115",
+   "A4-S116",
+   "A4-S121"
+  ],
+  "stage_a_notes": "Added as material omission: managed, framework-agnostic agent runtime on AWS. OpenAI also partners with AWS on Bedrock Managed Agents (A4-S055).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L3-temporal",
+  "layer": "L3",
+  "original_label": null,
+  "current_name": {
+   "v": "Temporal (durable execution platform; Python SDK temporalio)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S019"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Temporal Technologies Inc.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S019"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Durable execution / workflow orchestration engine used as the reliability layer under agent frameworks",
+   "label": "Verified fact",
+   "src": [
+    "A4-S019",
+    "A4-S045",
+    "A4-S058"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "temporalio (Python SDK) 1.34.0 (30 September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S019"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Python SDK MIT; server licence and Temporal Cloud terms not verified in this run",
+   "label": "Verified fact",
+   "src": [
+    "A4-S019"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Runs workflows whose steps (activities) are recorded so execution resumes after failures. Agent frameworks run model calls, tool calls and MCP traffic as Temporal activities (Pydantic AI), offer Temporal integrations for long-running human-in-the-loop agents (OpenAI Agents SDK), or build their workflow product on it (Mistral Workflows).",
+   "label": "Verified fact",
+   "src": [
+    "A4-S045",
+    "A4-S052",
+    "A4-S058"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Cross-cutting reliability substrate beneath L3 (deterministic workflow layer in H2), not an agent framework itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Integrated by Pydantic AI, OpenAI Agents SDK and Mistral Workflows; alternatives DBOS (dbos 3.2.0, MIT) and Restate (restate-sdk 1.0.5)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S045",
+    "A4-S052",
+    "A4-S058",
+    "A4-S020",
+    "A4-S104"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Python SDK since March 2022",
+   "label": "Verified fact",
+   "src": [
+    "A4-S019"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Becomes a hard runtime dependency once workflows are written against it",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Long-established SDK",
+    "label": "Verified fact",
+    "src": [
+     "A4-S019"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S019",
+   "A4-S020",
+   "A4-S045",
+   "A4-S052",
+   "A4-S058",
+   "A4-S104"
+  ],
+  "stage_a_notes": "Added as material omission (graphic lacks workflow durability, per inventory §6). Certifications, pricing and server licence not verified (search budget exhausted; temporal.io blocked).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-hugging-face",
+  "layer": "L2",
+  "original_label": "Hugging Face – models & APIs",
+  "current_name": {
+   "v": "Hugging Face: Hub (models/datasets/Spaces/buckets/Jobs), Inference Providers (routed serverless inference), Inference Endpoints (managed dedicated deployments); Text Generation Inference (TGI) in maintenance mode",
+   "label": "Verified fact",
+   "src": [
+    "A4-S014",
+    "A4-S075",
+    "A4-S081",
+    "A4-S073"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Hugging Face",
+   "label": "Verified fact",
+   "src": [
+    "A4-S074"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Model hub plus inference router and managed dedicated inference service",
+   "label": "Verified fact",
+   "src": [
+    "A4-S075",
+    "A4-S081"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "huggingface_hub client 2.1.1 (1 October 2026); Inference Endpoints natively supports vLLM, TGI, SGLang, llama.cpp and TEI engines",
+   "label": "Verified fact",
+   "src": [
+    "A4-S014",
+    "A4-S081"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Hub client and TGI Apache-2.0; Hub, Inference Providers and Inference Endpoints are proprietary hosted services",
+   "label": "Verified fact",
+   "src": [
+    "A4-S014",
+    "A4-S072",
+    "A4-S081"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "TGI moved to maintenance mode; Hugging Face recommends vLLM and SGLang (and llama.cpp/MLX locally). Inference Providers routes to partner clouds (e.g. Cerebras, Groq, Together, Fireworks, Baseten, Nscale, OVHcloud, Scaleway, Z.ai) with pass-through pricing",
+   "label": "Verified fact",
+   "src": [
+    "A4-S072",
+    "A4-S073",
+    "A4-S075",
+    "A4-S076"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "TGI in maintenance mode 'as of 12/11/2025' (only minor bug fixes, docs and lightweight maintenance)",
+    "Endpoints: AWS H100 instances marked 'Deprecated from December 2025'"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S073",
+    "A4-S072",
+    "A4-S083"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Hub hosts and versions models/datasets with private repos, tokens, resource groups and malware/pickle/secrets scanning. Inference Providers gives one token and API across many third-party providers (OpenAI-compatible, provider selectable by suffix). Inference Endpoints deploys a chosen Hub model on a chosen engine to managed AWS/Azure/GCP instances billed per minute.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S074",
+    "A4-S075",
+    "A4-S081",
+    "A4-S083"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Spans model distribution (L1 adjacency), routing/aggregation (gateway-like, L2/C1) and managed serving (L2). The single tile conflates three products",
+   "label": "Verified fact",
+   "src": [
+    "A4-S075",
+    "A4-S081"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Endpoints run on AWS, Azure or GCP instances; Inference Providers depend on partner providers' own security and retention",
+   "label": "Verified fact",
+   "src": [
+    "A4-S083",
+    "A4-S077"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "huggingface_hub (Python) and JS clients, hf CLI; OpenAI-compatible router; Endpoints REST",
+   "label": "Verified fact",
+   "src": [
+    "A4-S014",
+    "A4-S075"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Hub, Inference Providers)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S075"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (Inference Endpoints on AWS/Azure/GCP)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S083"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "No (AWS PrivateLink private connectivity offered; not BYOC)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S082"
+    ],
+    "conf": "high"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes for open-source engines (TGI) and client libraries only",
+    "label": "Verified fact",
+    "src": [
+     "A4-S072"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type 2 (Hub and Inference Endpoints); GDPR compliant; BAA and GDPR DPA via Enterprise plan",
+   "label": "Verified fact",
+   "src": [
+    "A4-S074",
+    "A4-S082"
+   ],
+   "conf": "high"
+  },
+  "gdpr_residency": {
+   "v": "Storage regions US and EU for Team/Enterprise orgs (APAC, GCC coming); Inference Providers does not store request/response bodies, logs kept up to 30 days; Endpoints do not store payloads, logs kept 30 days",
+   "label": "Verified fact",
+   "src": [
+    "A4-S078",
+    "A4-S077",
+    "A4-S082"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "TLS in transit; AWS PrivateLink for Endpoints; malware, pickle and secrets scanning; resource groups",
+   "label": "Verified fact",
+   "src": [
+    "A4-S082",
+    "A4-S074"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "SSO (SAML 2.0/OIDC) on Team & Enterprise, Managed SSO on Enterprise Plus, SCIM, RBAC, audit logs (Team & Enterprise)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S080",
+    "A4-S079",
+    "A4-S082"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Team, Enterprise and Enterprise Plus plans",
+   "label": "Verified fact",
+   "src": [
+    "A4-S080"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Inference Providers: provider rates passed through with no HF markup; PRO and Team/Enterprise seats include US$2.00/month compute credits. Endpoints: hourly instance rates billed per minute, e.g. AWS L4 x1 US$0.80/h, AWS H200 x1 US$5/h",
+   "label": "Verified fact",
+   "src": [
+    "A4-S076",
+    "A4-S083"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Endpoint cost = instance-hours (GPU type and count) billed per minute",
+   "label": "Verified fact",
+   "src": [
+    "A4-S083"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "Partners: Baseten, Cerebras, Cohere, DeepInfra, Fal, Featherless, Fireworks, Groq, Novita, Nscale, OVHcloud, Public AI, Replicate, Scaleway, Together, WaveSpeed, Z.ai; engines vLLM, SGLang, llama.cpp, TEI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S075",
+    "A4-S081"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Hub client since 2020; TGI superseded by vLLM/SGLang",
+   "label": "Verified fact",
+   "src": [
+    "A4-S014",
+    "A4-S073"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Inference Providers pass-through; models portable from Hub",
+    "label": "Verified fact",
+    "src": [
+     "A4-S076"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Inference Providers relies on third-party providers' security and retention",
+    "label": "Verified fact",
+    "src": [
+     "A4-S077"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "OpenAI-compatible routing reduces API lock-in",
+    "label": "Verified fact",
+    "src": [
+     "A4-S075"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "TGI in maintenance mode",
+    "label": "Verified fact",
+    "src": [
+     "A4-S073"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S014",
+   "A4-S072",
+   "A4-S073",
+   "A4-S074",
+   "A4-S075",
+   "A4-S076",
+   "A4-S077",
+   "A4-S078",
+   "A4-S079",
+   "A4-S080",
+   "A4-S081",
+   "A4-S082",
+   "A4-S083"
+  ],
+  "stage_a_notes": "A19 resolved: split into Hub, Inference Providers (router), Inference Endpoints (managed dedicated serving) and TGI (maintenance mode). The TGI date '12/11/2025' is ambiguous (11 December or 12 November 2025); record verbatim.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-openrouter",
+  "layer": "L2",
+  "original_label": "OpenRouter – multi-provider",
+  "current_name": {
+   "v": "OpenRouter",
+   "label": "Verified fact",
+   "src": [
+    "A4-S096",
+    "A4-S107"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "OpenRouter",
+   "label": "Verified fact",
+   "src": [
+    "A4-S096"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Hosted multi-provider model router / aggregator with gateway-style governance (budgets, allowlists, ZDR, regional routing)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S111",
+    "A4-S109"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Official Python SDK openrouter 1.3.32 (7 October 2026; first release 13 November 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S096"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary SaaS; SDK Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A4-S096"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Enterprise features: workspaces, workspace budgets, guardrails (budget limits, model/provider allowlists, ZDR, data regions, prompt-injection and sensitive-info guardrails), SSO and SCIM group mappings, EU/US in-region routing",
+   "label": "Verified fact",
+   "src": [
+    "A4-S112",
+    "A4-S111",
+    "A4-S109"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Single API to many models and providers with routing, fallbacks and provider selection; passes through provider pricing; lets organisations enforce ZDR, regions, budgets and model/provider allowlists per workspace, key or member.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S113",
+    "A4-S108",
+    "A4-S111"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Model access router (L2) with control-plane features overlapping C1 (AI gateway) but as a third-party SaaS in the data path",
+   "label": "Verified fact",
+   "src": [
+    "A4-S111"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Underlying model providers; their data policies (OpenRouter tracks per-endpoint retention/training policy)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S108"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "OpenAI-compatible API, @openrouter/sdk and Python SDK; BYOK; Datadog/Braintrust broadcast",
+   "label": "Verified fact",
+   "src": [
+    "A4-S109",
+    "A4-S113",
+    "A4-S096"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S107"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S107"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S107"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S107"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Prompts/responses not stored unless the customer opts in (logging or product-use for 1% discount); metadata stored. ZDR enforceable globally, per model group, per guardrail or per request. In-region routing for EU and US (eu.openrouter.ai / us.openrouter.ai) on Business and Enterprise plans",
+   "label": "Verified fact",
+   "src": [
+    "A4-S107",
+    "A4-S108",
+    "A4-S109"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Guardrails for prompt injection, sensitive information and secret formats; ZDR does not cover plugins/tools such as web search",
+   "label": "Verified fact",
+   "src": [
+    "A4-S111",
+    "A4-S108"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "SSO (Okta, Entra ID, Google Workspace, custom SAML) on Enterprise plans; SCIM group mappings; org admin roles",
+   "label": "Verified fact",
+   "src": [
+    "A4-S110",
+    "A4-S112"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "Business and Enterprise plans",
+   "label": "Verified fact",
+   "src": [
+    "A4-S109"
+   ],
+   "conf": "high"
+  },
+  "pricing": {
+   "v": "Provider pricing passed through without markup; a fee is charged when purchasing credits (percentage rendered dynamically, not captured); BYOK free allowance then a percentage fee",
+   "label": "Verified fact",
+   "src": [
+    "A4-S113"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Many providers; coding-agent launchers (ori) for Claude Code, Codex, OpenCode",
+   "label": "Verified fact",
+   "src": [
+    "A4-S112"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "OpenAI-compatible API limits code lock-in",
+    "label": "Verified fact",
+    "src": [
+     "A4-S109"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Third-party SaaS dependency in the inference path",
+    "label": "Verified fact",
+    "src": [
+     "A4-S107"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Router-specific features (guardrails, model variants) are proprietary",
+    "label": "Verified fact",
+    "src": [
+     "A4-S111"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S096",
+   "A4-S107",
+   "A4-S108",
+   "A4-S109",
+   "A4-S110",
+   "A4-S111",
+   "A4-S112",
+   "A4-S113"
+  ],
+  "stage_a_notes": "Docs read from OpenRouter's public docs source repository (raw.githubusercontent.com/OpenRouterTeam/docs), which is served at openrouter.ai/docs. Certifications and funding not verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-together-ai",
+  "layer": "L2",
+  "original_label": "Together AI – open-source cloud",
+  "current_name": {
+   "v": "Together AI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S093"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Together AI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S093"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Managed inference cloud for open-weight models (serverless and dedicated), fine-tuning",
+   "label": "Verified fact",
+   "src": [
+    "A4-S093",
+    "A4-S075"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "together SDK 2.40.0 (7 October 2026); also an Inference Providers partner on Hugging Face",
+   "label": "Verified fact",
+   "src": [
+    "A4-S093",
+    "A4-S075"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary cloud service; official Python SDK Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A4-S093"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "SDK/CLI exposes inference, fine-tuning, files, models, GPU clusters (with regions, GPU types and drivers) and 'Jig' container deployments (beta)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S093"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Managed inference/serving (L2); routers such as OpenRouter and Hugging Face Inference Providers sit in front of it",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Official Python SDK; listed as Hugging Face Inference Providers partner",
+   "label": "Verified fact",
+   "src": [
+    "A4-S093",
+    "A4-S075"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S093"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S093"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S093"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Hugging Face Inference Providers partner",
+   "label": "Verified fact",
+   "src": [
+    "A4-S075"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S075",
+   "A4-S093"
+  ],
+  "stage_a_notes": "Coverage gap: SOC 2/ISO/HIPAA, ZDR/retention, EU region, SSO/RBAC, pricing and funding could not be verified in this run (vendor domains blocked; shared web-search budget exhausted before this product was reached). Re-run required.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-fireworks-ai",
+  "layer": "L2",
+  "original_label": "Fireworks AI – fast inference",
+  "current_name": {
+   "v": "Fireworks AI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S094"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Fireworks AI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S094"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Managed inference cloud for open-weight models (serverless and dedicated), fine-tuning",
+   "label": "Verified fact",
+   "src": [
+    "A4-S094",
+    "A4-S075"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "fireworks-ai SDK 1.2.20 (6 October 2026); also an Inference Providers partner on Hugging Face",
+   "label": "Verified fact",
+   "src": [
+    "A4-S094",
+    "A4-S075"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary cloud service; official Python SDK Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A4-S094"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "SDK exposes inference, dedicated deployments, fine-tuning (JSONL datasets) and batch inference jobs",
+   "label": "Verified fact",
+   "src": [
+    "A4-S094"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Managed inference/serving (L2); routers such as OpenRouter and Hugging Face Inference Providers sit in front of it",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Official Python SDK; listed as Hugging Face Inference Providers partner",
+   "label": "Verified fact",
+   "src": [
+    "A4-S094",
+    "A4-S075"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S094"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S094"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S094"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Hugging Face Inference Providers partner",
+   "label": "Verified fact",
+   "src": [
+    "A4-S075"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S075",
+   "A4-S094"
+  ],
+  "stage_a_notes": "Coverage gap: SOC 2/ISO/HIPAA, ZDR/retention, EU region, SSO/RBAC, pricing and funding could not be verified in this run (vendor domains blocked; shared web-search budget exhausted before this product was reached). Re-run required.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-cerebras",
+  "layer": "L2",
+  "original_label": "Cerebras – ultra-scale cloud",
+  "current_name": {
+   "v": "Cerebras (Cerebras Inference / Cerebras Cloud)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S095"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Cerebras Systems",
+   "label": "Verified fact",
+   "src": [
+    "A4-S095"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "AI hardware vendor (Wafer-Scale Engine-3, CS-3 systems) that also operates an inference API; on-premise systems available",
+   "label": "Verified fact",
+   "src": [
+    "A4-S095"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "cerebras-cloud-sdk 1.91.0 (16 July 2026); hardware WSE-3 / CS-3",
+   "label": "Verified fact",
+   "src": [
+    "A4-S095"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary hardware and cloud service; SDK Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A4-S095"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Provides high-speed inference via the Cerebras REST API (chat and text completions) on CS-3 systems; access via Cerebras Cloud or on-premise deployments.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S095"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Both chip/system vendor and inference provider; also an Inference Providers partner on Hugging Face. The graphic's 'ultra-scale cloud' omits the hardware business",
+   "label": "Verified fact",
+   "src": [
+    "A4-S095",
+    "A4-S075"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S095"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S095"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S095"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Yes (on-premise CS-3 systems)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S095"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Proprietary hardware stack",
+    "label": "Verified fact",
+    "src": [
+     "A4-S095"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S075",
+   "A4-S095"
+  ],
+  "stage_a_notes": "Coverage gap: IPO/funding, certifications, retention, EU region and pricing not verified (vendor domains blocked; search budget exhausted).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-ollama",
+  "layer": "L2",
+  "original_label": "Ollama – run locally",
+  "current_name": {
+   "v": "Ollama (local runtime) with Ollama Cloud (hosted cloud models)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S084",
+    "A4-S015"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Ollama",
+   "label": "Verified fact",
+   "src": [
+    "A4-S086"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Local LLM runtime and model packager, plus an optional hosted cloud-model service",
+   "label": "Verified fact",
+   "src": [
+    "A4-S084"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Official Python client ollama 0.6.3 (29 September 2026); server/app version not retrieved",
+   "label": "Verified fact",
+   "src": [
+    "A4-S015"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, MIT (runtime); Ollama Cloud is a hosted service with plans",
+   "label": "Verified fact",
+   "src": [
+    "A4-S086",
+    "A4-S084"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Cloud models run in Ollama's cloud from apps, CLI or API with an API key; launchers for coding agents (Claude Code, Codex, OpenCode); OpenAI- and Anthropic-compatible APIs",
+   "label": "Verified fact",
+   "src": [
+    "A4-S084"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "Cloud models introduced (e.g. *-cloud tags; gemma4:cloud); cloud features can be disabled (OLLAMA_NO_CLOUD=1)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S015",
+    "A4-S085"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "Runs open-weight models locally (no prompt visibility to Ollama when local) and optionally offloads larger models to Ollama's cloud; embeddings; OpenAI/Anthropic-compatible endpoints.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S085",
+    "A4-S084",
+    "A4-S015"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Developer/edge local runtime (L2); not a multi-tenant production serving engine. Ollama Cloud adds a hosted inference option",
+   "label": "Verified fact",
+   "src": [
+    "A4-S084"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Ollama Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S084"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (Ollama Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S084"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S084"
+    ],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S085"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S085"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Local: Ollama does not see prompts. Cloud: prompts/responses processed to serve requests but not stored or logged and never used for training; basic account info and usage metadata collected",
+   "label": "Verified fact",
+   "src": [
+    "A4-S085",
+    "A4-S084"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Cloud features can be disabled for local-only mode (disable_ollama_cloud / OLLAMA_NO_CLOUD)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S085"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Local free (MIT); cloud usage on plans (pricing page referenced, not retrieved)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S084"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Local cost is the user's own hardware (GPU/Apple silicon RAM)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Large community integration list; Google Cloud Run tutorial; Claude Code/Codex/OpenCode launchers",
+   "label": "Verified fact",
+   "src": [
+    "A4-S084"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "MIT runtime; models portable",
+    "label": "Verified fact",
+    "src": [
+     "A4-S086"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "OpenAI/Anthropic-compatible APIs (subset)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S084"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S015",
+   "A4-S084",
+   "A4-S085",
+   "A4-S086"
+  ],
+  "stage_a_notes": "Graphic's 'run locally' is now incomplete: Ollama offers hosted cloud models. Funding and certifications not verified.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-lm-studio",
+  "layer": "L2",
+  "original_label": "LM Studio – desktop app",
+  "current_name": {
+   "v": "LM Studio (desktop app) with lms CLI and Python/JS SDKs",
+   "label": "Verified fact",
+   "src": [
+    "A4-S087",
+    "A4-S016"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "LM Studio",
+   "label": "Verified fact",
+   "src": [
+    "A4-S088"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Desktop application for running local models, with a local API server",
+   "label": "Verified fact",
+   "src": [
+    "A4-S087"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "lmstudio Python SDK 1.5.0 (22 August 2025); lms CLI ships with LM Studio 0.2.22 and newer; desktop app version not retrieved",
+   "label": "Verified fact",
+   "src": [
+    "A4-S016",
+    "A4-S087"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "lms CLI MIT (Copyright 2024 LM Studio); desktop application licence and commercial-use terms not verified",
+   "label": "Verified fact",
+   "src": [
+    "A4-S088"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Downloads and runs models locally; lms CLI starts/stops the local API server and lists models; SDKs allow programmatic access.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S087",
+    "A4-S016"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Developer-desktop runtime (L2); not a production serving tier",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S087"
+    ],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S087"
+    ],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S087"
+    ],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S087"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S087"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable (desktop software)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Python SDK last released August 2025",
+    "label": "Verified fact",
+    "src": [
+     "A4-S016"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S016",
+   "A4-S087",
+   "A4-S088"
+  ],
+  "stage_a_notes": "Licence/commercial-use terms for the app could not be verified (only CLI MIT licence). Re-check lmstudio.ai terms.",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-vllm",
+  "layer": "L2",
+  "original_label": "vLLM – high-throughput",
+  "current_name": {
+   "v": "vLLM",
+   "label": "Verified fact",
+   "src": [
+    "A4-S009",
+    "A4-S063"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "vLLM project (community; originated at UC Berkeley Sky Computing Lab); lead maintainers include Woosuk Kwon, Zhuohan Li, Simon Mo, Kaichao You and Robert Shaw",
+   "label": "Verified fact",
+   "src": [
+    "A4-S063",
+    "A4-S064"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source LLM inference and serving engine",
+   "label": "Verified fact",
+   "src": [
+    "A4-S063"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "vllm 0.31.0 (5 October 2026); 28 releases in 2026 (0.14.0 in January to 0.31.0)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S009"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A4-S009"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "PagedAttention, continuous batching, prefix caching, quantisation (FP8, MXFP4, NVFP4, INT4/8, GPTQ/AWQ, GGUF), speculative decoding (n-gram, suffix, EAGLE, DFlash), disaggregated prefill/decode/encode; OpenAI-compatible server plus Anthropic Messages API and gRPC; 200+ architectures; NVIDIA, AMD, Intel GPUs, CPUs and plugins (TPU, Gaudi, Ascend, Apple Silicon)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S063"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "High-throughput, memory-efficient inference and serving library and server for LLMs, multimodal, embedding and reward models.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S063"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Serving engine (L2) underneath managed services (e.g. Hugging Face Endpoints) and distributed orchestration layers (llm-d, NVIDIA Dynamo)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S081",
+    "A4-S089",
+    "A4-S090"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Python <3.15,>=3.10; PyTorch; accelerators (NVIDIA/AMD/Intel GPUs, CPUs, hardware plugins)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S009",
+    "A4-S063"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "OpenAI-compatible API, Anthropic Messages API, gRPC; Python library",
+   "label": "Verified fact",
+   "src": [
+    "A4-S063"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S063"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (via third parties, e.g. Hugging Face Inference Endpoints)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S081"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Yes (self-deployed)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S063"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S063"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S063"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S063"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable (open-source software)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free (Apache-2.0)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S009"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Dominated by accelerator hours and memory; throughput features (batching, quantisation, prefix caching) drive cost per token",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Hugging Face models; llm-d builds on vLLM; Dynamo supports vLLM backend; sponsors listed on vllm.ai",
+   "label": "Verified fact",
+   "src": [
+    "A4-S063",
+    "A4-S089",
+    "A4-S090"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "README: 'over 2000 contributors' from 'many dozens of academic institutions and companies'",
+   "label": "Verified fact",
+   "src": [
+    "A4-S063"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "First PyPI release June 2023; still 0.x; roughly fortnightly releases",
+   "label": "Verified fact",
+   "src": [
+    "A4-S009"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Apache-2.0, open APIs",
+    "label": "Verified fact",
+    "src": [
+     "A4-S009",
+     "A4-S063"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not applicable (community project)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "PyTorch and accelerator kernels",
+    "label": "Verified fact",
+    "src": [
+     "A4-S063"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "OpenAI-compatible API",
+    "label": "Verified fact",
+    "src": [
+     "A4-S063"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Pre-1.0 versioning with fast cadence",
+    "label": "Verified fact",
+    "src": [
+     "A4-S009"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S009",
+   "A4-S063",
+   "A4-S064",
+   "A4-S081",
+   "A4-S089",
+   "A4-S090"
+  ],
+  "stage_a_notes": "Governance: governance doc defines Core Maintainers as the TSC 'as defined by Linux Foundation Project Governance' (A4-S064), consistent with foundation hosting, but PyTorch Foundation membership itself was not verified from a primary page in this run (pytorch.org blocked; search budget exhausted).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-sglang",
+  "layer": "L2",
+  "original_label": "SGLang – efficient engine",
+  "current_name": {
+   "v": "SGLang",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010",
+    "A4-S065"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "SGLang project, hosted by LMSYS (non-profit open-source organisation)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S065",
+    "A4-S010"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-source inference/serving framework for LLMs, VLMs and diffusion models; RL rollout backend",
+   "label": "Verified fact",
+   "src": [
+    "A4-S065"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "sglang 0.5.21 (1 October 2026); 21 releases in 2026",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010",
+    "A4-S128"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Optimised for agentic workloads, RL rollouts and large-scale serving: RadixAttention prefix caching, PD disaggregation, speculative decoding (DFlash, Spec V2, June 2026), FP4/FP8 quantisation; TPU support with Google and RadixArk (July 2026); day-0 support for new open models (e.g. DeepSeek-V4, Kimi K3)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010",
+    "A4-S065"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "High-performance serving framework delivering low-latency, high-throughput inference from a single GPU to large clusters, OpenAI-API compatible, with broad model and hardware support (NVIDIA, AMD, Intel Xeon, Google TPU, Ascend).",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Serving engine (L2); natively supported by Hugging Face Inference Endpoints and as a Dynamo backend",
+   "label": "Verified fact",
+   "src": [
+    "A4-S081",
+    "A4-S090"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Python >=3.10; accelerators; Docker image lmsysorg/sglang",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010",
+    "A4-S065"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "OpenAI-compatible API; Python runtime; Docker",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010",
+    "A4-S065"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S065"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (via third parties, e.g. Hugging Face Inference Endpoints)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S081"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S065"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S065"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S065"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S065"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable (open-source software)",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free (Apache-2.0)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "RL frameworks Miles (RadixArk), slime, AReaL, Tunix, verl; Dynamo; Hugging Face Endpoints",
+   "label": "Verified fact",
+   "src": [
+    "A4-S065",
+    "A4-S090",
+    "A4-S081"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Project states it powers over 400,000 GPUs worldwide",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010"
+   ],
+   "conf": "high"
+  },
+  "maturity": {
+   "v": "First release January 2024; still 0.x; frequent releases",
+   "label": "Verified fact",
+   "src": [
+    "A4-S010"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Apache-2.0",
+    "label": "Verified fact",
+    "src": [
+     "A4-S128"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Hosted by LMSYS; enterprise contact via sglang@lmsys.org",
+    "label": "Verified fact",
+    "src": [
+     "A4-S065"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "OpenAI-compatible API",
+    "label": "Verified fact",
+    "src": [
+     "A4-S010"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Pre-1.0 versioning",
+    "label": "Verified fact",
+    "src": [
+     "A4-S010"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S010",
+   "A4-S065",
+   "A4-S081",
+   "A4-S090",
+   "A4-S128"
+  ],
+  "stage_a_notes": "RadixArk appears in project news (joint TPU work with Google, July 2026) and as owner of the Miles RL framework; its corporate relationship to SGLang governance was not verified. Governance: hosted by LMSYS non-profit (primary).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-nvidia-dynamo",
+  "layer": "L2",
+  "original_label": null,
+  "current_name": {
+   "v": "NVIDIA Dynamo",
+   "label": "Verified fact",
+   "src": [
+    "A4-S090",
+    "A4-S098"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "NVIDIA",
+   "label": "Verified fact",
+   "src": [
+    "A4-S098"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Distributed inference orchestration / optimisation layer above inference engines",
+   "label": "Verified fact",
+   "src": [
+    "A4-S090"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "ai-dynamo 1.5.1 (7 October 2026; PyPI classifier Beta); first release March 2025",
+   "label": "Verified fact",
+   "src": [
+    "A4-S098"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open source, Apache-2.0",
+   "label": "Verified fact",
+   "src": [
+    "A4-S098",
+    "A4-S090"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "'The orchestration layer above inference engines — it doesn't replace SGLang, TensorRT-LLM, or vLLM': disaggregated serving, KV-aware routing, multi-tier KV caching (KVBM), SLA-based planner and autoscaling; 1.0 added zero-config deploy, agentic-inference hints and multimodal E/P/D.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S090"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Inference optimisation sub-layer between serving engines and gateways (H1)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S090"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S090"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S090"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S090"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S090"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S090"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Free (Apache-2.0)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S098"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Backends SGLang, TensorRT-LLM, vLLM; integrates LMCache (September 2025); LangChain and NeMo Agent Toolkit integrations",
+   "label": "Verified fact",
+   "src": [
+    "A4-S090",
+    "A4-S091"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Apache-2.0 but NVIDIA-led",
+    "label": "Verified fact",
+    "src": [
+     "A4-S090"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Optimised for NVIDIA GPUs",
+    "label": "Verified fact",
+    "src": [
+     "A4-S090"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Beta classifier",
+    "label": "Verified fact",
+    "src": [
+     "A4-S098"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S090",
+   "A4-S091",
+   "A4-S098"
+  ],
+  "stage_a_notes": "Added as material omission (H1 optimisation layer).",
+  "last_verified": "2026-10-07"
+ },
+ {
+  "id": "L2-llm-d",
+  "layer": "L2",
+  "original_label": null,
+  "current_name": {
+   "v": "llm-d",
+   "label": "Verified fact",
+   "src": [
+    "A4-S089"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "llm-d project (CNCF sandbox; founded by Red Hat, Google Cloud, IBM Research, CoreWeave and NVIDIA)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S089",
+    "A4-S062"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Kubernetes-native distributed inference serving stack above model servers",
+   "label": "Verified fact",
+   "src": [
+    "A4-S089"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Launched 20 May 2025 (Google Cloud as founding contributor) building on vLLM and the Gateway API Inference Extension (GKE Inference Gateway)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S062"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Intelligent prefix-cache- and load-aware routing, tiered KV-cache management, PD disaggregation and wide expert parallelism, SLO-aware autoscaling and batch APIs, on top of vLLM/SGLang.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S089"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Inference optimisation / routing sub-layer above serving engines (H1)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S089"
+   ],
+   "conf": "high"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A4-S089"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S089"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S089"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S089"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S089"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "vLLM, SGLang, Kubernetes, KServe; partners incl. AMD, Cisco, Hugging Face, Intel, Lambda, Mistral AI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S089",
+    "A4-S062"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not applicable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Kubernetes",
+    "label": "Verified fact",
+    "src": [
+     "A4-S089"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "CNCF sandbox stage",
+    "label": "Verified fact",
+    "src": [
+     "A4-S089"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A4-S062",
+   "A4-S089"
+  ],
+  "stage_a_notes": "Added as material omission (H1).",
+  "last_verified": "2026-10-07"
+ }
+]

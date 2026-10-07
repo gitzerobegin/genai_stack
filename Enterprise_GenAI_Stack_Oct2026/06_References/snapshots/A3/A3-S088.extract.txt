@@ -1,0 +1,8 @@
+SOURCE ID: A3-S088
+URL: https://www.tavily.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Tavily SOC 2 security trust center enterprise pricing (allowed_domains tavily.com, docs.tavily.com, trust.tavily.com)
+========================================================================
+
+Search-tool summary of tavily.com/pricing, docs.tavily.com/faq/faq, help.tavily.com: 'Secure & Scalable - SOC 2 certified, zero data retention, and built to handle high-volume workloads.' Help center: 'SOC 2 certified; GDPR compliant; CCPA compliant'; regular security audits, strict access controls, cybersecurity insurance. Privacy policy: 'For more information about our security program and certifications, please visit our Trust Center at https://trust.tavily.com/.' Trust center landing page only; report type (Type I/II) and date not confirmed. Enterprise: 'Custom, for corporations, with custom API calls, custom rate limits, and enterprise-grade support and SLAs'; FAQ: personal Slack channel; dedicated account manager; AI engineer; uptime and support SLAs. 'Pay-as-you-go: $0.008 per credit. Monthly plans: $0.0075 - $0.005 per credit.' Older help article: Startup plan $220/month (may be stale).

@@ -1,0 +1,8 @@
+SOURCE ID: A3-S091
+URL: https://docs.letta.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Letta Cloud pricing SOC 2 enterprise security funding (allowed_domains letta.com, docs.letta.com)
+========================================================================
+
+Search-tool summary: Letta's pricing page lists a $20/month Pro plan with a usage quota, pay-as-you-go overage, and up to 20 stateful agents. Pricing on the Letta API Platform is usage-based; LLM usage is charged based on the underlying token costs of the model used; you can start for free by bringing your own model keys. Enterprise tier: volume-based pricing, increased quotas, role-based access control, SAML/OIDC single sign-on, and dedicated support. For cloud agents, the sandbox is where the agent's tools run, while its memory and conversation state remain hosted in Letta Cloud (docs.letta.com/platform/cloud-agents). No SOC 2 information found.
