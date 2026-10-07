@@ -1,0 +1,12 @@
+SOURCE ID: A7-S104
+URL: https://www.modelop.com/blog/a-milestone-moment-modelop-raises-10-million-to-accelerate-the-growth-of-its-leading-ai-governance-software
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ModelOp funding company headquarters SaaS on-premises deployment SOC 2 pricing
+========================================================================
+
+ModelOp blog: "ModelOp Raises $10 Million to accelerate the growth of Its leading AI Governance software, led by investor Baird Capital"; investment to fuel continued growth of its AI governance software (date of round not shown in snippet).
+LinkedIn company page (secondary): Chicago, Illinois; privately held; founded 2016 (a later company statement says building its AI delivery foundation since 2018). Crunchbase (secondary): Chicago; Series B; 11-50 employees.
+Gartner Peer Insights listing "ModelOp Center": platform connects to AI tools, enterprise systems and infrastructure "through out-of-the-box connectors and REST APIs"; a profile describes operation across hybrid environments.
+Yahoo Finance / press release: "ModelOp Named a Visionary in the 2026 Gartner Magic Quadrant for AI Governance Platforms".
+No ModelOp-specific SOC 2, deployment-model or pricing information found.

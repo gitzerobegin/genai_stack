@@ -1,0 +1,8 @@
+SOURCE ID: A7-S105
+URL: https://www.prnewswire.com/news-releases/collibra-acquires-trail-ml-to-automate-ai-governance-from-policy-to-production-302897376.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Collibra trail ML acquisition October 2026
+========================================================================
+
+Press release dated October 5, 2026: "Collibra, the enterprise AI control plane, today announced the acquisition of trail ML, a Munich-based AI governance company founded in 2023 by Anna Spitznagel, Nikolaus Pinger and Sven Hölzel." "Combination brings agent-powered automation, continuous assessment and runtime control to Collibra." trail ML software "can evaluate evidence, assess whether controls are working, identify compliance gaps and automate governance workflows"; runtime layer "blocks an action that breaks policy before the agent takes it"; supports "the EU AI Act, ISO 42001 and NIST's AI Risk Management Framework". Price not disclosed; no integration timetable (reporting: The Next Web, CDO Magazine). Startup claims 70% faster compliance execution and 4x faster AI deployment (customer outcomes, unverified).

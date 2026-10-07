@@ -1,0 +1,8 @@
+SOURCE ID: A7-S106
+URL: https://www.collibra.com/company/trust-center
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Collibra SOC 2 ISO 27001 trust center cloud regions
+========================================================================
+
+Collibra trust center: "Collibra holds multiple certifications and attestations that demonstrate our strong control environment, including: SOC 1, SOC 2, ISO 27001, ISO 27017 (Cloud Security), ISO 27018 (Privacy), ISO 42001 (AI Management Systems), FedRAMP (US Government), ITAR (International), HIPAA (Healthcare) and TISAX (German Automotive)." Platform "can be deployed across multiple industry-leading public clouds" (no region list). Aligns with the Cloud Security Alliance STAR Program and publishes its CSA self-assessment on the Registry. SOC 2 type and audit dates not shown in snippet.

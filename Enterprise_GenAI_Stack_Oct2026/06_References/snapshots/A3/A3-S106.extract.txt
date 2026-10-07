@@ -1,0 +1,8 @@
+SOURCE ID: A3-S106
+URL: https://mem0.ai/guide/solving-soc-2-compliance-enterprise-ai-memory
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mem0 trust center SOC 2 Type II EU data residency region (allowed_domains mem0.ai)
+========================================================================
+
+Search-tool summary: Homepage and About page: 'Mem0 is SOC 2 (Type 1), HIPAA, and GDPR compliant.' A Vector Databases article: 'Mem0 is HIPAA-ready and SOC 2 Type I certified, with a SOC 2 Type II audit in progress.' Another Mem0 guide says 'its security information covers SOC 2 Type II, GDPR, and HIPAA support for Enterprise plans' (only page claiming Type II; no report cited). Mem0 says 'compliance status changes as audits complete'. No EU hosting region named; residency addressed via self-hosted, private cloud or air-gapped deployment. Audit logs and on-prem deployment sit on the Enterprise plan. Trust Center page not found in results.

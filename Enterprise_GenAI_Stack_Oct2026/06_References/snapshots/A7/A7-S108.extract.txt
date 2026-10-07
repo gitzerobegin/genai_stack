@@ -1,0 +1,8 @@
+SOURCE ID: A7-S108
+URL: https://pitchbook.com/profiles/company/459035-74
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Credo AI SOC 2 Type II trust center deployment private cloud funding 2025 2026
+========================================================================
+
+PitchBook and Caplight: total funding $39.3M; Caplight lists a Series B with a $101M estimated valuation. StartupIntros: $42.0M total across 3 rounds; most recent $21.0M Series B in July 2024. PitchBook lists an accelerator-type deal dated April 2026 with no disclosed amount. No 2025 or 2026 funding round found.

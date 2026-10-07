@@ -1,0 +1,10 @@
+SOURCE ID: A7-S107
+URL: https://trust.credo.ai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Credo AI SOC 2 Type II trust center deployment private cloud funding 2025 2026
+========================================================================
+
+trust.credo.ai: SOC 2 Type II report dated 12.31.25 and a Q3 2026 bridge letter; company "maintains a SOC 2 Type II examination". Subprocessors: Amazon Web Services for cloud hosting and data storage in the United States; Microsoft Azure for cloud hosting and data storage in Europe.
+credo.ai/soc-2-type-ii: audit covers security, availability and confidentiality, performed by an independent AICPA-certified service auditor; committed to an annual SOC 2 audit.
+No private-cloud or self-hosted option found.
