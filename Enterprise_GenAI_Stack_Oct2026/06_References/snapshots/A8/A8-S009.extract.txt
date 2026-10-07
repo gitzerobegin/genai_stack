@@ -1,0 +1,12 @@
+SOURCE ID: A8-S009
+URL: https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/publication/2025/november/ai-roundtable-oct-2025.pdf
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SS1/23 model risk management principles for banks effective 17 May 2024 artificial intelligence (bankofengland.co.uk)
+========================================================================
+
+Search result title: "October 2025 Model Risk Management AI and ML Roundtable" (bankofengland.co.uk, published November 2025)
+Search-tool extract:
+- The PRA held two roundtable sessions in October [2025] with Chief Risk Officers from some of the largest PRA-regulated firms on applying the SS1/23 principles to AI and machine learning.
+- Topics included risk appetite, model tiering, explainability and interpretability, data and overfitting, independent validation, and ongoing model monitoring.
+- "due to their opaque nature and the lack of transparency compared to 'traditional' models, AI and ML models introduce higher uncertainty"; setting risk appetite before deploying such models could help firms avoid deploying models beyond their risk tolerance.

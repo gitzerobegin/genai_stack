@@ -1,0 +1,10 @@
+SOURCE ID: A1-S021
+URL: https://clickhouse.com/blog/clickhouse-raises-400-million-series-d-acquires-langfuse-launches-postgres
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Langfuse acquired ClickHouse announcement
+========================================================================
+
+Search result titles: "ClickHouse raises $400M Series D led by Dragoneer to accelerate expansion across analytics and AI infrastructure" (clickhouse.com/blog/clickhouse-raises-400-million-series-d-acquires-langfuse-launches-postgres); "ClickHouse welcomes Langfuse: The future of open-source LLM observability" (clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability).
+Search-tool summary: ClickHouse acquired Langfuse, and the deal was announced in January 2026. Third-party comparisons date the public announcement to 16 January 2026. ClickHouse made the news alongside a funding round: its announcement covered the close of a $400 million Series D financing and the Langfuse purchase. Financial terms were not disclosed.
+ClickHouse's blog welcomed co-founders Marc Klingen, Max Deichmann, and Clemens Rawert, along with the rest of the team and community. ClickHouse's stated aim is to pair Langfuse's developer-focused tooling with its analytics engine ... combining Langfuse's developer-first approach with ClickHouse's core analytical capabilities. ClickHouse said Langfuse closed 2025 with over 20K GitHub stars and more than 26M+ SDK installs per month.

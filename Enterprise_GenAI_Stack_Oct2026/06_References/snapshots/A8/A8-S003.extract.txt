@@ -1,0 +1,12 @@
+SOURCE ID: A8-S003
+URL: https://www.occ.gov/news-issuances/news-releases/2026/nr-occ-2026-29.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: banking agencies request for information artificial intelligence generative agentic 2026
+========================================================================
+
+Search result title: "OCC Issues Updated Model Risk Management Guidance" (OCC News Release 2026-29), occ.gov
+Search-tool extract:
+- The guidance sets forth no enforceable standards or prescriptive requirements, and non-compliance will not result in supervisory criticism.
+- "the OCC, Federal Reserve Board, and FDIC plan to issue in the near future a request for information that addresses model risk management generally and considers, in particular, banks' use of AI, including generative AI and agentic AI and AI-based models."
+- Most recent sources (as of search) still describe the RFI as upcoming; no published Federal Register RFI found in results.

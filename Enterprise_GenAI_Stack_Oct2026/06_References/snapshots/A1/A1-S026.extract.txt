@@ -1,0 +1,9 @@
+SOURCE ID: A1-S026
+URL: https://techcrunch.com/2026/03/09/openai-acquires-promptfoo-to-secure-its-ai-agents/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Promptfoo acquisition OpenAI 2026
+========================================================================
+
+Search result title: "OpenAI acquires Promptfoo to secure its AI agents" (TechCrunch, 9 March 2026).
+Search-tool summary: Ian Webster and Michael D'Angelo founded the company in 2024. It reports that more than 25% of Fortune 500 companies use its products. Promptfoo raised about $23 million in total and was valued at $86 million after its July 2025 round, according to PitchBook. OpenAI did not disclose the value of the transaction.

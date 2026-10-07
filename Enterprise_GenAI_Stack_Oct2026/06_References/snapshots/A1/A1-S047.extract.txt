@@ -1,0 +1,12 @@
+SOURCE ID: A1-S047
+URL: https://arize.com/pricing/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Arize AX pricing Phoenix Free AX Pro AX Enterprise per month spans
+========================================================================
+
+Phoenix (open source): free to self-host; no Phoenix feature gated by the commercial offering.
+AX Free ($0): 25k spans per month, 1 GB ingestion per month, 15 days retention; Signal capped at 10 issues/mo; no credit card.
+AX Pro ($50/month): 50k spans per month, 10 GB ingestion per month, 30 days retention; Signal capped at 25 issues/mo; overages rather than hard stop.
+AX Enterprise (custom): span volume, storage and retention negotiated; adds ADB Data Fabric, VPC / on-prem deployment, HIPAA, unlimited Signal, custom managed agents, repo access, support SLAs.
+Prices on span and data volume, with unlimited users and unlimited evaluations on every hosted tier; no per-seat charges.

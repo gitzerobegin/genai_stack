@@ -1,0 +1,12 @@
+SOURCE ID: A8-S037
+URL: https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/letter/2024/dsit-hmt-letter.pdf
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SS1/23 model risk management principles for banks effective 17 May 2024 artificial intelligence (bankofengland.co.uk)
+========================================================================
+
+Search result title: "Bank of England" letter (bankofengland.co.uk/-/media/boe/files/prudential-regulation/letter/2024/dsit-hmt-letter.pdf) - BoE/PRA response to DSIT/HMT on the regulators' approach to AI (2024), as surfaced in a search on SS1/23 and AI.
+Search-tool extract:
+- The PRA describes the [SS1/23] principles as technology-agnostic and outcomes-focussed, but deliberately included factors relevant to the use of AI models.
+- Explainability and transparency are named as factors when judging model complexity. Greater complexity calls for more oversight, with validation and risk controls focused on the more complex models.
+- Banks are expected to keep a complete model inventory that includes AI/ML models.

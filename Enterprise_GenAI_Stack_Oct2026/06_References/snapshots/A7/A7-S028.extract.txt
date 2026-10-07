@@ -1,0 +1,16 @@
+SOURCE ID: A7-S028
+URL: https://docs.paloaltonetworks.com/ai-runtime-security/new-features/by-date/prisma-airs/august-2026
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Prisma AIRS 3.0 OR Prisma AIRS 2026 release model security AI red teaming runtime agent
+========================================================================
+
+Prisma AIRS new-features pages (docs.paloaltonetworks.com, by date):
+- January 2026: AI Model Security added JFrog Artifactory and GitLab Model Registry as scan sources.
+- February 2026: multi-turn attacks ("Multi-turn attack support maintains conversation context across multiple interactions with your target language models"); Microsoft Foundry support.
+- April 2026: WebSocket targets; native Microsoft Copilot Studio connections.
+- June 2026: Privilege Misuse category: "tests whether AI agents correctly enforce authorization boundaries when subjected to manipulation attempts".
+- July 2026: Tool Chaining ("tests whether an AI agent can be manipulated into combining multiple individually safe tools into a dangerous sequence"); Custom Target Adapter; file-based attack testing (PDF and MD).
+- August 2026: Memory Poisoning goal category; native n8n support; manual override of attack verdicts; "Prisma AI Runtime Security now integrates with Anthropic Inference Hooks to inspect and govern Claude prompts before inference"; OpenAI Codex Enterprise integration applying DLP and threat detection to developer prompts.
+Product page (paloaltonetworks.com/ai-security/ai-gateway, "The AI Control Plane for the Enterprise"): AI Gateway generally available starting July 16, 2026.
+Blog, June 2026: "Expanding Our Footprint: Local Cloud Availability for Prisma AIRS in Japan".

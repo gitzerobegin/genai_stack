@@ -1,0 +1,8 @@
+SOURCE ID: A4-S060
+URL: https://help.mistral.ai/en/articles/347638-do-you-have-soc-2-or-iso-27001-certification
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: trust.mistral.ai SOC 2 Type II ISO 27001 ISO 27701 certifications
+========================================================================
+
+Help Center: Mistral complies with both SOC 2 Type II and ISO 27001/27701 frameworks; clients may request access to the SOC 2 report. Trust Center (trust.mistral.ai) lists ISO/IEC 27001:2022 certificate, ISO/IEC 27701:2019 certificate, Statement of Applicability, and full SOC 2 Type II report. Issue/expiry dates and scope not shown in extract. (Third-party summaries: EU hosting by default, US endpoint opt-in; ZDR negotiable via enterprise sales; HIPAA BAA/FedRAMP not confirmed — secondary, not relied on.)

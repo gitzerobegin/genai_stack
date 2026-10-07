@@ -1,0 +1,11 @@
+SOURCE ID: A5-S026
+URL: https://www.sec.gov/Archives/edgar/data/0000938323/000165495426007081/a6516o.htm
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic consumer terms ... Bartz copyright settlement (follow-up search)
+========================================================================
+
+Search tool summary of third-party SEC filings:
+- Per Wiley's SEC filing, authors filed a class action against Anthropic in N.D. California alleging Anthropic used copyrighted content obtained through piracy to train its models.
+- Settlement: Anthropic will pay $1.5 billion into a settlement fund.
+- Court preliminarily approved the settlement on September 25, 2025. Pearson's filing reports that on 20 July 2026 the US District Court granted final approval, and that the court had earlier ruled Anthropic faced liability for downloading and keeping pirated books for AI training.

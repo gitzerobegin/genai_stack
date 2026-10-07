@@ -1,0 +1,14 @@
+SOURCE ID: A1-S031
+URL: https://langfuse.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Langfuse pricing Hobby Core Pro Enterprise per month units
+========================================================================
+
+Hobby (free): 50k units / month included, 30 days data access, 2 users; no credit card.
+Core ($29/month): 100k units / month included, additional units at $8/100k; 90 days data access, unlimited users.
+Pro ($199/month): 100k units / month included, additional at $8/100k units; 3 years data access, data retention management, SOC2 & ISO27001 reports.
+Enterprise ($2,499/month): Everything in Pro plus Teams, 100k units / month included, additional at $8/100k units.
+Graduated overage: $8/100k for 100k-1M units, $7/100k for 1-10M, $6.5/100k for 10-50M, $6/100k for 50M+.
+Billable units: "Units = Count of Traces + Count of Observations + Count of Scores." Units created by Langfuse features (LLM-as-a-Judge, Annotation Queues, experiments) also count.
+Conflict: older docs snapshot showed Core $59/month and Enterprise custom; newer comparison pages list Core $29 and Cloud Enterprise $2,499/month.

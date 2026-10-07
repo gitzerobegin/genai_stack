@@ -1,0 +1,13 @@
+SOURCE ID: A8-S022
+URL: https://blogs.law.ox.ac.uk/oblb/blog-post/2026/04/doras-ctpp-oversight-regime-designation-litigation
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DORA CTPP 2026 update list designation AI model provider OpenAI Anthropic
+========================================================================
+
+Search results (secondary): Oxford Business Law Blog "DORA's CTPP Oversight Regime: From Designation to Litigation" (April 2026); Morgan Lewis "DORA: EU Regulators Announce List of Critical ICT Third-Party Providers" (Nov 2025); ESAs Joint Committee 2026 Work Programme (JC 2025 33)
+Search-tool extract:
+- No evidence found that the ESAs have designated OpenAI or Anthropic as CTPPs; no published second (2026) designation round found.
+- Oxford blog: CTPP designation is an annual process and future rounds are likely to capture new providers; "A number of designated providers have already challenged their designation or are considering challenging other measures before the ESAs' Joint Board of Appeal."
+- ESAs 2026 work programme: "initial examination activities will be conducted in 2026, which may result in recommendations and follow-ups."
+- Vendor commentary: LLM providers meet the definition of an ICT third-party service provider, so financial entities' Article 28-30 obligations (including the register) apply to those contracts.

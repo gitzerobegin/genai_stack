@@ -1,0 +1,17 @@
+SOURCE ID: A6-S017
+URL: https://developer.konghq.com/ai-gateway/changelog/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Kong AI Gateway 3.12 OR 3.13 OR 3.14 release MCP semantic cache AI guardrails Konnect 2026 (site:konghq.com, developer.konghq.com)
+========================================================================
+
+Related: https://developer.konghq.com/gateway/changelog/ ; https://developer.konghq.com/plugins/ai-proxy-advanced/ ; https://konghq.com/blog/product-releases/enterprise-mcp-gateway ; https://konghq.com/blog/product-releases/announcing-kong-ai-gateway ; https://konghq.com/pricing
+
+Extract as returned by search tool (two searches):
+- Kong's Enterprise MCP Gateway post calls Kong AI Gateway 3.12 "the beginning of our MCP Gateway journey".
+- A December 2025 Kong post on the 3.13 release highlights MCP access controls, Claude Code support, and new guardrails. The changelog lists 3.13.0.1 as released 2026/02/01.
+- The 3.14.0.0 changelog entry, dated 2026/04/07, adds a custom guardrail plugin that connects to third-party guardrail services. 3.14 brings native agent-to-agent traffic management, token exchange, scope-based tool filtering, and enhanced rate limiting and guardrails.
+- Semantic cache and semantic prompt guard came earlier, in 3.8. The current product page lists further guardrails: a semantic response guard, PII sanitization, and integrations with AWS, Azure, and GCP guardrail services.
+- 2.x releases: 2.0.1 (July 29) added a rejection mode setting for guardrails, a non-blocking option for guardrail triggers, and an NVIDIA NeMo Guardrails plugin. 2.1.0 (September 22) added caching controls for MCP tool lists and support for MCP protocol revision 2026-07-28. 2.2.0 (September 30) added prompt cache control mappings for OpenAI, Anthropic, and Amazon Bedrock formats.
+- AI Gateway 2.0 is available in Kong Konnect now, with no beta enablement required. It runs as its own data plane ... connects to a new AI Gateway control plane in Konnect. AI Gateway plugins remain supported in Kong Gateway 3.14, which is an LTS release. AI Gateway 2.x replaces the plugin-centric model with an entity model (AI Model Provider and AI Model entities).
+- Licensing: "All licensing is handled automatically by Konnect." The AI Proxy Advanced tutorial requires Kong Gateway Enterprise. ai-proxy-advanced docs label it "AI License Required" and "this plugin is only available as part of our AI Gateway Enterprise offering". In the 3.6 release Kong said the new AI plugins (incl. ai-proxy) were "entirely free and open source for everyone".

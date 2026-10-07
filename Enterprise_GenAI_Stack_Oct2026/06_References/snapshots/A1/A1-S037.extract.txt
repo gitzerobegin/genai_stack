@@ -1,0 +1,9 @@
+SOURCE ID: A1-S037
+URL: https://www.langchain.com/blog/end-to-end-opentelemetry-langsmith
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith OpenTelemetry tracing support OTel ingest
+========================================================================
+
+Search result titles: "Introducing OpenTelemetry support for LangSmith" (blog.langchain.com/opentelemetry-langsmith/); "Introducing End-to-End OpenTelemetry Support in LangSmith"; "End-to-end native OpenTelemetry support for LangSmith SDK" (changelog); "How do I use OpenTelemetry (OTEL) with LangSmith?" (support).
+Extracts: "You can point any supported OpenTelemetry exporter to the LangSmith OTEL endpoint, and your traces will be ingested and fully accessible within LangSmith." Self-hosted: append /api/v1/otel to LangSmith API URL. Original launch: "Data must be sent with the OpenLLMetry semantic convention", with plans to accept other conventions such as OTel GenAI as they evolve; newer Copilot guide says spans follow the OTel GenAI Semantic Conventions. Native SDK: pip install "langsmith[otel]" and set LANGSMITH_OTEL_ENABLED. "For users that are exclusively using LangSmith as their observability platform, we still recommend our native tracing format for optimal performance." Support article (older): LangSmith currently only supports traces (not metrics or logs).

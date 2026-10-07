@@ -1,0 +1,9 @@
+SOURCE ID: A1-S045
+URL: https://ir.dynatrace.com/news-events/press-releases/detail/439/dynatrace-completes-acquisition-of-arize-extending-ai-observability-across-the-full-development-lifecycle
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Dynatrace completes acquisition of Arize press release
+========================================================================
+
+Search result titles: "Dynatrace Completes Acquisition of Arize, Extending AI Observability Across the Full Development Lifecycle" (dynatrace.com/news/press-release/dynatrace-completes-acquisition-of-arize/; ir.dynatrace.com detail/439; nasdaq.com press release).
+Search-tool summary: Dynatrace announced on October 1, 2026 that it had finished buying Arize (one other report dates the release October 2, 2026). The release describes Arize as "an AI observability and evaluation platform delivering continual learning for agents". "Arize will continue supporting both Phoenix, its open-source platform, and AX, its enterprise platform. Over time, Arize capabilities will be integrated into Dynatrace." Rationale: brings evaluation and observability together, so teams can test AI applications before launch and keep them dependable once live.

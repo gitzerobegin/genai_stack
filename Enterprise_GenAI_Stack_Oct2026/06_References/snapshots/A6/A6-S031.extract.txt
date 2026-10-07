@@ -1,0 +1,14 @@
+SOURCE ID: A6-S031
+URL: https://ai.meta.com/blog/ai-defenders-program-llama-protection-tools/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Meta Llama Guard 4 Prompt Guard 2 LlamaFirewall Llama Protections latest release (site:llama.com, ai.meta.com, huggingface.co, meta.com)
+========================================================================
+
+Related: https://www.llama.com/llama-protections/ ; https://developer.meta.com/ai/llama-protections/ ; https://ai.meta.com/blog/llamacon-llama-news/ ; https://arxiv.org/html/2505.03574v1 (LlamaFirewall paper)
+
+Extract as returned by search tool:
+The most recent release found is still the April 2025 batch, which Meta announced at LlamaCon alongside LlamaFirewall. Meta described Llama Guard 4 as "an update to our customizable Llama Guard tool, acting as a unified safeguard across modalities, supporting protections for text and image understanding."
+LlamaFirewall "can orchestrate across guard models and work with our suite of protection tools to detect and prevent AI system risks such as prompt injection, insecure code, and risky LLM plug-in interactions." It is designed to work regardless of which agent framework you use, and it integrates Llama Guard, Prompt Guard, and CodeShield.
+A 2026-dated guide still describes the stack as Llama Guard, Prompt Guard and Code Shield, under the Llama Protections name that replaced Purple Llama.
+Independent caveat: an independent researcher (Trendyol tech blog on Medium) reported that PROMPT_GUARD was ineffective against prompts in languages other than English and against simple obfuscation such as leetspeak.

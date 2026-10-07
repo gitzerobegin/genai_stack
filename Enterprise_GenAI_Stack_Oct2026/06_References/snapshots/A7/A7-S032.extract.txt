@@ -1,0 +1,8 @@
+SOURCE ID: A7-S032
+URL: https://newsroom.ibm.com/2025-02-27-ibm-completes-acquisition-of-hashicorp,-creates-comprehensive,-end-to-end-hybrid-cloud-platform
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: IBM completes acquisition of HashiCorp February 2025
+========================================================================
+
+IBM newsroom, 27 February 2025: IBM completed its acquisition of HashiCorp. Per-share price $35 in cash; original agreement set an enterprise value of $6.4 billion. IBM 10-Q: total equity value approximately $7.2 billion. IBM said HashiCorp capabilities would add value across Red Hat, watsonx, data security, IT automation and Consulting.

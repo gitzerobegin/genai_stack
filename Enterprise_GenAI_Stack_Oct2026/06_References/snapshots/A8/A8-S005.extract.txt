@@ -1,0 +1,12 @@
+SOURCE ID: A8-S005
+URL: https://www.sullcrom.com/insights/memo/2026/April/OCC-Fed-FDIC-Issue-Revised-Guidance-Model-Risk-Management
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SR 11-7 model risk management guidance revised rescinded 2026 Federal Reserve OCC
+========================================================================
+
+Search results (law-firm memos): Sullivan & Cromwell "Federal Banking Agencies Issue Revised Guidance on Model Risk Management" (April 2026); Orrick "Agencies Overhaul Model Risk Management Guidance for Banks: Here's What Changed" (April 2026); Davis Polk visual memo.
+Search-tool extract:
+- On April 17, 2026, the Federal Reserve, OCC, and FDIC replaced the 2011 framework with new guidance. Fed SR 26-2 supersedes SR 11-7 and SR 21-8; OCC Bulletin 2026-13; FDIC FIL-15-2026.
+- Narrower model definition; new $30 billion asset threshold; risk-based approach; explicitly does not establish enforceable legal requirements.
+- Generative and agentic AI are excluded. The agencies plan a separate request for information on banks' use of AI. Traditional, non-generative AI that meets the model definition remains in scope.

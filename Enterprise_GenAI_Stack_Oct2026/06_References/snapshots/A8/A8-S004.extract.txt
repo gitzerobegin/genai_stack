@@ -1,0 +1,11 @@
+SOURCE ID: A8-S004
+URL: https://occ.gov/publications-and-resources/publications/semiannual-risk-perspective/files/pub-semiannual-risk-perspective-spring-2026.pdf
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OCC Bulletin 2026-13 model risk management generative AI agentic AI excluded
+========================================================================
+
+Search result title: "SEMIANNUAL RISK PERSPECTIVE FROM THE NATIONAL RISK COMMITTEE SPRING 2026" (OCC)
+Search-tool extract:
+- Banks are taking a measured approach to the adoption of generative AI (genAI) and agentic AI, with usage generally limited to specific use cases with guardrails and human-in-the-loop accountability.
+- Many risks associated with AI are the same as those of models and tools that do not rely on AI.

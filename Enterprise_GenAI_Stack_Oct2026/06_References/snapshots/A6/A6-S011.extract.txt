@@ -1,0 +1,15 @@
+SOURCE ID: A6-S011
+URL: https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-portkey-to-secure-ai-agents
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Palo Alto Networks completes acquisition of Portkey AI gateway Prisma AIRS (site:paloaltonetworks.com, portkey.ai)
+========================================================================
+
+Related: https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-to-acquire-portkey-to-secure-the-rise-of-ai-agents ; https://www.paloaltonetworks.com/blog/2026/05/securing-and-governing-ai-agents-at-scale-through-a-unified-ai-gateway/
+
+Extract as returned by search tool:
+Palo Alto Networks closed its acquisition of Portkey, an AI gateway company, on May 29, 2026. It was first announced on April 30, 2026. The company says Portkey now serves as the AI gateway inside its Prisma AIRS security platform.
+Role in Prisma AIRS: The gateway sits in the traffic path for AI systems. The company plans for it to inspect all AI traffic at runtime to help detect and stop novel, agent-based threats.
+Capabilities: Per the press release, the product monitors and governs agent interactions, routes requests to the best model, tracks token usage to help prevent runaway costs, and adds runtime protection. Portkey's own materials add caching techniques and granular quotas, with access to over 3,000 LLMs and MCP tools through a unified interface.
+Palo Alto says existing and new Portkey customers will continue to be supported after close. The transaction was expected to close in Palo Alto Networks' fourth quarter of fiscal 2026.
+Product status: The company's own blog and press materials point to a Prisma AIRS AI Gateway that is now generally available.

@@ -1,0 +1,11 @@
+SOURCE ID: A7-S033
+URL: https://developer.hashicorp.com/vault/docs/updates/release-notes
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Vault 2.0 generally available IBM Vault Self-Managed release notes
+========================================================================
+
+HashiCorp 2.x release notes: Vault 2.0 preview 2026-04-01, GA 2026-04-14; patch releases 2.0.1 to 2.0.4. 2.0.0: UI navigation reorganised around operator tasks; event notifications from secondary clusters; pre-release included SCIM provisioning and SPIFFE JWT-SVID support. Native AI agent support available in public beta in Vault 2.0.3. Vault 2.1.0 dated September 1, 2026: agentic IAM out of beta ("no longer requires an activation flag"). Vault 2.1.1 patch release fixed ceiling policies not displaying on the agent registry page (reported dates 16-17 September 2026 via third-party changelog).
+IBM support page "IBM Vault Self-Managed_2.x.x": generally available 2026-04-14; support policy 2 years of support plus 1 year critical fix extension plus 3 years usage/existing fixes (2+1+3); licence type International Program License Agreement.
+HashiCorp blog: "IBM Vault 2.0 adds UI enhancements and improved reporting visibility" - IBM Vault 2.0 GA April 14, 2026.
+InfoQ (April 2026, secondary): "HashiCorp Vault 2.0 Marks Shift to IBM Lifecycle with New Identity Federation"; Workload Identity Federation for secret syncing without static credentials.

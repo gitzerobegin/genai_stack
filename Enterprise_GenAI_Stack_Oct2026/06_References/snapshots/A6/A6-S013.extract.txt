@@ -1,0 +1,18 @@
+SOURCE ID: A6-S013
+URL: https://portkey.ai/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Portkey pricing enterprise SOC 2 ISO 27001 trust gateway open source MCP gateway (site:portkey.ai)
+========================================================================
+
+Related: https://portkey.ai/docs/product/product-feature-comparison ; https://portkey.ai/for/enterprise
+
+Extract as returned by search tool:
+Portkey's pricing has a free open-source gateway, a free developer tier, a $49/month production tier, and custom enterprise pricing.
+- Open source: Portkey's gateway is open source and free to use. The comparison docs say you can run it locally.
+- Developer (free): 10k recorded logs per month. Its docs list 3 Days of log retention and no overage allowed.
+- Production ($49/month): The docs list 100K requests per month, with overage $9/Month for Every 100K Up to 3M Requests.
+- Enterprise (custom): Priced on request. It includes Private Cloud Deployment, Data Export to Data Lakes, VPC Hosting, Advanced Compliance (SOC2 Type 2, GDPR, HIPAA), Custom BAAs, Data Isolation.
+- The enterprise docs say the managed SaaS option is SOC2, ISO27001, GDPR, and HIPAA compliant. One FAQ says Portkey AI is ISO:27001 and SOC 2 certified, and GDPR & HIPAA compliant.
+- The docs comparison page is about 470 days old.
+- The docs say a fully airgapped deployment is "No Longer Offered".

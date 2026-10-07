@@ -1,0 +1,8 @@
+SOURCE ID: A3-S024
+URL: https://arxiv.org/pdf/2608.12880
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MCP tool poisoning attack security research 2026 vulnerability MCP server
+========================================================================
+
+Search-tool summary: A 2026 paper synthesizing MCP security argues that prompt-injection filtering and OAuth correctness are not enough on their own. Newer attack variants include MCP-ITP, which steers a legitimate high-privilege tool without invoking the poisoned one; ShareLock, which splits an attack across multiple descriptions; and Potemkin, which injects through tool output (all as cited in an August 2026 arXiv paper on treatment leakage in MCP evaluation).

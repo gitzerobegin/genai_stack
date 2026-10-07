@@ -1,0 +1,10 @@
+SOURCE ID: A7-S029
+URL: https://hiddenlayer.com/aws
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: HiddenLayer AI Security Platform deployment SaaS on-premises AWS Marketplace SOC 2 pricing model scanner
+========================================================================
+
+HiddenLayer AWS page: "Deploy inside your AWS environment with private networking and zero data egress"; works with models in VPCs; "HiddenLayer is available through AWS Marketplace for simplified procurement, consolidated billing, and faster enterprise onboarding"; scanner can validate and scan models stored in Amazon S3, EFS and container registries. AWS Marketplace listing titled "HiddenLayer AI Security Platform"; a related listing's pricing "based on the duration and terms of your contract with the vendor".
+Gartner Peer Insights listing (vendor-supplied text): "The platform can be deployed via SaaS, On-prem, Air Gapped or hybrid to meet clients preferred integrations while being non-invasive." Pricing "based on customized solutions tailored to specific enterprise needs".
+Third-party directory (CloudTweaks, secondary): claims SOC 2 Type 2 and ISO 27001; Model Scanner in AI Supply Chain Security module, agentless, 35+ model file formats.

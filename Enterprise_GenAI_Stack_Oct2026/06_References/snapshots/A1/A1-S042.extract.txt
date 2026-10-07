@@ -1,0 +1,9 @@
+SOURCE ID: A1-S042
+URL: https://www.braintrust.dev/docs/integrations/opentelemetry
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Braintrust OpenTelemetry integration OTLP endpoint docs; Braintrust EU data region
+========================================================================
+
+Search result titles: "Send OpenTelemetry traces and logs to Braintrust"; "OpenTelemetry (OTel) - Braintrust"; "Supporting privacy and compliance for EU teams - Blog - Braintrust"; "Manage organizations - Braintrust"; "Data Processing Addendum - Braintrust" (braintrust.dev/legal/dpa); "Self-hosting releases - Braintrust".
+Search-tool summary: Trace endpoint https://api.braintrust.dev/otel/v1/traces (US); EU https://api-eu.braintrust.dev/otel/v1/traces. Authorization: Bearer header; x-bt-parent header sets parent project or experiment. Logs path listed in one docs page; a KB article says OTLP intake accepts traces, not logs (conflict). Region chosen at organisation creation: "after creating an organization, you cannot change its data plane region." DPA: "all elements of the Data Plane... will be stored and processed in the EU for Pro Plan customers who elect that location." Control plane holds hashed API keys, project names, organisation info.

@@ -1,0 +1,8 @@
+SOURCE ID: A4-S046
+URL: https://pydantic.dev/articles/logfire-announcement
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pydantic company funding Series B 2025 Logfire Pydantic AI Gateway
+========================================================================
+
+Pydantic raised $12.5 million in Series A funding led by Sequoia, with existing investors Partech and Irregular Expression participating, alongside Logfire leaving beta (page about two years old, i.e. late 2024). No Series B found in primary sources. Logfire: observability platform from the team behind Pydantic Validation and Pydantic AI; commercially supported hosted platform with a perpetual free tier. "Pydantic AI Gateway is Moving to Logfire": gateway.pydantic.dev being deprecated; gateway managed entirely through Logfire account; one key for several providers, failover, weighted load balancing; later article adds DLP scanning prompts/completions for secrets, PII and policy violations, and spend caps.

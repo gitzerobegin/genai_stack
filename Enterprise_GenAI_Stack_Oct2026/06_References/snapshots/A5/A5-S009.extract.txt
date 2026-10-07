@@ -1,0 +1,15 @@
+SOURCE ID: A5-S009
+URL: https://azure.microsoft.com/en-us/blog/gpt-6-astra-sol-and-luna-for-production-agents-in-microsoft-foundry/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GPT-6 Sol Azure AI Foundry Microsoft Foundry available (allowed_domains azure.microsoft.com, learn.microsoft.com, techcommunity.microsoft.com, ai.azure.com)
+========================================================================
+
+Search tool summary:
+- GPT-6 Sol GA in Microsoft Foundry (formerly Azure AI Foundry) alongside GPT-6 Luna; catalog lists GA with 2026-09-22 version.
+- Standard deployment across all 28 Global regions and the US and EU Data Zones; Provisioned Throughput Global and US/EU Data Zones; Priority Processing Global and US Data Zones.
+- No access request needed for gpt-6-sol.
+- Global Standard short-context pricing $2.00 per million input tokens and $10.00 per million output tokens; Data Zone slightly higher.
+- 1,050,000 context tokens, 128,000 output tokens.
+- GPT-6.1 Sol GA in Foundry around late September 2026 (techcommunity post "Introducing GPT-6.1 Sol in Microsoft Foundry").
+- Reasoning models doc title: "Azure OpenAI reasoning models - GPT-6 Astra and GPT-5".

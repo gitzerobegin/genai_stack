@@ -1,0 +1,1595 @@
+SOURCE ID: A2-S060
+URL: https://pypi.org/project/chromadb/
+FINAL URL: https://pypi.org/project/chromadb/
+TITLE: chromadb · PyPI
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+chromadb · PyPI
+
+Skip to main content
+
+Switch to mobile version
+
+chromadb 1.5.9
+
+Chroma.
+
+pip install chromadb
+
+Copy PIP instructions
+
+Chroma - the open-source data infrastructure for AI
+. 
+
+ |
+
+ |
+
+      Docs
+
+ |
+
+      Homepage
+
+pip
+
+install
+
+chromadb
+
+# python client
+
+# for javascript, npm install chromadb!
+
+# for client-server mode, chroma run --path /chroma_db_path
+
+Chroma Cloud
+
+Our hosted service, Chroma Cloud, powers serverless vector, hybrid, and full-text search. It's extremely fast, cost-effective, scalable and painless. Create a DB and try it out in under 30 seconds with $5 of free credits.
+
+Get started with Chroma Cloud
+
+API
+
+The core API is only 4 functions (run our 
+💡 Google Colab
+):
+
+import
+
+chromadb
+
+# setup Chroma in-memory, for easy prototyping. Can add persistence easily!
+
+client
+
+=
+
+chromadb
+.
+Client
+()
+
+# Create collection. get_collection, get_or_create_collection, delete_collection also available!
+
+collection
+
+=
+
+client
+.
+create_collection
+(
+"all-my-documents"
+)
+
+# Add docs to the collection. Can also update and delete. Row-based API coming soon!
+
+collection
+.
+add
+(
+
+documents
+=
+[
+"This is document1"
+,
+
+"This is document2"
+],
+
+# we handle tokenization, embedding, and indexing automatically. You can skip that and add your own embeddings as well
+
+metadatas
+=
+[{
+"source"
+:
+
+"notion"
+},
+
+{
+"source"
+:
+
+"google-docs"
+}],
+
+# filter on these!
+
+ids
+=
+[
+"doc1"
+,
+
+"doc2"
+],
+
+# unique for each doc
+
+)
+
+# Query/search 2 most similar results. You can also .get by id
+
+results
+
+=
+
+collection
+.
+query
+(
+
+query_texts
+=
+[
+"This is a query document"
+],
+
+n_results
+=
+2
+,
+
+# where={"metadata_field": "is_equal_to_this"}, # optional filter
+
+# where_document={"$contains":"search_string"}  # optional filter
+
+)
+
+Learn about all features on our 
+Docs
+
+Get involved
+
+Chroma is a rapidly developing project. We welcome PR contributors and ideas for how to improve the project.
+
+Join the conversation on Discord
+ - 
+#contributing
+ channel
+
+Review the 🛣️ Roadmap and contribute your ideas
+
+Grab an issue and open a PR
+ - 
+Good first issue tag
+
+Read our contributing guide
+
+Release Cadence
+
+We currently release new tagged versions of the 
+pypi
+ and 
+npm
+ packages on Mondays. Hotfixes go out at any time during the week.
+
+License
+
+Apache 2.0
+
+Project links
+
+Bug Tracker
+
+Homepage
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    May 5, 2026
+
+Latest release
+
+1 maintainer  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+jeff_chroma
+
+Credits
+
+Author:            
+
+Jeff Huber
+
+License
+
+Apache Software License
+
+Requires
+
+Python
+ >=3.9
+
+Classifiers
+
+          License
+
+                  OSI Approved :: Apache Software License
+
+          Operating System
+
+                  OS Independent
+
+          Programming Language
+
+                  Python :: 3
+
+Report project as malware
+
+Metadata
+
+Project links
+
+Bug Tracker
+
+Homepage
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    May 5, 2026
+
+Latest release
+
+1 maintainer  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+jeff_chroma
+
+Credits
+
+Author:            
+
+Jeff Huber
+
+License
+
+Apache Software License
+
+Requires
+
+Python
+ >=3.9
+
+Classifiers
+
+          License
+
+                  OSI Approved :: Apache Software License
+
+          Operating System
+
+                  OS Independent
+
+          Programming Language
+
+                  Python :: 3
+
+Report project as malware
+
+Release files for chromadb 1.5.9
+
+For a detailed explanation of source distributions (sdists) and built distributions (wheels), please see the 
+package formats documentation
+.    
+
+Source distribution (sdist)    
+
+Source distribution for chromadb 1.5.9
+
+File
+
+Size
+
+Uploaded
+
+chromadb-1.5.9.tar.gz
+
+2.6 MB
+
+    May 5, 2026
+
+Details
+
+Built distributions (wheels)  
+
+Search wheels
+
+Table of built distributions (wheels) for chromadb 1.5.9
+
+File
+
+Interpreter
+
+Interpreter
+
+CPython 3.9
+
+ABI
+
+ABI
+
+abi3
+
+Platform
+
+Platform
+
+macOS 10.12+ x86-64
+
+macOS 11.0+ ARM64
+
+Linux glibc 2.17+ ARM64
+
+Linux glibc 2.17+ x86-64
+
+Windows x86-64
+
+Reset
+
+chromadb-1.5.9-cp39-abi3-win_amd64.whl
+
+23.5 MB
+
+    May 5, 2026
+
+              CPython 3.9
+
+              abi3
+
+              Windows x86-64
+
+Details
+
+chromadb-1.5.9-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+23.3 MB
+
+    May 5, 2026
+
+              CPython 3.9
+
+              abi3
+
+              Linux glibc 2.17+ x86-64
+
+Details
+
+chromadb-1.5.9-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+
+22.7 MB
+
+    May 5, 2026
+
+              CPython 3.9
+
+              abi3
+
+              Linux glibc 2.17+ ARM64
+
+Details
+
+chromadb-1.5.9-cp39-abi3-macosx_11_0_arm64.whl
+
+21.7 MB
+
+    May 5, 2026
+
+              CPython 3.9
+
+              abi3
+
+              macOS 11.0+ ARM64
+
+Details
+
+chromadb-1.5.9-cp39-abi3-macosx_10_12_x86_64.whl
+
+22.6 MB
+
+    May 5, 2026
+
+              CPython 3.9
+
+              abi3
+
+              macOS 10.12+ x86-64
+
+Details
+
+Total release size:
+ 116.4 MB
+
+Release files
+
+    / chromadb-1.5.9.tar.gz
+
+Download URL
+
+chromadb-1.5.9.tar.gz
+
+Size
+
+2.6 MB
+
+Tags
+
+Source
+
+SHA-256 checksum          
+
+How to use checksums
+
+5c20e62a455c28bacac927f26116a73fd8e1799e0d908be8e8a4f02197a54731
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+92d15e33b26985f0c7046a0be1cee2158ada1748ee700d2545057fde1468d74d
+
+Upload date
+
+    May 5, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+No        
+
+Uploaded via
+
+maturin/1.13.1
+
+Release files
+
+    / chromadb-1.5.9-cp39-abi3-win_amd64.whl
+
+Download URL
+
+chromadb-1.5.9-cp39-abi3-win_amd64.whl
+
+Size
+
+23.5 MB
+
+Tags
+
+CPython 3.9
+
+Windows x86-64
+
+abi3
+
+SHA-256 checksum          
+
+How to use checksums
+
+4fd0b560e56761b7f3cb4d5c6205fd5f20814484b4a3e4e9af9038c2b428fc6c
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+ebce0f7be6e5d0feafa2cda54b12e6542afeea7dea89d2d411e14da90f8abb96
+
+Upload date
+
+    May 5, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+No        
+
+Uploaded via
+
+maturin/1.13.1
+
+Release files
+
+    / chromadb-1.5.9-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+Download URL
+
+chromadb-1.5.9-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+Size
+
+23.3 MB
+
+Tags
+
+CPython 3.9
+
+Linux glibc 2.17+ x86-64
+
+abi3
+
+SHA-256 checksum          
+
+How to use checksums
+
+cc09b3df76e5a5cb386aed2715a2eea152e3949f9e1ba93c7119505377749929
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+e6ec0c42039e80b9acc534f67b73b7a42471948042859b3a64867b50a4a77fa3
+
+Upload date
+
+    May 5, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+No        
+
+Uploaded via
+
+maturin/1.13.1
+
+Release files
+
+    / chromadb-1.5.9-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+
+Download URL
+
+chromadb-1.5.9-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+
+Size
+
+22.7 MB
+
+Tags
+
+CPython 3.9
+
+Linux glibc 2.17+ ARM64
+
+abi3
+
+SHA-256 checksum          
+
+How to use checksums
+
+9192d111bd662241625867962333d99369a00769a50f8b2f58cb388731274d7e
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+384e937bc4d2e6f8ab9664ec79931fbbd69efff47e513ec2924b071e4b0ff774
+
+Upload date
+
+    May 5, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+No        
+
+Uploaded via
+
+maturin/1.13.1
+
+Release files
+
+    / chromadb-1.5.9-cp39-abi3-macosx_11_0_arm64.whl
+
+Download URL
+
+chromadb-1.5.9-cp39-abi3-macosx_11_0_arm64.whl
+
+Size
+
+21.7 MB
+
+Tags
+
+CPython 3.9
+
+abi3
+
+macOS 11.0+ ARM64
+
+SHA-256 checksum          
+
+How to use checksums
+
+814b9c95617377f6501e5757d63dfddb554a283a7739c87b9fa573850174e6f3
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+344cadcef1f4e82a2ef69ccd3711d55fc289193d54c4c0ff7a0292a3631db46f
+
+Upload date
+
+    May 5, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+No        
+
+Uploaded via
+
+maturin/1.13.1
+
+Release files
+
+    / chromadb-1.5.9-cp39-abi3-macosx_10_12_x86_64.whl
+
+Download URL
+
+chromadb-1.5.9-cp39-abi3-macosx_10_12_x86_64.whl
+
+Size
+
+22.6 MB
+
+Tags
+
+CPython 3.9
+
+abi3
+
+macOS 10.12+ x86-64
+
+SHA-256 checksum          
+
+How to use checksums
+
+60701011b5e6409647fa40d12c7c5a66b2b0bfcf33a52db2ad53a30a2abc4957
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+dd5b3cced915244f43ed14b53fe9f63a37f05f865064f4e4fe7d9448d3f2a352
+
+Upload date
+
+    May 5, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+No        
+
+Uploaded via
+
+maturin/1.13.1
+
+Release history
+
+Release notifications
+ |
+
+RSS feed 
+
+This release
+
+1.5.9
+
+This release
+
+    May 5, 2026
+
+ 6 release files
+
+1.5.8
+
+    Apr 16, 2026
+
+ 6 release files
+
+1.5.7
+
+    Apr 8, 2026
+
+ 6 release files
+
+1.5.6
+
+    Apr 7, 2026
+
+ 6 release files
+
+1.5.5
+
+    Mar 10, 2026
+
+ 6 release files
+
+1.5.4
+
+    Mar 8, 2026
+
+ 6 release files
+
+Yanked
+
+1.5.3
+
+    Mar 7, 2026
+
+ 6 release files
+
+1.5.2
+
+    Feb 27, 2026
+
+ 6 release files
+
+1.5.1
+
+    Feb 19, 2026
+
+ 6 release files
+
+1.5.0
+
+    Feb 9, 2026
+
+ 6 release files
+
+1.4.1
+
+    Jan 14, 2026
+
+ 6 release files
+
+1.4.0
+
+    Dec 24, 2025
+
+ 6 release files
+
+1.3.7
+
+    Dec 12, 2025
+
+ 6 release files
+
+1.3.6
+
+    Dec 10, 2025
+
+ 6 release files
+
+1.3.5
+
+    Nov 18, 2025
+
+ 6 release files
+
+1.3.4
+
+    Nov 5, 2025
+
+ 6 release files
+
+1.3.3
+
+    Nov 5, 2025
+
+ 6 release files
+
+1.3.2
+
+    Nov 4, 2025
+
+ 6 release files
+
+1.3.0
+
+    Oct 29, 2025
+
+ 6 release files
+
+1.2.2
+
+    Oct 26, 2025
+
+ 6 release files
+
+1.2.1
+
+    Oct 20, 2025
+
+ 6 release files
+
+1.2.0
+
+    Oct 18, 2025
+
+ 6 release files
+
+1.1.1
+
+    Oct 5, 2025
+
+ 6 release files
+
+1.1.0
+
+    Sep 16, 2025
+
+ 6 release files
+
+1.0.21
+
+    Sep 11, 2025
+
+ 6 release files
+
+1.0.20
+
+    Aug 18, 2025
+
+ 6 release files
+
+1.0.19
+
+    Aug 18, 2025
+
+ 6 release files
+
+1.0.18
+
+    Aug 18, 2025
+
+ 6 release files
+
+1.0.17
+
+    Aug 14, 2025
+
+ 6 release files
+
+1.0.16
+
+    Aug 8, 2025
+
+ 6 release files
+
+1.0.15
+
+    Jul 2, 2025
+
+ 6 release files
+
+1.0.13
+
+    Jun 18, 2025
+
+ 6 release files
+
+1.0.12
+
+    May 31, 2025
+
+ 6 release files
+
+1.0.11
+
+    May 28, 2025
+
+ 6 release files
+
+1.0.10
+
+    May 22, 2025
+
+ 6 release files
+
+1.0.9
+
+    May 12, 2025
+
+ 6 release files
+
+1.0.8
+
+    May 5, 2025
+
+ 6 release files
+
+1.0.7
+
+    Apr 24, 2025
+
+ 6 release files
+
+1.0.6
+
+    Apr 22, 2025
+
+ 6 release files
+
+1.0.5
+
+    Apr 16, 2025
+
+ 6 release files
+
+1.0.4
+
+    Apr 10, 2025
+
+ 6 release files
+
+1.0.3
+
+    Apr 7, 2025
+
+ 6 release files
+
+1.0.2
+
+    Apr 7, 2025
+
+ 6 release files
+
+1.0.0
+
+    Apr 3, 2025
+
+ 6 release files
+
+Pre-release
+
+1.0.0b0
+
+    Mar 1, 2025
+
+ 6 release files
+
+0.6.3
+
+    Jan 14, 2025
+
+ 2 release files
+
+0.6.2
+
+    Jan 7, 2025
+
+ 2 release files
+
+0.6.1
+
+    Jan 3, 2025
+
+ 2 release files
+
+0.6.0
+
+    Dec 30, 2024
+
+ 2 release files
+
+0.5.23
+
+    Dec 5, 2024
+
+ 2 release files
+
+0.5.21
+
+    Dec 3, 2024
+
+ 2 release files
+
+0.5.20
+
+    Nov 19, 2024
+
+ 2 release files
+
+0.5.18
+
+    Nov 5, 2024
+
+ 2 release files
+
+0.5.17
+
+    Oct 31, 2024
+
+ 2 release files
+
+0.5.16
+
+    Oct 29, 2024
+
+ 2 release files
+
+0.5.15
+
+    Oct 16, 2024
+
+ 2 release files
+
+0.5.13
+
+    Oct 10, 2024
+
+ 2 release files
+
+0.5.12
+
+    Oct 8, 2024
+
+ 2 release files
+
+0.5.11
+
+    Sep 27, 2024
+
+ 2 release files
+
+0.5.10
+
+    Sep 27, 2024
+
+ 2 release files
+
+0.5.9
+
+    Sep 25, 2024
+
+ 2 release files
+
+0.5.7
+
+    Sep 18, 2024
+
+ 2 release files
+
+0.5.5
+
+    Jul 23, 2024
+
+ 2 release files
+
+0.5.4
+
+    Jul 11, 2024
+
+ 2 release files
+
+0.5.3
+
+    Jun 18, 2024
+
+ 2 release files
+
+0.5.2
+
+    Jun 18, 2024
+
+ 2 release files
+
+0.5.1
+
+    Jun 18, 2024
+
+ 2 release files
+
+0.5.0
+
+    Apr 23, 2024
+
+ 2 release files
+
+0.4.24
+
+    Feb 28, 2024
+
+ 2 release files
+
+0.4.23
+
+    Feb 22, 2024
+
+ 2 release files
+
+0.4.22
+
+    Jan 3, 2024
+
+ 2 release files
+
+0.4.21
+
+    Dec 20, 2023
+
+ 2 release files
+
+0.4.20
+
+    Dec 15, 2023
+
+ 2 release files
+
+0.4.19
+
+    Dec 13, 2023
+
+ 2 release files
+
+0.4.18
+
+    Nov 21, 2023
+
+ 2 release files
+
+0.4.17
+
+    Nov 10, 2023
+
+ 2 release files
+
+0.4.16
+
+    Nov 8, 2023
+
+ 2 release files
+
+0.4.15
+
+    Oct 25, 2023
+
+ 2 release files
+
+0.4.14
+
+    Oct 9, 2023
+
+ 2 release files
+
+0.4.13
+
+    Sep 25, 2023
+
+ 2 release files
+
+0.4.12
+
+    Sep 20, 2023
+
+ 2 release files
+
+0.4.11
+
+    Sep 19, 2023
+
+ 2 release files
+
+0.4.10
+
+    Sep 11, 2023
+
+ 2 release files
+
+0.4.9
+
+    Sep 6, 2023
+
+ 2 release files
+
+0.4.8
+
+    Aug 29, 2023
+
+ 2 release files
+
+0.4.7
+
+    Aug 23, 2023
+
+ 2 release files
+
+0.4.6
+
+    Aug 15, 2023
+
+ 2 release files
+
+0.4.5
+
+    Aug 4, 2023
+
+ 2 release files
+
+0.4.4
+
+    Aug 1, 2023
+
+ 2 release files
+
+0.4.3
+
+    Jul 25, 2023
+
+ 2 release files
+
+0.4.2
+
+    Jul 19, 2023
+
+ 2 release files
+
+0.4.1
+
+    Jul 18, 2023
+
+ 2 release files
+
+0.4.0
+
+    Jul 17, 2023
+
+ 2 release files
+
+0.3.29
+
+    Jul 12, 2023
+
+ 2 release files
+
+0.3.27
+
+    Jul 10, 2023
+
+ 2 release files
+
+0.3.26
+
+    Jun 5, 2023
+
+ 2 release files
+
+0.3.25
+
+    May 23, 2023
+
+ 2 release files
+
+0.3.23
+
+    May 15, 2023
+
+ 2 release files
+
+0.3.22
+
+    May 8, 2023
+
+ 2 release files
+
+0.3.21
+
+    Apr 5, 2023
+
+ 2 release files
+
+0.3.20
+
+    Apr 3, 2023
+
+ 2 release files
+
+0.3.18
+
+    Mar 31, 2023
+
+ 2 release files
+
+0.3.17
+
+    Mar 30, 2023
+
+ 2 release files
+
+0.3.16
+
+    Mar 30, 2023
+
+ 2 release files
+
+0.3.15
+
+    Mar 30, 2023
+
+ 2 release files
+
+0.3.14
+
+    Mar 28, 2023
+
+ 2 release files
+
+0.3.13
+
+    Mar 27, 2023
+
+ 2 release files
+
+0.3.12
+
+    Mar 26, 2023
+
+ 2 release files
+
+0.3.11
+
+    Mar 6, 2023
+
+ 2 release files
+
+0.3.10
+
+    Feb 28, 2023
+
+ 2 release files
+
+0.3.8
+
+    Feb 26, 2023
+
+ 2 release files
+
+0.3.7
+
+    Feb 23, 2023
+
+ 2 release files
+
+0.3.6
+
+    Feb 23, 2023
+
+ 2 release files
+
+0.3.5
+
+    Feb 23, 2023
+
+ 2 release files
+
+0.3.4
+
+    Feb 21, 2023
+
+ 2 release files
+
+0.3.3
+
+    Feb 21, 2023
+
+ 2 release files
+
+0.3.2
+
+    Feb 20, 2023
+
+ 2 release files
+
+0.3.1
+
+    Feb 19, 2023
+
+ 2 release files
+
+0.3.0
+
+    Feb 16, 2023
+
+ 2 release files
+
+0.2.0
+
+    Feb 16, 2023
+
+ 2 release files
+
+0.1.0
+
+    Feb 15, 2023
+
+ 2 release files
+
+Pre-release
+
+0.1.dev365
+
+    Feb 13, 2023
+
+ 2 release files
+
+Pre-release
+
+0.1.dev364
+
+    Feb 12, 2023
+
+ 2 release files
+
+Pre-release
+
+0.1.dev363
+
+    Feb 12, 2023
+
+ 2 release files
+
+Pre-release
+
+0.1.dev362
+
+    Feb 12, 2023
+
+ 2 release files
+
+Pre-release
+
+0.1.dev361
+
+    Feb 12, 2023
+
+ 2 release files
+
+Pre-release
+
+0.1.dev360
+
+    Feb 12, 2023
+
+ 2 release files
+
+Pre-release
+
+0.0.3.dev335
+
+    Feb 13, 2023
+
+ 2 release files
+
+Pre-release
+
+0.0.3.dev332
+
+    Feb 13, 2023
+
+ 2 release files
+
+Pre-release
+
+0.0.3.dev234
+
+    Feb 9, 2023
+
+ 2 release files
+
+Anthropic, PBC
+
+Visionary sponsor
+
+Bloomberg
+
+Visionary sponsor
+
+Hudson River Trading
+
+Visionary sponsor
+
+Meta
+
+Visionary sponsor
+
+NVIDIA
+
+Visionary sponsor
+
+Microsoft
+
+Sustainability sponsor
+
+Depot
+
+Continuous Integration
+
+AWS
+
+Cloud computing and Security Sponsor
+
+Datadog
+
+Monitoring
+
+Fastly
+
+CDN
+
+Google
+
+Download Analytics
+
+Sentry
+
+Error logging
+
+StatusPage
+
+Status page
+
+"PyPI", "Python Package Index", and the blocks logos are registered 
+trademarks
+ of the 
+Python Software Foundation
+.
+
+      © 2026 
+Python Software Foundation
+
+Site map
+
+Deployed from 
+47b3476

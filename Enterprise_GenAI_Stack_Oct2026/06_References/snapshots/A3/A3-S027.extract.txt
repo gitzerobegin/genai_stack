@@ -1,0 +1,8 @@
+SOURCE ID: A3-S027
+URL: https://venturebeat.com/technology/anthropic-launches-enterprise-agent-skills-and-opens-the-standard
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Agent Skills open standard agentskills.io adopted by OpenAI Microsoft Google
+========================================================================
+
+Search-tool summary: Anthropic released Agent Skills as an open standard in December 2025, and Microsoft, OpenAI, and Google have all added support. Agent Skills is an open specification, available at agentskills.io, that defines a portable format for packaging procedural knowledge for AI agents. It was originally developed within Anthropic's Claude Code in October 2025 and released as a vendor-neutral open standard on December 18, 2025, with a published specification and reference SDK. Microsoft integrated Agent Skills into VS Code via Copilot. Anthropic's VentureBeat-reported quote frames the standard as independent and open, and says it is launched with a specification and reference SDK available at agentskills.io.

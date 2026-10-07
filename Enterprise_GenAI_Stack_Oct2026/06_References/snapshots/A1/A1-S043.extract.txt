@@ -1,0 +1,8 @@
+SOURCE ID: A1-S043
+URL: https://www.braintrust.dev/blog/trace-keynote
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Braintrust Trace 2026 conference launches Loop Topics gateway
+========================================================================
+
+Search-tool summary: Recap dated 25 February 2026; presents Topics and Loop as the "optimize" stage. Topics (beta) groups each trace into a summary and sorts into categories such as recurring issues and sentiment shifts. Loop revises prompts, tests new models or targets a failure mode; humans make final decisions. Braintrust Gateway (in 2026 articles) routes LLM requests to multiple providers while recording every call as a structured trace. Changelog: Patterns runs Loop against a project on a schedule; Loop on trace pages. Homepage title: "Braintrust - The active observability platform for agents".

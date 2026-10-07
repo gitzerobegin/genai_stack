@@ -1,0 +1,9 @@
+SOURCE ID: A5-S015
+URL: https://platform.claude.com/docs/en/models/claude-fable-5-1
+FINAL URL: https://platform.claude.com/docs/en/models/claude-fable-5-1
+TITLE: Documentation | Claude Platform
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Documentation | Claude Platform

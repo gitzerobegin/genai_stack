@@ -1,0 +1,14 @@
+SOURCE ID: A6-S023
+URL: https://docs.cloud.google.com/apigee/docs/api-platform/get-started/ai-capabilities
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Apigee AI gateway LLM token policies semantic cache Model Armor MCP Apigee 2026 (site:cloud.google.com, docs.cloud.google.com)
+========================================================================
+
+Related: https://docs.cloud.google.com/apigee/docs/api-platform/tutorials/using-semantic-caching-policies ; https://cloud.google.com/blog/products/ai-machine-learning/mcp-support-for-apigee
+
+Extract as returned by search tool:
+Apigee's capabilities list includes token limit enforcement for cost controls, alongside model routing, circuit breakers, and "Model FinOps."
+Semantic caching: The lookup step turns the incoming prompt into an embedding and searches a vector index for a close match. The similarity threshold defaults to 0.9. The default TTL is 60 seconds, and Apigee ignores cache-control headers that come from the LLM. The semantic caching policies don't work with API proxies that use EventFlows for server-sent event streaming. (Tutorial page about 530 days old.)
+Model Armor is wired into Apigee as a prompt and response filter: can help detect prompt injection, prevent jailbreaks, apply responsible AI filters, filter malicious URLs, and protect sensitive data. Model Armor can mark a response as non-cacheable when it detects sensitive information.
+MCP: Apigee's MCP support, generally available since March 31, 2026, lets you expose existing APIs as MCP tools for agents without changing existing APIs or deploying/managing MCP servers. Extension processor policies can apply Apigee policies to traffic that bypasses an Apigee proxy, including an agent's model and MCP tool calls.

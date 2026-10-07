@@ -1,0 +1,9 @@
+SOURCE ID: A1-S032
+URL: https://langfuse.com/integrations/native/opentelemetry
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Langfuse OpenTelemetry native SDK v3 OTLP endpoint GenAI semantic conventions
+========================================================================
+
+Search result titles: "OpenTelemetry (OTEL) for LLM Observability - Langfuse" (langfuse.com/integrations/native/opentelemetry); "Add Langfuse to an Existing OpenTelemetry Setup"; "OTEL-based Python SDK - Langfuse" (changelog 2025-05-23); "Use Langfuse from Go, Java, C#, and Ruby via OpenTelemetry".
+Search-tool summary: Langfuse accepts OTLP traces at /api/public/otel over HTTP. Its Python SDK v3+ and JS SDK v4+ are built on OpenTelemetry, and Langfuse maps gen_ai.* attributes onto its generation model. OTLP over HTTP is supported with both JSON and protobuf encodings, but gRPC is not supported yet. Langfuse states that the GenAI attribute conventions are still evolving, so it maps incoming traces to its data model and also supports attributes popular in the OTel GenAI ecosystem. Its own langfuse.* attributes take precedence over the generic OpenTelemetry conventions. Spans with gen_ai.* attributes become generations with model, token and cost data. Initialising the SDK registers a span processor; LangfuseSpanProcessor can be registered next to an existing OTLP exporter. SDK v3 launch was a beta announced in May 2025 (Launch Week #3).

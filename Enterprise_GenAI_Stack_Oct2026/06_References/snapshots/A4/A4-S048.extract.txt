@@ -1,0 +1,8 @@
+SOURCE ID: A4-S048
+URL: https://trust.crewai.com/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CrewAI AMP Agent Management Platform enterprise SOC 2 HIPAA on-premise pricing
+========================================================================
+
+CrewAI Trust Center: maintains a SOC 2 Type 2 certified security program; SOC 2 Type 2 report dated June 2026 listed as downloadable resource. HIPAA audit report from February 2026 listed (index entry describes it as "Type 1"). Trust Center powered by Vanta. Scope of HIPAA report and BAA availability not shown.

@@ -1,0 +1,8 @@
+SOURCE ID: A4-S031
+URL: https://changelog.langchain.com/announcements/product-naming-changes-langsmith-deployment-and-langsmith-studio
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith Deployment formerly LangGraph Platform rename
+========================================================================
+
+LangChain changelog entry dated October 14, 2025: LangGraph Platform has been renamed to LangSmith Deployment as of October 2025; LangGraph Studio is now LangSmith Studio. LangSmith has 3 services: LangSmith Observability, LangSmith Evaluation, and LangSmith Deployment. LangGraph remains the open-source framework, while LangSmith Deployment is the managed service for running agents. Support docs describe the product as graph runtime and deployments, previously called LangGraph Platform.

@@ -1,0 +1,8 @@
+SOURCE ID: A3-S046
+URL: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OWASP MCP Top 10 project tool poisoning MCP03 and OWASP Top 10 for Agentic Applications 2026
+========================================================================
+
+Search-tool summary: OWASP describes it as a globally peer-reviewed framework that identifies the most critical security risks facing autonomous and agentic AI systems, built with more than 100 industry experts. The official release announcement is dated December 10, 2025 (launch posts dated 9 Dec 2025), even though the list carries the 2026 name. The launch post names risks such as goal hijacking (ASI01), tool misuse (ASI02), and identity and privilege abuse (ASI03). It places poisoned runtime components under ASI04, Agentic Supply Chain Vulnerabilities. OWASP also lists an 'Agentic Skills Top 10' project (owasp.org/projects/agentic-skills-top-10) and, on 1 Sep 2026, unveiled a 2026 Top 10 for LLM Applications and a new Agent Control Standard.

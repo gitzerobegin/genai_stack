@@ -1,0 +1,8 @@
+SOURCE ID: A3-S039
+URL: https://modelcontextprotocol.io/specification/draft/basic/authorization
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MCP authorization specification OAuth 2.1 resource indicators RFC 8707 protected resource metadata RFC 9728
+========================================================================
+
+Search-tool summary: The current draft lists OAuth 2.1 (draft-ietf-oauth-v2-1-13) alongside RFC 6750, RFC 8414, RFC 7591, RFC 8707, and RFC 9728. The MCP server is the OAuth 2.1 resource server. MCP servers MUST implement OAuth 2.0 Protected Resource Metadata (RFC9728); metadata MUST include the authorization_servers field. Clients must send a resource parameter (RFC 8707) in both authorization requests and token requests; servers must confirm access tokens were issued specifically for them as the intended audience. Binding tokens to audiences works when the Authorization Server supports the capability. PKCE: clients must use S256 when technically capable and refuse to proceed if code_challenge_methods_supported is absent. Clients should request the least privilege needed. The 2025-06-18 changelog is where MCP servers were first classified as OAuth Resource Servers with protected resource metadata; it also made RFC 8707 mandatory for clients to prevent malicious servers from obtaining access tokens. A dated 2026-07-28 security considerations page also exists (modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations).

@@ -1,0 +1,14 @@
+SOURCE ID: A7-S022
+URL: https://www.infosecurity-magazine.com/news-features/cyber-ma-roundup-march-26/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AI security startup acquisitions 2026
+========================================================================
+
+Roundup reporting (secondary):
+- Upwind acquired Israeli AI security startup Aegis in an all-equity deal reportedly valued at $30 million (September 2026, SecurityWeek roundup).
+- A10 Networks acquired TrojAI, a Canada-based AI security firm, to add AI red-teaming and runtime protection (around June 2026); terms not disclosed.
+- Infosecurity Magazine (March 2026) reports that OpenAI acquired agentic AI security testing company Promptfoo; a later source describes the deal as "Undisclosed (pending close)".
+- Kiteworks announced the acquisition of AI data security company Bonfy.AI.
+- Cisco announced intent to acquire WideField Security, its third security-related acquisition of 2026, following Astrix Security and Galileo.
+- 2025: CrowdStrike bought Pangea; Cato Networks acquired Aim Security; Palo Alto Networks' acquisition of Protect AI widely reported in the ~$500 million range.

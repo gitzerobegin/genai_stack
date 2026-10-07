@@ -1,0 +1,34 @@
+SOURCE ID: A1-S058
+URL: https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/README.md
+FINAL URL: https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/README.md
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+# Semantic conventions for generative AI systems
+
+**Status**: [Development][DocumentStatus]
+
+Semantic conventions for Generative AI operations are defined for the following signals:
+
+* [Client Inference](client-inference.md): Semantic Conventions for Generative AI inference operations - *spans, events, and metrics*.
+* [Events](gen-ai-events.md): Semantic Conventions for Generative AI inputs and outputs - *events*.
+* [Exceptions](gen-ai-exceptions.md): Semantic Conventions for Generative AI *exceptions*.
+* [Metrics](gen-ai-metrics.md): Semantic Conventions for Generative AI operations - *metrics*.
+* [Inference Token Metrics](gen-ai-token-metrics.md): Semantic Conventions for Generative AI inference token metrics - *metrics*.
+* [Model spans](gen-ai-spans.md): Semantic Conventions for Generative AI model operations - *spans*.
+* [Agent spans](gen-ai-agent-spans.md): Semantic Conventions for Generative AI agent operations - *spans*.
+
+Technology specific semantic conventions are defined for the following GenAI system:
+
+* [Anthropic](./anthropic.md): Semantic Conventions for Anthropic.
+* [Azure AI Inference](./azure-ai-inference.md): Semantic Conventions for Azure AI Inference.
+* [AWS Bedrock](./aws-bedrock.md): Semantic Conventions for AWS Bedrock.
+* [OpenAI](./openai.md): Semantic Conventions for OpenAI.
+
+See also:
+
+* [Model Context Protocol](./mcp.md): Semantic Conventions for [MCP](https://modelcontextprotocol.io)
+
+[DocumentStatus]: https://opentelemetry.io/docs/specs/otel/document-status

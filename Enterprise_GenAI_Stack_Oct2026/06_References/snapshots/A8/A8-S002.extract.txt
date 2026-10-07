@@ -1,0 +1,15 @@
+SOURCE ID: A8-S002
+URL: https://www.occ.gov/news-issuances/bulletins/2026/bulletin-2026-13.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OCC Bulletin 2026-13 model risk management generative AI agentic AI excluded definition of model (allowed occ.gov, fdic.gov)
+========================================================================
+
+Search result title: "Model Risk Management: Revised Guidance" (OCC Bulletin 2026-13), occ.gov; attachment "Supervisory Guidance on Model Risk Management" (bulletin-2026-13a.pdf)
+Search-tool extract:
+- OCC 2026-13, "Model Risk Management: Revised Guidance," dated 04/17/2026, issued jointly by OCC, Federal Reserve Board and FDIC.
+- Rescinds OCC Bulletin 2011-12, the 1997 credit scoring bulletin (1997-24), 2021-19, and the "Model Risk Management" booklet of the Comptroller's Handbook.
+- Definition: "the term 'model' refers to a complex quantitative method, system, or approach that applies statistical, economic, or financial theories to process input data into quantitative estimates." Excludes "simple arithmetic calculations, such as those found within spreadsheets, as well as deterministic rule-based processes and software where there are no statistical, economic, or financial theories underpinning their design or use."
+- "Generative AI and agentic AI models are novel and rapidly evolving" and are not within the scope of this guidance. "The agencies will continue to consider additional measures to address model risk management."
+- Footnote: "the principles described in this guidance apply to traditional statistical and quantitative models and non-generative, non-agentic AI models." "a banking organization's risk management and governance practices should guide the determination of appropriate governance and controls for any tools, processes, or systems not covered in this document."
+- PDF: "supervisory action may result for any violations of law or unsafe or unsound practices stemming from insufficient management of model risk."

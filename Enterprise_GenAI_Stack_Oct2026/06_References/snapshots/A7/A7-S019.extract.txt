@@ -1,0 +1,9 @@
+SOURCE ID: A7-S019
+URL: https://www.sec.gov/Archives/edgar/data/1048695/000104869526000023/ffiv-20251231.htm
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CalypsoAI acquired F5
+========================================================================
+
+F5 announced the deal on September 11, 2025 ("F5 would acquire all issued and outstanding shares of CalypsoAI"; announced price $180 million). F5's 10-Q says the transaction closed on September 26, 2025, for $145.2 million in cash. CalypsoAI's capabilities are being folded into F5's Application Delivery and Security Platform, and F5 has since introduced F5 AI Guardrails. F5 blog: "Securing AI models and agents without compromise: How F5's acquisition of CalypsoAI will deliver end-to-end AI runtime protection".
+Conflict: a roundup (Infosecurity Magazine, March 2026) describes "F5 announced its acquisition of CalypsoAI in January 2026"; the SEC filing date is primary.

@@ -1,0 +1,16 @@
+SOURCE ID: A6-S015
+URL: https://docs.litellm.ai/docs/mcp
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LiteLLM proxy MCP gateway guardrails semantic caching budgets rate limits A2A agent gateway docs (site:docs.litellm.ai)
+========================================================================
+
+Related: https://docs.litellm.ai/docs/a2a ; https://docs.litellm.ai/docs/proxy/caching ; https://docs.litellm.ai/docs/proxy/users ; https://docs.litellm.ai/release_notes/v1.89.0/v1-89-0 ; https://docs.litellm.ai/docs/proxy/security_owasp_llm_top10 ; https://docs.litellm.ai/docs/mcp_deployment
+
+Extract as returned by search tool:
+LiteLLM presents itself as one API to 100+ LLM providers, MCP tools, and A2A agents. Its deployment guide describes a single control plane for three resource types: MCP servers, agents, and LLMs, all sharing auth, rate limiting, and a usage dashboard.
+MCP gateway: The proxy exposes an MCP endpoint that lets admins use a fixed endpoint for all MCP tools and control MCP access by Key, Team. Clients authenticate with a virtual key, and LiteLLM fans out to the upstream MCP servers you registered and applies access control, cost tracking, and guardrails on the way. The v1.89.0 release notes add per-server environment variables, per-server RPM rate limiting for keys and teams, OAuth passthrough with issuer-scoped JWT auth.
+Guardrails: The framework can run a check before the provider call, alongside it, or on the response. One guardrail definition applies across chat, embeddings, A2A, and MCP routes. On MCP, guardrails run on every tool call, and tool filtering limits which tools a key can reach. The OWASP mapping notes that guardrails are off by default for prompt injection.
+Semantic caching: available through Redis, Valkey, and Qdrant backends. The docs warn that semantic caches embed the prompt and serve the closest match above a similarity threshold, which suits single-shot prompts and goes badly wrong on agentic traffic. The exact-match cache is shared across keys or teams sending identical requests unless you set a namespace.
+Budgets and rate limits: Budgets can sit on keys, users, teams, and customers. Rate limits can be set as tpm, rpm, or max parallel requests. Every limit is unset by default. Global budgets need a database; litellm_settings.max_budget fails open there rather than erroring. A proxy admin key is exempt from budget and rate limit checks. An optional hard-enforcement mode validates spend against the database.
+A2A agent gateway: per-agent rate limits, per-session rate limits, a per-session iteration cap, and a per-session budget cap. A2A agents behave the same way as MCP, meaning they are open to every caller until some level defines an allowlist.

@@ -1,0 +1,16 @@
+SOURCE ID: A6-S022
+URL: https://aws.amazon.com/solutions/guidance/multi-provider-generative-ai-gateway-on-aws/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AWS Guidance Multi-Provider Generative AI Gateway LiteLLM Bedrock cross-region inference intelligent prompt routing (site:aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+Related: https://aws.amazon.com/blogs/machine-learning/streamline-ai-operations-with-the-multi-provider-generative-ai-gateway-reference-architecture/ ; https://aws.amazon.com/blogs/machine-learning/implementing-resilience-patterns-with-amazon-bedrock-and-llm-gateway/ ; https://docs.aws.amazon.com/prescriptive-guidance/latest/govern-architect-agentic-ai/model-access-layer.html
+
+Extract as returned by search tool:
+It is a reference architecture built on the open-source LiteLLM project. Organizations can use it to integrate with AI providers while keeping centralized control, security, and observability.
+Deployment is handled through CloudFormation and AWS CDK templates for automated deployment into an Amazon ECS cluster. The Guidance can also run on EKS.
+Requests reach the gateway through Route 53 or CloudFront, with AWS WAF in front of an Application Load Balancer. Models hosted on Amazon Bedrock provide model access, guardrails, prompt caching, and routing through a unified API.
+The gateway distributes requests across multiple model deployments and fails over to backup providers when issues are detected, with retry and exponential back-off.
+The resilience post describes distributing requests across Regions through CRIS (cross-region inference), using multiple AWS accounts.
+None of the results describe Bedrock Intelligent Prompt Routing being wired into the Guidance.

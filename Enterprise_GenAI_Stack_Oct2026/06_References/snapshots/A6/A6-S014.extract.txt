@@ -1,0 +1,11 @@
+SOURCE ID: A6-S014
+URL: https://portkey.ai/docs/introduction/what-is-portkey
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Portkey pricing enterprise SOC 2 ISO 27001 trust gateway open source MCP gateway (site:portkey.ai)
+========================================================================
+
+Extract as returned by search tool:
+Docs title: "What is Portkey? - Portkey (Prisma AIRS AI Gateway) Docs".
+Portkey lists an MCP Gateway as one of its products. One of its articles says Portkey's MCP Gateway centralizes authentication, access control, and observability for agent-to-tool connections.
+Some pages say Portkey is now PRISMA AIRS AI Gateway, generally available for all enterprises.

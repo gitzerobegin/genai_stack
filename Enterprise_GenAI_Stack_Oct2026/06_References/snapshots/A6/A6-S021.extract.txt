@@ -1,0 +1,16 @@
+SOURCE ID: A6-S021
+URL: https://aws.amazon.com/bedrock/agentcore/pricing/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon Bedrock AgentCore Gateway MCP generally available pricing AgentCore Identity Policy (site:aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+Related: https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/ ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-using.html ; https://aws.amazon.com/bedrock/agentcore/faqs/ ; https://aws.amazon.com/about-aws/whats-new/2025/12/api-gateway-mcp-proxy-support/
+
+Extract as returned by search tool:
+AgentCore Gateway's MCP support has been generally available since the October 2025 AgentCore GA release. "AgentCore Gateway now connects to existing Model Context Protocol (MCP) servers in addition to transforming APIs and Lambda functions into agent-compatible tools."
+"AgentCore Gateway supports the following MCP versions: 2026-07-28, 2025-11-25, 2025-06-18, and 2025-03-26."
+Gateway pricing: "Gateway · API Invocations (e.g. ListTools, InvokeTool, Ping) · $0.005 per 1,000 invocations; Gateway · Search API · $0.025 per 1,000 invocations; Gateway · Tool Indexing · $0.02 per 100 tools indexed per month". "Data egress to customer-owned VPCs is charged a data processing rate of $0.006 per GB in commercial AWS Regions".
+Identity pricing: Identity is free when reached through Runtime or Gateway. "Identity · Token or API key requests for non-AWS resources · $0.010 per 1,000 token or API keys requested by the agent".
+Policy pricing: "Policy · Authorization Request · $0.000025 per request Your first 100 temporal policies per policy engine incur no additional authorization charges; Policy · Input Tokens Processed · $0.13 per 1,000 tokens".
+Search result title also listed: "Amazon API Gateway adds MCP proxy support" (What's New, December 2025).

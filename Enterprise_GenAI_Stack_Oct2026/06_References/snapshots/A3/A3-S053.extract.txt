@@ -1,0 +1,8 @@
+SOURCE ID: A3-S053
+URL: https://docs.mem0.ai/platform/platform-vs-oss
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mem0 open source supported vector databases graph store memory types episodic semantic procedural delete memories
+========================================================================
+
+Search-tool summary of docs.mem0.ai pages (platform-vs-oss, migration/oss-v2-to-v3, components/vectordbs/overview, changelog/sdk): The Python SDK supports Qdrant, Chroma, PGVector, Pinecone, Oracle, Milvus, MongoDB, Redis, Valkey, Elasticsearch, OpenSearch, Supabase, Upstash Vector, and Azure. The TypeScript SDK covers Qdrant, Redis, PGVector, Supabase, LangChain, Azure AI Search, Vectorize, Amazon S3 Vectors, Milvus, Neptune Analytics, and an in-memory store. Python default is a local Qdrant instance ('Vector store | Local Qdrant at /tmp/qdrant'). All external graph store backends (Neo4j, Memgraph, Kuzu, Apache AGE) were removed in v2.0.0 (2026-04-14). 'OSS still extracts entities and uses them to boost ranking, but there is no queryable graph and no relations field. Graph memory is a Platform-only feature.' Platform-vs-OSS lists as shared: 'Multimodal input, memory expiration (expiration_date), reranking, procedural memory (Python), and custom extraction instructions (custom_instructions)'. Storage is split across a SQL database for facts, a vector database for embeddings, and an entity store for entities. New pipeline: 'Single-pass ADD-only (one LLM call, no UPDATE/DELETE)'. SDK changelog: 'delete() and async delete() accept delete_linked (default False)'; when enabled, it also removes older memories that the deleted one superseded.

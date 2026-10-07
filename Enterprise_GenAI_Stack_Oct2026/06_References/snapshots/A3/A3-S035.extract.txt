@@ -1,0 +1,8 @@
+SOURCE ID: A3-S035
+URL: https://atlan.com/know/ai-agent/ai-agent-skills/what-are-agent-skills/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Agent Skills specification Agentic AI Foundation contributed agentskills 2026
+========================================================================
+
+Search-tool summary: Atlan says the spec is under AAIF: 'Two months later, agentskills.io published the open specification, stewarded by the Agentic AI Foundation, turning a Claude-specific mechanism into a portable standard.' Atlan reports agentskills.io lists more than 40 adopting clients (checked September 2026). The AAIF founding contributions (9 Dec 2025) named were MCP, Block's Goose framework, and the AGENTS.md specification; Agent Skills is not on that list. Agentailor lists Agent Skills as an open standard under MIT and reports adoption by Claude Code, OpenAI Codex, Cursor, VS Code and 30+ other tools. AAIF stewardship of Agent Skills is plausible but unconfirmed.

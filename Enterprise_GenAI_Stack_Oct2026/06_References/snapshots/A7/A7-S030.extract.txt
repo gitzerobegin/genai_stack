@@ -1,0 +1,10 @@
+SOURCE ID: A7-S030
+URL: https://www.hiddenlayer.com/insight/hiddenlayer-achieves-iso-27001-and-renews-soc-2-type-2-compliance
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: HiddenLayer SOC 2 Type II ISO 27001 trust center
+========================================================================
+
+HiddenLayer post dated February 13, 2025 (Sam Pearcy) announced ISO 27001 certification and a renewed SOC 2 Type 2 report; the renewal added processing integrity and privacy to security, availability and confidentiality (all five trust service categories).
+First SOC 2 Type II announcement: November 15, 2023 ("HiddenLayer Attains SOC 2 Type II Compliance, Elevating Data Security for AI"), covering security, availability and confidentiality.
+hiddenlayer.com/security still describes SOC 2 Type II for security, availability and confidentiality only; covers encryption at rest and in transit. No dedicated trust centre found.

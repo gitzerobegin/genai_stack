@@ -1,0 +1,16 @@
+SOURCE ID: A7-S031
+URL: https://docs.paloaltonetworks.com/ai-runtime-security/activation-and-onboarding/activate-your-ai-runtime-security-license
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Prisma AIRS licensing credits pricing deployment regions SaaS FedRAMP
+========================================================================
+
+- "Prisma AIRS uses a bring-your-own license (BYOL) model." "The Prisma AIRS license is funded using Software NGFW credits."
+- AI Runtime API: "Credit usage is calculated in monthly tokens (billions) where each token is equal to four characters. At the end of each calendar month, your token quota resets." Token-based licensing supported starting February 2026. "New profiles are created in steps of 1 billion tokens, with a minimum value of 1 billion." Cost per billion tokens decreases at higher tiers.
+- Managed AIRS for AWS: PAYG subscription in AWS Marketplace or prepaid credits on 1/2/3-year terms; overages charged at PAYG rates; Premium SKU "$1.50 Base + $1.50 Premium / hour (Total: $3.00 / hr)", traffic tiers from $0.065/GB.
+- Network intercept: minimum 4 vCPUs; up to 10K AI transactions per day per vCPU.
+- AIRS Managed SaaS Firewall: managed cloud firewall on AWS, Azure and GCP. "Prisma AIRS AI Runtime Firewall is supported on private clouds, such as ESXi, KVM, OpenShift, and Rancher."
+- Setup prerequisites: "Strata Cloud Manager and tenant service group (TSG): US regions only. Cloud Service Providers (AWS, Azure, and GCP): Any region supported." "All logs are stored in the US region." "All AI traffic is sent to the US region for threat inspection."
+- AI Model Security offered in four regions: US, EU-Netherlands, Japan and Singapore. AI Skill Security: US region only. Early-access AI Red Teaming profile: Americas region only.
+- FedRAMP: "Prisma AIRS AI Runtime: API intercept feature is not available in FedRAMP-authorized cloud environments." Prisma AIRS appears on the Palo Alto Networks FedRAMP page; authorised vs in-progress status not confirmed.
+- June 2026 blog: new local cloud location for Prisma AIRS in Japan supporting local data residency.

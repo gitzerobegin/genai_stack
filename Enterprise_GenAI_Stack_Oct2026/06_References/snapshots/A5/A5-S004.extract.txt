@@ -1,0 +1,12 @@
+SOURCE ID: A5-S004
+URL: https://developers.openai.com/api/docs/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI API pricing gpt-6-sol gpt-6-luna gpt-6-astra per 1M tokens (allowed_domains openai.com)
+========================================================================
+
+Search tool summary (openai.com):
+- Pricing page lists gpt-6.1-sol alongside gpt-6-astra and gpt-6-luna. Prices per 1M tokens at standard rates for prompts up to 272K input tokens.
+- gpt-6-luna: $0.10 input, $0.01 cached input, $0.125 cache writes, $0.50 output. Batch $0.05 input, $0.25 output.
+- gpt-6-sol: launch announcement listed $2 input, $0.20 cached input, $10 output. Current pricing page lists gpt-6.1-sol at $2.00 input, $0.10 cached input, $2.50 cache writes, $10.00 output.
+- gpt-6-astra: $10.00 input, $1.00 cached input, $12.50 cache writes, $50.00 output. Batch $5.00 input, $0.50 cached, $25.00 output. Prompts over 272K input tokens: $20.00 input and $75.00 output.

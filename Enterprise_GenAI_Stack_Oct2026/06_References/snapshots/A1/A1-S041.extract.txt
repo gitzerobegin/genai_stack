@@ -1,0 +1,9 @@
+SOURCE ID: A1-S041
+URL: https://www.braintrust.dev/blog/security-data-control
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Braintrust security SOC 2 Type II HIPAA GDPR self-hosted hybrid deployment data plane
+========================================================================
+
+Search result titles: "Braintrust - The active observability platform for agents" (homepage); "Security is a choice: how Braintrust lets you decide where your AI data lives"; "Best AI evals products for self-hosted / on-prem enterprise deployments (2026)"; "How to keep audit-ready logs of every LLM call".
+Search-tool summary: SOC 2 Type II: homepage describes controls as independently audited and verified annually; annual audit report shared through Trust Center under mutual NDA. HIPAA: homepage says "fully compliant with HIPAA requirements"; other pages say supports HIPAA requirements with BAAs available. GDPR via Data Processing Agreements. AES-256 at rest, TLS 1.2 in transit; API keys stored as one-way hashes. Hybrid: control plane (UI, metadata, authentication via Clerk) Braintrust-hosted; data plane runs in customer AWS, GCP or Azure VPC using official Terraform modules; browsers and SDKs connect to customer data plane directly; control plane never requires network access to data plane. Customer-managed keys via cloud KMS, VPC peering, private networking or air-gapping mentioned. Fully self-hosted option on Enterprise plan. Inconsistency: homepage says hybrid out of the box; other pages tie hybrid/self-hosting to Enterprise.

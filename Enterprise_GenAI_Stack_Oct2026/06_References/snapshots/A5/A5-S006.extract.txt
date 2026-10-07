@@ -1,0 +1,16 @@
+SOURCE ID: A5-S006
+URL: https://developers.openai.com/api/docs/guides/your-data
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI data residency Europe UK API zero data retention enterprise privacy (allowed_domains openai.com)
+========================================================================
+
+Links: Introducing data residency in Europe (openai.com/index/introducing-data-residency-in-europe/); Data residency for the OpenAI API (help.openai.com/en/articles/10503543); Expanding data residency access to business customers worldwide; Data residency and inference residency for ChatGPT; Business data privacy, security, and compliance (openai.com/business-data/); The next chapter for UK sovereign AI; Data controls in the OpenAI platform (developers.openai.com/api/docs/guides/your-data); Enterprise privacy at OpenAI; Offering Zero Data Retention for frontier models; ZDR with Private Safety Processing.
+Search tool summary:
+- Europe: eligible customers create a new API Project with Europe region; requests handled in-region with zero data retention. Developer docs list eu.api.openai.com supporting storage and processing; requires MAM (Modified Abuse Monitoring) or ZDR approval. Regional processing per request via regional domain prefix.
+- UK: OpenAI announced UK data residency (Friday 24th October) to store data in the UK. gb.api.openai.com is storage-only; processing not supported for UK; requires MAM or ZDR.
+- ZDR: OpenAI does not retain prompts or responses after processing; requires prior approval. Without it, OpenAI may retain API inputs and outputs for up to 30 days for service and abuse monitoring. Some endpoints (conversations, assistants, threads, vector stores, files, fine-tuning jobs) are not ZDR-eligible.
+- Training: By default, OpenAI does not use data from ChatGPT Enterprise, Business, Edu, ... or our API platform, including inputs or outputs, for training.
+- CSAM-flagged images retained even under ZDR.
+- Private Safety Processing option in rollout. NYT litigation preservation order does not impact ZDR API customers.
+- DPA available; Trust Portal holds GDPR/DPA/subprocessor documents.

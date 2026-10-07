@@ -1,0 +1,10 @@
+SOURCE ID: A7-S025
+URL: https://docs.lakera.ai/changelog
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Check Point AI security Lakera 2026 AI Agent Security OR AI Guardrails product launch
+========================================================================
+
+docs.lakera.ai/introduction is titled "The Check Point AI Defense Plane".
+Changelog, 10 April 2026: AI Agent Security listed as a new product in early access, "extending AI Guardrails with discovery and risk assessment for agents".
+AI Agent Security discovers agents across the platforms where they run, assesses the risk of each agent's configuration, and protects them at runtime. Runtime protection is handled by AI Guardrails, which detects and flags prompt attacks, data leakage, content violations and off-policy agent behaviour through the Guard API. AI Guardrails is also available standalone. AI Agent Security is offered as enterprise SaaS; AI Guardrails also available as on-premises deployment.

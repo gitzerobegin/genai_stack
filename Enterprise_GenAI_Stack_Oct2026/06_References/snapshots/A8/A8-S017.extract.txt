@@ -1,0 +1,17 @@
+SOURCE ID: A8-S017
+URL: https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-3
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AI Act Annex III point 5 creditworthiness ...; Article 72 post-market monitoring
+========================================================================
+
+Search results: AI Act Service Desk "Annex III"; "Essential Services"; "Employment"; "Article 72: Post-market monitoring by providers and post-market monitoring plan for high-risk AI systems"; "Article 27: Fundamental rights impact assessment"; Commission report COM(2026)234
+Search-tool extract:
+- Annex III point 5(b): AI intended to evaluate creditworthiness of natural persons or establish their credit score, with the exception of AI used for detecting financial fraud. Point 5(c): risk assessment and pricing in relation to natural persons in the case of life and health insurance.
+- Recital 58 reasoning: access to financial resources/essential services; life and health insurance pricing may affect livelihood and fundamental rights.
+- Service Desk guidance: customer-support tools not taking part in scoring are outside 5(b); systems used only to monitor existing credit exposure for prudential purposes are not high-risk under 5(b); claims-management validity tools and life-insurance product design tools outside 5(c) unless used for individual risk assessment and pricing.
+- Article 27: deployers of 5(b) and 5(c) systems must carry out a fundamental rights impact assessment before deployment.
+- 2026 Commission report (COM(2026)234): stakeholders propose widening point 5; Commission will gather data before deciding whether to amend.
+- Annex III point 4(a): recruitment or selection (targeted job ads, screening, evaluating candidates); 4(b): decisions on work-related relationships, promotion, termination, task allocation based on personal traits, monitoring and evaluating performance.
+- Article 72: providers must establish and document a post-market monitoring system proportionate to risks that actively and systematically collects, documents and analyses relevant performance data (including from deployers) throughout lifetime to evaluate continuous compliance with Chapter III Section 2; based on a post-market monitoring plan forming part of the technical documentation (Annex IV).
+- Annex III obligations apply from 2 December 2027.

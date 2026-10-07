@@ -1,0 +1,16 @@
+SOURCE ID: A8-S023
+URL: https://www.legislation.gov.uk/uksi/2026/777/made
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Critical Third Parties designation ... HM Treasury July 2026 (gov.uk, bankofengland, fca, legislation.gov.uk)
+========================================================================
+
+Search results: legislation.gov.uk "The Critical Third Parties (Designation) Regulations 2026" (SI 2026/777); Bank of England news "UK financial regulators to begin overseeing Critical Third Parties announced by HM Treasury" (July 2026); GOV.UK "UK financial system strengthened with new safeguards for major technology providers"; FCA statement
+Search-tool extract:
+- "These Regulations designate Amazon Web Services EMEA SARL, Google Cloud EMEA Limited, Microsoft Ireland Operations Limited and Oracle Corporation UK Limited as critical third parties."
+- "The Regulations were made on 8th July 2026 and come into force on 13th July 2026. The Treasury has consulted the Financial Conduct Authority, the Prudential Regulation Authority and the Bank of England." Made under section 312L FSMA 2000.
+- Test: whether a failure in, or disruption to, the provision of these services could threaten stability or confidence in the UK financial system.
+- Oversight applies only to the systemic services provided to the financial sector; designation is not authorisation; regulated firms remain responsible for due diligence, risk management and contingency planning for third-party arrangements.
+- "In November 2024, the FCA, the Bank and PRA introduced the final rules and policy for the CTP regime. These came into effect on 1 January 2025 and apply immediately to CTPs once designated by HMT."
+- "There is no statutory limit on the number of Critical Third Parties that may be designated"; Treasury can de-designate or designate new CTPs.
+- From 13 July 2026 the Bank of England, PRA and FCA jointly commence oversight. MoU with ESAs on CTP oversight coordination.

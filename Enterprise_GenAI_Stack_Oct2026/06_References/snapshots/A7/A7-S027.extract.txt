@@ -1,0 +1,11 @@
+SOURCE ID: A7-S027
+URL: https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-secures-agentic-ai-with-prisma-airs-3-0
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Prisma AIRS 3.0 OR Prisma AIRS 2026 release model security AI red teaming runtime agent
+========================================================================
+
+Palo Alto Networks launched Prisma AIRS 3.0 on March 23, 2026: "Prisma AIRS 3.0 secures the entire Agentic AI lifecycle"; pitched as moving from watching what AI does to authorising autonomous execution.
+"Agent Artifact Scanning extends model scanning to agent artifacts, analyzing agent code, MCP servers, as well as skills for unsafe permissions, hidden vulnerabilities and indirect injection paths."
+"AI Red Teaming for agents simulates context-aware agentic attacks, discovers AI-related vulnerabilities, and recommends runtime security policies."
+AI Agent Gateway listed as "currently available in limited preview" at launch.

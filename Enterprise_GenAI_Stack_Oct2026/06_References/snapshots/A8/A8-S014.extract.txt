@@ -1,0 +1,13 @@
+SOURCE ID: A8-S014
+URL: https://datamatters.sidley.com/2026/06/22/eu-lawmakers-reach-provisional-agreement-to-delay-key-eu-ai-act-obligations/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: EU AI Act Digital Omnibus high-risk obligations postponement adopted 2026
+========================================================================
+
+Search results (law-firm briefings): Sidley Data Matters "EU Lawmakers Reach Provisional Agreement to Delay Key EU AI Act Obligations" (22 June 2026); Orrick "EU AI Act Update: Digital Omnibus Finalizes 8 Compliance Changes" (July 2026); Jones Walker "Yes, August 2 Still Matters"
+Search-tool extract:
+- 7 May 2026 political agreement; European Parliament endorsed 16 June 2026; Council adopted 29 June 2026; Regulation (EU) 2026/1744 published 24 July 2026, in force 27 July 2026.
+- Stand-alone Annex III high-risk obligations (employment and worker management, creditworthiness assessment, certain life and health insurance underwriting contexts, education, access to essential services) now apply 2 December 2027 instead of 2 August 2026. Annex I embedded AI to 2 August 2028.
+- GPAI models, prohibited practices and general transparency obligations remain on original timeline; Article 50 transparency duties apply from 2 August 2026; Article 50(2) watermarking grace period to 2 December 2026 for systems already on the market.
+- Provision letting providers skip registration for Article 6(3) exemptions dropped; safety-component definition narrowed.

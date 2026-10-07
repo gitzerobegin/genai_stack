@@ -1,0 +1,8 @@
+SOURCE ID: A4-S044
+URL: https://pydantic.dev/articles/pydantic-ai-v2
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pydantic AI V2 release graph durable execution Temporal DBOS Prefect
+========================================================================
+
+v2 upgrade guide dates the first v2 beta to 2026-05-20 and lists breaking changes: pydantic_graph.persistence and pydantic_graph.mermaid removed; diagrams rendered with Graph.render(). Graph docs: pydantic_graph.persistence removed in V2, partly because consistent snapshotting is hard with parallel execution; to save, resume and fork agent run state, use the Harness's StepPersistence capability. GraphBuilder moved from pydantic_graph.beta to top-level pydantic_graph. v2 launch post: durability moving onto the capability layer (in progress, runtime extension point tracked for after v2). Core stays small; the Harness holds the rest.

@@ -1,0 +1,11 @@
+SOURCE ID: A8-S006
+URL: https://www.federalregister.gov/documents/2026/01/08/2026-00206/request-for-information-regarding-security-considerations-for-artificial-intelligence-agents
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: banking agencies request for information artificial intelligence generative agentic 2026
+========================================================================
+
+Search result title: "Federal Register :: Request for Information Regarding Security Considerations for Artificial Intelligence Agents" (2026-01-08, document 2026-00206)
+Search-tool extract:
+- NIST's Center for AI Standards and Innovation sought input on AI agent security, with comments due March 9, 2026.
+- The notice describes that AI agent systems can be deployed with little to no human oversight.

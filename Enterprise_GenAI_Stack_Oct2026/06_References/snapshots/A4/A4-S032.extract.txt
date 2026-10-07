@@ -1,0 +1,8 @@
+SOURCE ID: A4-S032
+URL: https://www.langchain.com/blog/series-b
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangChain Series B funding valuation 2025 LangGraph 1.0
+========================================================================
+
+"Today, we're announcing we've raised $125M at a $1.25B valuation to build the platform for agent engineering." "IVP led the round alongside existing investors Sequoia, Benchmark, and Amplify, as well as new investors CapitalG and Sapphire Ventures." Funding to "expand LangSmith, the platform for agent engineering, and grow our open source contributions." (Exact post date not shown in extract; announced alongside 1.0 releases, October 2025.)

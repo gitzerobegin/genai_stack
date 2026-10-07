@@ -1,0 +1,13 @@
+SOURCE ID: A8-S020
+URL: https://www.eba.europa.eu/publications-and-media/press-releases/european-supervisory-authorities-designate-critical-ict-third-party-providers-under-digital
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ESAs designate critical ICT third-party providers DORA list November 2025 (allowed eba, esma, eiopa)
+========================================================================
+
+Search results: EBA/ESMA press release "The European Supervisory Authorities designate critical ICT third-party providers under the Digital Operational Resilience Act"; ESMA "List_of_designated_CTPPs.pdf" (2025-11); EBA "DORA oversight"
+Search-tool extract:
+- On 18 November 2025, the three ESAs (EBA, EIOPA, ESMA) published the first list of designated CTPPs under DORA, "a crucial step in implementing the DORA oversight framework".
+- List (19): Accenture plc, Amazon Web Services EMEA Sarl, Bloomberg L.P., Capgemini SE, Colt Technology Services, Deutsche Telekom AG, Equinix (EMEA) B.V., Fidelity National Information Services, Inc., Google Cloud EMEA Limited, International Business Machines Corporation, InterXion Headquarters B.V., Kyndryl Inc., LSEG Data and Risk Limited, Microsoft Ireland Operations Limited, NTT DATA Inc., Oracle Nederland B.V., Orange SA, SAP SE, Tata Consultancy Services Limited. Published under Article 31(9) DORA; PDF dated 18 November 2025.
+- "the ESAs collected data from the Registers of Information maintained by financial entities"; criticality assessment of systemic importance, role supporting critical or important functions, substitutability; providers notified and had right to be heard.
+- "each ESA assumes the role of Lead Overseer (LO) for the CTPPs within their respective financial sector". Article 31(11) opt-in. "under Article 31(8) of DORA, the ESAs publish and update the list of CTPPs across the EU on an annual basis".

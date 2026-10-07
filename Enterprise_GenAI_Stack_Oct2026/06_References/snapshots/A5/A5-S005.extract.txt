@@ -1,0 +1,14 @@
+SOURCE ID: A5-S005
+URL: https://openai.com/index/introducing-gpt-oss/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: gpt-oss open-weight model Apache 2.0 latest (allowed_domains openai.com)
+========================================================================
+
+Search tool summary (openai.com):
+- gpt-oss-120b and gpt-oss-20b released August 5, 2025 under Apache 2.0 and the gpt-oss usage policy. First open-weight language models since GPT-2.
+- 120b: 117B parameters, 5.1B active; fits a single H100. 20b for lower latency / local use.
+- Licence permits modification and redistribution including commercial use (subject to gpt-oss usage policy).
+- Not on OpenAI's API or ChatGPT; run on own infrastructure or third-party hosts; works with vLLM, Ollama, llama.cpp.
+- gpt-oss-safeguard (120b, 20b) released October 29, 2025 as research preview, safety classification.
+- No newer gpt-oss release found in results.

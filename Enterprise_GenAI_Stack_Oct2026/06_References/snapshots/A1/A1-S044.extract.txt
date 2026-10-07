@@ -1,0 +1,9 @@
+SOURCE ID: A1-S044
+URL: https://ir.dynatrace.com/news-events/press-releases/detail/435/dynatrace-to-acquire-ai-observability-leader-arize
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Dynatrace completes acquisition of Arize press release
+========================================================================
+
+Search result titles: "Dynatrace to Acquire AI Observability Leader Arize :: Dynatrace, Inc. (DT)" (ir.dynatrace.com/.../detail/435/...); "Dynatrace to Acquire AI Observability Leader Arize" (dynatrace.com/news/press-release/dynatrace-to-acquire-arize/); Business Wire 20260813982051.
+Extracts: "Dynatrace, the leading AI-powered observability platform, has signed a definitive agreement to acquire Arize in a cash and stock transaction valued at $915 million." "approximately $815 million in cash as well as replacement equity awards for Arize employees joining Dynatrace." "Dynatrace plans to fund the transaction through cash on hand and/or its existing credit facility." "Arize's two founders, Jason Lopatecki and Aparna Dhinakaran, will both join Dynatrace at closing. Jason will continue to lead the Arize team and will report directly to Rick McConnell." "the transaction to be approximately 200 basis points accretive to ARR growth and 175 basis points dilutive to Non-GAAP Operating Margin for fiscal 2027." Announced August 13, 2026.

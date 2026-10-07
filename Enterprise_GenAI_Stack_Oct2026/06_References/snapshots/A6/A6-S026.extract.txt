@@ -1,0 +1,16 @@
+SOURCE ID: A6-S026
+URL: https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Policy in Amazon Bedrock AgentCore generally available Cedar natural language policies Gateway tool calls (site:aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+Related: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html ; https://aws.amazon.com/blogs/security/why-policy-in-amazon-bedrock-agentcore-chose-cedar-for-securing-agentic-workflows/ ; https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-bedrock-agentcore-policy-evaluations-preview/ ; https://aws.amazon.com/about-aws/whats-new/2026/08/agentcore-memory-policy-harness-govcloud/ ; https://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-policy-and-lambda-interceptors-in-amazon-bedrock-agentcore-gateway/
+
+Extract as returned by search tool:
+"Updated on March 3, 2026 – Policy in Amazon Bedrock AgentCore is now generally available." It launched in preview in December 2025. At GA, AWS listed thirteen AWS Regions, including US East (N. Virginia), Europe (Ireland), and Asia Pacific (Tokyo). A later AWS update says Policy also arrived in AWS GovCloud (US-West) with memory and harness features.
+You can write rules in plain English, and the service converts them to Cedar, AWS's open-source policy language. Cedar is also available for direct editing. An LLM drafts the Cedar policy, then AgentCore Policy uses a Cedar schema generator that takes the MCP tool descriptions and produces a Cedar schema; Cedar Analysis encodes each policy as a mathematical formula and detects issues like policies that grant or deny everything.
+A policy engine is attached to a Gateway, and the Gateway evaluates each agent-to-tool request before the tool runs. "When you associate a Policy with a Gateway, it blocks everything by default." Cedar policies can use the caller's identity claims as well as the tool's input arguments.
+Tool filtering: "When an agent issues a list tools command, AgentCore Gateway uses Cedar's partial evaluation capability to determine which actions would always be denied under the current policy set. Those actions are omitted from the list tool response."
+Cedar uses default deny, and a forbid overrides a permit. Enforcement decisions logged through CloudWatch metrics and logs.
+Cedar cannot make external lookups, such as fetching data from DynamoDB, so those cases need a Lambda interceptor alongside the policy.

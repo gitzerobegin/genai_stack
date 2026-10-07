@@ -1,0 +1,8 @@
+SOURCE ID: A4-S036
+URL: https://www.langchain.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith pricing Plus Enterprise deployment per node run
+========================================================================
+
+Plus: $39 per seat per month, up to 10k base traces / mo, then pay-as-you-go, access to Deployment and Engine. Enterprise: custom pricing, invoiced annually upfront. Plus plans include 1 free small serverless deployment; additional serverless or dedicated deployments charged on usage (resource time). Cloud deployments require Plus or above. Self-hosted deployment with a control plane requires the Enterprise plan with LangSmith Deployment enabled. Billing docs (docs.langchain.com/langsmith/billing): deployed agents are charged via LangSmith Deployment, billed on resources consumed, compute measured in LangChain Standard Units (LSU) and storage in LSU; this usage-based model replaces the previous per-run and uptime pricing; existing customers remain on current pricing until October 1, 2026. Pricing page: 1 LSU costs $1 (shown in Engine section).

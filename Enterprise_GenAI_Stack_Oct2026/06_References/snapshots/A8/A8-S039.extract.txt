@@ -1,0 +1,11 @@
+SOURCE ID: A8-S039
+URL: https://www.federalreserve.gov/newsevents/testimony/files/guynn20260326a.pdf
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: banking agencies request for information artificial intelligence generative agentic 2026
+========================================================================
+
+Search results: "Scheduled for delivery at: 10:00 a.m. EDT March 26, 2026 Statement by ..." (federalreserve.gov/newsevents/testimony/files/guynn20260326a.pdf); FDIC speech "Innovation At The Speed Of Markets: How Regulators Keep Pace With Technology" (fdic.gov, 2026)
+Search-tool extract:
+- In a March 26, 2026 Federal Reserve statement, AI was one of three emerging areas highlighted: "the transformative power of newer AI technologies such as generative AI and agentic AI has driven exploration across the industry." Fed staff "are exploring potential use cases to improve our own assessment and supervision of banking risk."
+- FDIC 2026 speech: the agency is "currently piloting GenAI technologies for internal staff use."

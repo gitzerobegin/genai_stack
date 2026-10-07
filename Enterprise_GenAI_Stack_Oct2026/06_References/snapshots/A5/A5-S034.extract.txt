@@ -1,0 +1,15 @@
+SOURCE ID: A5-S034
+URL: https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Gemma 4 release open model Google (allowed_domains ai.google.dev, blog.google, deepmind.google, developers.googleblog.com)
+========================================================================
+
+Links: Gemma 4: Byte for byte, the most capable open models (blog.google); Gemma 4 (deepmind.google/models/gemma/gemma-4/); Bring state-of-the-art agentic skills to the edge with Gemma 4 (developers.googleblog.com); Gemma 4 model overview (ai.google.dev/gemma/docs/core); Introducing Gemma 4 12B: a unified, encoder-free multimodal model (blog.google); Gemma releases (ai.google.dev/gemma/docs/releases); Accelerating Gemma 4: MTP drafters (blog.google).
+Search tool summary:
+- Releases page lists March 31, 2026 for initial sizes; developer blog post dated April 2, 2026.
+- Launch: Effective 2B (E2B), Effective 4B (E4B), 26B Mixture of Experts (MoE) and 31B Dense. Gemma 4 12B added June 3, 2026 (unified encoder-free multimodal).
+- Native function-calling, structured JSON output, system instructions. All models process video and images; E2B/E4B accept audio. Edge models 128K context; larger up to 256K. 140+ languages.
+- Released under the commercially permissive Apache 2.0 license. Weights on Hugging Face, Kaggle, Ollama; Android AICore.
+- April 2026 MTP drafters. Google says 150 million downloads.
+- Google claimed 31B #3 open model on Arena AI text leaderboard at launch (vendor claim).

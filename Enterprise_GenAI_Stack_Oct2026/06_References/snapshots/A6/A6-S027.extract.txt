@@ -1,0 +1,15 @@
+SOURCE ID: A6-S027
+URL: https://docs.nvidia.com/nemo/guardrails/latest/about/release-notes.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NVIDIA NeMo Guardrails 0.24 release notes Nemotron safety guard NIM microservices IORails (site:docs.nvidia.com etc.)
+========================================================================
+
+Related: https://docs.nvidia.com/nemo/guardrails/reference/engine-feature-support ; https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog ; https://docs.nvidia.com/nemo/guardrails/observability/tracing/span-reference
+
+Extract as returned by search tool:
+Version 0.24.1 (patch): "Content-safety rails parse Nemotron 3.5 responses." "The server returns an overload response when IORails sheds a request through admission control."
+Version 0.24.0: "Rail actions can use RailOutcome to return explicit allow, block, and transform decisions." "Built-in rails now use declarative rail manifests to describe their configuration, actions, flows, supported surfaces, dependencies, and privacy behavior." "IORails adds check() and check_async() for running input and output rails without generating a model response." "The Guardrails server adds GET /v1/health and GET /healthz liveness endpoints. The /v1/checks endpoint can also validate assistant messages against output rails without running generation." "The guardrail catalog adds an F5 AI Guardrails integration for scanning input and output content. It supports configurable retry behavior and fail-open or fail-closed handling for provider errors."
+Breaking: output_mapping removed from @action; /v1/checks no longer accepts inline configurations; hf-classifier extra removed.
+Fixes: "IORails now distinguishes a policy block from a rail execution failure, and streaming output rails fail closed when an action fails."
+"The IORails engine is an optimized execution engine for supported input, output, and tool rails." Supported built-in flows: content safety check input / output, topic safety check input, jailbreak detection model. Configurations with custom flows or dialog rails fall back to the LLMRails engine. The engine is opt-in, enabled with NEMO_GUARDRAILS_IORAILS_ENGINE=1. Jailbreak detection (NIM) works on both engines.

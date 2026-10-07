@@ -1,0 +1,15 @@
+SOURCE ID: A6-S025
+URL: https://docs.cloud.google.com/apigee/docs/release-notes
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Apigee AI gateway LLM token policies semantic cache Model Armor MCP Apigee 2026 (site:cloud.google.com, docs.cloud.google.com)
+========================================================================
+
+Related: https://docs.cloud.google.com/apigee/docs/hybrid/release-notes
+
+Extract as returned by search tool:
+- Hybrid v1.17 added managed MCP endpoints. Apigee hybrid routes, authorizes, and secures MCP tool calls the same way it handles other APIs.
+- The API hub MCP server reached general availability on July 24, 2026, and it includes Model Armor integration to protect MCP tool invocations from prompt injection and other attacks.
+- Hybrid 1.17.0 added forward-proxy routing for Model Armor and semantic cache outbound calls, plus Private Service Connect support for the semantic cache.
+- Semantic cache lookups now accept non-default distance measures: DOT_PRODUCT_DISTANCE (the default), COSINE_DISTANCE, SQUARED_L2_DISTANCE, and L1_DISTANCE.
+- Hybrid 1.17.1 (September 30, 2026) fixed a server-side request forgery issue in the SemanticCacheLookup policy's URL host validation.

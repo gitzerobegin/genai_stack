@@ -1,0 +1,8 @@
+SOURCE ID: A4-S056
+URL: https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI Agents SDK 2026 update Responses API Assistants API deprecation date
+========================================================================
+
+OpenAI developer community announcement (August 2025): Assistants API beta to sunset on August 26, 2026. Responses API reached feature parity with Assistants; best parts of Assistants (code interpreter, persistent conversations) folded into Responses. Microsoft Q&A: Azure OpenAI Service not impacted by this deprecation.

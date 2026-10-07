@@ -1,0 +1,10 @@
+SOURCE ID: A5-S035
+URL: https://huggingface.co/google/gemma-4-31B-it
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Gemma 4 license Apache 2.0 Hugging Face google/gemma-4 (allowed_domains huggingface.co, ai.google.dev)
+========================================================================
+
+Search tool summary:
+- Hugging Face model cards for Gemma 4 (E4B, E4B-it, 31B-it, 26B-A4B, 26B-A4B-it, 12B, QAT GGUF variants) list License: Apache 2.0.
+- 26B-A4B README metadata sets license: apache-2.0 but also has a license_link to Google's Gemma 4 licence page on ai.google.dev (not opened).

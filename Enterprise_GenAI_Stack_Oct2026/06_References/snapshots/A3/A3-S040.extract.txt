@@ -1,0 +1,8 @@
+SOURCE ID: A3-S040
+URL: https://a2a-protocol.org/latest/blog/category/announcements/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: A2A protocol joins Agentic AI Foundation AAIF agentgateway
+========================================================================
+
+Search-tool summary: The Agent2Agent (A2A) protocol has joined the Agentic AI Foundation (AAIF), the Linux Foundation-affiliated body that already hosts Anthropic's Model Context Protocol (MCP). The A2A project says it has been accepted as a Growth Stage project at the AAIF. Date: Most sources point to August 20, 2026. One outlet says the move was announced on August 17, 2026. The change is organizational rather than a technical merger. A2A and MCP remain distinct projects with their own technical steering committees. One source lists agentgateway among the AAIF's hosted projects.

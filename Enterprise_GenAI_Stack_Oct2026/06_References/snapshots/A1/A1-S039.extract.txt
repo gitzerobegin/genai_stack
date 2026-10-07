@@ -1,0 +1,9 @@
+SOURCE ID: A1-S039
+URL: https://www.langchain.com/blog/interrupt-2026-overview
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith Interrupt 2026 announcements LangSmith Fleet Engine agent platform
+========================================================================
+
+Search result titles: "Everything we shipped at Interrupt" (langchain.com/blog/interrupt-2026-overview); "Fixing agent failures in production: Interrupt 2026 recap" (May 2026 newsletter); "July 2026: LangChain Newsletter"; "LangSmith Cloud changelog - agent builder is now langsmith fleet".
+Search-tool summary: Interrupt 2026 ran May 13-14 in San Francisco. LangSmith Engine watches production traces, groups recurring failures into named issues, works out root causes and suggests fixes; can open a pull request with a targeted code or prompt fix; public beta at launch. SmithDB: claims up to 15x faster performance on core LangSmith experiences; storage design makes self-hosting and multi-cloud simpler. LangSmith Sandboxes reached GA. LLM Gateway launched with audit logging for administrative actions and link to Engine for triaging policy events. Agent Builder renamed LangSmith Fleet, adding agent identity, sharing and permissions. New Fleet model tiers and LCU pricing apply to new usage from July 15, 2026; existing organisations move on October 1, 2026.

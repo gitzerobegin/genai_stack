@@ -1,0 +1,10 @@
+SOURCE ID: A1-S028
+URL: https://www.braintrust.dev/blog/announcing-series-b
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Braintrust Series B announcement braintrust.dev blog
+========================================================================
+
+Search result titles: "Braintrust's series B: building the infrastructure for production AI - Blog - Braintrust" (braintrust.dev/blog/announcing-series-b); "Braintrust - The active observability platform for agents" (braintrust.dev); "Announcing our $36M Series A - Blog - Braintrust"; "Braintrust's seed round: $5m to build infrastructure for AI products"; "Trace keynote recap: See it, improve it, optimize it".
+Search-tool summary: The Braintrust Series B announcement is a blog post by Ankur Goyal dated 17 February 2026. The announcement reports an $80M raise, which the company frames as a push to become the observability layer for production AI. ICONIQ led the round, and Andreessen Horowitz, Greylock, Elad Gil, and basecase capital returned as investors. The company plans to grow its engineering and go-to-market teams, open offices in new locations, and build new products, previewed at Trace, its user conference the following week. Trace keynote recap covered Topics, the Braintrust CLI, and the Braintrust Gateway. Earlier $36M Series A was announced in October 2024, bringing total funding to $45M. Seed round was a $5.1M round led by Greylock.
+Note: Axios (17 Feb 2026) reported an $800M post-money valuation; one source says Braintrust's own announcement does not state a valuation.

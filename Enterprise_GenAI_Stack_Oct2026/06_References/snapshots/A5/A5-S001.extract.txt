@@ -1,0 +1,19 @@
+SOURCE ID: A5-S001
+URL: https://openai.com/index/previewing-gpt-5-6-sol/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI GPT-5.6 Sol Terra Luna (allowed_domains openai.com)
+========================================================================
+
+Search results (openai.com domain) for "OpenAI GPT-5.6 Sol Terra Luna":
+Links: Previewing GPT-5.6 Sol: a next-generation model (https://openai.com/index/previewing-gpt-5-6-sol/); A preview of GPT-5.6 Sol, Terra, and Luna (https://help.openai.com/en/articles/20001325-a-preview-of-gpt-5-6-sol-terra-and-luna); Introducing GPT-5.6 series: Sol, Terra and Luna. Coming July 9 10am PT (community.openai.com); GPT-5.6 Preview System Card (deploymentsafety.openai.com/gpt-5-6-preview); Announcing a major Price drop for 5.6 Terra and Luna and Fast mode for 5.6-Sol (community.openai.com); Using GPT-6 (developers.openai.com/api/docs/guides/latest-model); Changelog (developers.openai.com/api/docs/changelog); How GPT-5.6 fuses frontier intelligence with frontier efficiency (openai.com).
+Search tool summary:
+- GPT-5.6 is OpenAI's model family with three tiers: Sol (flagship), Terra (balanced), and Luna (fast and low-cost). Terra offers GPT-5.5-competitive performance at 2x lower cost, and Luna is the fastest, most affordable member of the family.
+- Under the naming scheme, the number identifies a model's generation, while Sol, Terra, and Luna identify capability tiers that can advance on their own cadence.
+- OpenAI began a limited preview; the developer community post said general availability would follow on July 9. The changelog records the release of the GPT-5.6 family on Jul 9.
+- On July 30, GPT-5.6 Luna costs 80% less, while GPT-5.6 Terra costs 20% less.
+- In August, GPT-5.6 Sol cost $4 per million input tokens and $20 per million output tokens (promotional pricing at least through November 21, 2026). Launch pricing was $5.00 input and $30.00 output per 1M tokens for Sol.
+- API IDs gpt-5.6-sol, gpt-5.6-terra, gpt-5.6-luna.
+- OpenAI is treating Sol, Terra and Luna as High capability in both Cybersecurity and Biological and Chemical risk under its Preparedness Framework.
+- OpenAI's developer guide now covers GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, and GPT-6 Luna, and how to migrate from GPT-5.6.
+- Caveat from tool: date metadata inconsistent.

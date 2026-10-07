@@ -1,0 +1,12 @@
+SOURCE ID: A5-S008
+URL: https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI models Amazon Bedrock GPT-6 availability AWS (allowed_domains aws.amazon.com, openai.com)
+========================================================================
+
+Links: OpenAI GPT-6 Astra is now generally available on Amazon Bedrock (aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/); OpenAI GPT-6 Sol and GPT-6 Luna are now generally available on Amazon Bedrock (aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-sol-luna-on-amazon-bedrock/); OpenAI on Amazon Bedrock (developers.openai.com); AWS Weekly Roundup September 14, 2026; GPT-6 Astra - Amazon Bedrock model card (docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-astra.html); GPT-6 Sol model card.
+Search tool summary:
+- GPT-6 Astra GA on Bedrock; model card launch date September 8, 2026; context 1,050,000 tokens, 128,000 max output. Endpoints bedrock-mantle (us-east-1, us-west-2 in-Region) and bedrock-runtime (us./global. cross-Region inference profiles only; no in-Region on Runtime). UltraFast tier added later (us-east-1 only on Mantle).
+- GPT-6 Sol and Luna: model card launch September 22, 2026; Bedrock Runtime and Mantle in us-east-1. Model IDs openai.gpt-6-sol, openai.gpt-6-luna.
+- Daybreak Red and Daybreak Blue cybersecurity models in limited availability. GPT-5.6 Sol, Terra, Luna also GA via Responses API on Bedrock.

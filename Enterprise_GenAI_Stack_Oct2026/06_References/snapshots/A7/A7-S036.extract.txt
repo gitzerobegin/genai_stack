@@ -1,0 +1,10 @@
+SOURCE ID: A7-S036
+URL: https://developer.hashicorp.com/hcp/docs/vault/get-started/deployment-considerations/tiers-and-features
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: HCP Vault Dedicated pricing
+========================================================================
+
+HCP Vault Dedicated "has trial, pay-as-you-go and contract based pricing options"; annual contracts for Essentials and Standard tiers. Each cluster has an hourly base cost depending on tier, size and region; Essentials and Standard add a per-client hourly charge; Development clusters charged hourly base cost only. Clients counted once per monthly billing period. Current rates via pricing page / HCP Portal (older post lists Development $0.03/hour; Standard $1.578-$7.489/hour - likely out of date).
+Licensing (hashicorp.com/bsl and licensing FAQ): final MPLv2 release Vault 1.14.8; later releases under Business Source License 1.1. Non-production use always free; restriction: may not offer the Licensed Work to third parties on a hosted or embedded basis to compete with HashiCorp's paid versions; hosting Vault for your internal organisation is permitted. APIs, SDKs, Terraform providers remain MPL 2.0.
+Decommissioning of HCP Vault Secrets (support article): End of Sale June 30, 2025; End of Life August 27, 2025 (for pay-as-you-go customers). [Conflict: a third-party summary states EOL July 1, 2026.]

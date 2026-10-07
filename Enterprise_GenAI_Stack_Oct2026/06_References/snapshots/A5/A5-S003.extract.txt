@@ -1,0 +1,15 @@
+SOURCE ID: A5-S003
+URL: https://www.cnbc.com/2026/09/03/open-ai-astra-gpt-6-cyber.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GPT-6 Astra OpenAI model (no domain filter)
+========================================================================
+
+Links: gpt-6-astra (ai.azure.com/catalog/models/gpt-6-astra); OpenAI announces rollout of GPT-6 Astra model (https://www.cnbc.com/2026/09/03/open-ai-astra-gpt-6-cyber.html); GPT-6 Astra: The next generation in intelligence for work (openai.com/index/gpt-6-astra-next-generation-work/); OpenRouter GPT-6 Astra pricing page; OpenAI releases new model GPT-6 Astra, says it may represent AGI (https://www.axios.com/2026/09/03/openai-astra-gpt-6-agi-brockman); overchat.ai aggregator.
+Search tool summary:
+- GPT-6 Astra released early September 2026 (one source says September 3, an aggregator September 4).
+- 1,050,000-token context window, up to 128,000 output tokens, knowledge cutoff April 30, 2026. API pricing $10 per million input tokens and $50 per million output tokens. Input text, images; output text. Closed weights; fine-tuning not supported.
+- Phased launch: companies in OpenAI's cybersecurity programme Daybreak first; then ChatGPT Plus, Pro, Business, Enterprise, OpenAI API and Amazon Web Services.
+- First model OpenAI has classed as reaching its "Critical" cybersecurity threshold under its preparedness framework.
+- OpenAI says Astra came from its largest training run, >100,000 GPUs at Stargate site in Texas. Greg Brockman called it a "generational leap" and said he personally believes OpenAI has reached AGI (Axios).
+- One aggregator says Astra ties GPT-5.6 Sol on the Artificial Analysis Intelligence Index and trails Claude Fable 5.1, at about 2.5x the per-token cost of GPT-5.6 Sol.

@@ -1,0 +1,8 @@
+SOURCE ID: A7-S018
+URL: https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000041/s-20260430.htm
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Prompt Security acquired SentinelOne completed
+========================================================================
+
+SentinelOne closed its Prompt Security purchase on September 5, 2025 ("SentinelOne Completes Acquisition of Prompt Security" press release, Globe and Mail/TipRanks). Merger agreement signed August 5, 2025; announced value approximately $180 million in cash and stock. SentinelOne SEC filing puts fair value of consideration at about $159.3 million; a later 10-Q lists about $133.6 million in cash, 1,555,099 shares of Class A common stock and 415,109 assumed options. Press reports ran higher (one estimated $250 million).

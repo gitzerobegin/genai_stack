@@ -1,0 +1,18 @@
+SOURCE ID: A6-S007
+URL: https://www.litellm.ai/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LiteLLM enterprise pricing SSO audit logs features docs.litellm.ai enterprise (site:docs.litellm.ai, litellm.ai)
+========================================================================
+
+Search results included: https://www.litellm.ai/pricing (LiteLLM pricing — free to self-host, Enterprise priced to scale); https://docs.litellm.ai/docs/enterprise (Enterprise); https://www.litellm.ai/features (Compare Features: Free vs Enterprise); https://docs.litellm.ai/docs/proxy/multiple_admins (Audit Logs); https://www.litellm.ai/enterprise
+
+Extract as returned by search tool:
+- The docs list SSO for the Admin UI with Okta, Azure AD, Google Workspace, and any OIDC or SAML provider, plus JWT-based authentication for API requests.
+- SSO is free for up to 5 users. Beyond that, an enterprise license is required.
+- The marketing site also lists SCIM under Enterprise. "Enterprise tier adds SSO, RBAC, audit logs, SCIM, and support."
+- Audit logs: "As a Proxy Admin, you can check if and when a entity (key, team, user, model) was created, updated, deleted, or regenerated, along with who performed the action." With an enterprise license, audit logs are on by default. Logs can be exported to external storage such as S3.
+- Governance features include multi-tenant organizations, teams, and keys, plus budgets by tag and temporary budget increases. "Multi-tenant Architecture. Organizations, teams, projects, and keys"
+- Observability includes per-team logging routed to separate Langfuse projects, and log export to GCS or Azure Blob.
+- Pricing: "The open-source gateway is free to self-host, forever." "Enterprise: an annual license. The price is a function of request capacity, installation architecture and support. It is never per token." "Enterprise pricing is sized to your annual gateway request capacity, deployment architecture, and support needs — never per token." "Get a 30-day Enterprise trial key by email immediately, without a sales call."
+- Inconsistency: The Enterprise docs page says "pricing is based on usage. Contact us for a quote tailored to your team." and "Pricing depends on your deployment size."

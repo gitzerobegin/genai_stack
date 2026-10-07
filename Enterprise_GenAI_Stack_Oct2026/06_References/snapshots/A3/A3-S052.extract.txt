@@ -1,0 +1,8 @@
+SOURCE ID: A3-S052
+URL: https://techcrunch.com/2025/10/28/mem0-raises-24m-from-yc-peak-xv-and-basis-set-to-build-the-memory-layer-for-ai-apps/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mem0 raises funding Series A 2025 2026 investors
+========================================================================
+
+Search-tool summary: Mem0 raised USD 24 million in combined Seed and Series A funding. Basis Set Ventures headed the Series A, and existing investors Kindred Ventures (which led its seed round) and Y Combinator also took part, along with new backers including Peak XV Partners and the GitHub Fund. TechCrunch's article is dated October 28, 2025. The product had reached 14 million downloads and 41,000 GitHub stars, and API calls grew from 35 million in Q1 to 186 million in Q3 2025. Taranjeet Singh and Deshraj Yadav founded the company in 2023. No separate 2026 round found.
