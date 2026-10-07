@@ -1,0 +1,23 @@
+SOURCE ID: A3-S054
+URL: https://api.github.com/search/repositories
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GitHub MCP tool search_repositories for each vendor org (mem0ai, getzep, letta-ai, topoteretes, supermemoryai, langchain-ai, modelcontextprotocol, a2aproject, agentskills, ComposioHQ, e2b-dev, browserbase, exa-labs, tavily-ai)
+========================================================================
+
+Tool output (7 Oct 2026, abridged to key fields):
+mem0ai/mem0: stars 66777, forks 7859, created 2023-06-20, archived false. mem0ai/mem0-mcp: archived true.
+getzep/graphiti: stars 31529, forks 3236, created 2024-08-08.
+getzep/zep: stars 4951, description 'Zep | Examples, Integrations, & More'.
+letta-ai/letta: stars 25070, forks 2644, open_issues 0, created 2023-10-11, description 'Platform for stateful agents'. letta-ai/letta-code: stars 3541, created 2025-10-25. letta-ai/lettabot: archived ('replaced by Letta Code channels/schedules').
+topoteretes/cognee: stars 31561, forks 3242, created 2023-08-16.
+supermemoryai/supermemory: stars 31146, forks 2739, created 2024-02-27.
+langchain-ai/langmem: stars 1696, forks 193, created 2025-01-21, last updated 2026-10-06.
+modelcontextprotocol/servers: stars 91068; modelcontextprotocol/python-sdk: 24506; typescript-sdk: 13532; inspector: 11037; modelcontextprotocol/modelcontextprotocol (spec): 9405.
+a2aproject/A2A: stars 26049, forks 2655, created 2025-03-25, topic linux-foundation; a2aproject/a2a-python: 2185.
+agentskills/agentskills: stars 25954, forks 1951, created 2025-12-16, 'Specification and documentation for Agent Skills'.
+ComposioHQ/composio: stars 30464, forks 4846, created 2024-02-23. ComposioHQ/awesome-claude-skills: stars 76670.
+e2b-dev/E2B: stars 14219, forks 1091, created 2023-03-04.
+browserbase/stagehand: stars 25562, created 2024-03-24; browserbase/mcp-server-browserbase: stars 3405, archived true; browserbase/skills: 3731.
+exa-labs/exa-mcp-server: stars 5091.
+tavily-ai/tavily-mcp: stars 2422; tavily-ai/tavily-python: 1420.
