@@ -1,0 +1,15 @@
+SOURCE ID: A7-S098
+URL: https://www.modelop.com/ai-governance-software/controls
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ModelOp Center AI governance software 2026 EU AI Act NIST AI RMF SR 11-7 deployment (allowed_domains modelop.com)
+========================================================================
+
+ModelOp website (search-tool extract, several pages on modelop.com):
+- Controls page: platform matches each AI use case to controls drawn from internal policies and regulations "such as the EU AI Act, NIST AI RMF, OCC SR 11-7, ISO 42001, HIPAA, and GDPR"; requirements depend on risk tier, geography, model type, and whether the system is LLM-based, MCP-enabled or agentic. Policy enforcement via risk-based workflows that trigger required reviews and "can block non-compliant actions". For agentic systems, claims inline protections against prompt injection, PII leakage and unsafe tool use.
+- "25+ out-of-the-box governance process templates, including the EU AI Act, US OCC SR 11-7, OSFI E23 AI Extensions, US NIST AI-RMF, and Annual Model Attestation."
+- AI Lifecycle Automation page: "100+ OOTB tests, controls, templates aligned to frameworks like NIST, SR 11-7, EU AI Act." Workflows cover intake through retirement for ML, GenAI, agentic, internal and third-party systems.
+- Some pages cite SR 11-7 as "SR 26-2".
+- Enterprise AI Command Center: inventory of ML, GenAI, agentic and third-party AI, with self-service intake, risk tiering and approvals across Security, Legal, Risk and Compliance.
+- Public sector page cites US Executive Order 14110 and OMB Memorandum M-24-10.
+- ModelOp says it was named Visionary in the 2026 Gartner Magic Quadrant for AI Governance Platforms.

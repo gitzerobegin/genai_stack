@@ -1,0 +1,8 @@
+SOURCE ID: A3-S099
+URL: https://pulse2.com/composio-29-million-raised-for-learning-infrastructure-platform
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Composio raises Series A funding 2025 Lightspeed
+========================================================================
+
+Search-tool summary: Most outlets report $25 million in Series A funding led by Lightspeed Venture Partners. Some coverage put the total at $29 million in funding, with $25 million from a Series A round. DealStreetAsia reported $24 million. One report is dated Jul 24, 2025; CB Insights lists April 9, 2025. Seedtable lists Blitzscaling Ventures as lead (conflict). Participants include Guillermo Rauch, Dharmesh Shah, Gokul Rajaram, SV Angel, Blitzscaling Ventures, Operator Partners, Agent Fund; existing investors Elevation Capital and Together Fund. Co-founders Soham Ganatra and Karan Vaidya; based in San Francisco. Company-claimed 100,000+ developers and 200+ startups and enterprises.

@@ -1,0 +1,8 @@
+SOURCE ID: A3-S100
+URL: https://trust.exa.ai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Exa SOC 2 zero data retention enterprise pricing per request (allowed_domains exa.ai, docs.exa.ai)
+========================================================================
+
+Search-tool summary: Exa's pricing page lists Search at $7/1k requests and Monitors at $15/1k requests; enterprise tier 'for high volume, custom datasets, enterprise security, and more' with custom pricing and volume discounts. One Exa page says Exa Search starts at $4 per 1,000 requests (conflict). Billing per call, pay-as-you-go unless enterprise contract. Trust center lists a SOC 2 Type 2 Report and a SOC 2 Bridge Letter - 2026; scope covers security, confidentiality, and availability. Enterprise page: Zero Data Retention available on request; FAQ: 'Zero Data Retention and HIPAA compliance for eligible Enterprise customers'.

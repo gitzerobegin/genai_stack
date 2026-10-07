@@ -1,0 +1,13 @@
+SOURCE ID: A7-S103
+URL: https://www.ibm.com/products/watsonx-governance/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: watsonx.governance 2026 release EU AI Act NIST AI RMF ISO 42001 on-premises SaaS pricing (allowed_domains ibm.com)
+========================================================================
+
+- Product page lists the EU AI Act, NIST AI RMF and ISO 42001 among supported frameworks; IBM named watsonx.governance and OpenPages a Leader in the 2026 IDC MarketScape for AI-enabled financial GRC.
+- Compliance Accelerators add-on (June 2025 announcement "IBM Introduces Industry-first Software to Unify Agentic Governance and Security"): covers "the EU AI Act, the U.S. Federal Reserve's SR 11-7, and New York City Local Law 144, along with ISO/IEC 42001 and the NIST AI RMF"; available as an add-on.
+- Developer article: v2.2.0 "introduces policy packs aligned with the EU AI Act, ISO/IEC 42001, and the NIST AI Risk Management Framework".
+- Model governance page: customers "can choose between cloud or on-premises deployments". Another IBM page: runs across IBM Cloud, AWS (incl. GovCloud), Azure, Oracle Cloud, on-prem and hybrid. 2.1 announcement: available "as software to be deployed in a customer managed environment on both AWS and Azure with licenses available on both marketplaces". "FedRAMP-authorized watsonx.governance arrives on AWS GovCloud".
+- Pricing page: Lite (free, limited); Essentials "pay for what you use"; model evaluation USD 0.64 per evaluation with ~100 free evaluations; GRC features per-instance and per-user prices (USD 795, USD 3,710, USD 53 per concurrent user - table garbled); bundled AWS SaaS option USD 38,160 incl. one instance, 12,000 evaluations/year, 5 AI use cases, 25 concurrent users; self-managed priced per virtual processor core (VPC); figures indicative, vary by country, exclude taxes.
+- IBM Cloud catalog entry last updated 07/20/2026. No 2026 version number found.
