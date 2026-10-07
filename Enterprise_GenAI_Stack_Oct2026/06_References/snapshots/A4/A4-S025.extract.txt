@@ -1,0 +1,16 @@
+SOURCE ID: A4-S025
+URL: https://registry.npmjs.org/@mistralai/mistralai
+ACCESSED: 2026-10-07
+TYPE: direct-fetch excerpt of registry JSON (selected fields extracted verbatim by script; not the full document)
+FOUND VIA: direct fetch of npm registry JSON; fields extracted by script
+========================================================================
+
+npm registry excerpt (direct fetch of https://registry.npmjs.org/@mistralai/mistralai; fields extracted verbatim)
+name: @mistralai/mistralai
+description: TypeScript client library for the Mistral AI API
+license: Apache-2.0
+dist-tags.latest: 2.7.0 published 2026-09-09T13:26:29.524Z
+created: 2023-12-07T14:48:55.500Z
+major 1.0.0 published 2023-12-07T14:48:55.698Z
+major 2.0.0 published 2026-03-18T18:48:53.843Z
+homepage: https://github.com/mistralai/client-ts#readme

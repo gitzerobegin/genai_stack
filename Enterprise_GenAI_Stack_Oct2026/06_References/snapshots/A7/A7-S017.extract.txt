@@ -1,0 +1,13 @@
+SOURCE ID: A7-S017
+URL: https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: HiddenLayer 2026 announcement AI security platform
+========================================================================
+
+HiddenLayer press release (2 September 2026; SecurityWeek dates 3 September): "HiddenLayer, the leading AI security company that secures agentic, generative, and predictive AI applications, today announced a $100 million Series B funding round" led by Delta-v Capital, with backers including Morgan Stanley and Microsoft's venture fund (M12). SecurityWeek: total raised "over $155 million". Funds go to Agentic Runtime Security capabilities and "Agent Harness Security, a new solution that extends the Runtime Security module to secure AI coding agents at runtime".
+Agent Harness Security (3 August 2026, PR Newswire): "protects AI coding agents from prompt injection, secret exposure, unsafe commands, and other runtime threats while preserving developer productivity"; "available today as a stand-alone solution".
+23 March 2026: next generation of AI Runtime Security module "introducing new capabilities designed to protect autonomous AI agents as they make decisions and take action".
+18 March 2026: 2026 AI Threat Landscape Report, survey of 250 IT and security leaders: "One in eight reported AI breaches is now linked to agentic systems".
+12 August 2026: Mike Gesnaldo appointed Chief Revenue Officer.
+Newsroom item: "Building on its Unity Catalog integration, HiddenLayer is working with Databricks to extend model security, AI threat intelligence, and detection-and-response capabilities" (date not confirmed).

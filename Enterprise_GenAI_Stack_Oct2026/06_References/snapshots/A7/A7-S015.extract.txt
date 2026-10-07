@@ -1,0 +1,8 @@
+SOURCE ID: A7-S015
+URL: https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-secures-the-ai-agent-revolution-with-the-launch-of-prisma-airs-2-0
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Palo Alto Networks completes acquisition Protect AI Prisma AIRS
+========================================================================
+
+Palo Alto Networks announced Prisma AIRS 2.0 on October 28, 2025 "as a major platform upgrade that completes the native integration of the recently acquired Protect AI". (Help Net Security, 29 Oct 2025: "Palo Alto Networks launches Prisma AIRS 2.0 to deliver end-to-end security across the AI lifecycle".)

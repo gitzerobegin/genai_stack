@@ -1,0 +1,15 @@
+SOURCE ID: A4-S026
+URL: https://registry.npmjs.org/@langchain/langgraph
+ACCESSED: 2026-10-07
+TYPE: direct-fetch excerpt of registry JSON (selected fields extracted verbatim by script; not the full document)
+FOUND VIA: direct fetch of npm registry JSON; fields extracted by script
+========================================================================
+
+npm registry excerpt (direct fetch of https://registry.npmjs.org/@langchain/langgraph; fields extracted verbatim)
+name: @langchain/langgraph
+description: LangGraph
+license: MIT
+dist-tags.latest: 1.4.21 published 2026-10-07T16:28:15.194Z
+created: 2024-01-18T19:20:52.003Z
+major 1.0.0 published 2025-10-18T00:01:58.788Z
+homepage: https://github.com/langchain-ai/langgraphjs#readme

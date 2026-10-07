@@ -1,0 +1,9 @@
+SOURCE ID: A7-S014
+URL: https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-completes-acquisition-of-protect-ai
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Palo Alto Networks completes acquisition Protect AI Prisma AIRS
+========================================================================
+
+Palo Alto Networks press release dated July 22, 2025: the company "announced it has completed its acquisition of Protect AI, an innovative leader in securing Artificial Intelligence (AI) applications and models." Intent announced April 28, 2025.
+Protect AI's technology to become part of the Prisma AIRS platform; combined product to cover model scanning, posture management, AI red teaming, runtime protection and AI agent security. Protect AI CEO Ian Swanson joins Palo Alto Networks as VP, Product, Prisma AIRS.
