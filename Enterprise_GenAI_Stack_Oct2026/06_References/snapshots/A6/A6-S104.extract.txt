@@ -1,0 +1,14 @@
+SOURCE ID: A6-S104
+URL: https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-verified-permissions-policy-store/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon Verified Permissions 2026 what's new Cedar (site:aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+Related: https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/cedar4-faq.html ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology-differences-avp-cedar.html ; https://aws.amazon.com/about-aws/whats-new/2025/08/amazon-verified-permissions-cedar-4-5/ ; https://aws.amazon.com/blogs/security/enforce-least-privilege-authorization-in-multi-agent-ai-chains-using-cedar/
+
+Extract as returned by search tool:
+AWS announced on April 6, 2026 that the service now accepts human-readable aliases for policy stores; named policies and policy templates can be referenced by meaningful names. Available in every region where the service runs.
+Cedar 4 is now required: "starting April 2026, the authorization APIs (IsAuthorized, BatchIsAuthorized, and their token-based variants) are being disabled for policy stores still on Cedar 2." Cedar 4 is not fully backward compatible (syntax changes, stricter validator, changed built-ins such as isInRange).
+As of May 2026, Verified Permissions has aligned with Cedar and now supports multiple namespaces.
+Cedar 4.5 support from August 2025. An AWS Security blog: "Enforce least-privilege authorization in multi-agent AI chains using Cedar".

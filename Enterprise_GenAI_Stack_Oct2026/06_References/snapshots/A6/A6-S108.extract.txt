@@ -1,0 +1,14 @@
+SOURCE ID: A6-S108
+URL: https://docs.litellm.ai/blog/soc2-type-2-report
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LiteLLM SOC 2 Type II ISO 27001 trust center security compliance (site:litellm.ai, docs.litellm.ai, trust.litellm.ai)
+========================================================================
+
+Related: https://docs.litellm.ai/blog/vanta-compliance-recertification ; https://docs.litellm.ai/docs/data_security ; https://trust.litellm.ai/controls ; https://www.litellm.ai/enterprise
+
+Extract as returned by search tool:
+SOC 2 Type 2: The company announced an updated report in September 2026. It says the report completes the recertification announced in March, run with Vanta and validated by an independent auditor. Vendors are pointed to trust.litellm.ai, with questions to security@berri.ai.
+ISO 27001: The March announcement says LiteLLM is "working with Vanta to recertify its compliance for SOC 2 Type 2 and ISO 27001, and is identifying independent auditors". No post confirming ISO 27001 recertification is finished was found. The enterprise page lists ISO 27001 among its governance features without saying whether the certificate is current.
+Trust Center (trust.litellm.ai) lists infrastructure, organizational, product, and internal security controls; access requires a request.
+Data Privacy page: information security management system, audit logs, regular vulnerability scans, vulnerability disclosure policy (security.md). The page lists only SOC 2 Type II under certifications.

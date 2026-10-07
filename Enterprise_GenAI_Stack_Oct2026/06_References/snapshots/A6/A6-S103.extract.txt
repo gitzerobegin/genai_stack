@@ -1,0 +1,14 @@
+SOURCE ID: A6-S103
+URL: https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: "Content Safety in Foundry Control Plane" Azure AI Content Safety rename guardrails Foundry (site:azure.microsoft.com, learn.microsoft.com, techcommunity.microsoft.com)
+========================================================================
+
+Related: https://learn.microsoft.com/en-us/azure/foundry/guardrails/how-to-create-guardrails ; https://learn.microsoft.com/en-us/answers/questions/5864692/what-is-the-architectural-relationship-between-azu ; https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/add-hosted-agent-guardrails
+
+Extract as returned by search tool:
+Product page title "Content Safety in Foundry Control Plane": "Learn how you can use Content Safety to build generative AI guardrails in Microsoft Foundry."
+A Microsoft Q&A answer says the two are not the same product, but "Guardrails explicitly builds on Azure AI Content Safety models". Content Safety still offers capabilities that guardrails don't expose (Image Moderation, Multimodal, Custom Categories).
+Content filters refer to Microsoft Foundry Models (classic); the newer model uses guardrails; "A guardrail is a named collection of controls." By default, models are assigned the Microsoft.DefaultV2 guardrail, which can't be edited.
+The guardrail system currently applies only to agents developed in the Foundry Agent Service, not to other agents registered in the Foundry Control Plane. Inspection points: user input, output, tool calls (preview), and tool responses (preview). For agents, the agent's guardrail overrides the model's guardrail.

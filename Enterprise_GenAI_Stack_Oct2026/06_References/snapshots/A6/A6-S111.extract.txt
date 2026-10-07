@@ -1,0 +1,13 @@
+SOURCE ID: A6-S111
+URL: https://docs.nvidia.com/nemo/microservices/25.11.0/guardrails/index.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NeMo Guardrails microservice NVIDIA AI Enterprise support NIM safety guard enterprise (site:nvidia.com, docs.nvidia.com, developer.nvidia.com)
+========================================================================
+
+Related: https://blogs.nvidia.com/blog/nemo-guardrails-nim-microservices/ ; https://catalog.ngc.nvidia.com/orgs/nvidia/nemo-microservices/helm-charts/nemo-guardrails/- ; https://docs.nvidia.com/nemo/microservices/25.8.0/about/core-concepts/guardrails.html
+
+Extract as returned by search tool:
+NeMo Guardrails is available both as an open-source toolkit and as a microservice. The microservice NGC Helm chart page is tagged "NVIDIA AI Enterprise Supported" and requires sign-in for download.
+Per NVIDIA's 25.11.0 docs, certain toolkit server features are unavailable in the microservice, such as threads and the chat user interface. "The microservice supports Colang 1.0 guardrail configurations only." It supports NIM for LLMs and LLMs hosted on an OpenAI-compatible API endpoint.
+Safety NIMs: content safety (docs: checks against 23 categories; a tutorial says 42 hazard categories - conflict), topic control, jailbreak detection. The microservice places NemoGuard NIM microservices between the application and its LLM.

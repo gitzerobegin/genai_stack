@@ -1,0 +1,8 @@
+SOURCE ID: A1-S138
+URL: https://wandb.ai/site/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: W&B Weave pricing security SOC 2 HIPAA dedicated cloud self-managed
+========================================================================
+
+Page titled "CoreWeave Forge Pricing". Pro plan for professionals and small teams, minPrice 60 (monthly billing, USD). Enterprise by quote, invoiced annually upfront; adds HIPAA compliant option, secure private connectivity, customer-managed encryption keys, single sign-on, automated user provisioning, custom roles, audit logs, enterprise support. Weave data ingestion, serverless inference, sandboxes and storage billed monthly in arrears; extra storage $0.03 per GB. Academic: up to 25 GB/month Weave ingestion. Pricing page lists BYOB as not available with Weave.

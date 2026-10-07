@@ -11,7 +11,8 @@ Research date: 7 October 2026. All source IDs refer to `work/stageA/A3_L5_L4/sou
   - blog.modelcontextprotocol.io and registry.modelcontextprotocol.io
   - anthropic.com, claude.com and docs.claude.com
   - repository metadata from the GitHub MCP tool
-- Vendor sites, trust centres and pricing pages were blocked: getzep.com, letta.com, cognee.ai, supermemory.ai, composio.dev, exa.ai, tavily.com, browserbase.com, e2b.dev and docs.aws.amazon.com. For those products, many enterprise fields (certifications, regions, SSO, pricing, funding) are marked "Not publicly verified".
+- Vendor sites, trust centres and pricing pages could not be fetched directly: getzep.com, letta.com, cognee.ai, supermemory.ai, composio.dev, exa.ai, tavily.com, browserbase.com, e2b.dev, docs.aws.amazon.com, docs.cloud.google.com and sec.gov.
+- **Gap-filling pass (7 Oct 2026, fresh search budget).** Sources A3-S084 to A3-S122 were added through targeted `WebSearch` with `allowed_domains` set to vendor sites and trust centres. They are recorded as search extracts (confidence capped at medium) or snapshots where the host was fetchable.
 
 ## (a) What changed since the original diagram
 
@@ -19,7 +20,7 @@ Research date: 7 October 2026. All source IDs refer to `work/stageA/A3_L5_L4/sou
 |---|---|---|---|
 | Mem0 – memory layer | Mem0 v2.x (mem0ai 2.2.1, 25 Sep 2026); open core. New April 2026 algorithm uses ADD-only extraction. On 14 Apr 2026, open-source v2.0.0 removed the graph stores, so graph memory is now Platform-only. | No change (scope shift: OSS and Platform diverge) | A3-S001, A3-S053, A3-S080, A3-S081 |
 | Zep – graph memory | Zep is a managed "context graph" platform with a proprietary Context Graph Engine. Graphiti (Apache-2.0, 0.30.2) is the open-source core. Zep Community Edition is deprecated. | Deprecated (Community Edition); otherwise No change | A3-S003, A3-S059 |
-| Letta – stateful agents | Letta (formerly MemGPT) has pivoted to Letta Code (0.34.4, 4 Oct 2026), a stateful agent harness with Letta Cloud. The V1 API server is retired to an archive branch, and the PyPI package `letta` is now the CLI. | Superseded (V1 server) / Mispositioned (agent harness, not a memory layer) | A3-S004, A3-S060, A3-S073, A3-S077 |
+| Letta – stateful agents | Letta (formerly MemGPT) has pivoted to Letta Code (0.34.4, 4 Oct 2026), a stateful agent harness with Letta Cloud, per the "Letta's Next Phase" post (Mar 2026). The V1 API server is retired to an archive branch, and the PyPI package `letta` is now the CLI. | Superseded (V1 server) / Mispositioned (agent harness, not a memory layer) | A3-S004, A3-S060, A3-S073, A3-S077, A3-S093 |
 | Cognee – knowledge graphs | Cognee 1.6.3 (7 Oct 2026). Apache-2.0, with a licensed production Postgres graph and Cognee Cloud. | No change | A3-S005 |
 | Supermemory – memory API | Supermemory v5 namespace-first API (SDK 5.0.0, 6 Oct 2026). Adds RAG, connectors and a self-hosted "Supermemory local". | No change (scope broader than memory) | A3-S012, A3-S064 |
 | LangMem – long-term | LangMem 0.0.30. No PyPI release since 27 Oct 2025; it is a LangGraph library, not a service. | Not publicly verified (activity status) / Mispositioned (library inside L3) | A3-S006, A3-S054 |
@@ -28,7 +29,7 @@ Research date: 7 October 2026. All source IDs refer to `work/stageA/A3_L5_L4/sou
 | Agent Skills – reusable skills | Open format (SKILL.md), published as an open standard on 18 Dec 2025. Adopted by OpenAI Codex, Gemini CLI and others. Governance charter not found. | No change | A3-S029, A3-S061, A3-S033, A3-S034 |
 | Composio – integrations | Composio SDK 0.25.0, with 2.0 in beta. Offers 1000+ toolkits, per-user sessions and auth brokering. | No change | A3-S008, A3-S063 |
 | Exa – search API | Exa search API (exa-py 2.25.0, 1 Oct 2026). | No change | A3-S010 |
-| Tavily – search API | Tavily API (tavily-python 0.8.5, 6 Oct 2026). Acquisition status could not be verified. | Not publicly verified (ownership) | A3-S009, A3-S083 |
+| Tavily – search API | Tavily API (tavily-python 0.8.5, 6 Oct 2026). Nebius announced the acquisition on 10 Feb 2026 and accounts for it as completed: fair value US$189.7M plus an ARR earnout; the press reported US$275M. | Acquired | A3-S084, A3-S085, A3-S086, A3-S087, A3-S009 |
 | Browserbase – cloud browsers | Browserbase SDK 1.20.0 plus Stagehand 4.1.0. Standalone MCP server repository archived. | No change | A3-S013, A3-S076, A3-S054 |
 | E2B – code sandboxes | E2B SDK 2.53.1. Runtime (Firecracker microVMs) is open source under Apache-2.0. Dedicated in-customer-cloud deployments are available. | No change | A3-S007, A3-S062 |
 
@@ -127,7 +128,7 @@ The inventory assigns no A-numbered ambiguities (A1–A19) to stream ③. Relate
 - An authenticated extended Agent Card is available after the client authenticates [A3-S078].
 - The protocol "does not define the scope, representation, validity, or revocation semantics" of authorisation obtained in the AUTH_REQUIRED state [A3-S078].
 - The TSC has eight companies [A3-S065].
-- A2A joined AAIF in August 2026 as a separate project with its own TSC [A3-S040].
+- A2A joined AAIF as a separate project with its own TSC. AAIF announced it on 17 Aug 2026, and the A2A blog of 27 Aug 2026 confirms acceptance as a Growth Stage project [A3-S116, A3-S117, A3-S040].
 
 **Agent Skills supply-chain risk**
 - Anthropic warns that malicious skills can exfiltrate data, and advises installing only from trusted sources and auditing bundled code [A3-S072].
@@ -142,6 +143,13 @@ The inventory assigns no A-numbered ambiguities (A1–A19) to stream ③. Relate
 - Egress firewall with domain allow and deny lists [A3-S062].
 - Secrets never cross the API, logs or spans [A3-S062].
 - Workload identity tokens [A3-S062].
+
+**Vendors as MCP gateway or governance products**
+- Composio markets an "MCP Gateway" with [A3-S119, A3-S098]:
+  - SAML/OIDC SSO and SCIM
+  - action-level policy-as-code
+  - per-call audit logs, including denied calls
+- Zep describes ABAC policies on memory reads and writes. Its audit logs cover web-app actions only [A3-S107].
 
 **Not verified:** Microsoft Entra Agent ID, Okta/Auth0 for AI agents beyond EMA, and SPIFFE for agents (search budget exhausted; stream ⑥ also covers C4).
 
@@ -200,21 +208,40 @@ The inventory assigns no A-numbered ambiguities (A1–A19) to stream ③. Relate
   - launched for Team/Enterprise on 11 Sep 2025, and for Pro/Max on 23 Oct 2025
   - project-scoped memory, a user-editable memory summary and incognito chats
   - Enterprise admins can disable memory
-- **AWS AgentCore Memory** [A3-S047, A3-S048]:
+- **AWS AgentCore Memory** [A3-S047, A3-S048, A3-S111]:
   - GA October 2025, with a self-managed strategy for extraction and consolidation
-  - VPC and PrivateLink supported
-  - the AgentCore harness auto-provisions managed memory
-- **Vertex AI Agent Engine Memory Bank** is cited by link only (docs host blocked) [A3-S070]. Its features are not verified.
-- OpenAI memory (ChatGPT memory, API) was not verified (openai.com blocked; search budget exhausted).
+  - VPC and PrivateLink supported; the AgentCore harness auto-provisions managed memory
+  - short-term raw events with event expiry (7–365 days per the API reference; the stated minimum value conflicts)
+  - long-term strategies: semantic, summary, user preference, episodic and custom
+  - no built-in TTL for long-term records; AWS recommends a pruner using timestamp filters
+  - DeleteMemoryRecord and BatchDeleteMemoryRecords; per-user erasure by listing and deleting the user's namespace records
+  - deleting the memory resource removes all records; harness-managed memory cannot be deleted via the Memory APIs
+- **Vertex AI Agent Engine Memory Bank** (newer docs: "Agent Platform Memory Bank") [A3-S108, A3-S109]:
+  - public preview 8 Jul 2025, now GA (exact date not captured); billing from 28 Jan 2026
+  - Gemini-based asynchronous extraction, with consolidation that resolves contradictions
+  - immutable scope with exact-match retrieval and similarity search
+  - optional TTL (default none; memory revisions 365 days)
+  - delete by name and purge by filter with a dry run; consolidation may delete memories on a contradiction or an explicit "forget"
+  - deleting the Agent Runtime instance deletes its built-in memories
+- **OpenAI** [A3-S110]:
+  - API: the Conversations API persists conversation state as a durable object, and Responses chains turns via previous_response_id
+  - `store:false` is enforced for zero-data-retention (ZDR) organisations; no official default retention period for stored objects was found
+  - ChatGPT memory can be switched off, and saved memories are stored separately from chats, so deleting a chat does not delete its memories
+  - deleted memory logs may be kept for up to 30 days; turning off "reference chat history" schedules deletion within 30 days
+  - Business and Enterprise workspace content is not used for training by default
+- **Vendor-level erasure and retention features found in the gap-fill pass:**
+  - Zep: Archive, right-to-be-forgotten and time-based purge [A3-S107]
+  - Cognee: access, erasure and portability supported, with per-tenant Postgres in its cloud [A3-S095]
+  - Supermemory: access and erasure workflows [A3-S122]
 
 ## (d) Products the graphic misses
 
 **Added to products.json (`original_label: null`)**
-- **L5: Amazon Bedrock AgentCore Memory.** Platform-native managed agent memory [A3-S047, A3-S048].
+- **L5: Amazon Bedrock AgentCore Memory.** Platform-native managed agent memory [A3-S047, A3-S048, A3-S111].
+- **L5: Vertex AI Agent Engine Memory Bank.** Google platform-native managed memory [A3-S108, A3-S109]. The original docs URL is cited by link only, as the host is blocked [A3-S070].
 - **L4: Amazon Bedrock AgentCore Gateway and Identity.** Managed MCP gateway and agent credential vault [A3-S047, A3-S048, A3-S015].
 
 **Noted, not profiled (insufficient verified facts)**
-- **Vertex AI Agent Engine Memory Bank.** Google platform memory. Link only [A3-S070].
 - **Anthropic memory tool and Claude memory.** Model-vendor built-in memory [A3-S069, A3-S071]. Recorded as H4 evidence rather than a product record.
 - **MCP gateways and governance platforms.** Microsoft Foundry toolbox, FastMCP Horizon, Runlayer [A3-S015]; Okta Cross App Access as the EMA IdP [A3-S017].
 - **Private MCP registries.** Azure API Center and GitHub Copilot registry configuration [A3-S043, A3-S044].
@@ -222,16 +249,35 @@ The inventory assigns no A-numbered ambiguities (A1–A19) to stream ③. Relate
 
 ## (e) Gaps: what could not be verified, and why
 
-- **Tavily acquisition (explicitly requested).** Not verified. tavily.com and news sources were unreachable after the search budget ran out. PyPI still lists "Tavily AI" as author [A3-S009].
-- **Trust-centre facts (SOC 2, ISO 27001, HIPAA, EU region, SSO/SCIM).**
-  - Not verified for: Zep, Letta, Cognee, Supermemory, Composio, Exa, Tavily, Browserbase and E2B (hosts blocked).
-  - Mem0 claims (SOC 2 Type I, HIPAA, BYOK) come from vendor marketing pages via search extract only [A3-S051].
-- **Pricing.** Only Mem0 [A3-S049] and Tavily's free tier [A3-S009] were verified.
-- **Funding, 2025–2026.** Only Mem0 [A3-S052] was verified. Not verified: Zep, Letta, Cognee, Supermemory, Composio, Exa, Tavily, Browserbase and E2B.
-- **Platform memory features.** AWS AgentCore Memory strategy types and deletion controls, Vertex AI Memory Bank features and OpenAI memory were not verified.
-- **Agent Skills.** Governance (AAIF stewardship claimed only by a secondary source [A3-S035]) and versioning were not verified.
-- **Conflicting dates, kept as found:**
-  - A2A 1.0: changelog says 12 Mar 2026 [A3-S079]; Linux Foundation press says 9 Apr 2026 [A3-S025]; Google blog says March 2026 [A3-S026].
-  - A2A joined AAIF on 20 Aug or 17 Aug 2026 [A3-S040].
-  - MCP Registry GA has not happened, or could not be confirmed [A3-S042, A3-S036].
-- **Self-reported figures.** MCP adoption figures (download counts) are reported by the project itself [A3-S015, A3-S018].
+**Resolved in the gap-filling pass**
+- **Tavily.** Acquired by Nebius: announced 10 Feb 2026 and treated as completed in Nebius's Q1 2026 filing [A3-S084, A3-S085, A3-S086]. The deal value conflicts: filing fair value US$189.7M versus the press figure of US$275M [A3-S087]. CB Insights dates it May 2026 (secondary).
+- **A2A 1.0 date.** 12 Mar 2026 (changelog [A3-S079]); AAIF [A3-S116] and Google [A3-S026] also say March 2026. The Linux Foundation release of 9 Apr 2026 [A3-S025] is the first-anniversary announcement, not the release.
+- **A2A move to AAIF.** AAIF announced it on 17 Aug 2026 [A3-S116], and the A2A blog confirmed it on 27 Aug 2026 [A3-S117]. No primary source supports the secondary "20 Aug" date [A3-S040].
+- **MCP Registry GA.** Not reached. The working-group charter lists "Registry API v1 GA" as Ideating with no target date [A3-S114]. On 7 Oct 2026 the `/v0.1` path was live and `/v1` returned 404 [A3-S036].
+- **Agent Skills governance and versioning.** The spec is a living document with no tagged releases [A3-S115]. Contributions are handled via GitHub Discussions, and listing requests are reviewed by the Anthropic team [A3-S112]. The maintainers are Anthropic employees, and AAIF onboarding has been proposed (issue #47, Sep 2026) but acceptance is not confirmed [A3-S115]. The showcase lists 46 clients [A3-S113].
+- **Certifications, pricing and funding.** Now sourced for the products below. All of it comes from vendor pages via search extract, so confidence is medium at most.
+
+| Product | Certifications | Pricing | Funding |
+|---|---|---|---|
+| Zep | SOC 2 Type II + HIPAA, Enterprise only [A3-S089, A3-S090] | Sourced [A3-S089] | No 2025–26 round found |
+| Letta | No certification found [A3-S118] | Sourced [A3-S091] | US$10M seed 2024 [A3-S092] |
+| Cognee | States it holds no SOC 2 or ISO [A3-S095] | Sourced [A3-S095] | US$7.5M seed Feb 2026 [A3-S094] |
+| Supermemory | SOC 2 from Scale tier [A3-S096] | Sourced [A3-S096] | Seed US$2.6–3M [A3-S097] |
+| Composio | SOC 2 Type II + ISO 27001:2022 [A3-S098] | Sourced [A3-S098] | US$25M Series A [A3-S099] |
+| Exa | SOC 2 Type II [A3-S100, A3-S121] | Sourced [A3-S100] | Series C US$250M [A3-S101] |
+| Browserbase | SOC 2 Type II [A3-S102] | Sourced [A3-S102] | US$40M Series B [A3-S103] |
+| E2B | SOC 2 Type II [A3-S104, A3-S120] | Sourced [A3-S104] | US$21M Series A [A3-S105] |
+
+- **Platform memory (H4).** AgentCore Memory, Vertex Memory Bank and OpenAI are now sourced [A3-S108, A3-S109, A3-S110, A3-S111].
+
+**Still open**
+- **Mem0 SOC 2 type.** Mem0's own pages conflict (Type I; Type II "in progress"; Type II for Enterprise) [A3-S106]. No managed EU region was found.
+- **Trust-centre reports.** No report was read directly; every trust-centre claim is a vendor statement via search extract. Report types are not confirmed for Tavily and Supermemory.
+- **EU managed regions not found.** Exa, Supermemory, Composio (US-hosted, with EU residency via self-hosting), Mem0 and Letta. Zep offers EU residency on request; E2B and Browserbase do offer EU regions.
+- **Vertex AI Memory Bank.** Exact GA date and price rates not captured. AgentCore Memory pricing and certifications not verified.
+- **SSO/RBAC detail.**
+  - E2B lists SSO, SCIM and RBAC as "planned" on a page about 436 days old.
+  - Zep's support for SAML is not named.
+  - Supermemory's SSO protocols are undocumented.
+- **Not researched (search budget prioritised elsewhere):** Microsoft Entra Agent ID, Okta/Auth0 for AI agents beyond EMA, SPIFFE for agents, and Daytona/Modal sandboxes.
+- **Self-reported figures.** MCP adoption figures are reported by the project itself [A3-S015, A3-S018]. Vendor benchmark claims (Mem0, Supermemory) are unverified.

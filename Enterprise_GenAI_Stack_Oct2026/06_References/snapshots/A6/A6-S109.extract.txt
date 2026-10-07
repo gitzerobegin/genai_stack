@@ -1,0 +1,15 @@
+SOURCE ID: A6-S109
+URL: https://trust.konghq.com/resources
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Kong trust center SOC 2 Type II ISO 27001 Konnect compliance certifications (site:konghq.com, trust.konghq.com, developer.konghq.com)
+========================================================================
+
+Related: https://konghq.com/compliance ; https://developer.konghq.com/konnect-platform/audit-logs/
+
+Extract as returned by search tool:
+ISO/IEC 27001:2022: Kong's ISO certificate, numbered LC-516-21, was issued by Linford & Company LLP on 1 September 2026 and runs through 31 August 2029. It covers Kong's API and AI Connectivity Platform. Statement of Applicability version 1.1, dated 10 July 2026.
+SOC 2 Type II report covers security, availability, and confidentiality; applies to Kong Konnect, Konnect Dedicated Cloud Gateways, Kong Insomnia, Kong Gateway Enterprise, Kong AI Gateway, and Kong Mesh.
+PCI DSS: Moss Adams LLP assessed Konnect and Dedicated Cloud Gateways as a QSA; Kong meets applicable PCI DSS v4.0.1 service-provider requirements.
+CSA STAR: 2026 CAIQ v4.1.0 self-assessment for Konnect (Level 1).
+Reports provided on request, subject to confidentiality obligations. Konnect and Dev Portal audit logs documented.

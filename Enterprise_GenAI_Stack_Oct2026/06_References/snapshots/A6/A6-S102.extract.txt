@@ -1,0 +1,13 @@
+SOURCE ID: A6-S102
+URL: https://azure.microsoft.com/en-us/pricing/details/content-safety/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Azure AI Content Safety pricing per 1,000 text records Prompt Shields price S0 (site:azure.microsoft.com, learn.microsoft.com)
+========================================================================
+
+Related: https://learn.microsoft.com/en-us/azure/ai-services/content-safety/faq ; https://azure.microsoft.com/en-us/products/ai-services/ai-content-safety ; https://learn.microsoft.com/en-us/answers/questions/5533653/why-are-content-safety-input-tokens-so-expensive-h
+
+Extract as returned by search tool:
+Pricing page title: "Content Safety in Foundry Control Plane - Pricing". It lists Prompt Shields under the Standard tier, billed per 1,000 text records; the dollar amount is missing from the cached copy. The free tier includes 5,000 text records per month.
+FAQ: "The Text API is billed for the number of text records submitted to the service. However, each model has its own corresponding rate." "A text record in the S tier contains up to 1,000 characters as measured by Unicode code points." A 7,500-character input counts as 8 text records. Protected material, prompt shields, and groundedness detection models work with text content only.
+Unverified: a Microsoft Q&A answer (about 408 days old) states Standard tier charges $0.38 per 1,000 records (not specific to Prompt Shields).

@@ -1,0 +1,11 @@
+SOURCE ID: A6-S106
+URL: https://aws.amazon.com/about-aws/whats-new/2026/08/temporal-policies-agentcore/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AgentCore Gateway inference targets LLM providers rate limits generally available 2026 (site:aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+Related: https://aws.amazon.com/blogs/machine-learning/control-agent-behaviors-and-cost-beyond-a-single-action-new-capabilities-in-amazon-bedrock-agentcore/ ; https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-bedrock-agentcore-increases-default-runtime-quota-limits/
+
+Extract as returned by search tool:
+The launch announcement is dated Aug 6, 2026, and it describes rate limiting as covering tokens for inference targets (temporal policies and rate limiting in Amazon Bedrock AgentCore). The results don't explicitly say "generally available".

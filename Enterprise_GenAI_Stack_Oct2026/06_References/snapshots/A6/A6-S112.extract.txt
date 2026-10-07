@@ -1,0 +1,9 @@
+SOURCE ID: A6-S112
+URL: https://docs.nvidia.com/ai-enterprise/planning-resource/licensing-guide/latest/pricing.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NVIDIA AI Enterprise subscription price per GPU per year 2026 (site:nvidia.com, docs.nvidia.com)
+========================================================================
+
+Extract as returned by search tool:
+NVIDIA AI Enterprise list price: $4,500 per GPU for a one-year subscription on self-managed systems, support included (Business Standard); multi-year $9,000 (2 years), $13,500 (3), $18,000 (4); five years for the price of four. Education/Inception: $1,125 per GPU per year. Cloud marketplace: $1 per hour per GPU plus instance cost. Business Critical support costs extra. Guide updated about 35 days before the search.

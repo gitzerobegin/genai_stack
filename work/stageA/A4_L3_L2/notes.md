@@ -4,7 +4,7 @@
 |---|---|
 | **As of** | 7 October 2026 |
 | **Records** | 23 in `products.json` (L3: 9 graphic tiles + 3 additions; L2: 9 graphic tiles + 2 additions) |
-| **Sources** | 128 (`sources.csv`), all archived under `Enterprise_GenAI_Stack_Oct2026/06_References/snapshots/A4/` |
+| **Sources** | 154 (`sources.csv`), all archived under `Enterprise_GenAI_Stack_Oct2026/06_References/snapshots/A4/`. A4-S129 to A4-S154 come from pass 2, the gap-filling pass run on 7 October 2026. |
 | **Disclosure** | The author is an Anthropic model. The Claude Agent SDK was profiled with the same rubric and the same scepticism as its peers. Its limitations and licence terms are recorded in full. |
 
 **Research-environment caveat.** The shared web-search budget ran out part-way through this stream, after LangChain, LlamaIndex, Pydantic, CrewAI, OpenAI and Mistral had been researched. The rest of the evidence comes from direct fetches of hosts that were reachable:
@@ -15,7 +15,18 @@
 - code.claude.com, platform.claude.com and www.anthropic.com
 - one cloud.google.com blog post
 
-Vendor websites and trust centres were blocked, so several L2 enterprise fields are recorded as Not publicly verified. See (e).
+Vendor websites and trust centres were blocked, so several L2 enterprise fields were recorded as Not publicly verified.
+
+**Pass 2 (same day, fresh search budget).** Targeted searches filled the main L2 gaps:
+
+- Together AI, Fireworks AI, Cerebras, OpenRouter: certifications, retention/ZDR, EU region, pricing, funding and IPO
+- LM Studio licence
+- vLLM foundation hosting
+- SGLang and RadixArk
+- CrewAI funding
+- LangSmith ISO 27001
+
+All pass-2 sources are search-tool extracts because the hosts are still blocked for direct fetch. Facts that rest on them are capped at `conf: medium`. Remaining gaps are listed in (e).
 
 ---
 
@@ -33,7 +44,7 @@ Vendor websites and trust centres were blocked, so several L2 enterprise fields 
 | AI SDK – AI SDK (triangle logo) | **Vercel AI SDK**, npm package `ai`, at 7.0.131 (Apache-2.0); 7.0 released 25 June 2026. By default it routes through Vercel AI Gateway. The companion Workflow SDK, 5.1.0, adds durability. | No change (identity resolved, A15) | A4-S022, A4-S069, A4-S106 |
 | Agent Framework – Microsoft | Microsoft Agent Framework 1.20.0 (MIT), GA at 1.0.0 on 2 April 2026. It is the declared successor to **Semantic Kernel** and **AutoGen**, and AutoGen is now in maintenance mode. | No change (supersedes SK/AutoGen) | A4-S008, A4-S012, A4-S068, A4-S066 |
 | Hugging Face – models & APIs | One tile covers four things: the Hub, **Inference Providers** (a router with pass-through pricing), **Inference Endpoints** (managed dedicated serving on vLLM, SGLang, TGI, llama.cpp or TEI), and **TGI**, which is in **maintenance mode** "as of 12/11/2025". | Duplicated (several products); Deprecated (TGI) | A4-S075, A4-S081, A4-S073, A4-S072 |
-| OpenRouter – multi-provider | It is still a router, and it now has gateway-style controls: guardrails (budgets, allowlists, ZDR, data regions), EU/US in-region routing, and SSO/SCIM on Enterprise plans. | No change (scope widened toward C1) | A4-S111, A4-S109, A4-S110 |
+| OpenRouter – multi-provider | It is still a router, and it now has gateway-style controls: guardrails (budgets, allowlists, ZDR, data regions), EU/US in-region routing, and SSO/SCIM on Enterprise plans. Holds SOC 2 Type 2 but offers **no HIPAA BAA**. Charges a 5.5% fee on credit purchases. Raised a US$113M Series B in May 2026 (secondary source). | No change (scope widened toward C1) | A4-S111, A4-S109, A4-S110, A4-S142–A4-S144, A4-S150 |
 | Together AI – open-source cloud | The SDK is at 2.40.0. The SDK shows inference, fine-tuning, GPU clusters and container deployments (beta). Enterprise facts are not verified. | Not publicly verified (enterprise facts) | A4-S093 |
 | Fireworks AI – fast inference | The SDK is at 1.2.20. The SDK shows deployments, fine-tuning and batch inference. Enterprise facts are not verified. | Not publicly verified (enterprise facts) | A4-S094 |
 | Cerebras – ultra-scale cloud | Cerebras is a chip and system vendor (WSE-3, CS-3) that also runs an inference API, and it offers on-premise systems. IPO and funding status are not verified. | Mispositioned (descriptor omits hardware) | A4-S095 |

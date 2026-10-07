@@ -1,0 +1,15 @@
+SOURCE ID: A6-S105
+URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-targets-inference.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AgentCore Gateway inference targets LLM providers rate limits generally available 2026 (site:aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+Related: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-inference-connector.html ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-inference-provider.html ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-rate-limits.html ; https://aws.amazon.com/blogs/machine-learning/configure-rate-limits-for-ai-traffic-on-agentcore-gateway/
+
+Extract as returned by search tool:
+For inference targets, the gateway routes LLM requests to one or more model providers through a unified, model-based routing endpoint; docs name Amazon Bedrock, OpenAI, Anthropic, plus other OpenAI-compatible services. A connector is a preconfigured option for bedrock-mantle, openai, and anthropic; a provider configuration gives explicit control over endpoint, model mappings and operations (custom endpoints, per-model token limits, path rewriting).
+Clients send requests to the gateway's /inference path and can use the OpenAI or Anthropic SDK by changing the base URL; "the gateway routes each request to the correct target based on the model field in the request body". Outbound auth: API keys in a credential provider for OpenAI/Anthropic, IAM role for Bedrock.
+Conflict: for models served by multiple targets, one page says round-robin, the connector page says random selection.
+Rate limits: request limits (per second/minute, all targets), token limits (tokens per minute, inference targets only), connection limits. "The gateway uses a general-purpose tokenizer to estimate the incoming tokens for a request and deducts it from the rate-limit bucket upfront, then reconciles against the usage the provider reports." Limits scoped by JWT claims or IAM identity and qualifiedModelId. Default cap of 50 rate limits per gateway.
+No explicit GA statement or regional list found.

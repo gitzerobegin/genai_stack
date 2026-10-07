@@ -1,0 +1,8 @@
+SOURCE ID: A1-S139
+URL: https://docs.wandb.ai/weave/guides/tracking/otel
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Weave OpenTelemetry OTLP traces endpoint
+========================================================================
+
+Extracts: Multi-tenant Cloud endpoint https://trace.wandb.ai/otel/v1/traces (POST, application/x-protobuf); dedicated/self-managed: https://<your-subdomain>.wandb.io/traces/otel/v1/traces. Auth via wandb-api-key header (some integrations Basic auth plus project_id header). Endpoint only accepts protobuf. Spans tagged with wandb.entity and wandb.project resource attributes. Agent-focused endpoint /agents/otel/v1/traces ingests spans into the Agents view. OpenTelemetry Collector forwarding supported. Self-managed ingest sampling can apply to raw OTel traffic.

@@ -3060,9 +3060,10 @@
    "v": "46 client products listed on agentskills.io showcase (e.g. ChatGPT & Codex, Gemini CLI, GitHub Copilot, VS Code, Cursor, Goose, Kiro, Junie, Databricks Genie Code, Snowflake Cortex Code, Mistral AI Vibe, Spring AI, Letta); OpenAI and Google primary docs confirm support",
    "label": "Verified fact",
    "src": [
-    "A3-S113",
+    "A3-S027",
     "A3-S033",
-    "A3-S034"
+    "A3-S034",
+    "A3-S113"
    ],
    "conf": "high"
   },
@@ -3131,6 +3132,7 @@
   "classification": null,
   "scores": null,
   "sources": [
+   "A3-S027",
    "A3-S028",
    "A3-S029",
    "A3-S033",

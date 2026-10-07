@@ -1,0 +1,8 @@
+SOURCE ID: A1-S136
+URL: https://help.mistral.ai/en/articles/347638-do-you-have-soc-2-or-iso-27001-certification
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral AI trust center SOC 2 Type II ISO 27001 ISO 27701 certification La Plateforme
+========================================================================
+
+Extracts: "Yes, Mistral complies with both SOC 2 Type II and ISO 27001/27701 frameworks." (help article approx. 56 days old). Trust Center (trust.mistral.ai) compliance section lists ISO 27001, ISO 27701 and SOC 2 Type II; resources include ISO/IEC 27001:2022 Certificate (Mistral AI), ISO/IEC 27701:2019 Certificate (Mistral AI), Statement of Applicability, SOC 2 Type II full report. "If you are a client, you may request access to our SOC 2 report". Technical and organisational security measures published on the Trust Center. Scope relative to La Plateforme/OCR not confirmed in results.

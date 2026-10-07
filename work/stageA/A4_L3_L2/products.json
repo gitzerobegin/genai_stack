@@ -162,11 +162,12 @@
    }
   },
   "certifications": {
-   "v": "LangSmith: SOC 2 Type 2 and HIPAA per LangChain docs; ISO 27001 claimed on the enterprise page but absent from the EU data-residency announcement (conflict; confirm at trust.langchain.com). BAAs only on Enterprise plan. Not applicable to the OSS library itself.",
+   "v": "LangSmith: SOC 2 Type II and HIPAA (BAA on Enterprise) consistently stated; ISO 27001 stated only on the enterprise marketing page and LangSmith Engine security docs ('certified to ISO 27001'), while LangSmith enterprise/shared-responsibility docs and the EU-residency announcement omit it and the trust-centre listing seen does not name it. Treat ISO 27001 as claimed, scope unconfirmed. Not applicable to the OSS library.",
    "label": "Verified fact",
    "src": [
     "A4-S034",
-    "A4-S035"
+    "A4-S035",
+    "A4-S149"
    ],
    "conf": "medium"
   },
@@ -314,9 +315,10 @@
    "A4-S039",
    "A4-S040",
    "A4-S098",
-   "A4-S118"
+   "A4-S118",
+   "A4-S149"
   ],
-  "stage_a_notes": "ISO 27001 for LangSmith is inconsistent across LangChain pages (A4-S034 vs A4-S035): treat as unconfirmed until trust.langchain.com is checked. LangSmith Deployment is the renamed LangGraph Platform; Stage B should not profile them separately. LangSmith (L9) is covered by stream A1.",
+  "stage_a_notes": "ISO 27001 for LangSmith: pass 2 found it claimed on two LangChain pages (A4-S035, A4-S149) but absent from others and not visible in the public trust-centre listing; certificate is behind access request. Remains 'claimed, scope unconfirmed'. LangSmith Deployment is the renamed LangGraph Platform; Stage B should not profile them separately. LangSmith (L9) is covered by stream A1.",
   "last_verified": "2026-10-07"
  },
  {
@@ -1112,9 +1114,10 @@
    "conf": "medium"
   },
   "adoption_signals": {
-   "v": "Series B of ~US$20M (15 April 2026) per PitchBook/Forge; totals reported as US$38.5M–44.5M; earlier US$18M seed+Series A (October 2024, TechCrunch via Wikipedia); no vendor announcement found",
-   "label": "Reported",
+   "v": "Vendor and TechCrunch (Oct 2024): US$18M seed+Series A (Boldstart, Craft, Earl Grey, Insight Partners); CrewAI 2025 blog: ~US$20M raised. A ~US$20M Series B (15 April 2026) appears only in PitchBook/Forge; no vendor or major-outlet announcement found",
+   "label": "Verified fact",
    "src": [
+    "A4-S148",
     "A4-S051"
    ],
    "conf": "low"
@@ -1144,9 +1147,10 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Series B reported by aggregators only",
-    "label": "Reported",
+    "v": "Only ~US$20M confirmed by primary/major-outlet sources; Series B unconfirmed",
+    "label": "Verified fact",
     "src": [
+     "A4-S148",
      "A4-S051"
     ],
     "conf": "low"
@@ -1184,9 +1188,10 @@
    "A4-S049",
    "A4-S050",
    "A4-S051",
-   "A4-S126"
+   "A4-S126",
+   "A4-S148"
   ],
-  "stage_a_notes": "Original descriptor 'multi-agent' covers Crews only; Flows are the deterministic layer (H2). Series B unconfirmed by primary source.",
+  "stage_a_notes": "Original descriptor 'multi-agent' covers Crews only; Flows are the deterministic layer (H2). Pass 2: Series B still unconfirmed by any primary or major-outlet source (targeted search of crewai.com, TechCrunch, Business Wire, PR Newswire, Bloomberg, Fortune, VentureBeat).",
   "last_verified": "2026-10-07"
  },
  {
@@ -3729,12 +3734,12 @@
    "conf": "high"
   },
   "company": {
-   "v": "OpenRouter",
+   "v": "OpenRouter, Inc.; privately held",
    "label": "Verified fact",
    "src": [
-    "A4-S096"
+    "A4-S143"
    ],
-   "conf": "high"
+   "conf": "low"
   },
   "category": {
    "v": "Hosted multi-provider model router / aggregator with gateway-style governance (budgets, allowlists, ZDR, regional routing)",
@@ -3860,18 +3865,21 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 Type 2 (trust centre; report on request); no HIPAA BAA offered",
+   "label": "Verified fact",
+   "src": [
+    "A4-S142"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Prompts/responses not stored unless the customer opts in (logging or product-use for 1% discount); metadata stored. ZDR enforceable globally, per model group, per guardrail or per request. In-region routing for EU and US (eu.openrouter.ai / us.openrouter.ai) on Business and Enterprise plans",
+   "v": "Prompts/responses not stored unless the customer opts in; metadata stored. ZDR enforceable globally, per model group, guardrail or request. EU/US in-region routing on Business and Enterprise plans; fails rather than falling back out-of-region; Batch API, web search and web fetch not region-resident",
    "label": "Verified fact",
    "src": [
     "A4-S107",
     "A4-S108",
-    "A4-S109"
+    "A4-S109",
+    "A4-S150"
    ],
    "conf": "high"
   },
@@ -3894,17 +3902,19 @@
    "conf": "high"
   },
   "enterprise_support": {
-   "v": "Business and Enterprise plans",
+   "v": "Business plan (self-serve, no minimum) and Enterprise plan (contractual SLAs, support SLA, dedicated Slack, CSM, forward-deployed engineer); no numeric uptime target published; ~50-minute full outage in August 2025 noted by vendor",
    "label": "Verified fact",
    "src": [
-    "A4-S109"
+    "A4-S109",
+    "A4-S150"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "pricing": {
-   "v": "Provider pricing passed through without markup; a fee is charged when purchasing credits (percentage rendered dynamically, not captured); BYOK free allowance then a percentage fee",
+   "v": "Provider prices passed through without markup; platform fee on credit purchases: Standard 5.5% (US$0.80 minimum), Business 8%, Enterprise custom; BYOK 5% of model cost after plan allowance",
    "label": "Verified fact",
    "src": [
+    "A4-S144",
     "A4-S113"
    ],
    "conf": "medium",
@@ -3925,9 +3935,11 @@
    "conf": "medium"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
+   "v": "Series B US$113M led by CapitalG (26 May 2026) at ~US$1.3B post-money (NYT via TechCrunch); Series A US$40M co-led by a16z and Menlo (2025); amounts conflict across trackers",
+   "label": "Reported",
+   "src": [
+    "A4-S143"
+   ],
    "conf": "low"
   },
   "maturity": {
@@ -3946,15 +3958,19 @@
     "conf": "medium"
    },
    "acquisition": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "One tracker (Tracxn) labels OpenRouter 'acquired by Stripe'; uncorroborated and contradicted by May 2026 funding",
+    "label": "Reported",
+    "src": [
+     "A4-S143"
+    ],
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Series B US$113M (May 2026)",
+    "label": "Reported",
+    "src": [
+     "A4-S143"
+    ],
     "conf": "low"
    },
    "ecosystem_dependency": {
@@ -3991,9 +4007,13 @@
    "A4-S110",
    "A4-S111",
    "A4-S112",
-   "A4-S113"
+   "A4-S113",
+   "A4-S142",
+   "A4-S143",
+   "A4-S144",
+   "A4-S150"
   ],
-  "stage_a_notes": "Docs read from OpenRouter's public docs source repository (raw.githubusercontent.com/OpenRouterTeam/docs), which is served at openrouter.ai/docs. Certifications and funding not verified.",
+  "stage_a_notes": "Docs read from OpenRouter's public docs source repository (raw.githubusercontent.com/OpenRouterTeam/docs), which is served at openrouter.ai/docs. Pass 2: SOC 2 Type 2 confirmed via trust centre listing; no BAA; funding from TechCrunch (secondary).",
   "last_verified": "2026-10-07"
  },
  {
@@ -4004,33 +4024,34 @@
    "v": "Together AI",
    "label": "Verified fact",
    "src": [
-    "A4-S093"
+    "A4-S093",
+    "A4-S132"
    ],
    "conf": "high"
   },
   "company": {
-   "v": "Together AI",
+   "v": "Together Computer, Inc. (trading as Together AI); privately held",
    "label": "Verified fact",
    "src": [
-    "A4-S093"
+    "A4-S132"
    ],
    "conf": "medium"
   },
   "category": {
-   "v": "Managed inference cloud for open-weight models (serverless and dedicated), fine-tuning",
+   "v": "AI-native cloud: serverless and dedicated inference for open-weight models, fine-tuning, GPU clusters, provisioned throughput",
    "label": "Verified fact",
    "src": [
-    "A4-S093",
-    "A4-S075"
+    "A4-S131",
+    "A4-S093"
    ],
    "conf": "medium"
   },
   "version_or_lineup": {
-   "v": "together SDK 2.40.0 (7 October 2026); also an Inference Providers partner on Hugging Face",
+   "v": "Official SDK together 2.40.0 (7 October 2026); products: serverless inference, dedicated endpoints, Provisioned Throughput (PTU), fine-tuning, GPU clusters (on-demand, reserved, Instant Clusters), container deployments ('Jig', beta)",
    "label": "Verified fact",
    "src": [
     "A4-S093",
-    "A4-S075"
+    "A4-S131"
    ],
    "conf": "high"
   },
@@ -4043,39 +4064,51 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "status_events": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "what_it_does": {
-   "v": "SDK/CLI exposes inference, fine-tuning, files, models, GPU clusters (with regions, GPU types and drivers) and 'Jig' container deployments (beta)",
+   "v": "Raised US$800M Series C (1 July 2026) to scale its 'neocloud'; reports annual bookings above US$1.15B; adding Provisioned Throughput with SLA and EU dedicated capacity",
    "label": "Verified fact",
    "src": [
+    "A4-S132",
+    "A4-S131",
+    "A4-S130"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "February 2025: Series B US$305M at US$3.3B",
+    "1 July 2026: Series C US$800M at US$8.3B post-money (Aramco Ventures lead)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S132"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Hosts open-weight models behind serverless per-token APIs and per-minute dedicated endpoints, offers reserved token capacity (PTU), fine-tuning, and on-demand or reserved NVIDIA GPU clusters (H100 to GB300).",
+   "label": "Verified fact",
+   "src": [
+    "A4-S131",
     "A4-S093"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "stack_position": {
-   "v": "Managed inference/serving (L2); routers such as OpenRouter and Hugging Face Inference Providers sit in front of it",
+   "v": "Managed inference cloud plus GPU IaaS (L2 and below); routers such as OpenRouter and Hugging Face Inference Providers sit in front of it",
    "label": "Architectural judgement",
    "src": [],
    "conf": "medium"
   },
   "dependencies": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Together-operated data centres (cluster sites listed in US and Europe: France, Netherlands, Sweden, Romania)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S130"
+   ],
+   "conf": "medium"
   },
   "integration_model": {
-   "v": "Official Python SDK; listed as Hugging Face Inference Providers partner",
+   "v": "Official Python SDK and CLI; Hugging Face Inference Providers partner",
    "label": "Verified fact",
    "src": [
     "A4-S093",
@@ -4085,38 +4118,42 @@
   },
   "deployment": {
    "saas": {
-    "v": "Yes",
+    "v": "Yes (serverless)",
     "label": "Verified fact",
     "src": [
-     "A4-S093"
+     "A4-S131"
     ],
     "conf": "medium"
    },
    "managed_cloud": {
-    "v": "Yes",
+    "v": "Yes (dedicated endpoints, GPU clusters)",
     "label": "Verified fact",
     "src": [
-     "A4-S093"
+     "A4-S131"
     ],
     "conf": "medium"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (private networking and VPC-based deployments, incl. EU regions)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S130"
+    ],
+    "conf": "medium"
    },
    "private_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (dedicated / reserved capacity)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S131"
+    ],
+    "conf": "medium"
    },
    "self_hosted": {
     "v": "No",
     "label": "Verified fact",
     "src": [
-     "A4-S093"
+     "A4-S131"
     ],
     "conf": "low"
    },
@@ -4128,91 +4165,120 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "security_features": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "infra_cost_note": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "ecosystem": {
-   "v": "Hugging Face Inference Providers partner",
+   "v": "SOC 2 Type 2 and ISO 27001:2022 (vendor blog and product pages); HIPAA described inconsistently ('compliant', 'HIPAA-aligned', 'HIPAA-ready') with BAAs mentioned; report scope/dates not seen",
    "label": "Verified fact",
    "src": [
-    "A4-S075"
+    "A4-S129"
    ],
-   "conf": "high"
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "ZDR available at organisation level but OFF by default: by default prompts and responses are stored and may be used for product improvement unless ZDR is enabled; training on customer data is opt-in (off by default); metadata retained for billing. Serverless has no region selection; EU dedicated endpoints only on Scale and Enterprise plans",
+   "label": "Verified fact",
+   "src": [
+    "A4-S130"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Encryption in transit and at rest and audit logging cited for HIPAA programme; private networking/VPC deployments",
+   "label": "Verified fact",
+   "src": [
+    "A4-S129",
+    "A4-S130"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "SSO (SAML/OIDC; Okta, Entra, Google Workspace, JumpCloud) on Scale and Enterprise plans; org/project RBAC (admin/developer) but product-level RBAC for fine-tuning, endpoints and serverless 'still being rolled out'; per-user audit trails for GPU clusters",
+   "label": "Verified fact",
+   "src": [
+    "A4-S151"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Scale and Enterprise plans; PTUs carry an uptime SLA, serverless does not",
+   "label": "Verified fact",
+   "src": [
+    "A4-S130",
+    "A4-S131"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Serverless per 1M tokens (in/out), e.g. GPT-OSS 120B US$0.15/US$0.60, Llama 3.3 70B Turbo US$1.04/US$1.04, Kimi K3 US$3.00/US$15.00; dedicated H100 US$3.99/h in docs vs US$5.49/h on pricing page (conflict); GPU clusters on-demand H100 US$3.99, B200 US$8.19 per GPU-hour; PTU US$0.05 per PTU-minute",
+   "label": "Verified fact",
+   "src": [
+    "A4-S131"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Dedicated endpoints bill per running replica-minute regardless of traffic; serverless cheaper for bursty load",
+   "label": "Verified fact",
+   "src": [
+    "A4-S131"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Hugging Face Inference Providers partner; NVIDIA partner",
+   "label": "Verified fact",
+   "src": [
+    "A4-S075",
+    "A4-S132"
+   ],
+   "conf": "medium"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "US$800M Series C at US$8.3B (July 2026); annual bookings reported above US$1.15B",
+   "label": "Verified fact",
+   "src": [
+    "A4-S132"
+   ],
+   "conf": "medium"
   },
   "maturity": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SDK first released April 2023; company funded through Series C",
+   "label": "Verified fact",
+   "src": [
+    "A4-S093",
+    "A4-S132"
+   ],
+   "conf": "medium"
   },
   "strategic_risk": {
    "lock_in": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Open-weight models and OpenAI-compatible usage limit model lock-in; dedicated capacity and PTU are contractual",
+    "label": "Verified fact",
+    "src": [
+     "A4-S131"
+    ],
     "conf": "low"
    },
    "acquisition": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
+    "v": "Well-funded independent company; no acquisition reported",
+    "label": "Architectural judgement",
     "src": [],
-    "conf": "low"
+    "conf": "medium"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Series C US$800M (July 2026)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S132"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Depends on NVIDIA GPU supply (NVIDIA is an investor)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S132"
+    ],
+    "conf": "medium"
    },
    "proprietary_api": {
     "v": "Not publicly verified",
@@ -4221,10 +4287,12 @@
     "conf": "low"
    },
    "maturity": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Product-level RBAC still being rolled out",
+    "label": "Verified fact",
+    "src": [
+     "A4-S151"
+    ],
+    "conf": "medium"
    }
   },
   "assessment": null,
@@ -4232,9 +4300,14 @@
   "scores": null,
   "sources": [
    "A4-S075",
-   "A4-S093"
+   "A4-S093",
+   "A4-S129",
+   "A4-S130",
+   "A4-S131",
+   "A4-S132",
+   "A4-S151"
   ],
-  "stage_a_notes": "Coverage gap: SOC 2/ISO/HIPAA, ZDR/retention, EU region, SSO/RBAC, pricing and funding could not be verified in this run (vendor domains blocked; shared web-search budget exhausted before this product was reached). Re-run required.",
+  "stage_a_notes": "Pass 2 (7 Oct 2026). Key enterprise caveat: ZDR is opt-in and default storage permits product-improvement use. Dedicated H100 price conflict between docs and pricing page. No trust-centre document read directly (trust.together.ai exists).",
   "last_verified": "2026-10-07"
  },
  {
@@ -4245,33 +4318,36 @@
    "v": "Fireworks AI",
    "label": "Verified fact",
    "src": [
-    "A4-S094"
+    "A4-S094",
+    "A4-S136"
    ],
    "conf": "high"
   },
   "company": {
-   "v": "Fireworks AI",
+   "v": "Fireworks AI, Inc.; privately held",
    "label": "Verified fact",
    "src": [
-    "A4-S094"
+    "A4-S136",
+    "A4-S141"
    ],
    "conf": "medium"
   },
   "category": {
-   "v": "Managed inference cloud for open-weight models (serverless and dedicated), fine-tuning",
+   "v": "Managed inference and fine-tuning platform for open models (serverless, on-demand dedicated, reserved, BYOC)",
    "label": "Verified fact",
    "src": [
-    "A4-S094",
-    "A4-S075"
+    "A4-S135",
+    "A4-S152"
    ],
    "conf": "medium"
   },
   "version_or_lineup": {
-   "v": "fireworks-ai SDK 1.2.20 (6 October 2026); also an Inference Providers partner on Hugging Face",
+   "v": "Official SDK fireworks-ai 1.2.20 (6 October 2026); serverless, on-demand deployments, batch inference, fine-tuning/RFT, Virtual Cloud (GA), FireRouter",
    "label": "Verified fact",
    "src": [
     "A4-S094",
-    "A4-S075"
+    "A4-S134",
+    "A4-S152"
    ],
    "conf": "high"
   },
@@ -4284,27 +4360,36 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "status_events": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "what_it_does": {
-   "v": "SDK exposes inference, dedicated deployments, fine-tuning (JSONL datasets) and batch inference jobs",
+   "v": "Series D (July 2026) to expand compute and engineering; positioning on 'specialised intelligence' (customers fine-tuning open models on proprietary data); reports >US$1B annualised revenue and >40 trillion tokens/day",
    "label": "Verified fact",
    "src": [
-    "A4-S094"
+    "A4-S141"
    ],
-   "conf": "high"
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "28 October 2025: Series C US$250M at US$4B",
+    "15-16 July 2026: Series D US$1.505B at US$17.5B (Atreides, Index, TCV)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S136",
+    "A4-S141"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Serves open models via serverless per-token APIs and per-GPU-second dedicated deployments, batch inference at 50% of serverless price, fine-tuning and reinforcement fine-tuning, with enterprise reserved capacity and hybrid BYOC.",
+   "label": "Verified fact",
+   "src": [
+    "A4-S135",
+    "A4-S152"
+   ],
+   "conf": "medium"
   },
   "stack_position": {
-   "v": "Managed inference/serving (L2); routers such as OpenRouter and Hugging Face Inference Providers sit in front of it",
+   "v": "Managed inference cloud (L2); FireRouter adds routing",
    "label": "Architectural judgement",
    "src": [],
    "conf": "medium"
@@ -4316,50 +4401,55 @@
    "conf": "low"
   },
   "integration_model": {
-   "v": "Official Python SDK; listed as Hugging Face Inference Providers partner",
+   "v": "Official Python SDK; OpenAI-compatible APIs; Microsoft Foundry partnership; Hugging Face Inference Providers partner",
    "label": "Verified fact",
    "src": [
     "A4-S094",
+    "A4-S134",
     "A4-S075"
    ],
    "conf": "medium"
   },
   "deployment": {
    "saas": {
-    "v": "Yes",
+    "v": "Yes (serverless)",
     "label": "Verified fact",
     "src": [
-     "A4-S094"
+     "A4-S135"
     ],
     "conf": "medium"
    },
    "managed_cloud": {
-    "v": "Yes",
+    "v": "Yes (on-demand and reserved dedicated deployments)",
     "label": "Verified fact",
     "src": [
-     "A4-S094"
+     "A4-S135"
     ],
     "conf": "medium"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
-   },
-   "private_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
-   },
-   "self_hosted": {
-    "v": "No",
+    "v": "Yes (hybrid BYOC: Fireworks inference engine in customer VPC; enterprise reserved tier)",
     "label": "Verified fact",
     "src": [
-     "A4-S094"
+     "A4-S152"
     ],
-    "conf": "low"
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (reserved capacity)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S135"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (partial: BYOC in customer cloud account)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S152"
+    ],
+    "conf": "medium"
    },
    "on_prem": {
     "v": "Not publicly verified",
@@ -4369,91 +4459,119 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "security_features": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "infra_cost_note": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "ecosystem": {
-   "v": "Hugging Face Inference Providers partner",
+   "v": "SOC 2 Type II; HIPAA (report of compliance listed; 'HIPAA-ready' on inference page); ISO 27001:2022, ISO 27701, ISO/IEC 42001:2023; GDPR (trust centre). BAA availability not seen",
    "label": "Verified fact",
    "src": [
+    "A4-S133"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "ZDR by default for open models (prompts/outputs only in volatile memory); exceptions: Response API stores conversations by default for 30 days (store=False avoids), training/fine-tuning/agent features. Enterprise data-residency setting rejects out-of-region requests, but documented options are None and US only (others via sales); EU regions (Frankfurt, Iceland) exist for deployments",
+   "label": "Verified fact",
+   "src": [
+    "A4-S134"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Customer-managed encryption keys (usage logged in customer cloud audit log); enterprise-enforceable ZDR policy; service accounts",
+   "label": "Verified fact",
+   "src": [
+    "A4-S152",
+    "A4-S134"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Custom SSO via OIDC or SAML 2.0 (enterprise); RBAC; Audit Logs page and CLI",
+   "label": "Verified fact",
+   "src": [
+    "A4-S152"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Enterprise reserved tier (multi-region deployments, custom optimisations, BYOC)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S152"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "On-demand GPUs: H100/H200 US$8.00/h, B200 US$13.00/h, B300 US$15.00/h, billed per GPU-second (page ~167 days old; a secondary review cites US$7.00/h). Serverless per 1M tokens: <4B US$0.10, 4-16B US$0.20, >16B US$0.90; Kimi K3 US$3 in/US$15 out; batch 50% of serverless",
+   "label": "Verified fact",
+   "src": [
+    "A4-S135"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Dedicated deployments scale to zero; billed per GPU-second",
+   "label": "Verified fact",
+   "src": [
+    "A4-S135"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Microsoft Foundry; Hugging Face Inference Providers; Anthropic as a ZDR sub-processor for select services",
+   "label": "Verified fact",
+   "src": [
+    "A4-S134",
     "A4-S075"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Series D US$1.505B at US$17.5B (July 2026); >US$1B annualised revenue; CNBC: about half of revenue from Cursor as of 2025",
+   "label": "Verified fact",
+   "src": [
+    "A4-S141"
+   ],
+   "conf": "medium"
   },
   "maturity": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SDK since October 2022; Series D-stage company",
+   "label": "Verified fact",
+   "src": [
+    "A4-S094",
+    "A4-S141"
+   ],
+   "conf": "medium"
   },
   "strategic_risk": {
    "lock_in": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Open models portable; BYOC reduces data-plane lock-in",
+    "label": "Verified fact",
+    "src": [
+     "A4-S152"
+    ],
     "conf": "low"
    },
    "acquisition": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
+    "v": "Well-funded independent company; no acquisition reported",
+    "label": "Architectural judgement",
     "src": [],
-    "conf": "low"
+    "conf": "medium"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Series D US$1.505B (July 2026)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S141"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "NVIDIA GPU supply; revenue concentration (Cursor) reported",
+    "label": "Verified fact",
+    "src": [
+     "A4-S141"
+    ],
+    "conf": "medium"
    },
    "proprietary_api": {
     "v": "Not publicly verified",
@@ -4462,9 +4580,11 @@
     "conf": "low"
    },
    "maturity": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Audit Logs feature recent",
+    "label": "Verified fact",
+    "src": [
+     "A4-S152"
+    ],
     "conf": "low"
    }
   },
@@ -4473,9 +4593,15 @@
   "scores": null,
   "sources": [
    "A4-S075",
-   "A4-S094"
+   "A4-S094",
+   "A4-S133",
+   "A4-S134",
+   "A4-S135",
+   "A4-S136",
+   "A4-S141",
+   "A4-S152"
   ],
-  "stage_a_notes": "Coverage gap: SOC 2/ISO/HIPAA, ZDR/retention, EU region, SSO/RBAC, pricing and funding could not be verified in this run (vendor domains blocked; shared web-search budget exhausted before this product was reached). Re-run required.",
+  "stage_a_notes": "Pass 2 (7 Oct 2026). EU serverless residency not self-serve (docs list US only). Response API is a ZDR exception (30-day retention by default).",
   "last_verified": "2026-10-07"
  },
  {
@@ -4483,34 +4609,37 @@
   "layer": "L2",
   "original_label": "Cerebras – ultra-scale cloud",
   "current_name": {
-   "v": "Cerebras (Cerebras Inference / Cerebras Cloud)",
+   "v": "Cerebras Systems (Cerebras Inference / Cerebras Cloud; CS-3 systems)",
    "label": "Verified fact",
    "src": [
-    "A4-S095"
+    "A4-S095",
+    "A4-S137"
    ],
    "conf": "high"
   },
   "company": {
-   "v": "Cerebras Systems",
+   "v": "Cerebras Systems Inc., listed on Nasdaq (CBRS) since 14 May 2026",
    "label": "Verified fact",
    "src": [
-    "A4-S095"
+    "A4-S137"
    ],
    "conf": "medium"
   },
   "category": {
-   "v": "AI hardware vendor (Wafer-Scale Engine-3, CS-3 systems) that also operates an inference API; on-premise systems available",
+   "v": "AI chip and system vendor (WSE-3, CS-3) that also operates an inference cloud and sells on-premise systems",
    "label": "Verified fact",
    "src": [
-    "A4-S095"
+    "A4-S095",
+    "A4-S154"
    ],
    "conf": "high"
   },
   "version_or_lineup": {
-   "v": "cerebras-cloud-sdk 1.91.0 (16 July 2026); hardware WSE-3 / CS-3",
+   "v": "cerebras-cloud-sdk 1.91.0 (16 July 2026); hardware WSE-3 / CS-3; Inference tiers: free, pay-per-token (Exploration), Enterprise; Cerebras Code subscriptions",
    "label": "Verified fact",
    "src": [
-    "A4-S095"
+    "A4-S095",
+    "A4-S139"
    ],
    "conf": "high"
   },
@@ -4523,31 +4652,42 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "status_events": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "what_it_does": {
-   "v": "Provides high-speed inference via the Cerebras REST API (chat and text completions) on CS-3 systems; access via Cerebras Cloud or on-premise deployments.",
+   "v": "Large inference supply agreement with OpenAI (750MW, Dec 2025; option for further 1.25GW by 2030); European expansion: first EU capacity by end-2026 (France, Nordics), 200MW by end-2027, 165MW Mikkeli (Finland) site",
    "label": "Verified fact",
    "src": [
-    "A4-S095"
+    "A4-S154",
+    "A4-S140"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
-  "stack_position": {
-   "v": "Both chip/system vendor and inference provider; also an Inference Providers partner on Hugging Face. The graphic's 'ultra-scale cloud' omits the hardware business",
+  "status_events": {
+   "v": [
+    "December 2025: OpenAI master relationship agreement (750MW)",
+    "13 May 2026: IPO priced at US$185/share (30M Class A shares, ~US$5.55B); Nasdaq: CBRS from 14 May 2026",
+    "8 July 2026: European expansion announced"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S154",
+    "A4-S137",
+    "A4-S140"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Provides high-speed inference through an OpenAI-compatible REST API on CS-3 systems in Cerebras data centres, and sells CS-3 systems for on-premise deployment.",
    "label": "Verified fact",
    "src": [
     "A4-S095",
-    "A4-S075"
+    "A4-S139"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Both hardware vendor (below L2) and inference provider (L2). The graphic's 'ultra-scale cloud' omits the hardware business",
+   "label": "Verified fact",
+   "src": [
+    "A4-S095"
    ],
    "conf": "medium"
   },
@@ -4558,27 +4698,31 @@
    "conf": "low"
   },
   "integration_model": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Official SDK; OpenAI-compatible API; AWS Marketplace billing; Hugging Face Inference Providers partner",
+   "label": "Verified fact",
+   "src": [
+    "A4-S095",
+    "A4-S139",
+    "A4-S075"
+   ],
+   "conf": "medium"
   },
   "deployment": {
    "saas": {
     "v": "Yes",
     "label": "Verified fact",
     "src": [
-     "A4-S095"
+     "A4-S139"
     ],
-    "conf": "high"
+    "conf": "medium"
    },
    "managed_cloud": {
-    "v": "Yes",
+    "v": "Yes (Enterprise dedicated capacity)",
     "label": "Verified fact",
     "src": [
-     "A4-S095"
+     "A4-S139"
     ],
-    "conf": "high"
+    "conf": "medium"
    },
    "vpc_byoc": {
     "v": "Not publicly verified",
@@ -4610,40 +4754,55 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 Type 2, GDPR, CCPA listed in trust centre; HIPAA not listed",
+   "label": "Verified fact",
+   "src": [
+    "A4-S138"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Privacy policy: inputs and outputs of inference services not retained; logs deleted when no longer needed; data may be processed outside the US unless otherwise agreed. Blog claims (Jan 2025): inference runs in US data centres with zero data retention. EU capacity announced but not yet online (target end-2026)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S153",
+    "A4-S138",
+    "A4-S140"
+   ],
+   "conf": "medium"
   },
   "security_features": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Encryption at rest and in transit (trust centre sections)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S138"
+   ],
+   "conf": "medium"
   },
   "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Console roles: Organization Admin, Project Admin, Project Member; projects group keys and rate limits; API-key auth; no SSO documentation found",
+   "label": "Verified fact",
+   "src": [
+    "A4-S153"
+   ],
+   "conf": "medium"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Enterprise tier: custom SLAs, dedicated support, fine-tuned models, 3/6/12-month contracts",
+   "label": "Verified fact",
+   "src": [
+    "A4-S139"
+   ],
+   "conf": "medium"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Pay-per-token per 1M tokens (in/out): Llama 3.1 8B US$0.10/US$0.10, Llama 3.3 70B US$0.85/US$1.20, Qwen 3 32B US$0.40/US$0.80; free tier limited to 8,192-token context; Enterprise flat monthly pricing by tokens-per-minute; Cerebras Code Pro US$50/month, Max US$200/month",
+   "label": "Verified fact",
+   "src": [
+    "A4-S139"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -4658,20 +4817,26 @@
    "conf": "low"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "IPO raised ~US$5.55B (May 2026); OpenAI 750MW commitment; 600MW of data-centre capacity under contract (Q2 2026 results)",
+   "label": "Verified fact",
+   "src": [
+    "A4-S137",
+    "A4-S154"
+   ],
+   "conf": "medium"
   },
   "maturity": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Public company since May 2026; inference cloud since 2024",
+   "label": "Verified fact",
+   "src": [
+    "A4-S137",
+    "A4-S139"
+   ],
+   "conf": "medium"
   },
   "strategic_risk": {
    "lock_in": {
-    "v": "Proprietary hardware stack",
+    "v": "Proprietary wafer-scale hardware stack",
     "label": "Verified fact",
     "src": [
      "A4-S095"
@@ -4679,27 +4844,33 @@
     "conf": "medium"
    },
    "acquisition": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
+    "v": "Public company; takeover risk not assessed",
+    "label": "Architectural judgement",
     "src": [],
-    "conf": "low"
+    "conf": "medium"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Public (Nasdaq: CBRS); IPO ~US$5.55B",
+    "label": "Verified fact",
+    "src": [
+     "A4-S137"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Material customer concentration in OpenAI agreement (750MW; ~US$1.0B working-capital loan to OpenAI)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S154"
+    ],
+    "conf": "medium"
    },
    "proprietary_api": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "OpenAI-compatible API",
+    "label": "Verified fact",
+    "src": [
+     "A4-S139"
+    ],
     "conf": "low"
    },
    "maturity": {
@@ -4714,9 +4885,15 @@
   "scores": null,
   "sources": [
    "A4-S075",
-   "A4-S095"
+   "A4-S095",
+   "A4-S137",
+   "A4-S138",
+   "A4-S139",
+   "A4-S140",
+   "A4-S153",
+   "A4-S154"
   ],
-  "stage_a_notes": "Coverage gap: IPO/funding, certifications, retention, EU region and pricing not verified (vendor domains blocked; search budget exhausted).",
+  "stage_a_notes": "Pass 2 (7 Oct 2026). Cerebras IPO resolved (priced 13 May 2026; primary press release via search extract). SEC filings cited by extract only (sec.gov blocked). HIPAA and SSO not evidenced. ZDR evidence is marketing/privacy-policy level, not contractual.",
   "last_verified": "2026-10-07"
  },
  {
@@ -5024,12 +5201,13 @@
    "conf": "high"
   },
   "licence_model": {
-   "v": "lms CLI MIT (Copyright 2024 LM Studio); desktop application licence and commercial-use terms not verified",
+   "v": "Desktop app proprietary (App Terms of Service): licensed for personal and/or internal business use, free at work without a separate commercial licence; prohibits modification, redistribution, sublicensing, offering as a service, reverse engineering. lms CLI MIT",
    "label": "Verified fact",
    "src": [
+    "A4-S145",
     "A4-S088"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "strategic_direction": {
    "v": "Not publicly verified",
@@ -5137,9 +5315,11 @@
    "conf": "low"
   },
   "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
+   "v": "SSO and model/MCP gating on paid Enterprise plan",
+   "label": "Verified fact",
+   "src": [
+    "A4-S145"
+   ],
    "conf": "low"
   },
   "enterprise_support": {
@@ -5149,10 +5329,13 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Free for personal and internal work use; paid Enterprise plan for SSO and model/MCP gating; LM Link free during preview",
+   "label": "Verified fact",
+   "src": [
+    "A4-S145"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -5204,10 +5387,12 @@
     "conf": "low"
    },
    "proprietary_api": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Closed-source app; cannot be embedded, redistributed or offered as a service under app terms",
+    "label": "Verified fact",
+    "src": [
+     "A4-S145"
+    ],
+    "conf": "medium"
    },
    "maturity": {
     "v": "Python SDK last released August 2025",
@@ -5224,9 +5409,10 @@
   "sources": [
    "A4-S016",
    "A4-S087",
-   "A4-S088"
+   "A4-S088",
+   "A4-S145"
   ],
-  "stage_a_notes": "Licence/commercial-use terms for the app could not be verified (only CLI MIT licence). Re-check lmstudio.ai terms.",
+  "stage_a_notes": "Pass 2: licence resolved. App is proprietary, free for internal business use (separate commercial licence requirement removed); not usable as a hosted service or redistributable component. Page dates of terms not seen.",
   "last_verified": "2026-10-07"
  },
  {
@@ -5243,13 +5429,14 @@
    "conf": "high"
   },
   "company": {
-   "v": "vLLM project (community; originated at UC Berkeley Sky Computing Lab); lead maintainers include Woosuk Kwon, Zhuohan Li, Simon Mo, Kaichao You and Robert Shaw",
+   "v": "vLLM project, a PyTorch Foundation-hosted project (Linux Foundation) since May 2025; originated at UC Berkeley Sky Computing Lab; lead maintainers include Woosuk Kwon, Zhuohan Li, Simon Mo, Kaichao You and Robert Shaw",
    "label": "Verified fact",
    "src": [
+    "A4-S146",
     "A4-S063",
     "A4-S064"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "category": {
    "v": "Open-source LLM inference and serving engine",
@@ -5284,10 +5471,14 @@
    "conf": "high"
   },
   "status_events": {
-   "v": [],
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": [
+    "7 May 2025: accepted as a PyTorch Foundation-hosted project when the foundation became an umbrella foundation"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S146"
+   ],
+   "conf": "medium"
   },
   "what_it_does": {
    "v": "High-throughput, memory-efficient inference and serving library and server for LLMs, multimodal, embedding and reward models.",
@@ -5455,9 +5646,11 @@
     "conf": "high"
    },
    "acquisition": {
-    "v": "Not applicable (community project)",
-    "label": "Architectural judgement",
-    "src": [],
+    "v": "Foundation-hosted under PyTorch Foundation open governance; not company-owned",
+    "label": "Verified fact",
+    "src": [
+     "A4-S146"
+    ],
     "conf": "medium"
    },
    "funding": {
@@ -5500,9 +5693,10 @@
    "A4-S064",
    "A4-S081",
    "A4-S089",
-   "A4-S090"
+   "A4-S090",
+   "A4-S146"
   ],
-  "stage_a_notes": "Governance: governance doc defines Core Maintainers as the TSC 'as defined by Linux Foundation Project Governance' (A4-S064), consistent with foundation hosting, but PyTorch Foundation membership itself was not verified from a primary page in this run (pytorch.org blocked; search budget exhausted).",
+  "stage_a_notes": "Pass 2: PyTorch Foundation hosting confirmed (pytorch.org announcement via search extract, consistent with the governance doc's Linux Foundation TSC reference).",
   "last_verified": "2026-10-07"
  },
  {
@@ -5519,13 +5713,13 @@
    "conf": "high"
   },
   "company": {
-   "v": "SGLang project, hosted by LMSYS (non-profit open-source organisation)",
+   "v": "SGLang open-source project hosted by LMSYS (non-profit); commercial steward RadixArk (founded by SGLang creators Ying Sheng and Banghua Zhu; US$100M seed, May 2026)",
    "label": "Verified fact",
    "src": [
     "A4-S065",
-    "A4-S010"
+    "A4-S147"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "category": {
    "v": "Open-source inference/serving framework for LLMs, VLMs and diffusion models; RL rollout backend",
@@ -5562,10 +5756,14 @@
    "conf": "high"
   },
   "status_events": {
-   "v": [],
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": [
+    "5 May 2026: RadixArk launches with US$100M seed (Accel lead, Spark co-lead; NVIDIA, AMD participate) at US$400M post-money to steward SGLang and build a commercial platform"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A4-S147"
+   ],
+   "conf": "medium"
   },
   "what_it_does": {
    "v": "High-performance serving framework delivering low-latency, high-throughput inference from a single GPU to large clusters, OpenAI-API compatible, with broad model and hardware support (NVIDIA, AMD, Intel Xeon, Google TPU, Ascend).",
@@ -5732,16 +5930,21 @@
     "conf": "high"
    },
    "acquisition": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Commercial steward RadixArk is VC-backed; no transfer of code, trademark or governance from LMSYS found",
+    "label": "Verified fact",
+    "src": [
+     "A4-S147",
+     "A4-S065"
+    ],
+    "conf": "medium"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "RadixArk US$100M seed (May 2026)",
+    "label": "Verified fact",
+    "src": [
+     "A4-S147"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
     "v": "Hosted by LMSYS; enterprise contact via sglang@lmsys.org",
@@ -5776,9 +5979,10 @@
    "A4-S065",
    "A4-S081",
    "A4-S090",
-   "A4-S128"
+   "A4-S128",
+   "A4-S147"
   ],
-  "stage_a_notes": "RadixArk appears in project news (joint TPU work with Google, July 2026) and as owner of the Miles RL framework; its corporate relationship to SGLang governance was not verified. Governance: hosted by LMSYS non-profit (primary).",
+  "stage_a_notes": "Pass 2: RadixArk is the SGLang creators' VC-backed company stewarding SGLang (Business Wire, May 2026). Repo still states hosting by LMSYS non-profit. No evidence of a formal governance transfer; watch for open-core divergence.",
   "last_verified": "2026-10-07"
  },
  {
