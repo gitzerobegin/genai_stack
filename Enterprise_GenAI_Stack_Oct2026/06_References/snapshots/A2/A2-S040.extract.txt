@@ -1,0 +1,8 @@
+SOURCE ID: A2-S040
+URL: https://docs.api.nvidia.com/nim/docs/product
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NeMo Retriever NIM license NVIDIA AI Enterprise production embedding NIM free developer program (allowed: nvidia.com, docs.nvidia.com, developer.nvidia.com)
+========================================================================
+
+Developer Program membership gives free access to downloadable NIM for research, development and testing, up to 16 GPUs; does not include enterprise features or support. Production = any use other than development, testing, research or evaluation; requires an NVIDIA AI Enterprise license. Pricing starts at $4500 per GPU per year or ~$1 per GPU per hour in the cloud. 90-Day Trial includes a licence for commercial use. Partner-hosted serverless NIM includes the NVIDIA AI Enterprise licence.

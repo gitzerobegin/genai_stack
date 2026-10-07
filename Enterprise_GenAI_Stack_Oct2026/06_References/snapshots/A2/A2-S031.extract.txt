@@ -1,0 +1,8 @@
+SOURCE ID: A2-S031
+URL: https://docs.nvidia.com/nim/nemo-retriever/embedding/2.3/getting-started.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NVIDIA NeMo Retriever embedding reranking NIM llama-nemotron-embed latest model 2026
+========================================================================
+
+Embedding NIM 2.3 getting-started guide uses nvidia/nemotron-3-embed-1b as its example model, from the 2.3 image tag. Retrieval APIs catalog (https://docs.api.nvidia.com/nim/reference/retrieval-apis) lists nvidia/llama-nemotron-embed-1b-v2, nvidia/llama-nemotron-embed-vl-1b-v2, and nemotron-3-embed-1b. NeMo Retriever Helm chart defaults to nvidia/llama-nemotron-embed-vl-1b-v2 (image nvcr.io/nim/nvidia/llama-nemotron-embed-vl-1b-v2:2.3.0), recommends 26.08.1 install, and warns the text-only reranker silently degrades multimodal reranking.

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S009
+URL: https://cohere.com/blog/rerank-4
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere Embed v4 Rerank 4 release (allowed: cohere.com, docs.cohere.com)
+========================================================================
+
+Rerank 4 comes in two variants: rerank-v4.0-pro (state-of-the-art quality, complex use cases) and rerank-v4.0-fast (low latency, high throughput). Handles non-English text and JSON documents; 32k token context window. (Search tool also stated that the post introduces Embed 5; not independently confirmed in this extract.)

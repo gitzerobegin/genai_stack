@@ -1,0 +1,8 @@
+SOURCE ID: A2-S067
+URL: https://github.com/immich-app/immich/discussions/16335
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: pgvectorscale Timescale Tiger Data latest release; pgvecto.rs deprecated VectorChord
+========================================================================
+
+February 2025 discussion: The pgvecto.rs README.md on github seems to indicate that pgvecto.rs is recently deprecated in favor of VectorChord. Immich v1.133.0 (May 2025): We are migrating off the deprecated pgvecto.rs database extension to its successor VectorChord. Latest VectorChord build seen in Immich docs: 0.4.3.

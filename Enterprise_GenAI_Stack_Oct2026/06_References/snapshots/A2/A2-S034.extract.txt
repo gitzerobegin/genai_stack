@@ -1,0 +1,8 @@
+SOURCE ID: A2-S034
+URL: https://blog.voyageai.com/2026/09/30/rerank-3/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Voyage AI rerank-2.5 reranker latest rerank model voyage (allowed: mongodb.com, blog.voyageai.com, docs.voyageai.com)
+========================================================================
+
+Announcement dated September 30, 2026. rerank-3 and rerank-3-lite improve upon rerank-2.5 and rerank-2.5-lite across nearly all domains at the same price, largest gains on long documents and code. On LongEmbed rerank-3 outperforms rerank-2.5 by 3.35%; rerank-3-lite outperforms rerank-2.5-lite by 1.86% (vendor-reported). API, 32K token context length, instruction-following and pricing the same. Pricing $0.05 and $0.02 per million tokens for rerank-3 and rerank-3-lite. rerank-2.5 series continues for existing users. Docs (https://www.mongodb.com/docs/voyageai/models/rerankers/) list rerank-3 as highest accuracy and recommended for most applications; rerank-2.5 under older models still accessible. rerank-2.5 launched August 2025 (https://blog.voyageai.com/2025/08/11/rerank-2-5/) with instruction-following and 32K context.

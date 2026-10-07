@@ -1,0 +1,8 @@
+SOURCE ID: A2-S020
+URL: https://qwen.ai/blog?id=qwen3-embedding
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qwen3-Embedding Qwen3-Reranker release Apache 2.0 MTEB latest Qwen embedding model 2026
+========================================================================
+
+We have open-sourced this series of text embedding and reranking models under the Apache 2.0 license on Hugging Face and ModelScope. Sizes 0.6B, 4B, 8B; 32K context. The 8B model ranks No.1 in the MTEB multilingual leaderboard (as of June 5, 2025, score 70.58). Technical report arXiv 2506.05176 (June 2025) reports 80.68 on MTEB Code. Supports 119 languages.

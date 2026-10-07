@@ -1,0 +1,8 @@
+SOURCE ID: A2-S042
+URL: https://www.elastic.co/docs/explore-analyze/machine-learning/nlp/ml-nlp-jina
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Jina AI embeddings API pricing tokens Elastic Inference Service jina models pricing (allowed: jina.ai, elastic.co)
+========================================================================
+
+Models accessed through EIS on Elastic Hosted or Elastic Serverless are billed per million tokens, or as otherwise included in EIS; for embeddings only input tokens are billed. Jina search models on EIS available to all Elastic Cloud users with consumption-based pricing; no separate licence, subscription, or API key required. EIS includes jina-embeddings-v3, jina-embeddings-v5-omni-small and jina-embeddings-v5-omni-nano. Jina On-Prem: annual licence fee scoped by models and hardware; contact Elastic Sales. Most current models CC-BY-NC 4.0; hosted API and cloud marketplace images include commercial use. jina-embeddings-v4 under Qwen Research License (no commercial use); Jina's guidance is to use v5 for production. Jina hosted API (https://jina.ai/embeddings/) billed by tokens; rate limits Free 100 RPM/100K TPM, Paid 500 RPM/2M TPM, Premium 5,000 RPM/50M TPM.

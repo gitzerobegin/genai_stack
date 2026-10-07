@@ -1,0 +1,169 @@
+SOURCE ID: A7-S056
+URL: https://raw.githubusercontent.com/validmind/documentation/main/site/guide/monitoring/ongoing-monitoring.qmd
+FINAL URL: https://raw.githubusercontent.com/validmind/documentation/main/site/guide/monitoring/ongoing-monitoring.qmd
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+---
+# Copyright © 2023-2026 ValidMind Inc. All rights reserved.
+# Refer to the LICENSE file in the root of this repository for details.
+# SPDX-License-Identifier: AGPL-3.0 AND ValidMind Commercial
+title: "Ongoing monitoring"
+date: last-modified
+listing:
+  - id: ongoing-monitoring-listing
+    type: grid
+    grid-columns: 2
+    max-description-length: 250
+    sort: false
+    fields: [title, description]
+    contents:
+      - enable-monitoring.qmd
+      - review-monitoring-results.qmd
+      - work-with-metrics-over-time.qmd
+      - set-thresholds-and-alerts.qmd
+      - trigger-workflows-on-threshold-breach.qmd
+  - id: ongoing-monitoring-code-samples
+    type: grid
+    grid-columns: 2
+    max-description-length: 250
+    sort: false
+    fields: [title, description]
+    contents:
+      - ../../notebooks/use_cases/ongoing_monitoring/quickstart_customer_churn_ongoing_monitoring.ipynb
+      - ../../notebooks/use_cases/ongoing_monitoring/application_scorecard_ongoing_monitoring.ipynb
+      # - ../../notebooks/use_cases/credit_risk/application_scorecard_full_suite.ipynb
+  - id: ongoing-monitoring-tests
+    contents: 
+    - title: "{{< var vm.product >}} Test Sandbox"
+      description: "Tests that are available as part of the {{< var validmind.developer >}}, grouped by type of validation or monitoring test."
+      path: ../../developer/how-to/test-sandbox.qmd
+    type: grid
+    grid-columns: 2
+    max-description-length: 250
+    page-size: 150
+    fields: [title, description]  
+---
+
+Monitoring of record (model) performance in risk management involves regularly assessing a record's accuracy, stability, and robustness to ensure it remains reliable after deployment.
+
+Monitoring is a critical component of risk management, as emphasized in regulations such as SR 26-2, SS1/23, and E-24,[^1] and includes:
+
+- Tracking key performance indicators, detecting model drift, recalibrating as needed, and validating assumptions.
+- Backtesting to verify predictive power, maintaining transparent reporting and governance, and ensuring ongoing compliance with regulatory standards.
+- Continuous monitoring to sustain the record's integrity and mitigating risks associated with its use as they arise.
+
+## Monitoring scenarios
+
+Scenarios where ongoing monitoring is warranted:
+
+- **Pre-approval monitoring of new records** — New records such as models should undergo a trial phase of monitoring before full approval and subsequent deployment, particularly for high-risk or regulatory records, to ensure reliability before deployment.
+
+  Trial phases where a record is subject to ongoing monitoring are typically fairly short, ranging from a few days to several weeks.
+
+- **Monitoring during significant updates** — When a record undergoes a significant update, ongoing monitoring should compare the updated record's performance to the original. This process, called _parallel runs_, involves running both versions of records such as AI models simultaneously for a set period.
+
+  Record outputs should be closely monitored to assess whether the update improves performance or introduces new risks. The results help determine if the updated record should replace the original or if further adjustments are needed. Parallel runs are especially important for regulatory or critical records, ensuring changes don't harm performance.
+
+- **Post-production monitoring** — After deployment into production, records should be regularly tested against performance benchmarks to identify deviations, enabling timely recalibrations or adjustments.
+
+  The record's output should be assessed regularly against predefined performance benchmarks to ensure it meets the required standards. Any deviations from the expected performance should be quickly identified, allowing for timely intervention.
+
+::: {.column-margin}
+![Histogram of prediction probabilities to indicate model drift](prediction-probabilities-histogram-drift.png){fig-alt="A visualisation of prediction probabilities histogram drift for a binary classification model. It compares the distribution of predicted probabilities between two datasets: a reference dataset (baseline) and a monitoring dataset (current data)." .screenshot}
+
+![Comparing predicted probabilities between reference and monitoring datasets](distribution-of-reference-and-monitor-predictions.png){fig-alt="An image showing a distribution plot comparing predicted probabilities between a reference dataset and a monitoring dataset." .screenshot}
+:::
+
+## Ongoing monitoring plan
+
+A robust ongoing monitoring plan is crucial for maintaining record accuracy and reliability. Developers should start regular monitoring from the outset, ideally during the pre-approval phase of development, refining the plan as new insights are gained. This plan should be included in the initial documentation, with clear instructions for execution and use of results.[^2]
+
+As monitoring continues, it's important to report record status to key stakeholders, such as your risk management committee. Regular updates with summary metrics will keep stakeholder informed of artifacts and emerging risks, highlighting significant trends or issues that may need action.
+
+Your ongoing monitoring plan should define:
+
+- **Metrics and records (models)** — Specify which records and performance metrics will be monitored.
+- **Monitoring frequency** — Set how often each metric will be monitored, based on the record's risk and importance.
+- **Risk thresholds** — Establish thresholds that trigger alerts or actions when metrics deviate from expected ranges.
+- **Notification system** — Implement a system to notify stakeholders when significant issues or deviations occur.
+- **Regular reports**— Present monitoring results using visual tools for clear and accessible decision-making.
+
+### Key concepts
+
+:::: {.flex .flex-wrap .justify-around}
+
+::: {.w-50-ns}
+
+{{< include /about/glossary/monitoring/_backtesting.qmd >}}
+
+{{< include /about/glossary/monitoring/_compliance-and-regulatory-adherence.qmd >}}
+
+{{< include /about/glossary/monitoring/_model-drift.qmd >}}
+
+{{< include /about/glossary/monitoring/_model-performance.qmd >}}
+
+:::
+
+::: {.w-40-ns}
+
+{{< include /about/glossary/monitoring/_ongoing-monitoring.qmd >}}
+
+{{< include /about/glossary/monitoring/_recalibrating-models.qmd >}}
+
+{{< include /about/glossary/monitoring/_reporting-and-governance.qmd >}}
+
+:::
+
+::::
+
+### Design and implementation
+
+The design of your ongoing monitoring plan overall should be a collaborative effort between the first line of defense, typically business units or record (model) owners, and the second line of defense, namely your risk management team. Together, they should select the performance metrics, determine monitoring frequency, and tailor the ongoing monitoring plan to the record's specific use case and risk profile.
+
+This entails that the ongoing monitoring plan is primarily designed and implemented by the developers involved in the record's development and deployment. Their work is then reviewed during validation to ensure the robustness of the ongoing monitoring plan and alignment with risk management goals.
+
+The implementation of the ongoing monitoring plan typically also falls on developers. This effort includes executing the monitoring activities, collecting performance data, and generating reports. The developers also ensure that the monitoring is carried out according to the established schedule and that any anomalies or deviations are promptly identified and addressed.
+
+### Testing
+
+Monitoring should incorporate a variety of tests to ensure ongoing accuracy and reliability.
+
+Key test areas to pay attention to:
+
+- **Benchmarking** — Compare record estimates with alternative estimates to validate their accuracy.
+- **Sensitivity testing** — Reaffirm the record's robustness and stability under different conditions.
+- **Analysis of overrides** — Evaluate any adjustments made to the record to understand their impact.
+- **Parallel outcomes analysis** — Assess whether new data should be included in the record’s calibration to enhance its performance.
+
+::: {.callout}
+To try out monitoring, check out the code sample for ongoing monitoring of models.[^3]
+:::
+
+## Manage ongoing monitoring
+
+:::{#ongoing-monitoring-listing}
+:::
+
+## Code samples
+
+:::{#ongoing-monitoring-code-samples}
+:::
+
+## {{< fa desktop >}} Available tests
+
+:::{#ongoing-monitoring-tests}
+:::
+
+## What's next
+
+- [Reporting and ongoing monitoring FAQ](/faq/faq-reporting.qmd)
+- [Working with analytics](/guide/reporting/working-with-analytics.qmd)
+
+[^1]: [Regulatory requirements](/about/use-cases/model-risk-management.qmd#regulatory-frameworks)
+
+[^2]: [Working with documentation](/guide/documentation/working-with-documentation.qmd)
+
+[^3]: [Quickstart for ongoing monitoring of models with {{< var vm.product >}}](../../notebooks/use_cases/ongoing_monitoring/quickstart_customer_churn_ongoing_monitoring.ipynb)

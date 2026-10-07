@@ -1,0 +1,8 @@
+SOURCE ID: A2-S002
+URL: https://openai.com/index/new-embedding-models-and-api-updates/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI embeddings model text-embedding-3-large latest embedding model 2026
+========================================================================
+
+OpenAI released text-embedding-3-small and text-embedding-3-large on January 25, 2024. Against ada v2, on MIRACL the average score has increased from 31.4% to 54.9%, while on MTEB, the average score has increased from 61.0% to 64.6%. text-embedding-ada-002 was not deprecated.

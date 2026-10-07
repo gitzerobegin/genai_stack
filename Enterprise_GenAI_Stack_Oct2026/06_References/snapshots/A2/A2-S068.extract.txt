@@ -1,0 +1,8 @@
+SOURCE ID: A2-S068
+URL: https://www.pinecone.io/newsroom/next-chapter/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone 2026 news funding CEO acquisition dedicated read nodes BYOC (allowed: pinecone.io, docs.pinecone.io)
+========================================================================
+
+Pinecone appointed Ash Ashutosh as its new CEO (September 2025), and the company's founder, Edo Liberty, becomes Pinecone's Chief Scientist.

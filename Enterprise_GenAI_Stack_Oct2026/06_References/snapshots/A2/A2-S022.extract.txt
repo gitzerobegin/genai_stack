@@ -1,0 +1,8 @@
+SOURCE ID: A2-S022
+URL: https://www.alibabacloud.com/help/en/model-studio/embedding
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qwen3 embedding reranker Alibaba Cloud Model Studio text-embedding-v4 pricing (allowed: alibabacloud.com, qwen.ai, huggingface.co)
+========================================================================
+
+text-embedding-v4 listed as part of the Qwen3-Embedding series, $0.07 per million tokens in Singapore, $0.07 Hong Kong, $0.072 Beijing; dimensions 2,048, 1,536, 1,024 (default), 768, 512, 256, 128, 64. Singapore free quota 1 million tokens valid 90 days. Newer option qwen3.7-text-embedding at $0.07 per million tokens in Singapore, 201-language scope. Pricing page (https://www.alibabacloud.com/help/en/model-studio/model-pricing): qwen3-rerank Singapore $0.1 per million input tokens, output free; qwen3-vl-rerank $0.1 text / $0.258 images; gte-rerank-v2 $0.115. Model info page https://www.alibabacloud.com/help/en/model-studio/qwen3-rerank lists Beijing $0.069.

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S036
+URL: https://openai.com/security-and-privacy/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI API data residency Europe SOC 2 ISO 27001 trust portal enterprise privacy (allowed: openai.com, trust.openai.com)
+========================================================================
+
+OpenAI has undergone an independent SOC 2 Type 2 examination of controls relevant to Security, Availability, Confidentiality, and Privacy for its API and ChatGPT business product services. OpenAI maintains ISO/IEC 27001:2022 and ISO/IEC 27701:2019 certifications for the information security and privacy management systems supporting the OpenAI API, ChatGPT Enterprise, and ChatGPT Edu. API Platform evaluated under CSA STAR Level 1. API product page (https://openai.com/api/): Zero data retention policy by request; Business Associate Agreements (BAA) for HIPAA compliance; SOC 2 Type 2 compliance; SSO/MFA.

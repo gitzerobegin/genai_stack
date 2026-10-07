@@ -1,0 +1,8 @@
+SOURCE ID: A2-S003
+URL: https://developers.openai.com/api/docs/guides/embeddings
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI embeddings model text-embedding-3-large latest embedding model 2026
+========================================================================
+
+The embeddings guide lists a maximum input of 8192 tokens for the model. Dimensions can be shortened via the dimensions parameter, so a store limited to 1024 dimensions can still use the model.

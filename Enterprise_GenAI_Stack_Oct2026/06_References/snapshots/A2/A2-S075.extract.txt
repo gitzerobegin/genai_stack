@@ -1,0 +1,8 @@
+SOURCE ID: A2-S075
+URL: https://www.pinecone.io/newsroom/pinecone-raises-usd100m-in-series-b-funding-to-provide-long-term-memory-for-ai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone acquired OR sale OR funding 2026
+========================================================================
+
+$100M Series B at a $750M valuation (2023), led by Andreessen Horowitz with ICONIQ Growth, Menlo Ventures and Wing Venture Capital. Tracxn (2026): total funding $138M over 3 rounds; latest round $100M on Apr 27, 2023. No 2026 acquisition or sale reports found.

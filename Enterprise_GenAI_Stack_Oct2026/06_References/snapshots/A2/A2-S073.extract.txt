@@ -1,0 +1,8 @@
+SOURCE ID: A2-S073
+URL: https://www.pinecone.io/newsroom/general-availability-of-pinecone-nexus-proves-knowledge-drives-real-outcomes-for-agentic-ai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone Nexus knowledge engine for agents announcement (allowed: pinecone.io, docs.pinecone.io)
+========================================================================
+
+Pinecone Nexus is generally available beginning August 6, 2026, deployed in the customer's own cloud. Nexus is a 'knowledge engine' for agents with two core components: a context compiler and a composable retriever. Agents send KnowQL queries specifying what the agent needs to know, output format, citation requirements, and latency budget. Governance: field-level access control, per-field citations, confidence scores, PII-aware ingestion, lineage back to source. Vendor-reported: >90% lower token costs vs agentic RAG, up to 30x faster; tau-Knowledge benchmark 47.4%. Microsoft OneLake integration announced June 3, 2026 (https://www.pinecone.io/newsroom/microsoft-onelake-nexus/). Public preview July 2026 (https://www.pinecone.io/blog/pinecone-nexus-public-preview/).

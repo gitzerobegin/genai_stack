@@ -1,0 +1,8 @@
+SOURCE ID: A2-S010
+URL: https://docs.cohere.com/changelog/rerank-v4.0
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere Embed v4 Rerank 4 release
+========================================================================
+
+Cohere's release notes date the Rerank v4.0 launch to December 11, 2025. Variants rerank-v4.0-pro and rerank-v4.0-fast.

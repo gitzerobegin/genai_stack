@@ -1,0 +1,8 @@
+SOURCE ID: A2-S006
+URL: https://blog.voyageai.com/2026/01/15/voyage-4/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Voyage AI latest embedding model voyage-4 MongoDB (allowed: voyageai.com, mongodb.com)
+========================================================================
+
+The Voyage 4 series (launched January 2026) includes voyage-4-large, voyage-4, voyage-4-lite, and the open-weighted voyage-4-nano. voyage-4 approaches the retrieval quality of voyage-3-large while maintaining the efficiency of a mid-sized model. All four models share an embedding space; embeddings generated from different models can be used interchangeably (e.g., documents with voyage-4-large, queries with a smaller model). Supports multiple embedding quantization options, including binary.

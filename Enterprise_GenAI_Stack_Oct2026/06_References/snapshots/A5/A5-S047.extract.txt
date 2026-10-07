@@ -1,0 +1,15 @@
+SOURCE ID: A5-S047
+URL: https://pypi.org/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Direct fetch of https://pypi.org/pypi/<package>/json for each package; compiled
+========================================================================
+
+openai | version 3.26.0 | uploaded 2026-10-06 | licence Apache-2.0 | author OpenAI <support@openai.com> | home https://github.com/openai/openai-python | summary The official Python library for the openai API
+anthropic | version 1.12.0 | uploaded 2026-10-07 | licence MIT | author Anthropic <support@anthropic.com> | home https://github.com/anthropics/anthropic-sdk-python | summary The official Python library for the anthropic API
+google-genai | version 2.29.0 | uploaded 2026-10-07 | licence Apache-2.0 | author Google LLC <googleapis-packages@google.com> | home https://github.com/googleapis/python-genai | summary GenAI Python SDK
+xai-sdk | version 1.20.0 | uploaded 2026-09-24 | licence Apache-2.0 | author xAI <support@x.ai> | home https://github.com/xai-org/xai-sdk-python | summary The official Python SDK for the xAI API
+mistralai | version 3.1.0 | uploaded 2026-10-06 | licence  | author Mistral | home None | summary Python Client SDK for the Mistral AI API.
+dashscope | version 1.27.7 | uploaded 2026-09-24 | licence Apache 2.0 | author Alibaba Cloud | home https://dashscope.aliyun.com/ | summary dashscope client sdk library
+zai-sdk | version 0.2.3 | uploaded 2026-06-16 | licence  | author Z.ai | home None | summary A SDK library for accessing big model apis from Z.ai
+llama-api-client | version 0.6.0 | uploaded 2025-12-18 | licence MIT | author Llama API Client <support@llama.developer.meta.com> | home https://github.com/meta-llama/llama-api-python | summary The official Python library for the llama-api-client API

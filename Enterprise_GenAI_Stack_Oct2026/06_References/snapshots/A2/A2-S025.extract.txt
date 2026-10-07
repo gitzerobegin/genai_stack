@@ -1,0 +1,8 @@
+SOURCE ID: A2-S025
+URL: https://jina.ai/news/jina-embeddings-v5-omni-multimodal-embeddings-for-text-image-audio-and-video/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Jina AI acquired Elastic jina-embeddings-v5 jina-reranker latest
+========================================================================
+
+v5-text (February 2026): jina-embeddings-v5-text-small has 677M parameters, 32768 token input context, 1024-dim default; nano variant 239M parameters (https://jina.ai/news/jina-embeddings-v5-text-distilling-4b-quality-into-sub-1b-multilingual-embeddings/). v5-omni (May 2026): pair of models that encode text, image, audio, and video input into a single semantic embedding space; text embeddings match v5-text exactly, so no index rebuild needed. Model page for small variant adds PDF input and says it is the default embedding model for Jina's API. Blog cites 1.6B and 0.9B parameters; model pages list ~1.74B small and ~1.04B nano.

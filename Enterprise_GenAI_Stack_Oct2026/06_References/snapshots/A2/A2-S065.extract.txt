@@ -1,0 +1,8 @@
+SOURCE ID: A2-S065
+URL: https://en.wikipedia.org/wiki/TimescaleDB
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: pgvectorscale Timescale Tiger Data latest release; pgvecto.rs deprecated VectorChord
+========================================================================
+
+Renamed 'TigerData' on June 17, 2025. Stable release: 2.30.1 / 17 September 2026 (not confirmed against primary).

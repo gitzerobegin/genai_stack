@@ -1,0 +1,8 @@
+SOURCE ID: A2-S021
+URL: https://arxiv.org/abs/2601.04720
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qwen3-Embedding Qwen3-Reranker release Apache 2.0 MTEB latest Qwen embedding model 2026
+========================================================================
+
+January 2026 paper on Qwen3-VL-Embedding and Qwen3-VL-Reranker for multimodal retrieval. Compared to text-only Qwen3 embedding models of similar sizes, the Qwen3-VL-Embedding model series show slightly lower performance. Qwen3-VL-Embedding-8B achieves a mean task score of 67.9 on MMTEB.

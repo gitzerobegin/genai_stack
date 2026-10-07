@@ -1,0 +1,8 @@
+SOURCE ID: A2-S028
+URL: https://huggingface.co/blog/sentence-transformers-joins-hf
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: sentence-transformers Hugging Face maintains Tom Aarsen transfer UKP (allowed: huggingface.co, sbert.net)
+========================================================================
+
+Sentence Transformers is transitioning from Iryna Gurevych's Ubiquitous Knowledge Processing (UKP) Lab at the TU Darmstadt to Hugging Face. Introduced in 2019 by Dr. Nils Reimers at UKP Lab. Tom Aarsen took over maintainership in late 2023; introduced modernised training (v3.0), Cross Encoder improvements (v4.0) and Sparse Encoder (v5.0). Will remain a community-driven, open-source project, with the same open-source license (Apache 2.0). Search tool: page metadata suggests announcement around late 2025 (exact date not confirmed). Tom Aarsen's HF activity page describes Sentence Transformers v6.0 introducing MultiVectorEncoder, adding ColBERT-style late interaction models.

@@ -1,0 +1,1732 @@
+SOURCE ID: A1-S094
+URL: https://raw.githubusercontent.com/Unstructured-IO/unstructured-ingest/main/CHANGELOG.md
+FINAL URL: https://raw.githubusercontent.com/Unstructured-IO/unstructured-ingest/main/CHANGELOG.md
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+## [1.11.21]
+
+### Enhancements
+
+- **feat(teradata): log on with a JWT, pasted or minted with OAuth 2.0 client credentials.** The Teradata connector (source and destination) authenticated with a database username and password only, so a site whose database trusts JWTs from its identity provider could not use that identity for the connector. It now takes exactly one of three credential sets, selected by which fields are present: `user` + `access_config.password` (unchanged), `access_config.token` (a pasted JWT), or `token_url` + `client_id` + `access_config.client_secret` with an optional `scope`, from which the connector mints its own JWT (RFC 6749 4.4, client secret sent with HTTP Basic, `token_url` must be https). A config with none, two, or a partial set is refused with a message that names fields, never values. JWT logon is the driver's `logmech=JWT` with `logdata=token=
+`, and neither `user` nor `password` is sent: the database takes the user from the token, which needs the "logon with null password" right and a database configured to trust the token's issuer.
+- **The token is checked before it is sent, at every logon.** The connector opens a connection per query, so each one reads the token again. A token that is not a compact JWS, or is past its `exp`, is refused without contacting the database (the driver itself does not check `logdata` before connecting). A client-credentials token is renewed two minutes before it expires, or halfway through a shorter life, so a long run keeps working; if the identity provider is unreachable the held token keeps working until it expires, and if it refuses the client the run stops.
+- **JWT failures carry fixed text and a distinct expiry.** On the JWT path a driver logon error is replaced with fixed text, raised `from None` so default traceback formatting does not render the driver's text (it stays reachable as `__context__`): `JWT Token expired` becomes `TokenExpiredError` (401, "The connector's JWT token has expired ..."), any other error naming JWT, or database error 8017, becomes `UserAuthError` (401, "Teradata refused the connector's JWT token ..."), and anything else keeps the connection-error summary. Identity-provider failures are a terminal `UserAuthError` for a refused client, an untrusted certificate, a redirect or a non-JWT access token, and a retryable 503 `ProviderError` for a connection failure, other TLS failure, 408, 429 or 5xx. No token, secret, or identity-provider free text is logged or raised.
+- **The authentication method is logged, never the credential.** A connection config logs one line the first time it sees each outcome: `Teradata authentication: auth.method=
+ outcome=
+ job_id=
+ dag_node_id=
+`.
+- **Password logon is unchanged**, down to the connection parameters and their order, and so is every error it raises. Both prechecks now raise their connection error `from None`, so default traceback formatting no longer renders the driver's text as the exception's context. An auth verdict raised while the destination precheck probes CREATE TABLE is no longer taken for an inconclusive probe. `password` and `user` become optional in the model, which the new validator requires together; `requests` joins the `teradata` extra.
+
+## [1.11.20]
+
+### Fixes
+
+- **fix(teradata): probe the CREATE TABLE right with the real destination DDL, not a one-column stand-in.** 1.11.18's precheck probe was `CREATE TABLE 
+ (probe_col INTEGER)`, which asks the server for less than `create_destination()` will: the connector's own DDL asset carries `CLOB`, `VECTOR32`, `JSON` and a `PRIMARY INDEX`, and a right that only those types need was invisible to the check and reached the customer at upload instead. The probe now runs `create_destination()`'s own statement through the shared `_elements_schema_sql()` under the throwaway name, so the rights it asks for are the rights the upload needs: no wider, no narrower, which is the rule 1.11.16 set for every dialect. It runs unqualified, the way `create_destination()` runs it, so it lands in the session database the check just resolved and that database name never reaches the SQL text.
+- **Teradata 3523 now refuses the destination alongside 3524.** The probe is the real statement, so an answer meaning "a right was refused and nothing else" is an answer about the real CREATE, and a right the column types need comes back as 3523 rather than 3524 (a `VECTOR32` column refused UDTUSAGE on `SYSUDTLIB` arrives that way). The two codes differ in the granularity of the object refused, not in naming the right: 3524 refuses a right on a database, which on a CREATE TABLE is CREATE TABLE, and 3523 refuses a right on an object inside one. The 3523 message therefore does not tell the customer CREATE TABLE is what they are missing, because on that code it is not.
+- **With the Database field blank, both refusal messages now say so.** The database they name is only the session default, so a DBA who follows the message otherwise grants rights on a database nobody chose, which is the complaint this check came from. The message now also points at the Database field.
+- **With no Table Name configured, the refusal now names the field that settles it.** That is the one case this check can refuse a credential the job would not have needed: the probe always runs when no table is configured, because the caller names the table only when it calls `create_destination()`, so a user whose table already exists and who has since lost CREATE TABLE is refused even though the upload would have found that table and returned early without creating one. The refusal now says so and points at the Table Name field, which makes the check look the table up and skip the CREATE probe entirely. The refusal is kept rather than downgraded to a warning because that is the path the platform uses, so warning there would switch the check off where it is meant to run.
+- **A refusal the server already gave is no longer dropped on the way out of the block.** `denied` is set before the `try`, so a cursor close or the connection's own commit raising after the CREATE came back refused no longer turns a confirmed refusal into "inconclusive" and passes the credential.
+- **Logging.** The probe table is named before it is created, so a process killed between the CREATE and the DROP leaves a traceable name; `create_destination()` now names the database it is creating in, which only precheck used to report; and each precheck outcome (skipped, refused, created, inconclusive) has its own line, with inconclusive at `info` to match the shared `_run_write_probe`.
+- **Completing what 1.11.18's entry did not say.** Two behaviour changes shipped in 1.11.18 and were not written down. First, a destination with **no table configured** can now be refused where it used to pass: the probe always runs in that case, because the caller names the table only when it calls `create_destination()`, so precheck has nothing to look up, and a user whose per-workflow table already exists but who has since lost the right to create one is refused by the connector check even though the job would have written to the existing table. Second, **3524 was reclassified on the source side too**: it joined `_USER_FAULT_TERADATA_CODES`, which is consulted at every classification site in this connector, so `TeradataIndexer.precheck`'s `SELECT TOP 1` probe now raises `UserError` rather than `SourceConnectionError` on 3524. On a SELECT that code is unlikely, but source callers catching `SourceConnectionError` no longer catch it.
+
+## [1.11.19]
+
+### Fixes
+
+- **fix(confluence): find a configured space by its key or its current alias.** The keyed lookup sent `keys=['ENG']`, a Python list literal, instead of `keys=ENG`, so a space configured by its key could fail with "Failed to find ... space" even though it existed. A space configured by its current alias now resolves too. The connector used to match an `alias` field the v2 API never returns. It now matches `currentActiveAlias`, and rescans up to 100,000 spaces when the keyed lookup misses. Documents from an alias-configured space use the space key as their identity, the same as a key-configured space, and a space listed by both its key and its alias is indexed once. The not-found error lists up to 25 of the spaces it checked and counts personal spaces instead of naming them. Blank entries in `spaces` are skipped, and a list of only blank entries is rejected.
+
+## [1.11.18]
+
+### Fixes
+
+- **fix(teradata): refuse a destination credential that cannot create the table it would auto-create.** When the configured table does not exist yet, or no table is configured, the Teradata uploader creates it at upload time with `create_destination()`, which needs CREATE TABLE in the session's database. The destination precheck never asked for that right, so a user without it passed the connector check and the job then failed creating the table. With the Database field blank, the table lands in whatever database the session defaults to, and nothing reported which one. Precheck now resolves that database with `SELECT DATABASE` (the configured one when set, else the session default, spelled as the server stores it), logs it, and creates and drops a throwaway `unstructured_precheck_
+` table in it, unless the configured table already exists there. With no table configured the probe always runs, because the caller names the table only when it calls `create_destination()`. Teradata error 3524 refuses the destination with a `UserError` naming the database; any other failure is logged and passes, and a probe table whose DROP fails is named in a warning rather than failing the check. A configured table that already exists is unchanged: it gets the zero-row INSERT/DELETE probe from 1.11.16. 3524 is also now classified as the user's to fix on the upload path, where it used to surface as "Failed to connect to server".
+
+## [1.11.16]
+
+### Fixes
+
+- **fix(sql): refuse a destination credential that can connect and read but cannot write.** The shared SQL destination precheck was `SELECT 1`, which runs against the session and so says nothing about the table the uploader writes to: a credential holding CONNECT, USAGE and SELECT and no INSERT passed the connection check and then failed on every record at write time, with the permission problem surfacing as an upload failure halfway through a job instead of at setup. Precheck now also asks the question it was meant to ask, using the real statements made harmless. `upload_dataframe` is delete-then-insert, so both are asked and the probe's privilege surface matches the upload's exactly -- wider refuses a credential that works, narrower passes one that cannot write: `INSERT INTO 
+ (
+) SELECT 
+ FROM 
+ WHERE 1 = 0`, and `DELETE FROM 
+ WHERE 1 = 0` behind the same `can_delete()` gate the upload puts its DELETE behind, so a table with no record-id column is never asked for a right the upload does not use. The engine runs the privilege check when it plans the statement, before any row is produced, so a refusal arrives while the row count is still zero and nothing is written or removed even on the drivers that are in autocommit. `
+` is the uploader's own INSERT column list (`get_table_columns()`, which `_fit_to_schema` also conforms the frame to), not `*`, because grants are per-column on every engine here and asking for rights the write path does not use would refuse credentials that work. The check is one-sided by construction: it refuses only on a driver answer the dialect recognizes as an unambiguous privilege denial -- PostgreSQL `42501` and `25006`, SingleStore `1044`/`1142`/`1143`, Snowflake's access-control error, Teradata `3523`/`5315`/`5612`, and a read-only database file on SQLite -- and passes on everything else, including a timeout, a dropped connection, a missing table, a schema error, an unrecognized code, or a dialect with no classifier. Codes that mean "does not exist OR you may not see it" (PostgreSQL `42P01`, Teradata `3807`, Snowflake `002003`) are deliberately not treated as denials, so a typo'd table name is never reported as a permissions problem. The schema read the probe builds its column list from is classified the same way, so a credential with no rights at all -- which fails that read rather than the write -- is refused by name instead of passing as "schema unavailable" and failing a job later; Teradata is the exception, where the table not existing yet is a working destination because `create_destination()` builds it at upload time. A refusal is a `UserError` (422) naming the table and the specific right that was refused -- a credential that can insert but not delete is told it needs DELETE, not INSERT -- and both probes run even when the first is refused, so a credential short of both is told both at once. It is never a `UserAuthError`: the credential is valid, and telling the customer to rotate it sends them to fix the wrong thing. Covers postgres, singlestore, sqlite, snowflake and teradata; databricks-delta-tables, vastdb and ibm-watsonx-s3 define their own precheck and are unchanged. Two things stay invisible to a zero-row statement and still fail at upload: a rule evaluated per row (a PostgreSQL row-level-security `WITH CHECK` policy, a Snowflake row access policy), and the CREATE TABLE right Teradata's auto-create path needs when the configured table does not exist yet.
+
+## [1.11.15]
+
+### Fixes
+
+- **test(teradata): add live integration coverage for the SQL destination, including the rejection path.** The Teradata SQL destination had no integration test: the SQL suite covers Postgres, SingleStore and SQLite on containers, Snowflake on an emulator and Databricks on a real workspace, and Teradata has neither a container image nor an emulator, so nothing has ever exercised the `teradatasql` path against a real server. The new module covers the upload, which lets `create_destination()` build the table from the connector's own DDL asset and pairs it with the `metadata_as_json=True` stager the connector requires, then re-uploads the same record to check that it is replaced rather than appended. It also covers two REJECTIONS: a duplicate value against a `UNIQUE PRIMARY INDEX` and a character with no representation in a `LATIN` column. Asserting only a row count would miss what actually breaks here, since a row the server refuses is classified rather than written, and it is the classification that has been wrong. Each rejection is also provoked through a bare cursor so the redaction assertions run against a message the driver really produced. Not wired into CI: gated on `TERADATA_HOST`/`TERADATA_USER`/`TERADATA_PASSWORD`/`TERADATA_DATABASE` and skipped without them, because the only free endpoint is a 60-day trial whose credential would rot in CI secrets.
+
+## [1.11.14]
+
+### Fixes
+
+- **fix(teradata): classify the value-rejection error codes as the customer's, not a connection failure.** A Teradata destination write whose value the server refuses -- an invalid date, a bad character for the column, an untranslatable string, an invalid datetime operation -- reached the customer as `Failed to connect to server {host}`, sending them to check their network for a value their own table definition rejected. Codes 2621, 2665, 2666, 5407 and 6706 now join `_USER_FAULT_TERADATA_CODES`, so `upload_dataframe` raises `UserError` naming the code and a short fixed descriptor instead of `DestinationConnectionError` with `_summarize_error`'s catch-all summary. The raw driver text still never crosses: it interpolates the table, the column and the offending value, and the Go driver wraps it in text carrying host/user/password. A code that is still unlisted keeps today's behaviour rather than guessing an audience for it -- 2801 (duplicate unique prime key) stays unlisted deliberately, because a retry after a partial batch can re-insert rows this connector already committed, so the duplicate is not reliably the customer's.
+- **Source-side behaviour change.** The map is consulted at every `_raise_classified_teradata_error` call site, including `TeradataIndexer.precheck`, so these five codes now raise `UserError` (422) there too instead of `SourceConnectionError` (400) with the historical `table 'X' not found or not accessible` context. Source-side callers catching `SourceConnectionError` no longer catch those cases. On a `SELECT TOP 1 *` probe only 6706 and 2621 are realistic.
+
+## [1.11.13]
+
+### Fixes
+
+- **fix(databricks-volumes): make the source connection check contact Databricks (PLU-637).** The Volumes indexer `precheck` only built the SDK client, which sends no request under token auth, so a bad token, an unreachable host, or a volume the user cannot read all passed the connection test and failed later as a job. The precheck now calls `current_user.me()` and pulls one entry from a non-recursive listing of the configured path; an empty path still passes. A Volumes source that was already unusable now fails the connection test instead of passing it.
+- **fix(databricks-volumes): drop `DatabricksVolumesDownloader.precheck`.** It could never run: the connection test only exercises the indexer. It was the one downloader in this repo that defined a `precheck`, and the base no-op now applies as it does everywhere else.
+
+## [1.11.12]
+
+### Enhancements
+
+- **feat(outlook): add `exclude_quoted_history` to the Outlook downloader.** Every message in a mail folder becomes its own record, and every reply quotes the chain beneath it, so a long conversation lands as many records whose text overlaps almost entirely: earlier text is re-extracted with every reply, and one query matches all of them. With this downloader setting on, each downloaded message keeps only the text unique to that message. Graph already computes this as a message's `uniqueBody`, so no quote-stripping heuristics are needed: the downloader reads it in one extra request per message, rendered to match the body part being replaced, and rewrites that part in the downloaded MIME. Headers, record identity, and every attachment and inline related part are untouched, so nothing downstream changes: the partitioner simply sees a smaller message. Any message Graph supplies no unique body for keeps its full body, which is today's behaviour. Off by default. Note that Graph exposes no way to tell a forward from a reply, so a forwarded message keeps only the comment its sender added and not the text they forwarded.
+
+## [1.11.11]
+
+### Fixes
+
+- **fix(registry): make `emits_record_version` a tri-state capability marker.** The registry defaulted the marker to a real `False`, so a connector that never considered record versions was indistinguishable from one that deliberately opted out, and a downstream consumer that treats an explicit bool as authoritative overrides its own fallback list with an unreviewed default the moment the field exists in the installed package. The field now defaults to `None`, meaning "no claim": consumers fall back to their own defaults exactly as they already do for the other unannotated capability markers, while an explicit `True`/`False` stays authoritative. Three entries whose mechanically-set `True` from the original capability-marker batch does not hold drop the claim rather than keep a false one: elasticsearch and opensearch only learn a document's `_version` at download time (their indexers emit batch items with no per-record version), and slack's two record kinds disagree: conversation packages emit a real index-time change token, but file records reuse the parent message timestamp, so no single connector-level claim is true. Entries whose indexers verifiably populate a per-record change value (s3, azure, gcs, dropbox, google_drive, onedrive, sharepoint, salesforce, confluence, outlook) keep their explicit `True`; outlook's emitted value itself is made real in a sibling change.
+
+## [1.11.10]
+
+### Fixes
+
+- **fix(outlook): use immutable message ids.** Outlook/Exchange can rotate a message's id when the message is moved between folders (including automatic moves, like a rule filing a message into a subfolder), which breaks downstream record identity for anything that keys off `FileData.identifier`. Every Graph request now carries `Prefer: IdType="ImmutableId"`, so message ids stay stable across folder moves. This is a one-time migration event: existing pipelines will fully re-index once on upgrade, since the immutable id format differs from the default id format and records written before the upgrade will not match records written after.
+
+## [1.11.9]
+
+### Fixes
+
+- **fix(outlook): emit real record versions and fully page folder/message listings.** The Outlook connector read a message's change key through a typed accessor that queried the wrong JSON key casing, so `data_source_version` was always null and incremental change detection could never skip an unchanged message. Message listing also requested an out-of-range page size (Graph documents `$top` for `/messages` as 1..1000) and never followed `@odata.nextLink`, while folder listing had no page size set at all and was silently capped at Graph's default; either way, only the first page was ever returned. Listings now page through every result and, for messages, request only the fields the connector actually reads via `$select`, trading the memory of holding a full page against the previous silent truncation.
+
+## [1.11.8]
+
+### Enhancements
+
+- **feat(fsspec, filter): report why a source indexed nothing, instead of only how little it indexed.** A run that moved zero files could not be told apart from a run whose source was empty: `FsspecIndexer.get_file_info()` applied `size > 0 and type == "file"` in the same expression that consumed the client listing, so the pre-filter count was never held, and the glob/size `Filterer` counted nothing at all. Three different causes -- an empty or wrong path, a path holding only directory markers and zero-byte keys, and `file_glob`/`max_file_size` rejecting everything -- all ended as `0 documents`. The indexer now keeps the listing count and reports it alongside the surviving count as `source.listing.returned` / `source.listing.retained`, and the filter step reports `filter.
+.received` / `filter.
+.retained` per stage (`indexed`, `downloaded`, `uncompressed`, so a file surviving every pass is not counted three times). Both go on the OTel span the work already runs inside -- the channel the platform already points somewhere via `ProcessorConfig.otel_endpoint` / `OTEL_EXPORTER_OTLP_ENDPOINT` -- and each zero case also emits one consolidated `WARNING` naming which zero it was. Query both families on the root `ingest process` span, not on `indexer` or `filter step`: `IndexStep.run` is a generator function under `@instrument`, so its span opens and closes before the body ever runs, and `FilterStep` reports after the instrumented `__call__` has already returned. Reporting only: nothing new is raised, which matters in a base class every fsspec connector inherits. Read `source.listing.retained` with one caveat: it is counted before `sample_n_files` is applied, so on a sampled run it is larger than the number of files actually indexed.
+
+### Fixes
+
+- **fix(pipeline): an uncompress step that extracts nothing no longer crashes the run.** `clean_results` returns `None` rather than `[]` when everything it is handed is falsy. The post-download path guards for that; the post-uncompress path handed the `None` straight to `apply_filter`, which iterated it and died with `TypeError: 'NoneType' object is not iterable`. It needed an uncompress step, a configured filterer, and every archive extracting to zero regular files, which is exactly the everything-got-dropped case these diagnostics exist to name. Guarded at the call site so the exit is reported as an empty uncompress, not as a filter that dropped everything.
+
+## [1.11.7]
+
+### Fixes
+
+- **fix(fsspec): classify a rejected credential raised while listing, instead of letting it escape unclassified.** `precheck()` wrapped its listing through `wrap_error`; `get_file_info()`, the path a real job takes, did not, so fsspec's bare `PermissionError` (rejected key) and `FileNotFoundError` (missing prefix) escaped without a `status_code`. Downstream that made a source whose credentials were rejected indistinguishable from one that was legitimately empty: measured on an SND, a source over a bucket holding three files returned 0 documents and a SUCCESS verdict with bad credentials, while the same bucket with good credentials returned 3. The listing is now wrapped the same way `precheck()` wraps it, so S3 maps the rejection to `UserAuthError`. Post-listing filtering stays outside the try, so a malformed entry is still reported as our own bug rather than a connection failure. Inherited by all six fsspec-backed connectors (s3, gcs, azure, box, dropbox, sftp).
+
+## [1.11.6]
+
+### Fixes
+
+- **fix(ibm-watsonx-s3): retry COS IncompleteBody and RequestTimeTooSkewed during Iceberg upload.** s3fs maps those COS/S3 errors to `OSError`/`PermissionError` and then refuses to retry them. The uploader was wrapping them as `ProviderError`, turning a transient COS flake into a hard job failure. Both are now classified as retryable (without treating every `EINVAL` or `AccessDenied` as retryable), re-raised out of `upload_data_table` so `upload_dataframe`'s retry loop can start a fresh Iceberg transaction, and surfaced as `DestinationConnectionError` if retries are exhausted. The Iceberg transaction has not committed when these fire, so retrying delete+append is safe.
+
+## [1.11.5]
+
+### Fixes
+
+- **fix(test): exclude `drive_id`/`item_id` from SharePoint fixture comparison.** PLU-504 added `drive_id` and `item_id` to the SharePoint `record_locator` for Teams file download support. These are Graph API IDs that are environment-specific and can't be baked into static fixtures, breaking 6 SharePoint source integration tests. Both fields are now added to `SHAREPOINT_SOURCE_EXCLUDE_FIELDS` in `test/integration/connectors/test_sharepoint.py`.
+
+## [1.11.4]
+
+### Fixes
+
+- **fix(test): exclude `permissions_version` from fixture comparison.** PLU-511 added `permissions_version: Optional[str] = None` to `FileDataSourceMetadata`. Pydantic serializes `None` fields by default, so every connector's JSON output gained the key even when no ACL digest was computed, causing all ~221 snapshot fixtures to fail with `dictionary_item_added: permissions_version`. Rather than patching fixture files (which would break again on the next optional field), `permissions_version` is now excluded in both comparison utilities — `SourceValidationConfigs.exclude_fields` (connector integration tests) and `omit_ignored_fields` in `test_e2e/check-diff-expected-output.py` (E2E tests) — following the same pattern as `local_download_path` and `metadata.date_processed`. Hash-computation correctness is covered by the existing unit tests in `test/unit/utils/test_acl.py` and `test/unit/connectors/test_onedrive.py`.
+
+## [1.11.3]
+
+### Fixes
+
+- **fix(ibm-watsonx-s3): write Iceberg data files through FsspecFileIO.** PyIceberg defaults `s3://` to `PyArrowFileIO` whenever pyarrow is installed. That initializes pyarrow's AWS C++ S3 client, whose vendored s2n process-aborts under FIPS libcrypto (`s2n_init() failed: FIPS mode is not supported for the libcrypto`) instead of failing the job. Catalog config now sets `py-io-impl` to `pyiceberg.io.fsspec.FsspecFileIO` so COS writes use s3fs/botocore (the same stack as the S3 destination). Adds `s3fs` to the `ibm-watsonx-s3` extra.
+
+## [1.11.2]
+
+### Fixes
+
+- **fix: map Vertex AI `ResourceExhausted` to `QuotaError`.** `VertexAIEmbeddingConfig.wrap_error` only wrapped Google auth errors, so a quota/rate-exhaustion (`google.api_core.exceptions.ResourceExhausted`, HTTP 429) surfaced raw. Combined with the transient-skip test guard added below, that would have caused a quota exhaustion to be treated as a transient blip and skipped rather than failing. Vertex now maps `ResourceExhausted` to `QuotaError` (a user error), mirroring how OpenAI/OctoAI map `insufficient_quota`, so it fails loudly.
+
+### Chores
+
+- **test: skip embedder integration tests on transient provider errors.** The hosted-provider embedder integration tests (openai, azure_openai, vertexai, voyageai, octoai, togetherai, mixedbread, bedrock) now `pytest.skip` rather than fail when the provider is transiently rate-limited / unavailable (5xx) / timing out - an environmental flake, not a defect in the code under test. Auth (`UserAuthError`), quota (`QuotaError`), user-input (`UserError`), and wrong-output (`AssertionError`) failures are deliberately excluded and still fail. HuggingFace (local model) is left unguarded. Adds a unit test (`test/integration/embedders/test_utils.py`) covering the transient-vs-fatal classifier directly.
+
+## [1.11.1]
+
+### Enhancements
+
+- **feat(confluence): enable incremental + emit an ACL digest (PLU-534).** Confluence was in no incremental allowlist, so it reprocessed every page on every run. The indexer now emits the content version (page `version.number`) and a per-file `permissions_version` ACL digest at index time, so under incremental (`reprocess_all=false`, `reprocess_on_permission_change=true`) an unchanged page is skipped and an ACL-only change (page restriction / space permission) reprocesses it. The permission fetch/parse moved from the downloader into module-level functions the indexer calls (single implementation, with paginated space-permission fetching); the digest follows the None-vs-`[]` contract (an unavailable fetch leaves the ACL fields unset so the comparison is skipped; a genuinely empty ACL yields a real digest). The now-redundant download-time permission fetch is removed, and `ConfluenceDownloaderConfig.max_num_metadata_permissions` is deprecated in favor of the same field on `ConfluenceIndexerConfig`.
+
+### Fixes
+
+- **fix(confluence): parse ACL `access-class` principals instead of crashing (PLU-625).** The permission parser assumed every principal was a `user` or `group` and raised `KeyError` on Confluence's built-in `access-class` principals (`ALL_LICENSED_USERS`, `ALL_PRODUCT_ADMINS`, …), which appear on essentially every space. The exception was swallowed, so `permissions_data` came back blank for every space — and, because the crash happened after page restrictions were already parsed, it discarded those too, so even explicitly-restricted pages emitted no ACL. Principals are now bucketed by type into `users` / `groups` / `access_classes` (unknown types skipped), so the parser no longer crashes, page restrictions survive, and access-class grants are captured in the digest.
+
+## [1.11.0]
+
+### Enhancements
+
+- **feat: annotate connectors with location capability markers.** `RegistryEntry` now carries opt-in capability markers (`location_shape`, `location_identity`, `supports_recursion`, and `emits_record_version`) plus per-field `x-runtime-eligible` schema hints, so consumers can identify a connector's target location shape, the settings paths that identify that location, and its recursion/record-version semantics. Markers default to unannotated (`location_shape=None`) so a connector without them is never mistaken for an explicit declaration and consumers fall back to their existing defaults. Markers are applied across the fsspec, SQL, search-index, and API-folder connector families.
+
+## [1.10.4]
+
+### Fixes
+
+- **chore(ci): bump `anthropics/claude-code-action` to `v1`.** Moves the `@claude` workflow off the deprecated `@beta` pin and migrates the tool allowlist to the current Claude Code CLI tool names (`Read`/`Glob`/`Grep`).
+
+## [1.10.3]
+
+### Fixes
+
+- **fix(milvus): classify client-caused gRPC errors as client errors.** A Milvus destination fed bad or expired customer credentials surfaced the gRPC `UNAUTHENTICATED` (and `PERMISSION_DENIED`/`INVALID_ARGUMENT`/`NOT_FOUND`) failure as a platform `DestinationConnectionError`/`WriteError`, counting a customer misconfiguration against the Job Completions SLO. The key wire reality (pymilvus 2.6.9): codes in `decorators.IGNORE_RETRY_CODES` — `UNAUTHENTICATED`, `PERMISSION_DENIED`, `INVALID_ARGUMENT` — are re-raised as the RAW `grpc.RpcError`, never wrapped in a `MilvusException`, so catching only `MilvusException` missed the entire customer-credential set. The classifier now resolves the `grpc.StatusCode` from BOTH a raw `grpc.RpcError` (`.code()`) and a `MilvusException` (`.code`, including the sync retry-storm path where pymilvus stores the raw `.code` method), mapping `UNAUTHENTICATED` -> `UserAuthError` (401) and `PERMISSION_DENIED`/`INVALID_ARGUMENT`/`NOT_FOUND` -> `UserError` (422); every other code stays a platform error. It is wired into `precheck()`, `insert_results()`, `delete_by_record_id()`, `_prepare_data_for_insert()`, and the missing-collection branch of `precheck()` (now a `UserError` instead of a platform `DestinationConnectionError`). `precheck()` also drops its `@DestinationConnectionError.wrap` decorator, which would otherwise re-wrap the reclassified error back into a platform error; the wrapper's catch-all fallback is reproduced inline so non-Milvus failures still raise `DestinationConnectionError`.
+
+## [1.10.2]
+
+### Fixes
+
+- **fix(sharepoint): stop echoing raw Microsoft Graph response bodies into errors and logs.** The Teams/SharePoint error paths interpolated the upstream Graph response body into raised error messages and logs after only a 500-char truncation — but truncation is not redaction, and the repo's own error policy (`safe_error_summary`) is that upstream response bodies are never surfaced because they can carry credentials or request payloads. Those paths now emit only allowlisted, non-sensitive fields — the Graph `error.code` (e.g. `accessDenied`) and the opaque request/correlation id — and never the raw body or free-text message. The extracted values are themselves treated as untrusted: each must be a string, is stripped to a conservative character allowlist (removing newlines to prevent log forging), and is length-capped; oversized bodies aren't parsed. This also fixes latent robustness bugs where a hostile body could crash the error handler: the module imports a custom `ValueError`, so `json`'s `JSONDecodeError` (a builtin `ValueError` subclass) would have escaped the `except`, and deeply nested JSON raises `RecursionError` — both are now caught and fall back to `no additional detail`.
+
+## [1.10.1]
+
+### Fixes
+
+- **fix(sharepoint): surface skipped Teams channels in a per-run summary.** A Teams crawl skips a channel whose files folder isn't provisioned or returns a forbidden shared-channel 403, but those skips were only inline log lines a long run could bury — so a run that finished with zero errors could still be silently missing an entire channel's files (e.g. a cross-tenant shared channel, or an app scoped away from a channel's own site by an Application Access Policy, which is indistinguishable from the 403 alone). `_run_team_async` now emits one consolidated summary at the end naming every skipped channel with its reason and an `indexed N of M` count. Severity is calibrated so it stays meaningful: a suspicious skip (a forbidden channel or unexpected response — a possible silent miss) is a WARNING worth investigating, while a purely benign not-yet-provisioned channel is an INFO note rather than an alarm that fires on every run.
+
+## [1.10.0]
+
+### Enhancements
+
+- **feat(sharepoint): index and download Microsoft Teams channel files.** The SharePoint connector can now target a Teams team (`team_id`, optionally filtered by `channels`) instead of a site, indexing each channel's files with the existing DriveItem walk, permission batching, and incremental behavior across standard, private, and shared channels. Private/shared channels live on separate sites, so `record_locator` now carries `drive_id`+`item_id` (with a fallback to the old site+path); existing site configs are unchanged, channel enumeration needs the `Team.ReadBasic.All` and `Channel.ReadBasic.All` scopes, and channels whose Files folder isn't provisioned yet are skipped. **Known limitation:** for private/shared channels, captured permissions (and the `permissions_version` digest) don't reflect channel membership, which lives in unresolved SharePoint site groups — full fidelity is a planned follow-up.
+
+- **feat(sharepoint): skip non-ingestible Loop / Fluid / Whiteboard artifacts.** `.loop`, `.fluid`, and `.whiteboard` files are Fluid Framework containers with no extractable bytes, so they're now dropped at index time in both site and Teams modes rather than downloaded and failed.
+
+## [1.9.4]
+
+### Fixes
+
+- **fix(sftp): constrain host-key negotiation to the pinned key's algorithm family.** SSH separates a key's *format* (`ssh-rsa` — what a key blob or `known_hosts` entry names) from the *public key algorithm* negotiated in KEXINIT (`ssh-rsa`, `rsa-sha2-256`, `rsa-sha2-512`; RFC 8332). `paramiko.SSHClient` only moves the literal known-hosts name to the front of its preference list, so against a server that has dropped SHA-1 `ssh-rsa` — Azure Blob Storage SFTP, among others — the pin matched nothing and negotiation fell through to the next mutual algorithm, normally `ecdsa-sha2-nistp256`. A correct `host_public_key` then failed with a host-key mismatch reporting an ECDSA key. `get_client` now passes `disabled_algorithms` so only the pinned key's family is offered. This also makes the `paramiko<5` cap from 1.9.2 non-load-bearing for such servers.
+
+- **fix(sftp): report host-key and authentication failures without echoing keys.** `BadHostKeyException.__str__` embeds both host keys in full, and printing the key the server just presented invites pasting it into `host_public_key` — which would trust whatever answered and defeat the pin. When `host_public_key` is set, that exception and `AuthenticationException` are now re-raised as `UserAuthError` with a short message and `from None`, which also keeps paramiko's frames — holding the password as a local in `client.py` `_auth` — out of the chained traceback. The remaining `SSHException` hierarchy is translated too: `IncompatiblePeer` gets a dedicated message, since constraining the offered algorithms means a server that publishes no host key in the pinned family now fails during negotiation rather than as a mismatch, and everything else — including the bare `SSHException("No authentication methods available")` that `_auth` raises from that same frame — becomes a `ConnectionError` carrying only `safe_error_summary`.
+
+- **fix(sftp): `SftpDownloader.connector_type` was a pydantic `FieldInfo`, not a string.** The dataclass assigned `Field(default=CONNECTOR_TYPE, init=False)` where its siblings use a bare literal, so the `FieldInfo` object became the default value. With no explicit `download_dir`, building the default download path raised `TypeError: unsupported operand type(s) for /: 'PosixPath' and 'FieldInfo'`. No other fsspec downloader was affected.
+
+- **fix(logging): strip credentials from URLs written to logs.** `DataSanitizer.sanitize_url` dropped query parameters but returned `netloc` verbatim, and userinfo (`user:password@`) lives in `netloc`. An fsspec-style `remote_url` carrying credentials therefore reached connector error logs in the clear through `log_connection_failed`. The userinfo is now replaced with `***`; it is dropped whole rather than masking only the password, since schemes like `https://
+@host` carry the secret in the username.
+
+## [1.9.3]
+
+### Fixes
+
+- **fix(qdrant, chroma, astradb): skip elements the embedder left without an embedding.** Elements with empty text are not embedded, and each of these destinations failed differently on them: Chroma rejected the entire batch, Astra DB raised an error asking the user to configure an embedding provider they already had, and Qdrant stored a point with no vector that search can never return. All three now drop those elements during staging. An element that has text but no embedding is kept, since that means no embedder ran at all and each destination's existing error should still surface rather than a workflow silently uploading nothing. Astra DB drops nothing when configured to generate the vectors itself, and Weaviate is unchanged, since both treat a missing vector as a request to vectorize server-side.
+
+## [1.9.2]
+
+### Fixes
+
+- **fix(sftp): cap `paramiko<5` so `ssh-rsa` host-key pinning keeps working.** The SFTP connector accepts `ssh-ed25519` and `ssh-rsa` in `host_public_key`, but `paramiko` 5.0.0 removed `ssh-rsa` from its default host-key algorithms. Against a server that presents an `ssh-rsa` host key, an otherwise correct pinned key would pass config validation and then fail at connect with `Incompatible ssh peer (no acceptable host key)`. The `sftp` extra declared `paramiko` unbounded, so a routine dependency resolution could pick up 5.x and break pinning.
+
+## [1.9.1]
+
+### Fixes
+
+- **fix(release): unblock the PyPI publish.** `hatchling 1.32.0` bumped emitted `Metadata-Version` to `2.5`, which the publish action's pinned `packaging` 25.0 rejected. Caps `hatchling<1.32` and bumps `pypa/gh-action-pypi-publish` to v1.14.2. Also adds a `workflow_dispatch` trigger so a failed publish can be retried without cutting a new version.
+
+## [1.9.0]
+
+### Enhancements
+
+- **feat: support Gemini-family Vertex AI embedding models (e.g. `gemini-embedding-2`).** These are served through `google-genai`'s `embed_content` rather than the legacy `TextEmbeddingModel` interface, which previously failed at client construction. Adds Gemini-only `region`, `dimensionality`, and `task` settings, reachable from the pipeline as `embedding_vertexai_region`/`embedding_vertexai_dimensionality`/`embedding_vertexai_task` on `EmbedderConfig`; legacy `text-embedding-00*` models are unchanged. Region defaults to `global`, the only location that serves both families.
+
+## [1.8.0]
+
+### Enhancements
+
+- **feat(PLU-511): ACL digest (`permissions_version`) for OneDrive/SharePoint incremental reprocessing.** Add a `permissions_version` field on `FileDataSourceMetadata` and a new `unstructured_ingest/utils/acl` module that computes a stable SHA-256 digest over a record's permissions at index time, so an ACL-only change (content unchanged) can trigger reprocessing under incremental. OneDrive and SharePoint emit it over the permissions they already batch-fetch, so there are no additional Graph calls. An unavailable permission fetch (error sub-response, exhausted retries, null/malformed body) is kept distinct from a genuinely empty permission set: only the latter (all access revoked) produces a digest, so a fetch failure is never mistaken for a revocation.
+
+## [1.7.17]
+
+### Fixes
+
+- **fix(FIE-336): redact raw exception text from raised connector errors.** Connector failure paths that interpolated `str(e)` into the raised `SourceConnectionError`/`UserError` could leak credentials, connection strings, or request payloads embedded in the original exception. Those raises now pass the exception through `safe_error_summary()` (type name plus allowlisted machine-readable fields only) and use `from None` to keep the original exception out of the raised error's standard traceback. The matching failure-path log lines (confluence, jira, ibm_watsonx) also route through `safe_error_summary()` instead of interpolating the raw exception or emitting its traceback, so debug/exception logging can't resurface the raw text either. Covers couchbase, confluence, jira, ibm_watsonx, and gcs; adds per-connector redaction unit tests. Also fixes the gcs `wrap_error` "Bad Request" branch, which guarded on the connector's shadowed `error.ValueError` (never raised by gcsfs) instead of the builtin `ValueError`/`HttpError(code=400)` that real 400s surface.
+
+## [1.7.16]
+
+### Fixes
+
+- **fix(PLU-526): classify SQL/postgres mid-upload connection failures as user errors.** The SQL uploader only wrapped connection failures in `precheck()`; a destination reachable at precheck could still drop during the write loop (e.g. a customer's tunnel to a private Postgres going down), letting the raw driver exception surface as a 500/platform fault. `SQLUploader.upload_dataframe` now re-raises such failures as `DestinationConnectionError` (matching `precheck()`), so they are classified as 4xx/user faults instead.
+
+## [1.7.15]
+
+### Fixes
+
+- **Correctly classify refreshed slack tokens** Slack token is prefixed with 'xoxe.' when obtained via a refresh, slack source now accounts for it when classifying provided token.
+
+## [1.7.14]
+
+### Fixes
+
+- **fix(ibm-watsonx-s3): support account-scoped (SaaS) Iceberg REST endpoint.** Adds an optional `account_id` to the IBM watsonx.data connection config. When set, the connector targets the account-scoped Iceberg REST path (`/api/v1/iceberg`) and sends the required `AccountId` header; when unset, it keeps the legacy instance-scoped behavior (`/mds/iceberg`).
+
+## [1.7.13]
+
+### Fixes
+
+- **Preserve NDJSON records after format detection.** The fallback parser now rewinds the input stream before reading line-delimited JSON, preventing valid records from being skipped after the detection pass.
+- **fix(security): apply tar extraction filters on supported runtimes.** Tar extraction now detects the existing `tarfile.tar_filter` capability instead of gating it on the Python minor version, so supported Python 3.11 maintenance releases receive the same filtering already used on Python 3.12+. Older patch releases retain the existing warning-and-extract behavior.
+- **Refresh cached downloads when the source is newer.** Download freshness checks now compare local and remote modification times in the correct direction and accept both epoch and ISO-formatted source timestamps.
+- **Stamp downloaded files with the source modification time.** Downloaded files take their modification time from the source whenever it is an epoch or ISO-formatted timestamp, even when the source creation time is missing or unparseable, so freshness checks compare against the remote time rather than the download time.
+- **Report Databricks Volumes modification times in epoch seconds.** The Databricks SDK reports modification times in milliseconds; they are now converted to seconds so freshness checks no longer treat every indexed file as newer than its local copy.
+- **Close Zendesk and Notion HTTP clients after connector operations.** Connector prechecks, indexing, downloads, and constructor-failure paths now release their underlying HTTP connection pools.
+
+## [1.7.12]
+
+### Fixes
+
+- **fix(stager): preserve single-record NDJSON partition output.** Blob-storage staging now reads `.ndjson` inputs with an NDJSON-aware streaming reader instead of treating them as top-level JSON arrays, preventing single-record partition output from being silently dropped. Adds regression coverage for single- and multi-record inputs and updates the Google Drive expected output with the `drive_id` field introduced in 1.7.10.
+
+## [1.7.11]
+
+### Fixes
+
+- **fix(FS-2139): centralize bounded Slack API rate-limit retries in SDK client configuration.** Sync and async Slack clients now use the Slack SDK's connection and rate-limit retry handlers configured once in `SlackConnectionConfig`, replacing custom call-site retry loops across indexer join/history and downloader history/replies/files calls.
+
+## [1.7.10]
+
+### Fixes
+
+- **fix(google-drive): record the drive id in each file's record locator.** The indexer used an annotation statement (`record_locator["drive_id"]: object_id`) instead of an assignment, so `drive_id` was silently never written into `record_locator`. Changed to a real assignment so downstream consumers can resolve which drive a file came from.
+
+## [1.7.9]
+
+### Fixes
+
+- **test(teradata): extend the log-redaction regression suite to all seven logger.error sites.** Adds secret-leak tests for the `create_destination`, `delete_by_record_id`, and insert-batch (`executemany`) driver-error branches, which previously had no coverage — each plants a credential in the driver exception and asserts it never reaches the logs.
+
+## [1.7.8]
+
+### Fixes
+
+- **fix(security): redact provider exceptions from Teradata error logs and user-fault responses.** The seven `logger.error(..., exc_info=True)` sites route through `safe_error_summary` with `exc_info` dropped; `_raise_classified_teradata_error` no longer interpolates the raw driver message into the user-fault `UserError` (`Teradata reported: {exc}`) — it surfaces only the numeric code + fixed descriptor — and both classified raises use `from None`, so the driver text (host/user/password) can't reach the response or resurface via traceback logging.
+
+## [1.7.7]
+
+### Fixes
+
+- **fix(milvus): align nonexistent-db precheck test with the wrapped error message.** `test_precheck_fails_on_nonexisting_db` now asserts on the `"failed to precheck Milvus"` message raised by the uploader's precheck wrapper instead of the raw upstream `"database not found"` text, so the test no longer breaks when the underlying Milvus client error string changes.
+
+## [1.7.6]
+
+### Fixes
+
+- **fix(security): redact raw exceptions from Salesforce/Chroma non-precheck raises.** Salesforce private-key parse failures and Chroma upsert failures route the caught exception through `safe_error_summary` and re-raise `from None`, so key material / driver text no longer surfaces in the raised error or its chained traceback.
+
+## [1.7.5]
+
+### Fixes
+
+- **fix(security): redact provider text from fsspec/watsonx wrap_error classified branches.** Dropbox/Box/Azure/GCS/watsonx `wrap_error` route classified-branch messages through `safe_error_summary` instead of raw provider text (`e.body`/`e.message`/`e.reason`/full request URL); watsonx strips the URL query string from logs and now classifies HTTP 500 as `ProviderError` (was `> 500`).
+
+## [1.7.4]
+
+### Enhancements
+
+- **feat(PLU-441): ready the GitHub source connector for Foundation.** Adds OAuth support (`oauth_token`/`refresh_token` alongside the existing PAT, refresh handled upstream per PLU-381) and emits the git blob SHA as `metadata.version` for incremental change detection. Indexing fetches the repo once per run instead of twice per file, falls back to a per-directory walk when GitHub truncates the recursive tree, and skips empty files, directories, and submodules. Fixes downloads failing with `FileNotFoundError` on nested paths. GitHub API errors are classified consistently (auth → `UserAuthError`, throttle → `RateLimitError`, 5xx → `ProviderError`), and transient throttles / 5xx / network errors are retried with exponential backoff that honors GitHub's `Retry-After` (`max_retries`, default 10).
+
+## [1.7.3]
+
+### Fixes
+
+- **fix(security): redact provider exceptions from missed connector error sinks.** VastDB/DuckDB `precheck` overrides and the Databricks/Zendesk/S3 unhandled-exception logs no longer interpolate raw exceptions or dump `exc_info` tracebacks; the Zendesk/S3/Databricks `wrap_error` classified branches route returned messages through `safe_error_summary`; Zendesk now classifies HTTP 500 as `ProviderError`.
+
+## [1.7.2]
+
+### Fixes
+
+- **fix(security): redact MotherDuck token from precheck connection errors.** `MotherDuckUploader.precheck` now routes caught exceptions through `safe_error_summary` and drops `exc_info`, so a bad-token `OperationalError` no longer leaks `md:?motherduck_token=
+` into logs or the API response.
+
+## [1.7.1]
+
+### Fixes
+
+- **docs(security): document that `safe_error_summary`'s allowlist rests on attribute names.** Adds a comment in `error.py` recording that `_MACHINE_CODE_RE` is a shape filter, not a secret detector, so the guarantee depends on keeping `_SAFE_ERROR_ATTRS` limited to fields that never carry free text. Comment-only; no runtime change.
+
+## [1.7.0]
+
+### Enhancements
+
+- **feat(sftp): verify SFTP server host key.** `SftpConnectionConfig` gains an optional `host_public_key` field. It accepts a base64 blob, an OpenSSH `.pub` line, or an ssh-keyscan/known_hosts line; the key algorithm (`ssh-ed25519` / `ssh-rsa`) is auto-detected from the key itself, so no key-type input is required. When set, the connector pins the expected host key and uses paramiko `RejectPolicy` to verify the server identity, rejecting a mismatched/unknown key instead of fsspec's default `AutoAddPolicy` (which silently trusts any key). An unparsable or unsupported key fails fast at config validation; a well-formed but wrong key surfaces as a host-key mismatch on the first connect (precheck). When `host_public_key` is omitted, connections behave as before but now log a warning that the server identity is unverified. Username/password remains the client authentication method in both cases.
+
+## [1.6.32]
+
+### Enhancements
+
+- **feat: Slack indexer emits records newest-first within each channel.** `SlackIndexer.run` sorts each channel's records (conversation-day packages and file attachments) by `metadata.version` descending before yielding, so the most recent content is indexed first.
+
+## [1.6.31]
+
+### Fixes
+
+- **fix(security): redact credential-bearing exception details from connector error logging.** Connector precheck, upload, and path-validation error paths — and the central `UnstructuredIngestError.wrap` decorator — interpolated caught exception text into logged and raised messages, which could echo credentials (tokens, passwords, DSNs, service-account JSON). These messages now carry a sanitized summary via the new `safe_error_summary()` helper: the exception type name plus allowlisted machine-readable fields (integer HTTP statuses, SDK error-code enums, opaque request/correlation IDs — e.g. `SlackApiError(status_code=401, error=invalid_auth)`), never free-form exception text. `exc_info` frame dumps were removed from credential-bearing paths (a rendered traceback's terminal line re-embeds `str(e)`). The GCS connector also no longer echoes raw service-account JSON via `OSError: File name too long` when key material is passed where a filename is expected. Exception classes and control flow are unchanged; only log and error-message payloads were sanitized.
+- **fix(security): preserve connector-authored guidance and harden the redaction.** Connector prechecks re-raise dependency-install hints (`requires_dependencies`) and connector-authored typed errors (missing index/database/collection, SCRAM-SHA-1 remediation, OAuth error codes, corpus-name mismatch) instead of flattening them to a bare type name. Every redacted re-raise now suppresses the provider exception chain (`from None`) so its text cannot resurface through traceback logging. The GCS service-account guard is narrowed to the too-long-filename case (`ENAMETOOLONG`) so a genuine filesystem error on a real path is no longer masked as "Invalid auth token value". Elasticsearch bulk-upload failure logs now allowlist safe fields (`_index`, `_id`, `status`, `error.type`) instead of only stripping the uploaded document, so document content in `error.reason` is no longer logged.
+
+## [1.6.30]
+
+### Fixes
+
+- **fix(ENG-1322): escape SQL metacharacters in databricks_volume_delta_tables statements.** Filenames or record identifiers containing a single quote or backslash no longer break (or inject into) the single-quoted `PUT`/`DELETE` string literals, and filenames containing a backtick no longer break the backtick-quoted volume path in the `INSERT ... FROM json.` clause (all surfaced as SQLSTATE 42601). A shared `quote_literal` helper escapes both backslashes and single quotes (Databricks processes backslash escapes in string literals by default) for the volume/staging paths and the delete record identifier, and the `INSERT` source path now goes through the existing `quote_identifier` helper.
+
+## [1.6.29]
+
+### Fixes
+
+- **fix(sharepoint): surface the real upstream HTTP status instead of masking every error as "Site not found".** SharePoint upstream errors now map to typed exceptions carrying the real status code and response body (instead of a generic `400`), and genuine throttles are retried, honoring the server's `Retry-After` backoff.
+
+## [1.6.28]
+
+### Fixes
+
+- **fix(FS-2108): download Jira attachment content to the correct path with attachment-specific display names.** Attachment downloads now write bytes to the attachment's own `source_identifiers` path instead of a separate `attachments/` directory, and each attachment gets its filename as `display_name` instead of inheriting the parent issue title. Attachment download paths are validated to stay within `download_dir` so crafted filenames cannot escape via path traversal.
+
+## [1.6.27]
+
+### Fixes
+
+- **fix(FS-2106): populate Jira creation and modification dates at index time.** `JiraIndexer._create_file_data_from_issue` only set `version` (from the issue's `updated` timestamp) and never populated `date_created`/`date_modified`, and the indexer field lists omitted `created`. Because the platform detects new and modified records from the indexer's `FileData.metadata`, Jira records carried no creation/modification dates. The indexer now requests the `created` field in `_get_issues_within_projects`, `_get_issues_within_single_board`, and `_get_issues_by_keys`, and sets `metadata.date_created` (from `created`) and `metadata.date_modified` (from `updated`) as Unix epoch strings alongside the existing `version`.
+
+## [1.6.26]
+
+### Fixes
+
+- **fix(FS-2105): populate Confluence creation/modification dates and version at index time.** The Confluence indexer now sets `date_created`, `date_modified`, and `version` from the v2 pages list response so Foundation can store page timestamps and detect page edits on subsequent runs (fixes FS-2107).
+
+## [1.6.25]
+
+### Enhancements
+
+- **feat(weaviate): add `auto_schema` option to the destination connector.** New uploader option that defaults to `false`. When `false`, the connector behaves exactly as before: the collection must already exist (or, in non-flatten mode, is seeded from the default config), and in `flatten_metadata` mode each object is conformed to the existing schema (unknown properties dropped, missing ones set to null). When `true`, the connector skips the schema fetch/conform step and lets Weaviate create the collection and its columns from the uploaded objects on first insert, so a collection does not need to exist up front (requires `AUTOSCHEMA_ENABLED=true` in Weaviate). Combined with `flatten_metadata=true`, this allows dynamic, up-front-unknown metadata to land as top-level columns without a predefined schema.
+
+## [1.6.24]
+
+### Fixes
+
+- **fix(slack): group channel messages into stable per-UTC-day packages for incremental sync.** The Slack indexer now emits one conversation package per channel per UTC day with a stable identifier derived from channel and day. `metadata.version` tracks the newest activity in the package (new messages, thread replies via `latest_reply`, edits via `edited.ts`) so re-runs update in place instead of duplicating documents.
+
+## [1.6.23]
+
+### Fixes
+
+- **fix(teradata): auto-create the destination table during upload, not only during pipeline init.** Table auto-creation ran only via `TeradataUploader.init()`, whose sole caller is the local `Pipeline`. Orchestrators that drive only the upload phase (e.g. the Unstructured Platform) never created the table, so a not-pre-created destination failed with Teradata error 3807 (`Object '
+' does not exist`). `upload_dataframe` now ensures the table exists itself — once per run, via the idempotent `create_destination()` whose `DBC.TablesV` check skips `CREATE` for existing tables, so a user's table is never recreated.
+
+## [1.6.22]
+
+### Enhancements
+
+- **feat(slack): user token specific behavior** - differentiate between user and bot token in slack indexer, bot still attempts to join channels (required for ingestion) while user reads channel without joining. Add token specific error messages.
+
+## [1.6.21]
+
+### Fixes
+
+- **fix(embed): fix Azure OpenAI embedding precheck failing on valid deployments.** The precheck rejected Azure deployments whose name differed from the base model (the normal Azure setup), because it checked against the base-model catalog rather than the deployment. It now validates the deployment with a real test embedding call, so correctly configured deployments pass and a missing deployment reports a clear error.
+
+## [1.6.20]
+
+### Fixes
+
+- **test(stager): de-flake the stager bounded-memory tests.** `test_process_whole_peak_memory_is_flat_as_input_grows` and `test_blob_store_stager_peak_memory_is_flat_as_input_grows` asserted a near-flat `tracemalloc` peak ratio between two input sizes. `tracemalloc`'s peak includes not-yet-collected per-element garbage, so the ratio varies with GC timing across environments and the blob-store test failed on CI even though the streamed peak (~3.8 MB) was a small fraction of the ~47 MB input. The tests now assert the meaningful streaming-vs-whole-file bound — peak stays below the input file size (a whole-file load materializes the parsed list at several times the JSON text) — which is robust to GC timing while still catching a regression to whole-file loading.
+
+## [1.6.19]
+
+### Fixes
+
+- **fix(stager): stream the `.json` element file instead of loading it whole, to stop OOM on large documents.** `UploadStager.process_whole` (the path taken when the partition output has a `.json` suffix) previously called `json.load` on the entire element file, built a full conformed `list`, and wrote it whole — holding 3+ full copies of a several-hundred-MB file resident. A very large document (tens of thousands of pages) OOM-killed the stager plugin (SIGKILL, zero app logs — the classic OOMKill signature) at this step. `process_whole` now iterates the JSON array element-by-element via `ijson` (new `data_prep.json_stream`), conforms each element, and stream-writes the output (new `data_prep.write_data_streaming`), keeping only one element resident at a time — matching the bounded-memory profile of the existing `.ndjson` `stream_update` path. Output is byte-for-byte identical to the previous `write_data` result. The streamed write is atomic (temp file + `os.replace`) so it stays correct when the stager is called with the output path equal to the input path — a plain in-place `open(path, "w")` would truncate the file before the lazy reader finished, and a mid-stream failure leaves any existing artifact untouched. `ijson` is stricter than stdlib `json`, so the rare `NaN`/`Infinity`/`>int64` inputs that `json.load` accepts fall back to a buffered read. `BlobStoreUploadStager` (used by blob-store destinations such as S3) overrides `run` with the same `get_json_data` + `write_data` whole-file load and so bypassed `process_whole` entirely — it now delegates to the streamed `process_whole` (it is a pure format copy, so `conform_dict` is identity), closing the actual OOM path observed on the blob-store stager. Adds `ijson` as a base dependency. The base uploader (`Uploader.run`) has the same whole-file-load problem but its fix requires a shared-interface change and is tracked separately.
+
+## [1.6.18]
+
+### Fixes
+
+- **test(ci): stabilize and de-gate flaky live-service integration tests.** Two live-service checks reddened unrelated PRs repo-wide. (1) The SharePoint source tests byte-diffed `metadata.permissions_data` — a live snapshot of the site's ACLs (user/group object ids) that drifts whenever tenant sharing changes — against checked-in fixtures, producing a consistent "Diffs found" failure with no connector regression. `permissions_data` is now excluded from the comparison, consistent with the existing exclusions of `date_*`, `LastModified`, and the Graph download/url fields; permissions extraction remains covered by unit tests. (2) The hosted-API partitioner test intermittently hung/timed out or dropped its connection; the live call is now wrapped in a bounded retry (`retry_async`) that retries only on transient failures (5xx, timeout, transport read/connect errors) with a per-attempt timeout, while non-transient errors still fail immediately. Finally, live-service e2e jobs (which require external credentials and are inherently flaky) now run nightly, on demand, and post-merge instead of blocking every PR; the creds-free `check_untagged_tests` guard still runs on PRs.
+
+## [1.6.17]
+
+### Enhancements
+
+- **feat(slack): auto-join public channels and include url in metadata.** Have slack connector attempt to join public channels automatically and verbosly report in an error when channel cannot be accessed for any reason. Include a permalink to the file or channel message in `FileData`
+
+## [1.6.16]
+
+### Fixes
+
+- **fix(weaviate): declare `metadata.data_source.version` explicitly as `text` to prevent auto-schema uuid inference.** When the destination collection did not yet exist, Weaviate's auto-schema typed `metadata.data_source.version` based on the value shape of the first inserted record; UUID-formatted source ETags caused the property to be locked as `uuid`, after which later records carrying non-UUID-shaped identifiers (e.g. multipart `
+-
+` ETags, or opaque version strings from source connectors that do not return UUID-formatted ETags) were rejected with `WeaviateInsertManyAllFailedError: requires a string of UUID format`. The collection config now declares the field as `text` at creation time so auto-schema does not fire for it. The existing `str()` cast in `WeaviateUploadStager.conform_dict` is harmless and stays. Other `metadata.*` fields remain auto-schemed; this is the minimum change to unblock the observed failure mode without expanding the static schema.
+
+## [1.6.15]
+
+### Fixes
+
+- **fix(sharepoint): return all principals in document `permissions_data` instead of a single collapsed identity.** `office365-rest-python-client` shares one mutable-default `Identity` singleton across every `Permission` deserialization, so SDK typed reads collapsed every document's permissions to whichever user/group was deserialized last. The connector now bypasses the SDK's typed accessors and parses raw Graph `/$batch` JSON directly, so per-document users and groups round-trip distinctly. Reported by Intel.
+
+### Enhancements
+
+- **feat(onedrive): expose document ACLs in `permissions_data`.** OneDrive previously always returned `permissions_data: null`. The indexer now performs the same chunked Graph `/$batch` permission fetch as SharePoint and writes the canonical `read` / `update` / `delete` buckets (matching the Google Drive / Confluence schema) into `metadata.permissions_data`. Empty fetches and per-item failures degrade to the previous behavior. `tenacity` is added to the `onedrive` and `sharepoint` extras.
+
+## [1.6.14]
+
+### Fixes
+
+- **fix(connectors): stop asserting environment-specific URLs in Notion/OneDrive/SharePoint source integration tests.** The expected-results diff compared `additional_metadata.url` (Notion page id, MS Graph drive id) and `@microsoft.graph.downloadUrlNoAuth` (a tokenized no-auth download link), both of which vary by test tenant/workspace and per request. With no connector code change, these drifted and reddened `blob_storage_connectors_int_test` and `uncategorized_connectors_int_test` on main and every PR. Both fields are now excluded from the comparison, consistent with the existing exclusions of `@microsoft.graph.downloadUrl`, `LastModified`, and `date_*`.
+
+## [1.6.13]
+
+### Fixes
+
+- **fix(weaviate): set `vectorIndexType: "hnsw"` in the auto-created collection schema.** The default Weaviate collection config (`unstructured_ingest/processes/connectors/assets/weaviate_collection_config.json`) declared `vectorizer: "none"` but left `vectorIndexType` unset. Newer Weaviate server versions no longer infer a vector index when none is specified, so collections created via `WeaviateUploader.create_destination` came up without an index — vectors uploaded by the pipeline could not be queried with `near_vector` / `hybrid`, returning empty results. The schema now declares `hnsw` explicitly so auto-created collections are immediately searchable. Existing user-managed collections (`flatten_metadata=true`) are unaffected.
+
+## [1.6.12]
+
+### Enhancements
+
+- **feat(atlassian): support OAuth-backed Jira and Confluence cloud sources.** Jira and Confluence source configs accept Atlassian OAuth access tokens for API gateway requests with cloud IDs, while refresh tokens are carried for platform-side rotation before job dispatch. Confluence v2 indexing now paginates space and page discovery up to the configured limits so large tenants are not truncated.
+
+## [1.6.11]
+
+### Fixes
+
+- **fix(google-drive): exclude trashed items from indexer queries.** The Google Drive connector's `files.list` calls filtered by parent id only, so items the user had moved to Drive's trash were pulled and ingested like live content — "delete in Drive UI" did not remove the file from the corpus on the next ingest. Each list-query call site (`count_files_recursively`, the non-recursive precheck empty-folder probe, and `get_paginated_results`) now appends `and trashed = false`, matching the Drive v3 query semantics that exclude trash explicitly.
+
+## [1.6.10]
+
+### Fixes
+
+- **fix(databricks-delta-tables): stage each source file at its full relative path.** The `databricks_volume_delta_tables` uploader keyed the staging volume path on the source filename alone, so distinct source files sharing a basename across different folders overwrote each other on the volume — leading to dropped or duplicated rows and intermittent load failures under concurrency. It now uses the full relative path (falling back to the filename), matching the Databricks Volumes and object-store destinations. (PLU-392)
+
+## [1.6.9]
+
+### Enhancements
+
+- **feat(weaviate): add `flatten_metadata` option to the Weaviate uploader.** Opt-in, default off. When set, the stager flattens element `metadata` into top-level properties (lists pass through unmodified) and skips all default-mode coercions (date reformatting, JSON-stringification of `record_locator` / `coordinates.points` / `links` / `permissions_data` / `regex_metadata`, string casting of `version` / `page_number`). The uploader requires an explicit pre-created collection — `create_destination` no-ops, and `precheck` validates collection existence and the presence of `record_id_key` so re-run delete-by-record-id continues to work. Per-element, properties not declared on the user's schema are dropped and missing schema properties are filled with `None`. Default behavior (`flatten_metadata=False`) is unchanged.
+
+## [1.6.8]
+
+### BREAKING
+
+- **`UserError.status_code` changed from `401` to `422`.** `401` is HTTP "Unauthorized" (unauthenticated) — that's what `UserAuthError` covers. `UserError` is for invalid user input / config, which is HTTP `422` (Unprocessable Entity). Subclasses that override `status_code` (`UserAuthError=401`, `RateLimitError=429`) are unaffected. `QuotaError` inherits without override and now reports `422` — callers matching on `status_code == 401` for quota errors must update.
+
+### Enhancements
+
+- **feat(stager): add `should_include` filter hook to `UploadStager` base class.** New predicate defaults to `True`, preserving behavior across every existing connector. Subclasses override `should_include(element_dict)` to drop elements their destination cannot accept, replacing the prior pattern of duplicating `stream_update` and `process_whole` just to insert a one-line filter.
+
+### Fixes
+
+- **fix(teradata): classify driver errors and surface user-fault TD messages.** Adds `_raise_classified_teradata_error` that inspects `[Error NNNN]` codes in `teradatasql` exceptions and re-raises recognised user-fault codes (`3807` object-missing-or-no-privilege, `3523` / `5612` / `5315` no privilege, `3706` / `3707` SQL syntax, `3753` / `3754` implicit type conversion) as `UserError` with the original Teradata message preserved via `"Teradata reported: …"`. Wraps `cursor.execute` in `TeradataUploader.get_table_columns`, `delete_by_record_id`, `upload_dataframe`, `create_destination`, and the `TeradataIndexer.precheck` table probe. Non-`teradatasql` exceptions (e.g. `MemoryError`, `OSError`) re-raise unchanged; unrecognised TD codes fall through to the existing `DestinationConnectionError` / `SourceConnectionError` wrapping so retry behaviour is preserved. (PLU-377)
+  - **Source-side behavior change:** The classification applies to both directions. `TeradataIndexer.precheck` previously always raised `SourceConnectionError` when its table probe failed; it now raises `UserError` for codes in the recognised map (3807, 3523, 5612, 5315, etc.) and `SourceConnectionError` only for unrecognised codes / network failures. Source-side callers that catch `SourceConnectionError` will no longer catch those cases.
+- **fix(milvus): drop elements without embeddings before insert.** Empty-text elements (e.g., page-boundary `UncategorizedText` produced by the partitioner) are skipped by the embedder and arrive without an `embeddings` key. Milvus rejected these inserts with `Insert missed an field 'embeddings' to collection without set nullable==true or set default_value`, failing the entire workflow. `MilvusUploadStager` now overrides `should_include` to filter these elements out before they reach the uploader.
+
+## [1.6.7]
+
+### Enhancements
+
+- **feat(box): OAuth 2.0 access token support on the Box source.** `BoxAccessConfig` now accepts `access_token` (with optional `refresh_token`) alongside the existing `box_app_config` field, and a validator enforces exactly one auth method. When `access_token` is set, `BoxConnectionConfig.get_access_config()` returns a `boxsdk.OAuth2` client. `refresh_token` is stored as a carrier for external refresh flows (e.g. orchestrator-side rotation) and is not consumed in-process.
+
+## [1.6.6]
+
+### Enhancements
+
+- **feat(embed): add `CustomOpenAICompatibleEmbeddingConfig` subclass.** New optional config for OpenAI-compatible gateways (vLLM, NIM, Ollama, LiteLLM, etc.) that authenticate via custom HTTP headers. Adds optional `api_key: SecretStr | None` and `default_headers: dict[str, SecretStr] | None` on the subclass. When `api_key` is unset, no `Authorization` header is emitted to the gateway. Existing `OpenAIEmbeddingConfig` / `AzureOpenAIEmbeddingConfig` surfaces are unchanged.
+
+### Fixes
+
+- **test(notion): make `test_notion_source_database` row-order insensitive.** Test-only change; no published behavior.
+
+## [1.6.5]
+
+### Fixes
+
+- **fix(google-drive): skip non-downloadable native files during indexing and download.** Google Drive shortcuts, forms, maps, sites, fusiontables, and jams are now silently filtered out during indexing rather than failing at download time. Empty placeholder files (`inode/x-empty` or zero-byte with no MIME type) are also skipped. The downloader returns `None` for these files instead of raising `SourceConnectionError`, and `count_files_recursively` excludes them from file counts.
+
+## [1.6.4]
+
+### Enhancements
+
+- **feat(slack): support file attachments and OAuth refresh tokens.** Slack indexing now emits file attachment records, downloading uses Slack private file URLs with bearer authentication, and `SlackAccessConfig` accepts `refresh_token` so platform plugin schemas can expose OAuth token rotation settings.
+
+### Fixes
+
+- **fix(slack): guard private file downloads.** Validate Slack private download URLs before sending bearer credentials, refuse redirects that could forward bearer credentials, stream private file downloads to disk, and use a bounded timeout for private file reads.
+
+## [1.6.3]
+
+### Enhancements
+
+- **feat(databricks): add `flatten_metadata` option to the Volumes Delta Tables uploader.** Opt-in, default off. When set, the stager flattens element metadata into top-level columns matching Milvus's unprefixed naming, and the uploader skips auto-create against the user-managed table, dropping unknown incoming columns with a log line.
+
+## [1.6.2]
+
+### Fixes
+
+- **fix(google-drive): export Google-native Docs Editors files before download.** Google Docs, Sheets, Slides, and Drawings now use Drive export endpoints instead of raw media downloads, preventing 403 errors for files without binary content. Extension filters now include matching Google-native MIME types for exportable formats, and unsupported Google-native files fail clearly instead of falling through to direct download.
+
+## [1.6.1]
+
+### Enhancements
+
+- **feat(oauth): add `refresh_token` field to Google Drive, GCS, OneDrive, SharePoint, and Outlook AccessConfigs.** Allows the platform to persist and retrieve OAuth refresh tokens alongside access tokens, enabling automatic token refresh before job dispatch. Dropbox already had this field.
+
+## [1.6.0]
+
+### Enhancements
+
+- **feat(box): pass through ACL permission metadata.** Extract Box collaboration data and normalize to the standard read/update/delete schema. Permissions are fetched during indexing with an LRU-cached ancestor folder walk to handle inherited collaborations, plus a per-parent-folder `path_collection` cache so only the first file in a given parent pays the `file.get()` round-trip. Access-only collabs (`is_access_only=true`) are skipped to avoid overgranting; group IDs are stored directly without member expansion (consistent with Confluence). `boxsdk` is now installed via the `box` extra. Both the permissions cap and ancestor-cache size are configurable on `BoxIndexerConfig` (`max_num_metadata_permissions`, `permissions_cache_max_size`) and `BoxDownloaderConfig` for the standalone fallback path.
+
+### Fixes
+
+- **fix(test): strip randomized tempdir prefix from FsspecDownloader fixture paths.** `get_files()` now drops the leading `unstructured_
+/` segment so `directory_structure.json` captures the logical structure rather than the per-run random suffix injected by `tempfile.mkdtemp`.
+
+## [1.5.2]
+
+### Enhancements
+
+- **feat(microsoft): add delegated `oauth_token` to SharePoint, OneDrive, and Outlook AccessConfigs.** Accepts a user access token directly, bypassing MSAL when present. `client_id` / `client_cred` become optional. Mirrors the Google Drive `oauth_token` pattern; refresh is not handled here.
+
+## [1.5.1]
+
+### Fixes
+
+- **fix(azure_ai_search): recursively drop unknown fields against the index schema.** New nested fields from `unstructured` (e.g. `metadata.table_extraction_method`) were reaching the service and causing HTTP 400s; the filter now recurses through `index.fields`.
+
+## [1.5.0]
+
+### Enhancements
+
+- **feat(sharepoint): pass through ACL permission metadata.** Extract SharePoint permission data from the Graph API and normalize to the standard read/update/delete schema. Permissions are fetched via Graph JSON batching with per-item fallback on batch failure.
+
+## [1.4.29]
+
+### Chores
+
+- **chore(tests): temporarily skip Confluence integration test pending account reactivation.**
+
+## [1.4.28]
+
+### Fixes
+
+- **fix(databricks): backtick-quote catalog and database in `USE CATALOG` / `USE DATABASE`** Fixes `SQLSTATE 42602 / INVALID_IDENTIFIER` for names with hyphens or other non-word characters.
+
+## [1.4.27]
+
+### Fixes
+
+- **fix(teradata): fix off-by-one in split_dataframe that sent empty executemany batches** The old `num_chunks = len(df) // chunk_size + 1` formula always appended one extra iteration. When a document produced exactly N * batch_size elements, the last chunk was empty, causing teradatasql to send a zero-row parameterized batch to the server which returned Error 3939 (parameter count mismatch). Replace with `range(0, len(df), chunk_size)` which never produces an empty slice. All SQL-based connectors (Teradata, Snowflake, VastDB, Databricks Delta Tables, KDB.AI) share this function and benefit from the fix.
+
+## [1.4.25]
+
+### Security
+
+- **security:** fix(deps): upgrade vulnerable transitive dependencies [security]
+
+## [1.4.24]
+
+### Enhancements
+
+- **refactor(teradata): use format_destination_name pattern for table name sanitization** Replace the `sanitize_destination_name: ClassVar[bool]` flag on the base `SQLUploader` with an overridable `format_destination_name` method on `TeradataUploader`, matching the convention used by AstraDB, Pinecone, and Weaviate connectors. Sanitization logic is now local to the Teradata connector.
+
+## [1.4.23]
+
+### Fixes
+
+- **fix(fixtures): update SharePoint and Notion integration test fixtures** SharePoint API now returns `isAuthoritative` in `additional_metadata`; Notion page/database HTML content updated to reflect current upstream API output.
+- **fix(teradata): sanitize destination table names** Replace invalid characters (including dashes) with underscores in Teradata table names during `create_destination`, preventing cryptic database errors when embedding model names or workflow IDs are used as table name components.
+
+## [1.4.22]
+
+### Fixes
+
+- **fix(teradata): honour HTTP_PROXY/HTTPS_PROXY for proxy-restricted environments** The teradatasql Go driver does not automatically read standard proxy environment variables. Added `_build_proxy_params()` which reads `HTTPS_PROXY`, `HTTP_PROXY`, and `NO_PROXY` at connection time and forwards them as native teradatasql parameters (`https_proxy`, `http_proxy`, `proxy_bypass_hosts`), enabling Teradata connections in environments that require an egress proxy.
+
+## [1.4.21]
+
+### Fixes
+
+- **fix(azure): make anonymous access explicit for public containers** Set `anon=True` when Azure source config omits credentials and `anon=False` when explicit credentials are provided, so public-container access no longer depends on the `adlfs` default that changed in `2026.4.0`.
+
+## [1.4.20]
+
+### Fixes
+
+- **fix(teradata):** add embeddings column to destination schema and stager, use native VECTOR32 type (32-bit float) for embeddings column
+* **fix(teradata): reject dashes in destination table names** Add validation to prevent dashes in Teradata table names at both the Pydantic model level and the `create_destination` path, surfacing a clear error message instead of a cryptic database failure.
+
+## [1.4.19]
+
+### Security
+
+- **fix(deps):** loosen langchain-core pin from `<1.0.0` to `<2.0.0` to resolve CVE-2026-34070 (High) and CVE-2026-26013 (Low)
+
+## [1.4.18]
+
+### Security
+
+- **security:** fix(deps): upgrade vulnerable transitive dependencies [security]
+
+## [1.4.17]
+
+* **fix(teradata): surface user-friendly error messages on connector precheck failures** Instead of exposing raw Go driver stack traces, precheck errors now show concise messages (e.g. "Failed to connect to server 192.168.1.1: connection timed out").
+
+## [1.4.16]
+
+* **fix(notion): handle icon field in block type deserialization** Skip the `icon` field when deserializing Notion block types (heading, paragraph, numbered_list, quote, table_of_contents, template, todo, toggle) to prevent deserialization errors when blocks contain icon data.
+
+## [1.4.15]
+
+* **fix(ibm-watsonx-s3): fail fast on precheck and guard bearer token JSON parsing**
+
+## [1.4.14]
+
+* **fix(teradata): enable Unicode Pass Through on session to prevent Error 6705 on non-BMP characters**
+
+## [1.4.13]
+
+* **fix(snowflake): handle VARIANT columns with PARSE_JSON during upload** Detect VARIANT-typed columns via `SHOW COLUMNS` and apply `PARSE_JSON()` in the `INSERT ... SELECT` statement; serialize `dict`/`list` values to JSON strings in `prepare_data` so structured metadata fields are stored correctly in VARIANT columns.
+
+## [1.4.12]
+
+* **fix(azure-ai-search): drop fields not present in index before upload** Filter document fields against the index schema before uploading to prevent errors when elements contain extra fields that the index doesn't define.
+
+## [1.4.11]
+
+* **fix: Parse `dict` values to JSON strings in SQL stagers**
+
+## [1.4.10]
+
+* **fix: Teradata opinionated schema CLOB column now uses CHARACTER SET UNICODE** 
+
+## [1.4.9]
+
+* **feat: Teradata auto-creates missing tables with opinionated JSON schema** When a provided table name does not exist, `create_destination()` now creates it automatically instead of failing at precheck.
+
+## [1.4.8]
+
+* **feat: Teradata opinionated writes with JSON metadata schema** Add auto-table-creation for Teradata destination when `table_name` is not provided. Uses a new 6-column schema (`id`, `record_id`, `element_id`, `text`, `type`, `metadata` as JSON) instead of the flattened 22-column layout. Controlled by `metadata_as_json` flag on the stager config (default `False` for backward compatibility). Follows the same `create_destination()` pattern used by Databricks Volume Delta Tables, Pinecone, AstraDB, and Weaviate.
+
+## [1.4.7]
+
+* **fix: SQL downloader KeyError when `fields` config omits `id_column`** Ensure `id_column` is always included in the SELECT field list across all SQL connectors (Teradata, PostgreSQL, Snowflake, SingleStore, SQLite).
+* **fix: case-insensitive column resolution in SQL download responses** Add `_resolve_column_name` to the base `SQLDownloader` so `generate_download_response` handles databases that return uppercase column names (e.g., Snowflake, Teradata Enterprise).
+* **fix: case-insensitive `can_delete()` in SQL uploader** The base `SQLUploader.can_delete()` now matches `record_id_key` case-insensitively against database column names, fixing silent delete skips on Snowflake and other case-folding databases.
+
+## [1.4.6]
+
+* **fix: SQL connector connection leak when commit() fails** Wrap `commit()`/`close()` in `try/finally` across Teradata, PostgreSQL, Snowflake, SingleStore, and SQLite so `close()` is always called.
+* **fix: Teradata case-insensitive column handling** Resolve column names to actual database case before use in double-quoted SQL identifiers. Handles all uppercase/lowercase combinations between database and user config.
+* **fix: Teradata uploader precheck validates table existence** Catch wrong table names early at precheck time instead of failing mid-pipeline.
+
+## [1.4.5]
+
+* **fix: add capability to use opensearch serverless**
+
+## [1.4.4]
+
+* **fix: add table precheck to teradata source**
+
+## [1.4.3]
+
+* **fix: enable sftp to make directories**
+
+## [1.4.2]
+
+* **chore: enable PyPI trusted publishing (OIDC)** Switch `pypa/gh-action-pypi-publish` from API token authentication to OIDC trusted publishing. Pin all GitHub Actions to commit SHAs, add concurrency control, a release-tag version validation step, and conditional Azure Artifacts upload.
+
+## [1.4.1]
+
+* **fix: AstraDB collection errors should return 400 status code**
+
+## [1.4.0]
+
+* **feat: add Python 3.11 and 3.13 support** Widen `requires-python` from `>=3.12, <3.13` to `>=3.11, <3.14`. Add Python 3.11 and 3.13 classifiers. Expand CI version matrices for lint and test jobs to cover all three versions.
+* **chore: update CI runners** Use `opensource-linux-8core` for test jobs that benefit from parallelism (`test_ingest_unit`, `test_ingest_unit_unstructured`, integration tests, E2E tests); keep `ubuntu-latest` for lightweight jobs (lint, shellcheck, release, etc.).
+* **fix: e2e `src_api_test` missing matrix** Hardcode `python-version: "3.12"` for the `src_api_test` job which previously referenced an undefined `matrix.python-version`.
+* **chore: add workflow permissions** Add explicit least-privilege `permissions` blocks to `unit_tests.yml`, `e2e.yml`, and `release.yml`.
+* **fix: pin ruff via uv override** Override `clarifai`'s hard pin on `ruff==0.11.4` and `psutil==7.0.0` so the lockfile resolves to latest versions.
+
+## [1.3.3]
+
+* **fix: use couchbase constructor that respects timeout configurations**
+
+## [1.3.2]
+
+* **feat: add oauth token option to google drive**
+
+## [1.3.1]
+
+* **fix: improve pinecone connector error handling by passing through the status code**
+
+## [1.3.0]
+
+* **chore: migrate to native uv dependency management** Inline all dependencies from `requirements/*.txt` into `pyproject.toml`, remove `hatch-requirements-txt` plugin, and delete the `requirements/` directory and `scripts/pip-compile.sh`.
+* **chore: clean up dependencies** Bump `certifi>=2026.1.4`, fix `bs4` to `beautifulsoup4`, fix `pytest_tagging` to `pytest-tagging`. Remove stale CI constraint group (deltalake, tritonclient, numpy, fsspec, etc. pins).
+* **chore: drop Python 3.10/3.11 support** Require `>=3.12, <3.13`. Remove `pandas<3` pin (no longer needed with 3.12+). Remove dead `msg` local partition extra (not defined by upstream `unstructured` package).
+* **chore: update Makefile** Add `make lock` (`uv lock --upgrade`), add `make install` and `make tidy` shortcuts, rename test targets to `test-unit`/`test-integration` convention, add `--frozen --no-sync` to all `uv run` commands.
+* **chore: add pytest-xdist** Parallelize unit tests with `-n auto`.
+* **chore: update CI workflows** Fix Python version defaults to 3.12, add `.python-version` file, fix `setup-python` action to use `inputs.python-version`, fix fixture update workflow (branch naming, docker cleanup, permissions, `GITHUB_TOKEN`).
+* **chore: bump Milvus docker-compose image** `v2.3.19` to `v2.5.26` for integration tests.
+* **chore: exclude `multi_page_image.tif` from partitioner integration tests** Too large for hi_res API processing within CI timeout limits.
+* **chore: regenerate stale e2e test fixtures** Update expected output for s3, azure, biomed, and google-drive connectors.
+* **fix: PydanticDeprecatedSince211 warning** Extract `_is_optional_field` helper using `typing.get_origin`/`get_args` instead of raw dunder access on `model_fields`.
+* **fix: astradb unit test** Fix `with_options` mock to use sync `MagicMock` instead of inheriting `AsyncMock`.
+* **fix: test collection** Add `conftest.py` to `test/unit/unstructured/` to skip collection when `unstructured` package is not installed.
+* **fix: databricks-volumes upload parameter** Revert `content` back to `contents` to match `databricks-sdk>=0.85.0`.
+* **fix: notion connector for notion-client 2.7.0** Replace `super().query()` calls with direct `self.parent.request()` calls, since `DatabasesEndpoint.query()` was removed upstream.
+* **fix: S3 special character test** Exclude `additional_metadata.ChecksumType` from comparison (new AWS S3 metadata field).
+
+## [1.2.40]
+
+* **fix: prevent filename corruption when file/folder names contain the bucket or path prefix**
+
+## [1.2.39]
+
+* **fix: fix leading slash convention for sftp paths**
+
+## [1.2.38]
+
+* **fix: remove sftp indexer run override**
+
+## [1.2.37]
+
+* **fix: sftp protocol needs default**
+
+## [1.2.36]
+
+* **fix: allow sftp via paramiko for kubernetes**
+
+## [1.2.35]
+
+* **fix: improve sftp connector**
+
+## [1.2.34]
+
+* **fix: remove teradata charset setting**
+
+## [1.2.33]
+
+* **fix: update Vectara token endpoint**
+
+## [1.2.32]
+
+* **feat: add teradata source and destination**
+
+## [1.2.31]
+
+* **fix: Add concurrency limit to AstraDB uploader to prevent timeouts**
+
+## [1.2.30]
+
+* **fix: Upgrade langchain-core to resolve critical vulnerability CVE-2025-68664**
+
+## [1.2.29]
+
+* **fix: add simple retry and timeout logic to Opensearch connector**
+
+## [1.2.28]
+
+* **fix: Limit opensearch-py to below 3.0.0 to prevent grpcio conflicts with milvus and watsonx**
+
+## [1.2.27]
+
+* **feat: Add AWS IAM authentication and full async support to OpenSearch connector**
+
+## [1.2.26]
+
+* **feat: add astra_generated_embeddings and enable_lexical_search options to AstraDB stager/uploader**
+
+## [1.2.25]
+
+* **fix: dont submit fields for Elasticsearch/Opensearch if there are none specified**
+
+## [1.2.24]
+
+* **fix: Remove --skip-existing from release.yml**
+
+## [1.2.23]
+
+* **fix: Improve opensearch with correct connector_type metadata and compatible index validation**
+
+## [1.2.22]
+
+* **feat: Add option to disable binary encoded vectors in AstraDBUploader**
+
+## [1.2.21]
+
+* **fix: Enforce minimum version of databricks-sdk (>=0.62.0) for databricks-volumes connector**
+* **fix: Update databricks-volumes connector to wrap file in io.BytesIO for BinaryIO compatibility** *(Note: the original entry incorrectly stated a rename to `content`; the SDK parameter is `contents`. Reverted in 1.3.0.)*
+* **fix: Add constraints to prevent platform compatibility issues with tritonclient/perf-analyzer dependencies**
+
+## [1.2.20]
+
+* **fix: Prevent weaviate cloud precheck from passing with invalid config**
+
+## [1.2.19]
+
+* **fix: Pinned aibotocore to skip version that's incompatible with recent botocore version**
+
+## [1.2.18]
+
+* **feat: add configurable Bedrock inference profile support**
+
+## [1.2.17]
+
+* **Enhancement: Use a single `executemany` instead of per element `execute` in Snowflake Uploader**
+
+## [1.2.16]
+
+* **Fix: Catch databricks client auth errors that were being missed**
+
+## [1.2.15]
+
+* **Fix: Filter out fields that aren't part of our Page subclass data model. This guards against API changes that are potentially nonbreaking.**
+
+## [1.2.14]
+
+* **Fix: IBM watsonx.data S3 bucket authentication fix**
+
+## [1.2.13]
+
+* **Feat: Make Bedrock embedding credentials optional and add IAM support**
+  - AWS credentials (`aws_access_key_id`, `aws_secret_access_key`) are now optional, defaulting to `None`
+  - Added `access_method` field supporting "credentials" (explicit keys) and "iam" (AWS credential chain)
+  - Added `endpoint_url` field for custom Bedrock endpoints
+  - Enhanced validation logic for different authentication methods
+  - Maintains full backwards compatibility with existing configurations
+
+## [1.2.12]
+
+* **Fix: retry with wait when throttling error happens in Sharepoint connector**
+* **Fix: fix Milvus stager to use correct exception**
+* **Fix: confluence integration test to use new link and credential**
+
+## [1.2.11]
+
+* **Fix: temporarily restore errors_v2.py**
+
+## [1.2.10]
+
+* **o11y: standardize exception classes across the repo**:
+
+## [1.2.9]
+
+**Fix: enable s3fs cache_regions for bucket region detection**
+
+## [1.2.8]
+
+**Fix: Fix artifact url**
+
+## [1.2.7]
+
+**Fix: Install extras that use requirements files**
+
+## [1.2.6]
+
+**Fix: Fix requirements issue with Weaviate uploader**
+
+## [1.2.5]
+
+**Fix: Fix requirements issue with Weaviate uploader**
+
+## [1.2.4]
+
+**Fix: Fix requirements issue with weaviate uploader**
+
+## [1.2.3]
+
+**Fix: Update chroma version for Python 3.12 compatibility**
+
+## [1.2.2]
+
+**Fix: Pin pydantic to v2.9.1 for compatibility**
+
+## [1.2.1]
+
+**Fix: Pin pydantic to v2.8.2 for compatibility**
+
+## [1.2.0]
+
+**feat: add Milvus connector**
+
+## [1.1.3]
+
+**Fix: `__version__.py` regex pattern was broken**
+
+## [1.1.2]
+
+**Fix: Fix logger**
+
+## [1.1.1]
+
+**Fix: Fix requirements**
+
+## [1.1.0]
+
+**Feat: add vertex ai embedding support**
+
+## [1.0.59]
+
+**Fix: Box connector configuration compatibility**
+
+## [1.0.58]
+
+**Fix: Box connector configuration compatibility**
+
+## [1.0.57]
+
+**Fix: Box connector configuration compatibility**
+
+## [1.0.56]
+
+**Fix: Box connector configuration compatibility**
+
+## [1.0.55]
+
+**Fix: Fix box uploader path construction**
+
+## [1.0.54]
+
+**Fix: Databricks file system setup**
+
+## [1.0.53]
+
+**Feat: Add retry for Sharepoint connector connection errors**
+
+## [1.0.52]
+
+**Fix: Fix box uploader**
+
+## [1.0.51]
+
+**Fix: Update Databricks SDK version and SQL warehouse types**
+
+## [1.0.50-dev0]
+
+**Feat: Add Databricks Delta Lake Table connector**
+
+## [1.0.49]
+
+**Fix: Azure file download**
+
+## [1.0.48]
+
+**Fix: Azure file download**
+
+## [1.0.47]
+
+**Fix: Azure file download**
+
+## [1.0.46]
+
+**Feat: Support subdirectories in Onedrive**
+
+## [1.0.45]
+
+* **Feat: Support subdirectories for Google Drive connector**
+
+## [1.0.44]
+
+**Fix: Support subdirectories in Onedrive**
+
+## [1.0.43]
+
+**Fix: better error handling**
+
+## [1.0.42]
+
+**Feat: Increase robustness of BigQuery connector**
+
+## [1.0.41]
+
+**Feat: Update elasticsearch version range**
+
+## [1.0.40]
+
+**Fix: Use pydantic core for validation of weaviate dict types**
+
+## [1.0.39]
+
+**Feat: add supabase vector db support**
+
+## [1.0.38]
+
+**Feat: add batch and retry mechanism for weaviate uploader**
+
+## [1.0.37]
+
+**Fix: Remove use of deprecated python dateutil class**
+
+## [1.0.36]
+
+**Fix: Set default parallelism on Azure upload**
+
+## [1.0.35]
+
+**Fix: S3, Azure, GCS uploaders to parallelize uploads **
+
+## [1.0.34]
+
+**Fix: fix Jira bulk_size field name**
+
+## [1.0.33]
+
+**Feat: Add Jira connector**
+
+## [1.0.32]
+
+**Feat: add dropbox connector support**
+
+## [1.0.31]
+
+**Feat: Qdrant VectorDB Connector Support **
+
+## [1.0.30]
+
+* **Feat: Delta table connector functionality**
+
+## [1.0.29]
+
+* **Add Sharepoint connector **
+* **Add Onedrive connector**
+
+## [1.0.28]
+
+* **Fix: allow setting metadata and set metadata for mongodb stager**
+* **Fix: check page content for Notion**
+
+## [1.0.27]
+
+* **Fix: Fix notion source script **
+* **Fix: Set min version for sqlalchemy**
+* **Fix: Fix elasticsearch params**
+
+## [1.0.26]
+
+**Fix: Fix dependency issue that prevents discord module from loading**
+
+## [1.0.25]
+
+**Fix: Fix upload logic for BigQuery**
+
+## [1.0.24]
+
+**Fix: Check if columns exist in MongoDB**
+
+## [1.0.23]
+
+* **Fix: Fix snowflake extra dependency**
+
+## [1.0.22]
+
+**Fix: fsspec path compatibility for GCS**
+
+## [1.0.21]
+
+* **Feat: Add embedding support to the ingest framework**
+
+## [1.0.19]
+
+**Fix: Allow passing partition_by_api as part of ingest**
+
+## [1.0.18]
+
+**Fix: Fix compatibility with the main lib **
+
+## [1.0.17]
+
+**Fix: Pass kwargs through for databricks volume connector**
+
+## [1.0.16]
+
+**Fix: Fallback to SQL database functionality for databricks if volume functionality doesn't work**
+
+## [1.0.15]
+
+* **Enhancement: Add Databricks volume and file index support**
+* **Enhancement: Add Weaviate support**
+
+## [1.0.14]
+
+* **Fix: fix the regex for Azure Cognitive Search uploader to support the cognitive search endpoint URL**
+* **Fix: set the metadata for the list_elements function of the Astra database**
+
+## [1.0.13]
+
+* **Fix: change the regex for Azure Cognitive Search uploader to support new-style URLs**
+* **Fix: Azure Cognitive Search uploader to support different data types**
+* **Enhancement: add additional metadata to upload info for MongoDB**
+
+## [1.0.12]
+
+* **Fix: write stage in partition dir when remote url ends with /**
+* **Fix: remove empty directories for remote storage systems**
+* **Fix: Add timeout to google drive source and fix the dependencies**
+
+## [1.0.11]
+
+* **Enhancement: Add Slack Connector**
+* **Enhancement: Add KnowledgeGraph Reader**
+* **Fix: handle exceptions during file ingest**
+* **Fix: fix small multithread issue**
+
+## [1.0.8]
+
+* **Enhancement: new Databricks connection using SQL warehouse**
+* **Fix: Bug fixes and general stability improvement**
+
+## [1.0.7]
+
+* **Enhancement: Add Astra database connector**
+* **Fix: update the embedding model name**
+
+## [1.0.6]
+
+* **Enhancement: add OpenAI embedding api key as secrets string**
+* **Enhancement: Implement Zendesk Source Connector**
+* **Enhancement: Improvements to elasticsearch source connector**
+* **Fix: Enhance postgres connector to support 3rd part databases**
+
+## [1.0.5]
+
+* **Enhancement: Postgres source connector to use query**
+* **Enhancement: Adds source connector for Box**
+
+## [1.0.4]
+
+* **Enhancement: Enhanced source connector for BigQuery**
+* **Enhancement: Kafka source and destination connectors**
+
+## [1.0.3]
+
+* **Enhancement: Gitlab source connector**
+* **Enhancement: Elasticsearch source connector**
+
+## [1.0.2]
+
+* **Enhancement: Improvements to Reddit source connector**
+* **Enhancement: Add uploader for SQL databases**
+
+## [1.0.1]
+
+* **Enhancement: Reddit source connector**
+* **Enhancement: Opensearch source connector**
+* **Fix: Azure upload using ADLS gen2 client**
+
+## [0.7.2]
+
+* **Enhancement: BigQuery source connector**
+* **Fix: Azure file identification bug fix**
+
+## [0.7.0]
+
+* **Enhancement: Azure Cognitive Search destination connector**
+* **Fix: Google Drive source connector dependency fix**
+
+## [0.6.4]
+
+* **Enhancement: improvements to Google Drive source connector**
+* **Enhancement: improvements to Notion source connector**
+* **Enhancement: MongoDB source and destination connectors**
+* **Enhancement: Google Cloud Storage and Azure file stream support**
+* **Enhancement: Postgres destination connector**
+
+## [0.6.3]
+
+* **Enhancement: Biomed source connector**
+* **Enhancement: Single-threaded processing option**
+
+## [0.6.2]
+
+* **Enhancement: Google Drive source connector**
+* **Enhancement: Improved error messaging and logging**
+* **Enhancement: Fsspec implementations for major cloud storage destinations**
+
+## [0.6.1]
+
+* **Enhancement: Notion source connector**
+* **Enhancement: Destination connectors for cloud file systems**
+
+## [0.6.0]
+
+* **Enhancement: Google Cloud Storage source connector**
+* **Enhancement: Azure source connector**
+
+## [0.5.25]
+
+* **Enhancement: Email source connector**
+* **Enhancement: Hubspot source connector**
+
+## [0.5.24]
+
+* **Enhancement: Webhook destination connector**
+* **Enhancement: improvements to Discord source connector**
+
+## [0.5.23]
+
+* **Enhancement: Discord source connector**
+* **Enhancement: Wikipedia source connector**
+
+## [0.5.22]
+
+* **Enhancement: Airtable source connector**
+* **Enhancement: Delta Table source connector**
+
+## [0.5.21]
+
+* **Enhancement: Source connector for RSS**
+* **Enhancement: Destination connector for DynamoDB**
+
+## [0.5.20]
+
+* **Enhancement: Local source connector can now handle .msg files**
+* **Enhancement: Confluence source connector**
+
+## [0.5.19]
+
+* **Enhancement: Source connector for S3**
+* **Enhancement: Destination connector for SQL databases**
+
+## [0.5.18]
+
+* **Enhancement: Source connector for SharePoint**
+* **Enhancement: Source connector for Outlook**
+
+## [0.5.17]
+
+* **Enhancement: Source connector for Google Drive**
+
+## [0.5.16]
+
+* **Enhancement: Destination connector for Chroma**
+* **Enhancement: Destination connector for Elasticsearch**
+
+## [0.5.15]
+
+* **Enhancement: Source connector for Local Filesystem**
+* **Enhancement: Destination connector for Local Filesystem**
+* **Enhancement: Miscellaneous stability improvements**
+* **Enhancement: Source connector for Sftp**
+
+## [0.5.14]
+
+* **Enhancement: Source connector for Oracle**
+* **Enhancement: Destination connector for Pinecone**
+
+## [0.5.13]
+
+* **Enhancement: Source connector for SQL**
+* **Enhancement: Source connector for Azure**
+
+## [0.5.12]
+
+* **Enhancement: Source connector for S3**
+* **Enhancement: Destination connector for Azure**
+* **Enhancement: Destination connector for S3**
+
+## [0.5.11]
+
+* **Enhancement: Source and destination connectors for Google Cloud Storage**
+* **Enhancement: Improvements to all destination connectors**
+
+## [0.5.10]
+
+* **Enhancement: Add destination connectors for Weaviate**
+* **Enhancement: Add destination connectors for Opensearch**
+* **Enhancement: Add destination connectors for Databricks**
+* **Enhancement: Expanded source connector for Notion**
+* **Enhancement: Expanded source connector for Confluence**
+* **Enhancement: Allow multipart upload strategy for S3**
+
+## [0.5.9]
+
+* **Enhancement: Add source connector for S3**
+* **Enhancement: Support large PDF documents (> 25MB) for remote file systems**
+
+## [0.5.8]
+
+* **Enhancement: Add source connector for Github**
+
+## [0.5.7]
+
+* **Enhancement: Initial fsspec destination connectors**
+
+## [0.5.6]
+
+* **Enhancement: Initial source connectors**
+
+## [0.5.5]
+
+**bugfix: move into pyproject.toml**
+
+## [0.5.4]
+
+* **Enhancement: Fix version management**
+
+## [0.5.3]
+
+* **Enhancement: Combine the upstream table table sources**
+* **Enhancement: Add a new way to upload unstructured table outputs**
+* **Enhancement: Process metadata table with the same upload strategy used for structured outputs**
+* **bugfix: Enable setting the database name for sql destination connector**
+* **bugfix: Enable setting the schema name for postgresql destination connector**
+
+## [0.5.2]
+
+* **Enhancement: add a data mapper for delta table stager**
+* **Enhancement: combine the text table sources and make it async compatible**
+* **Enhancement: enable setting the table name for sql destination connector**
+* **Enhancement: set timeout default to 30 seconds for sharepoint connector**
+* **Enhancement: support for `batch_size` table partitioning**
+
+## [0.5.1]
+
+* **Enhancement: Support for S3 bucket location endpoint URLs**
+* **Enhancement: Upgrade dependency requirements**
+* **Enhancement: Support for local connector's configuration file**
+* **Enhancement: Support csv files as structured data for postgres connector**
+* **Enhancement: Connection type tracking support for delta table destination connector**
+* **Enhancement: Stream for unstructured elements as structured data for delta table connector**
+
+## [0.5.0]
+
+* **Enhancement: Support for config files (in YAML or TOML)**
+* **Enhancement: Chroma connector supports now async**
+
+## [0.4.7]
+
+* **Enhancement: Azure destination support**
+* **Enhancement: gcs-utils to create large blob storage support**
+
+## [0.4.6]
+
+* **Enhancement: Notion destination connector**
+* **Enhancement: Postgres destination connector**
+
+## [0.4.5]
+
+* **Enhancement: Upload strategy**
+
+## [0.4.4]
+
+* **Enhancement: Download path tracking**
+
+## [0.4.3]
+
+* **Enhancement: Add Weaviate support**
+* **bugfix: Fix Github connector to include .txt file extension**
+* **bugfix: Fix download dir for processors**
+* **Enhancement: Add Azure Cognitive Search support**
+* **Enhancement: Add Chroma support**
+* **Enhancement: Add Databricks support**
+* **Enhancement: Add fsspec for S3 connector**
+
+## [0.4.2]
+
+* **Enhancement: SFTP recursive processing**
+
+## [0.4.1]
+
+* **Enhancement: SQL connector enhancements**
+* **Enhancement: Replace Elasticsearch-DSL library with official Elasticsearch package**
+* **Enhancement: Support for shared folder access in SharePoint**
+* **Enhancement: Dedupe command line argument for connectors to use when upstreaming**
+* **Enhancement: Add `exclude-metadata` option to reduce package size when uploading to destinations**
+
+## [0.4.0]
+
+* **Enhancement: Adds support for Elasticsearch 8.x**
+* **Enhancement: Support for Outlook to work with .msg files**
+* **Enhancement: Local connector partitioning by file size**
+* **Enhancement: Using partition_strategy from CLI for all processed files**
+
+## [0.3.15]
+
+* **Enhancement: Adds notion config files for user and database IDs for each document**
+* **Enhancement: Salesforce connector to handle different datasets**
+* **Enhancement: Confluence connector timeout and error handling**
+
+## [0.3.14]
+
+* **Enhancement: Optimize Notion connector performance**
+* **Enhancement: Notion connector metadata**
+
+## [0.3.13]
+
+* **Enhancement: Add Notion connector**
+* **Enhancement: Format and style improvements to sql connector**
+* **Enhancement: Multi-threaded file upload for S3**
+* **Enhancement: Support for newer versions of PostgreSQL**
+* **Enhancement: Notion connector filter for empty pages**
+* **Enhancement: Add support for additional Notion document types (callout, bulleted list)**
+* **Enhancement: Pass partition strategy to files from local connector when uploading to destinations**
+
+## [0.3.12]
+
+* **Enhancement: Performance improvement to locally-sourced connectors**
+* **Enhancement: Add Oracle connector**
+* **Enhancement: Support for Pinecone serverless indexes**
+* **Enhancement: Add Slack connector**
+* **Enhancement: Add support for Outlook .msg file format**
+* **Enhancement: Add sql connector**
+* **Enhancement: Add Dropbox connector**
+* **Enhancement: Add OracleDB destination connector**
+* **Enhancement: Add Sharepoint connector**
+* **Enhancement: Add Azure connector**
+
+## [0.3.11]
+
+* **Enhancement: Google Drive connector to handle large files**
+* **Enhancement: PostgreSQL destination connector**
+
+## [0.3.10]
+
+* **Enhancement: Confluence connector to use published_date to check for freshness**
+* **Enhancement: S3 connector to accept kwargs for client creation**
+* **Enhancement: Add Pinecone destination connector**
+
+## [0.3.9]
+
+* **Enhancement: Google Cloud Platform S3-compatible connector**
+* **Enhancement: Support custom CA bundles**
+* **Enhancement: GoogleDrive connector to handle different formats including PDFs**
+* **Enhancement: Add support for .txt files to the Gitlab connector**
+
+## [0.3.8]
+
+* **Enhancement: Add Github connector**
+
+## [0.3.7]
+
+* **Enhancement: Add Box connector**
+* **Enhancement: Add Gitlab connector**
+* **Enhancement: Add Wikipedia connector**
+* **Enhancement: Add RSS connector**
+* **Enhancement: Confluence connector can now query in CQL or use labels to filter content.**
+* **Enhancement: Add email connector that support .eml files**
+* **Enhancement: Add S3 compatible object storage systems like Minio**
+* **Enhancement: Outlook connector supports server connection**
+* **Enhancement: Add Google Drive connector**
+* **Enhancement: Enable single-threaded processing mode**
+* **Enhancement: Connect to Opensearch through AWS Signatures**
+* **Enhancement: Support downloading only unknown documents from cloud sources**
+* **Enhancement: Support passing custom headers to Elasticsearch destination connector**
+* **Enhancement: Discord connector supports structured data outputs**
+
+## [0.3.6]
+
+* **Enhancement: Add airtable connector**
+
+## [0.3.5]
+
+* **Enhancement: Add biomed connector**
+* **Enhancement: Add salesforce connector**
+* **Enhancement: Add discord connector**
+* **Enhancement: Add Elasticsearch destination connector**
+
+## [0.3.4]
+
+* **Enhancement: Improve file handling and processing**
+
+## [0.3.3]
+
+* **Enhancement: Support for SharePoint Online**
+* **Enhancement: Add MongoDB destination connector**
+* **Enhancement: Add DeltaTable destination connector**
+* **Enhancement: Add S3 destination connector**
+* **Enhancement: Additional file types to Confluence Connector**
+* **Enhancement: Add Azure destination connector**
+
+## [0.3.2]
+
+* **Enhancement: Support for Local Filesystem connector**
+* **Enhancement: Add connector for Confluence**
+* **Enhancement: Support for Microsoft 365 Azure App for SharePoint Connector**
+* **Enhancement: Support for output to multiple destinations**
+* **Enhancement: Support for delta table destination format**
+* **Enhancement: Optimize fetching files from SharePoint**
+
+## [0.3.1]
+
+* **Enhancement: Support for GCS (Google Cloud Storage) Connector**
+* **Enhancement: S3 Connector**
+* **Enhancement: SFTP Connector**
+* **Enhancement: Support for output dir**
+* **Enhancement: Add embedding support**
+* **Enhancement: Support for Azure Blob Storage**
+* **Enhancement: Support CSV source format**
+
+## [0.3.0]
+
+* **Enhancement: Support for SharePoint Connector**
+* **Enhancement: Support for Elasticsearch Connector**
+* **Enhancement: Support for various file handling capabilities, parallel processing, etc.**
+
+## [0.2.2]
+
+* **Enhancement: Add Outlook Connector**
+* **Enhancement: Support for fsspec**
+* **Enhancement: Support for json output format**
+
+## [0.2.1]
+
+* **Enhancement: Add Google Drive Connector**
+* **Enhancement: Add HubSpot Connector**
+* **Enhancement: Add Jira Connector**
+* **Enhancement: Add Kafka Destination Connector**
+* **Enhancement: Asynchronous processing for destinations**
+* **Enhancement: Support for embedding providers including OpenAI, Huggingface, Instructor, Huggingface**
+
+## [0.2.0]
+
+* **Enhancement: Add Reddit Connector**
+* **Enhancement: Support for GCS with s3 compatible mode**
+
+## [0.1.1]
+
+* **Enhancement: Support for Chroma output**
+* **Enhancement: Support for Weaviate output**
+* **Enhancement: Support for Pinecone output**
+* **Enhancement: Support for OpenSearch output**
+
+## [0.1.0]
+
+* **Enhancement: Support for S3 file system**
+* **Enhancement: Support for Azure file system**
+* **Enhancement: Support for Google Cloud Storage file system**
+* **Enhancement: Support for local file system**
+* **Enhancement: Support for reprocessing and deduplication of files**
+* **Enhancement: Support for multimodal embeddings for use with unstructured elements**
+* **Enhancement: Support for multiple file types like PDFs, DOCX, HTML, TXT, email, etc.**
+
+## [0.0.25]
+
+* **Enhancement: Support for embedding via embedding providers**
+* **Enhancement: Support for OpenSearch output**
+* **Enhancement: Support for Elasticsearch v7+**
+
+## [0.0.24]
+
+* **Enhancement: Support for multiple file sources at once**
+* **Enhancement: Support for Chroma database output**
+
+## [0.0.23]
+
+* **Enhancement: Support for Pinecone database output**
+
+## [0.0.22]
+
+* **Enhancement: Support for fsspec for S3 and Azure file systems**
+* **Enhancement: Support for Weaviate database output**
+* **Enhancement: Support for deduplication of files based on file hash**
+
+## [0.0.21]
+
+* **Enhancement: Support for multiple files for processing**
+* **Enhancement: Support for recursive directory processing**
+
+## [0.0.20]
+
+* **Enhancement: Support for AWS S3**
+
+## [0.0.19]
+
+* **Enhancement: Support for Google Cloud Storage**
+
+## [0.0.18]
+
+* **Enhancement: Support for Azure Blob Storage**
+
+## [0.0.17]
+
+* **Enhancement: Support for local file system**
+
+## [0.0.16]
+
+* **Enhancement: Adding base functionality**
+
+## [0.0.15]
+
+* **Enhancement: Support for remote filesystems**
+* **Enhancement: Support for chunking strategy**
+* **Enhancement: Support for local filesystem**
+
+## [0.0.14]
+
+* **Enhancement: Support for additional input sources like Azure Blob Storage, Google Cloud Storage, and Amazon S3**
+* **Enhancement: Support for additional output destinations like Elasticsearch and local filesystem**
+
+## [0.0.13]
+
+* **Enhancement: Command line interface (CLI) support**
+
+## [0.0.12]
+
+* **Enhancement: Support for Elasticsearch destination**
+
+## [0.0.11]
+
+* **Enhancement: Support for local file directory and filesystem**
+
+## [0.0.10]
+
+* **Enhancement: Support for multiple file sources and various file formats**
+
+## [0.0.9]
+
+* **Enhancement: Support for Azure Blob Storage file sources and destinations**
+* **Enhancement: Support for Google Cloud Storage file sources and destinations**
+* **Enhancement: Support for AWS S3 file sources and destinations**
+
+## [0.0.8]
+
+* **Enhancement: Support for various cloud storage file sources and destinations**
+
+## [0.0.7]
+
+* **Enhancement: Support for various file sources like local filesystem, cloud storage, and destinations**
+* **Enhancement: Support for multithreaded processing and chunking strategies**
+
+## [0.0.6]
+
+* **Enhancement: Support for Elasticsearch destination**
+
+## [0.0.5]
+
+* **Enhancement: Support for various filesystem sources and destinations**
+* **Enhancement: Support for fsspec for filesystem access**
+* **Enhancement: Support for multiple content file types**
+
+## [0.0.4]
+
+* **Enhancement: Support for local filesystem and basic cloud storage destinations**
+* **Enhancement: Support for multithreaded processing**
+
+## [0.0.3]
+
+* **Enhancement: Support for recursive directory processing**
+
+## [0.0.2]
+
+* **Enhancement: Command line interface (CLI)**
+
+## [0.0.1]
+
+* **Enhancement: Setting up the basic framework for ingest**
+* **Enhancement: Support for local directories**
+* **Enhancement: Support for individual file processing**
+* **Enhancement: Support for various file formats (pdf, docx, pptx, xlsx, eml, html, xml, text)**
+
+## [0.0.0]
+
+* **Enhancement: Initial setup and project creation**
+* **Enhancement: Basic ingestion framework and architecture**

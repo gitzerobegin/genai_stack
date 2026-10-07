@@ -1,0 +1,1621 @@
+SOURCE ID: A6-S065
+URL: https://cloud.google.com/sensitive-data-protection/pricing
+FINAL URL: https://cloud.google.com/sensitive-data-protection/pricing
+TITLE: Sensitive Data Protection pricing | Google Cloud
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Sensitive Data Protection pricing | Google Cloud
+Sensitive Data Protection pricing
+This page provides pricing information for Sensitive Data Protection. Prices on this page are listed in US dollars (USD).
+Sensitive Data Protection requires billing information for all accounts before you can start using the service. To sign up for billing, 
+go to your project's billing page
+ in the Google API Console.
+Sensitive Data Protection charges for usage based on the following price sheet. At the end of each billing cycle, a bill is generated that lists the usage and charges for that cycle.
+Warning:
+ It is possible for costs to become very high, depending on the quantity of information that you instruct Sensitive Data Protection to scan. To learn several methods that you can use to keep costs down while also ensuring that you're using the Sensitive Data Protection to scan the exact data that you intend to, see 
+Keeping Sensitive Data Protection costs under control
+.
+Prematurely canceling an ongoing operation still incurs costs for the portion of the operation that was completed.
+Overview of Sensitive Data Protection pricing
+Sensitive Data Protection pricing has three main components:
+Inspection and transformation pricing
+ describes the cost to inspect and transform data through jobs and through content methods.
+Discovery pricing
+ describes the cost to generate high-level metrics and insights about your data.
+Risk analysis pricing
+ describes the cost to analyze sensitive data to find properties that might increase the risk of subjects being identified.
+Inspection and transformation pricing
+Sensitive Data Protection provides a set of features for inspecting and transforming data. Across these scenarios, you pay only for what you use, with no upfront commitments.
+Inspection and transformation of data in Google Cloud storage systems
+The 
+projects.dlpJobs.create
+ method lets you create an inspection job that inspects for sensitive data in certain Google Cloud storage systems. You are billed according to the 
+storage inspection job pricing
+. If the inspection job is also configured to de-identify the findings, then you are also billed according to the 
+storage transformation job pricing
+.
+Storage inspection job pricing
+Sensitive Data Protection storage jobs are billed based on bytes inspected according to the following schedule:
+Item
+Price (USD)
+Storage data inspected
+0 byte to 1 gibibyte
+$0.00 (Free) / 1 gibibyte, per 1 month / account
+1 gibibyte to 50 tebibyte
+$1.00 / 1 gibibyte, per 1 month / account
+50 tebibyte to 500 tebibyte
+$0.75 / 1 gibibyte, per 1 month / account
+500 tebibyte and above
+$0.60 / 1 gibibyte, per 1 month / account
+If you configure an inspection job to save findings to a BigQuery table, the billing and quota usage for the 
+tabledata.insertAll
+ operation are applied to the project that contains the destination table.
+For more information about inspecting content stored in Google Cloud, see 
+Inspecting storage and databases for sensitive data
+.
+Storage transformation job pricing
+Sensitive Data Protection storage jobs are billed based on bytes transformed according to the following schedule:
+Item
+Price (USD)
+Storage data transformed
+0 byte to 1 gibibyte
+$0.00 (Free) / 1 gibibyte, per 1 month / account
+1 gibibyte to 50 tebibyte
+$1.00 / 1 gibibyte, per 1 month / account
+50 tebibyte to 500 tebibyte
+$0.75 / 1 gibibyte, per 1 month / account
+500 tebibyte and above
+$0.60 / 1 gibibyte, per 1 month / account
+If you choose to store the transformation details in a BigQuery table, the billing and quota usage for the 
+tabledata.insertAll
+ operation are applied to the project that contains the destination table.
+For more information about de-identifying content stored in Google Cloud, see 
+De-identification of sensitive data in storage
+.
+Inspection of data from any source
+The 
+projects.dlpJobs.create
+ method lets you 
+create a hybrid job
+ that inspects for sensitive data from any source, including sources outside Google Cloud. You are billed based on bytes inspected according to the following schedule:
+Item
+Price (USD)
+Hybrid data inspected
+0 byte to 1 gibibyte
+$0.00 (Free) / 1 gibibyte, per 1 month / account
+1 gibibyte to 1 tebibyte
+$3.00 / 1 gibibyte, per 1 month / account
+1 tebibyte and above
+$2.00 / 1 gibibyte, per 1 month / account
+If you pay in a currency other than USD, the prices listed in your currency on 
+Cloud Platform SKUs
+ apply.
+A minimum of 1 KB is billed per hybrid inspection request.
+If you configure a hybrid inspection job to save findings to a BigQuery table, the billing and quota usage for the 
+tabledata.insertAll
+ operation are applied to the project that contains the destination table.
+For more information about inspecting data from any source, see 
+Hybrid jobs and job triggers
+.
+Inspection and transformation through content methods
+The content methods are listed in the following table, along with notations of the types of charges each method may be billed for:
+API method
+Content inspection
+Content transformation
+projects.image.redact
+Yes
+No
+projects.content.inspect
+Yes
+No
+projects.content.deidentify
+Yes
+Yes
+projects.content.reidentify
+Yes
+Yes
+Content inspection method pricing
+Sensitive Data Protection content method pricing is billed based on bytes inspected according to the following schedule:
+Item
+Price (USD)
+Content data inspected
+0 byte to 1 gibibyte
+$0.00 (Free) / 1 gibibyte, per 1 month / account
+1 gibibyte to 1 tebibyte
+$3.00 / 1 gibibyte, per 1 month / account
+1 tebibyte and above
+$2.00 / 1 gibibyte, per 1 month / account
+Content transformation method pricing
+Sensitive Data Protection content method pricing is billed based on bytes transformed according to the following schedule:
+Item
+Price (USD)
+Content data transformed
+0 byte to 1 gibibyte
+$0.00 (Free) / 1 gibibyte, per 1 month / account
+1 gibibyte to 1 tebibyte
+$2.00 / 1 gibibyte, per 1 month / account
+1 tebibyte and above
+$1.00 / 1 gibibyte, per 1 month / account
+If you pay in a currency other than USD, the prices listed in your currency on 
+Cloud Platform SKUs
+ apply.
+A minimum of 1 KB is billed per content inspect or transform request.
+Inspection and transformation: other charges and no-charge features
+In addition to the billed charges directly incurred by Sensitive Data Protection, requests that are configured to invoke other Google Cloud products may result in their own billed charges. For example, the 
+projects.content.inspect
+ method may incur 
+Cloud Storage charges
+ if directed to inspect Cloud Storage objects.
+Some methods can result in billed charges for either inspection, transformation, or both depending on how they are configured. This is the case for the 
+projects.content.deidentify
+ and 
+projects.content.reidentify
+ methods when, for example, transformation is configured but inspection is not. The same applies to transformation when only inspection is configured.
+Simple redaction, which includes the 
+RedactConfig
+ and 
+ReplaceWithInfoTypeConfig
+ transformations, is not counted against the number of bytes transformed when infoType inspection is also configured.
+Inspection and transformation pricing examples
+This section contains several example inspection and transformation usage scenarios, along with pricing calculations for each.
+Note:
+ These examples assume you have already exceeded your free inspection and transformation tiers for the month.
+Scenario 1: Data inspection and transformation using content methods
+Suppose you have just over 10 GB of structured (tabular) data. You stream it to the DLP API, instructing Sensitive Data Protection in the request to 
+inspect
+ for 50 different built-in infoType detectors, and to de-identify any matches it finds by using 
+cryptographic tokenization transformation
+. After performing the de-identification operation, you note that Sensitive Data Protection has matched on and transformed around 20% of the data, or around 2 GB.
+Pricing:
+Inspection: 10 GB of data × US$3.00 per GB = US$30.00
+Transformation: 2 GB × US$2.00 per GB = US$4.00
+Total: US$34.00
+Scenario 2: Structured data transformation only using content methods
+Suppose you have a 10 GB table and want to transform three columns (user_id, email, phone_number) using 
+cryptographic tokenization transformation
+. The three columns represent about 30% of the table. Because you're specifying entire columns to transform, no inspection is necessary.
+Pricing:
+Inspection: 0 GB of data = US$0.00
+Transformation: 3 GB of data × US$2.00 per GB = US$6.00
+Total: US$6.00
+Scenario 3: Unstructured data inspection and transformation with content methods
+Suppose you have 10 GB of unstructured chat logs. You want to inspect and de-identify any infoType findings. To do so, you need to inspect the entire payload and then transform the findings. 20% of all the text are findings.
+Pricing:
+Inspection: 10 GB of data × US$3.00 per GB = US$30.00
+Transformation: 2 GB of data × US$2.00 per GB = US$4.00
+Total: = US$34.00
+Scenario 4: Storage repository inspection using storage jobs
+Suppose you have 1,000 BigQuery tables that you want to 
+inspect
+. Each table is around 1 GB, making the total size of the data 1 TB. Not wanting or needing to scan the entirety of every table, you've turned on 
+sampling
+ so that just 1,000 rows of each table are scanned. Each row is roughly 10 KB.
+Pricing:
+Data to inspect: 1,000 tables × 1,000 rows per table × 10 KB per row = 10 GB total scanned
+Total: 10 GB × US$1.00 per GB = US$10.00
+Scenario 5: Storage repository inspection and transformation using storage jobs
+Suppose you have 5 GB of structured (tabular) and unstructured (freeform) text data in a Cloud Storage bucket. You 
+create an inspection job
+ that instructs Sensitive Data Protection to inspect for 25 different 
+built-in infoType detectors
+ and to de-identify any matches it finds by using cryptographic tokenization transformation. After performing the de-identification operation, you note that Sensitive Data Protection has matched on and transformed 25% of the data, or 1.25 GB.
+Pricing:
+Inspection: 5 GB of data × US$1.00 per GB = US$5.00
+Transformation: 1.25 GB × US$1.00 per GB = US$1.25
+Total: US$6.25
+Discovery pricing
+This section describes the cost to generate 
+data profiles
+. 
+Data profiles
+ are high-level metrics and insights about your data. For information about the types of data that the discovery service can profile, see 
+Supported resources
+.
+Sensitive Data Protection offers a choice of two pricing modes for the discovery service:
+Consumption pricing mode
+. In consumption pricing mode, you are charged for the number of bytes of data profiled.
+Subscription pricing mode
+. In subscription mode, you choose how much compute capacity to reserve for discovery, measured in units. Your profiles are generated within that capacity, and you pay for that capacity continuously every second it's deployed. You have this capacity until you cancel your subscription.
+There is no charge for bytes profiled in this pricing mode.
+The subscription pricing mode offers predictable and consistent costs, regardless of your data growth.
+By default, you are billed according to the consumption pricing mode.
+Discovery pricing comparison table
+Pricing mode
+High-level pricing details
+Consumption pricing mode
+In this pricing mode, Sensitive Data Protection charges US$0.03 per GB of profiled data. Charges are capped and minimum charges apply depending on the type of data resource profiled. For more information, see 
+Consumption pricing mode
+.
+Subscription pricing mode
+In this pricing mode, Sensitive Data Protection charges US$2,500 per subscription unit. For more information, see 
+Subscription pricing mode
+.
+A default organization-level discovery subscription is included at no charge with the purchase of a qualified Security Command Center subscription. For more information, see 
+Discovery pricing for Security Command Center customers
+ on this page.
+Discovery: consumption pricing mode
+The following sections describe how Sensitive Data Protection charges you for discovery operations if you don't purchase a discovery subscription for your organization or project.
+Consumption pricing mode for BigQuery and BigLake discovery
+BigQuery: Sensitive Data Protection charges US$0.03 per GB of BigQuery data profiled. The billable bytes per table is equal to the table's size or 3 TB, whichever is lower.
+BigLake: Each BigLake table profiled—regardless of its actual size—is billed as a 300 GB table at US$0.03 per GB.
+Note:
+ You can run an estimation to determine how much it might cost to profile your BigQuery and BigLake data in consumption mode and in subscription mode. You can estimate your costs at the 
+organization, folder
+, or 
+project
+ level. This feature is available for BigQuery and BigLake data only.
+Consumption pricing mode for Cloud SQL discovery
+Sensitive Data Protection charges US$0.03 per GB of Cloud SQL data profiled, with a minimum of US$0.01 for each table. The billable bytes per table is equal to the table's size or 3 TB, whichever is lower.
+Consumption pricing mode for Cloud Storage discovery
+Sensitive Data Protection charges US$0.03 per GB of data profiled. The charge for each bucket is capped at 3 TB of data. For example, if two buckets are profiled, the charges are capped at 6 TB of data.
+You aren't charged for files that Sensitive Data Protection failed to scan, such as corrupt files and files that are password-protected. You are charged a minimum of US$0.03 for each bucket, even if it's empty or has no supported file types. For information about the supported file types, see 
+File clusters
+.
+When you profile Cloud Storage data, Cloud Storage charges apply regardless of your pricing mode. For more information, see 
+Discovery for Cloud Storage
+ on this page.
+Consumption pricing mode for Vertex AI discovery
+Sensitive Data Protection charges depend on where the profiled source data is stored—Cloud Storage or BigQuery.
+Data in Cloud Storage
+Sensitive Data Protection charges US$0.03 per GB of data profiled. The charge for each Vertex AI resource is capped at 3 TB of data. For example, if two datasets are profiled, the charges are capped at 6 TB worth of data.
+You aren't charged for files that Sensitive Data Protection failed to scan, such as corrupt files and files that are password-protected. You are charged a minimum of US$0.03 for each Vertex AI resource, even if it's empty or has no supported file types. For information about the supported file types, see 
+File clusters
+.
+In addition, Cloud Storage charges apply. For more information, see 
+Sensitive data discovery for Vertex AI
+.
+Data in BigQuery
+Sensitive Data Protection charges US$0.03 per GB of BigQuery data profiled. The billable bytes per table is equal to the table's size or 3 TB, whichever is lower.
+Consumption pricing mode examples
+This section contains example usage scenarios related to data profiling, along with pricing calculations.
+These examples are based on the 
+default profiling frequency
+.
+Scenario 1: Organization-wide data profiling
+Suppose you have 10 TB of data across your entire organization. Each month, you add the following:
+1 TB of data in new tables.
+1 TB of data in new columns in existing tables. This amounts to 5 TB of data representing tables with schema changes.
+Month 1: Profiles are created for all your data
+Data
+Price (USD)
+Starting data: 10 TB of data is profiled.
+10,000 GB x $0.03
+$300.00
+1 TB of data is added as new tables (picked up daily) over the month. Profiling is triggered shortly after the new tables are added.
+1,000 GB x $0.03
+$30.00
+5 TB of data representing tables with schema changes. Reprofiling is scheduled for the next month.
+$0
+Total
+﻿
+$330.00
+Month 2: Tables with schema changes are reprofiled
+Data
+Price (USD)
+Starting data: 12 TB total. 5 TB of data is set for reprofiling due to tables with schema changes last month.
+When a table is set for reprofiling, the entire table is reprofiled. Charges are based on the total table size.
+5,000 GB x $0.03
+$150.00
+1 TB of data is added as new tables (picked up daily) over the month. Profiling is triggered shortly after the new tables are added.
+1,000 GB x US$0.03
+$30.00
+5 TB of data representing tables with schema changes. Reprofiling is scheduled for the next month.
+$0
+Total
+$180.00
+Scenario 2: Organization-wide data profiling with static data schema
+Suppose you have 5 TB of data across your entire organization. Each month, you add 1 TB of new data in new tables. Existing tables have no schema changes (no new columns), but do have additional rows.
+Month 1: Profiles are created for all your data
+Data
+Price (USD)
+Starting data: 5 TB of data is profiled.
+5,000 GB x $0.03
+$150.00
+1 TB of data is added as new tables (picked up daily) over the month. Profiling is triggered shortly after the new tables are added.
+1,000 GB x $0.03
+$30.00
+Total
+$180.00
+Month 2: Only new tables are profiled
+Data
+Price (USD)
+Static data: 6 TB. Because existing tables remain unchanged, a new scan is not triggered.
+$0
+1 TB of data is added as new tables (picked up daily) over the month.
+1,000 GB x $0.03
+$30.00
+Total
+$30.00
+Discovery: subscription pricing mode
+A subscription unit is a reservation of compute capacity that Sensitive Data Protection uses to generate a profile.
+Sensitive Data Protection charges US$2,500 per subscription unit.
+Data resources profiled per subscription unit
+The throughput of profile generation depends on the complexity and type of the data to be profiled. Determining factors include the following:
+Presence of large custom dictionaries (not recommended for profiling).
+Table type. A BigLake table uses five times the capacity of a non-BigLake table.
+To estimate the amount of data that can be profiled for each subscription unit, refer to the following table. Multiply the tokens—10,000—by the multiplier, and then multiply that by the number of subscription units that you want to purchase.
+Resource
+Tokens per subscription unit
+Multiplier
+Estimated number of profiles per subscription unit
+Standard table
+1
+10,000
+1
+10,000
+BigLake table
+10,000
+0.2
+2,000
+File store
+2
+10,000
+0.05
+500
+Vertex AI resource that uses BigQuery as its data source
+10,000
+1
+10,000
+Vertex AI resource that uses Cloud Storage as its data source
+3
+10,000
+0.05
+500
+1
+ BigQuery or Cloud SQL tables.
+2
+ Sensitive Data Protection uses the term 
+file store
+ to refer to a file storage bucket or container. File stores that are empty or that have no 
+supported file types
+ still consume capacity. For such a file store, you consume capacity equivalent to 0.05 file stores.
+3
+ Vertex AI resources that are empty or that don't reference 
+supported file types
+ still consume capacity. In such cases, you consume capacity equivalent to 0.05 Vertex AI resources.
+For information about charges from other products or services that are directly related to Sensitive Data Protection discovery operations, see the following:
+Discovery for Cloud Storage data: See 
+Discovery for Cloud Storage
+ on this page.
+Discovery for Vertex AI data: See 
+Sensitive data discovery for Vertex AI
+.
+Discovery for Amazon S3 data: See 
+Sensitive data discovery for Amazon S3
+.
+All discovery types: See 
+Pricing for exporting data profiles
+ on this page.
+Subscription scope
+The scope of a subscription is either an organization or a project. An organization-level subscription doesn't apply to a project-level scan configuration.
+Subscription term
+The first month of the subscription is a month term. After the initial month, you are billed on a monthly basis, and you can cancel or edit the subscription at any time.
+You can't delete or reduce units of a monthly subscription during the first month.
+After the first month, you can delete or change subscription units at any time, and you will be charged only for the minutes your subscription was active.
+If you don't cancel the subscription, you continue to be charged.
+Example
+Suppose you purchased a subscription unit at 6:00:00 on October 5. The following apply:
+You start being charged at that moment.
+You can't cancel or reduce your subscription until 6:00:00 on November 4.
+If you cancel at 7:10:10 on November 5, you will be charged for the month plus one day, one hour, ten minutes, and ten seconds (from 6:00:00 on October 5 to 7:10:10 on November 5).
+Expiration of a subscription term
+At the conclusion of the subscription's initial term, billing will continue from month to month and the subscription will remain in place.
+Purchase a subscription
+In the Google API Console, 
+Go to Subscriptions
+ page.
+Select the project or organization that you want to purchase a subscription for. If you purchase an organization-level subscription, that subscription doesn't apply when you create a project-level scan configuration. Similarly, if you purchase a project-level subscription, the subscription applies only to the project.
+Next to 
+Pricing mode
+, click 
+Switch to subscriptions
+.
+Follow the prompts to complete the purchase.
+Monitoring utilization
+Capacity is distributed evenly among the resources to be profiled. The number of profiles that can be generated per day depends on the number of subscription units that you purchased and the types of data you are profiling.
+The 
+Subscription capacity used for profiling
+ system limit shows how many tokens are consumable per day. The usage chart for this limit shows how much subscription capacity you have used for the day. To review your subscription capacity usage, go to the 
+Subscriptions
+ page and click 
+Review capacity usage
+.
+For information about how to calculate how many profiles can be generated by your tokens, see 
+Data resources profiled per subscription unit
+ on this page.
+Under-provisioned capacity
+When deciding how many subscription units to purchase, you can choose to under-provision your capacity. For example, you can purchase one subscription unit even if your total current table count exceeds 10,000. However, if you under-provision capacity, the profiling frequency that you set in your scan configuration might not be followed.
+If the amount of data to be profiled exceeds your allotted capacity, Sensitive Data Protection places the data resources to be profiled in an internal queue and profiles them as capacity becomes available throughout the month. You can't control which data resources are profiled first.
+Error handling
+In some cases, profiles might be generated with errors and still consume capacity. The following are a few scenarios where this issue can occur; this isn't an exhaustive list.
+The data resources to be profiled are within VPC Service Controls boundaries.
+The service agent is missing Identity and Access Management permissions.
+Configuration changes were made in the to discovery scan configuration or inspection templates.
+These errors can still consume your capacity because the system still performs work to attempt to generate profiles. You will get a partial profile with information about why Sensitive Data Protection could not generate the full profile.
+Discovery for Cloud Storage
+In addition to Sensitive Data Protection charges, you also incur Cloud Storage charges when you profile Cloud Storage data. This section describes that types of Cloud Storage charges that you can incur.
+Class A and Class B operations
+You are charged for the Class A and Class B operations that Sensitive Data Protection performs in the process of profiling your buckets. Sensitive Data Protection uses the following operations:
+Class A: 
+storage.objects.list
+Class B: 
+storage.buckets.get and storage.buckets.getIamPolicy
+For information about how much Cloud Storage charges for Class A and Class B operations, see 
+Operation charges
+ in the Cloud Storage documentation.
+Retrieval fees
+For objects that have a non-Standard storage class, you are charged for retrieval fees. For information about how much Cloud Storage charges for data retrieval, see 
+Retrieval fees
+ in the Cloud Storage documentation.
+Discovery: BigQuery billing and quota consumption
+The process of profiling BigQuery data doesn't incur BigQuery charges or consume BigQuery quota. However, standard BigQuery charges and quotas apply when you export the data profiles to a BigQuery table.
+Discovery: pricing for exporting data profiles
+The following table shows billing and quota consumption for your usage of other Google Cloud services when you export data profiles to those services. You configure exporting by turning on certain 
+actions
+ in your 
+discovery scan configuration
+.
+Note:
+ We regularly improve our detection algorithm. If we find that your organization or project would benefit from a new improvement that we implement, we might automatically regenerate your data profiles and redo the 
+actions in your scan configuration
+. You won't incur Sensitive Data Protection charges for this operation. However, because we will redo the actions, you might incur charges for your use of other Google Cloud services. For example, if you configured Sensitive Data Protection to save the data profiles to BigQuery, you might incur BigQuery charges.
+Action
+Quota consumption
+Charges
+Publish to Google Security Operations
+Not applicable
+Depending on your contract, Google SecOps may charge for data ingestion or storage. Contact your Google Cloud account manager for more information.
+Publish to Security Command Center
+Not applicable
+Security Command Center charges may apply
+, depending on your service tier.
+1
+Save data profile copies to BigQuery
+Consumes BigQuery quota in the service agent container
+2
+ or the project to be profiled
+3
+.
+Standard BigQuery charges apply
+. The charges are applied to the service agent container
+2
+ or the project to be profiled
+3
+Save sample discovery findings to BigQuery
+Consumes BigQuery quota in the service agent container
+2
+ or the project to be profiled
+3
+.
+Standard BigQuery charges apply
+. The charges are applied to the service agent container
+2
+ or the project to be profiled
+3
+Publish to Pub/Sub
+Consumes Pub/Sub quota in the service agent container
+2
+ or the project to be profiled
+3
+Standard Pub/Sub charges apply
+. The charges are applied to the service agent container
+2
+ or the project to be profiled
+3
+Send to Knowledge Catalog as tags (
+Deprecated
+)
+Not applicable
+Knowledge Catalog 
+metadata storage charges
+ and 
+API charges
+ apply.
+1
+Sensitive Data Protection works with Security Command Center in all service tiers.
+2
+When you profile data at the organization or folder level, charges and quota consumption are applied to the 
+service agent container
+.
+3
+When you profile data at the project level, charges and quota consumption are applied to the project to be profiled.
+Discovery pricing for Security Command Center customers
+For Security Command Center customers, your use of the Sensitive Data Protection discovery service is charged depending on your Security Command Center service tier:
+Security Command Center Enterprise and Premium (organization-level) customers: You have an organization-level 
+discovery subscription
+ at no charge from Sensitive Data Protection. For more information about how your discovery capacity is allocated, see 
+Discovery capacity in Enterprise and Premium
+ in the Security Command Center documentation.
+Security Command Center Premium (project-level) and Standard customers: Sensitive Data Protection charges apply based on your chosen 
+discovery pricing mode
+.
+Risk analysis
+Risk analysis uses resources in BigQuery and charges appear as BigQuery usage. Sensitive Data Protection does not add any additional charges for risk analysis.
+Risk analysis jobs are created using the 
+projects.dlpJobs.create
+ method with the following configuration objects:
+KAnonymityConfig
+LDiversityConfig
+KMapEstimationConfig
+Controlling costs
+Depending on the quantity of information that you instruct the Sensitive Data Protection to scan, it is possible for costs to become prohibitively high. To learn several methods that you can use to keep costs down while also ensuring that you're using the Sensitive Data Protection to scan the exact data that you intend to, see 
+Keeping Sensitive Data Protection costs under control
+.
+What's next
+Read the 
+Sensitive Data Protection documentation
+.
+Get started with 
+Sensitive Data Protection
+.
+Learn about 
+Sensitive Data Protection solutions and use cases
+.
+Request a custom quote
+With Google Cloud's pay-as-you-go pricing, you only pay for the services you use. Connect with our sales team to get a custom quote for your organization.
+Contact sales
+menu
+Docs
+Support
+Console
+Sign in
+Start free
+Start free
+Contact us
+close
+Accelerate your digital transformation
+Whether your business is early in its journey or well on its way to digital transformation, Google Cloud can help solve your toughest challenges.
+Learn more
+Key benefits
+Why Google Cloud
+Top reasons businesses choose us.
+AI and Agents
+Get enterprise-ready AI.
+Multicloud
+Run your apps wherever you need them.
+Global infrastructure
+Build on the same infrastructure as Google.
+Data Cloud
+Make smarter decisions with unified data.
+Modern Infrastructure Cloud
+Next generation of cloud infrastructure.
+Security
+Protect your users, data, and apps.
+Productivity and collaboration
+Connect your teams with AI-powered apps.
+Reports and insights
+Executive insights
+Curated C-suite perspectives.
+Analyst reports
+Read what industry analysts say about us.
+Whitepapers
+Browse and download popular whitepapers.
+Customer stories
+Explore case studies and videos.
+close
+Industry Solutions
+Application Modernization
+Artificial Intelligence
+APIs and Applications
+Data Analytics
+Databases
+Infrastructure
+Productivity and Collaboration
+Security
+Startups and SMB
+See all solutions
+Industry Solutions
+Reduce cost, increase operational agility, and capture new market opportunities.
+Retail
+Analytics and collaboration tools for the retail value chain.
+Consumer Packaged Goods
+Solutions for CPG digital transformation and brand growth.
+Financial Services
+Computing, data management, and analytics tools for financial services.
+Healthcare and Life Sciences
+Advance research at scale and empower healthcare innovation.
+Media and Entertainment
+Solutions for content production and distribution operations.
+Telecommunications
+Hybrid and multi-cloud services to deploy and monetize 5G.
+Games
+AI-driven solutions to build and scale games faster.
+Manufacturing
+Migration and AI tools to optimize the manufacturing value chain.
+Supply Chain and Logistics
+Enable sustainable, efficient, and resilient data-driven operations across supply chain and logistics operations.
+Government
+Data storage, AI, and analytics solutions for government agencies.
+Education
+Teaching tools to provide more engaging learning experiences.
+Not seeing what you're looking for?
+See all industry solutions
+Application Modernization
+Assess, plan, implement, and measure software practices and capabilities to modernize and simplify your organization’s business application portfolios.
+CAMP
+Program that uses DORA to improve your software delivery capabilities.
+Modernize Traditional Applications
+Analyze, categorize, and get started with cloud migration on traditional workloads.
+Migrate from PaaS: Cloud Foundry, Openshift
+Tools for moving your existing containers into Google's managed container services.
+Migrate from Mainframe
+Automated tools and prescriptive guidance for moving your mainframe apps to the cloud.
+Modernize Software Delivery
+Software supply chain best practices - innerloop productivity, CI/CD and S3C.
+DevOps Best Practices
+Processes and resources for implementing DevOps in your org.
+SRE Principles
+Tools and resources for adopting SRE in your org.
+Platform Engineering
+Comprehensive suite of managed services and Golden Paths to build, manage, and scale IDPs.
+Architect for Multicloud
+Manage workloads across multiple clouds with a consistent platform.
+Artificial Intelligence
+Add intelligence and efficiency to your business with AI and machine learning.
+Gemini Enterprise for Customer Experience
+Build and manage agents that live across the entire customer lifecycle.
+Gemini Enterprise
+Unified agentic portfolio for your entire organization.
+AI Commerce Search
+Google-quality search and product recommendations for retailers.
+Google Cloud with Gemini
+AI assistants for application development, coding, and more.
+Physical AI
+Simulate, train, and operate the next generation of robots, autonomous vehicles, industrial devices, and machines.
+APIs and Applications
+Speed up the pace of innovation without coding, using APIs, apps, and automation.
+New Business Channels Using APIs
+Attract and empower an ecosystem of developers and partners.
+Unlocking Legacy Applications Using APIs
+Cloud services for extending and modernizing legacy apps.
+Open Banking APIx
+Simplify and accelerate secure delivery of open banking compliant APIs.
+Data Analytics
+Generate instant insights from data at any scale with a serverless, fully managed analytics platform that significantly simplifies analytics.
+Data Migration
+Migrate and modernize your data warehouse and data lakes with AI-powered migration services.
+Data Lakehouse
+Unify and govern your multimodal data with a high-performance and open data lakehouse.
+Real-time Analytics
+Insights from ingesting, processing, and analyzing event streams.
+Marketing Analytics
+Solutions for collecting, analyzing, and activating customer data.
+Datasets
+Data from Google, public, and commercial providers to enrich your analytics and AI initiatives.
+Business Intelligence
+Solutions for modernizing your BI stack and creating rich data experiences.
+Data Analytics Agents
+Built-in agents for data lifecycle and tools to build your own agents.
+Geospatial Analytics
+A comprehensive platform to solve for geospatial use cases at scale.
+Data Science
+Managed services and integrated workflows to build, manage, and scale data science.
+Databases
+Migrate and manage enterprise data with security, reliability, high availability, and fully managed data services.
+Database Migration
+Guides and tools to simplify your database migration life cycle.
+Database Modernization
+Upgrades to modernize your operational database infrastructure.
+Databases for Games
+Build global, live games with Google Cloud databases.
+Google Cloud Databases
+Database services to migrate, manage, and modernize data.
+Migrate Oracle workloads to Google Cloud
+Rehost, replatform, rewrite your Oracle workloads.
+Open Source Databases
+Fully managed open source databases with enterprise-grade support.
+SQL Server on Google Cloud
+Options for running SQL Server virtual machines on Google Cloud.
+Gemini for Databases
+Supercharge database development and management with AI.
+Infrastructure
+Migrate quickly with solutions for SAP, VMware, Windows, Oracle, and other workloads.
+Application Migration
+Discovery and analysis tools for moving to the cloud.
+SAP on Google Cloud
+Certifications for running SAP applications and SAP HANA.
+High Performance Computing
+Compute, storage, and networking options to support any workload.
+Windows on Google Cloud
+Tools and partners for running Windows workloads.
+Data Center Migration
+Migration solutions for VMs, apps, databases, and more.
+Active Assist
+Automatic cloud resource optimization and increased security.
+Virtual Desktops
+Remote work solutions for desktops and applications (VDI & DaaS).
+Rapid Migration and Modernization Program
+End-to-end migration program to simplify your path to the cloud.
+Backup and Disaster Recovery
+Ensure your business continuity needs are met.
+Red Hat on Google Cloud
+Google and Red Hat provide an enterprise-grade platform for traditional on-prem and custom applications.
+Cross-Cloud Network
+Simplify hybrid and multicloud networking, and secure your workloads, data, and users.
+AI Infrastructure
+Train, serve and operate your AI applications on the agent-native infrastructure powering Google.
+Productivity and Collaboration
+Change the way teams work with solutions designed for humans and built for impact.
+Google Workspace
+Collaboration and productivity tools for enterprises.
+Google Workspace Essentials
+Secure video meetings and modern collaboration for teams.
+Cloud Identity
+Unified platform for IT admins to manage user devices and apps.
+Chrome Enterprise
+ChromeOS, Chrome Browser, and Chrome devices built for business.
+Security
+Detect, investigate, and respond to online threats to help protect your business.
+Agentic SOC
+Delivering better security outcomes with AI agents.
+Web App and API Protection
+Threat and fraud protection for your web applications and APIs.
+Security and Resilience Framework
+Solutions for each phase of the security and resilience life cycle.
+Risk and compliance as code (RCaC)
+Solution to modernize your governance, risk, and compliance function with automation.
+Software Supply Chain Security
+Solution for improving end-to-end software supply chain security.
+Security Foundation
+Recommended products to help achieve a strong security posture.
+Google Cloud Cybershield™
+Strengthen nationwide cyber defense.
+Startups and SMB
+Accelerate startup and SMB growth with tailored solutions and programs.
+Startup Program
+Get financial, business, and technical support to take your startup to the next level.
+Small and Medium Business
+Explore solutions for web hosting, app development, AI, and analytics.
+Software as a Service
+Build better SaaS products, scale efficiently, and grow your business.
+close
+Featured Products
+AI and Machine Learning
+Business Intelligence
+Compute
+Containers
+Data Analytics
+Databases
+Developer Tools
+Distributed Cloud
+Hybrid and Multicloud
+Industry Specific
+Integration Services
+Management Tools
+Maps and Geospatial
+Media Services
+Migration
+Networking
+Operations
+Productivity and Collaboration
+Security and Identity
+Serverless
+Storage
+Web3
+See all products (100+)
+Featured Products
+Gemini Enterprise app
+Secure platform to discover, create, run, and govern AI agents for employees.
+Agent Platform
+Unified platform for ML models, generative AI, and agent building.
+Compute Engine
+Virtual machines running in Google’s data center.
+Cloud Storage
+Object storage that’s secure, durable, and scalable.
+BigQuery
+Autonomous data to AI platform for analytics and data science.
+Cloud Run
+Fully managed environment for running containerized apps.
+Google Kubernetes Engine
+Managed environment for running containerized apps.
+Looker
+Platform for BI, data applications, and embedded analytics.
+Apigee API Management
+Manage the full life cycle of APIs anywhere with visibility and control.
+Cloud SQL
+Relational database services for MySQL, PostgreSQL and SQL Server.
+Cloud CDN
+Content delivery network for delivering web and video.
+Not seeing what you're looking for?
+See all products (100+)
+AI and Machine Learning
+Gemini Enterprise Agent Platform
+Unified platform for ML models, generative AI, and agent building.
+Gemini Enterprise app
+Secure platform to discover, create, run, and govern AI agents for employees.
+Gemini Enterprise for Customer Experience
+Build and manage agents that live across the entire customer lifecycle.
+Model Garden
+Single place to discover over 200 models from Google and Google partners.
+Customer Experience Agent Studio
+Build conversational AI with both deterministic and gen AI functionality.
+Agent Search
+Build Google-quality search for your enterprise apps and experiences.
+Speech-to-Text
+Speech recognition and transcription across 125 languages.
+Text-to-Speech
+Speech synthesis in 220+ voices and 40+ languages.
+Translation AI
+Language detection, translation, and glossary support.
+Vision AI
+Custom and pre-trained models to detect emotion, text, and more.
+Contact Center as a Service
+Omnichannel contact center solution that is native to the cloud.
+Not seeing what you're looking for?
+See all AI and machine learning products
+Business Intelligence
+Looker
+Platform for BI, data applications, and embedded analytics.
+Data Studio
+Interactive data suite for dashboarding, reporting, and analytics.
+Compute
+Compute Engine
+Virtual machines running in Google’s data center.
+App Engine
+Serverless application platform for apps and back ends.
+Cloud GPUs
+GPUs for ML, scientific computing, and 3D visualization.
+Migrate to Virtual Machines
+Server and virtual machine migration to Compute Engine.
+Spot VMs
+Compute instances for batch jobs and fault-tolerant workloads.
+Batch
+Fully managed service for scheduling batch jobs.
+Sole-Tenant Nodes
+Dedicated hardware for compliance, licensing, and management.
+Bare Metal
+Infrastructure to run specialized workloads on Google Cloud.
+Recommender
+Usage recommendations for Google Cloud products and services.
+VMware Engine
+Fully managed, native VMware Cloud Foundation software stack.
+Cloud Run
+Fully managed environment for running containerized apps.
+Not seeing what you're looking for?
+See all compute products
+Containers
+Google Kubernetes Engine
+Managed environment for running containerized apps.
+Cloud Run
+Fully managed environment for running containerized apps.
+Cloud Build
+Solution for running build steps in a Docker container.
+Artifact Registry
+Package manager for build artifacts and dependencies.
+Cloud Code
+IDE support to write, run, and debug Kubernetes applications.
+Cloud Deploy
+Fully managed continuous delivery to GKE and Cloud Run.
+Migrate to Containers
+Components for migrating VMs into system containers on GKE.
+Deep Learning Containers
+Containers with data science frameworks, libraries, and tools.
+Knative
+Components to create Kubernetes-native cloud-based software.
+Data Analytics
+BigQuery
+Autonomous data to AI platform for analytics and data science.
+Managed Service for Apache Spark
+Zero-ops serverless or managed clusters, accelerated by Lightning Engine.
+Dataflow
+Real-time analytics for stream and batch processing.
+Looker
+Platform for BI, data applications, and embedded analytics.
+Lakehouse
+Open lakehouse platform with enterprise storage and performance capabilities.
+Pub/Sub
+Messaging service for event ingestion and delivery.
+Managed Service for Apache Airflow
+Workflow orchestration service built on Apache Airflow.
+Knowledge Catalog
+Always-on catalog for AI that provides universal context for agents.
+Data Analytics Agents
+Built-in agents for data lifecycle and tools to build your own agents.
+Data Analytics Migration Services
+Free-to-use, cloud-native and AI-powered data migration services.
+Managed Service for Apache Kafka
+Managed Kafka service to operate highly available Apache Kafka clusters.
+Not seeing what you're looking for?
+See all data analytics products
+Databases
+AlloyDB for PostgreSQL
+Fully managed, PostgreSQL-compatible database for enterprise workloads.
+Cloud SQL
+Fully managed database for MySQL, PostgreSQL, and SQL Server.
+Firestore
+Highly scalable and serverless NoSQL document database, with MongoDB compatibility.
+Spanner
+Cloud-native relational database with unlimited scale and 99.999% availability.
+Bigtable
+Cloud-native wide-column database for large-scale, low-latency workloads.
+Datastream
+Serverless change data capture and replication service.
+Database Migration Service
+Serverless, minimal downtime migrations to Cloud SQL.
+Bare Metal Solution
+Fully managed infrastructure for your Oracle workloads.
+Memorystore
+Fully managed Redis and Memcached for sub-millisecond data access.
+Developer Tools
+Artifact Registry
+Universal package manager for build artifacts and dependencies.
+Cloud Code
+IDE support to write, run, and debug Kubernetes applications.
+Cloud Build
+Continuous integration and continuous delivery platform.
+Cloud Deploy
+Fully managed continuous delivery to GKE and Cloud Run.
+Cloud Deployment Manager
+Service for creating and managing Google Cloud resources.
+Cloud SDK
+Command-line tools and libraries for Google Cloud.
+Cloud Scheduler
+Cron job scheduler for task automation and management.
+Cloud Source Repositories
+Private Git repository to store, manage, and track code.
+Infrastructure Manager
+Automate infrastructure management with Terraform.
+Cloud Workstations
+Managed and secure development environments in the cloud.
+Gemini Code Assist
+AI-powered assistant available across Google Cloud and your IDE.
+Not seeing what you're looking for?
+See all developer tools
+Distributed Cloud
+Google Distributed Cloud Connected
+Distributed cloud services for edge workloads.
+Google Distributed Cloud Air-gapped
+Distributed cloud for air-gapped workloads.
+Hybrid and Multicloud
+Google Kubernetes Engine
+Managed environment for running containerized apps.
+Apigee API Management
+API management, development, and security platform.
+Migrate to Containers
+Tool to move workloads and existing applications to GKE.
+Cloud Build
+Service for executing builds on Google Cloud infrastructure.
+Observability
+Monitoring, logging, and application performance suite.
+Cloud Service Mesh
+Fully managed service mesh based on Envoy and Istio.
+Google Distributed Cloud
+Fully managed solutions for the edge and data centers.
+Industry Specific
+Anti Money Laundering AI
+Detect suspicious, potential money laundering activity with AI.
+Cloud Healthcare API
+Solution for bridging existing care systems and apps on Google Cloud.
+Device Connect for Fitbit
+Gain a 360-degree patient view with connected Fitbit data on Google Cloud.
+Telecom Network Automation
+Ready to use cloud-native automation for telecom networks.
+Telecom Data Fabric
+Telecom data management and analytics with an automated approach.
+Telecom Subscriber Insights
+Ingests data to improve subscriber acquisition and retention.
+Spectrum Access System (SAS)
+Controls fundamental access to the Citizens Broadband Radio Service (CBRS).
+Integration Services
+Application Integration
+Connect to 3rd party apps and enable data consistency without code.
+Workflows
+Workflow orchestration for serverless products and API services.
+Apigee API Management
+Manage the full life cycle of APIs anywhere with visibility and control.
+Cloud Tasks
+Task management service for asynchronous task execution.
+Cloud Scheduler
+Cron job scheduler for task automation and management.
+Managed Service for Apache Spark
+Zero-ops serverless or managed clusters, accelerated by Lightning Engine.
+Cloud Data Fusion
+Data integration for building and managing data pipelines.
+Managed Service for Apache Airflow
+Workflow orchestration service built on Apache Airflow.
+Pub/Sub
+Messaging service for event ingestion and delivery.
+Eventarc
+Build an event-driven architecture that can connect any service.
+Management Tools
+Cloud Shell
+Interactive shell environment with a built-in command line.
+Cloud console
+Web-based interface for managing and monitoring cloud apps.
+Cloud Endpoints
+Deployment and development management for APIs on Google Cloud.
+Cloud IAM
+Permissions management system for Google Cloud resources.
+Cloud APIs
+Programmatic interfaces for  Google Cloud services.
+Service Catalog
+Service catalog for admins managing internal enterprise solutions.
+Cost Management
+Tools for monitoring, controlling, and optimizing your costs.
+Observability
+Monitoring, logging, and application performance suite.
+Carbon Footprint
+Dashboard to view and export Google Cloud carbon emissions reports.
+Config Connector
+Kubernetes add-on for managing Google Cloud resources.
+Active Assist
+Tools for easily managing performance, security, and cost.
+Not seeing what you're looking for?
+See all management tools
+Maps and Geospatial
+Earth Engine
+Geospatial platform for Earth observation data and analysis.
+Google Maps Platform
+Create immersive location experiences and improve business operations.
+Media Services
+Cloud CDN
+Content delivery network for serving web and video content.
+Live Stream API
+Service to convert live video and package for streaming.
+OpenCue
+Open source render manager for visual effects and animation.
+Transcoder API
+Convert video files and package them for optimized delivery.
+Video Stitcher API
+Service for dynamic or server side ad insertion.
+Migration
+Migration Center
+Unified platform for migrating and modernizing with Google Cloud.
+Application Migration
+App migration to the cloud for low-cost refresh cycles.
+Migrate to Virtual Machines
+Components for migrating VMs and physical servers to Compute Engine.
+Cloud Foundation Toolkit
+Reference templates for Deployment Manager and Terraform.
+Database Migration Service
+Serverless, minimal downtime migrations to Cloud SQL.
+Migrate to Containers
+Components for migrating VMs into system containers on GKE.
+Data Analytics Migration Services
+Streamlined data warehouse and data lake migration tooling and incentives.
+Rapid Migration and Modernization Program
+End-to-end migration program to simplify your path to the cloud.
+Transfer Appliance
+Storage server for moving large volumes of data to Google Cloud.
+Storage Transfer Service
+Data transfers from online and on-premises sources to Cloud Storage.
+VMware Engine
+Migrate and run your VMware workloads natively on Google Cloud.
+Networking
+Cloud Armor
+Security policies and defense against web and DDoS attacks.
+Cloud CDN and Media CDN
+Content delivery network for serving web and video content.
+Cloud DNS
+Domain name system for reliable and low-latency name lookups.
+Cloud Load Balancing
+Service for distributing traffic across applications and regions.
+Cloud NAT
+NAT service for giving private instances internet access.
+Cloud Connectivity
+Connectivity options for VPN, peering, and enterprise needs.
+Network Connectivity Center
+Connectivity management to help simplify and scale networks.
+Network Intelligence Center
+Network monitoring, verification, and optimization platform.
+Network Service Tiers
+Cloud network options  based on performance, availability, and cost.
+Virtual Private Cloud
+Single VPC for an entire organization, isolated within projects.
+Private Service Connect
+Secure connection between your VPC and services.
+Not seeing what you're looking for?
+See all networking products
+Operations
+Cloud Logging
+Google Cloud audit, platform, and application logs management.
+Cloud Monitoring
+Infrastructure and application health with rich metrics.
+Error Reporting
+Application error identification and analysis.
+Managed Service for Prometheus
+Fully-managed Prometheus on Google Cloud.
+Cloud Trace
+Tracing system collecting latency data from applications.
+Cloud Profiler
+CPU and heap profiler for analyzing application performance.
+Cloud Quotas
+Manage quotas for all Google Cloud services.
+Productivity and Collaboration
+AppSheet
+No-code development platform to build and extend applications.
+AppSheet Automation
+Build automations and applications on a unified platform.
+Gemini Enterprise app
+Secure platform to discover, create, run, and govern AI agents for employees.
+Google Workspace
+Collaboration and productivity tools for individuals and organizations.
+Google Workspace Essentials
+Secure video meetings and modern collaboration for teams.
+Cloud Identity
+Unified platform for IT admins to manage user devices and apps.
+Chrome Enterprise
+ChromeOS, Chrome browser, and Chrome devices built for business.
+Security and Identity
+Cloud IAM
+Permissions management system for Google Cloud resources.
+Sensitive Data Protection
+Discover, classify, and protect your valuable data assets.
+Mandiant Managed Defense
+Find and eliminate threats with confidence 24x7.
+Google Threat Intelligence
+Know who’s targeting you.
+Security Command Center
+Platform for defending against threats to your Google Cloud assets.
+Cloud Key Management
+Manage encryption keys on Google Cloud.
+Mandiant Incident Response
+Minimize the impact of a breach.
+Chrome Enterprise Premium
+Get secure enterprise browsing with extensive endpoint visibility.
+Assured Workloads
+Compliance and security controls for sensitive workloads.
+Google Security Operations
+Detect, investigate, and respond to cyber threats.
+Mandiant Consulting
+Get expert guidance before, during, and after an incident.
+Not seeing what you're looking for?
+See all security and identity products
+Serverless
+Cloud Run
+Fully managed environment for running containerized apps.
+Cloud Functions
+Platform for creating functions that respond to cloud events.
+App Engine
+Serverless application platform for apps and back ends.
+Workflows
+Workflow orchestration for serverless products and API services.
+API Gateway
+Develop, deploy, secure, and manage APIs with a fully managed gateway.
+Storage
+Cloud Storage
+Object storage that’s secure, durable, and scalable.
+Block Storage
+High-performance storage for AI, analytics, databases, and enterprise applications.
+Filestore
+File storage that is highly scalable and secure.
+Persistent Disk
+Block storage for virtual machine instances running on Google Cloud.
+Cloud Storage for Firebase
+Object storage for storing and serving user-generated content.
+Local SSD
+Block storage that is locally attached for high-performance needs.
+Storage Transfer Service
+Data transfers from online and on-premises sources to Cloud Storage.
+Google Cloud Managed Lustre
+High performance managed parallel file service.
+Google Cloud NetApp Volumes
+File storage service for NFS, SMB, and multi-protocol environments.
+Backup and DR Service
+Service for centralized, application-consistent data protection.
+Web3
+Blockchain Node Engine
+Fully managed node hosting for developing on the blockchain.
+Blockchain RPC
+Enterprise-grade RPC for building on the blockchain.
+close
+Save money with our transparent approach to pricing
+Google Cloud's pay-as-you-go pricing offers automatic savings based on monthly usage and discounted rates for prepaid resources. Contact us today to get a quote.
+Request a quote
+Pricing overview and tools
+Google Cloud pricing
+Pay only for what you use with no lock-in.
+Pricing calculator
+Calculate your cloud savings.
+Google Cloud free tier
+Explore products with free monthly usage.
+Cost optimization framework
+Get best practices to optimize workload costs.
+Cost management tools
+Tools to monitor and control your costs.
+Product-specific Pricing
+Compute Engine
+Cloud SQL
+Google Kubernetes Engine
+Cloud Storage
+BigQuery
+See full price list with 100+ products
+close
+Learn & build
+Google Cloud Free Program
+$300 in free credits and 20+ free products.
+Solution Generator
+Get AI generated solution recommendations.
+Quickstarts
+Get tutorials and walkthroughs.
+Blog
+Read our latest product news and stories.
+Learning Hub
+Grow your career with role-based training.
+Google Cloud certification
+Prepare and register for certifications.
+Cloud computing basics
+Learn more about cloud computing basics.
+Cloud Architecture Center
+Get reference architectures and best practices.
+Connect
+Innovators
+Join Google Cloud's developer program.
+Developer Center
+Stay in the know and stay connected.
+Events and webinars
+Browse upcoming and on demand events.
+Google Cloud Community
+Ask questions, find answers, and connect.
+Consulting and Partners
+Google Cloud Consulting
+Work with our experts on cloud projects.
+Google Cloud Marketplace
+Deploy ready-to-go solutions in a few clicks.
+Find a partner
+Explore the benefits of working with a partner.
+Google Cloud partners
+Learn about the ecosystem and resources.
+close
+Overview
+arrow_forward
+Solutions
+arrow_forward
+Products
+arrow_forward
+Pricing
+arrow_forward
+Resources
+arrow_forward
+Docs
+Support
+Console
+Accelerate your digital transformation
+Learn more
+Key benefits
+Why Google Cloud
+AI and Agents
+Multicloud
+Global infrastructure
+Data Cloud
+Modern Infrastructure Cloud
+Security
+Productivity and collaboration
+Reports and insights
+Executive insights
+Analyst reports
+Whitepapers
+Customer stories
+Industry Solutions
+Retail
+Consumer Packaged Goods
+Financial Services
+Healthcare and Life Sciences
+Media and Entertainment
+Telecommunications
+Games
+Manufacturing
+Supply Chain and Logistics
+Government
+Education
+See all industry solutions
+See all solutions
+Application Modernization
+CAMP
+Modernize Traditional Applications
+Migrate from PaaS: Cloud Foundry, Openshift
+Migrate from Mainframe
+Modernize Software Delivery
+DevOps Best Practices
+SRE Principles
+Platform Engineering
+Architect for Multicloud
+Artificial Intelligence
+Gemini Enterprise for Customer Experience
+Gemini Enterprise
+AI Commerce Search
+Google Cloud with Gemini
+Physical AI
+APIs and Applications
+New Business Channels Using APIs
+Unlocking Legacy Applications Using APIs
+Open Banking APIx
+Data Analytics
+Data Migration
+Data Lakehouse
+Real-time Analytics
+Marketing Analytics
+Datasets
+Business Intelligence
+Data Analytics Agents
+Geospatial Analytics
+Data Science
+Databases
+Database Migration
+Database Modernization
+Databases for Games
+Google Cloud Databases
+Migrate Oracle workloads to Google Cloud
+Open Source Databases
+SQL Server on Google Cloud
+Gemini for Databases
+Infrastructure
+Application Migration
+SAP on Google Cloud
+High Performance Computing
+Windows on Google Cloud
+Data Center Migration
+Active Assist
+Virtual Desktops
+Rapid Migration and Modernization Program
+Backup and Disaster Recovery
+Red Hat on Google Cloud
+Cross-Cloud Network
+AI Infrastructure
+Productivity and Collaboration
+Google Workspace
+Google Workspace Essentials
+Cloud Identity
+Chrome Enterprise
+Security
+Agentic SOC
+Web App and API Protection
+Security and Resilience Framework
+Risk and compliance as code (RCaC)
+Software Supply Chain Security
+Security Foundation
+Google Cloud Cybershield™
+Startups and SMB
+Startup Program
+Small and Medium Business
+Software as a Service
+Featured Products
+Gemini Enterprise app
+Agent Platform
+Compute Engine
+Cloud Storage
+BigQuery
+Cloud Run
+Google Kubernetes Engine
+Looker
+Apigee API Management
+Cloud SQL
+Cloud CDN
+See all products (100+)
+AI and Machine Learning
+Gemini Enterprise Agent Platform
+Gemini Enterprise app
+Gemini Enterprise for Customer Experience
+Model Garden
+Customer Experience Agent Studio
+Agent Search
+Speech-to-Text
+Text-to-Speech
+Translation AI
+Vision AI
+Contact Center as a Service
+See all AI and machine learning products
+Business Intelligence
+Looker
+Data Studio
+Compute
+Compute Engine
+App Engine
+Cloud GPUs
+Migrate to Virtual Machines
+Spot VMs
+Batch
+Sole-Tenant Nodes
+Bare Metal
+Recommender
+VMware Engine
+Cloud Run
+See all compute products
+Containers
+Google Kubernetes Engine
+Cloud Run
+Cloud Build
+Artifact Registry
+Cloud Code
+Cloud Deploy
+Migrate to Containers
+Deep Learning Containers
+Knative
+Data Analytics
+BigQuery
+Managed Service for Apache Spark
+Dataflow
+Looker
+Lakehouse
+Pub/Sub
+Managed Service for Apache Airflow
+Knowledge Catalog
+Data Analytics Agents
+Data Analytics Migration Services
+Managed Service for Apache Kafka
+See all data analytics products
+Databases
+AlloyDB for PostgreSQL
+Cloud SQL
+Firestore
+Spanner
+Bigtable
+Datastream
+Database Migration Service
+Bare Metal Solution
+Memorystore
+Developer Tools
+Artifact Registry
+Cloud Code
+Cloud Build
+Cloud Deploy
+Cloud Deployment Manager
+Cloud SDK
+Cloud Scheduler
+Cloud Source Repositories
+Infrastructure Manager
+Cloud Workstations
+Gemini Code Assist
+See all developer tools
+Distributed Cloud
+Google Distributed Cloud Connected
+Google Distributed Cloud Air-gapped
+Hybrid and Multicloud
+Google Kubernetes Engine
+Apigee API Management
+Migrate to Containers
+Cloud Build
+Observability
+Cloud Service Mesh
+Google Distributed Cloud
+Industry Specific
+Anti Money Laundering AI
+Cloud Healthcare API
+Device Connect for Fitbit
+Telecom Network Automation
+Telecom Data Fabric
+Telecom Subscriber Insights
+Spectrum Access System (SAS)
+Integration Services
+Application Integration
+Workflows
+Apigee API Management
+Cloud Tasks
+Cloud Scheduler
+Managed Service for Apache Spark
+Cloud Data Fusion
+Managed Service for Apache Airflow
+Pub/Sub
+Eventarc
+Management Tools
+Cloud Shell
+Cloud console
+Cloud Endpoints
+Cloud IAM
+Cloud APIs
+Service Catalog
+Cost Management
+Observability
+Carbon Footprint
+Config Connector
+Active Assist
+See all management tools
+Maps and Geospatial
+Earth Engine
+Google Maps Platform
+Media Services
+Cloud CDN
+Live Stream API
+OpenCue
+Transcoder API
+Video Stitcher API
+Migration
+Migration Center
+Application Migration
+Migrate to Virtual Machines
+Cloud Foundation Toolkit
+Database Migration Service
+Migrate to Containers
+Data Analytics Migration Services
+Rapid Migration and Modernization Program
+Transfer Appliance
+Storage Transfer Service
+VMware Engine
+Networking
+Cloud Armor
+Cloud CDN and Media CDN
+Cloud DNS
+Cloud Load Balancing
+Cloud NAT
+Cloud Connectivity
+Network Connectivity Center
+Network Intelligence Center
+Network Service Tiers
+Virtual Private Cloud
+Private Service Connect
+See all networking products
+Operations
+Cloud Logging
+Cloud Monitoring
+Error Reporting
+Managed Service for Prometheus
+Cloud Trace
+Cloud Profiler
+Cloud Quotas
+Productivity and Collaboration
+AppSheet
+AppSheet Automation
+Gemini Enterprise app
+Google Workspace
+Google Workspace Essentials
+Cloud Identity
+Chrome Enterprise
+Security and Identity
+Cloud IAM
+Sensitive Data Protection
+Mandiant Managed Defense
+Google Threat Intelligence
+Security Command Center
+Cloud Key Management
+Mandiant Incident Response
+Chrome Enterprise Premium
+Assured Workloads
+Google Security Operations
+Mandiant Consulting
+See all security and identity products
+Serverless
+Cloud Run
+Cloud Functions
+App Engine
+Workflows
+API Gateway
+Storage
+Cloud Storage
+Block Storage
+Filestore
+Persistent Disk
+Cloud Storage for Firebase
+Local SSD
+Storage Transfer Service
+Google Cloud Managed Lustre
+Google Cloud NetApp Volumes
+Backup and DR Service
+Web3
+Blockchain Node Engine
+Blockchain RPC
+Save money with our transparent approach to pricing
+Request a quote
+Pricing overview and tools
+Google Cloud pricing
+Pricing calculator
+Google Cloud free tier
+Cost optimization framework
+Cost management tools
+Product-specific Pricing
+Compute Engine
+Cloud SQL
+Google Kubernetes Engine
+Cloud Storage
+BigQuery
+See full price list with 100+ products
+Learn & build
+Google Cloud Free Program
+Solution Generator
+Quickstarts
+Blog
+Learning Hub
+Google Cloud certification
+Cloud computing basics
+Cloud Architecture Center
+Connect
+Innovators
+Developer Center
+Events and webinars
+Google Cloud Community
+Consulting and Partners
+Google Cloud Consulting
+Google Cloud Marketplace
+Find a partner
+Google Cloud partners

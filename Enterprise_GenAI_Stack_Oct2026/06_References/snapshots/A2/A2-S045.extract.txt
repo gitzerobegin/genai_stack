@@ -1,0 +1,8 @@
+SOURCE ID: A2-S045
+URL: https://www.elastic.co/trust
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Jina AI SOC 2 compliance security Elastic trust center Jina API data (allowed: jina.ai, elastic.co)
+========================================================================
+
+Elastic's Trust Center lists SOC 2 among independently audited standards. FAQ (https://www.elastic.co/trust/faq): Elastic Cloud is compliant with ISO 27001, ISO 27017, ISO 27018, SOC 2 Type II. Customers can request a SOC 2 report through the Elastic Trust Center. No Jina-specific SOC 2 scope statement found. Jina legal page: customer data encrypted in transit and at rest, unique encryption keys per customer; Jina AI does not use Customer request data to train its models. Self-hosted Jina models run in Docker containers on your own infrastructure for air-gapped/offline scenarios (https://www.elastic.co/search-labs/blog/on-prem-ai-jina-embedding-models).

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S035
+URL: https://developers.openai.com/api/docs/models/text-embedding-3-small
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI API pricing text-embedding-3-small text-embedding-3-large per 1M tokens batch (allowed: openai.com, developers.openai.com)
+========================================================================
+
+text-embedding-3-small standard rate $0.02 per 1M tokens. text-embedding-3-large model page lists $0.13 standard with Batch API price $0.065 per 1M tokens. (Earlier community threads ~400 days old reported a temporary discrepancy with the pricing page.)

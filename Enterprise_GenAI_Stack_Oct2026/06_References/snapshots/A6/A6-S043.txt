@@ -1,0 +1,9 @@
+SOURCE ID: A6-S043
+URL: https://proxy.golang.org/github.com/spiffe/spire/@latest
+FINAL URL: https://proxy.golang.org/github.com/spiffe/spire/@latest
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+{"Version":"v1.15.3","Time":"2026-08-21T13:34:50Z","Origin":{"VCS":"git","URL":"https://github.com/spiffe/spire","Hash":"2f7861ae3923caf1f57eb087fc2928d58c0fb1d2","Ref":"refs/tags/v1.15.3"}}

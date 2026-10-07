@@ -1,0 +1,8 @@
+SOURCE ID: A2-S080
+URL: https://www.ragie.ai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Ragoos RAG re-ranking startup
+========================================================================
+
+Closest RAG-related name: Ragie (ragie.ai), a RAG-as-a-service platform that retrieves relevant chunks and then uses an LLM-based re-ranking system; lists LLM re-ranking, summary index, entity extraction, hybrid semantic and keyword search. Other near-misses: Ragoos restaurant (Bengaluru, ragoosrestaurant.com); RAGus.ai (no-code web scraper); RaGOO (genome scaffolding tool, unsupported); Ragos (CNC machinery). None is an AI reranker vendor named Ragoos.

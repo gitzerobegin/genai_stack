@@ -1,0 +1,8 @@
+SOURCE ID: A2-S026
+URL: https://jina.ai/en-US/news/jina-reranker-v3-5-faster-listwise-reranking-hybrid-attention-self-distillation/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Jina AI acquired Elastic jina-embeddings-v5 jina-reranker latest
+========================================================================
+
+jina-reranker-v3.5 is a 0.6B listwise reranker; reaches 63.20 nDCG@10 on BEIR, ahead of Qwen3-Reranker-4B with roughly 7x fewer parameters; reranks up to 1.56x faster than v3 on long documents. Hugging Face card: switching the model string to jina-reranker-v3.5 - same request schema. arXiv 2607.18152 (July 2026). Elastic write-up calls it a drop-in replacement for v3.

@@ -1,0 +1,9 @@
+SOURCE ID: A6-S064
+URL: https://proxy.golang.org/github.com/envoyproxy/ai-gateway/@latest
+FINAL URL: https://proxy.golang.org/github.com/envoyproxy/ai-gateway/@latest
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+{"Version":"v1.2.0","Time":"2026-10-06T17:41:19Z","Origin":{"VCS":"git","URL":"https://github.com/envoyproxy/ai-gateway","Hash":"daa9f891a8afcb18576d4593ad18870d1d18abac","Ref":"refs/tags/v1.2.0"}}

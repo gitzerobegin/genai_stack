@@ -1,0 +1,155 @@
+SOURCE ID: A2-S047
+URL: https://cloud.google.com/blog/topics/partners/box-ai-agents-gemini-embeddings-multimodal-enterprise-ai
+FINAL URL: https://cloud.google.com/blog/topics/partners/box-ai-agents-gemini-embeddings-multimodal-enterprise-ai
+TITLE: How Box is unlocking multimodal enterprise agents with Gemini Embeddings 2 | Google Cloud Blog
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+How Box is unlocking multimodal enterprise agents with Gemini Embeddings 2 | Google Cloud Blog
+Jump to Content
+Cloud
+Blog
+Contact sales 
+Get started for free 
+Cloud
+Blog
+Contact sales 
+Get started for free 
+Partners
+How Box is unlocking multimodal enterprise agents with Gemini Embeddings 2
+August 18, 2026
+Sandhya Patil
+Agentic Product Consulting Lead, Google
+Darryl Sladden
+Staff AI Product Manager, Box
+Try Gemini Enterprise today
+The front door to AI in the workplace
+Try now 
+Enterprise content management is experiencing its biggest architectural shift since the cloud migration era. 
+
+For years, enterprises have stored trillions of gigabytes of critical data in Box: financial models, clinical trial protocols, M&A due diligence rooms, engineering schematics, and legal compliance playbooks. Up to this point, text-based search and retrieval-augmented generation (RAG) have successfully unlocked the vast narrative knowledge within these repositories, establishing a powerful and highly effective baseline for enterprise AI intelligence.
+
+Traditional RAG architectures have mastered text processing, but the agentic era demands more. The next logical evolution is to extend this framework to capture the
+
+inherently multimodal, deeply spatial, and highly structured elements that exist alongside text. While text embeddings excel at indexing prose, multimodal architectures unlock a major new capability: For example, they preserve the strict row-column semantics of financial tables, interpret visual evidence like clinical data, and map the logic of multi-page flowcharts without losing their spatial layout.
+
+To deliver next-generation capabilities that can handle the vast universe of digital content, Google Cloud and Box are 
+integrating advanced multimodal capabilities into Box's Agentic Platform
+, powered by 
+Gemini Multimodal Embeddings 2
+
+merging Box’s industry-leading Intelligent Content Management platform with Google Cloud’s advanced AI embeddings.
+
+Benefits of improved embedding: Extending the dimensions of document content
+
+Preserving visual and spatial geometry
+: Complex document elements like multi-column tables or financial matrices rely on their spatial layout to convey meaning. Converting these elements into a flat string of text can disassociate column headers from their corresponding data points. Multimodal embeddings allow systems to interpret the document exactly as a human does, maintaining the integrity of spatial relationships.
+
+Illuminating the visual modality
+: Enterprise documents are filled with visual indicators: technical charts, process flowcharts, branding assets, and product photography. Multimodal capabilities ensure that these elements are no longer invisible to search systems, allowing users to query images and text simultaneously.
+
+Connecting hybrid file formats
+: Real-world business workflows rarely live in a single document format. An agent may need to cross-reference a PDF policy, a spreadsheet tracking log, and a presentation deck. Extending RAG with multimodal embeddings creates a unified understanding across these varied formats.
+
+The Architectural Solution: Gemini Multimodal Embeddings 2
+
+Google Cloud’s 
+Gemini Multimodal Embeddings 2
+ introduces a unified, multimodal vector space capable of embedding text, raster images, document pages, rendered spreadsheet tables, and visual charts into the same semantic representation space.
+Key product capabilities unlocked by gemini-embeddings-2:
+
+Crossmodal retrieval (text-to-visual / visual-to-text)
+: Enables natural language queries to retrieve highly specific visual components, such as locating a target chart or diagram within a massive library of slides, without requiring manual tagging.
+
+Layout-aware document embedding
+: Rather than breaking files into arbitrary text blocks, the system can embed document page renderings directly, preserving visual hierarchies, callout boxes, and structural context.
+
+Heterogeneous format bridging
+: Native support for seamlessly bridging content across .docx, .xlsx, .pdf, .pptx, .png, and .csv without losing modality-specific structural information.
+
+Three core patterns of multimodal enterprise agents
+
+By leveraging multimodal embeddings within Box, we have identified three uniqueprimary design patterns that illustrate how organizations can extend traditional RAG to support complex, visual workflows.
+
+Pattern 1: Complex financial & analytical reporting
+
+The challenge
+
+Corporate finance, research, and audit teams analyze highly structured documents where vital data resides in embedded tables, growth charts, and footnote annotations. Text-only indexing can separate these numbers from their context, making automated analysis challenging.
+
+The multimodal advantage
+
+Structural alignment
+: The embedding model captures the physical structure of tables and charts, allowing financial agents to understand that a column header applies to a specific row of metrics.
+
+Visual trend analysis
+: Agents can cross-reference written summaries with visual trends in accompanying bar or line charts, identifying and pointing out discrepancies between written claims and source data.
+
+Contextual sourcing
+: Users can query complex portfolios and instantly retrieve the exact page, table, or chart supporting a specific metric.
+
+Pattern 2: Multimodal clinical decision support & assisted diagnosis
+
+The challenge
+
+In healthcare and clinical environments, critical patient data is fragmented across vastly different, unstructured visual and textual formats — ranging from external physical photos (visual evidence) and microscopic pathology slides (lab reports) to structured risk matrices (triage grids). Traditional text-based systems or isolated analysis tools cannot synthesize these cross-modal relationships simultaneously, which can delay critical diagnoses or risk missing immediate, life-threatening procedural complications.
+
+The multimodal advantage
+
+Cross-modal clinical synthesis
+: Evaluates physical symptoms alongside cellular-level laboratory evidence simultaneously by indexing clinical photos, histopathology imagery, and triage grids into a single space.
+
+Granular anomaly identification
+: Connects niche visual patterns under a microscope (like parasitic cyst walls) with medical knowledge to rapidly isolate rare conditions.
+
+Risk-aware decision support
+: Cross-references findings against triage frameworks to deliver instant warnings about immediate patient risks, such as life-threatening anaphylactic shock.
+
+Pattern 3: Cross-document multimodal synthesis & data reconciliation
+
+The challenge
+
+Enterprise information is fragmented across disconnected files and formats (e.g., PDF minutes, Excel charts, PNG flyers, and email threads). Traditional tools analyze these files in isolation, failing to connect the dots when verifying details or resolving data contradictions across independent documents.
+
+The multimodal advantage
+
+Cross-file synthesis
+: Connects information across entirely different formats (PDFs, spreadsheets, images, emails) simultaneously to answer complex business queries.
+
+Conflict resolution
+: Flags and resolves contradictions between assets, such as catching outdated pricing on an image by cross-checking it against the latest financial spreadsheets.
+
+Visual-to-text auditing
+: Audits visual or scanned files against text-based records (e.g., verifying a signed PDF contract against a legal review email) to catch missing clauses or changes.
+
+The future of agentic enterprise content management
+
+The integration of gemini-embeddings-2 into Box’s Agentic Platform is an important new capability to improve the next era of content intelligence. Multimodal embeddings help Box to move beyond basic search to active, intelligent collaboration.
+Box's Intelligent Content Management platform represents a fundamental shift in enterprise AI infrastructure — moving beyond passive document storage to deliver a governed, semantically indexed reasoning layer where AI agents can interrogate, cross-reference, and act on content with full compliance and security controls already in place. 
+
+Powered by multimodal embeddings and a suite of native AI agents spanning search, metadata extraction, research, analysis, and composition, Box enables organizations to proactively surface insights such as flagging stale pricing data, expiring contract clauses, or cross-document contradictions before they become business risks. For high-complexity industries like financial services, life sciences, and legal operations, Box's ability to reason across text, tables, charts, and images makes multimodal understanding a competitive requirement. 
+
+Designed to interoperate with the broader enterprise AI ecosystem, Box serves as the single governed content foundation that ensures every AI-driven workflow is grounded in authorized, auditable enterprise data.
+
+When you think about it, the enterprise data landscape was always multimodal. Now we have the technology to make the most of it. By integrating gemini-embeddings-2, Box helps its users unlock unprecedented value from unstructured enterprise content. Product leaders who embrace multimodal-first architectures, rigorous precision benchmarking, and audit-ready grounding will lead the next wave of enterprise productivity and innovation.
+
+The team would like to thank Ken Ikeda, Afshaan Mazagonwalla, and Samip Thakkar for their work on this project.
+Posted in
+Partners
+AI & Machine Learning
+Customers
+Data Analytics
+Related articles
+Partners
+Accelerating automotive innovation with C4A-metal and Panasonic Automotive vSkipGen
+By Yarden Halperin • 5-minute read
+AI & Machine Learning
+Claude at scale on Google Cloud: Frontier AI, built for enterprise production
+By Schneider Larbi • 7-minute read
+Startups
+How growing UK midsize businesses are building in the AI era
+By Maureen Costello • 4-minute read
+Inside Google Cloud
+From AI potential to agentic reality: Driving the UK’s next chapter
+By Maureen Costello • 8-minute read

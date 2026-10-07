@@ -1,0 +1,9 @@
+SOURCE ID: A6-S048
+URL: https://proxy.golang.org/github.com/open-policy-agent/opa/@latest
+FINAL URL: https://proxy.golang.org/github.com/open-policy-agent/opa/@latest
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+{"Version":"v1.21.1","Time":"2026-09-29T19:10:43Z","Origin":{"VCS":"git","URL":"https://github.com/open-policy-agent/opa","Hash":"2a109e54103370d2ef288782ef3cb4c8a37902b2","Ref":"refs/tags/v1.21.1"}}

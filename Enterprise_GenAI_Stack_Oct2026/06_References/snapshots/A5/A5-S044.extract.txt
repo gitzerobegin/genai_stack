@@ -1,0 +1,13 @@
+SOURCE ID: A5-S044
+URL: https://pypi.org/project/lmdeploy/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: PyPI JSON API https://pypi.org/pypi/lmdeploy/json
+========================================================================
+
+PyPI package lmdeploy version 0.18.0 README excerpt:
+- \[2026/02\] Support [Qwen3.5](https://huggingface.co/collections/Qwen/qwen35)
+  <li>DeepSeek-V4 (284B, 1.6T)</li>
+  <li>GLM-5 (754B)</li>
+  <li>GLM-5.2 (754B)</li>
+  <li>Qwen3.5 (0.8B - 397B)</li>

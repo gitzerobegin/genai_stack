@@ -1,0 +1,8 @@
+SOURCE ID: A2-S007
+URL: https://www.mongodb.com/docs/voyageai/models/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Voyage AI latest embedding model voyage-4 MongoDB
+========================================================================
+
+For voyage-4, context window is 32,000 tokens, default 1024 dimensions with options of 256, 512, and 2048. voyage-4 costs $0.06 per 1M tokens, and each model comes with the first 200 million tokens free. Docs also list voyage-code-4 (code retrieval and agentic-coding), voyage-multimodal-3.5 (text, image, and video embeddings) and voyage-context-4 (chunk-level and document-level retrieval). Docs titled 'Voyage AI by MongoDB'.
