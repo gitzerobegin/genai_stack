@@ -23,7 +23,7 @@
 | Calibration review | **Done**: 40 changes, 8 caps lifted, 5 kept, 1 added, no tier changes, 27 sources (B-REV-S001…S027). `work/stageB/_review/CP2_review.md` |
 | CP2 pack | `checkpoints/CP2/00_CP2_Summary.md`, `01_Draft_Layers_9-7.md`/`.docx`, `02_Calibration_Review.md` |
 | CP2 decisions | Q1 hyperscaler presumption; Q2 lenient (any one control lifts the cap to 3); Q3 judgement; Q4 one point below anchor; Q5 no length cap; Q6 L9 deep-dive format, one illustrative scenario per layer. `checkpoints/CP2/03_CP2_Decisions.md`; rubric rules 6–9 |
-| Tranche 2 (running) | Rework of L9–L7 to the CP2 rules; writers for L6, L5, L4, C1+C2, C3+C4, C5+C6, C7+C8 (prompts in `work/prompts/stageB_tranche2_prompts.md`) |
+| Tranche 2 (running) | Rework of L9–L7 **done** (14 score changes, no tier changes; `work/stageB/_review/CP2_rework_log.md`); writers for L6, L5, L4, C1+C2, C3+C4, C5+C6, C7+C8 (prompts in `work/prompts/stageB_tranche2_prompts.md`) |
 | Next | Merge, run a calibration reviewer across tranche 2 (and a cross-check of L9–L7), build the CP3 pack, push, **stop at CP3** |
 | After CP2 | Stage B tranche 2: L6, L5, L4 and C1–C8, then **CP3**. Tranche 3: L3, L2, L1 and Stage C synthesis, then **CP4**. Then C2 LinkedIn pair 1–2 (**CP4b**), the rest of C2, and Stage D packaging (**CP5**). |
 

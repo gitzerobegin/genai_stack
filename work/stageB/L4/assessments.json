@@ -1,0 +1,534 @@
+[
+  {
+    "id": "L4-mcp",
+    "assessment": {
+      "capabilities": "Open protocol (MIT) for connecting agent hosts to tools, resources and prompts over JSON-RPC; spec 2026-07-28 is stateless with Mcp-Method/Mcp-Name headers for gateway routing, Tasks for long-running work, an optional OAuth 2.1 authorisation profile (RFC 8707, RFC 9728, RFC 9207, PKCE, no token passthrough) and the stable Enterprise-Managed Authorization extension (ID-JAG) [VF: A3-S015, A3-S057, A3-S055, A3-S056, A3-S017]. Conflict of interest: originated at Anthropic; author is an Anthropic model [AJ].",
+      "strengths": [
+        "De facto agent-to-tool contract with Tier 1 SDKs in TypeScript, Python, Go and C# and client support across major vendors [VF: A3-S015, A3-S018]",
+        "Header-based routing makes gateway enforcement practical [VF: A3-S015]",
+        "EMA gives central IdP policy and one audit trail [VF: A3-S017]",
+        "Hosted by AAIF (Linux Foundation) since 9 December 2025 [VF: A3-S018, V1-S038]"
+      ],
+      "limitations_risks": [
+        "Authorisation is OPTIONAL in the specification [VF: A3-S055]",
+        "Tool annotations are untrusted hints [VF: A3-S020]",
+        "Tool poisoning: 36.5% average attack success across 20 models in MCPTox [VF: A3-S023]; OWASP MCP03 tool poisoning [VF: A3-S045]",
+        "IDE clients (including Claude Code) had high-severity auto-execution issues [R: A3-S022]",
+        "Both Lead Maintainers are Anthropic staff; AAIF does not set technical direction [VF: A3-S082, A3-S018]",
+        "Official Registry still preview, API v0.1, denylist moderation [VF: A3-S019, A3-S042, A3-S036]",
+        "2026-07-28 contained breaking changes and deprecations (Roots, Sampling, Logging, DCR) [VF: A3-S015, V2-S031]"
+      ],
+      "choose_when": [
+        "One tool contract is needed across several agent frameworks and model vendors [AJ]"
+      ],
+      "avoid_when": [
+        "Clients would connect directly to third-party servers without a gateway, private registry and pinned definitions [AJ]"
+      ],
+      "competitors": [
+        "OpenAPI tool definitions via gateway",
+        "L4-a2a",
+        "L4-aws-agentcore-gateway-identity"
+      ],
+      "fs_note": "Adopt the protocol, not the public ecosystem: internal servers behind a firm-owned gateway with authorisation mandatory and definitions hash-pinned; independent alternative is OpenAPI-described tools exposed through a gateway [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic only behind a firm-owned gateway that makes authorisation mandatory and enforces an allow-list, because the specification leaves both optional [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 5,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Covers tool invocation, enterprise authorisation and long-running tasks; security enforcement (allow-listing, signing) left outside the spec [AJ]",
+        "enterprise_readiness": "Open spec (rule 2): enables central IdP policy via EMA; no commercial support from the project itself [AJ]",
+        "security_compliance": "Rule 2 hygiene: strong OAuth profile and security considerations, but authorisation optional and no tool-definition signing; documented tool-poisoning attack class [VF: A3-S055, A3-S023]",
+        "deployment_flexibility": "Implementations run anywhere, including stdio locally and air-gapped [AJ]",
+        "ecosystem": "De facto standard with broad client and launch-partner support [VF: A3-S015, A3-S018]",
+        "reliability_maturity": "Foundation-hosted with a 12-month deprecation policy, but breaking changes in July 2026 and Registry still preview [VF: A3-S015, A3-S042]",
+        "cost_tco": "Free specification and SDKs; cost lies in operating servers, gateway and authorisation server [AJ]",
+        "lockin_portability": "MIT under AAIF, but technical direction concentrated in Anthropic maintainers, so not fully neutral governance [VF: A3-S082]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.85,
+      "fs_total": 3.75
+    }
+  },
+  {
+    "id": "L4-a2a",
+    "assessment": {
+      "capabilities": "Open protocol (Apache-2.0) for communication between opaque agents: Agent Card discovery, messages, long-running tasks with streaming and push notifications; v1.0 adds multi-tenancy, multiple bindings, optional JWS-signed Agent Cards and modernised OAuth flows [VF: A3-S078, A3-S030, A3-S079].",
+      "strengths": [
+        "Multi-vendor TSC of eight companies and AAIF Growth Stage status [VF: A3-S065, A3-S117]",
+        "Designed for delegated long-running tasks between agents [VF: A3-S078]",
+        "Signed Agent Cards available [VF: A3-S078]"
+      ],
+      "limitations_risks": [
+        "Card signing optional; clients SHOULD verify only when present [VF: A3-S078]",
+        "No defined scope, validity or revocation semantics for authorisation obtained in AUTH_REQUIRED [VF: A3-S078]",
+        "1.0 broke the interaction protocol; some SDKs lag [VF: A3-S079] [R: A3-S030]"
+      ],
+      "choose_when": [
+        "Agents owned by different teams or vendors must delegate work to each other [AJ]"
+      ],
+      "avoid_when": [
+        "A deterministic workflow calling tools would do [AJ]"
+      ],
+      "competitors": [
+        "L4-mcp",
+        "C1-agentgateway",
+        "L4-aws-agentcore-gateway-identity"
+      ],
+      "fs_note": "Require signed Agent Cards and verify them; scope and revoke delegated authority in your own gateway and IdP [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Right standard for agent-to-agent delegation, but few regulated workflows should depend on it yet [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Covers agent-to-agent interop well; not the main tool-invocation path and delegation semantics incomplete [AJ]",
+        "enterprise_readiness": "Open spec (rule 2): authenticated extended cards and declared security schemes; support via implementers [VF: A3-S078]",
+        "security_compliance": "Rule 2 hygiene: modern OAuth flows, optional signing, undefined revocation semantics [VF: A3-S078, A3-S079]",
+        "deployment_flexibility": "Implementations self-hostable anywhere [AJ]",
+        "ecosystem": "150+ organisations and cloud availability (April 2026) [VF: A3-S025]",
+        "reliability_maturity": "1.0 only since March 2026 with breaking changes; foundation-hosted [VF: A3-S079, A3-S116]",
+        "cost_tco": "Free specification; operations cost in implementations [AJ]",
+        "lockin_portability": "Apache-2.0 with neutral multi-vendor governance [VF: A3-S075, A3-S065]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.6,
+      "fs_total": 3.7
+    }
+  },
+  {
+    "id": "L4-agent-skills",
+    "assessment": {
+      "capabilities": "Open packaging format (SKILL.md plus optional scripts, references, assets) with progressive disclosure; adopted by 46 listed clients including OpenAI Codex and Gemini CLI [VF: A3-S061, A3-S113, A3-S033, A3-S034]. Conflict of interest: originated at Anthropic and maintained by Anthropic staff; author is an Anthropic model [AJ].",
+      "strengths": [
+        "Plain, reviewable files portable across clients [VF: A3-S061]",
+        "Independent adoption confirmed by OpenAI and Google documentation [VF: A3-S033, A3-S034, V1-S047]"
+      ],
+      "limitations_risks": [
+        "No neutral governance body; maintainers are Anthropic employees; AAIF proposal not accepted on available evidence [VF: V1-S046, A3-S115, A3-S112]",
+        "Living document with no tagged releases [VF: A3-S115]",
+        "No signing or provenance; skills can carry executable scripts; vendor warns of exfiltration [VF: A3-S037, A3-S061, A3-S072]"
+      ],
+      "choose_when": [
+        "Packaging internally authored house procedures for several agent clients [AJ]"
+      ],
+      "avoid_when": [
+        "Skills would come from outside the firm or carry scripts that run with agent credentials [AJ]"
+      ],
+      "competitors": [
+        "AGENTS.md",
+        "C5 prompt packages (Git-based)",
+        "L4-mcp"
+      ],
+      "fs_note": "Internally authored, Git-reviewed, script-free skills only until signing, versioning and neutral governance exist; independent alternatives are C5 prompt packages and AGENTS.md [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Useful format, but vendor-led governance, no versioning and no provenance keep it out of foundational use [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 5,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Packages procedural knowledge competently; no versioning, dependency or signing model [AJ]",
+        "enterprise_readiness": "Open format (rule 2): enterprise provisioning is a vendor feature, not part of the standard [VF: A3-S029]",
+        "security_compliance": "Rule 2 hygiene: executable content without signing or provenance [VF: A3-S037, A3-S072]",
+        "deployment_flexibility": "Plain files usable anywhere [VF: A3-S061]",
+        "ecosystem": "46 clients including major vendors, but young [VF: A3-S113]",
+        "reliability_maturity": "Under one year as an open standard; no tagged releases [VF: A3-S029, A3-S115]",
+        "cost_tco": "Free, no operations [VF: A3-S061]",
+        "lockin_portability": "Portable Markdown, but no neutral governance [VF: V1-S046]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.2,
+      "fs_total": 3.0
+    }
+  },
+  {
+    "id": "L4-composio",
+    "assessment": {
+      "capabilities": "Managed tool-integration platform: 1000+ toolkits, per-user sessions, OAuth/connected-account brokering, per-session tool restriction, and an MCP Gateway with vendor-stated SSO, SCIM, policy-as-code and per-call audit logs [VF: A3-S063, A3-S008, A3-S119, A3-S098].",
+      "strengths": [
+        "Broadest SaaS connector catalogue with per-user authentication [VF: A3-S063]",
+        "Self-hosted, VPC and on-premises options on Enterprise [VF: A3-S098]"
+      ],
+      "limitations_risks": [
+        "May 2026 incident: unauthorised access to internal systems; about 0.3% of connections and 5,241 API keys possibly exposed; token revocations and customer rotation required [VF: B-L4-S007]",
+        "Security claims are vendor marketing only (V1 log section 4) [NPV]",
+        "Holds end users' OAuth tokens: high switching cost [AJ]",
+        "Managed cloud US-hosted; EU residency needs self-hosting [VF: A3-S119]",
+        "SDK pre-1.0 with 2.0 in beta [VF: A3-S008, V1-S098]"
+      ],
+      "choose_when": [
+        "A low-risk internal productivity agent needs many SaaS connectors quickly, self-hosted [AJ]"
+      ],
+      "avoid_when": [
+        "The agent touches client data or you cannot self-host in-region [AJ]"
+      ],
+      "competitors": [
+        "L4-aws-agentcore-gateway-identity",
+        "C4-okta-auth0-ai-agents",
+        "C1-kong-ai-gateway"
+      ],
+      "fs_note": "Do not let a third party hold staff OAuth tokens to firm systems in its multi-tenant cloud; if used, self-host and keep the token vault in your estate [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "Credential-broker model, vendor-only security evidence and the May 2026 token-exposure incident make it unsuitable as a critical dependency [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Broad connectors, per-user auth, gateway and policy features [VF: A3-S063, A3-S119]",
+        "enterprise_readiness": "SSO, SCIM, RBAC, audit logs and SLA are vendor-stated; one-or-more controls lift the cap to 3 under CP2 rule 7 [VF: A3-S119, A3-S098]",
+        "security_compliance": "Capped at 2: certifications vendor-marketing only (V1 section 4); May 2026 incident [VF: B-L4-S007]",
+        "deployment_flexibility": "SaaS plus VPC, self-host and on-prem on Enterprise; no air-gap evidence [VF: A3-S098]",
+        "ecosystem": "Adapters for major frameworks and remote MCP server [VF: A3-S063]",
+        "reliability_maturity": "Pre-1.0 SDK, 2.0 beta, recent security incident [VF: A3-S008, B-L4-S007]",
+        "cost_tco": "Metered per-call pricing published (low confidence) [VF: A3-S098]",
+        "lockin_portability": "Proprietary API holding user tokens; hard exit [AJ]"
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: Composio security claims are vendor marketing only (V1 verification log section 4)"
+      ],
+      "generic_total": 3.15,
+      "fs_total": 2.9
+    }
+  },
+  {
+    "id": "L4-exa",
+    "assessment": {
+      "capabilities": "Web search API for AI with filters, page contents, answers and structured output; MCP server [VF: A3-S010, A3-S054].",
+      "strengths": [
+        "SOC 2 Type II with 2026 bridge letter; ZDR on Enterprise; DPA with SCCs and UK Addendum [VF: A3-S100, A3-S121]",
+        "Dashboard SSO and SCIM on Enterprise [VF: A3-S121]"
+      ],
+      "limitations_risks": [
+        "SaaS only; no EU processing region found [VF: A3-S121]",
+        "Pricing conflict US$7 vs US$4 per 1,000 searches [VF: A3-S100]",
+        "Search queries can leak confidential intent [AJ]"
+      ],
+      "choose_when": [
+        "Public-web research on non-confidential questions [AJ]"
+      ],
+      "avoid_when": [
+        "Queries could contain client, holdings or deal information [AJ]"
+      ],
+      "competitors": [
+        "L4-tavily",
+        "L8-firecrawl",
+        "L8-apify"
+      ],
+      "fs_note": "Enable ZDR, route through the egress proxy with DLP, and register as an ICT third-party service [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Competent, certified search API; SaaS-only with no EU region [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 1,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Covers search and extraction competently [VF: A3-S010]",
+        "enterprise_readiness": "SSO and SCIM verified; RBAC and audit logs not found (CP2 rule 7: max 3) [VF: A3-S121]",
+        "security_compliance": "SOC 2 Type II, DPA; no ISO 27001 found [VF: A3-S100, A3-S121]",
+        "deployment_flexibility": "One SaaS service, no region choice found [VF: A3-S121]",
+        "ecosystem": "SDKs and MCP server; mainstream [VF: A3-S054]",
+        "reliability_maturity": "Steady releases since January 2024; well funded [VF: A3-S010] [R: A3-S101]",
+        "cost_tco": "Transparent per-request pricing with a page conflict [VF: A3-S100]",
+        "lockin_portability": "Proprietary index, but trivially swappable behind one interface [AJ]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 2.7,
+      "fs_total": 2.7
+    }
+  },
+  {
+    "id": "L4-tavily",
+    "assessment": {
+      "capabilities": "Search, extract, crawl, map and research API for agents; custom HTTP session injection for proxying through an enterprise gateway; MCP server [VF: A3-S009, A3-S054].",
+      "strengths": [
+        "Gateway-proxy support built into the SDK [VF: A3-S009]",
+        "SOC 2 Type II via Trust Center; Owner/Admin/Member roles; Enterprise SLAs [VF: B-L4-S005, B-L4-S006, A3-S088]"
+      ],
+      "limitations_risks": [
+        "Acquired by Nebius (closed 19 February 2026); roadmap tied to a neocloud [VF: V1-S041, A3-S084]",
+        "No EU processing region found; SSO not found [VF: A3-S088] [NPV]"
+      ],
+      "choose_when": [
+        "Search plus extraction in one API, proxied through your gateway [AJ]"
+      ],
+      "avoid_when": [
+        "You need EU processing or roadmap independence from Nebius [AJ]"
+      ],
+      "competitors": [
+        "L4-exa",
+        "L8-firecrawl"
+      ],
+      "fs_note": "Refresh third-party due diligence after the change of control and plan contract changes around PS7/26 notification lead times [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Useful search API with good proxy support; SaaS-only and newly acquired [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 1,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Search, extract, crawl and research endpoints [VF: A3-S009]",
+        "enterprise_readiness": "RBAC roles verified (CP2 rule 7 lifts cap to 3); SSO and audit logs not found [VF: B-L4-S006]",
+        "security_compliance": "SOC 2 Type II per Trust Center; GDPR and ZDR stated; no ISO [VF: B-L4-S005, A3-S088]",
+        "deployment_flexibility": "SaaS only, no region choice found [VF: A3-S088]",
+        "ecosystem": "SDKs and MCP server [VF: A3-S054]",
+        "reliability_maturity": "Releases since 2023; acquired by Nebius February 2026 [VF: A3-S009, V1-S041]",
+        "cost_tco": "Transparent credit pricing [VF: A3-S088]",
+        "lockin_portability": "Proprietary but swappable; reduced by 1 for ownership change (rule 3) [AJ]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 2.65,
+      "fs_total": 2.55
+    }
+  },
+  {
+    "id": "L4-browserbase",
+    "assessment": {
+      "capabilities": "Managed headless browsers driven over CDP by Playwright/Puppeteer, with Stagehand (MIT) for AI-driven interaction and extraction [VF: A3-S013, A3-S068].",
+      "strengths": [
+        "SOC 2 Type II (2025, 2026), pen test, HIPAA BAA, DPA, US/EU/Asia residency for large enterprise [VF: A3-S102]",
+        "SAML SSO on Enterprise; recordings to customer S3 [VF: B-L4-S004]",
+        "Portable client side (Playwright, CDP, MIT Stagehand) [VF: A3-S013, A3-S068]"
+      ],
+      "limitations_risks": [
+        "Standalone MCP server repository archived [VF: A3-S054, V1-S081]",
+        "No admin audit log found; plan naming inconsistent [VF: B-L4-S004] [NPV]",
+        "Browser automation is fragile and hard to audit compared with APIs [AJ]"
+      ],
+      "choose_when": [
+        "An agent must operate a website that has no API [AJ]"
+      ],
+      "avoid_when": [
+        "An API or read-only data tool exists [AJ]"
+      ],
+      "competitors": [
+        "L8-firecrawl",
+        "L8-apify",
+        "L4-e2b"
+      ],
+      "fs_note": "Allow-list target domains and never give browser sessions credentials to client-facing systems [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Well-controlled browser runtime for the narrow case where no API exists [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 3,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Isolated browsers plus AI interaction layer [VF: A3-S013]",
+        "enterprise_readiness": "SAML SSO verified (CP2 rule 7: max 3) [VF: B-L4-S004]",
+        "security_compliance": "SOC 2 Type II, pen test, DPA; no ISO 27001 [VF: A3-S102]",
+        "deployment_flexibility": "SaaS plus VPC/private-cloud options for large enterprise [VF: A3-S102]",
+        "ecosystem": "Stagehand widely used; CDP/Playwright standard [VF: A3-S054]",
+        "reliability_maturity": "Since April 2024, 46 SDK releases; MCP repo archived [VF: A3-S013, A3-S054]",
+        "cost_tco": "Transparent tiered pricing [VF: A3-S102]",
+        "lockin_portability": "Client-side tooling open and portable; service proprietary [AJ]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.35,
+      "fs_total": 3.35
+    }
+  },
+  {
+    "id": "L4-e2b",
+    "assessment": {
+      "capabilities": "Firecracker microVM sandboxes for AI-generated code with per-sandbox egress firewall, workload identity tokens and secrets kept out of API/logs/spans; Apache-2.0 runtime; Cloud, BYOC (AWS, GCP) and dedicated deployments [VF: A3-S062, A3-S007, A3-S120].",
+      "strengths": [
+        "Strong isolation and egress model [VF: A3-S062]",
+        "Open-source runtime as an exit route [VF: A3-S062]",
+        "EU region and BYOC keep data in customer VPC [VF: A3-S120, A3-S104]"
+      ],
+      "limitations_risks": [
+        "SSO, SCIM and RBAC still 'planned'; no customer audit-log export found [VF: B-L4-S003]",
+        "Self-hosting is evaluation-only per vendor [VF: A3-S062]",
+        "SOC 2 scope excludes customer BYOC accounts [VF: A3-S104, V1-S096]",
+        "Enterprise minimum US$3,000 per month [VF: A3-S104]"
+      ],
+      "choose_when": [
+        "Any generated code must run, including derived calculations [AJ]"
+      ],
+      "avoid_when": [
+        "You need console SSO and RBAC today and cannot compensate with BYOC and your cloud IAM [AJ]"
+      ],
+      "competitors": [
+        "L4-aws-agentcore-gateway-identity",
+        "LangSmith Sandboxes",
+        "Daytona / Modal (not profiled)"
+      ],
+      "fs_note": "Use BYOC or the EU region with default-deny egress; reconcile sandbox outputs to authoritative engines before use [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Reference sandbox pattern; missing enterprise identity controls keep it short of Strategic [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Leading isolation, egress and secrets design for code execution [VF: A3-S062]",
+        "enterprise_readiness": "Capped at 2: SSO, SCIM and RBAC planned, no verified customer audit log [VF: B-L4-S003]",
+        "security_compliance": "SOC 2 Type II (control plane), HIPAA BAA, pen test; no ISO 27001 [VF: A3-S104, A3-S120]",
+        "deployment_flexibility": "Cloud with EU region, BYOC AWS/GCP, dedicated; no production self-host or air-gap [VF: A3-S120, A3-S062]",
+        "ecosystem": "SDKs, OTel export, broad agent use [VF: A3-S062, A3-S054]",
+        "reliability_maturity": "Since August 2023, 365 SDK releases; Series A stage [VF: A3-S007, A3-S105]",
+        "cost_tco": "Published pricing but high Enterprise minimum and heavy self-host stack [VF: A3-S104, A3-S062]",
+        "lockin_portability": "Apache-2.0 runtime and MIT SDK; proprietary cloud [VF: A3-S062]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/SCIM/RBAC listed as planned; no verified SSO, RBAC or customer audit log (B-L4-S003)"
+      ],
+      "generic_total": 3.35,
+      "fs_total": 3.35
+    }
+  },
+  {
+    "id": "L4-aws-agentcore-gateway-identity",
+    "assessment": {
+      "capabilities": "Managed MCP tool gateway (APIs, Lambda and MCP servers as tools; IAM or JWT inbound; 3LO outbound) plus agent identity and refresh-token vault; pairs with Cedar-based AgentCore Policy for pre-execution authorisation [VF: A3-S047, A3-S048, A6-S021, A6-S074, A6-S026]. Same service also profiled as C1-aws-agentcore-gateway [AJ].",
+      "strengths": [
+        "Most complete managed implementation of the tool-governance sub-layer found [AJ]",
+        "Supports MCP 2026-07-28 and earlier revisions [VF: A6-S105]",
+        "Customer-managed KMS key for the token vault [VF: A6-S074]",
+        "Published per-call pricing [VF: A6-S021]"
+      ],
+      "limitations_risks": [
+        "AWS only; no self-hosted option [VF: A3-S047]",
+        "ISO scope wording inconsistent across AWS pages ('aligns' pending third-party review) [VF: B-L4-S002]",
+        "Adds to AWS concentration [AJ]"
+      ],
+      "choose_when": [
+        "AWS is the primary agent platform [AJ]"
+      ],
+      "avoid_when": [
+        "Tools and agents span several clouds and one policy point is required [AJ]"
+      ],
+      "competitors": [
+        "C1-azure-apim-ai-gateway",
+        "C1-agentgateway",
+        "C1-kong-ai-gateway",
+        "L4-composio"
+      ],
+      "fs_note": "Sits within AWS, a designated CTP under DORA and the UK regime; include in AWS concentration analysis; platform controls presumed (CP2 Q1), confirm per service [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic only where AWS is the agent platform; cloud-neutral gateways are the alternative [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 3,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Tool conversion, inbound identity, outbound vault and Cedar policy [VF: A6-S021, A6-S026]",
+        "enterprise_readiness": "Hyperscaler presumption: platform controls presumed (CP2 Q1); confirm per service [AJ]",
+        "security_compliance": "SOC 1/2/3 scope listed; ISO listed with inconsistent wording; CMK for vault; one point below 5 under rule 8 [VF: B-L4-S001, B-L4-S002, A6-S074]",
+        "deployment_flexibility": "Managed in AWS regions with VPC and PrivateLink; no self-host [VF: A3-S047, A3-S048]",
+        "ecosystem": "MCP on both sides, OAuth and IAM integration [VF: A3-S047]",
+        "reliability_maturity": "GA October 2025 with regular feature releases [VF: A3-S047, A3-S048]",
+        "cost_tco": "Low published per-call pricing [VF: A6-S021]",
+        "lockin_portability": "Proprietary AWS API but standard MCP/OAuth interfaces; Cedar policies portable [VF: A6-S045]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.8,
+      "fs_total": 3.7
+    }
+  }
+]

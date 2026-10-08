@@ -1,0 +1,13 @@
+SOURCE ID: B-C2-S003
+URL: https://docs.cloud.google.com/model-armor/data-residency
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com): Model Armor locations regional endpoints europe data residency floor settings
+========================================================================
+
+Search-tool extract (Model Armor: Data residency and endpoints):
+- Regional endpoints modelarmor.LOCATION.rep.googleapis.com; templates must use the endpoint matching their location; Private Service Connect needed from VPC networks.
+- "By default, any template that you create strictly enforces data residency compliance" - features not hosted in the template's jurisdiction are disabled; turning enforcement off permits cross-jurisdictional routing.
+- Global endpoint modelarmor.googleapis.com used only for floor settings.
+- Floor-settings table: europe-southwest1, europe-west1, europe-west3, europe-west4, europe-west9 enforce at rest, in use and in transit; europe-west2 (London) enforces at rest only.
+- Image screening only in us and eu multi-regions. London template mode lacks Malicious URL, multi-language detection, CSAM and antivirus.

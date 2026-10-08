@@ -1,0 +1,8 @@
+SOURCE ID: B-L6-S004
+URL: https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-extensions.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.aws.amazon.com, aws.amazon.com): pgvector extension supported Amazon RDS for PostgreSQL Aurora PostgreSQL version
+========================================================================
+
+Amazon RDS for PostgreSQL supports pgvector (first in 15.2-R2). RDS release notes (https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-versions.html): pgvector updated to 0.8.2 in PostgreSQL 18.4; earlier 18.x and 17.x carried 0.8.1; PostgreSQL 17.9-R2 included a fix for pgvector CVE-2026-3172. pgvector 0.8.0 on RDS PostgreSQL 17.1+, 16.5+, 15.9+, 14.14+, 13.17+ (https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-rds-for-postgresql-pgvector-080/). Aurora PostgreSQL supports pgvector (https://aws.amazon.com/about-aws/whats-new/2023/07/amazon-aurora-postgresql-pgvector-vector-storage-similarity-search/); Aurora can serve as an Amazon Bedrock Knowledge Base with pgvector 0.5.0+ (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.VectorDB.html). Current Aurora pgvector version not found in results.

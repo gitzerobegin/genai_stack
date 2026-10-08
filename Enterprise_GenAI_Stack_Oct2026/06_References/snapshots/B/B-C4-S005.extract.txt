@@ -1,0 +1,11 @@
+SOURCE ID: B-C4-S005
+URL: https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed genai.owasp.org, owasp.org): OWASP Top 10 for Agentic Applications 2026 ASI03 Identity and Privilege Abuse list
+========================================================================
+
+OWASP GenAI Security Project pages, as reported by the search tool (release post 9 December 2025; AIUC-1 crosswalk; Cornucopia card AAI9; GenAI and Agentic AI Exploit Roundup Q3 2026):
+- ASI03:2026 is "Identity & Privilege Abuse": leaked credentials let agents operate far beyond their intended scope. Cornucopia's over-permissioned-agent card maps to ASI03:2026.
+- Other entries named: ASI01 Agent Goal Hijack; ASI02 Tool Misuse and Exploitation; ASI04 Agentic Supply Chain Vulnerabilities; ASI05 Unexpected Code Execution; ASI06 Memory & Context Poisoning; ASI07 Insecure Inter-Agent Communication; ASI08 Cascading Failures; ASI10 Rogue Agents. ASI09 not retrieved.
+- Q3 2026 exploit roundup tags as ASI03 a case where a deployed agent inherited excessive default permissions through a cloud-managed service account.

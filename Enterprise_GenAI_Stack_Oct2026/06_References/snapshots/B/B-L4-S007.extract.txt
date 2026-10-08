@@ -1,0 +1,15 @@
+SOURCE ID: B-L4-S007
+URL: https://composio.dev/blog/composio-may-2026-security-incident
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains composio.dev): 'Composio trust center SOC 2 Type II ISO 27001 report' and 'Composio May 2026 security incident unauthorized access tokens customers rotate'; direct fetch blocked by egress proxy
+========================================================================
+
+Composio May 2026 security incident update (vendor's own account; not independently corroborated in this search):
+- Composio found unauthorised access to certain internal Composio systems and engaged external incident-response experts.
+- Reported route: attacker entered auxiliary systems via magic-link sign-in after taking over a Gmail OAuth token belonging to some Composio employees.
+- Roughly 0.3% of active connections described as leaked, including 5,001 GitHub connections; 5,241 Composio API keys flagged as possibly exposed; full scope not yet known per the page.
+- Actions: revoked OAuth2 tokens across about 100 toolkits; revoked all user GitHub tokens; deleted API keys created before 11:00 PM PST on 22 May 2026; now withholds connected-account tokens from its APIs; contacted more than 50 third-party providers.
+- Customer actions: rotate Composio API keys; use the revoke endpoint or rotate at the provider (deleting a connection does not guarantee the token is revoked at the provider); end users to rotate API-key connections directly with each provider; reconnect revoked accounts; configure IP allowlisting.
+- Update log entries inconsistent across versions; latest entry seen 27 May 2026. A separate search result describes a Composio update dated 16 September 2026 stating the SOC 2 Type II report remains available through the Trust Center and that the penetration-test executive summary and remediation status are available from security@composio.dev.
+- Composio states it holds SOC 2 Type II and ISO/IEC 27001:2022 and points to trust.composio.dev (vendor self-description; certificate and issuing body not seen).

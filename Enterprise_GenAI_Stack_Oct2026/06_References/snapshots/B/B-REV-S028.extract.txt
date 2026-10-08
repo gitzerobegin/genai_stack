@@ -1,0 +1,15 @@
+SOURCE ID: B-REV-S028
+URL: https://www.mongodb.com/docs/voyageai/management/api-keys/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains mongodb.com, docs.voyageai.com): MongoDB Atlas Voyage AI model API keys project roles permissions create model API key
+========================================================================
+
+MongoDB Docs "Manage Voyage AI Model API Keys" and "Organization and Project Access" (Voyage AI by MongoDB), with the Atlas CLI reference for "atlas api aiModelApiKeys createModelApiKey", as summarised by the search tool:
+- Creating, editing or deleting a Voyage AI model API key requires the Organization Owner role (organisation level) or the Project Owner or Project Model Owner role (project level). Organization Read Only and Project Read Only can only view keys.
+- Organization Owners see and edit every key in the organisation; project owners see only keys for projects they can access.
+- Keys are linked to a project at creation (link cannot be changed); a cloud provider and an optional Geography are chosen; Geography-specific keys use regional hosts (for example eu.ai.mongodb.com).
+- An organisation can add a resource policy written in Cedar to restrict where new keys can be created (for example Europe only); existing keys are not revoked or re-scoped by such a policy.
+- Deleting a key disables it immediately.
+- The Atlas Admin API endpoint for creating model keys requires the calling service account or API key to hold Project Owner or Project Model Owner; listing requires Project Owner, Project Model Owner or Project Read Only.
+- No statement found in these pages on SSO or audit logging specific to model API key use.

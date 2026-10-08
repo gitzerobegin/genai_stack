@@ -1,0 +1,10 @@
+SOURCE ID: B-L6-S007
+URL: https://qdrant.tech/documentation/cloud-rbac/role-management/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains qdrant.tech): Qdrant Cloud RBAC roles permissions SSO SAML enterprise; Qdrant database JWT RBAC
+========================================================================
+
+Qdrant Cloud RBAC governs console/account actions: built-in Base, Admin and Owner roles; custom roles with granular permissions (identity, accounts, clusters, API keys, backups, Hybrid Cloud, billing). Older article: permissions apply to all clusters, per-cluster planned.
+SSO (https://qdrant.tech/blog/enterprise-vector-search/): Qdrant Cloud enterprise SSO supports AD/LDAP, ADFS, Azure AD, Google Workspace, OIDC, Okta, PingFederate and SAML; add-on for Premium tier; enabled via support; works with MFA.
+Database access (https://qdrant.tech/documentation/security/): Admin, Read-Only and Granular Access API keys; granular keys are JWTs with per-collection r/rw access, enabled by default on Qdrant Cloud; self-hosted requires jwt_rbac (Qdrant 1.9+); value_exists claim allows revocation; access checks logged with auth type, result and JWT sub.

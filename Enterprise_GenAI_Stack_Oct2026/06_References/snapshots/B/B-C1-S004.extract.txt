@@ -1,0 +1,11 @@
+SOURCE ID: B-C1-S004
+URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains aws.amazon.com, docs.aws.amazon.com): Amazon Bedrock AgentCore compliance validation SOC ISO services in scope
+========================================================================
+
+Search-tool extract (Release notes for Amazon Bedrock AgentCore):
+- July 2026: "AgentCore is now System and Organization Controls (SOC) compliant and in scope for SOC 1, 2, and 3 reports. The service is officially listed on the AWS Compliant Services in Scope page."
+- February 2026: AgentCore achieved ISO and CSA STAR compliance standards.
+Related: compliance-validation page (https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/compliance-validation.html) says AgentCore is FedRAMP (Class C and Class D) compliant, but the search tool flagged that page as about 449 days old and it conflicts with the FAQ ("pursuing FedRAMP"); treat FedRAMP as unresolved.

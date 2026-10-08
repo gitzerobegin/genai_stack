@@ -1,0 +1,9 @@
+SOURCE ID: B-L4-S005
+URL: https://trust.tavily.com/faq
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains tavily.com, docs.tavily.com, trust.tavily.com, help.tavily.com): Tavily enterprise SOC 2 Type II SSO team roles audit
+========================================================================
+
+Tavily Trust Center FAQ: "Tavily maintains a SOC 2 Type II report audited by an independent third party"; customers can request access to the latest SOC 2 Type II report through the Trust Center. Developer docs describe Tavily more loosely as "SOC 2 certified".
+No Tavily-owned page found describing SSO or a dashboard audit log (search result, 8 October 2026).

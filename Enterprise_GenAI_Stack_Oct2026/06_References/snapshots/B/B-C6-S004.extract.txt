@@ -1,0 +1,11 @@
+SOURCE ID: B-C6-S004
+URL: https://docs.aws.amazon.com/bedrock/latest/userguide/cost-mgmt-application-inference-profiles.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (docs.aws.amazon.com, aws.amazon.com): Amazon Bedrock application inference profile cost allocation tags track costs
+========================================================================
+
+- Bedrock user guide: application inference profiles attribute on-demand costs by application, team or workload for InvokeModel and Converse; each profile is tied to one model and carries cost allocation tags that flow to Cost Explorer and Cost and Usage Reports (CUR, CUR 2.0). Callers pass the profile ARN in place of the model ID.
+- Tags must be activated in Billing and Cost Management; up to 24 hours to appear (tutorial says 24-48 h); activation not retroactive; tags case-sensitive; activate in the payer account under AWS Organizations.
+- Best practices for cost attribution: finest granularity is per usage type per day, not per request; for per-request detail use request metadata with model invocation logs; request metadata is not a cost allocation tag. Attribution by IAM principal also possible.
+- AWS What's New, November 2024: Bedrock supports cost allocation tags on inference profiles.

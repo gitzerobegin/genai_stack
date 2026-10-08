@@ -1,0 +1,12 @@
+SOURCE ID: B-C8-S005
+URL: https://docs.validmind.ai/guide/attestation/working-with-attestations.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains validmind.com, docs.validmind.ai, trust.validmind.com): ValidMind SOC 2 Type II report attestation
+========================================================================
+
+Search-tool extract:
+- ValidMind docs "Working with attestations" / "Complete attestation questionnaires": model attestation is a feature where model owners or validators formally review and certify key details about a model at a specific point in time (questionnaire-based).
+- ValidMind platform page lists "adherence to GDPR, CCPA, and SOC 2" among security features (vendor statement; no SOC 2 type stated).
+- Privacy FAQ (docs.validmind.ai/faq/faq-privacy.html): data retention policy "complies with the SOC 2 security standard" (self-description).
+- No SOC 2 Type II report, bridge letter or trust centre for ValidMind was found.

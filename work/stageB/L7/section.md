@@ -153,155 +153,114 @@ This is why model version belongs in production configuration and in the exit pl
 | Cost / TCO | Per-token price, Batch discount, rerank pricing basis (per search or per token), GPU and licence cost if self-hosted, storage effect of dimensions |
 | Lock-in / portability | Weights availability and licence; shared-space families; store bundling; re-embedding cost |
 
-**Enterprise controls for hosted embedding APIs are unevenly documented.** The CP2 review found SSO, RBAC and audit-log documentation for the OpenAI API platform [VF: B-REV-S004, B-REV-S005, B-REV-S006], IAM and audit logging on Google Cloud [VF: B-REV-S007, B-REV-S008], and SSO and RBAC on Elastic Cloud for the Elastic Inference Service route [VF: B-REV-S019]. Cohere documents only Owner and User team roles for its hosted platform [VF: B-REV-S013], and Voyage's Atlas API is accessed by model API keys with no access-control documentation found [VF: B-REV-S018]. Both therefore stay capped at 2 [AJ]. These controls usually come from the platform account already contracted for L1, so verify them per endpoint in due diligence [Rec].
+**Enterprise controls for hosted embedding APIs are unevenly documented.** The CP2 review found SSO, RBAC and audit-log documentation for the OpenAI API platform [VF: B-REV-S004, B-REV-S005, B-REV-S006], IAM and audit logging on Google Cloud [VF: B-REV-S007, B-REV-S008], and SSO and RBAC on Elastic Cloud for the Elastic Inference Service route [VF: B-REV-S019]. Cohere documents only Owner and User team roles for its hosted platform [VF: B-REV-S013], and Voyage's Atlas API is accessed by model API keys [VF: B-REV-S018], which Atlas organisation and project roles govern [VF: B-REV-S028]. Under the user's CP2 answers, any one verified control lifts the NPV cap to 3 (rule 7), and services consumed through AWS, Azure or Google Cloud inherit the platform's IAM, SSO and audit logging as presumed, scoring 4 (rule 6). On that basis Gemini Embedding scores 4 through Vertex AI, Cohere 4 through Microsoft Foundry or SageMaker (3 on its direct API), and Voyage 3 on Atlas [AJ]. These controls usually come from the platform account already contracted for L1, so verify them per endpoint in due diligence; platform controls presumed (CP2 Q1); confirm per service [Rec].
 
 ### 7.7 Product deep dives
 
 Each deep dive gives the current state as tagged facts, then judgement. Totals are FS-weighted.
 
-#### OpenAI embeddings (text-embedding-3-large / -3-small)
-
-**What it is.** OpenAI's embeddings are still the text-embedding-3 generation, released 25 January 2024; no newer model was found as of 7 October 2026 [VF: A2-S001, A2-S002]. 3-large defaults to 3,072 dimensions, can be shortened with `dimensions`, and accepts 8,192 tokens [VF: A2-S001, A2-S003]. Prices are US$0.13 per 1M tokens for 3-large (US$0.065 on Batch) and US$0.02 for 3-small [VF: A2-S001, A2-S035]. The endpoint is ZDR-eligible and in scope for EU storage and processing, which requires Modified Abuse Monitoring or ZDR; the UK is storage-only [VF: A2-S144]. Certifications include SOC 2 Type 2, ISO/IEC 27001 and 27701, and a HIPAA BAA [VF: A2-S036, A2-S144]. No OpenAI reranker was found [VF: A2-S001]. The API platform documents SAML/OIDC SSO, SCIM, organisation and project roles with custom roles, an Admin API and audit logs of administrative events [VF: B-REV-S004, B-REV-S005, B-REV-S006].
-
-**Strengths.** A stable, cheap, well-controlled text baseline [AJ].
-
-**Limitations and risks.** It is text-only, hosted-only and has no reranker. The generation is ageing, and its successor's timing is unknown [AJ]. Audit logs exclude request content and are kept on a best-effort basis [VF: B-REV-S006], so they must be exported to the firm's archive [Rec].
-
-**Choose when** OpenAI is already the approved L1 provider and EU processing under ZDR suffices. **Avoid when** UK processing or self-hosting is required.
-
-**Nearest competitors:** Gemini Embedding, Cohere, Voyage.
-
-**FS note.** Exit means re-embedding everything [AJ].
-
-**Tier:** Tactical; no flags (FS 3.20).
-
-#### Gemini Embedding 2 (Google)
-
-**What it is.** gemini-embedding-2 went GA on 22 April 2026 [VF: A2-S004]. It maps text, images, video, audio and PDFs into one space across 100+ languages, with Matryoshka output from 128 to 3,072 dims [VF: A2-S004, A2-S005]. It runs on the Gemini API and on Vertex AI, now documented as Gemini Enterprise Agent Platform, with global, us and eu endpoints [VF: A2-S039]. The eu multi-region excludes the UK and Switzerland [VF: A2-S039]. Generative AI on Vertex AI holds SOC 2, ISO/IEC 27001, ISO/IEC 42001, HIPAA and FedRAMP High, but per-model coverage is not confirmed [VF: A2-S043]. Text costs US$0.20 per 1M tokens online and US$0.10 on Batch (as of 7 October 2026) [VF: A2-S038]. Access runs through Google Cloud IAM (predefined, custom and endpoint-level roles) and Cloud Audit Logs, where Data Access logs for predict calls must be switched on [VF: B-REV-S007, B-REV-S008].
-
-**Strengths.** A natively multimodal option with strong platform certifications [AJ].
-
-**Limitations and risks.** It is hosted-only and has been GA for under six months. The `task_type` parameter is unsupported [VF: A2-S005]. Google's reranker is a separate service, the Vertex ranking API (semantic-ranker models, with version 005 in preview from 1 September 2026) [VF: B-REV-S026].
-
-**Choose when** the estate is Google Cloud-centred and the content is multimodal. **Avoid when** UK-only processing is mandatory.
-
-**Nearest competitors:** Cohere, Voyage, Jina.
-
-**FS note.** Google Cloud EMEA Limited is a designated DORA CTPP and UK CTP [VF: A8-S020, A8-S023]. Consuming the model through Vertex AI therefore places it with a designated provider, but the firm's own SYSC 8 or SS2/21 duties remain [AJ].
-
-**Tier:** Tactical; no flags (FS 3.05).
-
-#### Voyage AI by MongoDB
-
-**What it is.** MongoDB acquired Voyage AI, closing on 17 February 2025 for US$160.9M [VF: A2-S033, V1-S023]. The Voyage 4 family launched on 15 January 2026 in one shared embedding space; voyage-4-nano is open weights under Apache 2.0 [VF: A2-S006, A2-S071]. Alongside it sit voyage-context-4, voyage-code-4, voyage-multimodal-3.5, and the domain models voyage-finance-2 and voyage-law-2 [VF: A2-S007]. rerank-3 and rerank-3-lite were announced on 30 September 2026 [VF: A2-S034], but MongoDB's lifecycle page lists them as Preview [VF: V1-S024]. voyage-4 costs US$0.06 per 1M tokens, rerank-3 US$0.05 and rerank-3-lite US$0.02 (as of 7 October 2026) [VF: A2-S007, A2-S034]. The Atlas Embedding and Reranking API offers an EEA Geography at a 10% premium [VF: A2-S142]. Certifications rest on a homepage listing [R: A2-S044]. MongoDB's SOC 2 scope page does not name Voyage and excludes preview features [VF: B-REV-S027].
-
-**Strengths.** A broad lineup against this layer's questions, including a finance-domain model [AJ].
-
-**Limitations and risks.** Certification scope is unverified, key integrations are in preview, and the roadmap is now coupled to MongoDB [AJ].
-
-**Choose when** MongoDB is the store. **Avoid when** the firm needs the store vendor and the embedding vendor to be different companies.
-
-**Nearest competitors:** Cohere, Jina, Qwen3.
-
-**FS note.** Obtain the SOC 2 report before client data flows [Rec].
-
-**Tier:** Tactical; flag Acquired (FS 2.90).
-
-#### Cohere Embed 5 and Rerank 4
-
-**What it is.** Embed 5 (Pro and Fast, 30 September 2026) embeds text, images and mixed pages into one vector [VF: A2-S012]. It supports 100+ languages and a 128K-token context, with 256–2,048 dims and float, int8 or binary output [VF: A2-S012]. Rerank 4 (11 December 2025) adds a 32K-token context and handles JSON [VF: A2-S010, A2-S009]. Deployment options are SaaS, Microsoft Foundry, SageMaker, VPC, Model Vault single-tenant and on-premises [VF: A2-S012, A2-S015]. Cohere holds SOC 2 Type II, ISO 27001 and ISO 42001 [VF: A2-S014]. Enterprise logs are deleted after 30 days by default, and ZDR is available on request [VF: A2-S145]. The hosted platform documents only Owner and User team roles [VF: B-REV-S013]; SSO/SAML and audit-log documentation for the hosted API was not found [NPV]. Embed 5 Pro costs US$0.12 and Fast US$0.08 per 1M text tokens; the rerank price was not found [VF: A2-S013]. A business combination with Aleph Alpha was signed on 16 September 2026 and is pending regulatory approval [VF: A2-S018, V1-S028].
-
-**Strengths.** The widest deployment range of the hosted vendors here, from SaaS to on-premises [AJ].
-
-**Limitations and risks.** Hosted access controls are unverified, and the ownership event is pending [AJ].
-
-**Choose when** embed and rerank must run in your VPC or data centre with vendor support. **Avoid when** you cannot obtain access-control evidence in due diligence [AJ].
-
-**Nearest competitors:** Voyage, Jina, NVIDIA.
-
-**FS note.** Cohere states it has no access to prompts in private or partner deployments [VF: A2-S145]. Record the Aleph Alpha approval as an ownership event in the third-party register [Rec].
-
-**Tier:** Tactical; no flags (FS 3.40). It is a candidate for Strategic once due diligence closes the access-control gap [AJ].
-
-#### Qwen3-Embedding and Qwen3-Reranker (Alibaba)
-
-**What it is.** Qwen3-Embedding and Qwen3-Reranker come in 0.6B, 4B and 8B sizes [VF: A2-S020]. They were released in June 2025 under Apache 2.0, with a 32K context and 119 languages [VF: A2-S020]. Qwen3-VL-Embedding and -Reranker followed in January 2026 [VF: A2-S021, V1-S093]. Hosted versions run on Alibaba Cloud Model Studio, where the regions listed are Singapore, Hong Kong and Beijing; no EU region was verified [VF: A2-S022]. Qwen's June 2025 claim that the 8B model ranked first on MTEB multilingual is vendor-reported and was not re-verified [R: A2-S020].
-
-**Strengths.** A permissive embed-plus-rerank pair that can run entirely inside the firm's estate [AJ].
-
-**Limitations and risks.** It is a Chinese-origin model. No support or certifications are verified, and the 8B size needs GPUs [AJ].
-
-**Choose when** self-hosting is required and a provenance review approves it. **Avoid when** policy excludes such weights, or only the hosted API would be used.
-
-**Nearest competitors:** Sentence Transformers with other open models, NVIDIA, Jina.
-
-**FS note.** Self-hosted, the weights create no cross-border transfer. The hosted route is not suitable for EU or UK client data on the verified regions [AJ].
-
-**Tier:** Tactical; no flags (FS 3.15). Scored under rubric rule 2 as self-hosted weights, because the hosted route is not recommended [AJ].
-
-#### Jina AI (part of Elastic)
-
-**What it is.** Elastic completed its acquisition of Jina AI on 9 October 2025 [VF: A2-S023, V1-S025]. The current models are [VF: A2-S025, A2-S026, V1-S026]:
-- jina-embeddings-v5-text (February 2026; 32,768-token context)
-- jina-embeddings-v5-omni (May 2026; text, image, audio, video and PDF, with text vectors identical to v5-text)
-- jina-reranker-v3.5 (July 2026)
-
-Weights are CC-BY-NC-4.0. Commercial use runs through the Jina API, marketplaces, Elastic Inference Service or an on-premises licence, which supports air-gapped Docker [VF: A2-S024, A2-S042, A2-S045]. `semantic_text` defaults to Jina v5 [VF: A2-S133]. Elastic Cloud holds ISO 27001 and SOC 2 Type II; whether the hosted Jina API is in scope is not confirmed [VF: A2-S045]. Elastic Cloud documents SAML SSO and RBAC at platform level; whether they govern EIS calls specifically is not stated [VF: B-REV-S019]. API per-token rates were not retrieved [VF: A2-S042].
-
-**Strengths.** The zero-integration path inside Elasticsearch, with multimodal and air-gap options [AJ].
-
-**Limitations and risks.** The licence is non-commercial. Pricing is opaque, and the ownership change ties it to Elastic [AJ].
-
-**Choose when** Elastic is the store. **Avoid when** the plan assumes free self-hosting of the weights.
-
-**Nearest competitors:** Voyage, Cohere, Qwen3.
-
-**FS note.** Get the licence route confirmed in writing [Rec].
-
-**Tier:** Tactical; flag Acquired (FS 3.15, scored on the Elastic Inference Service route).
-
-#### Sentence Transformers (Hugging Face)
-
-**What it is.** sentence-transformers 6.1.0 was released on 18 September 2026 under Apache-2.0 [VF: A2-S029, A2-S032]. It is maintained by Hugging Face and originated at UKP Lab [VF: A2-S028, V1-S092]. It computes and trains [VF: A2-S029]:
-- dense embeddings
-- Cross-Encoder reranker scores
-- Sparse Encoders
-- ColBERT-style Multi-Vector Encoders
-
-More than 15,000 pre-trained models on Hugging Face load through it [VF: A2-S029].
-
-**Strengths.** One permissive toolkit for every technique in this layer, and the practical route to domain fine-tuning and to exit from any hosted API [AJ].
-
-**Limitations and risks.** It is a library, not a model, and it has no verified commercial support [NPV]. It publishes a security policy with private reporting and CVE issuance through GitHub advisories [VF: B-REV-S002]. Each Hub model carries its own licence [AJ].
-
-**Choose when** retrieval must run in the firm's estate, or needs fine-tuning. **Avoid when** there is no team to operate serving.
-
-**Nearest competitors:** NVIDIA NeMo Retriever, Qwen3, Cohere private deployment.
-
-**FS note.** It inherits host controls [AJ].
-
-**Tier:** Strategic; no flags (FS 3.70). Rule 2 caps were applied.
-
-#### NVIDIA NeMo Retriever embedding and reranking NIMs
-
-**What it is.** The graphic's "NVIDIA – Embed" tile is now the set of NeMo Retriever NIM microservices [VF: A2-S030, A2-S031]:
-
-- Embedding NIM 2.3, with nemotron-3-embed-1b (added in 2.2) and the llama-nemotron-embed text and VL models [VF: A2-S031, V1-S094]
-- Reranking NIM 2.0.0, with text and multimodal rerankers [VF: A2-S030]
-
-They deploy via Helm or Docker on supported GPUs, in any cloud or data centre [VF: A2-S031, A2-S040]. Production use requires NVIDIA AI Enterprise, from US$4,500 per GPU per year (as of 7 October 2026) [VF: A2-S040]. Model licences vary by model [VF: A2-S041]. The Helm chart warns that a text-only reranker silently degrades multimodal reranking [VF: A2-S031].
-
-**Strengths.** A supported, self-hosted runtime for embed and rerank [AJ].
-
-**Limitations and risks.** It deepens GPU-vendor coupling, and per-GPU licences make it expensive at low volume [AJ].
-
-**Choose when** the firm already runs NVIDIA AI Enterprise. **Avoid when** retrieval volume is small.
-
-**Nearest competitors:** Sentence Transformers, Qwen3, Cohere private deployment.
-
-**FS note.** Self-hosting keeps the retrieval path in-estate; the AI Enterprise subscription becomes the third-party arrangement to register [AJ].
-
-**Tier:** Tactical; flag Renamed (FS 2.95).
+**OpenAI embeddings: text-embedding-3-large / -3-small (OpenAI).**
+- *What it is now:* OpenAI's embeddings are still the text-embedding-3 generation, released 25 January 2024; no newer model was found as of 7 October 2026 [VF: A2-S001, A2-S002]. 3-large defaults to 3,072 dimensions, can be shortened with `dimensions`, and accepts 8,192 tokens [VF: A2-S001, A2-S003]. Prices are US$0.13 per 1M tokens for 3-large (US$0.065 on Batch) and US$0.02 for 3-small [VF: A2-S001, A2-S035]. No OpenAI reranker was found [VF: A2-S001].
+- *Residency and certifications:* the endpoint is ZDR-eligible and in scope for EU storage and processing, which requires Modified Abuse Monitoring or ZDR; the UK is storage-only [VF: A2-S144]. Certifications include SOC 2 Type 2, ISO/IEC 27001 and 27701, and a HIPAA BAA [VF: A2-S036, A2-S144].
+- *Access control:* the API platform documents SAML/OIDC SSO, SCIM, organisation and project roles with custom roles, an Admin API and audit logs of administrative events [VF: B-REV-S004, B-REV-S005, B-REV-S006].
+- *Strengths:* a stable, cheap, well-controlled text baseline [AJ].
+- *Limitations:* it is text-only, hosted-only and has no reranker. The generation is ageing, and its successor's timing is unknown [AJ]. Audit logs exclude request content and are kept on a best-effort basis [VF: B-REV-S006], so they must be exported to the firm's archive [Rec].
+- *Choose when:* OpenAI is already the approved L1 provider and EU processing under ZDR suffices [AJ].
+- *Avoid when:* UK processing or self-hosting is required [AJ].
+- *Competitors:* Gemini Embedding, Cohere, Voyage.
+- *FS note:* exit means re-embedding everything [AJ].
+- **Tier: Tactical. Flag: none.** FS 3.20.
+
+**Gemini Embedding 2 (Google).**
+- *What it is now:* gemini-embedding-2 went GA on 22 April 2026 [VF: A2-S004]. It maps text, images, video, audio and PDFs into one space across 100+ languages, with Matryoshka output from 128 to 3,072 dims [VF: A2-S004, A2-S005]. It runs on the Gemini API and on Vertex AI, now documented as Gemini Enterprise Agent Platform, with global, us and eu endpoints [VF: A2-S039]. The eu multi-region excludes the UK and Switzerland [VF: A2-S039]. Text costs US$0.20 per 1M tokens online and US$0.10 on Batch (as of 7 October 2026) [VF: A2-S038].
+- *Certifications:* Generative AI on Vertex AI holds SOC 2, ISO/IEC 27001, ISO/IEC 42001, HIPAA and FedRAMP High, but per-model coverage is not confirmed [VF: A2-S043]. Under CP2 rule 8 that scores security 4, not 5 [AJ].
+- *Access control:* access runs through Google Cloud IAM (predefined, custom and endpoint-level roles) and Cloud Audit Logs, where Data Access logs for predict calls must be switched on [VF: B-REV-S007, B-REV-S008]. Under the CP2 hyperscaler presumption (rule 6), enterprise readiness scores 4 [AJ]; platform controls presumed (CP2 Q1); confirm per service [Rec].
+- *Strengths:* a natively multimodal option with strong platform certifications [AJ].
+- *Limitations:* it is hosted-only and has been GA for under six months. The `task_type` parameter is unsupported [VF: A2-S005]. Google's reranker is a separate service, the Vertex ranking API (semantic-ranker models, with version 005 in preview from 1 September 2026) [VF: B-REV-S026].
+- *Choose when:* the estate is Google Cloud-centred and the content is multimodal [AJ].
+- *Avoid when:* UK-only processing is mandatory [AJ].
+- *Competitors:* Cohere, Voyage, Jina.
+- *FS note:* Google Cloud EMEA Limited is a designated DORA CTPP and UK CTP [VF: A8-S020, A8-S023]. Consuming the model through Vertex AI therefore places it with a designated provider, but the firm's own SYSC 8 or SS2/21 duties remain [AJ].
+- **Tier: Tactical. Flag: none.** FS 3.20.
+
+**Voyage AI (MongoDB, Inc.).**
+- *What it is now:* MongoDB acquired Voyage AI, closing on 17 February 2025 for US$160.9M [VF: A2-S033, V1-S023]. The Voyage 4 family launched on 15 January 2026 in one shared embedding space; voyage-4-nano is open weights under Apache 2.0 [VF: A2-S006, A2-S071]. Alongside it sit voyage-context-4, voyage-code-4, voyage-multimodal-3.5, and the domain models voyage-finance-2 and voyage-law-2 [VF: A2-S007]. rerank-3 and rerank-3-lite were announced on 30 September 2026 [VF: A2-S034], but MongoDB's lifecycle page lists them as Preview [VF: V1-S024]. voyage-4 costs US$0.06 per 1M tokens, rerank-3 US$0.05 and rerank-3-lite US$0.02 (as of 7 October 2026) [VF: A2-S007, A2-S034]. The Atlas Embedding and Reranking API offers an EEA Geography at a 10% premium [VF: A2-S142].
+- *Certifications:* certifications rest on a homepage listing [R: A2-S044]. MongoDB's SOC 2 scope page does not name Voyage and excludes preview features [VF: B-REV-S027].
+- *Access control:* on Atlas, model API keys are governed by organisation and project roles: Organization Owner, Project Owner and Project Model Owner can create, edit or delete them, read-only roles can only view them, and an Admin API endpoint manages them [VF: B-REV-S028]. SSO and audit logging of key use are not stated [NPV]. One verified control lifts the enterprise-readiness cap to 3 under CP2 rule 7; the AWS Marketplace in-VPC route [VF: A2-S044] would score 4 under the hyperscaler presumption (rule 6) [AJ].
+- *Strengths:* a broad lineup against this layer's questions, including a finance-domain model [AJ].
+- *Limitations:* certification scope is unverified, key integrations are in preview, and the roadmap is now coupled to MongoDB [AJ].
+- *Choose when:* MongoDB is the store [AJ].
+- *Avoid when:* the firm needs the store vendor and the embedding vendor to be different companies [AJ].
+- *Competitors:* Cohere, Jina, Qwen3.
+- *FS note:* obtain the SOC 2 report before client data flows [Rec].
+- **Tier: Tactical. Flag: Acquired.** FS 3.05.
+
+**Cohere Embed 5 and Rerank 4 (Cohere Inc.).**
+- *What it is now:* Embed 5 (Pro and Fast, 30 September 2026) embeds text, images and mixed pages into one vector [VF: A2-S012]. It supports 100+ languages and a 128K-token context, with 256–2,048 dims and float, int8 or binary output [VF: A2-S012]. Rerank 4 (11 December 2025) adds a 32K-token context and handles JSON [VF: A2-S010, A2-S009]. Embed 5 Pro costs US$0.12 and Fast US$0.08 per 1M text tokens; the rerank price was not found [VF: A2-S013].
+- *Deployment and certifications:* deployment options are SaaS, Microsoft Foundry, SageMaker, VPC, Model Vault single-tenant and on-premises [VF: A2-S012, A2-S015]. Cohere holds SOC 2 Type II, ISO 27001 and ISO 42001 [VF: A2-S014]. Enterprise logs are deleted after 30 days by default, and ZDR is available on request [VF: A2-S145].
+- *Access control:* the hosted platform documents only Owner and User team roles [VF: B-REV-S013]; SSO/SAML and audit-log documentation for the hosted API was not found [NPV]. Enterprise readiness is scored on the Microsoft Foundry and SageMaker routes, where the CP2 hyperscaler presumption (rule 6) gives 4; the direct hosted API would score 3 under rule 7 [AJ]. Platform controls presumed (CP2 Q1); confirm per service [Rec].
+- *Ownership:* a business combination with Aleph Alpha was signed on 16 September 2026 and is pending regulatory approval [VF: A2-S018, V1-S028].
+- *Strengths:* the widest deployment range of the hosted vendors here, from SaaS to on-premises [AJ].
+- *Limitations:* access controls on the direct hosted API are unverified, and the ownership event is pending [AJ].
+- *Choose when:* embed and rerank must run in your VPC or data centre with vendor support [AJ].
+- *Avoid when:* you cannot obtain access-control evidence in due diligence [AJ].
+- *Competitors:* Voyage, Jina, NVIDIA.
+- *FS note:* Cohere states it has no access to prompts in private or partner deployments [VF: A2-S145]. Record the Aleph Alpha approval as an ownership event in the third-party register [Rec].
+- **Tier: Tactical. Flag: none.** FS 3.70 on the Foundry and SageMaker routes. It is a Strategic candidate: the score meets the usual Strategic guide, but the stated condition is not yet met: Strategic once per-service due diligence confirms the Foundry or SageMaker controls (the CP2 Q1 presumption is not that evidence) and the Aleph Alpha combination is recorded as an ownership event [AJ].
+
+**Qwen3-Embedding and Qwen3-Reranker (Alibaba Group).**
+- *What it is now:* Qwen3-Embedding and Qwen3-Reranker come in 0.6B, 4B and 8B sizes [VF: A2-S020]. They were released in June 2025 under Apache 2.0, with a 32K context and 119 languages [VF: A2-S020]. Qwen3-VL-Embedding and -Reranker followed in January 2026 [VF: A2-S021, V1-S093]. Hosted versions run on Alibaba Cloud Model Studio, where the regions listed are Singapore, Hong Kong and Beijing; no EU region was verified [VF: A2-S022]. Qwen's June 2025 claim that the 8B model ranked first on MTEB multilingual is vendor-reported and was not re-verified [R: A2-S020].
+- *Strengths:* a permissive embed-plus-rerank pair that can run entirely inside the firm's estate [AJ].
+- *Limitations:* it is a Chinese-origin model. No support or certifications are verified, and the 8B size needs GPUs [AJ].
+- *Choose when:* self-hosting is required and a provenance review approves it [AJ].
+- *Avoid when:* policy excludes such weights, or only the hosted API would be used [AJ].
+- *Competitors:* Sentence Transformers with other open models, NVIDIA, Jina.
+- *FS note:* self-hosted, the weights create no cross-border transfer. The hosted route is not suitable for EU or UK client data on the verified regions [AJ].
+- **Tier: Tactical. Flag: none.** FS 3.15. Scored under rubric rule 2 as self-hosted weights, because the hosted route is not recommended [AJ].
+
+**Jina AI (Elastic N.V.).**
+- *What it is now:* Elastic completed its acquisition of Jina AI on 9 October 2025 [VF: A2-S023, V1-S025]. The current models are [VF: A2-S025, A2-S026, V1-S026]:
+  - jina-embeddings-v5-text (February 2026; 32,768-token context)
+  - jina-embeddings-v5-omni (May 2026; text, image, audio, video and PDF, with text vectors identical to v5-text)
+  - jina-reranker-v3.5 (July 2026)
+- *Licence and routes:* weights are CC-BY-NC-4.0. Commercial use runs through the Jina API, marketplaces, Elastic Inference Service or an on-premises licence, which supports air-gapped Docker [VF: A2-S024, A2-S042, A2-S045]. `semantic_text` defaults to Jina v5 [VF: A2-S133]. API per-token rates were not retrieved [VF: A2-S042].
+- *Certifications and access control:* Elastic Cloud holds ISO 27001 and SOC 2 Type II; whether the hosted Jina API is in scope is not confirmed [VF: A2-S045]. Elastic Cloud documents SAML SSO and RBAC at platform level; whether they govern EIS calls specifically is not stated [VF: B-REV-S019].
+- *Strengths:* the zero-integration path inside Elasticsearch, with multimodal and air-gap options [AJ].
+- *Limitations:* the licence is non-commercial. Pricing is opaque, and the ownership change ties it to Elastic [AJ].
+- *Choose when:* Elastic is the store [AJ].
+- *Avoid when:* the plan assumes free self-hosting of the weights [AJ].
+- *Competitors:* Voyage, Cohere, Qwen3.
+- *FS note:* get the licence route confirmed in writing [Rec].
+- **Tier: Tactical. Flag: Acquired.** FS 3.15, scored on the Elastic Inference Service route.
+
+**Sentence Transformers (Hugging Face).**
+- *What it is now:* sentence-transformers 6.1.0 was released on 18 September 2026 under Apache-2.0 [VF: A2-S029, A2-S032]. It is maintained by Hugging Face and originated at UKP Lab [VF: A2-S028, V1-S092]. It computes and trains [VF: A2-S029]:
+  - dense embeddings
+  - Cross-Encoder reranker scores
+  - Sparse Encoders
+  - ColBERT-style Multi-Vector Encoders
+
+  More than 15,000 pre-trained models on Hugging Face load through it [VF: A2-S029].
+- *Strengths:* one permissive toolkit for every technique in this layer, and the practical route to domain fine-tuning and to exit from any hosted API [AJ].
+- *Limitations:* it is a library, not a model, and it has no verified commercial support [NPV]. It publishes a security policy with private reporting and CVE issuance through GitHub advisories [VF: B-REV-S002]. Each Hub model carries its own licence [AJ].
+- *Choose when:* retrieval must run in the firm's estate, or needs fine-tuning [AJ].
+- *Avoid when:* there is no team to operate serving [AJ].
+- *Competitors:* NVIDIA NeMo Retriever, Qwen3, Cohere private deployment.
+- *FS note:* it inherits host controls [AJ].
+- **Tier: Strategic. Flag: none.** FS 3.70. Rule 2 caps were applied.
+
+**NVIDIA NeMo Retriever embedding and reranking NIMs (NVIDIA).**
+- *What it is now:* the graphic's "NVIDIA – Embed" tile is now the set of NeMo Retriever NIM microservices [VF: A2-S030, A2-S031]:
+  - Embedding NIM 2.3, with nemotron-3-embed-1b (added in 2.2) and the llama-nemotron-embed text and VL models [VF: A2-S031, V1-S094]
+  - Reranking NIM 2.0.0, with text and multimodal rerankers [VF: A2-S030]
+- *Deployment and licensing:* they deploy via Helm or Docker on supported GPUs, in any cloud or data centre [VF: A2-S031, A2-S040]. Production use requires NVIDIA AI Enterprise, from US$4,500 per GPU per year (as of 7 October 2026) [VF: A2-S040]. Model licences vary by model [VF: A2-S041]. The Helm chart warns that a text-only reranker silently degrades multimodal reranking [VF: A2-S031].
+- *Strengths:* a supported, self-hosted runtime for embed and rerank [AJ].
+- *Limitations:* it deepens GPU-vendor coupling, and per-GPU licences make it expensive at low volume [AJ].
+- *Choose when:* the firm already runs NVIDIA AI Enterprise [AJ].
+- *Avoid when:* retrieval volume is small [AJ].
+- *Competitors:* Sentence Transformers, Qwen3, Cohere private deployment.
+- *FS note:* self-hosting keeps the retrieval path in-estate; the AI Enterprise subscription becomes the third-party arrangement to register [AJ].
+- **Tier: Tactical. Flag: Renamed.** FS 2.95.
 
 ### 7.8 Comparison table
 
@@ -310,9 +269,9 @@ Output of `tools/score.py` (scores 1–5; totals are weighted averages):
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | L7-openai | 3 | 4 | 4 | 2 | 3 | 4 | 4 | 2 | 3.30 | 3.20 | Tactical |
-| L7-gemini-embedding | 4 | 3 | 4 | 2 | 3 | 3 | 3 | 2 | 3.15 | 3.05 | Tactical |
-| L7-voyage | 5 | 2 | 2 | 3 | 4 | 3 | 4 | 2 | 3.25 | 2.90 | Tactical |
-| L7-cohere | 4 | 2 | 4 | 4 | 4 | 3 | 3 | 3 | 3.45 | 3.40 | Tactical |
+| L7-gemini-embedding | 4 | 4 | 4 | 2 | 3 | 3 | 3 | 2 | 3.30 | 3.20 | Tactical |
+| L7-voyage | 5 | 3 | 2 | 3 | 4 | 3 | 4 | 2 | 3.40 | 3.05 | Tactical |
+| L7-cohere | 4 | 4 | 4 | 4 | 4 | 3 | 3 | 3 | 3.75 | 3.70 | Tactical |
 | L7-qwen3-embedding | 4 | 2 | 2 | 4 | 3 | 3 | 4 | 4 | 3.20 | 3.15 | Tactical |
 | L7-jina | 4 | 3 | 3 | 4 | 4 | 3 | 2 | 2 | 3.30 | 3.15 | Tactical |
 | L7-sentence-transformers | 4 | 3 | 3 | 4 | 5 | 4 | 4 | 4 | 3.80 | 3.70 | Strategic |
@@ -321,7 +280,8 @@ Output of `tools/score.py` (scores 1–5; totals are weighted averages):
 | L7-ragoos | – | – | – | – | – | – | – | – | n/a | n/a | not scored |
 
 **Reading the scores** [AJ]:
-- The hosted vendors spread from 2.90 to 3.40 FS. OpenAI (3.20), Gemini (3.05) and Jina (3.15, Elastic route) rose at CP2 review once their platform access controls were evidenced; Cohere and Voyage stay capped on enterprise readiness.
+- The hosted vendors spread from 3.05 to 3.70 FS. OpenAI (3.20), Gemini and Jina (3.15, Elastic route) rose at CP2 review once their platform access controls were evidenced. The CP2 rework then applied the user's answers: Gemini rose to 3.20 under the hyperscaler presumption, Cohere to 3.70 on its Foundry and SageMaker routes, and Voyage to 3.05 once Atlas roles over model API keys were verified [VF: B-REV-S028]. No hosted vendor is now capped on enterprise readiness.
+- Cohere's 3.70 meets the usual Strategic guide, but it stays Tactical on its stated condition: per-service due diligence must confirm the presumed platform controls, and the Aleph Alpha combination is pending. It is the layer's first upgrade candidate.
 - The spread on security (2 to 4) reflects how well certifications are evidenced, not a judgement of real security posture.
 - Voyage's technical lead does not survive the FS weighting until its certification scope is evidenced.
 - Qwen3 and NVIDIA are scored as self-hosted software under rule 2, like Sentence Transformers.
@@ -468,7 +428,7 @@ That is enough to show what the model was shown, and to reproduce it while the i
 | OpenAI – Embeddings 3 | Still text-embedding-3 (January 2024); no reranker found [VF: A2-S001, A2-S002] | Tactical text baseline where OpenAI is already approved; pair with a separate reranker [Rec] |
 | Gemini – Embedding 2 | gemini-embedding-2 GA 22 April 2026; multimodal; EU endpoint excludes UK [VF: A2-S004, A2-S039] | Tactical for Google-centred, multimodal estates [Rec] |
 | Voyage AI – Voyage-3 | MongoDB-owned; Voyage 4 family, rerank-3 (Preview) [VF: A2-S033, A2-S006, V1-S024] | Tactical; preferred where MongoDB is the store, after SOC 2 scope is evidenced [Rec] |
-| Cohere – Embed v3 + Rerank | Embed 5 and Rerank 4; Aleph Alpha combination pending [VF: A2-S012, A2-S010, A2-S018] | Tactical, Strategic candidate for private deployment once access controls are evidenced [Rec] |
+| Cohere – Embed v3 + Rerank | Embed 5 and Rerank 4; Aleph Alpha combination pending [VF: A2-S012, A2-S010, A2-S018] | Tactical (FS 3.70 on Foundry or SageMaker); Strategic candidate for private or hyperscaler deployment once per-service due diligence confirms the presumed access controls [Rec] |
 | Qwen3 – Embeddings | Embedding **and** Reranker, Apache 2.0, plus VL variants [VF: A2-S020, A2-S021] | Tactical; self-host only, after provenance review [Rec] |
 | Jina AI – Embeddings v3 | Elastic-owned; v5 text/omni, reranker v3.5; CC-BY-NC weights [VF: A2-S023, A2-S025, A2-S024] | Tactical inside Elastic estates; licensed routes only [Rec] |
 | SBERT – Sentence transformers | 6.1.0, Apache-2.0, Hugging Face; dense, cross-encoder, sparse, multi-vector [VF: A2-S029] | **Strategic** as the self-hosting, fine-tuning and exit toolkit [Rec] |

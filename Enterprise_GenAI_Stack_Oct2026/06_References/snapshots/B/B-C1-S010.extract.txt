@@ -1,0 +1,10 @@
+SOURCE ID: B-C1-S010
+URL: https://www.solo.io/press-releases/enterprise-agentgateway-mcp-labs
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains linuxfoundation.org, agentgateway.dev, solo.io): agentgateway enterprise support Solo.io contributed Linux Foundation
+========================================================================
+
+Search-tool extract (Solo.io press release "Solo.io Launches Solo Enterprise for agentgateway and Solo Labs for MCP"):
+- 15 October 2025: Solo announced Solo Enterprise for agentgateway, an enterprise distribution of the open-source project, adding full-lifecycle MCP security and governance and secure elicitation linking service identity to an enterprise identity provider.
+- Solo says most production deployments buy enterprise support for SLAs, audit tooling and production hardening (vendor statement).

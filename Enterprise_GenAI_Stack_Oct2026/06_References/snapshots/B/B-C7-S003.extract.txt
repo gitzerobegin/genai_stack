@@ -1,0 +1,14 @@
+SOURCE ID: B-C7-S003
+URL: https://docs.paloaltonetworks.com/common-services/identity-and-access-access-management/manage-identity-and-access/about-roles-and-permissions
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.paloaltonetworks.com): Prisma AIRS role-based access control Strata Cloud Manager roles SSO audit logs AI Runtime Security
+========================================================================
+
+Search-tool extract (several Palo Alto Networks docs pages):
+- Common Services "About Roles and Permissions": enterprise roles include Superuser, Auditor, Security Administrator, View Only Administrator, SOC Analyst, each with read/write scope; roles combine as a union across apps.
+- Prisma AIRS API application onboarding (docs.paloaltonetworks.com/ai-runtime-security/administration/prevent-network-security-threats/onboard-api-runtime-security-api-intercept-in-scm): "Assign the RBAC role required for Prisma AIRS API access. Minimum permissions required are Read Only roles for API Keys and Profiles roles."
+- AI Red Teaming "Configure Identity and Access Management": tenant role must be Superuser or a read-only role with access to AI Red Teaming.
+- AI Red Teaming reports: every verdict override "is recorded with the user's identity and timestamp, creating a full audit trail".
+- Prisma AIRS API scan logs include Scan ID, API key, profile ID/name, application name, model name, report ID, detection types, verdict and action; logs forwarded to SIEM via Strata Logging Service.
+- Identity & Access (Common Services) handles users, service accounts, roles and third-party identity provider integration (tenant level). No AIRS-specific SSO guide found.

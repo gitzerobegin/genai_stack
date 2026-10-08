@@ -1,0 +1,9 @@
+SOURCE ID: B-C2-S004
+URL: https://docs.cloud.google.com/model-armor/locations
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com): Model Armor locations regional endpoints europe data residency floor settings
+========================================================================
+
+Search-tool extract (Model Armor locations):
+- European regions: europe-southwest1 (Madrid), europe-west1 (Belgium), europe-west2 (London), europe-west3 (Frankfurt), europe-west4 (Netherlands), europe-west9 (Paris); multi-region eu. Madrid and Paris added 27 March 2026.

@@ -1,0 +1,13 @@
+SOURCE ID: B-L5-S005
+URL: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/right-to-erasure/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains ico.org.uk): ICO right to erasure UK GDPR guidance one month backups
+========================================================================
+
+ICO guidance "Right to erasure" (UK GDPR), as reported by the search tool:
+- If a valid request is received and no exemption applies, the controller must take steps to erase from backup systems as well as live systems.
+- Erasure can be fulfilled instantly in live systems while data may remain in backups until overwritten; the key issue is to put backup data "beyond use" (not used for any other purpose, held until replaced on an established schedule).
+- Controllers must be clear with individuals about what will happen to their data, including in backups.
+- Respond without undue delay and within one month of receipt (extension possible in some circumstances).
+- The page states that, due to changes made by the Data (Use and Access) Act, the guidance is under review and may be subject to change.

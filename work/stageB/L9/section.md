@@ -141,7 +141,7 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 **Arize Phoenix (Dynatrace).**
 - *What it is now:* self-hosted tracing on OTel and OpenInference, with response and retrieval evaluations, datasets, experiments, prompt management, an MCP endpoint and a pytest plugin [VF: A1-S066, A1-S106]. Version 20.19.0 was released on 1 October 2026 [VF: A1-S004].
 - *Licence:* Elastic License 2.0. It is source-available, not OSI-approved, and may not be offered to third parties as a managed service [VF: A1-S048, A1-S107]. Phoenix has no feature gates [VF: A1-S046].
-- *Access control and support:* authentication is optional and off by default. When enabled, the roles are admin, member and viewer [VF: A1-S105]. Full SSO, RBAC and audit trails are AX features, and Phoenix has community support only [VF: A1-S046].
+- *Access control and support:* authentication is optional and off by default. When enabled, the roles are admin, member and viewer, and users log in through OAuth2 identity providers [VF: A1-S105]. Full SSO, RBAC and audit trails are AX features, and Phoenix has community support only [VF: A1-S046]. Under CP2 rule 7, roles plus IdP login score enterprise readiness 3; the missing audit trail keeps it there [AJ].
 - *Strengths:* OpenInference portability and free air-gapped use [VF: A1-S046, A1-S049].
 - *Limitations:* not a governed multi-team store [AJ]. Arize says it will keep supporting Phoenix, with capabilities integrated into Dynatrace over time [VF: A1-S045].
 - *Choose when:* you need validation sandboxes or developer workbenches [AJ].
@@ -203,7 +203,7 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 - *What it is now:* an Apache-2.0 platform with OTel-based tracing, evaluation and monitoring, a prompt registry and optimisation, and an AI Gateway [VF: A1-S103, A1-S019]. Version 3.17.0 was released on 7 October 2026 [VF: A1-S019].
 - *Hosting:* managed by Databricks, SageMaker, Azure ML, Nebius and OpenShift AI, or self-hosted on-premises [VF: A1-S103]. Databricks contributed it to the Linux Foundation in 2020 under a vendor-neutral governance model [VF: B-L9-S004]. The code copyright remains with Databricks [VF: A1-S019].
 - *Strengths:* GenAI evidence lands next to the classic model inventory and lifecycle that many regulated firms already run [AJ].
-- *Limitations:* access controls and certifications depend on the managed host and are not verified in the fact base [NPV]. Evaluation depth compared with specialist tools has not been assessed from primary sources [NPV].
+- *Limitations:* access controls and certifications depend on the managed host. On SageMaker and Azure ML, the platform's IAM, SSO and audit logging are presumed under CP2 Q1, which scores enterprise readiness 4 [AJ]; platform controls presumed (CP2 Q1); confirm per service [Rec]. Certifications, and the controls on the Databricks, Nebius and OpenShift AI routes, are not verified in the fact base [NPV]. Evaluation depth compared with specialist tools has not been assessed from primary sources [NPV].
 - *Choose when:* an ML platform already exists [AJ].
 - *Avoid when:* you would self-host an unauthenticated tracking server [AJ].
 - *Competitors:* Langfuse, Weave, Opik.
@@ -214,7 +214,7 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 - *What it is now:* a Datadog module, documented under the LLM Observability path. It traces agent steps and LLM calls with latency, tokens, cost and errors, and scans and redacts sensitive data. It also detects prompt injection, runs quality, privacy and safety evaluations, and produces Insights [VF: A1-S097, A1-S099].
 - *Ingest:* it accepts OTel 1.37+ GenAI conventions or OpenInference [VF: A1-S098]. Pricing is metered per LLM span [VF: A1-S097].
 - *Certifications:* the Datadog Trust Center lists SOC 2 Type 2, ISO/IEC 27001, 27017, 27018, 27701 and 42001, HIPAA and FedRAMP High [VF: B-L9-S001]. Whether that scope covers this module specifically is not stated [NPV], so security scores 4, not 5 [AJ].
-- *Regions and access:* EU1 is hosted in Germany, and sites are isolated from each other [VF: B-L9-S002]. SAML SSO, RBAC with custom roles and an Audit Trail are documented [VF: B-L9-S003, B-L9-S005].
+- *Regions and access:* EU1 is hosted in Germany, and sites are isolated from each other [VF: B-L9-S002]. SAML SSO, RBAC with custom roles and an Audit Trail are documented, and roles and permissions can be managed through a Roles API [VF: B-L9-S003, B-L9-S005]. All three controls plus an admin API keep enterprise readiness at 4 under CP2 rule 7 [AJ].
 - *Strengths:* puts production LLM monitoring with on-call operations [AJ].
 - *Limitations:* SaaS only. Self-hosting is not publicly verified [NPV].
 - *Choose when:* Datadog is your APM standard [AJ].
@@ -225,10 +225,10 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 
 **W&B Weave (CoreWeave).**
 - *What it is now:* tracing and evaluation for agents, with autopatching of the OpenAI Agents SDK, Claude Agent SDK and Google ADK [VF: A1-S104]. It has an OTLP/HTTP endpoint and a separate endpoint for agent spans [VF: A1-S139]. Version 0.53.11 was released on 25 September 2026 [VF: A1-S018].
-- *Certifications:* SOC 2 Type II and ISO/IEC 27001, 27017 and 27018. HIPAA is available on Dedicated Cloud with a BAA [VF: A1-S137].
+- *Certifications:* SOC 2 Type II and ISO/IEC 27001, 27017 and 27018. HIPAA is available on Dedicated Cloud with a BAA [VF: A1-S137]. The Weave documentation states SOC 2 Type II for both managed platforms, while the ISO certifications are listed at W&B site level [VF: A1-S137]. Their Weave scope is not stated, so under CP2 rule 8 security scores 4, not 5 [AJ].
 - *Deployment and access:* Dedicated Cloud in the customer's chosen cloud and region, with per-instance keys and private connectivity. Customer-managed keys, SSO, automated provisioning, custom roles and audit logs come with Enterprise [VF: A1-S137, A1-S138].
 - *Ownership:* part of CoreWeave since 5 May 2025, inside CoreWeave Forge [VF: A1-S131, A1-S138].
-- *Strengths:* a strong security posture inside an existing W&B estate [AJ].
+- *Strengths:* a good security posture inside an existing W&B estate, with customer-managed keys [AJ].
 - *Limitations:* the multi-tenant cloud is North America only [VF: A1-S137]. RAG and red-team evaluation depth is not evidenced [NPV].
 - *Choose when:* W&B is already the ML platform [AJ].
 - *Avoid when:* you would use the multi-tenant cloud for UK or EU client data [AJ].
@@ -242,21 +242,27 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| L9-langfuse | 4 | 3 | 4 | 4 | 4 | 4 | 4 | 3 | 3.80 | 3.70 | Strategic |
+| L9-langfuse | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 3 | 3.95 | 3.85 | Strategic |
 | L9-langsmith | 4 | 4 | 4 | 5 | 4 | 4 | 3 | 2 | 3.95 | 3.80 | Strategic |
 | L9-braintrust | 4 | 3 | 3 | 4 | 4 | 3 | 3 | 2 | 3.40 | 3.20 | Tactical |
-| L9-arize-phoenix | 4 | 2 | 3 | 4 | 4 | 4 | 4 | 3 | 3.50 | 3.35 | Tactical |
+| L9-arize-phoenix | 4 | 3 | 3 | 4 | 4 | 4 | 4 | 3 | 3.65 | 3.50 | Tactical |
 | L9-arize-ax | 4 | 4 | 4 | 5 | 4 | 3 | 3 | 2 | 3.85 | 3.70 | Tactical |
 | L9-deepeval | 4 | 3 | 3 | 5 | 4 | 3 | 4 | 4 | 3.75 | 3.70 | Tactical |
 | L9-promptfoo | 4 | 3 | 3 | 5 | 4 | 3 | 4 | 3 | 3.70 | 3.55 | Tactical |
 | L9-opik | 4 | 3 | 4 | 4 | 3 | 3 | 5 | 4 | 3.75 | 3.75 | Tactical |
-| L9-mlflow-genai | 4 | 3 | 3 | 5 | 5 | 5 | 4 | 5 | 4.10 | 4.10 | Strategic |
+| L9-mlflow-genai | 4 | 4 | 3 | 5 | 5 | 5 | 4 | 5 | 4.25 | 4.25 | Strategic |
 | L9-datadog-agent-observability | 3 | 4 | 4 | 2 | 4 | 3 | 2 | 3 | 3.15 | 3.20 | Tactical |
-| L9-wandb-weave | 3 | 4 | 5 | 4 | 3 | 3 | 3 | 2 | 3.55 | 3.55 | Tactical |
+| L9-wandb-weave | 3 | 4 | 4 | 4 | 3 | 3 | 3 | 2 | 3.40 | 3.35 | Tactical |
 
 **Scoring notes [AJ]:**
 - No NPV cap was triggered. Datadog's certification and access-control gaps were closed by the writer (B-L9-S001 to S005), and the CP2 review evidenced Braintrust's SSO, RBAC and audit logs and Opik's SSO and roles [VF: B-REV-S020, B-REV-S021, B-REV-S022].
-- Datadog security is 4, not 5: the certifications are company-level and the module's scope is not stated. The same one-point scope rule applies to Gemini Embedding and Cohere (L7) and Mistral OCR (L8).
+- CP2 rework (rules 6 to 9, 8 October 2026):
+  - Langfuse enterprise readiness rises from 3 to 4: SSO, project RBAC and audit logs plus SCIM are documented [VF: A1-S033], which reaches 4 under rule 7.
+  - MLflow enterprise readiness rises from 3 to 4 under the hyperscaler presumption (rule 6) for the SageMaker and Azure ML managed routes [VF: A1-S103]; platform controls presumed (CP2 Q1); confirm per service.
+  - Phoenix enterprise readiness rises from 2 to 3: roles and OAuth2 IdP login are verified [VF: A1-S105], the same two-of-three case as Opik.
+  - W&B Weave security falls from 5 to 4: the ISO certifications are W&B site-level, so their Weave scope is not stated (rule 8).
+  - Datadog stays at 4 on enterprise readiness, now evidenced by its Roles API as well [VF: B-L9-S003]. Opik's security 4 is kept because SOC 2 and ISO 27001 are listed against the Opik Enterprise plan [VF: A1-S122]. No tier changed.
+- Datadog security is 4, not 5: the certifications are company-level and the module's scope is not stated. The same one-point scope rule (CP2 rule 8) applies to W&B Weave here, to Gemini Embedding and Cohere (L7) and to Mistral OCR (L8).
 - DeepEval, Phoenix, MLflow and the Promptfoo CLI were scored as self-hosted software under rubric rule 2. Promptfoo Enterprise SaaS would be capped at 2 for security, because its certifications are NPV.
 - Arize AX, DeepEval and Opik reach 3.6 or above but are classed Tactical. AX was acquired seven days ago. DeepEval is a substitutable library. Opik's open edition lacks identity. LangSmith is Strategic with lock-in at 2 only on the condition stated in its deep dive.
 - The ownership-change reduction of 1 on lock-in was applied to Langfuse, Phoenix, AX, Promptfoo and Weave.

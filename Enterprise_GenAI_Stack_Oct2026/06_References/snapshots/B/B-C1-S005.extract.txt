@@ -1,0 +1,12 @@
+SOURCE ID: B-C1-S005
+URL: https://aws.amazon.com/compliance/services-in-scope/SOC/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains aws.amazon.com, docs.aws.amazon.com): Amazon Bedrock AgentCore compliance validation SOC ISO services in scope
+========================================================================
+
+Search-tool extract (AWS Services in Scope by Compliance Program - SOC):
+- Amazon Bedrock AgentCore is listed with a check mark.
+- Amazon Bedrock is listed; Amazon Bedrock Marketplace is excluded.
+- "generally available features of each of the services are considered in scope of the assurance programs, unless specifically excluded."
+- "if a service is not currently listed as in scope of the most recent assessment, it does not mean that you cannot use the service."

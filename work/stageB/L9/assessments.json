@@ -42,7 +42,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 4,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -52,7 +52,7 @@
       },
       "rationale": {
         "technical": "Covers tracing, prompts, LLM-as-a-judge, datasets, experiments and annotation; no native red-teaming or documented trajectory metrics.",
-        "enterprise_readiness": "SCIM, audit logs and project RBAC exist but are Enterprise-licensed when self-hosted; SLA terms not published.",
+        "enterprise_readiness": "SSO, project-level RBAC, audit logs and SCIM are documented, with SCIM, audit logs and project RBAC Enterprise-licensed when self-hosted (A1-S033): all three controls plus SCIM reach 4 under rule 7 (CP2 Q2). Not 5: SLA terms are not published and pages disagree on which tier carries SSO.",
         "security_compliance": "SOC 2 Type II, ISO 27001, HIPAA BAA and isolated EU region on Cloud; no CMK/BYOK documented, so not 5 under the layer calibration.",
         "deployment_flexibility": "SaaS, private cloud, self-host and on-prem; BYOC not verified; air-gap not documented.",
         "ecosystem": "OTel-native with broad integration guides; HTTP-only OTLP.",
@@ -60,9 +60,11 @@
         "cost_tco": "Free MIT core and transparent Cloud pricing; ClickHouse operations and additive Enterprise pricing when self-hosted.",
         "lockin_portability": "Base 4 (MIT core, OTel ingest, own data model) reduced by 1 for the 2026 ownership change; governance is company-controlled."
       },
-      "evidence_caps_applied": [],
-      "generic_total": 3.8,
-      "fs_total": 3.7
+      "evidence_caps_applied": [
+        "Rule 7 (CP2 Q2) applied at CP2 rework (8 October 2026): SSO, RBAC and audit logs plus SCIM verified (A1-S033); enterprise_readiness 3 -> 4"
+      ],
+      "generic_total": 3.95,
+      "fs_total": 3.85
     }
   },
   {
@@ -228,12 +230,12 @@
       "flags": [
         "Acquired"
       ],
-      "rationale": "Useful, portable workbench with strong instrumentation; ELv2, missing audit/SSO and new Dynatrace ownership make it unsuitable as the production record [AJ]."
+      "rationale": "Useful, portable workbench with strong instrumentation; ELv2, no audit trail, community-only support and new Dynatrace ownership make it unsuitable as the production record [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 2,
+        "enterprise_readiness": 3,
         "security_compliance": 3,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -243,7 +245,7 @@
       },
       "rationale": {
         "technical": "Tracing, retrieval and response evals, datasets, experiments, prompt management and pytest; online production monitoring is the AX proposition.",
-        "enterprise_readiness": "Roles and OAuth2 login when auth is enabled, but no audit trail, SCIM or support; scored as self-hosted software (rule 2).",
+        "enterprise_readiness": "Scored as self-hosted software (rule 2). With authentication enabled, Phoenix provides admin, member and viewer roles and login through OAuth2 identity providers (A1-S105): two of SSO, RBAC and audit logs verified, so 3 under rule 7 (CP2 Q2). No audit trail, SCIM or commercial support for Phoenix itself, so not above 3.",
         "security_compliance": "Inherits host controls; licence is clear, telemetry can be disabled; auth off by default is a hygiene weakness. Certifications NPV for Phoenix Cloud, not used.",
         "deployment_flexibility": "Self-host, private-cloud templates and air-gap; Phoenix Cloud low confidence; no BYOC.",
         "ecosystem": "OpenInference is accepted by other backends; broad framework and provider auto-instrumentation.",
@@ -252,10 +254,11 @@
         "lockin_portability": "Base 4 (portable OTel/OpenInference, source-available) reduced by 1 for the 2026 ownership change; ELv2 is not permissive."
       },
       "evidence_caps_applied": [
-        "Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls"
+        "Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls",
+        "Rule 7 (CP2 Q2) applied at CP2 rework (8 October 2026) for consistency with Opik and Unstructured: roles and OAuth2 IdP login verified (A1-S105); enterprise_readiness 2 -> 3; no audit trail"
       ],
-      "generic_total": 3.5,
-      "fs_total": 3.35
+      "generic_total": 3.65,
+      "fs_total": 3.5
     }
   },
   {
@@ -512,7 +515,9 @@
         "cost_tco": "Free full-platform self-hosting and low cloud entry price.",
         "lockin_portability": "Apache-2.0 platform with OTel ingest; company-governed, so not 5."
       },
-      "evidence_caps_applied": [],
+      "evidence_caps_applied": [
+        "Rule 8 (CP2 Q4) checked at CP2 rework (8 October 2026): SOC 2 Type 2 and ISO 27001 are listed against the Opik Enterprise plan (A1-S122), so product scope is stated; security_compliance 4 kept"
+      ],
       "generic_total": 3.75,
       "fs_total": 3.75
     }
@@ -546,7 +551,7 @@
         "L9-wandb-weave",
         "L9-opik"
       ],
-      "fs_note": "For firms whose model risk inventory already lives in MLflow, this is the shortest path to SS1/23-style monitoring evidence for LLM components; use the managed service's controls and residency, which must be verified per provider [AJ]."
+      "fs_note": "For firms whose model risk inventory already lives in MLflow, this is the shortest path to SS1/23-style monitoring evidence for LLM components; on SageMaker or Azure ML the platform's IAM, SSO and audit logging are presumed under CP2 Q1 but must be confirmed per service, and certifications and residency must be verified per provider [AJ]."
     },
     "classification": {
       "tier": "Strategic",
@@ -556,7 +561,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 3,
         "deployment_flexibility": 5,
         "ecosystem": 5,
@@ -566,7 +571,7 @@
       },
       "rationale": {
         "technical": "Tracing, evaluation, monitoring, prompt registry and gateway; red-teaming not native.",
-        "enterprise_readiness": "Open-source software with commercial managed distributions (rule 2); SSO/RBAC come from the managed host and are not verified in the fact base.",
+        "enterprise_readiness": "Scored on the managed route the decision tree recommends. On Amazon SageMaker and Azure ML (A1-S103), platform IAM, SSO and audit logging are presumed under rule 6 (CP2 Q1), so 4 (within the rule 2 cap of 4); platform controls presumed (CP2 Q1); confirm per service. The Databricks, Nebius and OpenShift AI routes are not covered by the presumption, and the open-source tracking server's own controls remain NPV.",
         "security_compliance": "Inherits host controls; clear Apache-2.0 licence and foundation hosting; managed-service certifications must be checked per provider.",
         "deployment_flexibility": "Five managed services, self-host and on-premises clusters.",
         "ecosystem": "OTel- and MCP-native; managed by multiple clouds; integrated by other L9 tools (Langfuse guide).",
@@ -575,10 +580,11 @@
         "lockin_portability": "Apache-2.0, Linux Foundation governance, OTel."
       },
       "evidence_caps_applied": [
-        "Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls"
+        "Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls",
+        "Rule 6 (CP2 Q1, hyperscaler presumption) applied at CP2 rework (8 October 2026) to the SageMaker and Azure ML managed routes: enterprise_readiness 3 -> 4; platform controls presumed (CP2 Q1); confirm per service"
       ],
-      "generic_total": 4.1,
-      "fs_total": 4.1
+      "generic_total": 4.25,
+      "fs_total": 4.25
     }
   },
   {
@@ -633,7 +639,7 @@
       },
       "rationale": {
         "technical": "Strong production tracing, cost, redaction and online evals; offline experiments and CI evaluation not evidenced.",
-        "enterprise_readiness": "SAML SSO, RBAC with custom roles and Audit Trail (B-L9 sources); SLA and support terms not captured.",
+        "enterprise_readiness": "SAML SSO, RBAC with default and custom roles, a Roles API for managing roles and permissions, and Audit Trail (B-L9-S003, B-L9-S005): all three controls plus an admin API, so 4 under rule 7 (CP2 Q2); SLA and support terms not captured.",
         "security_compliance": "SOC 2 Type 2, ISO 27001, ISO 42001, HIPAA and FedRAMP High at company level (B-L9-S001); module-level scope not stated, so one point below the anchor under the cross-layer scope rule applied to Gemini, Cohere and Mistral.",
         "deployment_flexibility": "SaaS only, though across isolated regional sites including EU1 (Germany).",
         "ecosystem": "OTel GenAI 1.37+ and OpenInference ingest; native APM integration.",
@@ -641,7 +647,9 @@
         "cost_tco": "Per-span metering on top of the Datadog platform; rates not captured in the fact base.",
         "lockin_portability": "Proprietary SaaS on standard ingest interfaces; export not verified."
       },
-      "evidence_caps_applied": [],
+      "evidence_caps_applied": [
+        "Rule 7 (CP2 Q2) checked at CP2 rework (8 October 2026): enterprise_readiness 4 kept, re-evidenced with the Roles API (B-L9-S003); rule 8 (CP2 Q4) scope rule confirmed for security_compliance 4"
+      ],
       "generic_total": 3.15,
       "fs_total": 3.2
     }
@@ -683,13 +691,13 @@
       "flags": [
         "Acquired"
       ],
-      "rationale": "Strong security posture and deployment options, but evaluation depth is less evidenced and the product follows a compute vendor's platform strategy [AJ]."
+      "rationale": "Good security posture and deployment options, but evaluation depth is less evidenced and the product follows a compute vendor's platform strategy [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 3,
         "enterprise_readiness": 4,
-        "security_compliance": 5,
+        "security_compliance": 4,
         "deployment_flexibility": 4,
         "ecosystem": 3,
         "reliability_maturity": 3,
@@ -699,16 +707,18 @@
       "rationale": {
         "technical": "Agent tracing and evaluation with SDK autopatching; RAG metrics, online rules and red-teaming not evidenced.",
         "enterprise_readiness": "SSO, automated provisioning, custom roles, audit logs and an enterprise support package.",
-        "security_compliance": "SOC 2 Type II, ISO 27001/27017/27018, HIPAA on Dedicated Cloud, customer-managed keys, region choice.",
+        "security_compliance": "The Weave documentation states SOC 2 Type II for both managed platforms, HIPAA on Dedicated Cloud and customer-managed keys on Enterprise (A1-S137, A1-S138); ISO/IEC 27001/27017/27018 are listed at W&B site level with Weave scope not stated, so 4 under rule 8 (CP2 Q4): 5 needs SOC 2 Type II and ISO 27001 within the product's scope.",
         "deployment_flexibility": "Multi-tenant SaaS, Dedicated Cloud, Self-Managed and on-prem; air-gap not documented.",
         "ecosystem": "OTLP ingest and agent SDK autopatching; strongest inside the W&B estate.",
         "reliability_maturity": "Three years of releases, pre-1.0 SDK; owned by CoreWeave since May 2025.",
         "cost_tco": "Pro from US$60/month plus usage-based ingestion; Enterprise by quote.",
         "lockin_portability": "Base 3 (proprietary platform, OTel ingest, Apache-2.0 SDK) reduced by 1 for the 2025 ownership change."
       },
-      "evidence_caps_applied": [],
-      "generic_total": 3.55,
-      "fs_total": 3.55
+      "evidence_caps_applied": [
+        "Rule 8 (CP2 Q4) applied at CP2 rework (8 October 2026): ISO certifications are W&B site-level with Weave scope not stated; security_compliance 5 -> 4"
+      ],
+      "generic_total": 3.4,
+      "fs_total": 3.35
     }
   }
 ]

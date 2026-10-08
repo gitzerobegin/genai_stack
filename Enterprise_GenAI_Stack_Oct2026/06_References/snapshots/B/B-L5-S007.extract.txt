@@ -1,0 +1,12 @@
+SOURCE ID: B-L5-S007
+URL: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A62022CJ0026
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains eur-lex.europa.eu, ico.org.uk): GDPR Article 17 right to erasure Article 5(1)(e) storage limitation text
+========================================================================
+
+CJEU judgment C-26/22 (EUR-Lex), with C-484/24 and AG opinion C-655/23, as reported by the search tool:
+- Article 17(1) GDPR gives the data subject the right to obtain from the controller the erasure of personal data concerning them without undue delay, and the controller must erase where one of the listed grounds applies (e.g. unlawful processing, Article 17(1)(d); successful objection under Article 21(1), Article 17(1)(c)).
+- Article 5(1)(e): personal data "kept for no longer than is necessary for the purposes for which the personal data are processed".
+- The right is not unconditional: Article 17(3) lists exceptions, including where processing is necessary for the establishment, exercise or defence of legal claims (Article 17(3)(e)).
+(Full text of Article 17(3) not retrieved in the extract.)

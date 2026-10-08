@@ -1,0 +1,558 @@
+[
+  {
+    "id": "C1-litellm",
+    "assessment": {
+      "capabilities": "Open-core Python SDK and proxy exposing 100+ providers through an OpenAI-format API, with virtual keys, budgets per key/user/team/customer, TPM/RPM limits, fallbacks, exact and semantic caching, pre/during/post-call guardrail hooks and logging callbacks; the same proxy fronts MCP servers and A2A agents [VF: A6-S015, A6-S051].",
+      "strengths": [
+        "Widest provider coverage and the de facto open-source gateway; basis of AWS's own multi-provider Guidance [VF: A6-S015, A6-S022] [AJ]",
+        "One control plane for LLM, MCP and A2A traffic with shared auth, limits and spend tracking [VF: A6-S015]",
+        "MIT core and OpenAI-format API keep the application exit cheap [VF: A6-S001, A6-S015] [AJ]"
+      ],
+      "limitations_risks": [
+        "PyPI supply-chain compromise on 24 March 2026 (1.82.7 and 1.82.8) via CI credentials; clean v1.83.0 released 30 March 2026 (US time) from a rebuilt pipeline [VF: A6-S008, A6-S009, V2-S027, V2-S028]",
+        "Several controls fail open or are off by default: max_budget without a database, prompt-injection guardrails off, admin key bypasses budgets; A2A agents open to all callers until an allowlist is set [VF: A6-S015]",
+        "SSO beyond 5 users, RBAC, SCIM and audit logs need the commercial licence; pricing model described inconsistently [VF: A6-S007]",
+        "ISO 27001 recertification not confirmed [VF: A6-S108]"
+      ],
+      "choose_when": [
+        "You want a self-hosted, provider-neutral gateway for LLM, MCP and A2A traffic and will run it as a hardened internal service [AJ]",
+        "You will buy the Enterprise licence for SSO, RBAC and audit logs [AJ]"
+      ],
+      "avoid_when": [
+        "You cannot pin versions, mirror packages and verify signed images [AJ]",
+        "You would run the open edition without a database and accept fail-open budgets [AJ]"
+      ],
+      "competitors": [
+        "C1-kong-ai-gateway",
+        "C1-portkey",
+        "C1-agentgateway"
+      ],
+      "fs_note": "Treat as a Tier-1 internal service: install only from a private mirror with pinned hashes, deploy the cosign-signed images, run fail-closed configuration and buy Enterprise for audit evidence [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: only as a hardened, pinned, Enterprise-licensed internal service, because the March 2026 compromise and fail-open defaults put security and maturity at 3 [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 5,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Leading coverage of the C1 research questions: routing, fallback, budgets, rate limits, semantic cache, guardrail hooks, logging, LLM+MCP+A2A [VF: A6-S015]",
+        "enterprise_readiness": "SSO, RBAC, SCIM and audit logs on the Enterprise tier, custom SLAs and named support channels [VF: A6-S007, A6-S051]; rule 2 lets an OSS product with commercial support exceed 4, but the licence gating keeps it at 4",
+        "security_compliance": "SOC 2 Type 2 refreshed September 2026; ISO 27001 unconfirmed [VF: A6-S108]. Serious supply-chain incident in March 2026, remediated (CI/CD v2, cosign, Mandiant review) [VF: A6-S008, A6-S009]; held at 3",
+        "deployment_flexibility": "Self-hosted, customer-account (VPC) and hosted options verified [VF: A6-S007, A6-S022, A6-S051]; on-prem and air-gap not verified [NPV]",
+        "ecosystem": "De facto open interface (OpenAI format), 100+ providers, MCP, A2A, logging callbacks; used by AWS's Guidance [VF: A6-S015, A6-S022]",
+        "reliability_maturity": "Since July 2023 with very high cadence [VF: A6-S001], but a 2026 supply-chain compromise and fail-open defaults [VF: A6-S008, A6-S015]",
+        "cost_tco": "Free to self-host; Enterprise licence priced on capacity (pricing description conflicts); database and Redis to operate [VF: A6-S007, A6-S015]",
+        "lockin_portability": "MIT core and OpenAI-format API; enterprise features proprietary [VF: A6-S001, A6-S002]; no ownership change found"
+      },
+      "evidence_caps_applied": [
+        "Rule 2 basis: self-hosted open-core software with commercial support; NPV cap not applied"
+      ],
+      "generic_total": 4.05,
+      "fs_total": 3.9
+    }
+  },
+  {
+    "id": "C1-portkey",
+    "assessment": {
+      "capabilities": "AI gateway routing to 1,600+ models with fallbacks, retries, load balancing, caching, budgets, guardrails and logging, plus an MCP Gateway with a single auth layer; now Palo Alto Networks' Prisma AIRS AI Gateway [VF: A6-S049, A6-S011, A6-S014].",
+      "strengths": [
+        "Mature routing and fallback configuration as JSON Configs, with guardrails in the same config [VF: A6-S049]",
+        "MIT open-source gateway with a pre-release Gateway 2.0 that merges enterprise gateway code into open source [VF: A6-S049, A6-S050]",
+        "Now sits inside a security vendor's runtime-inspection platform [VF: A6-S011]"
+      ],
+      "limitations_risks": [
+        "Acquired by Palo Alto Networks, completed 29 May 2026; US$117m per the 10-K [VF: A6-S012, V2-S025]; roadmap now tied to Prisma AIRS [VF: A6-S011]",
+        "Certifications claimed on pricing pages with unclear tier coverage; pricing page possibly stale [VF: A6-S013]",
+        "Gateway 2.0 is pre-release; fully air-gapped deployment no longer offered [VF: A6-S049, A6-S013]",
+        "Access-control evidence comes largely from marketing pages [VF: B-C1-S001, B-C1-S002]"
+      ],
+      "choose_when": [
+        "You already run Prisma AIRS and want gateway and runtime inspection from one security vendor [AJ]",
+        "You want a managed gateway with VPC or private-cloud options [VF: A6-S013] [AJ]"
+      ],
+      "avoid_when": [
+        "You need vendor-neutral governance of the traffic path, or air-gapped deployment [AJ]",
+        "You cannot absorb a contract re-papering after the change of control [AJ]"
+      ],
+      "competitors": [
+        "C1-litellm",
+        "C1-kong-ai-gateway",
+        "C1-cloudflare-ai-gateway"
+      ],
+      "fs_note": "Refresh third-party due diligence and the DORA register entry after the change of control; confirm which certifications cover the Prisma AIRS-branded service [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired",
+        "Renamed"
+      ],
+      "rationale": "Tactical: capable, but ownership and branding changed four months ago and the post-acquisition commercial terms are not public [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Routing, fallback, budgets, guardrails, MCP gateway [VF: A6-S049, A6-S014]; A2A not evidenced [NPV]",
+        "enterprise_readiness": "SSO/SAML 2.0, SCIM, organisation and workspace roles and organisation-wide audit logs [VF: B-C1-S001, B-C1-S002, B-C1-S003]; held at 3 because the evidence is mainly marketing pages and the post-acquisition SLA is not public",
+        "security_compliance": "SOC 2 Type 2, ISO 27001, GDPR and HIPAA claimed, tier coverage unclear [VF: A6-S013]; scope rule (CP2 Q4) applied",
+        "deployment_flexibility": "SaaS, VPC, private cloud and self-hosted OSS; air-gap no longer offered [VF: A6-S013, A6-S049]",
+        "ecosystem": "OpenAI-compatible API and SDKs, 1,600+ models, MCP, Cloudflare Workers [VF: A6-S049]",
+        "reliability_maturity": "Acquired May 2026; Prisma AIRS AI Gateway GA 16 July 2026 [VF: V2-S048]; OSS Gateway 2.0 pre-release [VF: A6-S049]",
+        "cost_tco": "Published tiers (free, US$49/month Production, custom Enterprise) may be stale; post-acquisition pricing not verified [VF: A6-S013]",
+        "lockin_portability": "MIT core reduces lock-in, but governance features are proprietary; ownership change minus 1 (rule 3) [VF: A6-S050, A6-S011]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.45,
+      "fs_total": 3.35
+    }
+  },
+  {
+    "id": "C1-kong-ai-gateway",
+    "assessment": {
+      "capabilities": "AI gateway for LLM, MCP and A2A traffic on Kong's API platform: multi-provider routing and load balancing, token budgets and rate limits, semantic caching, semantic prompt/response guards, PII sanitisation, cloud guardrail and NeMo Guardrails integrations, MCP access control and tool filtering; AI Gateway 2.x is a dedicated runtime in Konnect [VF: A6-S016, A6-S017].",
+      "strengths": [
+        "Broad AI policy set on an enterprise API-gateway estate many firms already run [VF: A6-S016] [AJ]",
+        "Product-scoped SOC 2 Type II and ISO 27001:2022 covering AI Gateway [VF: A6-S109]",
+        "Tracks the MCP 2026-07-28 revision and offers per-caller MCP tool exposure [VF: A6-S017, A6-S016]"
+      ],
+      "limitations_risks": [
+        "Configuration model changed from 3.x plugins to 2.x entities; migration needed before 3.18 [VF: A6-S016, A6-S017]",
+        "Advanced AI plugins and AI Gateway 2.x are licence-gated or Konnect-delivered [VF: A6-S017]",
+        "Pricing not published [VF: A6-S017, A6-S018]"
+      ],
+      "choose_when": [
+        "Kong is already your API gateway standard [AJ]",
+        "You need product-scoped certifications for the gateway itself [AJ]"
+      ],
+      "avoid_when": [
+        "You want a free, self-hosted gateway with no licence dependency [AJ]",
+        "You cannot plan the 3.x-to-2.x migration in the next year [AJ]"
+      ],
+      "competitors": [
+        "C1-litellm",
+        "C1-google-apigee-ai-gateway",
+        "C1-azure-apim-ai-gateway"
+      ],
+      "fs_note": "Prefer the hybrid mode (customer-run data plane) so prompts and logs stay in region; confirm audit-log export and SSO on Konnect [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where Kong is the API standard; cost (2) is a stated condition because pricing is not public [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 3,
+        "security_compliance": 4,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Leading coverage across LLM, MCP and A2A, including guardrails, PII sanitisation and cost governance [VF: A6-S016, A6-S017]",
+        "enterprise_readiness": "Konnect audit logs, Kong Identity principals in AI policies and a 99.99% Konnect SLA verified [VF: A6-S109, A6-S016, A6-S018]; SSO and RBAC for Konnect not in the fact base [NPV], so rule 7 holds it at 3",
+        "security_compliance": "ISO 27001:2022 and SOC 2 Type II both naming AI Gateway; PCI DSS for Konnect [VF: A6-S109]; no CMK, ISO 42001 or FedRAMP evidence, so not 5",
+        "deployment_flexibility": "Konnect SaaS, Dedicated Cloud Gateways, hybrid and self-managed [VF: A6-S018]; on-prem and air-gap not verified [NPV]",
+        "ecosystem": "Large API-gateway ecosystem; AWS SigV4, Foundry, SageMaker and NeMo integrations [VF: A6-S017, A6-S016]",
+        "reliability_maturity": "AI plugins since 3.6 (2024) but AI Gateway 2.0 GA only on 1 September 2026, with a configuration-model change [VF: A6-S016, A6-S017, V2-S034]",
+        "cost_tco": "Pricing 'contact sales'; advanced plugins licence-gated [VF: A6-S017, A6-S018]",
+        "lockin_portability": "Apache-2.0 OSS core, but 2.x runtime and advanced plugins licence-gated [VF: A6-S017]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness held at 3 under rule 7: SSO and RBAC NPV, audit logs and SLA verified"
+      ],
+      "generic_total": 3.7,
+      "fs_total": 3.65
+    }
+  },
+  {
+    "id": "C1-cloudflare-ai-gateway",
+    "assessment": {
+      "capabilities": "Managed edge proxy for AI provider calls with analytics, caching, rate limiting, logging, Llama Guard guardrails, DLP scanning, dynamic routing and fallback, spend limits, identity-based budgets and Unified Billing [VF: A6-S019, A6-S052].",
+      "strengths": [
+        "Lowest-friction adoption: a one-line endpoint change, core features free [VF: A6-S052]",
+        "DLP and guardrails available at the edge [VF: A6-S052]",
+        "SOC 2 Type II with AI Gateway named in scope [VF: A6-S110]"
+      ],
+      "limitations_risks": [
+        "Managed only: no self-hosting or on-prem [VF: A6-S052]",
+        "AI Gateway-specific data localisation not verified [VF: A6-S110]",
+        "Unified Billing (5% fee) ties provider spend to Cloudflare; future features may be premium; log pricing changed in September 2026 and again from 1 December 2026 [VF: A6-S052, V2-S074]",
+        "MCP and A2A governance not evidenced [NPV]"
+      ],
+      "choose_when": [
+        "You already run Cloudflare Zero Trust and want quick visibility, caching and spend limits for non-confidential workloads [AJ]"
+      ],
+      "avoid_when": [
+        "Prompts contain client data that must stay in-estate or in a verified region [AJ]",
+        "You want the gateway to be the exit route from a provider rather than another dependency [AJ]"
+      ],
+      "competitors": [
+        "C1-portkey",
+        "C1-litellm",
+        "L2-openrouter"
+      ],
+      "fs_note": "Use BYOK rather than Unified Billing, confirm AI Gateway log localisation in writing, and keep regulated client data off this path until it is confirmed [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Tactical: useful edge controls, but managed-only with unverified log localisation and no MCP evidence [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Covers routing, fallback, caching, rate limits, spend limits, DLP and guardrails [VF: A6-S019, A6-S052]; MCP/A2A and policy depth not evidenced [NPV]",
+        "enterprise_readiness": "Identity-based budgets via Cloudflare Access verified [VF: A6-S019]; one control verified lifts the cap to a maximum of 3 (rule 7); enterprise support NPV",
+        "security_compliance": "SOC 2 Type II names AI Gateway; ISO 27001:2022 is platform-wide without naming it [VF: A6-S110]; Trust Hub pages flagged as possibly old, so 3",
+        "deployment_flexibility": "SaaS only; no self-host or on-prem [VF: A6-S052]",
+        "ecosystem": "Many providers via BYOK or Unified Billing, Workers AI, Logpush, Cloudflare One DLP [VF: A6-S052, A6-S019]",
+        "reliability_maturity": "GA with frequent 2026 changes, including two log-pricing changes [VF: A6-S019, V2-S074]",
+        "cost_tco": "Core features and DLP free; guardrails billed as Workers AI inference; 5% Unified Billing fee; per-GB log pricing from 1 December 2026 [VF: A6-S052, V2-S074]",
+        "lockin_portability": "Proprietary managed service in the data path; Unified Billing deepens dependency [VF: A6-S052]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness: NPV cap lifted to max 3 by one verified control (identity-based controls), rule 7"
+      ],
+      "generic_total": 3.0,
+      "fs_total": 2.8
+    }
+  },
+  {
+    "id": "C1-azure-apim-ai-gateway",
+    "assessment": {
+      "capabilities": "AI gateway policies in Azure API Management: token limits and quotas per consumer, token metrics, semantic caching, load balancing and circuit breaking, Content Safety (incl. Prompt Shields) on LLM, MCP and A2A traffic, MCP exposure and governance, OAuth via credential manager; plus a dedicated AI Gateway tier in preview [VF: A6-S053, A6-S020].",
+      "strengths": [
+        "Extends an API gateway many Azure estates already operate; Microsoft calls it 'not a separate offering' [VF: A6-S053]",
+        "Content safety applies to MCP tool-call arguments and A2A payloads, not only prompts [VF: A6-S020]",
+        "API Management is in Azure FedRAMP High audit scope [VF: A6-S056]"
+      ],
+      "limitations_risks": [
+        "AI Gateway tier is preview: East US 2 and Sweden Central only, free, no SLA [VF: A6-S020, V2-S073]",
+        "Policies are APIM-specific XML [VF: A6-S053]",
+        "Classic tier pricing and self-hosted options not verified [NPV]"
+      ],
+      "choose_when": [
+        "Azure is your primary cloud and APIM your API standard [AJ]",
+        "You want content safety enforced on tool and agent traffic at the gateway [AJ]"
+      ],
+      "avoid_when": [
+        "You need the AI Gateway tier in production now (no SLA) [AJ]",
+        "Your multi-cloud exit plan needs a gateway outside any one hyperscaler [AJ]"
+      ],
+      "competitors": [
+        "C1-google-apigee-ai-gateway",
+        "C1-kong-ai-gateway",
+        "C1-litellm"
+      ],
+      "fs_note": "Use the GA policies in existing tiers for production; do not place regulated traffic on the preview tier; keep policy logic documented so it can be re-expressed elsewhere [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Tactical: the natural default in Azure estates, but the dedicated tier is preview and lock-in is high; revisit as Strategic when the tier is GA with an SLA [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Token limits, metrics, semantic cache, load balancing, circuit breaking, content safety on LLM/MCP/A2A [VF: A6-S053, A6-S020]",
+        "enterprise_readiness": "Hyperscaler presumption (CP2 Q1): platform controls presumed; Entra sign-in and caller-keyed limits verified [VF: A6-S020, A6-S053]; confirm per service",
+        "security_compliance": "FedRAMP High audit scope names API Management [VF: A6-S056]; Azure ISO 27001 and SOC 2 are platform-level without naming the service [VF: B-C1-S007, B-C1-S008]; scope rule applied, so 4",
+        "deployment_flexibility": "Managed Azure service only in the fact base; preview tier in two regions [VF: A6-S053, A6-S020]; self-hosted gateway not verified [NPV]",
+        "ecosystem": "OpenAI-compatible unified API (preview), Anthropic Messages API, Foundry, MCP and A2A import [VF: A6-S053]",
+        "reliability_maturity": "Core LLM policies GA; tier and unified API preview without SLA [VF: A6-S020, A6-S053]",
+        "cost_tco": "Preview tier free; classic tier prices not verified [VF: A6-S020] [NPV]",
+        "lockin_portability": "APIM-specific policy XML and Azure dependency [VF: A6-S053]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service"
+      ],
+      "generic_total": 3.4,
+      "fs_total": 3.25
+    }
+  },
+  {
+    "id": "C1-aws-agentcore-gateway",
+    "assessment": {
+      "capabilities": "Managed gateway that turns APIs, Lambda functions and MCP servers into MCP tools behind one endpoint, with IAM or JWT inbound auth, request/response interceptors, Cedar policy enforcement and, newly, inference targets that route to LLM providers with token-aware rate limits; AWS has no product named 'AI gateway' [VF: A6-S021, A6-S074, A6-S105, A6-S026].",
+      "strengths": [
+        "Strongest policy model for tool calls: deny-by-default Cedar policies with decisions logged to CloudWatch [VF: A6-S026]",
+        "Tracks MCP 2026-07-28 [VF: A6-S021]",
+        "Low, transparent per-invocation pricing [VF: A6-S021]"
+      ],
+      "limitations_risks": [
+        "No explicit GA statement or regional list for inference targets; documentation conflicts on multi-target selection [VF: A6-S105, A6-S106]",
+        "Fast-moving API surface (171 control-plane operations) [VF: A6-S074]",
+        "AWS-specific control plane [VF: A6-S074]"
+      ],
+      "choose_when": [
+        "You run agents on AWS and need governed MCP tool access with policy enforcement [AJ]"
+      ],
+      "avoid_when": [
+        "You need a mature multi-provider LLM gateway today; use AWS's LiteLLM-based Guidance or another C1 product for model traffic [VF: A6-S022] [AJ]"
+      ],
+      "competitors": [
+        "C1-litellm",
+        "C1-kong-ai-gateway",
+        "C1-agentgateway"
+      ],
+      "fs_note": "Use it for tool traffic first; keep model routing on a gateway with GA inference routing until AWS states GA and regions for inference targets [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Tactical: a strong MCP and policy gateway on AWS, but its LLM routing is too new to be the model gateway of record [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Strong MCP gateway and policy; LLM routing new with no GA wording; no semantic cache evidenced [VF: A6-S074, A6-S105] [NPV]",
+        "enterprise_readiness": "Hyperscaler presumption (CP2 Q1); IAM/JWT auth and principal rules verified [VF: A6-S074]; confirm per service",
+        "security_compliance": "AgentCore in SOC 1/2/3 scope (July 2026) and assessed for ISO/IEC 27001 (February 2026) [VF: B-C1-S004, B-C1-S005, B-C1-S006]; CMK for the token vault [VF: A6-S074]. Held at 4, not 5: the ISO evidence is a partly garbled search extract and FedRAMP status conflicts",
+        "deployment_flexibility": "Managed AWS service only; Gateway regional list not verified [VF: A6-S021, A6-S026]",
+        "ecosystem": "MCP-native; Kong SigV4 and Entra Agent ID integrations [VF: A6-S016, A6-S058]",
+        "reliability_maturity": "AgentCore GA October 2025; inference targets and token limits announced 6 August 2026 without GA wording [VF: A6-S021, A6-S106]",
+        "cost_tco": "US$0.005 per 1,000 invocations and similar unit prices [VF: A6-S021]",
+        "lockin_portability": "AWS-specific control plane and IAM [VF: A6-S074]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service"
+      ],
+      "generic_total": 3.1,
+      "fs_total": 3.0
+    }
+  },
+  {
+    "id": "C1-google-apigee-ai-gateway",
+    "assessment": {
+      "capabilities": "Apigee API management marketed as an AI gateway: token limits and monitoring, semantic caching, multicloud model routing with circuit breaking, LLM auditing and logging, Model Armor screening, MCP (GA 31 March 2026) and A2A support; SaaS or hybrid self-managed runtime [VF: A6-S024, A6-S023, A6-S025].",
+      "strengths": [
+        "Mature API-management product with product-scoped SOC 2 and ISO 27001 [VF: A6-S070, A6-S071]",
+        "Hybrid runtime gives a customer-run data plane [VF: A6-S025]",
+        "Inline Model Armor screening [VF: A6-S024]"
+      ],
+      "limitations_risks": [
+        "Proprietary policy model [VF: A6-S024]",
+        "Per-call pricing plus add-ons for analytics and security [VF: A6-S069]",
+        "Semantic cache needed an SSRF fix on 30 September 2026 [VF: A6-S025]"
+      ],
+      "choose_when": [
+        "Google Cloud is primary, or Apigee is already your API standard [AJ]",
+        "You want the gateway data plane in your own Kubernetes (hybrid) [AJ]"
+      ],
+      "avoid_when": [
+        "You want a light, low-cost model gateway with no API-management estate [AJ]"
+      ],
+      "competitors": [
+        "C1-azure-apim-ai-gateway",
+        "C1-kong-ai-gateway",
+        "C1-litellm"
+      ],
+      "fs_note": "Run hybrid in a UK or EU region and confirm residency of LLM audit logs; keep semantic caching off for client-specific routes [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where Google Cloud or Apigee is the standard; lock-in at 2 is the stated condition [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Token limits, semantic cache, routing with circuit breaking, auditing, Model Armor, MCP, A2A [VF: A6-S024, A6-S023]",
+        "enterprise_readiness": "Hyperscaler presumption (CP2 Q1); access-control detail not in the fact base [NPV]; confirm per service",
+        "security_compliance": "Apigee named in Google Cloud SOC 2 and ISO/IEC 27001 scope [VF: A6-S070, A6-S071]; CMK not verified, so not 5",
+        "deployment_flexibility": "Apigee X SaaS and Apigee hybrid self-managed runtime [VF: A6-S069, A6-S025]",
+        "ecosystem": "OAuth/JWT, MCP, A2A, AP2, multicloud routing [VF: A6-S024]",
+        "reliability_maturity": "Mature API management; AI and MCP features added 2025–26 [VF: A6-S023, A6-S025]",
+        "cost_tco": "Transparent pay-as-you-go per call, with paid analytics and security add-ons [VF: A6-S069]",
+        "lockin_portability": "Proprietary policy model [VF: A6-S024]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service"
+      ],
+      "generic_total": 3.8,
+      "fs_total": 3.65
+    }
+  },
+  {
+    "id": "C1-agentgateway",
+    "assessment": {
+      "capabilities": "Open-source proxy for agent-to-LLM, agent-to-tool and agent-to-agent traffic: OpenAI-compatible routing with budget and spend controls, load balancing and failover, MCP federation with OAuth, and an A2A gateway [VF: A6-S061].",
+      "strengths": [
+        "Apache-2.0 under vendor-neutral foundation governance [VF: A6-S061, B-C1-S009]",
+        "Covers LLM, MCP and A2A in one data plane [VF: A6-S061]",
+        "Commercial distribution and support exist (Solo Enterprise for agentgateway) [VF: B-C1-S010]"
+      ],
+      "limitations_risks": [
+        "Security hygiene (policy, signed releases) and access-control detail not verified [NPV]",
+        "Current foundation home reported differently (Linux Foundation vs Agentic AI Foundation) [VF: B-C1-S009]",
+        "Adoption not verified [NPV]"
+      ],
+      "choose_when": [
+        "You want a neutral, open-source gateway for MCP and A2A traffic in Kubernetes estates [AJ]"
+      ],
+      "avoid_when": [
+        "You need certified SaaS or turnkey cost attribution today [AJ]"
+      ],
+      "competitors": [
+        "C1-litellm",
+        "C1-envoy-ai-gateway",
+        "C1-kong-ai-gateway"
+      ],
+      "fs_note": "Pilot for MCP and A2A traffic with the enterprise distribution, and verify its release-signing and CVE process before production [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Tactical: the most neutral governance in the layer, but young and with unverified hygiene [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "LLM, MCP and A2A gateway with budgets, failover and OAuth [VF: A6-S061]; caching and guardrail depth not verified [NPV]",
+        "enterprise_readiness": "Rule 2: OAuth on MCP and a commercial enterprise distribution with audit tooling [VF: A6-S061, B-C1-S010]",
+        "security_compliance": "Rule 2 hygiene (security policy, CVE handling, signed releases) not verified [NPV]",
+        "deployment_flexibility": "Self-hosted [VF: A6-S061]; enterprise distribution from Solo [VF: B-C1-S010]",
+        "ecosystem": "OpenAI-compatible, MCP, A2A, OpenAPI; multi-vendor contributors [VF: A6-S061, B-C1-S009]",
+        "reliability_maturity": "1.x line, v1.6.0 on 2 October 2026; foundation-hosted since August 2025 [VF: A6-S062, B-C1-S009]",
+        "cost_tco": "Free open source; operations cost is your own [VF: A6-S061]",
+        "lockin_portability": "Apache-2.0 with neutral governance [VF: A6-S061, B-C1-S009]"
+      },
+      "evidence_caps_applied": [
+        "Rule 2 basis: self-hosted open-source software; NPV cap not applied; commercial support exists (B-C1-S010)"
+      ],
+      "generic_total": 3.4,
+      "fs_total": 3.45
+    }
+  },
+  {
+    "id": "C1-envoy-ai-gateway",
+    "assessment": {
+      "capabilities": "Agent Router (formerly Envoy AI Gateway): one OpenAI-compatible API for hosted and self-hosted models and MCP servers, with centralised credentials, routing, quotas, failover and usage attribution enforced by Envoy and Envoy Gateway, in a two-tier design [VF: A6-S063].",
+      "strengths": [
+        "Built on Envoy, which many Kubernetes platforms already run [VF: A6-S063] [AJ]",
+        "Apache-2.0 under the Agentic AI Foundation [VF: A6-S063]",
+        "Usage attribution and quotas suit chargeback [VF: A6-S063]"
+      ],
+      "limitations_risks": [
+        "Renamed and moved foundation in 2026; repository moved [VF: A6-S063, V2-S029]",
+        "Access control, security features and hygiene not verified [NPV]",
+        "Kubernetes and Envoy Gateway required [VF: A6-S063]"
+      ],
+      "choose_when": [
+        "Your platform team runs Envoy Gateway and wants AI routing in the same mesh [AJ]"
+      ],
+      "avoid_when": [
+        "You do not run Kubernetes, or need guardrail and caching features in the gateway itself [AJ]"
+      ],
+      "competitors": [
+        "C1-agentgateway",
+        "C1-litellm",
+        "C1-kong-ai-gateway"
+      ],
+      "fs_note": "Treat as platform plumbing: pair with a separate guardrail service and log store, and track the rename in the software inventory [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Tactical: sound plumbing for Envoy estates, but narrower than the leaders and with unverified hygiene [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Routing, quotas, failover, credentials and attribution for LLM and MCP [VF: A6-S063]; guardrails and caching not verified [NPV]",
+        "enterprise_readiness": "Rule 2: Tier One gateway centralises auth and rate limits [VF: A6-S063]; RBAC and audit not verified; no commercial support offer verified beyond a listed 'Tetrate Agent Router Service' provider [VF: A6-S063]",
+        "security_compliance": "Rule 2 hygiene not verified [NPV]",
+        "deployment_flexibility": "Self-hosted on Kubernetes only [VF: A6-S063]",
+        "ecosystem": "Envoy ecosystem; OpenAI-compatible API [VF: A6-S063]",
+        "reliability_maturity": "1.x line, v1.2.0 on 6 October 2026; renamed and moved in 2026 [VF: A6-S064, V2-S029]",
+        "cost_tco": "Free open source; Kubernetes operations [VF: A6-S063]",
+        "lockin_portability": "Apache-2.0, neutral foundation [VF: A6-S063]"
+      },
+      "evidence_caps_applied": [
+        "Rule 2 basis: self-hosted open-source software; NPV cap not applied"
+      ],
+      "generic_total": 2.9,
+      "fs_total": 3.0
+    }
+  }
+]

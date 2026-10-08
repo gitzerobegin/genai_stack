@@ -1,0 +1,316 @@
+[
+  {
+    "id": "C5-langfuse-prompts",
+    "assessment": {
+      "capabilities": "Prompt registry inside the Langfuse platform: every prompt version gets an immutable version ID; labels (production, staging, tenant or experiment) select which version the SDK fetches; SDKs cache prompts client-side; prompt versions are linked to traces so quality and cost can be analysed by version; protected prompt labels restrict who may move a production label (Enterprise) [VF: A7-S071, A7-S072, A7-S074].",
+      "strengths": [
+        "Version-to-trace linkage answers 'which prompt version produced this output' inside the same store that holds the evaluation evidence (see L9) [VF: A7-S071]",
+        "Client-side SDK caching keeps the registry off the hot path [VF: A7-S071, A7-S072]",
+        "A missing label returns an error rather than silently serving another version, so a mislabelled environment fails loudly [VF: A7-S072]",
+        "MIT core; self-hosted or Cloud with SOC 2 Type II, ISO 27001 and an EU (Ireland) region [VF: A7-S073, A7-S074]"
+      ],
+      "limitations_risks": [
+        "Protected prompt labels, project-level RBAC, audit logs and SCIM need an Enterprise licence key when self-hosted, so segregation of duties on production prompts is a paid feature [VF: A7-S074]",
+        "No native pull-request style approval or Git synchronisation documented in the fact base [NPV]",
+        "Owned by ClickHouse (acquisition announced 16 January 2026) [VF: A7-S075, V2-S041]",
+        "Langfuse-specific prompt API and SDK [VF: A7-S072]"
+      ],
+      "choose_when": [
+        "Langfuse is already the L9 platform of record and you want prompt versions and traces in one place [AJ]",
+        "You need a self-hosted registry inside the estate [AJ]"
+      ],
+      "avoid_when": [
+        "You will not buy the Enterprise licence, because without protected labels any project member with write access can move the production label [AJ]",
+        "Your change process requires approvals to happen in the source-control system [AJ]"
+      ],
+      "competitors": [
+        "C5-langsmith-prompts",
+        "C5-promptlayer",
+        "C5-prompts-as-code"
+      ],
+      "fs_note": "Use as the runtime delivery and trace-linkage layer, fed by CI from Git after the eval gate; make the production label protected and restrict label moves to the release pipeline's identity [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Strategic only where Langfuse is the L9 platform of record and the Enterprise licence is bought for protected labels, RBAC and audit logs; otherwise Tactical [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 4,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Versions, environment/tenant/experiment labels, client caching, loud failure on missing labels and trace linkage; no documented approval workflow, Git sync or percentage rollout.",
+        "enterprise_readiness": "Project RBAC, protected labels, audit logs, SCIM and Org Management API exist but are Enterprise-licensed when self-hosted; SLA terms not published (L9 record).",
+        "security_compliance": "SOC 2 Type II and ISO 27001 with annual audits, DPA, EU region on Cloud; no CMK/BYOK documented, so not 5.",
+        "deployment_flexibility": "SaaS (US, EU, JP, HIPAA regions), self-hosted in any region and fully offline; kept at 4 for consistency with L9 because vendor-managed BYOC is not documented (see scoring notes).",
+        "ecosystem": "Open-source SDKs in Python and JS/TS, OTel-based platform, wide adoption of the parent platform; prompt API is Langfuse-specific.",
+        "reliability_maturity": "Platform at v4, frequent SDK releases (4.17.0 on 5 October 2026); ownership changed to ClickHouse in January 2026 with no planned licence change.",
+        "cost_tco": "MIT core free; the governance controls this control needs are in the paid Enterprise tier.",
+        "lockin_portability": "Base 4 (MIT, self-hostable, prompts are text) reduced by 1 for the 2026 ownership change."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.8,
+      "fs_total": 3.7
+    }
+  },
+  {
+    "id": "C5-langsmith-prompts",
+    "assessment": {
+      "capabilities": "Prompts stored as a commit history with diffs; reserved Staging and Production environments assigned by promotion; per-environment rollback history; 'owners only' mode restricting who may tag, promote or delete; webhooks on every commit; synchronisation of prompts with a GitHub repository; public prompt hub [VF: A7-S076].",
+      "strengths": [
+        "The most complete change-control workflow among the registries profiled: commits, diffs, promotion, rollback history and prompt owners [VF: A7-S076] [AJ]",
+        "GitHub synchronisation gives a documented export path and lets Git remain the record [VF: A7-S076]",
+        "Webhooks on commit can trigger CI evaluation and change tickets [VF: A7-S076]",
+        "SOC 2 Type II, ISO 27001:2022 and HIPAA; US, EU (Netherlands) and APAC regions; BYOC on AWS, self-host and air-gapped self-host on Enterprise [VF: A7-S077, A1-S036, A1-S126, A1-S034]"
+      ],
+      "limitations_risks": [
+        "Proprietary service for prompt storage and promotion [VF: A7-S076, A7-S079]",
+        "No EU legal entity for contracting [VF: A7-S077]",
+        "Self-hosting is an Enterprise add-on with a heavy footprint (Kubernetes, PostgreSQL, Redis, ClickHouse) [VF: A7-S079, A1-S034]",
+        "Platform increasingly bundles the LangChain agent runtime [VF: A1-S039]"
+      ],
+      "choose_when": [
+        "LangSmith is already the L9 platform and LangGraph the orchestration standard [AJ]",
+        "Product owners need a UI promotion and rollback workflow while engineering keeps Git as the record via sync [AJ]"
+      ],
+      "avoid_when": [
+        "You want the prompt registry separated from the agent runtime vendor [AJ]",
+        "Contracting with an EU legal entity is a requirement [AJ]"
+      ],
+      "competitors": [
+        "C5-langfuse-prompts",
+        "C5-promptlayer",
+        "C5-prompts-as-code"
+      ],
+      "fs_note": "Enable owners-only mode on production prompts, route promotion through a service identity triggered after the eval gate, and use GitHub sync so that the approved prompt text also lives in the firm's repository [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic only in a LangSmith/LangGraph estate, with GitHub sync enabled as the exit route; otherwise Tactical [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Commits, diffs, environments, promotion, rollback history, owners, webhooks and Git sync; no documented percentage rollout or user segmentation.",
+        "enterprise_readiness": "Organisation and workspace roles, custom RBAC and per-prompt owners; Enterprise SSO, ABAC and support SLA from the platform record; SCIM not documented.",
+        "security_compliance": "SOC 2 Type II, ISO 27001:2022, HIPAA BAA on Enterprise; no CMK/BYOK documented, so not 5.",
+        "deployment_flexibility": "SaaS in US, EU and APAC regions, BYOC on AWS, self-hosted and air-gapped self-host on Enterprise.",
+        "ecosystem": "LangChain ecosystem, langchain-prompty integration, webhooks and GitHub sync.",
+        "reliability_maturity": "GA since 2023, independent and funded (US$125M Series B, October 2025).",
+        "cost_tco": "Per-seat plus per-trace pricing; heavy self-host footprint.",
+        "lockin_portability": "Proprietary service, but prompt text syncs to GitHub, so lock-in is lower than for LangSmith traces (L9 scores 2)."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 4.0,
+      "fs_total": 3.95
+    }
+  },
+  {
+    "id": "C5-promptlayer",
+    "assessment": {
+      "capabilities": "Prompt Registry with versioned templates; release labels (e.g. 'prod') select the served version and support staged rollouts, user segmentation and A/B testing via dynamic release labels; SDK fetches templates and can proxy provider calls for logging; evals and OpenTelemetry tracing alongside [VF: A7-S004, A7-S088].",
+      "strengths": [
+        "Release labels support staged rollout and segmentation of users to prompt versions, closest to feature-flag practice among the registries [VF: A7-S088]",
+        "Enterprise Identity: SSO (SAML/OIDC via WorkOS), SCIM, group-to-role mapping, SSO enforcement, org-scoped audit log and granular RBAC [VF: A7-S086]",
+        "Deployable into the customer's AWS account or self-hosted on Enterprise [VF: A7-S085, A7-S087]",
+        "Independent; no acquisition found [VF: A7-S004]"
+      ],
+      "limitations_risks": [
+        "SOC 2 Type 2 is a vendor statement; no report or ISO 27001 seen [VF: B-C5-S003]",
+        "Pricing and EU region not publicly verified [NPV]",
+        "Proprietary template API; no Git synchronisation documented [VF: A7-S004] [NPV]",
+        "Small vendor; funding not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "You want a standalone, model- and framework-neutral prompt registry with segmentation, and can run it in your own AWS account [AJ]"
+      ],
+      "avoid_when": [
+        "ISO 27001 is a procurement gate [AJ]",
+        "You already run Langfuse or LangSmith as the L9 platform, which would duplicate the registry [AJ]"
+      ],
+      "competitors": [
+        "C5-langfuse-prompts",
+        "C5-langsmith-prompts",
+        "C5-launchdarkly-ai-configs"
+      ],
+      "fs_note": "Request the SOC 2 Type II report and subprocessor list before use with client data, prefer the customer-AWS deployment, and do not use the SDK proxy mode for regulated traffic unless the gateway (C1) is bypassed by design [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strong identity controls and rollout features, but security evidence is vendor-stated, pricing is unverified and it duplicates the registry built into the L9 platforms [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Versioned registry, release labels, staged rollout, segmentation and A/B testing, evals and tracing; approval workflow not documented.",
+        "enterprise_readiness": "SSO, SCIM, group-role mapping, SSO enforcement, audit log and granular RBAC verified on Enterprise; SLA not verified.",
+        "security_compliance": "Vendor-stated SOC 2 Type 2 with a DPA committing to annual SOC 2 Type II audits and penetration tests; no ISO 27001; report not seen.",
+        "deployment_flexibility": "SaaS, customer AWS account and self-hosted (Enterprise); air-gap and on-premises not verified.",
+        "ecosystem": "REST API, Python/JS SDKs, OTel tracing for major provider SDKs, webhooks; smaller ecosystem than the platform vendors.",
+        "reliability_maturity": "Independent, continuous releases on the 1.5.x SDK line since 2022; funding not verified.",
+        "cost_tco": "Pricing not publicly verified; self-hosting and identity features need an Enterprise contract.",
+        "lockin_portability": "Proprietary template API, but templates are text retrievable by API; no Git sync documented."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.4,
+      "fs_total": 3.4
+    }
+  },
+  {
+    "id": "C5-launchdarkly-ai-configs",
+    "assessment": {
+      "capabilities": "AgentControl (formerly AI Configs; API unchanged) delivers model name, parameters and prompt messages per user context from the LaunchDarkly feature-management service, with variable interpolation, a code-side default if the service is unavailable, and a tracker recording tokens, latency and success per configuration; online evals with custom judges GA 11 March 2026; agents, trends and approvals added [VF: A7-S089, A7-S117, V2-S045].",
+      "strengths": [
+        "Feature-flag style targeting and rollout of model and prompt configuration per user context, with a code-side default as the failure mode [VF: A7-S089]",
+        "SOC 2 Type II, ISO 27001, ISO 27701 and FedRAMP Moderate (Federal instance); Enterprise uptime SLA [VF: A7-S119, V2-S065]",
+        "SAML SSO with IdP-managed roles, Enterprise custom roles and an audit log API with before-and-after versions of each change [VF: B-C5-S001, B-C5-S002]",
+        "Published per-run pricing [VF: A7-S118]"
+      ],
+      "limitations_risks": [
+        "Multi-tenant SaaS only; EU residency offered but regions and data scope not detailed [VF: A7-S119]",
+        "Proprietary configuration service and SDK; no export path verified [VF: A7-S089] [NPV]",
+        "Renamed and repositioned twice in about a year (GA May 2025, AgentControl May 2026) [VF: A7-S117]",
+        "Every model call and judge run counts as a billable AI run [VF: A7-S118]"
+      ],
+      "choose_when": [
+        "LaunchDarkly is already the firm's feature-management standard and you need per-segment rollout and kill switches for model and prompt choices [AJ]"
+      ],
+      "avoid_when": [
+        "Configuration must be held in the UK or EU with documented regions, or in-estate [AJ]",
+        "Volume is high and per-run metering would dominate the cost [AJ]"
+      ],
+      "competitors": [
+        "C5-promptlayer",
+        "C5-langfuse-prompts",
+        "C5-prompts-as-code"
+      ],
+      "fs_note": "Keep the approved prompt text in Git and use AgentControl only to choose between approved, pinned variants; record the variation key on every trace, confirm EU data scope and audit-log retention on the contracted plan [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Strongest certifications and rollout mechanics in the control, but SaaS-only with unverified residency scope and proprietary configuration delivery [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Runtime configuration of model, parameters and messages, per-context targeting, defaults, metrics, online evals and approvals; prompt diffing and Git-based review not documented.",
+        "enterprise_readiness": "SAML SSO, Enterprise custom roles, audit log API and Enterprise uptime SLA; SSO and roles evidence is a search extract of older pages (medium confidence); SCIM not verified.",
+        "security_compliance": "SOC 2 Type II, ISO 27001, ISO 27701 and FedRAMP Moderate are company-level; AgentControl's coverage is not stated, so one below 5 (CP2 Q4).",
+        "deployment_flexibility": "Multi-tenant SaaS, an EU-hosted offering without region detail, and a US federal instance; no self-host or VPC.",
+        "ecosystem": "Established feature-management platform with an Apache-2.0 AI SDK; AI-specific integrations not evidenced beyond the Python SDK.",
+        "reliability_maturity": "Parent platform long-established, but the AI product is about 16 months GA and was renamed and repositioned in May 2026.",
+        "cost_tco": "Transparent pricing (US$10 per service connection per month with 5,000 AI runs; US$5 per extra 1,000), but metered on every model call.",
+        "lockin_portability": "Proprietary service and SDK; code-side defaults reduce runtime dependency but no export path is documented."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.3,
+      "fs_total": 3.2
+    }
+  },
+  {
+    "id": "C5-prompts-as-code",
+    "assessment": {
+      "capabilities": "Prompts as files in the application repository: Prompty (.prompty, markdown with YAML front matter for model, connection and template settings) or Dotprompt (executable Handlebars-based templates, language- and provider-agnostic); changes go through code review and CI, where a CLI such as Promptfoo evaluates the prompt files [VF: A7-S067, A7-S066, A7-S068].",
+      "strengths": [
+        "Uses the firm's existing change-management controls (review, approval, branch protection, release tagging) without a new vendor [AJ]",
+        "Open formats with permissive licences: Prompty MIT, Dotprompt Apache-2.0, Promptfoo MIT [VF: A7-S008, A7-S065, A7-S068]",
+        "Multi-language runtimes: Prompty for Python, TypeScript, Rust and C#; Dotprompt for JS/TS, Python, Go, Rust and Java [VF: A7-S067, A7-S066]",
+        "One artefact can carry prompt, model and parameter settings, so the release pins them together [VF: A7-S067] [AJ]"
+      ],
+      "limitations_risks": [
+        "No runtime label switching, segmentation or instant rollback without a deployment; trace linkage must be built [AJ]",
+        "Two competing formats, both pre-1.0 or recently re-versioned (Dotprompt Python 0.2.0; Prompty v2) [VF: A7-S065, A7-S067]",
+        "Promptfoo: OpenAI announced its acquisition on 9 March 2026, closing date not published; Promptfoo states it is part of OpenAI [VF: A7-S068, V2-S042]",
+        "Non-engineers cannot change prompts without a pull request, which is a feature for control and a cost for agility [AJ]"
+      ],
+      "choose_when": [
+        "Always, as the system of record for approved prompts and configuration in a regulated firm [Rec]"
+      ],
+      "avoid_when": [
+        "As the only mechanism when business users must test prompt variants daily; pair it with a registry that CI publishes to [AJ]"
+      ],
+      "competitors": [
+        "C5-langsmith-prompts",
+        "C5-langfuse-prompts",
+        "C5-promptlayer"
+      ],
+      "fs_note": "Make the repository the change record that model-risk and audit teams inspect: pull-request approval by a second person, CODEOWNERS for the risk owner, eval results attached to the PR, and a signed release tag pinning prompt, model and retrieval versions [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "The only option whose change record lives in the firm's own controls and survives any vendor exit; the Acquired flag refers to Promptfoo as the example eval CLI, which is replaceable [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Versioning, review, diff and CI evaluation are strong; runtime delivery, segmentation, instant rollback and trace linkage have to be built.",
+        "enterprise_readiness": "Rubric rule 2: inherits the firm's source-control SSO, RBAC, approvals and audit; capped at 4 because no commercial support exists for the formats.",
+        "security_compliance": "Rubric rule 2: clear permissive licences; security policies, signed releases and CVE handling for the format libraries not verified; inherits host controls.",
+        "deployment_flexibility": "Files in the customer's repository; runs anywhere, including air-gapped.",
+        "ecosystem": "Two vendor-originated formats plus CLI tooling, langchain-prompty and LangSmith GitHub sync; no single standard.",
+        "reliability_maturity": "Git practice is mature; the formats are young (Prompty v2, Dotprompt 0.2.0) and Promptfoo is pre-1.0 and changing ownership.",
+        "cost_tco": "Free and open source; engineering effort to build runtime delivery and trace linkage.",
+        "lockin_portability": "Base 5 (plain files under customer control, permissive licences) reduced by 1 because the example eval tool's ownership is changing and the formats are not under neutral governance."
+      },
+      "evidence_caps_applied": [
+        "Rubric rule 2 (self-hosted libraries and open formats): enterprise readiness and security scored on what the pattern enables and on project hygiene, each capped at 4; inherits host controls"
+      ],
+      "generic_total": 3.6,
+      "fs_total": 3.65
+    }
+  }
+]

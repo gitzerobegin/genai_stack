@@ -1,0 +1,13 @@
+SOURCE ID: B-C3-S004
+URL: https://docs.protegrity.com/10.1/docs/pmg/_print/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed docs.protegrity.com): Protegrity Enterprise Security Administrator role-based access control audit logs policy users roles data elements
+========================================================================
+
+Protegrity documentation (Policy Management 10.1; Enterprise Security Administrator (ESA) 10.1 https://docs.protegrity.com/10.1/docs/aog/_print/), as reported by the search tool:
+- ESA is the central point of management of data security policies enforced by protectors; each protector accepts an ESA policy with rules for protecting and unprotecting sensitive data.
+- "A policy defines the authorization criteria for each user. The users are defined in the form of members of roles." Permissions are defined in the context of a role and a data element (Unprotect, Protect, Reprotect). A user whose role is not linked to a data element cannot use it. Least restrictive permissions apply when a user is in several roles. Denied unprotect returns NULL by default, or a configured exception or protected value.
+- Administrative roles include Security Administrator, Security Officer (policy and key management) and Security Administrator Viewer (read-only).
+- Audit logs capture authorised and unauthorised attempts to access sensitive data at all protection points, and all changes made to policies; logs are sent to ESA's Audit Store. Role and policy changes have specific audit codes.
+- Caveat in the docs: AI Team Edition and Protegrity Agent documentation describe roles differently; ESA facts do not automatically apply to AI Team Edition.

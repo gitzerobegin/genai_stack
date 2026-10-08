@@ -1,0 +1,14 @@
+SOURCE ID: B-C1-S001
+URL: https://portkey.ai/for/rbac
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains portkey.ai): Portkey enterprise SSO SAML RBAC audit logs workspace roles
+========================================================================
+
+Search-tool extract (Portkey RBAC page and developer docs):
+- Enterprise controls list VPC deployments, regional data residency, SOC 2 & ISO security programs, SSO/SAML, SCIM provisioning.
+- Developer docs describe enterprise-grade SSO integration with support for SAML 2.0, Okta, Azure AD and custom providers.
+- "Portkey supports organization-level structure with clearly defined roles like Owner and Admin, giving you top-down control over AI operations."
+- "Each workspace in Portkey is a fully isolated unit with its own API keys, logs, usage limits, and prompt configurations. You can assign Manager and Member roles per workspace."
+- "Portkey enforces tool-level RBAC per organization, workspace, team, and user" (MCP tool access).
+Caveat from the search tool: much of this comes from marketing pages; exact permission matrix not found.

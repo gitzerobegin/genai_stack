@@ -1,0 +1,12 @@
+SOURCE ID: B-C1-S002
+URL: https://portkey.ai/for/org-wide-audit-logs
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains portkey.ai): Portkey enterprise SSO SAML RBAC audit logs workspace roles
+========================================================================
+
+Search-tool extract (Portkey "Organisation-wide Audit logs" page):
+- "Comprehensive audit logs for prompt or routing changes, guardrail updates, and more across your organization."
+- "Every action can be tied to a specific user across modules, workspaces, and organizations, with timestamps."
+- "Viewing audit logs is restricted through role-based access controls."
+- Indefinite log retention is stated only on a marketing page (verify against contract).

@@ -1,0 +1,11 @@
+SOURCE ID: B-C1-S003
+URL: https://portkey.ai/docs/changelog/backend
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains portkey.ai): Portkey enterprise SSO SAML RBAC audit logs workspace roles
+========================================================================
+
+Search-tool extract (Portkey (Prisma AIRS AI Gateway) Docs, Backend changelog):
+- "Groups from the identity provider can be provisioned with any naming convention and mapped to Portkey workspaces and roles directly from the Portkey Control Plane" (Okta, Azure Entra).
+- Organisation-level settings control whether org admins can view request logs and log metadata; "Settings are enabled by default and support workspace-level overrides."
+- Entries reference a self-hosted/private deployment build; hosted-cloud behaviour may differ.

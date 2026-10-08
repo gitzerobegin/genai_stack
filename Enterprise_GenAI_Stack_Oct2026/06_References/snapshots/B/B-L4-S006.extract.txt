@@ -1,0 +1,9 @@
+SOURCE ID: B-L4-S006
+URL: https://help.tavily.com/articles/7788853762-team-roles-and-permissions-owner-admin-member
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains tavily.com, docs.tavily.com, trust.tavily.com, help.tavily.com): Tavily enterprise SOC 2 Type II SSO team roles audit
+========================================================================
+
+Tavily help centre, Team Roles and Permissions: three team roles. Each team has one Owner, multiple Admins and multiple Members. The Owner controls billing and can transfer ownership; Admins manage team settings and invite members but cannot access billing; Members are the base role.
+Tavily Enterprise page: custom seat allocation and "enterprise-grade security and privacy measures" (no named features).

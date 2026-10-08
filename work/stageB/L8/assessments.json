@@ -124,7 +124,8 @@
         "lockin_portability": "Apache-2.0 library and connectors; proprietary API for best models."
       },
       "evidence_caps_applied": [
-        "NPV cap lifted at CP2 review (8 October 2026): SSO and RBAC verified (B-REV-S016); audit-log feature not documented"
+        "NPV cap lifted at CP2 review (8 October 2026): SSO and RBAC verified (B-REV-S016); audit-log feature not documented",
+        "Rule 7 (CP2 Q2) checked at CP2 rework: SSO and RBAC verified, audit logs not documented, so 3 kept (maximum without all three controls)"
       ],
       "generic_total": 3.8,
       "fs_total": 3.85
@@ -172,7 +173,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 2,
+        "enterprise_readiness": 3,
         "security_compliance": 3,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -182,7 +183,7 @@
       },
       "rationale": {
         "technical": "Parse, extract, split, classify and index across 130+ formats; no ACL, PII or lineage.",
-        "enterprise_readiness": "Capped: on the hosted service organisation membership is flat (every member has the same access) [VF: B-REV-S023]; SSO (SAML/OIDC) on Enterprise; named roles only when self-hosted; audit logs not documented.",
+        "enterprise_readiness": "SSO through SAML and OIDC on the managed service and the Enterprise plan is verified (A1-S116, B-REV-S023): one verified control lifts the NPV cap to 3 under rule 7 (CP2 Q2). Hosted organisations are flat (every member has the same access) [VF: B-REV-S023], named roles exist only when self-hosted, and audit logs are not documented, so not above 3.",
         "security_compliance": "SOC 2 Type II and HIPAA BAA (medium confidence); no ISO 27001 found.",
         "deployment_flexibility": "SaaS NA/EU, BYOC, self-hosted and on-prem; air-gap not stated.",
         "ecosystem": "LlamaIndex framework, MCP server, Python/TypeScript SDKs.",
@@ -191,10 +192,10 @@
         "lockin_portability": "Proprietary credit model and API; managed index and agents deepen dependency."
       },
       "evidence_caps_applied": [
-        "enterprise_readiness capped at 2 at CP2 review: hosted organisations are flat and audit logs are not documented; only SSO verified (B-REV-S023)"
+        "NPV cap lifted at CP2 rework (8 October 2026) under rule 7 (CP2 Q2): SSO verified (A1-S116, B-REV-S023); enterprise_readiness 2 -> 3, held at 3 because hosted roles are flat and audit logs are not documented"
       ],
-      "generic_total": 3.25,
-      "fs_total": 3.05
+      "generic_total": 3.4,
+      "fs_total": 3.2
     }
   },
   {
@@ -256,7 +257,8 @@
       },
       "evidence_caps_applied": [
         "NPV cap on enterprise_readiness lifted at CP2 review: SSO/SAML and RBAC on Enterprise per docs.reducto.ai (B-REV-S017)",
-        "security_compliance capped at 2 (kept): certifications are vendor-only claims flagged in V1 verification_log section 4"
+        "security_compliance capped at 2 (kept): certifications are vendor-only claims flagged in V1 verification_log section 4",
+        "Rule 7 (CP2 Q2) checked at CP2 rework: SSO and RBAC verified, audit logging only on a marketing page, so 3 kept"
       ],
       "generic_total": 3.05,
       "fs_total": 2.9
@@ -276,7 +278,8 @@
         "Model-version churn: OCR 4.1 GA 26 August 2026 and OCR 4.0 retired 30 September 2026; the original model is no longer maintained [VF: A1-S130, V1-S014]",
         "Certifications are company-level; OCR scope not confirmed [VF: A1-S136]",
         "Self-hosting licence terms and hardware sizing not published [NPV]",
-        "OCR only: no connectors, ACL, PII or lineage [AJ]"
+        "OCR only: no connectors, ACL, PII or lineage [AJ]",
+        "Audit logs cannot be exported [VF: B-REV-S015], so the firm cannot hold them in its own archive without a vendor export route [AJ]"
       ],
       "choose_when": [
         "You need an EU-resident or self-managed OCR engine behind your own parsing pipeline",
@@ -301,7 +304,7 @@
     "scores": {
       "criteria": {
         "technical": 3,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 3,
         "deployment_flexibility": 4,
         "ecosystem": 3,
@@ -311,7 +314,7 @@
       },
       "rationale": {
         "technical": "Strong OCR feature set with confidence scores; covers only the OCR step of the pipeline.",
-        "enterprise_readiness": "Enterprise plan: SAML SSO, Admin/Billing/Member roles with isolated Workspaces and SCIM provisioning, audit logs on by default [VF: B-REV-S014, B-REV-S015]; audit-log export is not supported, so 3.",
+        "enterprise_readiness": "Enterprise plan: SAML SSO, Admin/Billing/Member roles with isolated Workspaces and SCIM provisioning, audit logs on by default [VF: B-REV-S014, B-REV-S015]: all three controls plus SCIM, so 4 under rule 7 (CP2 Q2). Not 5: audit-log export is not supported, OIDC is not supported and SLA terms are NPV.",
         "security_compliance": "Company-level SOC 2 Type II, ISO 27001 and ISO 27701; OCR scope unconfirmed.",
         "deployment_flexibility": "EU SaaS, private cloud, self-managed container and on-prem under enterprise agreement.",
         "ecosystem": "Mistral SDKs with opt-in OTel spans; usable inside other parsers.",
@@ -320,10 +323,12 @@
         "lockin_portability": "Proprietary model, but text/JSON output is easy to swap behind an interface."
       },
       "evidence_caps_applied": [
-        "NPV cap lifted at CP2 review (8 October 2026): SSO, RBAC and audit logs verified (B-REV-S014, S015); audit-log export not supported"
+        "NPV cap lifted at CP2 review (8 October 2026): SSO, RBAC and audit logs verified (B-REV-S014, S015)",
+        "Rule 7 (CP2 Q2) applied at CP2 rework: all three controls plus SCIM; enterprise_readiness 3 -> 4; audit-log export not supported (stated as a due-diligence condition)",
+        "Rule 8 (CP2 Q4) confirmed: company-level certifications with OCR scope not confirmed score one below the anchor (3)"
       ],
-      "generic_total": 3.15,
-      "fs_total": 3.1
+      "generic_total": 3.3,
+      "fs_total": 3.25
     }
   },
   {
@@ -337,7 +342,7 @@
       ],
       "limitations_risks": [
         "Processor outputs are Google-specific and require Google Cloud [VF: A1-S101]",
-        "Region list, IAM and support terms not captured in the fact base [NPV]",
+        "IAM, VPC Service Controls, us/eu multi-regions and CMEK were evidenced at CP2 review [VF: B-REV-S010, B-REV-S011]; support and SLA terms not captured [NPV]; platform controls presumed (CP2 Q1); confirm per service [Rec]",
         "SaaS only; no self-hosting [AJ]",
         "Form Parser and Custom Extractor at US$30 per 1,000 pages [VF: A1-S101]"
       ],
@@ -365,7 +370,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 5,
         "deployment_flexibility": 2,
         "ecosystem": 3,
@@ -375,7 +380,7 @@
       },
       "rationale": {
         "technical": "OCR, form parsing, layout parsing with chunking, custom extraction and classification.",
-        "enterprise_readiness": "Google Cloud IAM including deny policies, VPC Service Controls and IAM-governed Cloud Audit Logs, with SAML/OIDC federation at platform level [VF: B-REV-S010, B-REV-S012]; Document AI's predefined roles and audit-log page were not read and SLA terms are NPV, so 3.",
+        "enterprise_readiness": "Consumed through Google Cloud: IAM including deny policies, VPC Service Controls, IAM-governed Cloud Audit Logs and SAML/OIDC federation at platform level [VF: B-REV-S010, B-REV-S012]; rule 6 (CP2 Q1) presumes platform controls, and no product-specific gap is evidenced, so 4; platform controls presumed (CP2 Q1); confirm per service. Not 5: Document AI's predefined roles and SLA terms were not read.",
         "security_compliance": "In scope for Google Cloud ISO 27001/27017/27018, SOC 1/2/3 and PCI DSS (A1-S102), plus CMEK and US/EU data residency (B-REV-S010, B-REV-S011); CMEK needs allowlisting in some regions.",
         "deployment_flexibility": "Managed SaaS only; us and eu multi-regions and regional processors (B-REV-S010, B-REV-S011); no VPC or self-hosted option.",
         "ecosystem": "Google Cloud ecosystem; integrations not captured.",
@@ -384,10 +389,12 @@
         "lockin_portability": "Google-specific processors and outputs; adds to hyperscaler concentration."
       },
       "evidence_caps_applied": [
-        "NPV cap lifted at CP2 review (8 October 2026): platform IAM, Cloud Audit Logs and federated SSO verified (B-REV-S010, S012)"
+        "NPV cap lifted at CP2 review (8 October 2026): platform IAM, Cloud Audit Logs and federated SSO verified (B-REV-S010, S012)",
+        "Rule 6 (CP2 Q1, hyperscaler presumption) applied at CP2 rework: enterprise_readiness 3 -> 4; platform controls presumed (CP2 Q1); confirm per service",
+        "Rule 8 (CP2 Q4) confirmed: certifications are product-scoped (A1-S102) with CMEK, so security_compliance 5 kept"
       ],
-      "generic_total": 3.4,
-      "fs_total": 3.3
+      "generic_total": 3.55,
+      "fs_total": 3.45
     }
   },
   {
@@ -428,7 +435,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 2,
         "deployment_flexibility": 3,
         "ecosystem": 4,
@@ -438,7 +445,7 @@
       },
       "rationale": {
         "technical": "Full web acquisition surface plus parsing, PII redaction and prompt-injection check.",
-        "enterprise_readiness": "SAML/OIDC SSO and SCIM on Enterprise, Admin and Member roles, SIEM audit logging of scrape events to Sentinel [VF: B-REV-S024]; no custom roles and team-management events not stated as logged.",
+        "enterprise_readiness": "SAML/OIDC SSO and SCIM on Enterprise, Admin and Member roles, SIEM audit logging of scrape events to Sentinel [VF: B-REV-S024]: all three controls plus SCIM, so 4 under rule 7 (CP2 Q2). Not 5: built-in roles only (no custom roles), team-management events not stated as logged, SLA NPV.",
         "security_compliance": "Capped: SOC 2 Type II and HIPAA wording are vendor-page claims flagged by the V1 verifier.",
         "deployment_flexibility": "Cloud plus a reduced-feature self-hosted server.",
         "ecosystem": "SDKs, CLI, webhooks; Alexandria plugins for major assistants.",
@@ -447,10 +454,11 @@
         "lockin_portability": "AGPL server and Cloud-only features create SaaS dependency."
       },
       "evidence_caps_applied": [
-        "security_compliance capped at 2: Firecrawl security claims are vendor-only and flagged in V1 verification_log section 4"
+        "security_compliance capped at 2: Firecrawl security claims are vendor-only and flagged in V1 verification_log section 4",
+        "Rule 7 (CP2 Q2) applied at CP2 rework (8 October 2026): all three controls plus SCIM (B-REV-S024); enterprise_readiness 3 -> 4"
       ],
-      "generic_total": 3.1,
-      "fs_total": 2.85
+      "generic_total": 3.25,
+      "fs_total": 3.0
     }
   },
   {
@@ -509,7 +517,8 @@
         "lockin_portability": "Open source, but the attribution clause is not plain Apache-2.0."
       },
       "evidence_caps_applied": [
-        "Library rule applied (enterprise_readiness and security_compliance capped at 4; scored on project hygiene; inherits host controls)"
+        "Library rule applied (enterprise_readiness and security_compliance capped at 4; scored on project hygiene; inherits host controls)",
+        "Rule 7 (CP2 Q2) checked at CP2 rework: no SSO, RBAC or audit control verified (token auth only, A1-S074); enterprise_readiness 2 kept under the library rule"
       ],
       "generic_total": 2.9,
       "fs_total": 2.9
@@ -572,7 +581,8 @@
         "lockin_portability": "Custom licence with revenue/MAU thresholds and automatic termination."
       },
       "evidence_caps_applied": [
-        "Library rule applied (enterprise_readiness and security_compliance capped at 4; scored on project hygiene; inherits host controls)"
+        "Library rule applied (enterprise_readiness and security_compliance capped at 4; scored on project hygiene; inherits host controls)",
+        "Rule 7 (CP2 Q2) checked at CP2 rework: no SSO, RBAC or audit control verified; enterprise_readiness 2 kept under the library rule"
       ],
       "generic_total": 2.8,
       "fs_total": 2.7
@@ -634,7 +644,8 @@
         "lockin_portability": "Platform-specific Actors and storage; proprietary API."
       },
       "evidence_caps_applied": [
-        "NPV cap lifted at CP2 review (8 October 2026): roles and SSO documented (B-REV-S025); no audit log found"
+        "NPV cap lifted at CP2 review (8 October 2026): roles and SSO documented (B-REV-S025); no audit log found",
+        "Rule 7 (CP2 Q2) checked at CP2 rework: roles and SSO verified, no audit log found, so 3 kept"
       ],
       "generic_total": 2.65,
       "fs_total": 2.55
