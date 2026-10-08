@@ -32,7 +32,6 @@ Bedrock's Automated Reasoning checks sit apart from all three as a formal-reason
 **Guardrails cannot fix a workflow that should never have been autonomous [AJ].** This is the central design point for this control. A guardrail is a filter on a stream of actions; it reduces the probability that a bad action passes, but it does not reduce the number of actions an agent is allowed to attempt. If an agent has write access to a client-facing system, a content filter on its output is not a control over that access [AJ]. The plan's worked example is built as "a deterministic workflow, not a free agent", with read-only tools and a human approval gate; most of its safety comes from that design, and the guardrails are the second line [AJ]. The OWASP Agentic list starts with ASI01 Agent Goal Hijack [VF: R-OWASP-AGENTIC, A8-S042], and the most effective mitigation for goal hijack is to give the agent no goal it can be hijacked towards: fixed steps, read-only tools, scoped identity [AJ].
 
 When guardrails are badly designed, four things go wrong [AJ]:
-
 - **Wrong place.** Only the user's prompt is screened, while retrieved documents and tool results, the real injection path for agents, pass unchecked.
 - **Wrong mechanism.** A content-safety classifier is asked to catch a business error it was never trained for, such as a wrong sign on a currency effect.
 - **False positives drive bypass.** An over-sensitive filter blocks legitimate finance vocabulary, users route around it, and the control disappears.
