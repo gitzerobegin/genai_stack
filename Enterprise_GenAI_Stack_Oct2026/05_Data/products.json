@@ -5503,15 +5503,15 @@
       "fs_note": "Natural choice for a GCP-centred firm; confirm the processor region before use and keep outputs in the firm's canonical document model to avoid processor lock-in [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Strong certifications and simple pricing, but SaaS-only and Google-specific outputs; strategic only inside a GCP-standardised estate."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10). Google's lead document-processing service; confirm the processor region and keep outputs in the firm's canonical document model to limit processor lock-in [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 4,
         "enterprise_readiness": 4,
-        "security_compliance": 5,
+        "security_compliance": 4,
         "deployment_flexibility": 2,
         "ecosystem": 3,
         "reliability_maturity": 3,
@@ -5521,7 +5521,7 @@
       "rationale": {
         "technical": "OCR, form parsing, layout parsing with chunking, custom extraction and classification.",
         "enterprise_readiness": "Consumed through Google Cloud: IAM including deny policies, VPC Service Controls, IAM-governed Cloud Audit Logs and SAML/OIDC federation at platform level [VF: B-REV-S010, B-REV-S012]; rule 6 (CP2 Q1) presumes platform controls, and no product-specific gap is evidenced, so 4; platform controls presumed (CP2 Q1); confirm per service. Not 5: Document AI's predefined roles and SLA terms were not read.",
-        "security_compliance": "In scope for Google Cloud ISO 27001/27017/27018, SOC 1/2/3 and PCI DSS (A1-S102), plus CMEK and US/EU data residency (B-REV-S010, B-REV-S011); CMEK needs allowlisting in some regions.",
+        "security_compliance": "In scope for Google Cloud ISO 27001/27017/27018, SOC 1/2/3 and PCI DSS (A1-S102), plus CMEK and US/EU data residency (B-REV-S010, B-REV-S011); CMEK needs allowlisting in some regions. Held at 4, not 5, under rule 8: the scope page names a 'SOC 2 Report' without stating Type II, as for AgentCore Memory (L5); the same Google scope evidence gives 4 for Sensitive Data Protection, Model Armor and Apigee.",
         "deployment_flexibility": "Managed SaaS only; us and eu multi-regions and regional processors (B-REV-S010, B-REV-S011); no VPC or self-hosted option.",
         "ecosystem": "Google Cloud ecosystem; integrations not captured.",
         "reliability_maturity": "Hyperscaler managed service; maturity facts not captured [AJ].",
@@ -5531,10 +5531,10 @@
       "evidence_caps_applied": [
         "NPV cap lifted at CP2 review (8 October 2026): platform IAM, Cloud Audit Logs and federated SSO verified (B-REV-S010, S012)",
         "Rule 6 (CP2 Q1, hyperscaler presumption) applied at CP2 rework: enterprise_readiness 3 -> 4; platform controls presumed (CP2 Q1); confirm per service",
-        "Rule 8 (CP2 Q4) confirmed: certifications are product-scoped (A1-S102) with CMEK, so security_compliance 5 kept"
+        "Rule 8 (CP2 Q4) re-checked at CP3 rework (8 October 2026): certifications are product-scoped (A1-S102) with CMEK, but the SOC 2 report type is not stated, so security_compliance 5 -> 4 for consistency with other hyperscaler services"
       ],
-      "generic_total": 3.55,
-      "fs_total": 3.45
+      "generic_total": 3.4,
+      "fs_total": 3.25
     },
     "sources": [
       "A1-S101",
@@ -8174,9 +8174,9 @@
       "fs_note": "Google Cloud EMEA Limited is a designated DORA CTPP and UK CTP [VF: A8-S020, A8-S023]; consuming the model through Vertex AI places it with a designated provider, which does not remove the firm's own outsourcing duties [AJ]. The 'eu' endpoint does not cover the UK [VF: A2-S039]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Leading multimodal option for Google-centred estates, but hosted-only, young GA and without UK processing."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10), consumed through Vertex AI. Google's lead embedding model and the leading multimodal option; not where UK-only processing is mandatory, because the eu multi-region excludes the UK [AJ]."
     },
     "scores": {
       "criteria": {
@@ -13285,7 +13285,7 @@
     "classification": {
       "tier": "Tactical",
       "flags": [],
-      "rationale": "A cost tier inside AWS controls, not a full retrieval engine; AWS-only [AJ]."
+      "rationale": "Tactical, default in AWS estates as the low-cost vector tier. Not AWS's lead vector-search service: AWS positions it as a durable tier behind OpenSearch [VF: A2-S092], so rubric rule 10 (CP3 Q2) does not make it Strategic [AJ]."
     },
     "scores": {
       "criteria": {
@@ -14293,9 +14293,9 @@
       "fs_note": "Set a customer-managed key at creation, deploy the pruner on day one, confirm the Region list for UK/EU data, and keep a periodic export to the firm's store; platform controls presumed (CP2 Q1), confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Sound default inside an AgentCore estate with good lifecycle documentation; single-cloud deployment and a proprietary API keep it Tactical (conditional default in AWS) [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud and the agent runtime is AgentCore (CP3 Q2, rubric rule 10). AWS's lead managed agent memory service with good lifecycle documentation; a customer-managed key at creation and a pruner from day one are part of the condition, and deployment and lock-in at 2 are accepted under rule 11 [AJ]."
     },
     "scores": {
       "criteria": {
@@ -14959,11 +14959,11 @@
       "fs_note": "Use a regional endpoint with CMEK, set TTL and a shorter revision retention, and obtain written residency confirmation; platform controls presumed (CP2 Q1), confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [
         "Renamed"
       ],
-      "rationale": "Good default inside a Google agent estate with a strong scope model; single-cloud, Gemini-dependent extraction and the residency conflict keep it Tactical (conditional default in Google Cloud) [AJ]."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud and the agent runtime is Agent Engine (CP3 Q2, rubric rule 10). Google's lead managed agent memory service with a strong scope model; written confirmation of data residency (the feature table and residency terms conflict) and a regional CMEK endpoint are part of the condition [AJ]."
     },
     "scores": {
       "criteria": {
@@ -17062,9 +17062,9 @@
       "fs_note": "Require signed Agent Cards and verify them; scope and revoke delegated authority in your own gateway and IdP [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Right standard for agent-to-agent delegation, but few regulated workflows should depend on it yet [AJ]."
+      "rationale": "Strategic, conditional: where cross-team or cross-vendor agent delegation is in scope (CP3 Q1); signed Agent Cards verified, and delegated authority scoped and revocable by the firm, because the protocol does not define it [AJ]."
     },
     "scores": {
       "criteria": {
@@ -17734,9 +17734,9 @@
       "fs_note": "Sits within AWS, a designated CTP under DORA and the UK regime; include in AWS concentration analysis; platform controls presumed (CP2 Q1), confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical, conditional: the default tool gateway where AWS is the agent platform; AWS-only deployment (2) and one year of GA keep it below the Strategic guide, consistent with C1-aws-agentcore-gateway, AgentCore Memory and Bedrock Guardrails; cloud-neutral gateways are the alternative [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10). AWS's lead managed tool gateway and agent identity service; deployment 2 (AWS-managed only) is accepted under rule 11 because the condition is an existing platform commitment. Same tier as C1-aws-agentcore-gateway [AJ]."
     },
     "scores": {
       "criteria": {
@@ -19439,7 +19439,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: only behind a firm-owned gateway that makes authorisation mandatory, enforces an allow-list and pins tool definitions, because the specification leaves these optional and security scores 2; FS 3.55 is below the 3.6 guide and the tier rests on MCP being the layer's de facto tool contract [AJ]."
+      "rationale": "Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions. Tier set by the reader at Checkpoint 3 (CP3 Q1), treating MCP and its authorisation profile (C4-mcp-authorization) as one decision; FS 3.55 is below the 3.6 guide and security scores 2, which is why the condition is mandatory. Conflict of interest: MCP originated at Anthropic and the author is an Anthropic model [AJ]."
     },
     "scores": {
       "criteria": {
@@ -20075,9 +20075,62 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Strands Agents (Apache-2.0 model-driven agent SDK) plus Amazon Bedrock AgentCore, a framework-agnostic managed agent platform: Runtime with per-session microVM isolation (up to 8 hours per lifecycle), Memory, Gateway, Identity, Observability; hosts Strands, LangGraph, CrewAI, AutoGen or custom agents [VF: A4-S115, A4-S116, B-L3-S004].",
+      "strengths": [
+        "Per-session microVM isolation and VPC/PrivateLink [VF: B-L3-S004]",
+        "Runs any framework, so it separates runtime choice from framework choice [VF: A4-S116] [AJ]"
+      ],
+      "limitations_risks": [
+        "AWS-only, proprietary APIs [VF: A4-S116]",
+        "Session state ephemeral by default; Runtime is not a durable workflow engine [VF: B-L3-S004]",
+        "AgentCore SDK classified Alpha [VF: A4-S121]",
+        "Execution-role credentials reachable from code in the microVM [VF: B-L3-S004]",
+        "Runtime pricing not verified [NPV]"
+      ],
+      "choose_when": [
+        "AWS is the primary cloud and you need a managed, isolated runtime for framework-built agents [AJ]"
+      ],
+      "avoid_when": [
+        "Multi-cloud portability of the runtime is a requirement [AJ]"
+      ],
+      "competitors": [
+        "L3-microsoft-agent-framework",
+        "L3-google-adk",
+        "L3-langgraph"
+      ],
+      "fs_note": "Keep the workflow definition in a portable framework; scope execution roles tightly; platform controls presumed (CP2 Q1); confirm per service [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where AWS is your primary cloud (rule 10, lead AWS agent runtime); deployment and lock-in at 2 accepted under rule 11 as an existing platform commitment."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Isolated runtime, memory, gateway, identity, any framework; no deterministic durable workflow engine [VF: A4-S116, B-L3-S004]",
+        "enterprise_readiness": "Hyperscaler presumption (rule 6); platform controls presumed (CP2 Q1); confirm per service",
+        "security_compliance": "AgentCore in AWS SOC 1/2/3 and ISO 27001 scope, HIPAA eligible; SOC 2 type not stated, so 4 (rule 8) [VF: B-L5-S003]",
+        "deployment_flexibility": "AgentCore AWS-only; Strands portable [VF: A4-S116, A4-S018]",
+        "ecosystem": "Any framework, MCP gateway, AG-UI [VF: A4-S116]",
+        "reliability_maturity": "AgentCore GA 13 October 2025; Strands 1.0 July 2025; SDK Alpha [VF: V1-S087, A4-S018, A4-S121]",
+        "cost_tco": "Runtime pricing not retrieved [NPV]; consumption model assumed [AJ]",
+        "lockin_portability": "Proprietary AWS-only service APIs [VF: A4-S116]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.4,
+      "fs_total": 3.25
+    },
     "sources": [
       "A4-S018",
       "A4-S115",
@@ -20372,9 +20425,66 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Anthropic's agent harness SDK (formerly Claude Code SDK): embeds Claude Code's agent loop, built-in file/shell/web tools, hooks, subagents, MCP, permission modes and resumable/forkable sessions as a Python or TypeScript library; spawns one Claude Code CLI subprocess per session [VF: A4-S027, A4-S122, A4-S028]. Conflict of interest: Anthropic product scored by an Anthropic model.",
+      "strengths": [
+        "Permission modes and hooks give fine-grained tool approval [VF: A4-S027]",
+        "Strong fit for code- and file-centric autonomous tasks [AJ]"
+      ],
+      "limitations_risks": [
+        "Python package classified Alpha; 0.x versioning [VF: A4-S006]",
+        "Claude models only, via Claude API, Bedrock or Google Cloud [VF: A4-S006, A4-S122]",
+        "Use governed by Anthropic Commercial Terms despite the MIT repository licence [VF: A4-S092, V1-S048]",
+        "One long-lived subprocess per session; transcripts on local disk unless a SessionStore is configured [VF: A4-S122]",
+        "Claude Managed Agents is excluded from ZDR [VF: A4-S123]",
+        "No deterministic workflow engine [VF: A4-S027]"
+      ],
+      "choose_when": [
+        "A sandboxed autonomous sub-task (e.g. code or document manipulation) inside a firm-owned workflow, where Claude is already an approved model [AJ]"
+      ],
+      "avoid_when": [
+        "You need model portability or a deterministic workflow engine [AJ]",
+        "A regulated process would run on an Alpha-classified dependency [AJ]"
+      ],
+      "competitors": [
+        "L3-openai-agents-sdk",
+        "L3-langgraph",
+        "L3-pydantic-ai"
+      ],
+      "fs_note": "Run only in sandboxed containers with network controls, under a workflow engine that owns state and approvals; independent alternatives are LangGraph and Pydantic AI [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Alpha, single-model and subprocess-bound; borderline calls resolved against it (conflict of interest)."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 1,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Rich autonomous harness, but no workflow engine or built-in durable execution [VF: A4-S027, A4-S122]; borderline 3/4 resolved down",
+        "enterprise_readiness": "Library (rule 2): permission modes and hooks; API-key auth; enterprise support not verified [VF: A4-S027] [NPV]",
+        "security_compliance": "Library (rule 2); inherits Claude API terms where ZDR is available, but Managed Agents excluded from ZDR [VF: A4-S123]",
+        "deployment_flexibility": "Self-hosted in containers/Kubernetes; model inference remains a cloud API; subprocess-per-session hosting [VF: A4-S122]; borderline 3/4 resolved down",
+        "ecosystem": "MCP, plugins and skills; Claude models only [VF: A4-S027]",
+        "reliability_maturity": "Alpha development status, pre-1.0, renamed September 2025 [VF: A4-S006, A4-S029]; pre-1.0/beta anchor applied strictly",
+        "cost_tco": "No SDK charge; compute scales with concurrent sessions [VF: A4-S122] [AJ]",
+        "lockin_portability": "Claude-only, bundled CLI binary, Commercial Terms [VF: A4-S027, A4-S092]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 2.75,
+      "fs_total": 2.65
+    },
     "sources": [
       "A4-S006",
       "A4-S011",
@@ -20677,9 +20787,61 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "MIT multi-agent framework with two modes: Crews (autonomous role-based agents) and Flows (event-driven, stateful process definitions); commercial platform CrewAI AMP (earlier materials call it CrewAI Enterprise) [VF: A4-S004, A4-S050, A4-S049, V1-S075].",
+      "strengths": [
+        "Vendor itself recommends Flows as the outer process with Crews inside, which matches the H2 split [VF: A4-S050] [AJ]",
+        "AMP deploys to cloud, customer VPC or on-premises [VF: A4-S047, A4-S049]"
+      ],
+      "limitations_risks": [
+        "Crew and Flow abstractions are CrewAI-specific [AJ]",
+        "Durable execution and HITL not evidenced [NPV]",
+        "Funding confirmed only to about US$20M [VF: A4-S148]",
+        "Multi-agent Crews multiply LLM calls per task [AJ]"
+      ],
+      "choose_when": [
+        "Teams that want a packaged multi-agent platform with on-prem option [AJ]"
+      ],
+      "avoid_when": [
+        "The task is deterministic and does not need multiple autonomous agents [AJ]"
+      ],
+      "competitors": [
+        "L3-langgraph",
+        "L3-microsoft-agent-framework",
+        "L3-google-adk"
+      ],
+      "fs_note": "Use Flows for any regulated process and confine Crews to drafting or research sub-steps behind an approval gate [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Both modes available, but abstractions are proprietary and durability is unproven."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Crews plus Flows cover multi-agent and workflow modes; HITL/durability not evidenced [VF: A4-S050] [NPV]",
+        "enterprise_readiness": "AMP Enterprise SSO and RBAC verified; no SCIM, SLA or audit evidence, so 3 (rule 7) [VF: A4-S047]",
+        "security_compliance": "SOC 2 Type 2 report (June 2026) listed; HIPAA Type 1 only [VF: A4-S048]",
+        "deployment_flexibility": "SaaS, VPC on AWS/Azure/GCP, on-prem, OSS self-host; air-gap not verified [VF: A4-S047, A4-S049]",
+        "ecosystem": "crewai-tools, AMP, HPE partnership; hosted by AgentCore [VF: A4-S004, A4-S049, A4-S116]",
+        "reliability_maturity": "1.x since October 2025; very high release frequency [VF: A4-S004]",
+        "cost_tco": "Free tier 50 executions/month; Enterprise custom-priced [VF: A4-S047]",
+        "lockin_portability": "MIT framework, proprietary abstractions and AMP [VF: A4-S126, A4-S047]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.25,
+      "fs_total": 3.2
+    },
     "sources": [
       "A4-S004",
       "A4-S047",
@@ -20945,9 +21107,60 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Apache-2.0 code-first agent framework (Python, Java, Kotlin, Go, TS); ADK 2.0 adds a graph-based Workflow Runtime (routing, fan-out/fan-in, loops, retry, state, HITL, nested workflows) and a Task API for agent-to-agent delegation; deploys to Cloud Run or Vertex AI Agent Engine [VF: A4-S114, A4-S017].",
+      "strengths": [
+        "Explicit deterministic Workflow Runtime alongside agents [VF: A4-S114] [AJ]",
+        "Tool-confirmation HITL and evaluation built in [VF: A4-S114]"
+      ],
+      "limitations_risks": [
+        "Two major versions in twelve months [VF: A4-S017]",
+        "Gemini-optimised; Google Cloud deployment targets [VF: A4-S114]",
+        "Security features and access controls not verified for the library [NPV]"
+      ],
+      "choose_when": [
+        "Google Cloud estates, especially with Agent Engine [AJ]"
+      ],
+      "avoid_when": [
+        "You need cross-cloud hosting parity [AJ]"
+      ],
+      "competitors": [
+        "L3-microsoft-agent-framework",
+        "L3-langgraph",
+        "L3-aws-strands-agentcore"
+      ],
+      "fs_note": "Treat Agent Engine as a hyperscaler service under CP2 Q1 and confirm its controls per service [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Default framework in a Google Cloud estate; younger and less stable than MAF or LangGraph."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Workflow Runtime, multi-agent, A2A Task API, HITL, evaluation [VF: A4-S114]",
+        "enterprise_readiness": "Library (rule 2); no support commitment recorded [NPV]",
+        "security_compliance": "Library (rule 2); managed route on Agent Platform in ISO 42001 and SOC 2 scope [VF: A5-S028]",
+        "deployment_flexibility": "Library anywhere; Cloud Run and Agent Engine [VF: A4-S114]",
+        "ecosystem": "MCP, OpenAPI, A2A; broader ecosystem not verified [VF: A4-S114] [NPV]",
+        "reliability_maturity": "1.0 May 2025, 2.0 May 2026 [VF: A4-S017]",
+        "cost_tco": "Free Apache-2.0 [VF: A4-S114]",
+        "lockin_portability": "Apache-2.0 but Gemini-optimised and GCP-targeted [VF: A4-S114]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.45,
+      "fs_total": 3.35
+    },
     "sources": [
       "A4-S017",
       "A4-S114"
@@ -21256,9 +21469,66 @@
         "conf": "medium"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Low-level stateful graph runtime (MIT) combining deterministic code and LLM decisions in one graph, with checkpointed durable execution, interrupts for human-in-the-loop, time travel, memory and streaming; managed runtime is LangSmith Deployment (formerly LangGraph Platform) [VF: A4-S118, A4-S039, A4-S031].",
+      "strengths": [
+        "Covers every L3 research question in one GA (1.x) framework with a no-breaking-changes commitment until 2.0 [VF: A4-S033] [AJ]",
+        "Deployment range from library to SaaS, BYOC, self-hosted and on-prem Kubernetes [VF: A4-S036, A4-S037]"
+      ],
+      "limitations_risks": [
+        "Graph and checkpoint APIs are LangGraph-specific [VF: A4-S039]",
+        "Three checkpoint deserialisation advisories in 2025-26, all patched; the checkpoint store is a security boundary [VF: B-L3-S007]",
+        "LangSmith ISO 27001 claimed but scope unconfirmed [VF: A4-S034, A4-S035, A4-S149]",
+        "Full self-hosted platform needs the Enterprise plan [VF: A4-S037]"
+      ],
+      "choose_when": [
+        "You need deterministic workflow graphs with one or more LLM steps, durable checkpoints and approval interrupts [AJ]",
+        "Python or TypeScript teams standardising on one orchestration framework [AJ]"
+      ],
+      "avoid_when": [
+        "The workflow is a single model call that needs no framework [AJ]",
+        "You cannot restrict write access to the checkpoint database [AJ]"
+      ],
+      "competitors": [
+        "L3-microsoft-agent-framework",
+        "L3-pydantic-ai",
+        "L3-google-adk",
+        "L3-temporal"
+      ],
+      "fs_note": "Pin langgraph and langgraph-checkpoint, keep checkpoints in a firm-controlled Postgres with write access limited to the runtime, and export traces via OTel as well as LangSmith [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Deepest coverage of the L3 questions with a stable 1.x line; Renamed refers to LangGraph Platform -> LangSmith Deployment."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 5,
+        "ecosystem": 5,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Durable execution, interrupts, time travel, memory, deterministic plus LLM nodes, both Functional and Graph APIs [VF: A4-S118, A4-S039]",
+        "enterprise_readiness": "LangSmith Enterprise: SAML/OIDC SSO, SCIM, custom-role RBAC, audit logs on self-hosted [VF: A4-S038]",
+        "security_compliance": "LangSmith SOC 2 Type II and HIPAA; ISO 27001 claimed, scope unconfirmed, so 4 not 5 (rule 8); OSS advisories published and patched [VF: A4-S034, B-L3-S007]",
+        "deployment_flexibility": "Library anywhere; LangSmith Deployment SaaS, BYOC/hybrid, self-hosted and on-prem Kubernetes [VF: A4-S036, A4-S037]",
+        "ecosystem": "LangChain integrations, JS port, hosted by AgentCore and other runtimes [VF: A4-S118, A4-S116]",
+        "reliability_maturity": "1.0 GA October 2025, Production/Stable, frequent releases, stable API commitment [VF: A4-S001, A4-S033]",
+        "cost_tco": "OSS free; LangSmith seat and LSU pricing published [VF: A4-S036]",
+        "lockin_portability": "MIT, self-hostable, but graph/checkpoint APIs proprietary to LangGraph and deployment is proprietary [VF: A4-S001, A4-S039]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 4.4,
+      "fs_total": 4.2
+    },
     "sources": [
       "A4-S001",
       "A4-S026",
@@ -21557,9 +21827,63 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "MIT framework for RAG and agentic applications with Workflows, an event-driven, step-based engine with typed state and OpenTelemetry instrumentation; LlamaAgents deploys document agents on the proprietary LlamaParse platform (formerly LlamaCloud) [VF: A4-S117, A4-S041, A4-S042].",
+      "strengths": [
+        "Workflows is a clean deterministic step engine usable outside the LlamaIndex ecosystem [VF: A4-S041] [AJ]",
+        "Large integration catalogue for retrieval [VF: A4-S117]"
+      ],
+      "limitations_risks": [
+        "Vendor says its primary focus has shifted to LlamaParse [VF: A4-S117]",
+        "Framework still 0.x after three years [VF: A4-S002]",
+        "Human-in-the-loop and durable execution not evidenced in the fact base [NPV]"
+      ],
+      "choose_when": [
+        "Retrieval-heavy agents already built on LlamaIndex [AJ]",
+        "Document agents where LlamaParse is the chosen L8 parser [AJ]"
+      ],
+      "avoid_when": [
+        "You need a long-term orchestration standard with roadmap commitment [AJ]"
+      ],
+      "competitors": [
+        "L3-langgraph",
+        "L3-pydantic-ai",
+        "L8-llamaparse"
+      ],
+      "fs_note": "Treat as a retrieval toolkit inside a governed workflow rather than as the orchestration standard [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Capable but 0.x and no longer the vendor's focus; Renamed refers to LlamaCloud -> LlamaParse."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Workflows plus agents and RAG; HITL and durability not evidenced [VF: A4-S041] [NPV]",
+        "enterprise_readiness": "Library (rule 2); LlamaParse Enterprise SSO is one verified control [VF: A1-S115, A1-S116]",
+        "security_compliance": "Library hygiene not assessed; LlamaParse SOC 2 Type II and HIPAA BAA [VF: A1-S115]",
+        "deployment_flexibility": "Library anywhere; LlamaAgents managed or bring-your-own infrastructure [VF: A4-S042]",
+        "ecosystem": "Broad LLM and vector-store integrations [VF: A4-S117]",
+        "reliability_maturity": "0.x versioning after three years; vendor focus moved to LlamaParse [VF: A4-S002, A4-S117]",
+        "cost_tco": "Framework free (MIT) [VF: A4-S002]",
+        "lockin_portability": "MIT but Workflows API is LlamaIndex-specific [VF: A4-S041]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.25,
+      "fs_total": 3.15
+    },
     "sources": [
       "A4-S002",
       "A4-S013",
@@ -21850,9 +22174,62 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "MIT framework (Python, .NET, Go) that separates Agents from graph-based Workflows (sequential, concurrent, handoff, group collaboration) with checkpointing, streaming, HITL and time travel; durable agents via Durable Task or Azure Durable Functions (beta); A2A, MCP, OTel; declared successor to Semantic Kernel and AutoGen; Foundry Hosted Agents for managed hosting [VF: A4-S066, A4-S012, A4-S101, A4-S102, B-L3-S006].",
+      "strengths": [
+        "Explicit agents-versus-workflows split is the clearest H2 implementation [VF: A4-S066] [AJ]",
+        "1.0 with stable APIs and a long-term support commitment [VF: A4-S012, A4-S068]",
+        ".NET first-class for Microsoft estates [VF: A4-S066]"
+      ],
+      "limitations_risks": [
+        "Durable extensions still beta [VF: A4-S101, A4-S102]",
+        "Foundry hosting integration package for Python prerelease [VF: B-L3-S006]",
+        "First-class integrations are Azure/Foundry [VF: A4-S066]",
+        "Young GA (April 2026) [VF: A4-S008]"
+      ],
+      "choose_when": [
+        "Microsoft/.NET estate, or Semantic Kernel/AutoGen code to migrate [AJ]"
+      ],
+      "avoid_when": [
+        "You need GA durable execution today without adding Temporal or Durable Task [AJ]"
+      ],
+      "competitors": [
+        "L3-langgraph",
+        "L3-google-adk",
+        "L3-aws-strands-agentcore"
+      ],
+      "fs_note": "Migrate Semantic Kernel and AutoGen workloads here; until durable packages are GA, back long-running workflows with a GA durable engine [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where Microsoft/Azure or .NET is the primary platform; supersedes Semantic Kernel and AutoGen."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Agents plus graph workflows, checkpointing, HITL, time travel, A2A/MCP; durability beta [VF: A4-S066, A4-S101]",
+        "enterprise_readiness": "Library (rule 2) with Microsoft long-term support commitment; Foundry Hosted Agents GA [VF: A4-S012, B-L3-S006]",
+        "security_compliance": "Library (rule 2); hygiene not assessed; Azure/Foundry certifications out of record scope [AJ]",
+        "deployment_flexibility": "Library anywhere; Foundry Hosted Agents and Azure Functions managed [VF: A4-S008, A4-S066]",
+        "ecosystem": "Foundry, Azure OpenAI, OpenAI, Copilot Studio, A2A, MCP, OTel [VF: A4-S066, A4-S008]",
+        "reliability_maturity": "GA April 2026 with LTS commitment; successor to two mature frameworks [VF: A4-S008, A4-S012]",
+        "cost_tco": "Free MIT; durable hosting extra [VF: A4-S067]",
+        "lockin_portability": "MIT, multi-provider, but Azure-first integrations [VF: A4-S066]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.8,
+      "fs_total": 3.65
+    },
     "sources": [
       "A4-S008",
       "A4-S012",
@@ -22148,9 +22525,63 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "No distinct 'Mistral Agents SDK' exists. Mistral offers the Agents API (persistent agents, connectors incl. MCP, branchable stateful conversations, handoffs) through the general mistralai SDKs, and Mistral Workflows, a Temporal-based durable workflow SDK with Mistral-hosted control plane and customer-run workers [VF: A4-S057, A4-S058, A4-S061].",
+      "strengths": [
+        "EU hosting by default for the company's services [VF: A5-S075]",
+        "Workflows brings Temporal-grade durability with HITL decorators [VF: A4-S058]"
+      ],
+      "limitations_risks": [
+        "Agents API in beta namespace; Workflows Beta/Public Preview; breaking SDK majors March and September 2026 [VF: A4-S057, A4-S061, A4-S007, V1-S065]",
+        "State lives in Mistral cloud unless store=False [VF: A4-S057]",
+        "Access controls not publicly verified [NPV]",
+        "Pricing not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "An EU-hosted, Mistral-model estate wanting managed agents [AJ]"
+      ],
+      "avoid_when": [
+        "You need a portable framework or GA components [AJ]"
+      ],
+      "competitors": [
+        "L3-openai-agents-sdk",
+        "L3-temporal",
+        "L3-langgraph"
+      ],
+      "fs_note": "Run conversations with store=False and keep the workflow definition in the firm's own Temporal or framework code [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "Real products under a different name; beta status and proprietary hosted state. Tile relabelled 'Mistral Agents API (+ Workflows)'."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 3,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 2,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Hosted agents plus durable Workflows, but beta [VF: A4-S057, A4-S058]",
+        "enterprise_readiness": "SSO/RBAC/audit not publicly verified; capped at 2 [NPV]",
+        "security_compliance": "Company-level SOC 2 Type II, ISO 27001, ISO 27701; product scope not stated, so one below (rule 8) [VF: A4-S060]",
+        "deployment_flexibility": "SaaS; Workflows workers in customer Kubernetes, control plane Mistral-hosted [VF: A4-S058]",
+        "ecosystem": "MCP connectors; Temporal underneath [VF: A4-S057, A4-S058]",
+        "reliability_maturity": "Beta / Public Preview components; breaking SDK majors [VF: A4-S061, A4-S007]",
+        "cost_tco": "Pricing not publicly verified; customer-run worker infrastructure [NPV] [VF: A4-S058]",
+        "lockin_portability": "Proprietary hosted API, Mistral-model-centric [VF: A4-S057]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: access controls NPV"
+      ],
+      "generic_total": 2.6,
+      "fs_total": 2.55
+    },
     "sources": [
       "A4-S007",
       "A4-S025",
@@ -22447,9 +22878,61 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "MIT, provider-agnostic multi-agent SDK: agents with tools, handoffs or agents-as-tools, input/output guardrails, sessions with resumable approvals, tracing, sandboxed agents; Temporal and DBOS integrations for durable runs. Distinct from the hosted Agents API (beta) and Agent Builder (shutting down 30 November 2026) [VF: A4-S120, A4-S052, A4-S053, A4-S055, A4-S054].",
+      "strengths": [
+        "Compact primitives with guardrails and approvals built in [VF: A4-S120] [AJ]",
+        "Works with 100+ non-OpenAI models [VF: A4-S120]"
+      ],
+      "limitations_risks": [
+        "Pre-1.0 (0.23.1) [VF: A4-S005]",
+        "Tracing defaults to OpenAI's dashboard [VF: A4-S052]",
+        "Adjacent OpenAI products are retired frequently [VF: A4-S056, A4-S054]",
+        "Hosted Agents API is US-only with no ZDR at launch [VF: A4-S055]"
+      ],
+      "choose_when": [
+        "An agent step inside a durable workflow, with a custom trace processor [AJ]"
+      ],
+      "avoid_when": [
+        "You would use the hosted Agents API for UK/EU client data [AJ]"
+      ],
+      "competitors": [
+        "L3-pydantic-ai",
+        "L3-langgraph",
+        "L3-claude-agent-sdk"
+      ],
+      "fs_note": "Replace the default trace exporter with a firm-owned OTel processor before any client data flows [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Good agent-step SDK, but pre-1.0 and surrounded by product churn."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Agent loop, handoffs, guardrails, sessions, approvals, tracing, sandboxes, Temporal/DBOS durability [VF: A4-S120, A4-S052, A4-S053]",
+        "enterprise_readiness": "Library (rule 2); enterprise support not verified [NPV]",
+        "security_compliance": "Library (rule 2); harness keeps credentials away from model-generated code [VF: A4-S053]; hygiene not assessed",
+        "deployment_flexibility": "Library anywhere; model calls to chosen provider [VF: A4-S005]",
+        "ecosystem": "MCP, sandbox partners, Temporal, DBOS, Bedrock Managed Agents [VF: A4-S053, A4-S055]",
+        "reliability_maturity": "Pre-1.0 versioning; neighbouring products sunset in 2026 [VF: A4-S005, A4-S054, A4-S056]",
+        "cost_tco": "Free MIT [VF: A4-S005]",
+        "lockin_portability": "MIT and provider-agnostic, but defaults favour OpenAI services [VF: A4-S120, A4-S052]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.45,
+      "fs_total": 3.3
+    },
     "sources": [
       "A4-S005",
       "A4-S024",
@@ -22738,9 +23221,60 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Typed, model-agnostic Python agent loop with structured outputs and tools, pydantic_graph for graph control flow, and durable execution attached as a capability via Temporal, DBOS or Prefect [VF: A4-S119, A4-S044, A4-S045].",
+      "strengths": [
+        "Type-checked inputs and outputs suit numeric and structured tasks [AJ]",
+        "Delegates durability to established engines instead of inventing its own [VF: A4-S045] [AJ]"
+      ],
+      "limitations_risks": [
+        "v2 (June 2026) removed graph persistence; two majors in about ten months [VF: A4-S003, A4-S044]",
+        "Commercial support not publicly verified [NPV]",
+        "Small vendor: US$12.5M Series A is the only round found [VF: A4-S046]"
+      ],
+      "choose_when": [
+        "Python teams wanting a typed agent step inside a Temporal or DBOS workflow [AJ]"
+      ],
+      "avoid_when": [
+        "You need a vendor-supported platform with SLAs [AJ]"
+      ],
+      "competitors": [
+        "L3-langgraph",
+        "L3-openai-agents-sdk",
+        "L3-temporal"
+      ],
+      "fs_note": "Pin the major version; v1 receives security fixes for at least six months after v2 [VF: V1-S074] [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strong typed agent step, but young major versions and no verified support offer."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Typed agent loop, graph control flow, durable capabilities via Temporal/DBOS/Prefect, MCP [VF: A4-S119, A4-S045]",
+        "enterprise_readiness": "Library (rule 2): enables controls in your estate; support not verified [NPV]",
+        "security_compliance": "Library hygiene: v1 security fixes promised for six months after v2 [VF: V1-S074]; inherits host controls",
+        "deployment_flexibility": "Library anywhere; no managed runtime [VF: A4-S003]",
+        "ecosystem": "Temporal, DBOS, Prefect integrations co-maintained; Logfire OTel [VF: A4-S045]",
+        "reliability_maturity": "Production/Stable, but breaking v2 ten months after v1 [VF: A4-S003, A4-S044]",
+        "cost_tco": "Free MIT; durability backend adds cost [VF: A4-S003] [AJ]",
+        "lockin_portability": "MIT, model-agnostic, durability on standard engines [VF: A4-S003, A4-S119]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.6,
+      "fs_total": 3.55
+    },
     "sources": [
       "A4-S003",
       "A4-S044",
@@ -22985,9 +23519,64 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Durable execution engine: workflows whose activities are recorded so execution resumes after failure; used beneath Pydantic AI, the OpenAI Agents SDK and Mistral Workflows. MIT server, self-hosted or Temporal Cloud on AWS and GCP [VF: A4-S019, A4-S045, A4-S052, A4-S058, B-L3-S002].",
+      "strengths": [
+        "Separates reliability (retries, resume, timers, signals) from agent logic [AJ]",
+        "Same server in self-hosted and Cloud; moves without code changes [VF: B-L3-S002]",
+        "Cloud: SAML SSO, SCIM, roles, exportable audit logs [VF: B-L3-S003]"
+      ],
+      "limitations_risks": [
+        "Not an agent framework [AJ]",
+        "Self-hosting needs Kubernetes and persistence stores, sequential upgrades [VF: B-L3-S002]",
+        "No ISO 27001 found; certification evidence from search extracts [VF: B-L3-S001]",
+        "Workflow code becomes a hard dependency [AJ]",
+        "Cloud pricing not verified [NPV]"
+      ],
+      "choose_when": [
+        "Any regulated agent workflow that must resume without re-calling tools [AJ]"
+      ],
+      "avoid_when": [
+        "Short, stateless single-call tasks [AJ]"
+      ],
+      "competitors": [
+        "DBOS",
+        "Restate",
+        "L3-langgraph",
+        "L3-microsoft-agent-framework"
+      ],
+      "fs_note": "Encrypt payloads client-side so Temporal Cloud stores ciphertext, or self-host in-region [VF: B-L3-S001] [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic as the durable-execution substrate under deterministic workflows; independent of model vendors."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 3,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Leading durability, retries and deterministic workflow semantics; no agent loop itself [VF: A4-S019, A4-S045]",
+        "enterprise_readiness": "SAML SSO, SCIM, roles and custom roles, audit logs, Cloud Ops API; SLA not verified [VF: B-L3-S003]",
+        "security_compliance": "SOC 2 Type 2, HIPAA BAA, GDPR DPA, client-side encryption; no ISO 27001 found [VF: B-L3-S001]",
+        "deployment_flexibility": "Temporal Cloud on 14 AWS and 6 GCP regions incl. Europe; MIT self-host anywhere [VF: B-L3-S002]",
+        "ecosystem": "Built into Pydantic AI, OpenAI Agents SDK, Mistral Workflows [VF: A4-S045, A4-S052, A4-S058]",
+        "reliability_maturity": "Python SDK since March 2022; long-established [VF: A4-S019]",
+        "cost_tco": "Cloud pricing not verified; self-host operations heavy [NPV] [VF: B-L3-S002]",
+        "lockin_portability": "MIT server; portable between self-host and Cloud; code is Temporal-specific [VF: B-L3-S002]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.9,
+      "fs_total": 3.9
+    },
     "sources": [
       "A4-S019",
       "A4-S020",
@@ -23259,9 +23848,60 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Apache-2.0 TypeScript toolkit (npm 'ai') for provider-agnostic generation, structured output, tool calling and ToolLoopAgent agents, with UI hooks for React, Svelte, Vue and Angular; companion Workflow SDK makes TS/JS functions durable [VF: A4-S069, A4-S071, A4-S106].",
+      "strengths": [
+        "Best fit for TypeScript front ends that stream agent output to the browser [AJ]",
+        "Workflow SDK can be self-hosted with Postgres [VF: A4-S071]"
+      ],
+      "limitations_risks": [
+        "Three major versions in about eleven months [VF: A4-S022]",
+        "Defaults to Vercel AI Gateway for model access [VF: A4-S069]",
+        "Vercel certifications not verified [NPV]"
+      ],
+      "choose_when": [
+        "The agent is part of a Next.js or TypeScript application tier [AJ]"
+      ],
+      "avoid_when": [
+        "Back-office regulated workflows owned by a Python data team [AJ]"
+      ],
+      "competitors": [
+        "L3-openai-agents-sdk",
+        "L3-langgraph",
+        "L3-microsoft-agent-framework"
+      ],
+      "fs_note": "Use direct provider packages or the firm's gateway, not the Vercel AI Gateway default, for client data [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Good TS application toolkit; fast-moving majors; not an orchestration standard."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Unified model API, tools, ToolLoopAgent, UI streaming; durability via separate Workflow SDK [VF: A4-S069, A4-S071]",
+        "enterprise_readiness": "Library (rule 2); enterprise support not verified [NPV]",
+        "security_compliance": "Library (rule 2); Apache-2.0 licence clear [VF: A4-S070]; hygiene not assessed",
+        "deployment_flexibility": "Any Node runtime [VF: A4-S069]",
+        "ecosystem": "Major UI frameworks and model providers [VF: A4-S069]",
+        "reliability_maturity": "Major version roughly every six months [VF: A4-S022]",
+        "cost_tco": "Free; gateway priced separately [VF: A4-S070]",
+        "lockin_portability": "Apache-2.0; optional gateway default [VF: A4-S069]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.25,
+      "fs_total": 3.15
+    },
     "sources": [
       "A4-S022",
       "A4-S069",
@@ -23552,9 +24192,61 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Chip and system vendor (WSE-3, CS-3) that also runs an OpenAI-compatible inference cloud and sells on-premise systems; IPO priced 13 May 2026 (Nasdaq: CBRS); 750MW OpenAI agreement; SOC 2 Type 2, GDPR and CCPA listed, HIPAA not; EU capacity targeted for end-2026 [VF: A4-S095, A4-S137, A4-S154, A4-S138, A4-S140, V1-S095].",
+      "strengths": [
+        "Very low-latency inference as a design point [VF: A4-S095] [AJ]",
+        "On-premise CS-3 option [VF: A4-S095]"
+      ],
+      "limitations_risks": [
+        "No SSO documented; console roles only [VF: A4-S153]",
+        "Data may be processed outside the US unless otherwise agreed; no EU capacity yet [VF: A4-S153, A4-S140]",
+        "ZDR evidence is privacy-policy and blog level [VF: A4-S153, A4-S138]",
+        "Customer concentration in the OpenAI agreement [VF: A4-S154]"
+      ],
+      "choose_when": [
+        "Latency-critical, non-confidential workloads on supported open models [AJ]"
+      ],
+      "avoid_when": [
+        "Client data until EU capacity and contractual ZDR exist [AJ]"
+      ],
+      "competitors": [
+        "L2-together-ai",
+        "L2-fireworks-ai",
+        "Groq"
+      ],
+      "fs_note": "Re-assess when EU capacity is live and SSO and contractual ZDR are documented [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Distinctive speed but thin enterprise controls and no EU processing yet"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Fast inference on a smaller catalogue; on-prem systems [VF: A4-S095, A4-S139]",
+        "enterprise_readiness": "Console roles verified (rule 7 lifts the cap to 3); no SSO or audit documented [VF: A4-S153]",
+        "security_compliance": "SOC 2 Type 2 listed in the trust centre without product scope (rule 8) [VF: A4-S138, V1-S095]",
+        "deployment_flexibility": "SaaS, dedicated, on-prem systems; no EU region yet [VF: A4-S139, A4-S095, A4-S140]",
+        "ecosystem": "OpenAI-compatible; AWS Marketplace; Hugging Face partner [VF: A4-S139, A4-S075]",
+        "reliability_maturity": "Public company; inference cloud since 2024; customer concentration [VF: A4-S137, A4-S154]",
+        "cost_tco": "Transparent per-token pricing; enterprise flat pricing [VF: A4-S139]",
+        "lockin_portability": "OpenAI-compatible API, proprietary hardware [VF: A4-S139, A4-S095]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 2.85,
+      "fs_total": 2.8
+    },
     "sources": [
       "A4-S075",
       "A4-S095",
@@ -23851,9 +24543,63 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Managed inference and fine-tuning for open models (serverless, on-demand and reserved dedicated, batch, RFT), hybrid BYOC in the customer VPC, customer-managed keys, SSO (OIDC/SAML), RBAC and audit logs; ZDR by default for open models except the Response API (30-day storage by default); SOC 2 Type II, while ISO 27001/27701/42001 claims conflict across its own pages [VF: A4-S135, A4-S152, A4-S134, A4-S133, V1-S067].",
+      "strengths": [
+        "ZDR by default and BYOC data plane [VF: A4-S134, A4-S152]",
+        "Customer-managed keys logged in the customer's cloud audit log [VF: A4-S152]",
+        "Microsoft Foundry partnership [VF: A4-S134]"
+      ],
+      "limitations_risks": [
+        "ISO claims conflict ('achieved' vs 'in progress') [VF: V1-S067]",
+        "Self-serve data-residency setting lists US only; EU via sales [VF: A4-S134]",
+        "Revenue concentration reported [VF: A4-S141]",
+        "Response API exception to ZDR [VF: A4-S134]"
+      ],
+      "choose_when": [
+        "Dedicated or BYOC open-model serving where you want a managed engine without running GPUs [AJ]"
+      ],
+      "avoid_when": [
+        "The Response API for client data without store=False [VF: A4-S134] [AJ]",
+        "ISO certificates are a hard gate before you have seen them [AJ]"
+      ],
+      "competitors": [
+        "L2-together-ai",
+        "L2-hugging-face",
+        "Hyperscaler model catalogues"
+      ],
+      "fs_note": "Request ISO certificates and BAA terms from the trust centre; prefer BYOC or EU dedicated deployments; disable Response API storage [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strongest controls among the independent inference clouds; candidate for Strategic after due diligence on ISO certificates and EU residency"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Serverless, dedicated, batch, fine-tuning/RFT, BYOC, FireRouter [VF: A4-S135, A4-S152]",
+        "enterprise_readiness": "SSO, RBAC and audit logs with CLI (rule 7 to 4); audit logs are recent [VF: A4-S152]",
+        "security_compliance": "SOC 2 Type II, CMK, ZDR default; ISO claims not relied on (V1 section 4), so 3 [VF: A4-S133, V1-S067]",
+        "deployment_flexibility": "SaaS, dedicated, reserved, BYOC; no on-prem [VF: A4-S152]",
+        "ecosystem": "OpenAI-compatible; Microsoft Foundry; Hugging Face partner [VF: A4-S134, A4-S075]",
+        "reliability_maturity": "GA, well funded; revenue concentration reported [VF: A4-S141]",
+        "cost_tco": "Transparent but GPU rates higher than peers; batch at 50% [VF: A4-S135]",
+        "lockin_portability": "Open models portable; BYOC reduces data-plane lock-in [VF: A4-S152]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.65,
+      "fs_total": 3.65
+    },
     "sources": [
       "A4-S075",
       "A4-S094",
@@ -24167,9 +24913,64 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Four products under one tile: the Hub (model and dataset distribution with SSO, SCIM, RBAC, audit logs and EU storage on Team/Enterprise), Inference Providers (OpenAI-compatible router to partner clouds with pass-through pricing), Inference Endpoints (managed dedicated serving on AWS, Azure or GCP with vLLM, SGLang, TGI, llama.cpp or TEI, SOC 2 Type 2, AWS PrivateLink) and TGI (maintenance mode; repository archived 21 March 2026) [VF: A4-S074, A4-S075, A4-S080, A4-S081, A4-S082, V1-S054].",
+      "strengths": [
+        "The de-facto open-weight distribution point, with enterprise identity controls [VF: A4-S075, A4-S080] [AJ]",
+        "Endpoints let you choose the engine and the cloud region [VF: A4-S081, A4-S083]",
+        "No markup on routed provider calls [VF: A4-S076]"
+      ],
+      "limitations_risks": [
+        "TGI archived; Endpoints customers on TGI must migrate [VF: V1-S054]",
+        "Inference Providers inherits each partner's security and retention [VF: A4-S077]",
+        "BAA not explicitly tied to Inference Endpoints; no ISO 27001 found [VF: V1-S097]"
+      ],
+      "choose_when": [
+        "You need a governed source of open weights and a managed dedicated endpoint in a chosen cloud region [AJ]"
+      ],
+      "avoid_when": [
+        "Routing client data through Inference Providers to partners you have not assessed [AJ]"
+      ],
+      "competitors": [
+        "L2-together-ai",
+        "L2-fireworks-ai",
+        "Amazon SageMaker / Azure ML model catalogues"
+      ],
+      "fs_note": "Use the Hub (Enterprise, EU storage) as the governed model supply with scanning and an internal mirror; use Endpoints only in an approved region with PrivateLink [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Duplicated",
+        "Deprecated"
+      ],
+      "rationale": "Strategic, conditional: as the governed open-weight supply source (Enterprise plan); Endpoints Tactical; Inference Providers not for client data"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 3,
+        "ecosystem": 5,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Hub, router and dedicated serving with engine choice [VF: A4-S075, A4-S081]",
+        "enterprise_readiness": "SSO (SAML/OIDC), SCIM, RBAC and audit logs on Team/Enterprise (rule 7) [VF: A4-S080, A4-S079]",
+        "security_compliance": "SOC 2 Type 2 covering Hub and Endpoints; no ISO 27001 found [VF: A4-S074, A4-S082]",
+        "deployment_flexibility": "SaaS plus managed endpoints on three clouds with PrivateLink; not BYOC [VF: A4-S083, A4-S082]",
+        "ecosystem": "De-facto distribution standard; OpenAI-compatible router; many partners [VF: A4-S075]",
+        "reliability_maturity": "Hub mature since 2020, but TGI archived and Endpoints instance deprecations [VF: A4-S014, V1-S054, A4-S083]",
+        "cost_tco": "Pass-through pricing; per-minute instance billing [VF: A4-S076, A4-S083]",
+        "lockin_portability": "Models portable, open engines, OpenAI-compatible routing [VF: A4-S076, A4-S075]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.7,
+      "fs_total": 3.6
+    },
     "sources": [
       "A4-S014",
       "A4-S072",
@@ -24428,9 +25229,63 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Apache-2.0 Kubernetes-native distributed inference stack above vLLM and SGLang: prefix-cache- and load-aware routing, tiered KV-cache management, PD disaggregation, wide expert parallelism and SLO-aware autoscaling; CNCF sandbox project (March 2026) founded by Red Hat, Google Cloud, IBM Research, CoreWeave and NVIDIA; v0.7 in May 2026 [VF: A4-S089, A4-S062]. Red Hat supports it only as a Technology Preview [VF: B-L2-S002].",
+      "strengths": [
+        "Neutral governance (CNCF) and multi-vendor founders [VF: A4-S089]",
+        "Builds on the Kubernetes Gateway API Inference Extension rather than a private router [VF: A4-S062]"
+      ],
+      "limitations_risks": [
+        "Pre-1.0 (v0.7) and sandbox stage [VF: A4-S089]",
+        "Vendor support is Technology Preview, not covered by production SLAs [VF: B-L2-S002]",
+        "Needs Kubernetes and data-centre accelerators [VF: A4-S089, B-L2-S002]"
+      ],
+      "choose_when": [
+        "Kubernetes is your platform standard and you are building a multi-model internal inference service [AJ]"
+      ],
+      "avoid_when": [
+        "You need production-supported software now [VF: B-L2-S002] [AJ]",
+        "Volumes do not justify multi-replica routing [AJ]"
+      ],
+      "competitors": [
+        "L2-nvidia-dynamo",
+        "L2-vllm",
+        "KServe"
+      ],
+      "fs_note": "Pilot in non-production with Red Hat or GKE; revisit at 1.0 and at Red Hat GA support [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "The neutral-governance option for the optimisation sub-layer, but pre-1.0 and only Technology Preview support"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Prefix-cache-aware routing, tiered KV cache, PD disaggregation, wide EP [VF: A4-S089]",
+        "enterprise_readiness": "Rule 2: inherits Kubernetes controls; Red Hat offer is Technology Preview, so the 4 cap applies; 3 [VF: B-L2-S002]",
+        "security_compliance": "Rule 2 hygiene: security policy, CVE handling and signing not verified [NPV]",
+        "deployment_flexibility": "Self-host, VPC, private cloud, on-prem on Kubernetes; no SaaS [VF: A4-S089]",
+        "ecosystem": "vLLM, SGLang, KServe, Gateway API Inference Extension; broad founding coalition [VF: A4-S089, A4-S062]",
+        "reliability_maturity": "CNCF sandbox, v0.7; Technology Preview support [VF: A4-S089, B-L2-S002]",
+        "cost_tco": "Free; heavy Kubernetes and GPU operations [AJ]",
+        "lockin_portability": "Apache-2.0 under CNCF neutral governance [VF: A4-S089]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 4 (rule 2, support is Technology Preview only); not binding at 3"
+      ],
+      "generic_total": 3.3,
+      "fs_total": 3.35
+    },
     "sources": [
       "A4-S062",
       "A4-S089"
@@ -24681,9 +25536,61 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Proprietary desktop app for downloading and running local models with a local API server, MIT lms CLI and SDKs; free for personal and internal business use since about July 2025; may not be redistributed or offered as a service; a paid Enterprise plan adds SSO and model/MCP gating [VF: A4-S087, A4-S088, A4-S145, V1-S076].",
+      "strengths": [
+        "Low-friction desktop evaluation of open models [AJ]",
+        "Enterprise plan gating of models and MCP servers [VF: A4-S145]"
+      ],
+      "limitations_risks": [
+        "Proprietary app terms forbid offering it as a service [VF: A4-S145]",
+        "Security features, support, versioning and maturity largely not publicly verified [NPV]",
+        "Python SDK last released August 2025 [VF: A4-S016]"
+      ],
+      "choose_when": [
+        "Managed developer desktops where a GUI and model gating help adoption [AJ]"
+      ],
+      "avoid_when": [
+        "Any server or shared use [VF: A4-S145] [AJ]"
+      ],
+      "competitors": [
+        "L2-ollama",
+        "llama.cpp"
+      ],
+      "fs_note": "Permit only via the Enterprise plan on managed devices with an approved-model list; exclude client data [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Desktop-only tool; not part of the serving architecture"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 2,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 2,
+        "ecosystem": 2,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Desktop runtime only; missing production-serving functions [VF: A4-S087] [AJ]",
+        "enterprise_readiness": "SSO on Enterprise verified at low confidence (rule 7 allows up to 3); no audit or support evidence, so 2 [VF: A4-S145]",
+        "security_compliance": "Desktop software, proprietary; security features NPV [NPV]",
+        "deployment_flexibility": "Desktop on-prem only; no server, VPC or SaaS [VF: A4-S087]",
+        "ecosystem": "Integrations largely NPV beyond CLI and SDKs [VF: A4-S087, A4-S016]",
+        "reliability_maturity": "Maturity NPV; SDK last release August 2025 [VF: A4-S016]",
+        "cost_tco": "Free for internal business use [VF: A4-S145]",
+        "lockin_portability": "Proprietary app, but models and the OpenAI-style local API are portable [AJ]"
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: security features and certifications NPV"
+      ],
+      "generic_total": 2.25,
+      "fs_total": 2.25
+    },
     "sources": [
       "A4-S016",
       "A4-S087",
@@ -24938,9 +25845,61 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Apache-2.0 distributed inference orchestration layer above vLLM, SGLang and TensorRT-LLM: disaggregated serving, KV-aware routing, multi-tier KV block manager, SLA-based planner and autoscaling, a Kubernetes Gateway API Inference Extension plugin; ai-dynamo 1.5.1 (7 October 2026, PyPI classifier Beta) [VF: A4-S090, A4-S098]. Enterprise support is an NVIDIA AI Enterprise feature branch [VF: B-L2-S003].",
+      "strengths": [
+        "Explicit optimisation sub-layer that does not replace the engine [VF: A4-S090]",
+        "Engine-agnostic across three backends; integrates LMCache [VF: A4-S090, A4-S091]"
+      ],
+      "limitations_risks": [
+        "Beta classifier on PyPI while the README calls 1.0 production-ready (conflict) [VF: A4-S098, A4-S090]",
+        "Support is a one-month feature branch with no backports and needs a subscription [VF: B-L2-S003]",
+        "NVIDIA-led and NVIDIA-GPU-optimised [VF: A4-S090]"
+      ],
+      "choose_when": [
+        "You run multi-node NVIDIA GPU serving at a scale where disaggregation pays [AJ]"
+      ],
+      "avoid_when": [
+        "Single-node or modest volumes; vLLM alone is enough [AJ]",
+        "You need long-term-support releases [VF: B-L2-S003] [AJ]"
+      ],
+      "competitors": [
+        "L2-llm-d",
+        "L2-vllm",
+        "L2-sglang"
+      ],
+      "fs_note": "Treat as an optimisation layer you can remove: keep the engine's OpenAI-compatible API as the contract to the gateway [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "Clear H1 evidence and real capability, but beta packaging and month-long support windows make it unsuitable as a critical dependency today"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Disaggregation, KV-aware routing, KV offload, SLA planner [VF: A4-S090]",
+        "enterprise_readiness": "Rule 2: commercial support exists (NVAIE feature branch) [VF: B-L2-S003]; inherits host controls; 3",
+        "security_compliance": "Rule 2 hygiene: security policy and CVE handling not verified [NPV]; fixes only in new releases [VF: B-L2-S003]",
+        "deployment_flexibility": "Self-host on Kubernetes, VPC, on-prem; guides for EKS, GKE, AKS [VF: A4-S090]",
+        "ecosystem": "Three engine backends, GAIE plugin, LMCache [VF: A4-S090, A4-S091]",
+        "reliability_maturity": "Beta classifier; 1.0 claim conflicts; one-month support windows [VF: A4-S098, A4-S090, B-L2-S003]",
+        "cost_tco": "Free; heavy Kubernetes and GPU operations, subscription for support [VF: B-L2-S003] [AJ]",
+        "lockin_portability": "Apache-2.0 but NVIDIA-led and NVIDIA-optimised [VF: A4-S090]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.1,
+      "fs_total": 3.0
+    },
     "sources": [
       "A4-S090",
       "A4-S091",
@@ -25208,9 +26167,65 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "MIT-licensed local LLM runtime and model packager, plus Ollama Cloud, a hosted service for larger models with OpenAI- and Anthropic-compatible APIs; cloud features can be disabled; usage-based cloud plans from 31 August 2026 [VF: A4-S084, A4-S085, A4-S086, V1-S066]. Binds 127.0.0.1:11434 by default [VF: B-L2-S007].",
+      "strengths": [
+        "Simplest local runtime for laptops and disconnected prototyping [AJ]",
+        "MIT runtime, portable models [VF: A4-S086]",
+        "Cloud can be switched off (OLLAMA_NO_CLOUD) [VF: A4-S085]"
+      ],
+      "limitations_risks": [
+        "No longer local-only: cloud models change the data-flow assumption [VF: A4-S084]",
+        "Ollama Cloud certifications, SSO and audit not publicly verified [NPV]",
+        "Built-in API authentication not documented; exposure relies on a proxy [VF: B-L2-S007] [AJ]"
+      ],
+      "choose_when": [
+        "Developer workstations and offline evaluation with cloud disabled [AJ]"
+      ],
+      "avoid_when": [
+        "Any shared or production serving [AJ]",
+        "Client data on Ollama Cloud [AJ]"
+      ],
+      "competitors": [
+        "L2-lm-studio",
+        "llama.cpp",
+        "L2-vllm"
+      ],
+      "fs_note": "Allow on managed desktops only with OLLAMA_NO_CLOUD enforced and localhost binding; never as a production endpoint [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Useful developer runtime; Ollama Cloud is an unverified third-party processor"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Covers local serving competently; not a multi-tenant production engine [VF: A4-S084] [AJ]",
+        "enterprise_readiness": "No SSO, RBAC or audit verified for Cloud; NPV cap [NPV]",
+        "security_compliance": "Cloud certifications NPV (cap); local runtime has no documented authentication [VF: B-L2-S007] [NPV]",
+        "deployment_flexibility": "Local, on-prem and SaaS; no VPC [VF: A4-S084, A4-S085]",
+        "ecosystem": "Large community integrations; OpenAI/Anthropic-compatible APIs [VF: A4-S084]",
+        "reliability_maturity": "Server version and maturity not verified; cloud pricing changed 31 August 2026 [VF: V1-S066] [NPV]",
+        "cost_tco": "Runtime free; Cloud plans published [VF: V1-S066]",
+        "lockin_portability": "MIT runtime and portable models; Cloud proprietary [VF: A4-S086]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV",
+        "security_compliance capped at 2: Ollama Cloud certifications NPV"
+      ],
+      "generic_total": 3.0,
+      "fs_total": 2.95
+    },
     "sources": [
       "A4-S015",
       "A4-S084",
@@ -25511,9 +26526,64 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Hosted multi-provider model router with budgets, model and provider allowlists, ZDR enforcement, EU/US in-region routing (Business and Enterprise), SSO and SCIM (Enterprise); SOC 2 Type 2, no HIPAA BAA; 5.5% fee on credit purchases; Stripe agreed to acquire it (announced 19 August 2026, pending as of 8 October 2026) [VF: A4-S111, A4-S109, A4-S110, A4-S142, A4-S144, V1-S062, V1-S059].",
+      "strengths": [
+        "Fastest way to evaluate many models behind one OpenAI-compatible API [VF: A4-S113] [AJ]",
+        "In-region routing fails rather than falling back out of region [VF: A4-S109, A4-S150]"
+      ],
+      "limitations_risks": [
+        "Third-party SaaS in the data path; Batch API, web search and fetch not region-resident [VF: A4-S150]",
+        "Billing intermediation (5.5% Standard, 8% Business) [VF: V1-S062, A4-S144]",
+        "Ownership change pending; deal value is press-reported only [VF: V1-S059]",
+        "No numeric uptime target published [VF: A4-S150]"
+      ],
+      "choose_when": [
+        "Model exploration and non-confidential workloads, behind the firm's gateway [AJ]"
+      ],
+      "avoid_when": [
+        "Client or personal data without ZDR and in-region routing contractually enforced [AJ]",
+        "As the firm's gateway of record (see C1) [AJ]"
+      ],
+      "competitors": [
+        "L2-hugging-face",
+        "C1-litellm",
+        "C1-portkey"
+      ],
+      "fs_note": "Treat as a model-access source behind C1, not as C1; reassess terms and data-processing roles when the Stripe acquisition closes [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Useful router for evaluation; third-party SaaS with billing intermediation and a pending change of owner"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Routing, fallback, provider selection, budgets, allowlists, ZDR, regions [VF: A4-S111, A4-S113]",
+        "enterprise_readiness": "SSO, SCIM, org roles on Enterprise; contractual SLA on Enterprise (rule 7 to 4) [VF: A4-S110, A4-S112, A4-S150]",
+        "security_compliance": "SOC 2 Type 2 (report on request); no BAA; no ISO 27001 found [VF: A4-S142]",
+        "deployment_flexibility": "SaaS only, with EU/US processing regions on higher plans [VF: A4-S107, A4-S109]",
+        "ecosystem": "OpenAI-compatible; many providers [VF: A4-S109, A4-S112]",
+        "reliability_maturity": "Operating at scale but no published SLA figure; Stripe acquisition pending (rule 3 mention) [VF: A4-S150, V1-S059]",
+        "cost_tco": "Provider prices passed through plus 5.5-8% platform fee [VF: V1-S062, A4-S144]",
+        "lockin_portability": "OpenAI-compatible (3) but proprietary guardrails and billing; reduced by 1 for ownership change (rule 3) [VF: A4-S111, V1-S059]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.25,
+      "fs_total": 3.05
+    },
     "sources": [
       "A4-S096",
       "A4-S107",
@@ -25809,9 +26879,65 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Apache-2.0 serving framework (0.5.21, 1 October 2026) hosted by the LMSYS non-profit, with RadixAttention prefix caching, PD disaggregation, speculative decoding, FP4/FP8 quantisation, TPU and multi-vendor hardware support and day-0 support for new open models; RadixArk (US$100M seed, May 2026) is its commercial steward [VF: A4-S010, A4-S065, A4-S147, V1-S063].",
+      "strengths": [
+        "Prefix-cache-heavy and agentic workloads (RadixAttention) [VF: A4-S010] [AJ]",
+        "Fast day-0 model support [VF: A4-S065]",
+        "Apache-2.0, OpenAI-compatible [VF: A4-S128, A4-S010]"
+      ],
+      "limitations_risks": [
+        "CVE-2026-3059 (critical, unauthenticated RCE via ZMQ broker, <=0.5.9) lists no patched version; an earlier fix (CVE-2025-10164) has an unanswered bypass report [VF: B-L2-S009]",
+        "Pre-1.0; governance with a non-profit plus a VC-backed steward, no formal transfer found [VF: A4-S010, A4-S147]",
+        "No verified commercial support offer [NPV]"
+      ],
+      "choose_when": [
+        "Second engine where prefix reuse or a model's day-0 support matters [AJ]",
+        "TPU serving [VF: A4-S010]"
+      ],
+      "avoid_when": [
+        "The engine port could be reachable beyond a locked-down serving namespace [AJ]",
+        "You need a vendor-supported distribution today [AJ]"
+      ],
+      "competitors": [
+        "L2-vllm",
+        "TensorRT-LLM",
+        "L2-nvidia-dynamo"
+      ],
+      "fs_note": "Qualify as the alternative engine in the exit plan; isolate internal ports and confirm CVE-2026-3059 status for the deployed version before use [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strong engine but weaker security hygiene evidence and no verified commercial support; the alternative engine, not the default"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Leading depth: RadixAttention, PD disaggregation, speculative decoding, quantisation [VF: A4-S010]",
+        "enterprise_readiness": "Rule 2: inherits host controls; no verified commercial support, so the 4 cap applies; scored 3 [AJ]",
+        "security_compliance": "Rule 2 hygiene: critical unauthenticated RCE with no patched version listed; disclosure-response concerns [VF: B-L2-S009]",
+        "deployment_flexibility": "Self-host, VPC, on-prem; managed via Hugging Face Endpoints [VF: A4-S065, A4-S081]",
+        "ecosystem": "OpenAI-compatible; Dynamo backend; RL frameworks [VF: A4-S010, A4-S090, A4-S065]",
+        "reliability_maturity": "0.x since January 2024; new commercial steward in May 2026 [VF: A4-S010, A4-S147]",
+        "cost_tco": "Free; GPU and operations cost [AJ]",
+        "lockin_portability": "Apache-2.0, but governance is a non-profit plus VC-backed steward rather than a neutral foundation [VF: A4-S128, A4-S147]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 4 (rule 2, no verified commercial support); not binding at 3"
+      ],
+      "generic_total": 3.8,
+      "fs_total": 3.65
+    },
     "sources": [
       "A4-S010",
       "A4-S065",
@@ -26107,9 +27233,61 @@
         "conf": "medium"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "AI-native cloud: serverless and dedicated inference for open-weight models, Provisioned Throughput with SLA, fine-tuning and GPU clusters; SOC 2 Type 2 and ISO 27001:2022 (vendor-stated); ZDR available but off by default; EU dedicated endpoints only on Scale and Enterprise; US$800M Series C on 1 July 2026 [VF: A4-S131, A4-S129, A4-S130, V1-S079, V1-S057].",
+      "strengths": [
+        "Broad open-model catalogue plus dedicated and reserved capacity [VF: A4-S131]",
+        "EU and US cluster sites [VF: A4-S130]"
+      ],
+      "limitations_risks": [
+        "Default storage of prompts and responses, with possible product-improvement use, unless ZDR is enabled [VF: A4-S130]",
+        "Serverless has no region selection [VF: A4-S130]",
+        "Product-level RBAC still being rolled out [VF: A4-S151]",
+        "HIPAA wording inconsistent; customer BAA not confirmed [VF: V1-S079]"
+      ],
+      "choose_when": [
+        "Open-weight models on dedicated EU endpoints with ZDR on, under a Scale or Enterprise contract [AJ]"
+      ],
+      "avoid_when": [
+        "Serverless use with client data, or any use with ZDR left at default [AJ]"
+      ],
+      "competitors": [
+        "L2-fireworks-ai",
+        "L2-hugging-face",
+        "Hyperscaler model catalogues (Bedrock, Foundry, Vertex)"
+      ],
+      "fs_note": "Contract ZDR on, EU dedicated endpoints and the PTU SLA; confirm certification scope from the trust centre [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Capable open-model cloud; unsafe defaults (ZDR off) and partial RBAC keep it Tactical"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Serverless, dedicated, PTU, fine-tuning, GPU clusters [VF: A4-S131]",
+        "enterprise_readiness": "SSO on Scale/Enterprise; partial RBAC; audit trails for GPU clusters only (rule 7) [VF: A4-S151]",
+        "security_compliance": "SOC 2 Type 2 and ISO 27001 vendor-stated without product scope: one below anchor (rule 8) [VF: A4-S129, V1-S079]",
+        "deployment_flexibility": "SaaS, dedicated, VPC deployments incl. EU, reserved capacity; no self-host [VF: A4-S130, A4-S131]",
+        "ecosystem": "Hugging Face partner; NVIDIA partner [VF: A4-S075, A4-S132]",
+        "reliability_maturity": "GA services; PTU SLA but serverless none; RBAC still rolling out [VF: A4-S131, A4-S151]",
+        "cost_tco": "Transparent per-token and per-hour pricing; one H100 price conflict [VF: A4-S131]",
+        "lockin_portability": "Open-weight models and standard usage; contractual capacity [VF: A4-S131]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.5,
+      "fs_total": 3.5
+    },
     "sources": [
       "A4-S075",
       "A4-S093",
@@ -26395,9 +27573,63 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Apache-2.0 LLM inference and serving engine (0.31.0, 5 October 2026), PyTorch Foundation-hosted since 7 May 2025, with PagedAttention, continuous batching, prefix caching, quantisation (FP8, MXFP4, NVFP4, INT4/8, GPTQ/AWQ, GGUF), speculative decoding (n-gram, suffix, EAGLE, DFlash), disaggregated prefill/decode/encode, OpenAI-compatible and Anthropic Messages APIs, 200+ architectures and multi-vendor hardware [VF: A4-S009, A4-S063, A4-S146]. A commercially supported distribution exists (Red Hat AI Inference) [VF: B-L2-S001].",
+      "strengths": [
+        "Broadest optimisation feature set inside one engine [VF: A4-S063] [AJ]",
+        "Neutral foundation governance and Apache-2.0 [VF: A4-S146, A4-S009]",
+        "De-facto substrate: under Hugging Face Endpoints, llm-d and Dynamo [VF: A4-S081, A4-S089, A4-S090]"
+      ],
+      "limitations_risks": [
+        "Pre-1.0 with roughly fortnightly releases (28 in 2026) [VF: A4-S009]",
+        "A run of 2026 code-execution advisories, including critical CVE-2026-22778, mostly via untrusted model files or media inputs [VF: B-L2-S004]",
+        "No identity, audit or tenancy of its own; inherits host and gateway controls [AJ]"
+      ],
+      "choose_when": [
+        "You self-host open-weight models on your own or private-cloud GPUs [AJ]",
+        "You want the default engine with the widest model and hardware coverage [AJ]"
+      ],
+      "avoid_when": [
+        "You cannot run a monthly patch cadence and model-provenance controls [AJ]",
+        "You have no GPU capacity or SRE capability; use managed access instead [AJ]"
+      ],
+      "competitors": [
+        "L2-sglang",
+        "TensorRT-LLM",
+        "L2-hugging-face"
+      ],
+      "fs_note": "Run behind the gateway (C1), load only allow-listed, scanned weights with trust_remote_code off, pin versions and track advisories [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Default serving engine for any self-hosted route; neutral governance; conditional on patch and model-provenance discipline"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 5,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Leading depth: quantisation, speculative decoding, prefix caching, disaggregation, multi-hardware [VF: A4-S063]",
+        "enterprise_readiness": "Rule 2: enables in-estate serving; inherits host controls; commercial support via Red Hat AI Inference lifts the 4 cap [VF: B-L2-S001]",
+        "security_compliance": "Rule 2 hygiene: published advisory process with fixed versions [VF: A4-S063, B-L2-S004], but several 2026 RCE advisories, one critical",
+        "deployment_flexibility": "Self-host, private cloud, on-prem, and managed via third parties [VF: A4-S063, A4-S081]",
+        "ecosystem": "De-facto standard with OpenAI-compatible API; 2,000+ contributors [VF: A4-S063]",
+        "reliability_maturity": "Foundation-hosted since May 2025 [VF: A4-S146]; held at 4 for pre-1.0 versioning and fast cadence [VF: A4-S009]",
+        "cost_tco": "Free; cost is GPU hours and operations [AJ]",
+        "lockin_portability": "Apache-2.0, open APIs, neutral governance [VF: A4-S009, A4-S146]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 4.35,
+      "fs_total": 4.3
+    },
     "sources": [
       "A4-S009",
       "A4-S063",
@@ -26697,9 +27929,67 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Qwen3.8 family: hosted qwen3.8-max (launched 3 August 2026), qwen3.8-flash and omni-flash through Alibaba Cloud Model Studio; open weights Qwen3.8-27B (Apache 2.0), Qwen3.8-2.4T-A95B (12 August 2026, custom Qwen3.8-Max License) and Qwen3.8-Flash-Next; coding and embedding lines [VF: A5-S066, A5-S068] [R: V2-S014, A5-S038, A5-S040].",
+      "strengths": [
+        "Widest open-weight size range in the layer (27B to 2.4T total) [VF: A5-S066] [R: A5-S041]",
+        "Model Studio is region-bound, with a Frankfurt EU scope, and says it never trains on customer data [VF: A5-S067]",
+        "Qwen3.8-27B under Apache 2.0 [VF: A5-S066]"
+      ],
+      "limitations_risks": [
+        "Qwen3.8 is not offered on any hyperscaler; Bedrock and Google Cloud carry only Qwen3 [VF: A5-S086, A5-S027]",
+        "Flagship weights use a custom licence: Model-as-a-Service businesses above US$50m trailing revenue need a separate licence (licence file not read) [R: V2-S014]",
+        "Taiwan's NSB (November 2025) found security and bias failings in Tongyi/Qwen among five PRC models; no CAISI evaluation of Qwen found [VF: A5-S059, A5-S051]",
+        "Reported July 2026 consideration in Beijing of restricting overseas access to leading Chinese models including open-weight Qwen (unenacted) [R: A5-S060]",
+        "Certifications, access controls and support for Model Studio not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "A small Apache-2.0 model (Qwen3.8-27B) is needed self-hosted and the firm's sovereignty policy permits Chinese-origin weights [AJ]"
+      ],
+      "avoid_when": [
+        "The firm needs a hyperscaler-hosted current-generation route [AJ]",
+        "You would deploy the flagship weights without legal review of the custom licence [AJ]"
+      ],
+      "competitors": [
+        "L1-google-gemma",
+        "L1-mistral",
+        "L1-deepseek"
+      ],
+      "fs_note": "Self-host the Apache-2.0 sizes only; treat Model Studio Frankfurt as unassessed until certifications are verified [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Tactical, conditional: self-hosted Apache-2.0 sizes only, subject to sovereignty policy; hosted Max and Model Studio lack verified certifications and controls [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Dense and MoE sizes, omni-modal, coding and embedding variants (A5-S068, A5-S038); evidence is partly secondary.",
+        "enterprise_readiness": "Qwen3.8 is on no hyperscaler, so rule 6 does not apply; Model Studio SSO/RBAC/audit NPV (cap 2).",
+        "security_compliance": "Certifications NPV (cap 2); Frankfurt region and no-training statement are positives (A5-S067).",
+        "deployment_flexibility": "Model Studio (EU scope available) plus self-host and on-premises for open sizes; no current-generation hyperscaler route.",
+        "ecosystem": "Broad open-serving and third-party hosting support (A5-S038, A5-S041, A5-S043).",
+        "reliability_maturity": "Frequent generations (3.5 to 3.8 within 2026); maturity evidence NPV; 3 on observed cadence.",
+        "cost_tco": "Apache-2.0 small sizes are cheap to run; hosted prices are not decision inputs (V2 §4 item 3); flagship needs multi-node serving.",
+        "lockin_portability": "Apache-2.0 for small sizes; custom licence with a revenue threshold for the flagship (rule 4)."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV and no current-generation hyperscaler route",
+        "security_compliance capped at 2: certifications NPV"
+      ],
+      "generic_total": 3.15,
+      "fs_total": 3.0
+    },
     "sources": [
       "A5-S027",
       "A5-S038",
@@ -27058,9 +28348,70 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Proprietary Claude family: Claude Fable 5.1 (top GA tier, 1 September 2026), Opus 5.5 (22 September 2026; Anthropic's recommended starting point), Sonnet 5.5 (28 September 2026) and Haiku 5.5 (7 October 2026); Mythos 5.1 is the same model as Fable 5.1 with looser safeguards for trusted-access programmes only; all four GA models have adaptive thinking, text and image input, text output, 1M-token context and 128K output; no open weights [VF: A5-S010, A5-S012, A5-S016, A5-S019, A5-S020, V2-S066]. Conflict of interest: the author is an Anthropic model.",
+      "strengths": [
+        "Available on all three hyperscalers (Bedrock, Google Cloud, Microsoft Foundry) plus Claude Platform on AWS and the first-party API [VF: A5-S010]",
+        "SOC 2 Type II, ISO 27001:2022 and ISO/IEC 42001:2023 with stated scope covering the API and Claude in Bedrock and Google Cloud [VF: A5-S021, V2-S063]",
+        "Documented admin controls: Workspaces, Admin API, Workload Identity Federation, Compliance API / Activity Feed with 6-year retention, CMEK listed in the admin console [VF: A5-S013, A5-S018]",
+        "Published retirement commitments ('not sooner than' September/October 2027) for current models [VF: A5-S010]"
+      ],
+      "limitations_risks": [
+        "No first-party EU or UK inference option: inference_geo is 'global' or 'us' only and workspace geo is 'us' only; EU processing requires Google Cloud EU or Bedrock regional endpoints at a 10% premium [VF: A5-S013, V2-S075, A5-S011, A5-S027]",
+        "Claude Fable 5 access was suspended on 12 June 2026 and restored from 1 July 2026 [VF: V2-S004]",
+        "Fable 5.1 is a 'Covered Model' requiring 30-day retention unless expressly authorised, which conflicts with the launch post on ZDR eligibility [VF: A5-S023, A5-S016]",
+        "On 25 September 2026 the D.C. Circuit (No. 26-1049) upheld, 2-1, the US Department of Defense's FASCSA supply-chain-risk designation of Anthropic, with effect stayed pending a rehearing petition; a separate N.D. Cal. ruling of 27 August 2026 held the other (s.3252) designation unlawful [VF: A5-S084, V2-S068] [R: V2-S005]",
+        "Bartz v. Anthropic US$1.5bn class settlement over pirated books received final approval on 20 July 2026 [VF: A5-S085] [R: V2-S007]",
+        "No open weights; no audio or image output [VF: A5-S010]",
+        "Claude in Microsoft Foundry hosted on Azure is listed as certification 'In-Process Q4 2026' [VF: V2-S063]",
+        "Enterprise support tiers and SLA not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "You need a second frontier vendor that is available in-tenant on whichever hyperscaler is primary, including Google Cloud where OpenAI's GPT-6 is not offered [AJ]",
+        "Long-context (1M tokens on every tier) drafting or agentic coding is the main workload [AJ]"
+      ],
+      "avoid_when": [
+        "EU or UK processing must be contracted with the model vendor itself rather than through a hyperscaler [AJ]",
+        "The firm has US defence-contract exposure and its legal team has not assessed the supply-chain-risk designation [AJ]",
+        "You need a self-hostable model from the same vendor [AJ]"
+      ],
+      "competitors": [
+        "L1-openai",
+        "L1-google-gemini",
+        "L1-mistral"
+      ],
+      "fs_note": "Consume only through a hyperscaler EU region (Bedrock regional endpoint or Google Cloud EU), with a non-Anthropic fallback qualified on the same evaluation suite; independent alternatives are OpenAI GPT-6.1 Sol and Gemini 3.8 Flash [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "FS total 3.55 falls just below the normal Strategic line after three borderline calls resolved against Anthropic under the conflict rule (technical, ecosystem, cost); the first-party residency gap and the June 2026 Fable 5 suspension are factual weaknesses; reviewer may re-examine [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 3,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Four GA tiers with 1M context, reasoning, image input and coding (A5-S010); no open-weight, audio or image-output models and no GA specialist line, so fewer plan §5 questions covered than OpenAI or Google; borderline 4/5 resolved against Anthropic (conflict rule).",
+        "enterprise_readiness": "Workspaces, Admin API, Compliance API / Activity Feed and WIF verified (A5-S013, A5-S018) plus in-tenant hyperscaler routes (rule 6); not 5 because SSO/SCIM detail and SLA are NPV. Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "Product-scoped SOC 2 Type II, ISO 27001 and ISO 42001 would meet the rule-8 threshold for 5, but there is no first-party EU/UK inference geography (V2-S075) and the top tier's ZDR position conflicts between Anthropic pages (A5-S023, A5-S016); borderline resolved against Anthropic.",
+        "deployment_flexibility": "First-party SaaS plus Bedrock, Google Cloud, Foundry and Claude Platform on AWS; no self-hosting or on-premises (A5-S010).",
+        "ecosystem": "Three hyperscalers and an OpenAI SDK compatibility endpoint (A5-S010); the API itself is not the de facto standard; borderline 4/5 resolved against Anthropic.",
+        "reliability_maturity": "Published retirement commitments (A5-S010) are positive, but top-tier access was suspended 12 June to 1 July 2026 (V2-S004), four models shipped in five weeks, and the D.C. Circuit upheld a federal supply-chain-risk designation (A5-S084).",
+        "cost_tco": "Transparent; Sonnet 5.5 and Haiku 5.5 match OpenAI's equivalent tiers (A5-S011), but EU processing carries a 10% regional premium and the recommended default (Opus 5.5, US$4/US$20) costs twice the mid tier; borderline 3/4 resolved against Anthropic.",
+        "lockin_portability": "Proprietary API with no open weights, but on three clouds and with an OpenAI-compatible endpoint, so a gateway can switch it out."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.6,
+      "fs_total": 3.55
+    },
     "sources": [
       "A5-S010",
       "A5-S011",
@@ -27398,9 +28749,71 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "DeepSeek V4 family: V4-Pro (1.6T total / 49B active, GA 13 August 2026, 1M context; a planned phase-out was reversed on 17 September 2026) and V4.1-Flash (10 September 2026, replaced V4-Flash in the API, native vision); thinking and non-thinking modes; open weights under MIT [VF: A5-S063, A5-S064, A5-S065, V2-S013].",
+      "strengths": [
+        "MIT-licensed open weights: the most permissive licence among the large Chinese-origin families [VF: A5-S063]",
+        "Microsoft Foundry sells V4-Pro and V4-Flash directly, processed in the customer's geography or Data Zone [VF: A5-S087]",
+        "Day-0 support in common open serving engines (SGLang, LMDeploy, KTransformers) [R: A5-S039, A5-S044, A5-S042]"
+      ],
+      "limitations_risks": [
+        "Hosted API: DeepSeek stores data in the PRC under PRC-law terms; API training position not stated; no EU/UK residency [VF: A5-S062]",
+        "Italy's Garante imposed an urgent limitation on DeepSeek's processing of Italian users' data on 30 January 2025; no lifting or fine found [VF: A5-S048, V2-S023]",
+        "Korea PIPC found unconsented transfers of prompts and device data (24 April 2025); Berlin DPA reported the app under DSA Art. 16 (27 June 2025) [VF: A5-S053, A5-S058]",
+        "Government-device bans: Australia, Taiwan agencies, US DoD (FY2026 NDAA s.1532) and intelligence community, several US states and Commerce bureaus, UK DWP; no US private-sector ban as of October 2026 [VF: A5-S054, A5-S059, A5-S057, A5-S056, A5-S061, A5-S060]",
+        "NIST CAISI (September 2025) found DeepSeek R1/V3.1 more susceptible to agent hijacking and jailbreaks, with censorship risk [VF: A5-S049]",
+        "Certifications, access controls and enterprise support not publicly verified [NPV]",
+        "API prices are aggregator-sourced for decision purposes and not used as inputs [R: A5-S038]"
+      ],
+      "choose_when": [
+        "A firm's sovereignty policy permits Chinese-origin weights and a self-hosted or Foundry in-tenant model is needed for low-risk, non-agentic internal tasks [AJ]"
+      ],
+      "avoid_when": [
+        "Any route sends data to DeepSeek's own API [AJ]",
+        "The model would act agentically with tool access, given CAISI's hijacking findings [AJ]",
+        "The firm has US DoD contract exposure (s.1532) [AJ]"
+      ],
+      "competitors": [
+        "L1-mistral",
+        "L1-google-gemma",
+        "L1-alibaba-qwen"
+      ],
+      "fs_note": "Hosted API not recommended for a regulated firm; if used at all, self-host the MIT weights or use Foundry in-tenant, behind the gateway and guardrails, with a documented sovereignty assessment [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Not recommended"
+      ],
+      "rationale": "Tactical, conditional: self-hosted MIT weights or Microsoft Foundry in-tenant only; the 'Not recommended' flag applies to DeepSeek's hosted API (PRC storage, unremediated Garante limitation) [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 1,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Large MoE reasoning models with 1M context and vision in Flash (A5-S063, A5-S064); no capability claim taken from vendor benchmarks.",
+        "enterprise_readiness": "4 only for the Microsoft Foundry in-tenant route (rule 6; A5-S087); DeepSeek's own API has no verified SSO/RBAC/audit and would be capped at 2. Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "Hosted API meets anchor 1: no verified certification, PRC storage (A5-S062) and an unremediated Garante limitation (A5-S048, V2-S023). Self-hosted weights would score about 3 under rule 2 (inherits host controls), with CAISI's hijacking findings (A5-S049) as a model-behaviour risk.",
+        "deployment_flexibility": "Self-host and air-gap possible (MIT), Foundry in-tenant, own SaaS; 4 not 5 because the vendor SaaS is PRC-only and V4 is not on Bedrock or Google Cloud (A5-S086, A5-S027).",
+        "ecosystem": "Broad open-serving support and third-party hosts (A5-S039, A5-S044, A5-S087).",
+        "reliability_maturity": "Phase-out of V4-Pro announced 10 September and reversed 17 September 2026 (V2-S013); certifications and support NPV.",
+        "cost_tco": "Weights free (MIT) but V4-Pro needs a large multi-GPU cluster; hosted prices are aggregator-level and not used (V2 §4 item 3).",
+        "lockin_portability": "MIT weights mean no model lock-in once self-hosted; jurisdictional exit risk is captured in security and tier."
+      },
+      "evidence_caps_applied": [
+        "security_compliance at 1 (below the NPV cap of 2): certifications NPV plus unremediated regulatory finding on the hosted API"
+      ],
+      "generic_total": 3.25,
+      "fs_total": 3.15
+    },
     "sources": [
       "A5-S027",
       "A5-S038",
@@ -27737,9 +29150,68 @@
         "conf": "medium"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Proprietary Gemini 3.x production lineup: 3.1 Pro (still preview since 19 February 2026), 3.8 Flash (GA 2 September 2026), 3.5 Flash-Lite, 3.8 Live and TTS models, image models and cyber-specialised Flash variants; Gemini 4 Argon announced 30 September 2026 with access restricted to trusted cyber defenders (Fairwind) and not on Google Cloud at launch; natively multimodal input (text, image, video, audio) [VF: A5-S027, A5-S030, A5-S031, A5-S032, V2-S009, V2-S010].",
+      "strengths": [
+        "Widest native modality coverage in the layer: text, image, video and audio input, live audio, TTS and image generation [VF: A5-S030, A5-S027]",
+        "Google Cloud generative AI services in scope for SOC 2 and ISO/IEC 42001 [VF: A5-S028, A5-S037]",
+        "Data-at-rest residency for generative AI in the UK and several EU countries; ZDR achievable on Google Cloud by disabling logging, caching and session resumption [VF: A5-S029, A5-S033]",
+        "Per-model retirement dates published on Google Cloud model pages [VF: B-L1-S003]"
+      ],
+      "limitations_risks": [
+        "Pro tier has been preview-only since February 2026; Gemini 3.5 Pro was reportedly cancelled [VF: A5-S032] [R: A5-S036]",
+        "Short Flash lifetimes: 3.7 Flash released 13 August 2026 retires 28 January 2027; 3.6 Flash retires 19 November 2026 [VF: B-L1-S003]",
+        "Google Cloud only; no AWS or Azure listing found; no self-hosting [VF: A5-S027, A5-S032]",
+        "Paid Gemini API (non-Google Cloud) may cache content in any country [VF: A5-S033]",
+        "3.8 Flash introductory price rises from US$0.75/US$3.75 to US$1.50/US$7.50 per 1M on 1 January 2027; non-global endpoints cost 10% more [VF: A5-S027, V2-S010]",
+        "Frontier tier (Argon) not available for general enterprise use; pricing not published [VF: A5-S031] [NPV]"
+      ],
+      "choose_when": [
+        "Google Cloud is the primary cloud [AJ]",
+        "The workload needs native audio, video or live multimodal input [AJ]"
+      ],
+      "avoid_when": [
+        "You need a GA Pro-class model with a long support window today [AJ]",
+        "Your primary cloud is AWS or Azure and you do not want a cross-cloud data flow [AJ]",
+        "You would use the consumer Gemini API rather than Google Cloud for client data [AJ]"
+      ],
+      "competitors": [
+        "L1-openai",
+        "L1-anthropic",
+        "L1-mistral"
+      ],
+      "fs_note": "Use only through Google Cloud regional (EU or UK) endpoints with logging and caching disabled, pin dated model IDs, and plan re-validation around the short Flash retirement dates [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (rule 10, the lead model service on that cloud); deployment and lock-in score 2, allowed under rule 11 as an existing platform commitment; FS 3.35 [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Broadest evidenced modality range plus reasoning, small, coding-oriented and cyber variants, with Gemma as Google's open-weight line (A5-S030, A5-S027); benchmarks not used.",
+        "enterprise_readiness": "Consumed through Google Cloud: hyperscaler presumption (rule 6). Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "SOC 2 and ISO 42001 for Google Cloud generative AI services, UK/EU data-at-rest residency, ZDR configuration (A5-S028, A5-S029, A5-S033); ISO 27001 scope not in the fact base; stays at 4 (rules 8 and 10).",
+        "deployment_flexibility": "Google Cloud (regional endpoints) and the Gemini API only; no other cloud, no self-hosting (A5-S027, A5-S032).",
+        "ecosystem": "Deep inside Google Cloud (Model Garden, agent runtime) but isolated from AWS and Azure estates (A5-S027).",
+        "reliability_maturity": "Flash tiers GA; Pro preview for eight months; Flash versions retire within about five to six months of release (B-L1-S003).",
+        "cost_tco": "Transparent, but 3.8 Flash doubles on 1 January 2027 and regional endpoints carry a 10% premium (A5-S027, V2-S010).",
+        "lockin_portability": "Proprietary API on one cloud only (A5-S027)."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.5,
+      "fs_total": 3.35
+    },
     "sources": [
       "A5-S027",
       "A5-S028",
@@ -28037,9 +29509,62 @@
         "conf": "medium"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Gemma 4 open-weight family: E2B, E4B, 26B MoE and 31B dense (31 March / 2 April 2026) and a 12B unified multimodal model (3 June 2026); image and video input on all sizes, audio on E2B/E4B; up to 256K context; Apache 2.0 [VF: A5-S034, A5-S035, V2-S020].",
+      "strengths": [
+        "Apache 2.0 weights from a major vendor, runnable from phones and laptops to a single data-centre GPU [VF: A5-S034, V2-S020] [R: A5-S035]",
+        "Managed hosting on Google Cloud and Bedrock as well as self-hosting [VF: A5-S027] [R: A5-S038]",
+        "Broad tool support (Hugging Face, Kaggle, Ollama, Unsloth) [VF: A5-S034]"
+      ],
+      "limitations_risks": [
+        "Small and medium sizes only; no frontier-class model [VF: A5-S034]",
+        "No vendor support for weights verified; security depends on the host [AJ]",
+        "One README links a separate Gemma 4 licence page that was not read [VF: A5-S034]"
+      ],
+      "choose_when": [
+        "You need a self-hosted classification, extraction or redaction model inside the estate [AJ]",
+        "Data must never leave the firm's infrastructure [AJ]"
+      ],
+      "avoid_when": [
+        "The task needs frontier reasoning or long-form drafting quality [AJ]"
+      ],
+      "competitors": [
+        "L1-mistral",
+        "L1-meta",
+        "L1-alibaba-qwen"
+      ],
+      "fs_note": "Self-host behind the gateway with model files scanned and pinned by hash (C7); validate as a model in its own right [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: as the small, self-hosted open-weight tier of the portfolio; not a substitute for a frontier model [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Competent small and medium multimodal models; no frontier tier (A5-S034).",
+        "enterprise_readiness": "Managed Gemma 4 on Google Cloud and Bedrock gives the hyperscaler presumption (rule 6); self-hosted weights inherit host controls. Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "Scored as self-hosted weights (rule 2): clear Apache 2.0 licence (V2-S020); signed releases and CVE handling not evidenced; inherits host controls.",
+        "deployment_flexibility": "Managed, self-hosted, on-premises, edge and air-gap (A5-S034).",
+        "ecosystem": "Mainstream open-weight tooling and three hosting routes (A5-S034, A5-S027).",
+        "reliability_maturity": "Fourth generation, GA open release from Google (A5-S034).",
+        "cost_tco": "Free weights; the larger sizes need a data-centre GPU, so operations are not trivial.",
+        "lockin_portability": "Permissive open weights; governance by one vendor, not neutral, so not 5."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.8,
+      "fs_total": 3.8
+    },
     "sources": [
       "A5-S027",
       "A5-S034",
@@ -28334,9 +29859,67 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Meta Muse family from Meta Superintelligence Labs: Muse Spark (announced April 2026; 1.1 to 1.3 via the Meta Model API, GA at Meta Connect 23-24 September 2026; 1M context), Muse Glimmer 30B open weights (August 2026, Apache 2.0 per secondary sources), Muse Code and Muse Image; plus Llama 4 Scout and Maverick under the Llama 4 Community License [VF: A5-S077, A5-S078, V2-S019, A5-S027] [R: A5-S038, A5-S040].",
+      "strengths": [
+        "Llama 4 is available on Google Cloud, Bedrock and Foundry; Muse Spark 1.3 is on Foundry [VF: A5-S027] [R: A5-S038]",
+        "An open small model (Glimmer 30B) alongside the API flagship [VF: A5-S078] [R: A5-S040]"
+      ],
+      "limitations_risks": [
+        "Meta Model API data terms, certifications and EU residency not publicly verified [NPV]",
+        "The 'contributor' tier is discounted in exchange for Meta training on prompts and completions: a data-use condition, not a cheaper price [VF: V2-S019]",
+        "Llama 4 Community License requires a separate licence above 700M MAU; no Llama release since Llama 4 [VF: A5-S077] [R: A5-S038]",
+        "Official llama-api-client SDK last released 18 December 2025 [VF: A5-S047]",
+        "Glimmer's Apache 2.0 licence rests on secondary sources [R: V2-S019]"
+      ],
+      "choose_when": [
+        "You already self-host Llama 4 and want continuity, or you want Glimmer 30B as an additional open-weight option [AJ]"
+      ],
+      "avoid_when": [
+        "Client data would go to the Meta Model API before its data terms are verified [AJ]",
+        "Any route would use the contributor tier [AJ]"
+      ],
+      "competitors": [
+        "L1-google-gemma",
+        "L1-mistral",
+        "L1-openai"
+      ],
+      "fs_note": "Block the contributor tier at the gateway; use Llama 4 or Glimmer only self-hosted or via a hyperscaler [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Brand transition from Llama to Muse is under way, the API is weeks past GA and its data terms are unverified; useful for open-weight continuity only [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 4,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "API flagship, small open model, code and image models (A5-S077, A5-S078); capability evidence beyond names is thin and Llama has not been refreshed since April 2025.",
+        "enterprise_readiness": "Muse Spark 1.3 on Foundry and Llama 4 on all three hyperscalers give the presumption (rule 6); Meta Model API controls NPV. Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "Certifications and data terms NPV (cap 2); contributor tier trains on data (V2-S019).",
+        "deployment_flexibility": "Meta API, hyperscalers and self-hosted open weights.",
+        "ecosystem": "Llama's broad hosting footprint plus Foundry, OCI and Google Cloud preview for Muse (A5-S077, A5-S027).",
+        "reliability_maturity": "Brand transition in 2026, API GA only since late September 2026, stale SDK (A5-S047).",
+        "cost_tco": "Muse prices are aggregator-level; Llama 4 on Google Cloud is cheap (A5-S027); contributor pricing is excluded as a data-use condition.",
+        "lockin_portability": "Mixed: Apache 2.0 (Glimmer, secondary), community licence with MAU threshold (Llama 4, rule 4), API-only flagship."
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: certifications NPV"
+      ],
+      "generic_total": 3.15,
+      "fs_total": 3.05
+    },
     "sources": [
       "A5-S027",
       "A5-S038",
@@ -28628,9 +30211,69 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Mistral AI family: Mistral Large 4 (public preview 6 October 2026, API-only, weights targeted for 27 October 2026, licence unpublished), Mistral Medium 3.5 (28 April 2026, 128B dense, 256K context, Modified MIT v26.04), Large 3 (Apache 2.0), Small 4.0, Ministral 3, Magistral reasoning, Devstral 2 and Codestral coding, Mistral OCR and Voxtral speech [VF: A5-S074, A5-S076, V2-S017, V2-S018] [R: A5-S038].",
+      "strengths": [
+        "EU hosting by default, with an EU regional endpoint (api.eu.mistral.ai) committing inference location [VF: A5-S075]",
+        "Open weights across tiers (Large 3 Apache 2.0; Medium 3.5 Modified MIT; Ministral 3 Apache 2.0) [VF: A5-S074]",
+        "Offered on Google Cloud, Bedrock and Microsoft Foundry (different subsets) [R: A5-S027, A5-S038]",
+        "Published deprecation and retirement table with replacements [VF: B-L1-S002]",
+        "Signatory of the GPAI Code of Practice [VF: R-EU-GPAI-COP, A8-S015]"
+      ],
+      "limitations_risks": [
+        "Frontier tier is a days-old preview; Large 4 licence and list price unpublished; parameter counts differ between launch post and docs [VF: A5-S076, V2-S017]",
+        "Medium 3.5's Modified MIT licence has revenue-based exceptions [VF: A5-S074, V2-S018]",
+        "Certifications stated on the help centre without product scope; ZDR only for pay-as-you-go stateless calls at Mistral's discretion; default 30-day retention [VF: A5-S075]",
+        "Mistral Medium 3.1, the graphic's label, retired on 31 August 2026 [VF: B-L1-S002]",
+        "Resells Z.ai GLM models on its platform, so a Mistral contract does not by itself exclude Chinese-origin models [R: A5-S038]"
+      ],
+      "choose_when": [
+        "You need an EU-domiciled vendor with an EU inference endpoint as primary or fallback [AJ]",
+        "You want open weights from a non-Chinese vendor for a self-hosted sensitive-data tier [AJ]"
+      ],
+      "avoid_when": [
+        "You need a GA frontier-class model today [AJ]",
+        "Your licence policy cannot accept revenue-threshold licences for Medium 3.5 [AJ]"
+      ],
+      "competitors": [
+        "L1-openai",
+        "L1-google-gemma",
+        "L1-meta"
+      ],
+      "fs_note": "Use api.eu.mistral.ai or self-hosted weights; obtain the SOC 2 report and ISO certificate scope from the Trust Center; exclude resold third-party models via model allow-lists at the gateway [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Superseded"
+      ],
+      "rationale": "The strongest combination of EU residency, open weights and multi-cloud availability in the layer; Strategic as the EU and open-weight leg of the portfolio, not as the sole frontier model [AJ]. 'Superseded' refers to the graphic's Medium 3.1 label."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Broad lineup across general, reasoning, coding, OCR and speech, with open weights (A5-S074, A5-S038); frontier tier only in preview.",
+        "enterprise_readiness": "First-party access controls NPV; hyperscaler routes give the presumption (rule 6). Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "SOC 2 Type II and ISO 27001/27701 plus EU residency (A5-S075) would anchor at 4; product scope not stated, so one point lower (rule 8).",
+        "deployment_flexibility": "EU SaaS, three hyperscalers, Scaleway, self-host, on-premises and air-gap with open weights (A5-S074, A5-S038).",
+        "ecosystem": "Three hyperscalers and mainstream open-serving support (A5-S039).",
+        "reliability_maturity": "GA mid tier with a published retirement table (B-L1-S002); frontier preview days old; fast retirements (Medium 3.1 within about a year).",
+        "cost_tco": "Medium 3.5 at US$1.50/US$7.50 per 1M (A5-S074) and free open weights; EU endpoint carries 10% surcharge (A5-S075).",
+        "lockin_portability": "Open weights under Apache 2.0 or Modified MIT; revenue thresholds on Medium 3.5 (rule 4) keep it from 5."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.9,
+      "fs_total": 3.85
+    },
     "sources": [
       "A5-S027",
       "A5-S038",
@@ -28922,9 +30565,65 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Kimi K3 (launched 16 July 2026; weights by 27 July 2026; 2.8T-parameter MoE, about 104B active reported; native multimodal; 1M context) plus K2.7-Code and earlier K2.x models [VF: A5-S069] [R: V2-S015, A5-S038].",
+      "strengths": [
+        "Open weights for a very large multimodal model [VF: A5-S069]",
+        "Offered on Amazon Bedrock and Microsoft Foundry [VF: A5-S086, A5-S087]"
+      ],
+      "limitations_risks": [
+        "International API stores data in Singapore; mainland platform in the PRC; API page says no training but the privacy policy lists training as a purpose [VF: A5-S070]",
+        "Bedrock offers K3 only through cross-Region profiles (US, India, global); Foundry's K3 is Fireworks-operated with inference outside the customer's tenant [VF: A5-S086, A5-S087]",
+        "Custom Kimi K3 License with revenue and MAU thresholds, not MIT [VF: A5-S069] [R: V2-S015]",
+        "CAISI with UK AISI (July 2026): below frontier cyber capability; safeguards did not stop attempted exploit development; K2 Thinking heavily censored in Chinese [VF: A5-S051, V2-S021]",
+        "Anthropic alleges that Moonshot distilled Claude; unadjudicated competitor allegation [VF: A5-S046, V2-S022]",
+        "Certifications, access controls and support not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "Research or evaluation of large open-weight multimodal models in an isolated environment [AJ]"
+      ],
+      "avoid_when": [
+        "Any production use with client data in a regulated firm today [AJ]"
+      ],
+      "competitors": [
+        "L1-deepseek",
+        "L1-zai-glm",
+        "L1-alibaba-qwen"
+      ],
+      "fs_note": "Do not use for client data; if evaluated, self-host in an isolated sandbox after licence review [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "Large and capable on paper, but evidence is largely secondary, the weights are expensive to host, the licence is custom and no in-region hyperscaler route exists [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 4,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "One flagship plus a coding variant; CAISI places K3 below frontier cyber capability (A5-S051); narrower lineup than peers.",
+        "enterprise_readiness": "Bedrock (AWS-operated, cross-Region) route gives the hyperscaler presumption (rule 6); the Foundry route is a third-party pass-through and the Kimi API's controls are NPV (would be 2). Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "Certifications NPV (cap 2); Singapore storage; training-policy conflict (A5-S070).",
+        "deployment_flexibility": "Own API, Bedrock cross-Region only, Foundry outside tenant, self-host of 2.8T weights; no in-region managed route.",
+        "ecosystem": "SGLang, Xinference and two hyperscalers, but the current model reaches them only through cross-Region or pass-through routes.",
+        "reliability_maturity": "Maturity, support and adoption NPV; facts rest on secondary sources (V2-S015).",
+        "cost_tco": "Self-hosting a 2.8T MoE is a heavy operations burden; hosted prices are not decision inputs (V2 §4 item 3).",
+        "lockin_portability": "Open weights, but under a custom licence with thresholds (rule 4)."
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: certifications NPV"
+      ],
+      "generic_total": 2.8,
+      "fs_total": 2.8
+    },
     "sources": [
       "A5-S027",
       "A5-S038",
@@ -29269,9 +30968,70 @@
         "conf": "high"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Tiered proprietary family: GPT-6 Astra (gated flagship, introduced 3 September 2026), GPT-6 Sol and Luna (22 September 2026), GPT-6.1 Sol (29 September 2026), with GPT-5.6 Sol/Terra/Luna still offered; all GPT-6 tiers are reasoning models with text and image input; Daybreak cyber models in limited availability on Bedrock; open-weight gpt-oss-120b/20b under Apache 2.0 (August 2025) [VF: A5-S001, A5-S002, A5-S003, A5-S005, A5-S008, A5-S009, A5-S083].",
+      "strengths": [
+        "Complete tier ladder (frontier, mid, small) plus Apache-2.0 open weights, so one vendor covers every portfolio tier except sovereign self-hosted frontier [VF: A5-S002, A5-S005] [AJ]",
+        "Available on AWS Bedrock and Microsoft Foundry as well as the first-party API, including EU Data Zone deployments on Foundry [VF: A5-S008, A5-S009]",
+        "First-party EU residency: eu.api.openai.com stores and processes in region (new projects, with Modified Abuse Monitoring or ZDR) [VF: A5-S006, V2-S079]",
+        "SOC 2 Type 2 for the API Platform and ISO/IEC 27001, 27017, 27018, 27701 covering the API [VF: A5-S007, V2-S062]",
+        "Published deprecation notice policy: at least 6 months for GA models, at least 3 months for specialised variants [VF: B-L1-S001]"
+      ],
+      "limitations_risks": [
+        "Frontier tiers are closed-weight and API-only; fine-tuning is not supported for Astra [VF: A5-S003]",
+        "Astra is gated (rated 'Critical' for cybersecurity; enterprise admins must enable it), and OpenAI said 'not yet generally available' while AWS lists it GA on Bedrock [VF: A5-S002, A5-S003, A5-S008]",
+        "UK endpoint stores data in the UK but does not process there [VF: A5-S006, V2-S079]",
+        "Bedrock Astra is in-region only in us-east-1 and us-west-2 [VF: A5-S008]",
+        "ISO/IEC 42001 scope wording does not name the API Platform; CMK and first-party SSO/SCIM/RBAC were not verified [VF: V2-S062] [NPV]",
+        "Preview models may be retired on about 2 weeks' notice [VF: B-L1-S001]",
+        "Not on Google Cloud except gpt-oss [VF: A5-S027]"
+      ],
+      "choose_when": [
+        "You need a primary or fallback frontier vendor available in-tenant on Azure or AWS with a first-party EU residency option [AJ]",
+        "You want one vendor relationship that also supplies a small classification tier (Luna) and a self-hostable open-weight model (gpt-oss) [AJ]"
+      ],
+      "avoid_when": [
+        "Google Cloud is the only permitted cloud and you need GPT-6 tiers [AJ]",
+        "You need UK in-country processing [AJ]",
+        "You would use Promptfoo, now announced as part of OpenAI, as the only independent test of an OpenAI-based system [AJ]"
+      ],
+      "competitors": [
+        "L1-anthropic",
+        "L1-google-gemini",
+        "L1-mistral"
+      ],
+      "fs_note": "Consume via Microsoft Foundry EU Data Zone or the EU first-party endpoint with ZDR or Modified Abuse Monitoring; pin dated snapshots, track the deprecations page, and keep a second vendor qualified as the SS2/21 exit route [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Broadest evidenced lineup, two hyperscaler routes plus first-party EU processing, product-scoped SOC 2 and ISO 27001; concentration is managed by pairing with a second vendor, not by avoiding OpenAI [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 4,
+        "ecosystem": 5,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Covers every plan §5 L1 question on primary evidence: frontier, mid and small tiers, reasoning, image input, coding, a specialist cyber line and Apache-2.0 open weights (A5-S002, A5-S005, A5-S008). Benchmarks not used.",
+        "enterprise_readiness": "First-party SSO/RBAC/audit and support terms are NPV; GPT-6 is consumed in-tenant through Bedrock and Foundry, so the hyperscaler presumption gives 4 (rule 6). Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "SOC 2 Type 2 and ISO 27001 within API scope, ZDR and first-party EU residency (A5-S006, A5-S007, V2-S062); not 5 because ISO 42001 scope does not name the API and CMK is not verified (rule 8).",
+        "deployment_flexibility": "First-party SaaS (US, EU, UK-storage endpoints), Bedrock, Foundry, and self-hosted/air-gapped gpt-oss; 4 not 5 because the frontier tiers cannot be self-hosted and gpt-oss dates from August 2025.",
+        "ecosystem": "The OpenAI API shape is the de facto interface: other vendors publish OpenAI-compatible endpoints (A5-S010, A5-S077, A5-S038); official SDKs; two hyperscalers.",
+        "reliability_maturity": "Years of production use and a published deprecation policy (B-L1-S001); fast tier churn (GPT-5.6 in July, GPT-6 in September 2026) and the Astra GA conflict keep it at 4.",
+        "cost_tco": "Transparent per-tier pricing (Luna US$0.10/US$0.50, Sol US$2/US$10, Astra US$10/US$50 per 1M) with 50% batch discount (A5-S004); competitive, not uniquely efficient.",
+        "lockin_portability": "Proprietary frontier API on a de facto standard interface, on two non-OpenAI clouds, with Apache-2.0 gpt-oss as a portability option."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 4.25,
+      "fs_total": 4.05
+    },
     "sources": [
       "A5-S001",
       "A5-S002",
@@ -29575,9 +31335,67 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Proprietary Grok family from SpaceXAI (formerly xAI): Grok 4.7 flagship (21 September 2026, 500K context, configurable reasoning effort), Grok 4.6, 4.5, 4.3 and 4.20 (reasoning, non-reasoning and multi-agent), Grok 4.1 Fast, grok-code-fast-1, image and video generation [VF: A5-S079, V2-S012] [R: A5-S038].",
+      "strengths": [
+        "Available on all three hyperscalers, including AWS GovCloud for Grok 4.6 [VF: A5-S027] [R: A5-S038]",
+        "SOC 2 Type II, HIPAA-eligible deployments, team-level ZDR and admin audit logs [VF: A5-S080]",
+        "Low flagship list price: US$2/US$6 per 1M up to 200K tokens [VF: A5-S079, V2-S012]"
+      ],
+      "limitations_risks": [
+        "SpaceX acquired xAI in an all-stock deal on 2 February 2026; the unit now trades as SpaceXAI, and a further rename was announced on 4 October 2026 but had not taken effect [VF: V2-S011] [R: A5-S081]",
+        "No ISO certifications found; Trust Center under NDA [VF: A5-S080]",
+        "Default endpoint gives no region guarantee; only a US regional endpoint is documented for the API [VF: A5-S080]",
+        "Enterprise terms let the vendor create and own de-identified derived data except under ZDR [VF: A5-S080]",
+        "EU Commission DSA proceedings (26 January 2026) and Ofcom, ICO and Irish DPC investigations into Grok-generated images on X; no outcomes found [VF: V2-S070] [R: A5-S082]",
+        "Signed only the Safety and Security chapter of the GPAI Code of Practice [VF: R-EU-GPAI-COP, A8-S015]"
+      ],
+      "choose_when": [
+        "A low-cost reasoning model already offered in-tenant on your hyperscaler is wanted as a secondary or evaluation option [AJ]"
+      ],
+      "avoid_when": [
+        "Client data would go to the first-party API without ZDR [AJ]",
+        "Ownership stability or ISO 27001 is a gating criterion [AJ]"
+      ],
+      "competitors": [
+        "L1-openai",
+        "L1-anthropic",
+        "L1-google-gemini"
+      ],
+      "fs_note": "If used, use only through a hyperscaler region with platform data terms, and refresh third-party due diligence after the change of control [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Capable, cheap and on every hyperscaler, but the change of control, naming churn, missing ISO certification and derived-data terms keep it out of the foundation tier [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 3,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Flagship, reasoning, multi-agent, fast, coding and generative-media variants (A5-S079, A5-S027); no open weights verified.",
+        "enterprise_readiness": "Admin settings and audit logs verified (A5-S080) plus hyperscaler routes (rule 6). Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "SOC 2 Type II, ZDR, HIPAA BAA (A5-S080); no ISO 27001 and no EU residency for the API, so the anchor-3 baseline only.",
+        "deployment_flexibility": "First-party SaaS plus all three hyperscalers; no self-hosting verified.",
+        "ecosystem": "Google Cloud, Bedrock (incl. GovCloud) and Foundry listings; official SDK (A5-S027, A5-S047).",
+        "reliability_maturity": "GA with a steady release cadence, but acquired on 2 February 2026 with naming churn since (V2-S011) and open regulatory investigations into the consumer product (V2-S070).",
+        "cost_tco": "Transparent and low list prices (A5-S079); 1.1x for the US regional endpoint.",
+        "lockin_portability": "Proprietary API on standard routes would be 3; reduced by 1 for the 2026 change of ownership (rule 3)."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.5,
+      "fs_total": 3.25
+    },
     "sources": [
       "A5-S027",
       "A5-S038",
@@ -29890,9 +31708,66 @@
         "conf": "low"
       }
     },
-    "assessment": null,
-    "classification": null,
-    "scores": null,
+    "assessment": {
+      "capabilities": "Z.ai (Zhipu) GLM-5.x family: GLM-5.3 (753B, API mid-August 2026 (14 August per CAISI, 18 August per press), weights about 28 August under a bespoke licence), GLM-5.3-Flash (26 August 2026, 320B / 18B active, natively multimodal, MIT), GLM-5.2 open weights, GLM-Image; the graphic's 'QI4' label matches no model [VF: A5-S071, V2-S021] [R: V2-S016, A5-S038, A5-S042].",
+      "strengths": [
+        "GLM-5.3-Flash is MIT-licensed and targets consumer GPUs [VF: A5-S071] [R: A5-S042]",
+        "Available on Google Cloud, Bedrock (GLM 5 in-Region in London), Microsoft Foundry and Mistral's platform [VF: A5-S086, A5-S027] [R: A5-S038]",
+        "NIST CAISI (September 2026) assessed GLM-5.3 as the most cyber-capable open-weight model to date, about four months behind the US frontier [VF: A5-S052, V2-S021]"
+      ],
+      "limitations_risks": [
+        "Zhipu AI has been on the US Entity List since 16 January 2025, with a presumption of denial for EAR items [VF: A5-S072]",
+        "Data 'generally processed in Singapore'; DPA versions conflict on storage; privacy policy cites training under legitimate interest [VF: A5-S073]",
+        "GLM-5.3 on Bedrock is US/global cross-Region only; Foundry's GLM is Fireworks-operated outside the tenant [VF: A5-S086, A5-S087]",
+        "CAISI found GLM-5.2 safeguards allow agentic exploit assistance [VF: A5-S052]",
+        "Certifications, access controls and support not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "Sovereignty policy and sanctions counsel permit it, and a small MIT model (GLM-5.3-Flash) is needed self-hosted [AJ]"
+      ],
+      "avoid_when": [
+        "Any direct commercial relationship with Z.ai would be required, until legal review of the Entity List exposure [AJ]",
+        "Client data would go to the Z.ai API [AJ]"
+      ],
+      "competitors": [
+        "L1-deepseek",
+        "L1-alibaba-qwen",
+        "L1-mistral"
+      ],
+      "fs_note": "Self-hosted MIT weights only, after sanctions and licence review; no Z.ai API for client data [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Tactical, conditional: self-hosted GLM-5.3-Flash (MIT) only, after sanctions review; Entity List status and unverified data terms rule out the hosted API [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Large agentic/coding model, a multimodal MIT Flash tier and an image model; CAISI's independent assessment places GLM-5.3 near the frontier on cyber tasks (A5-S052).",
+        "enterprise_readiness": "Bedrock (AWS-operated) route gives the hyperscaler presumption (rule 6); Z.ai API controls NPV (would be 2). Platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "Certifications NPV (cap 2); Singapore processing and DPA conflict (A5-S073).",
+        "deployment_flexibility": "Own API, three hyperscalers (London in-Region for GLM 5), Mistral platform, self-host and on-premises.",
+        "ecosystem": "Present on many platforms, but the current GLM-5.3 reaches them via cross-Region or pass-through routes; Mistral retires GLM 5.2 on its platform on 31 October 2026 (B-L1-S002).",
+        "reliability_maturity": "Entity List exposure is a continuity risk for any commercial relationship (A5-S072); maturity and support NPV.",
+        "cost_tco": "MIT Flash weights are cheap to run; GLM-5.3 needs multi-GPU serving; hosted prices not decision inputs (V2 §4 item 3).",
+        "lockin_portability": "MIT for Flash; MIT-style grant with a MaaS condition for GLM-5.3 (rule 4)."
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: certifications NPV"
+      ],
+      "generic_total": 3.25,
+      "fs_total": 3.15
+    },
     "sources": [
       "A5-S027",
       "A5-S038",
@@ -30502,9 +32377,9 @@
       "fs_note": "Use it for tool traffic first; keep model routing on a gateway with GA inference routing until AWS states GA and regions for inference targets [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: a strong MCP and policy gateway on AWS, but its LLM routing is too new to be the model gateway of record [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10), as the gateway for MCP and tool traffic. Maturity 2 is a stated condition: keep model routing on a gateway with GA inference routing until AWS states GA and Regions for inference targets. Same tier as L4-aws-agentcore-gateway-identity [AJ]."
     },
     "scores": {
       "criteria": {
@@ -30826,9 +32701,9 @@
       "fs_note": "Use the GA policies in existing tiers for production; do not place regulated traffic on the preview tier; keep policy logic documented so it can be re-expressed elsewhere [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: the natural default in Azure estates, but the dedicated tier is preview and lock-in is high; revisit as Strategic when the tier is GA with an SLA [AJ]."
+      "rationale": "Strategic, conditional: where Azure is your primary cloud (CP3 Q2, rubric rule 10), using the GA AI gateway policies in existing APIM tiers, not the preview AI Gateway tier (no SLA); lock-in 2 is accepted under rule 11 because the condition is an existing platform commitment [AJ]."
     },
     "scores": {
       "criteria": {
@@ -31771,7 +33646,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: where Google Cloud or Apigee is the standard; lock-in at 2 is the stated condition [AJ]."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud or Apigee is already the API standard (CP3 Q2, rubric rule 10); lock-in at 2 is the stated condition [AJ]."
     },
     "scores": {
       "criteria": {
@@ -33144,9 +35019,9 @@
       "fs_note": "Use Prompt Shields on retrieved documents as well as user input; treat preview features as non-production; confirm product scope in the Service Trust Portal [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: the default for Azure estates; agent-oriented features are still preview [AJ]."
+      "rationale": "Strategic, conditional: where Azure is your primary cloud (CP3 Q2, rubric rule 10). Azure's lead guardrail service; GA features only (Prompt Shields, protected material) on regulated routes, because the agent-oriented and groundedness features are preview [AJ]."
     },
     "scores": {
       "criteria": {
@@ -33458,9 +35333,9 @@
       "fs_note": "Pin guardrail versions in C5, use the Classic tier or region-constrained profiles for client data, and evaluate false-positive rates per policy on your own data [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: the strongest managed policy set, but AWS-only with residency trade-offs on the Standard tier; the default choice inside AWS estates [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10). The strongest managed policy set and AWS's lead guardrail service; use the Classic tier or region-constrained profiles for client data, because the Standard tier uses cross-region inference [AJ]."
     },
     "scores": {
       "criteria": {
@@ -33754,9 +35629,9 @@
       "fs_note": "Pin templates to an EU region with strict residency left on; if UK residency is required, confirm the London feature and in-use residency status in writing [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: efficient and residency-aware, but narrower than Bedrock and Google-specific [AJ]."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10). Google's lead guardrail service, efficient and residency-aware; narrower than Bedrock (grounding not evidenced), and the London residency position must be confirmed in writing where UK residency is required [AJ]."
     },
     "scores": {
       "criteria": {
@@ -35057,7 +36932,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: in a Google Cloud estate, because deployment flexibility and lock-in score 2 [AJ]."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10), because deployment flexibility and lock-in score 2 [AJ]."
     },
     "scores": {
       "criteria": {
@@ -35360,11 +37235,11 @@
       "fs_note": "Use for SaaS AI and Copilot posture evidence; do not count it as the prompt-path DLP control for custom agents; platform controls presumed (CP2 Q1); confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [
         "Renamed"
       ],
-      "rationale": "Useful posture tooling for Microsoft estates, but not a run-time DLP engine and only just consolidated [AJ]."
+      "rationale": "Strategic, conditional: where Azure and Microsoft 365 are your primary cloud and E5 or the Purview Suite is already licensed (CP3 Q2, rubric rule 10). Microsoft's lead AI data-security posture service, for posture and Copilot evidence only: it is not the prompt-path DLP control for custom agents [AJ]."
     },
     "scores": {
       "criteria": {
@@ -36642,9 +38517,9 @@
       "fs_note": "Review AI-generated policies before activation, keep the Cedar source in Git, and avoid Dogwood-only constructs where portability matters; platform controls presumed (CP2 Q1); confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical, preferred PDP inside an AWS AgentCore estate: FS 3.70 after the CP3 security re-base, but enforcement is tied to AgentCore Gateway, which C1 rates Tactical, so it cannot be more strategic than its enforcement point; OPA is the Strategic, cloud-neutral default. Cedar source stays portable [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud and agents run on AgentCore Gateway (CP3 Q2, rubric rule 10). AgentCore Policy is AWS's lead managed policy service for agent tool calls, and its enforcement point (AgentCore Gateway) is now Strategic on the same condition in C1 and L4. OPA remains the cloud-neutral default; keep Cedar source in Git so policies stay portable [AJ]."
     },
     "scores": {
       "criteria": {
@@ -37293,12 +39168,12 @@
         "C4-okta-auth0-ai-agents",
         "OAuth 2.0 resource-server pattern for REST tools"
       ],
-      "fs_note": "Treat as Tactical but mandatory wherever MCP is used: make authorisation mandatory by firm policy, pin the spec revision at the gateway, and require EMA so the corporate IdP mediates access; the strategic components are the IdP and the gateway PDP, which keep working if the tool protocol changes [Rec]."
+      "fs_note": "Strategic, conditional, and mandatory wherever MCP is used (CP3 Q1): make authorisation mandatory by firm policy, pin the spec revision at the gateway, and require EMA so the corporate IdP mediates access; the durable controls are the IdP and the gateway PDP, which keep working if the tool protocol changes [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical, mandatory where MCP is used: the required interface contract for MCP tool calls, but not a foundational dependency on its own, because authorisation is optional, it rests on IETF drafts and it has had four breaking revisions (reliability 2); the strategic components are the workforce IdP (via EMA) and the gateway PDP. Borderline case resolved against the Anthropic-originated specification under the conflict-of-interest rule; independent alternatives named [AJ]."
+      "rationale": "Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions. Tier set by the reader at Checkpoint 3 (CP3 Q1): MCP (L4-mcp) and its authorisation profile are one decision. FS 3.45 and reliability 2 (IETF drafts, four breaking revisions) are why the condition includes pinning the specification revision at the gateway. Conflict of interest: MCP originated at Anthropic and the author is an Anthropic model [AJ]."
     },
     "scores": {
       "criteria": {
