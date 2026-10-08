@@ -18,7 +18,7 @@
 |---|---|
 | CP1 | Delivered. User replied "approved, proceed" (option (a) on Q1–Q8) |
 | L8 writer | **Done**: `work/stageB/L8/section.md`, `assessments.json`. Tiers: 2 Strategic, 6 Tactical, 2 Experimental. |
-| L9 writer | Running |
+| L9 writer | **Done**: 11 scored (3 Strategic, 8 Tactical); 5 new sources (B-L9-S001…S005) |
 | L7 writer | **Done**: 8 scored (1 Strategic, 7 Tactical); EthicalAgents and Ragoos unscored |
 | Next | Merge assessments (`tools/build_dataset.py`), run one calibration reviewer over L9–L7, write `checkpoints/CP2/`, push, **stop for CP2** |
 | After CP2 | Stage B tranche 2: L6, L5, L4 and C1–C8, then **CP3**. Tranche 3: L3, L2, L1 and Stage C synthesis, then **CP4**. Then C2 LinkedIn pair 1–2 (**CP4b**), the rest of C2, and Stage D packaging (**CP5**). |
@@ -43,6 +43,7 @@
 | 12 | 8 October | The user approved all options (a). Recorded in `checkpoints/CP1/06_CP1_Decisions.md`. | |
 | 13 | 8 October | Wrote `work/stage0/07_stageB_writer_brief.md`, `08_scoring_rubric.md` and `tools/score.py`. Extended `build_dataset.py` to overlay `work/stageB/*/assessments.json` and `sources_added.csv`. | |
 | 14 | 8 October | **Stage B, tranche 1:** writers for L9, L8 and L7 in parallel (prompts in `work/prompts/stageA_prime_and_stageB_prompts.md`) | L8 done. L9 and L7 running. |
+| 15a | 8 October | All three writers done. `tools/check_tags.py` added: all tag IDs resolve. **Calibration issue:** L7 capped enterprise readiness for every hosted vendor, while L9 closed similar gaps by searching. A calibration reviewer was launched over L9–L7 (prompt in the `work/prompts/stageA_prime_and_stageB_prompts.md` appendix). | Reviewer running |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it

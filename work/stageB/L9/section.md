@@ -1,57 +1,40 @@
 ## 9. Evaluation and observability (cross-cutting)
 
-> **Executive summary.** This layer answers two questions for every GenAI system: is the output good enough to use, and what actually happened when it ran? It does this through four connected mechanisms: offline and CI evaluation, online evaluation of production traces, traces with cost and latency, and a feedback loop from human reviewers back into the test suites. Three things have changed since the original graphic. First, ownership has consolidated. Dynatrace completed its acquisition of Arize (Phoenix and AX) on 1 October 2026 [VF: A1-S045, V1-S005]. ClickHouse announced it had acquired Langfuse on 16 January 2026 [VF: A1-S021, V2-S041]. OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A1-S024, V1-S006]. W&B Weave has been part of CoreWeave since 5 May 2025 [VF: A1-S131]. Second, OpenTelemetry has become the common ingest format [AJ], although the GenAI semantic conventions are still at "Development" status [VF: A1-S058]. Third, the products now reach across the stack into gateways, prompt management, guardrails and automated fix proposals [VF: A1-S043, A1-S039, A1-S067]. This layer is not a box at the end of the pipeline [AJ]. **Recommendation:** instrument once with OpenTelemetry GenAI conventions or OpenInference, and own the evaluation harness and the evidence store. Then pick one platform of record for traces and evals (self-hosted Langfuse, or MLflow where an ML platform already exists, or LangSmith for LangGraph estates). Run two CI eval and red-team tools, one of them independent of any model vendor [Rec].
+> **Executive summary.** This layer answers two questions for every GenAI system: is the output good enough to use, and what actually happened when it ran? Three things have changed since the original graphic. First, ownership has consolidated. Dynatrace completed its acquisition of Arize (Phoenix and AX) on 1 October 2026 [VF: A1-S045, V1-S005]. ClickHouse announced it had acquired Langfuse on 16 January 2026 [VF: A1-S021, V2-S041]. OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A1-S024, V1-S006]. W&B Weave has been part of CoreWeave since 5 May 2025 [VF: A1-S131]. Second, OpenTelemetry has become the common ingest format [AJ], although the GenAI semantic conventions are still at "Development" status [VF: A1-S058]. Third, the products now reach across the stack into gateways, prompt management, guardrails and automated fix proposals [VF: A1-S043, A1-S039, A1-S067]. This layer is not a box at the end of the pipeline [AJ]. **Recommendation:** instrument once with OpenTelemetry GenAI conventions or OpenInference, and own the evaluation harness and the evidence store. Then pick one platform of record for traces and evals (self-hosted Langfuse, or MLflow where an ML platform already exists, or LangSmith for LangGraph estates). Run two CI eval and red-team tools, one of them independent of any model vendor [Rec].
 
 ### 9.1 Responsibility
 
 **The problem this layer owns.** It produces measured, retained evidence that a GenAI system behaves as intended, before release and while in service [AJ]. This breaks down into three jobs:
 
-- **Evaluation.** This covers offline and CI test suites, online scoring of production traffic, human review, LLM-as-a-judge scoring and red-teaming. The quality dimensions are correctness, faithfulness and groundedness, hallucination, answer relevance, retrieval recall@k and precision@k, tool-call accuracy and agent trajectory, plus safety [AJ].
+- **Evaluation.** Offline and CI suites, online scoring, human review, LLM-as-a-judge and red-teaming, covering faithfulness and groundedness, hallucination, relevance, recall@k and precision@k, tool-call accuracy, trajectory and safety [AJ].
 - **Observability.** Each request needs one trace covering prompt, model and version, retrieved context, tool calls, latency, tokens, cost and errors [AJ].
 - **Production feedback.** User and reviewer signals, drift and regression detection, and model comparison all flow back into the datasets that gate the next release [AJ].
 
-**Hand-offs.** The layer receives spans from every other layer:
-
-- the gateway (C1) and models (L1, L2)
-- orchestration (L3) and tools (L4)
-- retrieval (L5 to L7) and ingestion (L8) [AJ]
-
-It passes the following on:
-
-- **To C8 (model risk and governance):** evaluation results, approvals and monitoring evidence.
-- **To C6 (FinOps):** cost per task.
-- **To C2 and C7 (guardrails and security):** red-team findings.
-- **To C5 (prompt management):** prompt and configuration versions, because each evaluation result must reference the exact version it tested [AJ].
+**Hand-offs.** The layer receives spans from every other layer: gateway (C1), models (L1, L2), orchestration (L3), tools (L4), retrieval (L5 to L7) and ingestion (L8). It passes evaluation results, approvals and monitoring evidence to C8, cost per task to C6, and red-team findings to C2 and C7. It consumes prompt and configuration versions from C5, because each result must reference the exact version it tested [AJ].
 
 **What the layer does not own.** It does not own the run-time blocking of unsafe outputs; that belongs to C2 guardrails. The two share detectors and datasets [AJ].
 
 ### 9.2 Why it matters
 
-When this layer is badly designed, failures surface late and cannot be explained [AJ]. The typical failure modes are:
+When this layer is badly designed, failures surface late and cannot be explained [AJ]. A model or prompt changes and quality regresses silently; no trace links an output to the context and tool results that produced it; an uncalibrated LLM judge scores everything "faithful"; spend has no per-task attribution [AJ]. Traces also contain prompts, retrieved documents and outputs, so in an asset manager they contain client and portfolio data. An unmanaged SaaS trace store is a residency and confidentiality exposure in its own right [AJ].
 
-- **Silent quality regression.** A model or prompt changes, and nothing breaks loudly [AJ].
-- **Untraceable answers.** No trace links an output to the context and tool results that produced it [AJ].
-- **Uncalibrated judges.** An LLM judge scores everything "faithful" because nobody has checked it against human labels [AJ].
-- **Cost surprises.** Spend has no per-task attribution [AJ].
-- **Trace stores that leak.** Traces contain prompts, retrieved documents and outputs, so in an asset manager they contain client and portfolio data. An unmanaged SaaS trace store is a data-residency and confidentiality exposure in its own right [AJ].
-
-**Illustrative scenario [AJ].** A fund-reporting team switches the drafting model to a newer minor version through the gateway. Their only evaluation is a weekly sample read by an analyst. The new model rounds selection effects differently and sometimes swaps "overweight" and "underweight" when describing a currency effect. Each draft still reads fluently. Three monthly cycles pass before a portfolio manager notices a mismatch against the attribution report. By then, nobody can say which commentaries were affected: traces were kept for 15 days on a free tier, and the prompt version was not recorded. Remediation means re-checking every commentary by hand and writing to the board. A numeric-faithfulness check in CI and in production, plus trace retention aligned to the records policy, would have caught the change on day one and bounded its impact. This scenario is invented to illustrate the mechanism; it is not a reported incident.
+**Illustrative scenario [AJ].** A fund-reporting team switches the drafting model to a newer minor version through the gateway. Their only evaluation is a weekly sample read by an analyst. The new model rounds selection effects differently and sometimes swaps "overweight" and "underweight" when describing a currency effect. Each draft still reads fluently. Three monthly cycles pass before a portfolio manager notices a mismatch against the attribution report. By then, nobody can say which commentaries were affected: traces were kept for 15 days on a free tier, and the prompt version was not recorded. Every commentary must be re-checked by hand. A numeric-faithfulness check, plus retention aligned to the records policy, would have caught the change on day one. The scenario is invented; it is not a reported incident.
 
 ### 9.3 Goals and KPIs
 
 | KPI | Definition | Target guidance [AJ] | How it is measured |
 |---|---|---|---|
-| Numeric faithfulness | Share of figures in an output that exactly match the authoritative source value (after an agreed rounding rule) | 100% at release gate; any miss blocks | Deterministic extractor and comparator against tool output captured in the trace |
-| Groundedness / faithfulness | Share of claims supported by the retrieved or approved context | Agreed threshold per use case (e.g. ≥0.95 for regulated text), calibrated against human labels | LLM-as-a-judge or NLI metric (e.g. DeepEval faithfulness), sampled for human agreement |
-| Retrieval recall@k / precision@k | Share of known-relevant documents retrieved in the top k / share of top k that are relevant | Set per corpus; track the trend, not the absolute value | Labelled query set in CI; contextual recall/precision metrics |
-| Tool-call accuracy | Correct tool, correct arguments, correct order | ≥0.98 for read-only data tools in deterministic workflows | Trajectory assertions against expected tool calls |
-| Agent trajectory adherence | Share of runs that follow the approved plan or graph without unexpected steps | Agreed per workflow; any unapproved tool call is a defect | Trajectory or plan-adherence metrics over traces |
-| Red-team pass rate | Share of attack cases (OWASP LLM 2026 and Agentic 2026 categories) handled safely | No critical failures at release; trend tracked | Promptfoo plus an independent second tool in CI |
-| Judge–human agreement | Agreement between LLM judge and expert labels | Agreed minimum (e.g. Cohen's kappa ≥0.7) before a judge is used as a gate | Periodic double-labelling |
-| Trace completeness | Share of production requests with a full trace (prompt version, model version, context IDs, tool I/O, evals) | ≥99.9% for in-scope systems | Reconciliation of gateway logs against trace store |
-| p95 latency and cost per task | Latency and fully loaded token cost per completed task | Budget per use case | Trace attributes, gateway cost data |
-| Human-intervention rate | Share of outputs edited or rejected by reviewers, and the size of the edits | Trend down; spikes trigger review | Reviewer feedback captured as trace scores |
-| Time to detect regression | From a change in model, prompt or data to a failing eval | Same day for gated systems | CI on every change; online sampling alerts |
+| Numeric faithfulness | Share of figures matching the authoritative source value under an agreed rounding rule | 100% at release; any miss blocks | Deterministic comparator against tool output in the trace |
+| Groundedness / faithfulness | Share of claims supported by retrieved or approved context | Per use case (e.g. ≥0.95 for regulated text) | Calibrated LLM judge or NLI metric |
+| Retrieval recall@k / precision@k | Relevant documents found in top k / relevant share of top k | Per corpus; watch the trend | Labelled query set in CI |
+| Tool-call accuracy | Correct tool, arguments and order | ≥0.98 for read-only data tools | Assertions against expected calls |
+| Trajectory adherence | Runs following the approved graph with no unexpected steps | Any unapproved call is a defect | Plan-adherence metrics over traces |
+| Red-team pass rate | Attack cases (OWASP LLM and Agentic 2026) handled safely | No critical failures at release | Two red-team tools in CI |
+| Judge–human agreement | LLM judge versus expert labels | e.g. Cohen's kappa ≥0.7 before gating | Periodic double-labelling |
+| Trace completeness | Requests with full trace (prompt, model, context IDs, tool I/O, evals) | ≥99.9% in scope | Gateway logs reconciled to trace store |
+| p95 latency, cost per task | Latency and loaded token cost per completed task | Budget per use case | Trace and gateway data |
+| Human-intervention rate | Outputs edited or rejected, and edit size | Falling trend; spikes reviewed | Reviewer feedback as trace scores |
+| Time to detect regression or drift | Change in model, prompt or data to failing eval | Same day for gated systems | CI on every change; online sampling alerts |
 
 The IOSCO supervisory toolkit names indicators for asset managers that include the accuracy of AI-supported valuations against benchmarks and the level and frequency of human intervention in AI-driven investment processes [VF: R-INTL-AI-ASSETMGMT, A8-S058]. The last two KPIs above are designed to produce that evidence [AJ].
 
@@ -59,25 +42,9 @@ The IOSCO supervisory toolkit names indicators for asset managers that include t
 
 The mechanics have three loops that share one trace and dataset store.
 
-1. **Instrumentation.**
-   - Each layer emits spans: model call, retrieval, tool execution, agent step.
-   - The format is the OpenTelemetry GenAI semantic conventions. Their status is still "Development" as of 7 October 2026 [VF: A1-S058].
-   - Since semconv v1.42.0, the `gen_ai.*`, `openai.*` and `mcp.*` definitions live in a dedicated repository, `semantic-conventions-genai` [VF: A1-S060].
-   - That repository covers client inference, agents, tool execution, retrieval, evaluation and MCP [VF: A1-S061]. It defines a `gen_ai.evaluation.result` event carrying the evaluation name, score, label and explanation [VF: A1-S059].
-   - OpenInference is the Apache-2.0 alternative convention used by Phoenix and AX [VF: A1-S049, A1-S066].
-   - The architectural point is that an evaluation score can travel on the same telemetry pipe as the trace it judges [AJ].
-2. **Offline and CI evaluation.** Versioned datasets (golden cases, past failures, red-team cases) are run against every change to model, prompt, retrieval configuration or tool. Results gate the merge. Every tool in this layer offers a CI path:
-   - pytest plugins: LangSmith [VF: A1-S108], Phoenix [VF: A1-S106] and Opik [VF: A1-S067]
-   - DeepEval's Pytest-like framework [VF: A1-S068]
-   - Promptfoo with GitHub Actions, GitLab and Jenkins [VF: A1-S065]
-   - Braintrust's GitHub Action, which posts PR comments [VF: A1-S109]
-3. **Online evaluation and feedback.** Evaluators score a sample of production traces, and reviewer edits and user ratings are attached to traces as scores. Examples:
-   - Opik online evaluation rules [VF: A1-S072]
-   - Langfuse evaluators over ingested traces [VF: A1-S073]
-   - Arize AX Signal [VF: A1-S046]
-   - Datadog evaluations and Insights [VF: A1-S097, A1-S099]
-
-   Clustering features group recurring failures: LangSmith Engine [VF: A1-S039], Braintrust Topics [VF: A1-S043] and AX Signal [VF: A1-S046]. Failing cases are promoted into the CI dataset, which closes the loop [AJ].
+1. **Instrumentation.** Each layer emits spans (model call, retrieval, tool execution, agent step) using the OpenTelemetry GenAI semantic conventions, still at "Development" status as of 7 October 2026 [VF: A1-S058]. Since semconv v1.42.0 these definitions live in a dedicated repository, `semantic-conventions-genai` [VF: A1-S060], covering client inference, agents, tool execution, retrieval, evaluation and MCP [VF: A1-S061]. It defines a `gen_ai.evaluation.result` event with name, score, label and explanation [VF: A1-S059], so a score can travel on the same pipe as the trace it judges [AJ]. OpenInference (Apache-2.0) is the alternative used by Phoenix and AX [VF: A1-S049, A1-S066].
+2. **Offline and CI evaluation.** Versioned datasets (golden cases, past failures, red-team cases) run against every change to model, prompt, retrieval configuration or tool, and results gate the merge. Six of the original products document a CI path: pytest plugins for LangSmith [VF: A1-S108], Phoenix [VF: A1-S106] and Opik [VF: A1-S067]; DeepEval's Pytest-like framework [VF: A1-S068]; Promptfoo with GitHub Actions, GitLab and Jenkins [VF: A1-S065]; and Braintrust's GitHub Action posting PR comments [VF: A1-S109].
+3. **Online evaluation and feedback.** Evaluators score a sample of production traces, and reviewer edits and user ratings attach to traces as scores: Opik online evaluation rules [VF: A1-S072], Langfuse evaluators [VF: A1-S073], Datadog evaluations [VF: A1-S099]. Clustering groups recurring failures: LangSmith Engine [VF: A1-S039], Braintrust Topics [VF: A1-S043], AX Signal [VF: A1-S046]. Failing cases are promoted into the CI dataset, which closes the loop [AJ].
 
 ```text
    L1/L2 model ─┐  L3 agent ─┐  L4 tools ─┐  L5-L7 retrieval ─┐  C1 gateway ─┐
@@ -105,74 +72,39 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 - Phoenix ships with authentication off by default [VF: A1-S105]. Turn it on before any real data arrives [Rec].
 - Disable vendor telemetry in self-hosted tools. Langfuse's is on by default [VF: A1-S033]; Phoenix's can be disabled [VF: A1-S066] [Rec].
 
-**Scalability**
+**Scalability, resilience and cost**
 
-- Sample online evaluations, not traces. Keep full traces for regulated outputs and sample the evaluation spend [AJ].
-- The judge model is the main cost driver of evaluation [AJ].
+- Keep full traces for regulated outputs and sample the online evaluations; the judge model is the main evaluation cost driver [AJ].
+- Instrumentation must never block the request path, and the release gate must work when a SaaS platform is down, so export asynchronously and run CI evals from the firm's repository [AJ].
+- Pricing units differ: units (Langfuse) [VF: A1-S031], spans and GB (AX) [VF: A1-S047], LLM spans (Datadog) [VF: A1-S097], seats plus traces (LangSmith) [VF: A1-S035], processed GB and scores (Braintrust) [VF: A1-S040]. Model cost at production volume before committing [Rec].
 
-**Resilience**
+**Governance and portability**
 
-- Instrumentation must never block the request path. Use asynchronous export through the collector [AJ].
-- The release gate must keep working if the SaaS evaluation platform is down. Run CI evals from code in the firm's repository [AJ].
+- Version everything a score depends on (dataset, metric code, judge model and prompt, application prompt, model version) and store it with the result [AJ]. Calibrate LLM judges against human labels before they gate anything [Rec].
+- Reconcile gateway request counts against trace counts, so missing traces are detected [AJ].
+- Instrument once with OTel GenAI or OpenInference, keep vendor SDKs at the edge, and keep datasets and metric code in Git [Rec].
 
-**Governance**
+**Patterns [AJ]:** Collector fan-out to a platform of record plus APM; eval-as-code in CI; judge model routed through the gateway; reviewer edits captured as labelled data; two red-team tools, one independent of any model vendor.
 
-- Version everything the score depends on: dataset, metric code, judge model and prompt, application prompt, model version. Store those versions with the result [AJ].
-- Calibrate LLM judges against human labels before using them as gates [Rec].
-
-**Observability of the observer**
-
-- Reconcile gateway request counts against trace counts so that missing traces are themselves detected [AJ].
-
-**Cost**
-
-Several pricing models are in use:
-
-- per unit: Langfuse [VF: A1-S031]
-- per span or GB: Arize AX [VF: A1-S047], Datadog [VF: A1-S097]
-- per seat plus per trace: LangSmith [VF: A1-S035]
-- per processed GB and score: Braintrust [VF: A1-S040]
-
-Model the cost at production volume before you commit [Rec].
-
-**Portability**
-
-- Instrument once with OTel GenAI or OpenInference and keep vendor SDKs at the edge [Rec].
-- Keep evaluation datasets and metric code in Git, not only in a vendor UI [Rec].
-
-**Patterns**
-
-- A collector fan-out to a platform of record plus APM.
-- Eval-as-code in CI.
-- A judge model routed through the gateway, so the judge is governed like any other model.
-- Reviewer edits captured as labelled data.
-- A two-tool red-team, with one tool independent of any model vendor [AJ].
-
-**Anti-patterns**
-
-- A vendor SDK hard-wired into application code.
-- Using a model vendor's tool as the only independent test of that vendor's model.
-- An LLM judge with no calibration.
-- Trace retention set by the free tier, not the records policy.
-- Online evaluation that sends client data to an unassessed third-party judge [AJ].
+**Anti-patterns [AJ]:** vendor SDK hard-wired into application code; a model vendor's tool as the only independent test of that vendor's model; uncalibrated judges; retention set by the free tier rather than the records policy; online evaluation sending client data to an unassessed third-party judge.
 
 ### 9.6 Product selection criteria
 
 | Scorecard criterion | What to evaluate in this layer [AJ] |
 |---|---|
-| Technical (15% FS) | Coverage of the plan's questions: faithfulness and groundedness, recall@k and precision@k, tool-call accuracy, trajectory, red-teaming, online evaluation, regression in CI, drift; quality of dataset and experiment management; support for deterministic (code) scorers alongside LLM judges |
-| Enterprise readiness (15%) | SSO, RBAC (project level), audit logs of who viewed or changed traces, datasets and scores; SCIM; SLA; multi-team tenancy. Check which of these are licence-gated in self-hosted editions |
-| Security and compliance (20%) | SOC 2 Type II and ISO 27001 as baseline. Because traces carry client data, this layer's calibration reserves 5 for products that add customer-managed keys or ISO 42001, or similar, on top. Redaction at ingest; data residency of traces |
+| Technical (15% FS) | Coverage of the plan's questions (faithfulness, recall@k/precision@k, tool-call accuracy, trajectory, red-teaming, online evaluation, CI regression, drift); dataset and experiment management; deterministic code scorers alongside LLM judges |
+| Enterprise readiness (15%) | SSO, project RBAC, audit logs of who viewed or changed traces and scores, SCIM, SLA, multi-team tenancy; which of these are licence-gated when self-hosted |
+| Security and compliance (20%) | SOC 2 Type II and ISO 27001 as baseline; because traces carry client data, 5 is reserved for products that add customer-managed keys, ISO 42001 or similar; redaction at ingest |
 | Deployment flexibility (15%) | Self-host or BYOC for trace residency; air-gap for validation sandboxes; region pinning |
-| Ecosystem (5%) | Native OTLP ingest using GenAI conventions or OpenInference; CI integrations; framework coverage |
-| Reliability and maturity (10%) | Release cadence, ownership stability (five of the eleven products, from four vendors, changed or announced a change of ownership in 2025–26), pre-1.0 versioning |
-| Cost / TCO (5%) | Pricing unit (span, trace, GB, seat, score), judge-token spend, self-host operations (ClickHouse, Kubernetes, PostgreSQL) |
-| Lock-in / portability (15%) | Licence (MIT/Apache vs ELv2 vs proprietary), export of traces and datasets, whether eval logic lives in your repo or theirs, vendor neutrality of red-team tooling |
+| Ecosystem (5%) | OTLP ingest with GenAI conventions or OpenInference; CI integrations; framework coverage |
+| Reliability and maturity (10%) | Release cadence; ownership stability (five of eleven products changed or announced a change of owner in 2025–26); pre-1.0 versioning |
+| Cost / TCO (5%) | Pricing unit, judge-token spend, self-host operations (ClickHouse, Kubernetes, PostgreSQL) |
+| Lock-in / portability (15%) | Licence (MIT/Apache vs ELv2 vs proprietary); export; whether eval logic lives in your repo; vendor neutrality of red-team tooling |
 
 ### 9.7 Product deep dives
 
 **Langfuse (ClickHouse).**
-- *What it is now:* an open-core LLM engineering platform covering tracing, prompt versioning, LLM-as-a-judge and code evaluators, user feedback, manual labelling, datasets and experiments [VF: A1-S073]. The core is MIT. Code under `ee/` needs a commercial licence key when self-hosted: SCIM, audit logging, data-retention policies, project-level RBAC and server-side ingestion masking [VF: A1-S023, A1-S033]. ClickHouse announced the acquisition on 16 January 2026 alongside its US$400M Series D [VF: A1-S021, V2-S041]. The founders state that the roadmap and the commitment to self-hosting are unchanged [VF: A1-S022].
+- *What it is now:* an open-core LLM engineering platform covering tracing, prompt versioning, LLM-as-a-judge and code evaluators, user feedback, manual labelling, datasets and experiments [VF: A1-S073]. The core is MIT. Code under `ee/` needs a commercial licence key when self-hosted: SCIM, audit logging, data-retention policies, project-level RBAC and server-side ingestion masking [VF: A1-S023, A1-S033]. ClickHouse announced the acquisition on 16 January 2026 alongside its US$400M Series D [VF: A1-S021, V2-S041].
 - *Instrumentation and hosting:* there is a native OTLP/HTTP endpoint (no gRPC). `gen_ai.*` attributes are mapped, but Langfuse-specific attributes take precedence [VF: A1-S032]. Langfuse Cloud holds SOC 2 Type II and ISO 27001, with isolated EU (Ireland), US, HIPAA and Japan regions [VF: A1-S029, A1-S030]. Python SDK 4.17.0 was released on 5 October 2026 [VF: A1-S001].
 - *Strengths:* the most complete permissively licensed platform of record that can be self-hosted [AJ].
 - *Limitations:* the evidence controls (audit logs, project RBAC) are the paid part. Storage and the self-hosted Enterprise tier are tied to ClickHouse [VF: A1-S033].
@@ -214,6 +146,7 @@ Model the cost at production volume before you commit [Rec].
 - *Choose when:* you need validation sandboxes or developer workbenches [AJ].
 - *Avoid when:* you need the production record, or your licence policy admits OSI licences only [AJ].
 - *Competitors:* Langfuse, Opik, MLflow.
+- *FS note:* enable authentication and disable telemetry; it is not an audit store [Rec].
 - **Tier: Tactical. Flag: Acquired.**
 
 **Arize AX (Dynatrace).**
@@ -262,6 +195,7 @@ Model the cost at production volume before you commit [Rec].
 - *Choose when:* you want Apache-2.0 end to end and will buy Enterprise for identity, or you already run Comet [AJ].
 - *Avoid when:* you would self-host the open edition for many teams [AJ].
 - *Competitors:* Langfuse, Phoenix, MLflow.
+- *FS note:* self-host only with Enterprise identity or a fronting identity proxy [Rec].
 - **Tier: Tactical. No flag.** It scores 3.75 FS. It falls short of Strategic for two reasons: the open edition lacks identity, and the codebase is only about two years old [AJ].
 
 **MLflow (GenAI capabilities).**
@@ -272,6 +206,7 @@ Model the cost at production volume before you commit [Rec].
 - *Choose when:* an ML platform already exists [AJ].
 - *Avoid when:* you would self-host an unauthenticated tracking server [AJ].
 - *Competitors:* Langfuse, Weave, Opik.
+- *FS note:* verify the managed host's certifications and region per provider [Rec].
 - **Tier: Strategic. No flag.**
 
 **Datadog Agent Observability.**
@@ -284,6 +219,7 @@ Model the cost at production volume before you commit [Rec].
 - *Choose when:* Datadog is your APM standard [AJ].
 - *Avoid when:* it would be the sole evaluation tool [AJ].
 - *Competitors:* AX, LangSmith, Langfuse.
+- *FS note:* choose the EU1 site at creation and switch on sensitive-data scanning first [Rec].
 - **Tier: Tactical. Flag: Renamed** (rename date not verified).
 
 **W&B Weave (CoreWeave).**
@@ -384,12 +320,12 @@ STEP 4: Checks before go-live
 
 | Element | Classification [AJ] | Rationale | Abstraction to use [Rec] |
 |---|---|---|---|
-| Instrumentation (spans, attributes) | **Unacceptable if proprietary; acceptable on OTel/OpenInference** | Re-instrumenting every layer is the largest switching cost. Every product here ingests or emits OTel or OpenInference [VF: A1-S032, A1-S037, A1-S042, A1-S049, A1-S064, A1-S070, A1-S098, A1-S103, A1-S121, A1-S139] | OTel GenAI conventions via a firm-owned Collector. Pin the semconv version, because the status is "Development" [VF: A1-S058] |
-| Evaluation datasets and metric code | **Unacceptable if they exist only in a vendor UI** | They are the regression baseline and validation evidence | Git-versioned datasets and code scorers. Emit results as `gen_ai.evaluation.result` events [VF: A1-S059] |
-| Platform of record (trace store, UI) | **Manageable** | Replaceable if instrumentation and datasets are portable. Lock-in rises with proprietary stores (adb [VF: A1-S046]) and native formats [VF: A1-S037] | Collector fan-out; periodic export to the firm's archive |
-| Production APM module | **Acceptable** | Already part of the firm's ops tooling; fed by the same Collector | None beyond the Collector |
-| Red-team tooling | **Manageable, with a concentration caveat** | Promptfoo configs are MIT and portable [VF: A1-S052], but ownership by a model vendor raises an independence question [AJ] | Two tools, configs in Git |
-| LLM judge model | **Manageable** | Judges drift when the model changes | Route through the gateway (C1). Pin the version and re-calibrate on change |
+| Instrumentation | **Unacceptable if proprietary; acceptable on OTel/OpenInference** | Re-instrumenting every layer is the largest switching cost; every product here ingests or emits OTel or OpenInference [VF: A1-S032, A1-S037, A1-S042, A1-S049, A1-S064, A1-S070, A1-S098, A1-S103, A1-S121, A1-S139] | Firm-owned Collector; pin the semconv version, since status is "Development" [VF: A1-S058] |
+| Eval datasets and metric code | **Unacceptable if only in a vendor UI** | They are the regression baseline and the validation evidence | Git-versioned datasets and scorers; results as `gen_ai.evaluation.result` events [VF: A1-S059] |
+| Platform of record | **Manageable** | Replaceable if instrumentation and datasets are portable; harder with proprietary stores (adb [VF: A1-S046]) or native formats [VF: A1-S037] | Collector fan-out; periodic export to the firm's archive |
+| Production APM module | **Acceptable** | Already part of ops tooling | The same Collector |
+| Red-team tooling | **Manageable, with an independence caveat** | Promptfoo configs are MIT and portable [VF: A1-S052]; model-vendor ownership is the issue [AJ] | Two tools, configs in Git |
+| LLM judge model | **Manageable** | Judges drift when the model changes | Route via the gateway (C1); pin and re-calibrate |
 
 ### 9.11 Regulated FS lens (POV 2)
 
@@ -397,7 +333,7 @@ STEP 4: Checks before go-live
 - *SS1/23.* PRA SS1/23 applies to banks, building societies and PRA-designated investment firms with internal-model approval [VF: R-PRA-SS123, A8-S008]. It covers vendor models and requires independent validation (Principle 4) and ongoing performance monitoring [VF: R-PRA-SS123, A8-S008, A8-S037].
 - *Who it binds.* For FCA solo-regulated managers, SS1/23 is not binding but is the natural benchmark. This layer is where its validation and monitoring evidence is produced [AJ].
 - *SR 26-2.* SR 26-2 superseded SR 11-7 on 17 April 2026. It expressly places generative and agentic AI outside its scope and says the firm's own risk-management practices should determine their governance [VF: R-US-MRM, A8-S001, A8-S002].
-- *The consequence.* No regulator has defined "adequate evaluation" for an LLM agent, so the firm must write its own standard. That standard needs metric definitions, thresholds, judge calibration and re-validation triggers, and it should be written to SS1/23 quality so it survives the agencies' planned AI request for information [AJ].
+- *The consequence.* No regulator defines "adequate evaluation" for an LLM agent, so the firm must set its own standard (metrics, thresholds, judge calibration, re-validation triggers), written to SS1/23 quality so it survives the agencies' planned AI request for information [AJ].
 
 **EU AI Act.**
 - *Deployer duties.* Article 26 requires deployers of high-risk systems to monitor operation, keep logs for at least six months, and report serious incidents. Financial institutions fold logging into their existing financial-services documentation [VF: R-EUAIA, A8-S011]. Annex III duties apply from 2 December 2027 under Regulation (EU) 2026/1744 [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011].
@@ -407,14 +343,13 @@ STEP 4: Checks before go-live
 
 **DORA, the UK CTP regime and outsourcing.**
 - *Designations.* The DORA CTPP list and the UK CTP designations cover hyperscalers and no AI model provider [VF: R-DORA, A8-S021; R-UK-CTP, A8-S023].
-- *Observability SaaS is a third-party service.* A SaaS observability platform holding client traces is an ICT third-party service for the register of information. If it supports a critical or important function, it needs Article 30 terms and an exit plan [AJ].
+- *Observability SaaS is a third-party service.* A SaaS trace store holding client data belongs in the register of information, with Article 30 terms and an exit plan if it supports a critical or important function [AJ].
 - *Notification lead time.* PRA PS7/26 and FCA PS26/2 require material third-party notifications from 18 March 2027 [VF: R-PRA-SS221, R-FCA-SYSC8, A8-S062]. Contract changes forced by the Arize, Langfuse and Promptfoo ownership changes should be planned with that lead time [Rec].
 - *Exit routes.* SS2/21 expects documented, tested exit plans [VF: R-PRA-SS221, A8-S048]. Evaluation suites are what let a firm re-qualify an alternative model or platform quickly [AJ].
 
 **Residency and auditability.**
 - *FCA expectations.* FG16/5 expects data location, effective access and exit planning for outsourced IT [VF: R-FCA-SYSC8, A8-S049]. Traces held by a vendor fall within that [AJ].
-- *Transfers.* EU-to-US transfers rely on the Data Privacy Framework or SCCs. An annulment appeal (C-703/25 P) is pending [VF: R-DATA-TRANSFERS, A8-S053].
-- *Recommendation.* Prefer in-estate or EU/UK-region trace stores and redact at the Collector [Rec].
+- *Transfers.* EU-to-US transfers rely on the Data Privacy Framework or SCCs, and an annulment appeal (C-703/25 P) is pending [VF: R-DATA-TRANSFERS, A8-S053]. Prefer in-estate or EU/UK-region trace stores and redact at the Collector [Rec].
 - *Evidence retention.* Retention must follow the records policy, not a vendor tier. The free tiers keep data for 15 days (AX) [VF: A1-S047], 30 days (Langfuse Hobby) [VF: A1-S031] and 60 days (Opik) [VF: A1-S123] [AJ].
 - *Reproducibility.* Every result needs its dataset, metric code, judge version and application prompt version [AJ].
 
@@ -434,28 +369,13 @@ STEP 4: Checks before go-live
 
 **What the commentary agent needs from L9 [AJ].** The agent drafts the monthly Brinson-style attribution commentary (allocation, selection, currency, benchmark-relative return) for a generic multi-asset fund. It needs eight things from this layer:
 
-1. **Numeric faithfulness, deterministic, blocking.**
-   - A code scorer extracts every figure, sign and direction word ("added", "detracted", "overweight") from the draft.
-   - It compares each one with the attribution-engine tool output recorded in the same trace. The read-only L4 tool call is a span, so the reference values are evidence, not memory.
-   - Any mismatch outside the agreed rounding rule fails the run. This is code, not an LLM judge.
-2. **Groundedness against approved sources.** Every market-context claim must be supported by a retrieved, approved document, scored by a calibrated judge or an NLI metric. Unsupported claims are flagged, so that inference stays distinguishable from source data.
-3. **House-style checks.** Terminology, prohibited phrases, tense and length are checked by rules first, with an LLM judge only for tone.
-4. **Trajectory check.** In the deterministic workflow, the agent calls the attribution tool, then retrieval, then drafts. Any extra tool call or write attempt is a defect.
-5. **Regression suite of past commentaries.**
-   - Use about 24 to 36 months of approved commentaries with their attribution snapshots as golden cases.
-   - Run them on every change of model, prompt, retrieval index or judge, and add every reviewer-caught error as a new case.
-   - This suite also re-qualifies a fallback model for the SS2/21 exit route.
-6. **Reviewer-edit feedback loop.**
-   - The portfolio manager's edits are captured as diffs on the trace, with an edit-size score and a reason code.
-   - The human-intervention rate is tracked monthly, which serves the IOSCO human-intervention indicator.
-   - Recurring edit types become new eval cases or style rules.
-7. **Evidence pack retention.** For each commentary, the pack holds:
-   - trace ID, prompt and template version, model and version, judge version
-   - attribution data snapshot hash and retrieved document IDs
-   - eval results with thresholds, approver identity and timestamp
-   - the final text and the diff from the draft
-
-   It is written to the firm's WORM or records archive (C8) under the records-retention policy, independent of the observability vendor's retention.
+1. **Numeric faithfulness, deterministic and blocking.** A code scorer extracts every figure, sign and direction word ("added", "detracted", "overweight") and compares it with the attribution-engine output recorded in the same trace. The read-only L4 tool call is a span, so the reference values are evidence, not memory. Any mismatch outside the agreed rounding rule fails the run; no LLM judge is involved.
+2. **Groundedness against approved sources.** Each market-context claim must be supported by a retrieved, approved document (calibrated judge or NLI metric). Unsupported claims are flagged, so inference stays distinguishable from source data.
+3. **House-style checks.** Rules for terminology, prohibited phrases, tense and length; an LLM judge only for tone.
+4. **Trajectory check.** The workflow calls the attribution tool, then retrieval, then drafts. Any extra tool call or write attempt is a defect.
+5. **Regression suite of past commentaries.** About 24 to 36 months of approved commentaries with their attribution snapshots, run on every change of model, prompt, index or judge, with each reviewer-caught error added as a case. The same suite re-qualifies a fallback model for the SS2/21 exit route.
+6. **Reviewer-edit feedback loop.** PM edits are captured as diffs on the trace with an edit-size score and reason code. The monthly human-intervention rate serves the IOSCO indicator, and recurring edit types become eval cases or style rules.
+7. **Evidence pack retention.** Per commentary: trace ID, prompt and template version, model and judge versions, attribution snapshot hash, retrieved document IDs, eval results with thresholds, approver and timestamp, final text and diff. It is written to the firm's WORM or records archive (C8) under the retention policy, independent of any vendor tier.
 8. **Cost and latency per commentary**, reported to C6.
 
 **What L9 must never do [AJ]:**
@@ -470,7 +390,7 @@ STEP 4: Checks before go-live
 
 | Original (graphic) | Current (October 2026) | Recommended |
 |---|---|---|
-| L9 drawn as a downstream "evals and observability" layer with eight tiles | Tracing, evaluation and feedback span every layer. Products now include gateways (Braintrust, LangSmith, MLflow), guardrails (Opik), prompt management and automated fix proposals [VF: A1-S043, A1-S039, A1-S103, A1-S067] | A cross-cutting plane: firm-owned OTel Collector, one platform of record, CI eval and red-team harness, evidence archive in C8 [Rec] |
+| Downstream "evals and observability" layer with eight tiles | Products now include gateways (Braintrust, LangSmith, MLflow), guardrails (Opik), prompt management and fix proposals [VF: A1-S043, A1-S039, A1-S103, A1-S067] | A cross-cutting plane: firm-owned OTel Collector, one platform of record, CI eval and red-team harness, evidence archive in C8 [Rec] |
 | Langfuse "open source" | MIT core, enterprise-gated audit and RBAC; ClickHouse-owned [VF: A1-S033, A1-S021] | Strategic platform of record, self-hosted with Enterprise licence [Rec] |
 | LangSmith "trace & eval" | Agent platform (Engine, Fleet, Gateway, Deployment) [VF: A1-S039] | Strategic for LangGraph estates, dual-instrumented with OTel [Rec] |
 | Braintrust "evals platform" | Repositioned to "active observability for agents"; hybrid data plane [VF: A1-S043, A1-S041] | Tactical: eval-led teams [Rec] |
@@ -486,9 +406,9 @@ STEP 4: Checks before go-live
 The evidence supports the hypothesis on four counts.
 
 - **The instrumentation standard spans the stack.** OTel GenAI conventions cover client inference, agents, tool execution, retrieval, evaluation and MCP. Evaluation results have their own event type [VF: A1-S061, A1-S059].
-- **Tools couple CI to production.** Six of the original products document a CI evaluation path, and every platform product ingests production traces and runs evaluators over them (see 9.4).
+- **Tools couple CI to production.** Six of the original products document a CI evaluation path [VF: A1-S108, A1-S106, A1-S067, A1-S068, A1-S065, A1-S109], and the platform products run evaluators over production traces [VF: A1-S072, A1-S073, A1-S046, A1-S099].
 - **Vendors are pushing the layer sideways.** It is moving into gateways (C1), prompt management (C5), guardrails (C2) and security testing (C7) [VF: A1-S043, A1-S103, A1-S067, A1-S024].
-- **Ownership is consolidating into horizontal platforms.** The new owners are APM vendors (Dynatrace, Datadog), a database vendor (ClickHouse), a model vendor (OpenAI) and a GPU cloud (CoreWeave) [VF: A1-S045, A1-S097, A1-S021, A1-S024, A1-S131].
+- **Ownership is consolidating into horizontal platforms.** The new owners are an APM vendor (Dynatrace), a database vendor (ClickHouse), a model vendor (OpenAI) and a GPU cloud (CoreWeave), and a second APM vendor (Datadog) sells its own module [VF: A1-S045, A1-S021, A1-S024, A1-S131, A1-S097].
 
 The counter-evidence is that the OTel GenAI conventions are still "Development" and recently moved repository [VF: A1-S058, A1-S060], so the shared plane is not yet stable.
 
