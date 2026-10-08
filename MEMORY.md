@@ -11,7 +11,7 @@
 | | |
 |---|---|
 | **Last updated** | 8 October 2026 |
-| **Stage** | **Checkpoint 2 delivered**: layers 9, 8 and 7 drafted and calibrated. **Waiting for the user's CP2 review.** |
+| **Stage** | **Stage B, tranche 2 in progress** (after CP2 decisions), heading to **Checkpoint 3** |
 | **Branch** | `claude/nice-meitner-0me752` on `github.com/gitzerobegin/genai_stack` |
 
 | Item | State |
@@ -22,7 +22,9 @@
 | L7 writer | **Done**: 8 scored (1 Strategic, 7 Tactical); EthicalAgents and Ragoos unscored |
 | Calibration review | **Done**: 40 changes, 8 caps lifted, 5 kept, 1 added, no tier changes, 27 sources (B-REV-S001…S027). `work/stageB/_review/CP2_review.md` |
 | CP2 pack | `checkpoints/CP2/00_CP2_Summary.md`, `01_Draft_Layers_9-7.md`/`.docx`, `02_Calibration_Review.md` |
-| Next | Apply the user's CP2 answers (Q1–Q6) to L9–L7 and update the writer brief and rubric, then run tranche 2 (L6, L5, L4, C1–C8) and stop at **CP3** |
+| CP2 decisions | Q1 hyperscaler presumption; Q2 lenient (any one control lifts the cap to 3); Q3 judgement; Q4 one point below anchor; Q5 no length cap; Q6 L9 deep-dive format, one illustrative scenario per layer. `checkpoints/CP2/03_CP2_Decisions.md`; rubric rules 6–9 |
+| Tranche 2 (running) | Rework of L9–L7 to the CP2 rules; writers for L6, L5, L4, C1+C2, C3+C4, C5+C6, C7+C8 (prompts in `work/prompts/stageB_tranche2_prompts.md`) |
+| Next | Merge, run a calibration reviewer across tranche 2 (and a cross-check of L9–L7), build the CP3 pack, push, **stop at CP3** |
 | After CP2 | Stage B tranche 2: L6, L5, L4 and C1–C8, then **CP3**. Tranche 3: L3, L2, L1 and Stage C synthesis, then **CP4**. Then C2 LinkedIn pair 1–2 (**CP4b**), the rest of C2, and Stage D packaging (**CP5**). |
 
 ## Run log
@@ -47,6 +49,7 @@
 | 14 | 8 October | **Stage B, tranche 1:** writers for L9, L8 and L7 in parallel (prompts in `work/prompts/stageA_prime_and_stageB_prompts.md`) | L8 done. L9 and L7 running. |
 | 15a | 8 October | All three writers done. `tools/check_tags.py` added: all tag IDs resolve. **Calibration issue:** L7 capped enterprise readiness for every hosted vendor, while L9 closed similar gaps by searching. A calibration reviewer was launched over L9–L7 (prompt in the `work/prompts/stageA_prime_and_stageB_prompts.md` appendix). | Reviewer running |
 | 15b | 8 October | The calibration reviewer finished. Built the CP2 pack (draft `.md` plus a pandoc `.docx`), rebuilt the dataset (1,151 sources, 0 issues), and pushed. **Stopped for CP2.** | |
+| 16 | 8 October | User's CP2 answers recorded. Rubric rules 6–9 and the brief (no length cap, deep-dive format) updated. Launched 8 agents: 1 rework and 7 writers. | Running |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it
