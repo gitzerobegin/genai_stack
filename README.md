@@ -11,6 +11,9 @@ This repository executes `inputs/Enterprise_GenAI_Stack_Consolidated_Plan_v4.3.m
 | `Enterprise_GenAI_Stack_Oct2026/` | Deliverable package (plan §14 layout), built up checkpoint by checkpoint |
 | `tools/` | Helper scripts: source archiving, dataset build |
 
+| `CONTEXT.md` · `MEMORY.md` · `CLAUDE.md` | Project briefing · run log and current position · entry point for Claude Code |
+| `RERUN_ON_DESKTOP.md` | How to gap-fill or re-run on a machine with open internet access |
+| `work/prompts/` | Every agent prompt used, verbatim |
 | `checkpoints/` | Checkpoint review packs (CP1 = research baseline) |
 
-**Status (8 October 2026):** stopped at **Checkpoint 1**. Start with `checkpoints/CP1/00_CP1_Summary.md`.
+**Status:** see `MEMORY.md` → Current position.

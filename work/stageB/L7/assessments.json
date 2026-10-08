@@ -1,0 +1,577 @@
+[
+  {
+    "id": "L7-openai",
+    "assessment": {
+      "capabilities": "Hosted text embeddings: text-embedding-3-large (3,072 dims by default, shortened with the 'dimensions' parameter) and text-embedding-3-small, 8,192-token input, released 25 January 2024 [VF: A2-S001, A2-S002]. No first-party reranker was found [VF: A2-S001].",
+      "strengths": [
+        "Stable, unchanged generation since January 2024, so a pinned model has not been forced to move [VF: A2-S002] [AJ]",
+        "Strong documented controls for the endpoint: SOC 2 Type 2, ISO/IEC 27001 and 27701, ZDR-eligible /v1/embeddings, EU storage and processing residency with Modified Abuse Monitoring or ZDR, HIPAA BAA [VF: A2-S036, A2-S144]",
+        "Low, transparent price: 3-small US$0.02 and 3-large US$0.13 per 1M tokens, Batch at half price for 3-large (as of 7 October 2026) [VF: A2-S001, A2-S035]"
+      ],
+      "limitations_risks": [
+        "Text only; no reranker, so a second vendor or library is needed for two-stage retrieval [VF: A2-S001] [AJ]",
+        "Hosted only, no downloadable weights; vectors are model-specific, so exit means re-embedding the corpus [AJ]",
+        "UK region is storage-only for embeddings; processing in Europe needs Modified Abuse Monitoring or ZDR [VF: A2-S144]",
+        "RBAC granularity, SCIM and audit-log scope for the API platform not verified [NPV]; CMK/BYOK not verified [NPV]",
+        "Ageing generation with no announced successor; successor timing unknown [AJ]"
+      ],
+      "choose_when": [
+        "OpenAI is already the contracted L1 provider with ZDR and EU residency approved, and the corpus is text-only",
+        "A low-cost English or multilingual text baseline is needed for an in-domain bake-off"
+      ],
+      "avoid_when": [
+        "Data must be processed in the UK or inside the firm's own estate",
+        "Multimodal retrieval (scanned factsheets, charts) or a single-vendor embed-plus-rerank pair is required"
+      ],
+      "competitors": [
+        "L7-gemini-embedding",
+        "L7-cohere",
+        "L7-voyage"
+      ],
+      "fs_note": "Usable for EU-processed client data only under ZDR or Modified Abuse Monitoring on an EU project [VF: A2-S144]; UK processing is not offered for this endpoint [VF: A2-S144]. A direct OpenAI contract is an ICT third-party arrangement outside the DORA CTPP perimeter, so oversight sits with the firm [VF: A8-S021] [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Competent, well-controlled text embeddings, but hosted-only, text-only and without a reranker; a baseline, not a foundation."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Core text embedding with shortening via 'dimensions'; no reranker, no multimodal, 2024 generation.",
+        "enterprise_readiness": "SSO/MFA advertised (low confidence); RBAC and audit-log scope NPV.",
+        "security_compliance": "SOC 2 Type 2, ISO 27001/27701, HIPAA BAA, ZDR and EU residency for the endpoint; CMK not verified.",
+        "deployment_flexibility": "Hosted SaaS only, with US and EU processing regions; no VPC or self-host verified.",
+        "ecosystem": "Standard REST endpoint, SDKs and Batch API; broader ecosystem evidence NPV in the dataset.",
+        "reliability_maturity": "GA since January 2024 and unchanged for about 2.7 years.",
+        "cost_tco": "Transparent per-token pricing at the low end of the hosted market; Batch halves 3-large.",
+        "lockin_portability": "Proprietary hosted API, no weights; switching forces full re-embedding."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: RBAC and audit-log scope NPV (only SSO/MFA advertised, low confidence)"
+      ],
+      "generic_total": 3.0,
+      "fs_total": 2.9
+    }
+  },
+  {
+    "id": "L7-gemini-embedding",
+    "assessment": {
+      "capabilities": "gemini-embedding-2 (GA 22 April 2026): one embedding space for text, images, video, audio and PDFs across 100+ languages; 8,192 text tokens; Matryoshka output 128-3,072 dims [VF: A2-S004, A2-S005]. Hosted on the Gemini API and Vertex AI (being renamed Gemini Enterprise Agent Platform) [VF: A2-S039].",
+      "strengths": [
+        "Natively multimodal with Matryoshka dimensions, useful for scanned documents and charts [VF: A2-S004, A2-S005]",
+        "Platform certifications for Generative AI on Vertex AI: SOC 2, ISO/IEC 27001, ISO/IEC 42001, HIPAA, FedRAMP High [VF: A2-S043]",
+        "'eu' multi-region endpoint keeps data in EU member states [VF: A2-S039]; Batch at 50% of standard price [VF: A2-S005, A2-S038]"
+      ],
+      "limitations_risks": [
+        "EU multi-region excludes the UK and Switzerland [VF: A2-S039]",
+        "Per-model certification coverage and CMEK applicability for embedding calls not confirmed [VF: A2-S043, A2-S039]",
+        "Hosted only, no weights; coupling to Google platform services (File Search, Memory Bank) [AJ]",
+        "task_type parameter not supported [VF: A2-S005]; no reranker in the dataset (Vertex ranking API not researched) [NPV]",
+        "Text price US$0.20 per 1M tokens is higher than most hosted peers (as of 7 October 2026) [VF: A2-S038]"
+      ],
+      "choose_when": [
+        "The estate is Google Cloud-centred and EU processing is sufficient",
+        "Retrieval must span images, audio, video or PDF pages in one vector space"
+      ],
+      "avoid_when": [
+        "UK processing is mandatory",
+        "Self-hosting or an exit route that keeps the same vectors is required"
+      ],
+      "competitors": [
+        "L7-cohere",
+        "L7-voyage",
+        "L7-jina",
+        "L7-openai"
+      ],
+      "fs_note": "Google Cloud EMEA Limited is a designated DORA CTPP and UK CTP [VF: A8-S020, A8-S023]; consuming the model through Vertex AI places it with a designated provider, which does not remove the firm's own outsourcing duties [AJ]. The 'eu' endpoint does not cover the UK [VF: A2-S039]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Leading multimodal option for Google-centred estates, but hosted-only, young GA and without UK processing."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Multimodal, multilingual, Matryoshka 128-3,072; no reranker evidenced and task types unsupported.",
+        "enterprise_readiness": "Access controls and enterprise support for the model NPV in the dataset.",
+        "security_compliance": "Strong platform certifications including ISO 42001 and FedRAMP High; per-model scope and CMEK not confirmed.",
+        "deployment_flexibility": "Gemini API and Vertex AI only (global, us, eu); no private or self-hosted route.",
+        "ecosystem": "Google platform integration and one named adopter (Box); wider ecosystem NPV.",
+        "reliability_maturity": "GA since April 2026 (about 5.5 months); pricing pages lagged the GA status.",
+        "cost_tco": "Transparent, but text pricing above peers; multimodal priced per modality.",
+        "lockin_portability": "Proprietary hosted API plus Google platform coupling; re-embedding to switch."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: access controls (SSO/RBAC/audit) for the embedding model NPV"
+      ],
+      "generic_total": 3.0,
+      "fs_total": 2.9
+    }
+  },
+  {
+    "id": "L7-voyage",
+    "assessment": {
+      "capabilities": "Voyage AI by MongoDB: Voyage 4 family (voyage-4-large, voyage-4, voyage-4-lite, open-weight voyage-4-nano) in one shared embedding space; voyage-code-4, voyage-context-4 (contextualised chunks), voyage-multimodal-3.5, domain models voyage-finance-2 and voyage-law-2; rerank-3 and rerank-3-lite (30 September 2026) with 32K-token context [VF: A2-S006, A2-S007, A2-S034]. rerank-3 is listed as Preview on MongoDB's model lifecycle page [VF: V1-S024].",
+      "strengths": [
+        "Broadest lineup against this layer's research questions: domain (finance), contextual, code, multimodal, quantisation including binary, and instruction-following rerankers [VF: A2-S006, A2-S007, A2-S034]",
+        "Shared Voyage 4 space lets a team index with a large model and query with a small one without re-embedding [VF: A2-S006]",
+        "Low published prices: voyage-4 US$0.06 per 1M tokens with 200M free tokens per model; rerank-3 US$0.05, rerank-3-lite US$0.02 per 1M tokens (as of 7 October 2026) [VF: A2-S007, A2-S034]",
+        "In-VPC route via the AWS Marketplace model package in the customer's account [VF: A2-S044]"
+      ],
+      "limitations_risks": [
+        "Acquired by MongoDB (closed 17 February 2025) [VF: A2-S033, V1-S023]; roadmap now tied to MongoDB [AJ]",
+        "Certifications rest on a homepage listing; trust-portal report scope not verified [R: A2-S044]; MongoDB points standalone Voyage to a separate trust portal [VF: A2-S138]",
+        "rerank-3 is Preview on MongoDB's lifecycle page; Atlas Embedding and Reranking API and Automated Embedding are public preview [VF: V1-S024, A2-S077, A2-S078]",
+        "Only voyage-4-nano can be self-hosted [VF: A2-S071]",
+        "Vendor claims that rerank-3 beats competitors are not decision inputs [R: A2-S141]"
+      ],
+      "choose_when": [
+        "MongoDB is the L6 store, or the firm accepts MongoDB as a strategic supplier",
+        "Finance-domain vocabulary and contextualised chunks matter, subject to in-domain evaluation",
+        "EU processing via the Atlas Europe Geography is acceptable"
+      ],
+      "avoid_when": [
+        "UK processing or on-premises hosting of the main models is mandatory",
+        "Independence between the retrieval-store vendor and the embedding vendor is a concentration requirement"
+      ],
+      "competitors": [
+        "L7-cohere",
+        "L7-jina",
+        "L7-qwen3-embedding",
+        "L7-openai"
+      ],
+      "fs_note": "The Atlas Embedding and Reranking API offers an EEA Geography with no fallback outside it, at a 10% premium [VF: A2-S142]; Automated Embedding and Native Reranking do not yet support Geography targeting [VF: A2-S142]. Request the Voyage SOC 2 report and its scope before use with client data [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Technically the deepest lineup, but certifications are unverified, key APIs are in preview and ownership now couples it to MongoDB."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Leading breadth in primary docs: domain, contextual, multimodal, shared space, quantisation and rerankers.",
+        "enterprise_readiness": "Access controls and enterprise support NPV.",
+        "security_compliance": "SOC 2/HIPAA appear only as a reported homepage listing; trust-portal scope unverified.",
+        "deployment_flexibility": "SaaS, Atlas, AWS/Azure marketplaces and in-VPC SageMaker; only nano is self-hostable.",
+        "ecosystem": "Native in MongoDB, on AWS and Azure marketplaces; listed in Anthropic's embeddings docs (author conflict noted).",
+        "reliability_maturity": "Frequent generations; MongoDB-integrated APIs and rerank-3 in preview; ownership changed in February 2025.",
+        "cost_tco": "Transparent, low per-token pricing with a large free allowance.",
+        "lockin_portability": "Proprietary API (except nano) on standard interfaces would be 3; reduced by 1 for the 2025 acquisition."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV",
+        "security_compliance capped at 2: certifications only Reported from a homepage listing; report scope NPV"
+      ],
+      "generic_total": 3.25,
+      "fs_total": 2.9
+    }
+  },
+  {
+    "id": "L7-cohere",
+    "assessment": {
+      "capabilities": "Embed 5 (embed-v5.0-pro, embed-v5.0-fast; 30 September 2026): text, images and mixed text-image inputs into one vector, 100+ languages, 128K-token context, Matryoshka 256-2,048 dims, float/int8/binary outputs, Pro and Fast in one shared space. Rerank 4 (Pro and Fast; 11 December 2025): 32K-token context, multilingual, JSON documents [VF: A2-S012, A2-S009, A2-S010].",
+      "strengths": [
+        "Embed and rerank from one vendor, both current generations [VF: A2-S012, A2-S010]",
+        "Widest deployment range among hosted vendors: SaaS, Microsoft Foundry, Amazon SageMaker, VPC, Model Vault single-tenant, on-premises [VF: A2-S012, A2-S015]",
+        "SOC 2 Type II, ISO 27001 and ISO 42001 [VF: A2-S014]; 30-day default log deletion and ZDR on request for enterprise customers [VF: A2-S145]",
+        "Storage arithmetic is published: Cohere's example shrinks 100M chunks from about 819 GB to 3.2 GB with reduced dimensions and binary output [VF: A2-S013]"
+      ],
+      "limitations_risks": [
+        "SSO/SAML, RBAC and audit-log export for the hosted API not found [VF: A2-S145]; enterprise support terms NPV",
+        "Rerank per-search price not found [VF: A2-S013]",
+        "Aleph Alpha business combination signed 16 September 2026, pending regulatory approval [VF: A2-S018, V1-S028]; valuation figures conflict and are not used [AJ]",
+        "EU hosted-region details not verified [NPV]; CMK for the hosted API not found [NPV]",
+        "Vendor claims of 'highest average' scores are not decision inputs [R: A2-S013]"
+      ],
+      "choose_when": [
+        "Embedding and reranking must run inside the firm's VPC or data centre with a commercial vendor behind it",
+        "Long documents (128K context) or mixed text-image pages need one vector"
+      ],
+      "avoid_when": [
+        "Public evidence of SSO/RBAC/audit for the hosted API is a hard procurement gate and cannot be obtained in due diligence",
+        "Ownership stability through the Aleph Alpha approval period is a hard requirement"
+      ],
+      "competitors": [
+        "L7-voyage",
+        "L7-jina",
+        "L7-nvidia-nemo-retriever",
+        "L7-gemini-embedding"
+      ],
+      "fs_note": "The private and Model Vault routes keep client-data embeddings off shared infrastructure, and Cohere states it has no access to prompts in private or partner deployments [VF: A2-S015, A2-S145]. Track the Aleph Alpha approval as an ownership event in the third-party register [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strongest FS-shaped option on deployment and certification, held back from Strategic by unverified access controls and a pending combination; upgrade candidate after due diligence."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 4,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Current embed and rerank, multimodal, 128K context, Matryoshka and binary; no domain-specific models evidenced.",
+        "enterprise_readiness": "SSO/SAML, RBAC and audit-log export for the hosted API not found in public sources.",
+        "security_compliance": "SOC 2 Type II, ISO 27001, ISO 42001, ZDR on request and private deployment; CMK and EU hosted region unverified.",
+        "deployment_flexibility": "SaaS, partner clouds, VPC, single-tenant and on-prem; air-gap not verified.",
+        "ecosystem": "Microsoft Foundry, SageMaker, LangChain, and Cohere Rerank hosted inside Pinecone.",
+        "reliability_maturity": "Mature, fast-moving line; pending Aleph Alpha combination adds governance uncertainty.",
+        "cost_tco": "Embed prices published (Pro US$0.12, Fast US$0.08 per 1M text tokens); rerank price not found.",
+        "lockin_portability": "Proprietary, but deployable in the firm's estate; rule 3 not applied because Cohere is the combining party, revisit on close."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/SAML, RBAC and audit-log export for the hosted API not found"
+      ],
+      "generic_total": 3.45,
+      "fs_total": 3.4
+    }
+  },
+  {
+    "id": "L7-qwen3-embedding",
+    "assessment": {
+      "capabilities": "Open-weight Qwen3-Embedding and Qwen3-Reranker in 0.6B, 4B and 8B (June 2025; 32K context; 119 languages; Apache 2.0) and Qwen3-VL-Embedding/-Reranker (January 2026) [VF: A2-S020, A2-S021, V1-S093]. Hosted as text-embedding-v4 (64-2,048 dims) and qwen3-rerank on Alibaba Cloud Model Studio [VF: A2-S022].",
+      "strengths": [
+        "Apache 2.0 embed and rerank pair that can run fully inside the firm's estate, including disconnected environments [VF: A2-S020] [AJ]",
+        "Three sizes allow a cost/quality trade-off; 0.6B runs on modest hardware [AJ]",
+        "Multimodal successors (VL) in the same family [VF: A2-S021]"
+      ],
+      "limitations_risks": [
+        "Chinese-origin model; FS firms will require provenance and supply-chain review before use [AJ]",
+        "Hosted Model Studio regions are Singapore, Hong Kong and Beijing; no EU region verified [VF: A2-S022]",
+        "No commercial support or certifications verified [NPV]; Qwen3-VL embedding licence not verified [NPV]",
+        "MTEB No.1 claim dates from 5 June 2025 and is vendor-reported; current rank not verified [R: A2-S020]",
+        "Self-hosting the 8B models needs datacentre GPUs and an in-house serving team [AJ]"
+      ],
+      "choose_when": [
+        "A self-hosted, permissively licensed embed-plus-rerank pair is required and provenance review approves it",
+        "Multilingual corpora need in-estate processing at low marginal cost"
+      ],
+      "avoid_when": [
+        "Policy excludes Chinese-origin model weights, or only the hosted API would be used",
+        "There is no capacity to operate GPU inference"
+      ],
+      "competitors": [
+        "L7-sentence-transformers",
+        "L7-nvidia-nemo-retriever",
+        "L7-jina",
+        "L7-voyage"
+      ],
+      "fs_note": "Self-hosted weights keep client data in the firm's estate; the hosted API is not a fit for EU/UK client data on verified regions [VF: A2-S022]. Hosted prices come from Alibaba's own pricing page [VF: A2-S022], but the hosted route is not the recommended one for client data, so they are not a decision input [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Capable Apache 2.0 embed-plus-rerank pair for self-hosting; usable only after provenance review and with in-house operations."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Embed and rerank in three sizes, 32K context, 119 languages, multimodal VL variants.",
+        "enterprise_readiness": "No commercial support verified; hosted access controls NPV; self-hosted inherits host controls.",
+        "security_compliance": "Hosted certifications NPV; self-hosted path inherits host controls; provenance review needed.",
+        "deployment_flexibility": "Self-host, on-prem and disconnected use via open weights, plus SaaS outside the EU.",
+        "ecosystem": "Hugging Face and ModelScope weights; OpenAI-compatible batch API on Model Studio; wider ecosystem NPV.",
+        "reliability_maturity": "Released June 2025 with a January 2026 multimodal successor; long-term support NPV.",
+        "cost_tco": "Free weights; cost is GPU and operations, light for 0.6B, heavier for 8B.",
+        "lockin_portability": "Apache 2.0 and self-hostable; single-vendor governance and model-specific vectors keep it below 5."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: access controls and support NPV",
+        "security_compliance capped at 2: certifications for the hosted API NPV"
+      ],
+      "generic_total": 3.2,
+      "fs_total": 3.15
+    }
+  },
+  {
+    "id": "L7-jina",
+    "assessment": {
+      "capabilities": "Jina AI, part of Elastic since 9 October 2025 [VF: A2-S023, V1-S025]: jina-embeddings-v5-text (February 2026; 32,768-token context, 1,024 dims), v5-omni (May 2026; text, image, audio, video, PDF, with text vectors identical to v5-text), jina-reranker-v3.5 (July 2026, listwise) and jina-reranker-m0 (multimodal) [VF: A2-S025, A2-S026, V1-S026].",
+      "strengths": [
+        "Default embedding model behind Elasticsearch semantic_text, so it is the low-effort path for Elastic estates [VF: A2-S133]",
+        "Commercial on-premises licence with Docker containers and air-gapped deployment [VF: A2-S042, A2-S045]",
+        "v5-omni text vectors match v5-text, so adding modalities need not force text re-embedding [VF: A2-S025]"
+      ],
+      "limitations_risks": [
+        "Weights are CC-BY-NC-4.0: commercial self-hosting needs the Jina API, a marketplace, Elastic Inference Service or an on-prem licence [VF: A2-S024, A2-S042]",
+        "Acquired by Elastic (October 2025); Jina's own policies predate the acquisition [VF: A2-S023, A2-S024]",
+        "Hosted Jina API SOC 2 scope not confirmed; Elastic Cloud holds ISO 27001/27017/27018 and SOC 2 Type II [VF: A2-S045]",
+        "API per-token rates not retrieved; on-prem licence priced via sales [VF: A2-S042]",
+        "Vendor-reported 63.20 nDCG@10 on BEIR is not a decision input [R: A2-S026]"
+      ],
+      "choose_when": [
+        "Elasticsearch is the L6 store and the firm wants embedding and reranking inside the same platform",
+        "Air-gapped multimodal retrieval is needed under a commercial licence"
+      ],
+      "avoid_when": [
+        "The plan assumes free commercial self-hosting of the weights",
+        "Store and embedding vendor must be independent for concentration reasons"
+      ],
+      "competitors": [
+        "L7-voyage",
+        "L7-cohere",
+        "L7-qwen3-embedding",
+        "L7-sentence-transformers"
+      ],
+      "fs_note": "Data processing is now under Elastic's terms; region details for the hosted API not verified [VF: A2-S024]. Confirm the licence route in writing before any self-hosted production use [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Natural choice inside Elastic estates; non-commercial weights and an opaque price list make it a poor neutral default."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Multilingual, multimodal, long-context embeddings and listwise and multimodal rerankers.",
+        "enterprise_readiness": "API-key access only verified; SSO/RBAC/audit and support NPV.",
+        "security_compliance": "Elastic Cloud SOC 2 Type II and ISO 27001 cover the EIS route; hosted Jina API scope unconfirmed.",
+        "deployment_flexibility": "SaaS API, Elastic Inference Service, on-prem Docker with air-gap; VPC NPV.",
+        "ecosystem": "Default in Elasticsearch semantic_text; Hugging Face and vLLM recipes.",
+        "reliability_maturity": "Three releases in February-July 2026; ownership changed October 2025.",
+        "cost_tco": "API rates not retrieved, on-prem by quote, CC-BY-NC weights: opaque for planning.",
+        "lockin_portability": "CC-BY-NC weights route commercial use through Elastic (would be 3); reduced by 1 for the 2025 acquisition."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV (API keys only)"
+      ],
+      "generic_total": 3.15,
+      "fs_total": 3.0
+    }
+  },
+  {
+    "id": "L7-sentence-transformers",
+    "assessment": {
+      "capabilities": "Apache-2.0 Python library (6.1.0, 18 September 2026) for dense embeddings, Cross-Encoder rerankers, Sparse Encoders and Multi-Vector Encoders (ColBERT-style late interaction), with training and fine-tuning; over 15,000 pre-trained models on Hugging Face [VF: A2-S029, A2-S032, A2-S028]. Maintained by Hugging Face [VF: A2-S028, V1-S092].",
+      "strengths": [
+        "One toolkit for the whole retrieval-optimisation layer: bi-encoder, cross-encoder, sparse and late interaction [VF: A2-S029]",
+        "Fine-tuning on in-domain pairs is the main route to domain adaptation without a vendor [VF: A2-S029] [AJ]",
+        "Model-agnostic and permissively licensed, so it is the natural exit route from any hosted embedding API [AJ]"
+      ],
+      "limitations_risks": [
+        "A library, not a model: quality depends on the model chosen and on the firm's evaluation [AJ]",
+        "No commercial support offer verified [NPV]; security policy and signed releases NPV",
+        "Depends on Hugging Face stewardship and a small maintainer team [AJ]",
+        "Model licences on the Hub vary; each model needs its own licence check (for example, Jina weights are CC-BY-NC-4.0) [VF: A2-S024] [AJ]"
+      ],
+      "choose_when": [
+        "Embeddings or reranking must run inside the firm's estate, including air-gapped",
+        "Domain fine-tuning or a reproducible, pinned retrieval stack is required"
+      ],
+      "avoid_when": [
+        "There is no team to operate model serving, patching and evaluation",
+        "A vendor SLA is mandatory for the retrieval path"
+      ],
+      "competitors": [
+        "L7-nvidia-nemo-retriever",
+        "L7-qwen3-embedding",
+        "L7-cohere"
+      ],
+      "fs_note": "Inherits host controls: residency, access and logging are whatever the firm's platform provides [AJ]. Pin library and model versions and record both in the evidence pack [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "The portable, self-hosted toolkit for embeddings, reranking, sparse and late interaction; the firm's exit route and fine-tuning base."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 5,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Covers dense, cross-encoder, sparse and multi-vector with fine-tuning; quality depends on the chosen model.",
+        "enterprise_readiness": "Rule 2: enables in-estate serving and fine-tuning; no commercial support verified (capped at 4).",
+        "security_compliance": "Rule 2: Apache-2.0, PyPI releases; security policy and signing NPV; inherits host controls (capped at 4).",
+        "deployment_flexibility": "Self-host, on-prem and air-gap; no managed option of its own.",
+        "ecosystem": "Over 15,000 models on Hugging Face; many MTEB models load through it.",
+        "reliability_maturity": "Since 2019, regular 2026 releases, Hugging Face stewardship.",
+        "cost_tco": "Free; compute and operations are the cost.",
+        "lockin_portability": "Apache-2.0 and model-agnostic; stewarded by one company rather than a neutral foundation."
+      },
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted library): enterprise_readiness and security_compliance capped at 4; NPV cap not applied"
+      ],
+      "generic_total": 3.8,
+      "fs_total": 3.7
+    }
+  },
+  {
+    "id": "L7-nvidia-nemo-retriever",
+    "assessment": {
+      "capabilities": "NVIDIA NeMo Retriever embedding and reranking NIM microservices: Embedding NIM 2.3 (nemotron-3-embed-1b added in 2.2; llama-nemotron-embed-1b-v2; llama-nemotron-embed-vl-1b-v2) and Reranking NIM 2.0.0 (llama-nemotron-rerank-vl-1b-v2, rerank-1b-v2, rerank-500m-v2), deployed by Helm on Kubernetes or Docker [VF: A2-S030, A2-S031, V1-S094].",
+      "strengths": [
+        "Embed and rerank, text and multimodal, as GPU-optimised containers that run in any cloud or data centre with supported GPUs [VF: A2-S031, A2-S040]",
+        "Client data stays in the firm's environment when self-hosted [AJ]",
+        "Fits estates that already standardise on NVIDIA AI Enterprise for L2 serving [AJ]"
+      ],
+      "limitations_risks": [
+        "Production use requires NVIDIA AI Enterprise, from US$4,500 per GPU per year or about US$1 per GPU per hour in cloud (as of 7 October 2026) [VF: A2-S040]",
+        "Two-layer licensing (container agreement plus per-model licences that vary) [VF: A2-S041]",
+        "Shorter limits than API peers: nemotron-3-embed-1b is text-only, fixed 2,048 dims, 4,096-token maximum [VF: V1-S094, A2-S031]",
+        "Helm chart warns that a text-only reranker silently degrades multimodal reranking [VF: A2-S031]",
+        "Release dates inconsistent across NGC and Hugging Face pages; container security features NPV"
+      ],
+      "choose_when": [
+        "The firm already licenses NVIDIA AI Enterprise and runs GPU Kubernetes",
+        "A vendor-supported, self-hosted embed-plus-rerank runtime is required"
+      ],
+      "avoid_when": [
+        "Retrieval volumes do not justify per-GPU licences",
+        "The firm wants to avoid deepening GPU-vendor concentration"
+      ],
+      "competitors": [
+        "L7-sentence-transformers",
+        "L7-qwen3-embedding",
+        "L7-cohere"
+      ],
+      "fs_note": "Self-hosting removes cross-border transfer questions for the retrieval path [AJ]; the AI Enterprise subscription becomes the third-party arrangement to register [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Sound self-hosted runtime for NVIDIA-standardised estates; licence cost and GPU coupling make it a poor neutral default."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Embed and rerank including multimodal; shorter context and fixed dimensions; Matryoshka not evidenced.",
+        "enterprise_readiness": "Commercial subscription with Helm/Kubernetes deployment; inherits host IAM; support terms NPV.",
+        "security_compliance": "Self-hosted container (certifications not applicable); licence clear; container hardening evidence NPV.",
+        "deployment_flexibility": "Any cloud or data centre with supported GPUs, API catalog for development; air-gap NPV.",
+        "ecosystem": "NeMo Retriever pipeline and Helm chart; wider ecosystem NPV.",
+        "reliability_maturity": "Frequent NIM releases; inconsistent version dating across pages.",
+        "cost_tco": "Per-GPU licence on top of GPU infrastructure.",
+        "lockin_portability": "Tied to NVIDIA GPUs and the AI Enterprise licence; per-model licences vary."
+      },
+      "evidence_caps_applied": [
+        "NPV cap not applied to security_compliance: self-hosted container, vendor certifications not applicable; scored on in-estate deployment and licence clarity"
+      ],
+      "generic_total": 3.0,
+      "fs_total": 2.95
+    }
+  },
+  {
+    "id": "L7-ethicalagents",
+    "assessment": {
+      "capabilities": "Not publicly verified: no product of this name found after six searches by Stage A and a fresh search by the verifier [VF: A2-S079, V1-S036].",
+      "strengths": [],
+      "limitations_risks": [
+        "No evidence the product exists [NPV]"
+      ],
+      "choose_when": [],
+      "avoid_when": [
+        "Do not select: removed per CP1 decision Q4(a)"
+      ],
+      "competitors": [],
+      "fs_note": "Removed from the analysis per CP1 decision Q4(a)."
+    },
+    "classification": {
+      "tier": null,
+      "flags": [
+        "Not publicly verified"
+      ],
+      "rationale": "Could not be verified; removed per CP1 Q4(a)."
+    },
+    "scores": null
+  },
+  {
+    "id": "L7-ragoos",
+    "assessment": {
+      "capabilities": "Not publicly verified: no product of this name found after six searches by Stage A and a fresh search by the verifier [VF: A2-S080, V1-S036].",
+      "strengths": [],
+      "limitations_risks": [
+        "No evidence the product exists [NPV]"
+      ],
+      "choose_when": [],
+      "avoid_when": [
+        "Do not select: removed per CP1 decision Q4(a)"
+      ],
+      "competitors": [],
+      "fs_note": "Removed from the analysis per CP1 decision Q4(a)."
+    },
+    "classification": {
+      "tier": null,
+      "flags": [
+        "Not publicly verified"
+      ],
+      "rationale": "Could not be verified; removed per CP1 Q4(a)."
+    },
+    "scores": null
+  }
+]

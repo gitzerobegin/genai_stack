@@ -1,0 +1,223 @@
+SOURCE ID: B-L9-S001
+URL: https://trust.datadoghq.com/
+FINAL URL: https://trust.datadoghq.com/
+TITLE: Datadog Trust Center | Powered by SafeBase
+ACCESSED: 2026-10-08
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Datadog Trust Center | Powered by SafeBase
+Cyber Essentials Plus (CE+) certification
+Trust Center
+Start your security review
+View & download sensitive information
+Get access
+Overview
+Welcome to Datadog's Trust Center. Our commitment to data privacy and security is embedded in every part of our business. Use this Trust Center to learn about our security posture and request access to our security documentation.
+Compliance
+CCPA
+CSA STAR
+DORA
+EU-US DPF
+FedRAMP High
+GovRAMP
+GDPR
+HIPAA
+ISO/IEC 27001
+ISO/IEC 27017:2015
+ISO/IEC 27018:2019
+ISO/IEC 27701
+ISO/IEC 42001:2023
+PCI DSS
+TISAX
+VPAT
+Cyber Essentials Plus
+EU AI Act
+IRAP
+SOC 2 Type 2
+Documents
+All
+Public
+Private
+Get access
+Bulk download
+Featured Documents
+COMPLIANCE
+ISO/IEC 27001
+POLICIES AND PROCEDURES
+Information Security Policy
+View all documents
+Knowledge Base (FAQ)
+Do you maintain an approved Physical Safety & Security Policy?
+Are you SOC 2 certified?
+Do you enforce Multi-Factor Authentication (MFA)?
+Do you comply with CCPA?
+Is customer data at rest encrypted with AES-256?
+View more
+Risk Profile
+We have secure, reliable hosting that customers can depend on. We are happy to provide details about our risk mitigation practices and recovery objectives upon request.
+Product Security
+Audit Logging
+Data Security
+Integrations
+View more
+Reports
+Network and Dataflow Diagrams
+Pen Test Report
+Self-Assessments
+CAIQ
+HECVAT Full
+SIG Core
+Data Security
+Access Monitoring
+Data Backups
+Encryption-in-transit
+View more
+App Security
+Responsible Disclosure
+Code Analysis
+Credential Management
+View more
+Legal
+Subprocessors
+Cyber Insurance
+Data Processing Addendum
+View more
+Data Privacy
+Cookies
+Data Out of System
+Privacy Center
+View more
+Access Control
+Data Access
+Logging
+Password Security
+Infrastructure
+Status Monitoring
+Amazon Web Services
+Azure
+View more
+Endpoint Security
+Mobile Device Management
+Network Security
+Firewall
+IDS/IPS
+Security Information and Event Management
+Corporate Security
+Asset Management Practices
+Email Protection
+Employee Training
+View more
+Policies and Procedures
+Acceptable Use
+Datadog Privacy and Data Governance Policy
+Access Control
+View more
+Security Grades
+ImmuniWeb
+datadoghq.com
+A
+Qualys SSL Labs
+datadoghq.com
+A
+Security Headers
+datadoghq.com
+A
+Trust Center Updates
+Subscribe
+Datadog's Response to the npm Supply Chain Worm (keyv / jaredwray Maintainer Account Compromise)
+Incidents
+We are aware of a supply chain attack in which the npm maintainer account for 
+jaredwray
+ was compromised, resulting in ~1800+ malicious 
+compromised package versions
+ being published beginning August 4, 2026.
+
+Upon learning of this activity, Datadog's security team investigated potential exposure across our products, public packages, customer-facing infrastructure, and internal development environments. One Datadog-published npm package, 
+backstage-plugin-datadog-entity-sync-backend
+ (versions 1.1.1, 1.1.2, 1.1.4, and 1.1.5), referenced a compromised package as a transitive dependency. We confirmed that Datadog was not impacted. As a precaution, we have blocked all known malicious package versions across our internal systems and continue to monitor for exposure.
+
+This supply chain attack campaign involved a self-propagating worm that has continued to spread to maintainer accounts and packages beyond the initial set. We will update this post if the scope or our exposure assessment changes. We recommend checking the 
+compromised package versions
+ against your own dependencies. If you use the affected versions listed, review the potentially affected systems for the campaign's 
+indicators of compromise
+.
+
+For a detailed breakdown of the campaign and how to assess impact in your own environment, see our 
+Security Labs post
+ for the current authoritative list.
+
+If you have any further questions, our 
+Support team
+ is here to help.
+Datadog's Response to Vector Security Vulnerabilities (GHSA-rrfg-9487-mhp6, GHSA-qp6f-fpfx-4gg6, GHSA-6342-xwvw-c637)
+Vulnerabilities
+Summary
+
+Datadog's security team was notified on June 18, 2026 of three vulnerabilities in Vector, the open-source data pipeline tool, reported by DeMarcus Campbell, Information Security at International Exchange, Inc. (ICE), through coordinated disclosure. Patches for all three issues are available in Vector v0.57.0, released on July 14, 2026. Our investigation found no evidence that these vulnerabilities were exploited in the wild or that any Datadog customer data was accessed or exfiltrated.
+
+Advisory Details
+
+GSHA
+Affected Component
+Fixed In
+GHSA-rrfg-9487-mhp6
+Vector logstash source
+v0.57.0
+GHSA-qp6f-fpfx-4gg6
+Vector logstash source
+v0.57.0
+GHSA-6342-xwvw-c637
+Vector file sink (template variables)
+v0.57.0
+
+Full technical details, including CVSS scores and affected version ranges, are available in the GitHub Security Advisories linked above.
+
+Timeline
+
+June 18, 2026:
+ Datadog notified of findings by International Exchange, Inc. (ICE).
+
+June 18, 2026:
+ Coordinated disclosure process initiated with Vector engineering team.
+
+July 14, 2026:
+ Patched version v0.57.0 was released; public advisory published July 14, 2026.
+
+Vector is an open-source project and not a paid Datadog product; support is provided through public community channels (primarily GitHub Issues/Discussions), not Datadog Support.
+
+If you have additional questions, reach out via your Customer Success Manager, Account Executive, or through 
+Datadog Support
+.
+Cyber Essentials Plus (CE+) certification
+Compliance
+We are pleased to announce that Datadog has achieved its first Cyber Essentials Plus (CE+) certification. CE+ is a UK Government-backed certification that independently verifies an organization's protections against common cyber threats.
+
+The certification covers Datadog's UK operations, including the UK production environment, UK-based employees, their end-user devices and associated supporting infrastructure. All other Datadog networks, locations, and infrastructure are outside the certification scope.
+2026 Penetration Test 
+Compliance
+We’re pleased to announce that summaries of the 2026 penetration tests for Datadog, Eppo, and Cloudcraft (performed by NCC Group) are available on our trust center. These summaries are accompanied by Letters of Engagement.
+Datadog Mobile Application - Android Vulnerabilities
+Vulnerabilities
+Summary:
+ Datadog was notified about 6 low severity vulnerabilities on the Datadog Android Application on April 17, 2026 by Mark Esler (
+https://github.com/eslerm
+). These vulnerabilities were patched in v545-5.9.2, released on April 23, 2026. Our investigation found no evidence that these vulnerabilities were exploited in the wild or that any Datadog customer data was accessed or exfiltrated. CVE IDs for these vulnerabilities are pending and will be included in a follow-up post once assigned. We’ve included a summary of each vulnerability below:
+
+Vulnerabilities:
+
+Exported OnCallNotificationActivity allows cross-app Intent launch and spoofed on-call page acknowledgement
+
+Exported widget configuration activities render authenticated infrastructure data for sequentially-enumerable appWidgetId values
+
+Exported BubbleChatActivity allows a co-installed application to dismiss the legitimate Bits AI chat notification
+
+Datadog Android application stores monitoring metadata and search history in unencrypted SQLite databases
+
+Exported AppActivity accepts attacker-supplied OAuth session from Intent extras, enabling account confusion
+
+Firebase Crashlytics setUserId propagates the Datadog user UUID to Google without a visible consent gate
+
+If you have any questions, reach out via your Customer Success Manager, Account Executive, or through 
+Datadog Support
+.

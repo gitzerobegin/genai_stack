@@ -1,0 +1,706 @@
+[
+  {
+    "id": "L9-langfuse",
+    "assessment": {
+      "capabilities": "Open-core LLM engineering platform: OTel-based tracing of LLM calls, retrieval and agent actions; prompt versioning; LLM-as-a-judge and code evaluators over ingested traces; user feedback and manual labelling; datasets, experiments and a playground; public API [VF: A1-S073, A1-S032].",
+      "strengths": [
+        "MIT core covers tracing, evals, prompt management, experiments and annotation; self-hosting on Docker, Kubernetes (Helm) or Terraform templates for AWS, Azure and GCP [VF: A1-S023, A1-S033, A1-S073]",
+        "Native OTLP/HTTP endpoint and OTel-based SDKs, so instrumentation is not proprietary [VF: A1-S032]",
+        "Langfuse Cloud has SOC 2 Type II and ISO 27001, isolated EU, US, HIPAA and Japan regions, and a DPA [VF: A1-S029, A1-S030]",
+        "Published, unit-based Cloud pricing [VF: A1-S031]"
+      ],
+      "limitations_risks": [
+        "Owned by ClickHouse, Inc. (announced 16 January 2026); self-hosted Enterprise tier is bundled with ClickHouse commercial offerings [VF: A1-S021, A1-S033, V2-S041]",
+        "SCIM, audit logging, retention policies, project-level RBAC and server-side ingestion masking need an Enterprise licence key when self-hosted [VF: A1-S033]",
+        "OTLP over HTTP only (no gRPC); Langfuse-specific attributes take precedence over gen_ai.* [VF: A1-S032]",
+        "Self-hosted telemetry is on by default (opt-out) [VF: A1-S033]",
+        "SLA terms not published in sources reviewed [VF: A1-S031]"
+      ],
+      "choose_when": [
+        "You want a self-hosted platform of record for traces, evals and prompts inside your own estate, with an MIT core and an enterprise licence for the audit and RBAC modules [AJ]",
+        "Framework-neutral instrumentation through OTel matters more than deep integration with one agent framework [AJ]"
+      ],
+      "avoid_when": [
+        "You need SCIM, audit logs and project RBAC but will not buy the Enterprise licence [AJ]",
+        "You cannot operate a ClickHouse-backed service and do not want Langfuse Cloud [AJ]"
+      ],
+      "competitors": [
+        "L9-langsmith",
+        "L9-opik",
+        "L9-arize-phoenix",
+        "L9-mlflow-genai"
+      ],
+      "fs_note": "Best fit for a UK/EU manager that must keep traces (which contain client data) in-region or in-estate; budget for the Enterprise licence because audit logs and project RBAC are evidence controls, not extras; disable default telemetry [AJ]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "MIT core, OTel ingestion, self-hosting and certified EU Cloud make it a credible platform of record; ClickHouse ownership and the enterprise-gated audit/RBAC modules are the caveats [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 4,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Covers tracing, prompts, LLM-as-a-judge, datasets, experiments and annotation; no native red-teaming or documented trajectory metrics.",
+        "enterprise_readiness": "SCIM, audit logs and project RBAC exist but are Enterprise-licensed when self-hosted; SLA terms not published.",
+        "security_compliance": "SOC 2 Type II, ISO 27001, HIPAA BAA and isolated EU region on Cloud; no CMK/BYOK documented, so not 5 under the layer calibration.",
+        "deployment_flexibility": "SaaS, private cloud, self-host and on-prem; BYOC not verified; air-gap not documented.",
+        "ecosystem": "OTel-native with broad integration guides; HTTP-only OTLP.",
+        "reliability_maturity": "GA, 555 PyPI releases since July 2023; ownership changed to ClickHouse in January 2026 with a stated unchanged roadmap.",
+        "cost_tco": "Free MIT core and transparent Cloud pricing; ClickHouse operations and additive Enterprise pricing when self-hosted.",
+        "lockin_portability": "Base 4 (MIT core, OTel ingest, own data model) reduced by 1 for the 2026 ownership change; governance is company-controlled."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.8,
+      "fs_total": 3.7
+    }
+  },
+  {
+    "id": "L9-langsmith",
+    "assessment": {
+      "capabilities": "Proprietary observability, evaluation and deployment platform: native and OTel trace ingest, offline and online evaluation on datasets, prompt management, pytest plugin, and hosted agent deployment; now also Engine (beta), Fleet, Sandboxes and an LLM Gateway [VF: A1-S034, A1-S037, A1-S039, A1-S108].",
+      "strengths": [
+        "Deepest coupling to LangGraph/LangChain, the orchestration framework many teams already use [VF: A1-S037, A1-S039]",
+        "SOC 2 Type II, ISO 27001:2022, HIPAA (BAA on Enterprise) and GDPR; US or EU managed regions on all tiers [VF: A1-S036, A1-S126]",
+        "SaaS, BYOC on AWS, self-hosted and air-gapped self-host on Enterprise [VF: A1-S034]",
+        "Enterprise SSO, RBAC and ABAC; support SLA [VF: A1-S035]"
+      ],
+      "limitations_risks": [
+        "Native tracing format is recommended over OTel for performance, which pulls instrumentation towards a proprietary format [VF: A1-S037]",
+        "Platform increasingly bundles the LangChain agent runtime (Fleet, Deployment), widening the blast radius of a vendor change [VF: A1-S039]",
+        "Self-hosting needs at least 16 vCPU / 64 GB plus PostgreSQL, Redis and ClickHouse [VF: A1-S034]",
+        "Per-seat Plus pricing plus per-trace overage [VF: A1-S035]",
+        "LangSmith Engine is public beta [VF: A1-S039]"
+      ],
+      "choose_when": [
+        "LangGraph is your orchestration standard and you want one supported platform for traces, evals and deployment [AJ]",
+        "You need a commercial vendor with SOC 2, ISO 27001 and an EU region, or BYOC/self-host for residency [AJ]"
+      ],
+      "avoid_when": [
+        "Your agents are framework-heterogeneous and you want a neutral trace store [AJ]",
+        "You do not want the observability vendor to also be your agent runtime vendor [AJ]"
+      ],
+      "competitors": [
+        "L9-langfuse",
+        "L9-braintrust",
+        "L9-arize-ax"
+      ],
+      "fs_note": "Use the EU region or self-host for client data; instrument with OTel GenAI conventions even if native SDKs are also used, so the evidence trail survives a platform exit; keep Engine-proposed fixes behind change control [AJ]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strongest commercial option for LangGraph estates with the certifications and deployment options FS needs; lock-in is real and must be contained with OTel instrumentation [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Offline and online evals, pytest plugin, prompt management and failure clustering; Engine still beta; red-teaming not native.",
+        "enterprise_readiness": "SSO, RBAC, ABAC, gateway audit logging and support SLA on Enterprise; SCIM not documented in the fact base.",
+        "security_compliance": "SOC 2 Type II, ISO 27001:2022, HIPAA BAA, EU region; no CMK/BYOK documented, so not 5 under the layer calibration.",
+        "deployment_flexibility": "SaaS (US/EU), BYOC (AWS), self-hosted and air-gapped self-host on Enterprise.",
+        "ecosystem": "Large LangChain ecosystem plus OTLP ingest; native format preferred.",
+        "reliability_maturity": "GA since 2023, 536 SDK releases, independent and funded (US$125M Series B, October 2025).",
+        "cost_tco": "Transparent but per-seat plus per-trace; heavy self-host footprint.",
+        "lockin_portability": "Proprietary platform, native format recommended, growing bundling with the agent runtime."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.95,
+      "fs_total": 3.8
+    }
+  },
+  {
+    "id": "L9-braintrust",
+    "assessment": {
+      "capabilities": "Proprietary evaluation and observability platform: experiments, datasets and scorers; production trace logging; Topics trace clustering; Loop AI-assisted prompt/model optimisation; a gateway that routes and traces model calls; GitHub Action posting eval results on pull requests [VF: A1-S043, A1-S040, A1-S109].",
+      "strengths": [
+        "Strong offline evaluation workflow with PR-level CI feedback [VF: A1-S109]",
+        "Hybrid deployment: Braintrust-hosted control plane with the data plane in the customer's AWS, GCP or Azure; customer-managed KMS keys and private networking [VF: A1-S041]",
+        "US or EU data plane chosen at organisation creation; EU processing in the DPA [VF: A1-S042]",
+        "OTLP trace endpoints in US and EU [VF: A1-S042]"
+      ],
+      "limitations_risks": [
+        "No ISO 27001 certification found; SOC 2 Type II reports under mutual NDA [VF: A1-S041, A1-S125]",
+        "Evaluation logic and datasets live in the proprietary platform [VF: A1-S042]",
+        "Region cannot be changed after organisation creation [VF: A1-S042]",
+        "Hybrid control plane still holds metadata and hashed keys, and uses Clerk for auth [VF: A1-S041]",
+        "Valuation figures are press-reported only and are not a decision input [R: A1-S027]"
+      ],
+      "choose_when": [
+        "Evaluation-driven development is the main need and teams want rich experiment comparison in pull requests [AJ]",
+        "You want trace data in your own cloud account but are content with a vendor-run control plane [AJ]"
+      ],
+      "avoid_when": [
+        "Your procurement baseline requires ISO 27001 [AJ]",
+        "You need a fully self-contained, air-gapped deployment with no external control plane (air-gap is vendor-mentioned only, low confidence) [AJ]"
+      ],
+      "competitors": [
+        "L9-langsmith",
+        "L9-langfuse",
+        "L9-arize-ax"
+      ],
+      "fs_note": "The hybrid data plane answers the residency question for traces, but the control plane's metadata must still be assessed under SYSC 8/DORA; choose the EU data plane at creation because it cannot be changed [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strong evaluation workflow and a sensible hybrid model, but proprietary eval assets and no ISO 27001 keep it out of the foundational tier for FS [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Leading offline-eval ergonomics plus production logging, clustering and gateway; red-teaming not native.",
+        "enterprise_readiness": "Enterprise RBAC, deployment approvals, retention controls and dedicated support; SSO and audit logs not documented in the fact base.",
+        "security_compliance": "SOC 2 Type II, encryption, CMK in hybrid and EU data plane; no ISO 27001 found and HIPAA wording inconsistent.",
+        "deployment_flexibility": "SaaS, hybrid data plane in customer cloud, self-host on Enterprise; air-gap low confidence.",
+        "ecosystem": "OTLP ingest, MCP endpoint, GitHub Action, several agent framework integrations.",
+        "reliability_maturity": "GA since 2023 with frequent releases; venture-funded and repositioning towards observability.",
+        "cost_tco": "Published Pro price (US$249/month plus usage); Enterprise custom.",
+        "lockin_portability": "Proprietary platform holding eval logic and datasets; OTel ingest only partially mitigates."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.4,
+      "fs_total": 3.2
+    }
+  },
+  {
+    "id": "L9-arize-phoenix",
+    "assessment": {
+      "capabilities": "Self-hosted tracing and evaluation built on OpenTelemetry and OpenInference: LLM-based response and retrieval evaluations, versioned datasets, experiments, prompt playground and management, REST API, MCP endpoint and a pytest plugin for eval-in-CI [VF: A1-S066, A1-S049, A1-S106].",
+      "strengths": [
+        "OpenInference instrumentation (Apache-2.0) routes the same spans to Phoenix, Arize AX or other backends, including Datadog [VF: A1-S049, A1-S066, A1-S098]",
+        "No feature gates and no usage caps when self-hosted [VF: A1-S046, A1-S047]",
+        "Data stays in the customer environment; default web-analytics telemetry carries no trace data and can be disabled [VF: A1-S066]",
+        "Air-gapped deployment supported; cloud templates for AWS, Azure and Google Cloud Run [VF: A1-S046, A1-S066]"
+      ],
+      "limitations_risks": [
+        "Elastic License 2.0: source-available, not OSI open source; cannot be offered to third parties as a managed service [VF: A1-S048, A1-S107]",
+        "Authentication is optional and off by default [VF: A1-S105]",
+        "Single-tenant per instance; full SSO, RBAC and audit trails are provided through AX, not Phoenix [VF: A1-S046]",
+        "Community support only [VF: A1-S046]",
+        "Owned by Dynatrace since 1 October 2026; capabilities to be integrated into Dynatrace over time [VF: A1-S045, V1-S005]"
+      ],
+      "choose_when": [
+        "You want a free, self-hosted tracing and eval workbench for development and validation teams, with OpenInference as the portable instrumentation [AJ]",
+        "Validators need an isolated, air-gapped instance per model review [AJ]"
+      ],
+      "avoid_when": [
+        "You need a multi-team production system of record with SSO, audit trails and support [AJ]",
+        "Your open-source policy admits only OSI-approved licences [AJ]"
+      ],
+      "competitors": [
+        "L9-langfuse",
+        "L9-opik",
+        "L9-mlflow-genai"
+      ],
+      "fs_note": "Good for independent validation sandboxes; switch authentication on, disable telemetry, and do not treat it as the audit store, because it has no audit trail [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Useful, portable workbench with strong instrumentation; ELv2, missing audit/SSO and new Dynatrace ownership make it unsuitable as the production record [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Tracing, retrieval and response evals, datasets, experiments, prompt management and pytest; online production monitoring is the AX proposition.",
+        "enterprise_readiness": "Roles and OAuth2 login when auth is enabled, but no audit trail, SCIM or support; scored as self-hosted software (rule 2).",
+        "security_compliance": "Inherits host controls; licence is clear, telemetry can be disabled; auth off by default is a hygiene weakness. Certifications NPV for Phoenix Cloud, not used.",
+        "deployment_flexibility": "Self-host, private-cloud templates and air-gap; Phoenix Cloud low confidence; no BYOC.",
+        "ecosystem": "OpenInference is accepted by other backends; broad framework and provider auto-instrumentation.",
+        "reliability_maturity": "700 releases since January 2023; Dynatrace completed acquisition 1 October 2026 with a support commitment.",
+        "cost_tco": "Free with no caps; one instance per team and PostgreSQL to operate.",
+        "lockin_portability": "Base 4 (portable OTel/OpenInference, source-available) reduced by 1 for the 2026 ownership change; ELv2 is not permissive."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.5,
+      "fs_total": 3.35
+    }
+  },
+  {
+    "id": "L9-arize-ax",
+    "assessment": {
+      "capabilities": "Commercial agent observability and evaluation: managed tracing, online and offline evaluation, monitoring and alerting at high volume, managed evaluation compute, multi-tenancy via organisations and spaces, and Signal, a scheduled worker that groups recurring failure patterns into issues [VF: A1-S046, A1-S047].",
+      "strengths": [
+        "Same OTel/OpenInference instrumentation as Phoenix, with a documented Phoenix-to-AX migration by dual-writing [VF: A1-S046, A1-S049]",
+        "SaaS, VPC, customer-managed cloud, self-hosted and air-gapped deployment [VF: A1-S046, A1-S047]",
+        "SAML SSO with RBAC mapping, audit trails, dedicated support and SLAs on Enterprise [VF: A1-S046, A1-S124]",
+        "SOC 2 Type II, PCI DSS 4.0 Level 1, HIPAA (Enterprise) and an EU data region in Belgium [VF: A1-S124, A1-S047]"
+      ],
+      "limitations_risks": [
+        "Dynatrace completed the acquisition on 1 October 2026 and plans to converge the product into its platform [VF: A1-S045, V1-S005]",
+        "Runs on the proprietary adb OLAP database [VF: A1-S046]",
+        "ISO 27001 appears on marketing pages but not on the official AX compliance page; request the certificate [VF: A1-S124, V1-S084]",
+        "Enterprise pricing is custom [VF: A1-S047]"
+      ],
+      "choose_when": [
+        "You run Dynatrace already, or you need managed high-volume online evaluation with air-gapped or self-hosted options [AJ]",
+        "Phoenix is in use for development and you want a supported production tier on the same instrumentation [AJ]"
+      ],
+      "avoid_when": [
+        "You need roadmap certainty in the next two to three quarters while Dynatrace integration plans settle [AJ]",
+        "ISO 27001 is a hard procurement gate and the certificate cannot be produced [AJ]"
+      ],
+      "competitors": [
+        "L9-langsmith",
+        "L9-datadog-agent-observability",
+        "L9-braintrust"
+      ],
+      "fs_note": "Self-hosted AX (Arize stores nothing) answers trace residency; re-run third-party due diligence and the DORA register entry after the ownership change, and obtain the ISO certificate before relying on it [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired",
+        "Duplicated"
+      ],
+      "rationale": "Technically strong and FS-deployable, but acquired seven days ago with a convergence roadmap; re-assess for Strategic once Dynatrace publishes product plans [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Online and offline evals, monitoring, alerting and failure-pattern grouping at volume; red-teaming not native.",
+        "enterprise_readiness": "SAML SSO, RBAC, audit trails, multi-tenancy, SLAs; SCIM not documented in the fact base.",
+        "security_compliance": "SOC 2 Type II, PCI DSS 4.0, HIPAA, EU region and self-host; ISO 27001 unconfirmed on the official compliance page, so 4.",
+        "deployment_flexibility": "SaaS, VPC, customer-managed cloud, self-host and air-gap.",
+        "ecosystem": "OpenInference catalogue shared with Phoenix; increasingly tied to Dynatrace.",
+        "reliability_maturity": "Commercial since 2020, but ownership changed on 1 October 2026 with platform convergence planned.",
+        "cost_tco": "Transparent Free and Pro tiers, no per-seat charges; Enterprise custom.",
+        "lockin_portability": "Base 3 (proprietary backend on portable instrumentation) reduced by 1 for the 2026 ownership change."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.85,
+      "fs_total": 3.7
+    }
+  },
+  {
+    "id": "L9-deepeval",
+    "assessment": {
+      "capabilities": "Apache-2.0 Python evaluation framework, 'similar to Pytest but specialised for unit testing LLM apps': LLM-as-a-judge, statistical and NLP metrics, including G-Eval, DAG, RAG faithfulness and contextual recall/precision, and agentic metrics (task completion, tool correctness, plan adherence) with trajectory evaluation; runs in any CI/CD [VF: A1-S068].",
+      "strengths": [
+        "Covers the layer's research questions directly: faithfulness, contextual recall/precision, tool correctness and trajectory [VF: A1-S068]",
+        "Runs locally with any LLM as judge or with local NLP models, so evaluation can stay inside the estate [VF: A1-S068]",
+        "Broad framework integrations (LangGraph, Pydantic AI, CrewAI, OpenAI Agents, Google ADK, LlamaIndex and others) [VF: A1-S068]",
+        "Apache-2.0 [VF: A1-S051]"
+      ],
+      "limitations_risks": [
+        "Commercial features steer to the Confident AI platform [VF: A1-S068]",
+        "OTel export is primarily to Confident AI's OTLP/HTTP endpoint; export to arbitrary collectors not confirmed [VF: A1-S121]",
+        "Confident AI certifications are vendor statements with inconsistent plan gating [VF: A1-S119]",
+        "LLM-judge token spend is the main cost driver [AJ]",
+        "Maintainer funding not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "You want a code-first metric library inside pytest and CI, owned and versioned by the engineering team [AJ]",
+        "You need agent trajectory and tool-correctness metrics without adopting a platform [AJ]"
+      ],
+      "avoid_when": [
+        "You expect a production observability system; DeepEval is a test framework [AJ]",
+        "You would rely on its LLM-judge metrics as the sole evidence for validation without calibrating them against human labels [AJ]"
+      ],
+      "competitors": [
+        "L9-promptfoo",
+        "L9-mlflow-genai",
+        "L9-opik"
+      ],
+      "fs_note": "Run it inside the firm's CI with an approved judge model behind the gateway; pin the library and judge versions in the evidence pack so results are reproducible [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "The most complete open metric library for the layer's questions, but it is a substitutable component of an in-house eval harness, not a platform [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Broadest metric coverage (RAG, agentic, trajectory, G-Eval, DAG); no tracing store of its own.",
+        "enterprise_readiness": "Self-hosted library (rule 2): enables CI evaluation in-estate; commercial platform exists but its access controls are not verified.",
+        "security_compliance": "Inherits host controls; clear Apache-2.0 licence; Confident AI SOC 2/HIPAA are vendor statements with gating conflicts.",
+        "deployment_flexibility": "Library runs anywhere, including air-gapped with local judges; Confident AI SaaS, VPC and self-host options.",
+        "ecosystem": "Many framework integrations; OTel export mainly to Confident AI.",
+        "reliability_maturity": "527 releases since August 2023; fast-changing metric set; funding NPV.",
+        "cost_tco": "Free; judge-token spend dominates.",
+        "lockin_portability": "Apache-2.0 library; company-governed, with commercial steering."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.75,
+      "fs_total": 3.7
+    }
+  },
+  {
+    "id": "L9-promptfoo",
+    "assessment": {
+      "capabilities": "MIT CLI and library for automated evaluation of prompts, models and agents, red-teaming and vulnerability scanning, side-by-side model comparison, CI/CD checks and pull-request code scanning for LLM security issues; Promptfoo Enterprise as SaaS or On-Prem [VF: A1-S062, A1-S063].",
+      "strengths": [
+        "Combines regression evals and red-teaming in one declarative config that runs in GitHub Actions, GitLab CI and Jenkins [VF: A1-S062, A1-S065]",
+        "Evals run locally ('your prompts never leave your machine'); On-Prem edition with a dedicated runner and network isolation [VF: A1-S062, A1-S063]",
+        "Built-in OTLP receiver using OTel GenAI conventions [VF: A1-S064]",
+        "OWASP and NIST compliance reports; providers include OpenAI, Anthropic, Azure, Bedrock and Ollama [VF: A1-S062, A1-S063, A1-S065]"
+      ],
+      "limitations_risks": [
+        "OpenAI announced the acquisition on 9 March 2026; the closing date has not been published, and the README says Promptfoo is part of OpenAI [VF: A1-S024, A1-S062, V1-S006, V2-S042]",
+        "OpenAI plans to integrate it into OpenAI Frontier, so the roadmap follows a model vendor's priorities [VF: A1-S024]",
+        "Pre-1.0 version numbering (0.124.0) [VF: A1-S020]",
+        "Enterprise edition certifications not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "You need red-team and regression suites as code in CI, run locally against any provider [AJ]",
+        "You want OWASP-mapped test evidence for C7 security testing [AJ]"
+      ],
+      "avoid_when": [
+        "A model vendor owning your independent red-team tool is unacceptable to your model-risk function without a second, independent tool [AJ]",
+        "You would buy Enterprise SaaS before certifications are evidenced [AJ]"
+      ],
+      "competitors": [
+        "L9-deepeval",
+        "L9-braintrust",
+        "L9-langsmith"
+      ],
+      "fs_note": "Keep using the MIT CLI locally, pin the version, and keep test configs in the firm's repo so they are portable; pair it with an independent tool when the system under test uses OpenAI models, to preserve effective challenge [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Valuable eval and red-team harness under MIT, but now owned by a model vendor with an unpublished closing date; use as one of two red-team tools, not the sole independent check [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Regression evals, red-teaming, model comparison and PR code scanning; not a production trace store.",
+        "enterprise_readiness": "Enterprise RBAC, team management, SLA and professional services; SSO and audit logs not documented.",
+        "security_compliance": "Scored as a locally run MIT CLI (rule 2): inherits host controls, local-only execution. Enterprise SaaS certifications are NPV and would cap that edition at 2.",
+        "deployment_flexibility": "Local CLI, Enterprise SaaS, and On-Prem on AWS, Azure or GCP with a dedicated runner.",
+        "ecosystem": "CI integrations, OTLP receiver, many providers, OWASP/NIST reports.",
+        "reliability_maturity": "Frequent releases since 2023 but pre-1.0; acquisition announced 9 March 2026, closing not published.",
+        "cost_tco": "Free MIT CLI; attack-generation and grader model spend.",
+        "lockin_portability": "Base 4 (MIT, portable configs) reduced by 1 for the announced acquisition; governance is vendor-controlled."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.7,
+      "fs_total": 3.55
+    }
+  },
+  {
+    "id": "L9-opik",
+    "assessment": {
+      "capabilities": "Apache-2.0 platform from Comet for tracing LLM calls and agents, datasets and experiments with LLM-as-a-judge metrics (hallucination, moderation, RAG), online evaluation rules on production traces, dashboards, guardrails and an agent/prompt optimiser; PyTest integration, OTel over HTTP, MCP server [VF: A1-S067, A1-S070, A1-S072].",
+      "strengths": [
+        "The whole platform, including online evaluation and the optimiser, is Apache-2.0 [VF: A1-S050, A1-S067]",
+        "Online evaluation rules apply LLM-as-a-judge to production traces [VF: A1-S072]",
+        "Comet Trust Center lists SOC 2 Type 2 and ISO/IEC 27001:2022 [VF: A1-S122]",
+        "Low published cloud pricing and free self-hosting [VF: A1-S123]"
+      ],
+      "limitations_risks": [
+        "Self-hosted open source has no user management; SSO and service accounts come with Enterprise [VF: A1-S069, A1-S122, A1-S123]",
+        "Local Docker install is not production-ready; Kubernetes/Helm required [VF: A1-S069]",
+        "OTel over HTTP only [VF: A1-S070]",
+        "EU region and data residency not publicly verified [NPV]",
+        "About two years old with very frequent releases [VF: A1-S006]"
+      ],
+      "choose_when": [
+        "You want a fully Apache-2.0 platform with online evaluation and are willing to buy Comet Enterprise for user management [AJ]",
+        "You already run Comet for ML experiment tracking [AJ]"
+      ],
+      "avoid_when": [
+        "You plan to self-host the open-source edition for multiple teams without an identity layer [AJ]",
+        "You need a verified EU SaaS region [AJ]"
+      ],
+      "competitors": [
+        "L9-langfuse",
+        "L9-arize-phoenix",
+        "L9-mlflow-genai"
+      ],
+      "fs_note": "Self-host for residency, but only with Enterprise user management or a fronting identity proxy; without it the trace store has no access control or attribution [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Most permissive full-platform licence in the layer, but missing user management in the open edition and a young codebase keep it below the foundational tier [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 4,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 5,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Tracing, offline and online evals, guardrails and optimiser; red-teaming not native.",
+        "enterprise_readiness": "Enterprise adds SSO, service accounts, dedicated support and SLAs; open edition has no user management; RBAC and audit logs not documented.",
+        "security_compliance": "SOC 2 Type 2 and ISO 27001:2022 at Comet level; residency NPV; no CMK documented.",
+        "deployment_flexibility": "Comet SaaS, self-host on Kubernetes, on-prem as part of Comet; BYOC not verified.",
+        "ecosystem": "OTel HTTP, PyTest, MCP and a moderate integration list.",
+        "reliability_maturity": "635 releases since September 2024; young and fast-moving.",
+        "cost_tco": "Free full-platform self-hosting and low cloud entry price.",
+        "lockin_portability": "Apache-2.0 platform with OTel ingest; company-governed, so not 5."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.75,
+      "fs_total": 3.75
+    }
+  },
+  {
+    "id": "L9-mlflow-genai",
+    "assessment": {
+      "capabilities": "Apache-2.0 AI engineering platform: OTel-based tracing of LLM applications and agents, evaluation and quality monitoring, prompt registry and optimisation, and an AI Gateway, alongside the classic ML lifecycle [VF: A1-S103].",
+      "strengths": [
+        "Managed offerings on Databricks, Amazon SageMaker, Azure ML, Nebius and Red Hat OpenShift AI, plus self-hosting and on-premises clusters [VF: A1-S103]",
+        "Tracing built on OpenTelemetry; native MCP integration [VF: A1-S103]",
+        "Hosted by the Linux Foundation since 2020 under a vendor-neutral open governance model [VF: B-L9-S004]",
+        "Years of production use; first release June 2018 [VF: A1-S019]"
+      ],
+      "limitations_risks": [
+        "Strong Databricks association; code copyright Databricks [VF: A1-S019]",
+        "Security and access-control features of the open-source tracking server not verified in the fact base [NPV]",
+        "GenAI evaluation depth relative to specialist tools not assessed in primary sources [NPV]",
+        "Spans gateway (C1) and prompt management (C5), which can blur ownership boundaries [VF: A1-S103]"
+      ],
+      "choose_when": [
+        "MLflow already holds the firm's model inventory and lifecycle on Databricks, SageMaker or Azure ML, so GenAI evidence lands beside classic model evidence [AJ]",
+        "You want the most neutral governance and licence in the layer [AJ]"
+      ],
+      "avoid_when": [
+        "You would self-host the open-source server without putting it behind the firm's identity and access controls [AJ]",
+        "Teams need richer agent-debugging UX than the platform offers and will not run a second tool [AJ]"
+      ],
+      "competitors": [
+        "L9-langfuse",
+        "L9-wandb-weave",
+        "L9-opik"
+      ],
+      "fs_note": "For firms whose model risk inventory already lives in MLflow, this is the shortest path to SS1/23-style monitoring evidence for LLM components; use the managed service's controls and residency, which must be verified per provider [AJ]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Apache-2.0, Linux Foundation-hosted and OTel-native, with managed options on the major clouds; the most portable platform of record where an ML platform already exists [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 5,
+        "reliability_maturity": 5,
+        "cost_tco": 4,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Tracing, evaluation, monitoring, prompt registry and gateway; red-teaming not native.",
+        "enterprise_readiness": "Open-source software with commercial managed distributions (rule 2); SSO/RBAC come from the managed host and are not verified in the fact base.",
+        "security_compliance": "Inherits host controls; clear Apache-2.0 licence and foundation hosting; managed-service certifications must be checked per provider.",
+        "deployment_flexibility": "Five managed services, self-host and on-premises clusters.",
+        "ecosystem": "OTel- and MCP-native; managed by multiple clouds; integrated by other L9 tools (Langfuse guide).",
+        "reliability_maturity": "Since 2018, foundation-hosted.",
+        "cost_tco": "Free; managed pricing per provider; tracking-server operations if self-hosted.",
+        "lockin_portability": "Apache-2.0, Linux Foundation governance, OTel."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 4.1,
+      "fs_total": 4.1
+    }
+  },
+  {
+    "id": "L9-datadog-agent-observability",
+    "assessment": {
+      "capabilities": "Datadog module (documented as Agent Observability under the LLM Observability path) that traces each agent step and LLM call with latency, token usage, cost and errors; scans and redacts sensitive data; identifies prompt injection; runs quality, privacy and safety evaluations; and offers automated Insights [VF: A1-S097, A1-S099].",
+      "strengths": [
+        "Correlates LLM traces with APM and infrastructure telemetry already in Datadog [VF: A1-S097]",
+        "Accepts OTel traces using OTel 1.37+ GenAI conventions or OpenInference [VF: A1-S098]",
+        "Built-in sensitive-data scanning and redaction in traces [VF: A1-S097]",
+        "Datadog Trust Center lists SOC 2 Type 2, ISO/IEC 27001, 27017, 27018, 27701 and 42001, HIPAA and FedRAMP High; EU1 site in Germany; SAML SSO, RBAC with custom roles and an Audit Trail [VF: B-L9-S001, B-L9-S002, B-L9-S003, B-L9-S005]"
+      ],
+      "limitations_risks": [
+        "SaaS only; self-hosted and VPC deployment not publicly verified [NPV]",
+        "Requires the Datadog platform [VF: A1-S097]",
+        "Metered per LLM span; rates are on the Datadog pricing page and were not captured [VF: A1-S097]",
+        "Whether the Trust Center listings cover this module specifically is not stated [NPV]",
+        "Offline/CI evaluation features not documented in the fact base [NPV]"
+      ],
+      "choose_when": [
+        "Datadog is the firm's APM standard and production LLM monitoring should sit with on-call operations [AJ]",
+        "You want sensitive-data redaction applied at the observability tier [AJ]"
+      ],
+      "avoid_when": [
+        "You need self-hosting or air-gap for trace data [AJ]",
+        "It would become the only evaluation tool; pair it with a CI eval harness [AJ]"
+      ],
+      "competitors": [
+        "L9-arize-ax",
+        "L9-langsmith",
+        "L9-langfuse"
+      ],
+      "fs_note": "Pin the EU1 site at organisation creation (sites are isolated), turn on sensitive-data scanning before any client data flows, and confirm in the contract that LLM Observability is within the certified scope [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Right answer for production monitoring in Datadog estates, with strong company-level certifications; SaaS-only and per-span metering make it a complement to, not the home of, evaluation evidence [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 4,
+        "security_compliance": 5,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Strong production tracing, cost, redaction and online evals; offline experiments and CI evaluation not evidenced.",
+        "enterprise_readiness": "SAML SSO, RBAC with custom roles and Audit Trail (B-L9 sources); SLA and support terms not captured.",
+        "security_compliance": "SOC 2 Type 2, ISO 27001 and ISO 42001, HIPAA, FedRAMP High at company level; module-level scope not stated.",
+        "deployment_flexibility": "SaaS only, though across isolated regional sites including EU1 (Germany).",
+        "ecosystem": "OTel GenAI 1.37+ and OpenInference ingest; native APM integration.",
+        "reliability_maturity": "Established platform, but the module's maturity and rename date are not verified.",
+        "cost_tco": "Per-span metering on top of the Datadog platform; rates not captured in the fact base.",
+        "lockin_portability": "Proprietary SaaS on standard ingest interfaces; export not verified."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.3,
+      "fs_total": 3.4
+    }
+  },
+  {
+    "id": "L9-wandb-weave",
+    "assessment": {
+      "capabilities": "Tracing and evaluation toolkit for agents and LLM applications from Weights & Biases: traces conversations, turns, LLM and tool calls; evaluates agents; autopatches agent SDKs including OpenAI Agents SDK, Claude Agent SDK and Google ADK; OTLP/HTTP endpoint plus a dedicated agents endpoint [VF: A1-S104, A1-S139].",
+      "strengths": [
+        "SOC 2 Type II, ISO/IEC 27001, 27017 and 27018; HIPAA on Dedicated Cloud with BAA [VF: A1-S137]",
+        "Dedicated Cloud in a customer-chosen cloud and region, with isolated resources, per-instance keys and private connectivity; customer-managed keys on Enterprise [VF: A1-S137, A1-S138]",
+        "Enterprise SSO, automated user provisioning, custom roles and audit logs [VF: A1-S138]",
+        "Self-managed and on-premises options with ingest sampling for cost control [VF: A1-S137]"
+      ],
+      "limitations_risks": [
+        "Part of CoreWeave since 5 May 2025 and now inside CoreWeave Forge [VF: A1-S131, A1-S138]",
+        "Multi-tenant cloud is North America only [VF: A1-S137]",
+        "Pre-1.0 SDK versioning [VF: A1-S018]",
+        "Hosted platform is proprietary [VF: A1-S138]",
+        "Evaluation depth for RAG and red-teaming not evidenced in the fact base [NPV]"
+      ],
+      "choose_when": [
+        "W&B is already the firm's ML experiment platform and you want agent traces and evals in the same governed estate [AJ]",
+        "You need a dedicated single-tenant cloud in a chosen region with customer-managed keys [AJ]"
+      ],
+      "avoid_when": [
+        "You would use the multi-tenant cloud for EU or UK client data [AJ]",
+        "You do not otherwise use W&B; the platform cost is hard to justify for L9 alone [AJ]"
+      ],
+      "competitors": [
+        "L9-mlflow-genai",
+        "L9-langsmith",
+        "L9-arize-ax"
+      ],
+      "fs_note": "Use Dedicated Cloud in an EU/UK region or Self-Managed; include CoreWeave in the concentration analysis if it also supplies GPU capacity [AJ]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Strong security posture and deployment options, but evaluation depth is less evidenced and the product follows a compute vendor's platform strategy [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 4,
+        "security_compliance": 5,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Agent tracing and evaluation with SDK autopatching; RAG metrics, online rules and red-teaming not evidenced.",
+        "enterprise_readiness": "SSO, automated provisioning, custom roles, audit logs and an enterprise support package.",
+        "security_compliance": "SOC 2 Type II, ISO 27001/27017/27018, HIPAA on Dedicated Cloud, customer-managed keys, region choice.",
+        "deployment_flexibility": "Multi-tenant SaaS, Dedicated Cloud, Self-Managed and on-prem; air-gap not documented.",
+        "ecosystem": "OTLP ingest and agent SDK autopatching; strongest inside the W&B estate.",
+        "reliability_maturity": "Three years of releases, pre-1.0 SDK; owned by CoreWeave since May 2025.",
+        "cost_tco": "Pro from US$60/month plus usage-based ingestion; Enterprise by quote.",
+        "lockin_portability": "Base 3 (proprietary platform, OTel ingest, Apache-2.0 SDK) reduced by 1 for the 2025 ownership change."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.55,
+      "fs_total": 3.55
+    }
+  }
+]

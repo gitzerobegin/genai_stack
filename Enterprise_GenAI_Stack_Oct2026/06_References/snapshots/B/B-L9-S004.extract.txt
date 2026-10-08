@@ -1,0 +1,9 @@
+SOURCE ID: B-L9-S004
+URL: https://www.linuxfoundation.org/press/press-release/the-mlflow-project-joins-linux-foundation
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: MLflow Linux Foundation project governance contributed (allowed: mlflow.org, linuxfoundation.org, lfaidata.foundation, databricks.com)
+========================================================================
+
+Search result titles: "The MLflow Project Joins Linux Foundation - Linux Foundation" (linuxfoundation.org/press/press-release/the-mlflow-project-joins-linux-foundation); "MLflow is joining the Linux Foundation" (databricks.com blog, 25 June 2020); "MLflow joins the Linux Foundation!" (mlflow.org/news/2020/06/25); "MLflow - Open Source AI Platform for Agents, LLMs & Models" (mlflow.org).
+Extracts: The Linux Foundation announced on 25 June 2020 that MLflow, an open source machine learning platform created by Databricks, would join the Linux Foundation, which "provides a vendor neutral home with an open governance model". MLflow's own site: "as part of the Linux Foundation, MLflow ensures your AI infrastructure remains open and vendor-neutral". LFX Insights (third-party analytics, indicative only) reports one organisation accounts for 51%+ of contributions.

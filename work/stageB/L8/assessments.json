@@ -1,0 +1,640 @@
+[
+  {
+    "id": "L8-docling",
+    "assessment": {
+      "capabilities": "Open-source conversion of PDF, Office, legacy Office, HTML, images, audio and video into a unified DoclingDocument, with OCR, VLM pipelines, ASR and hybrid chunking; runs as a library, CLI, docling-serve REST API or MCP server [VF: A1-S057, A1-S111, A1-S082].",
+      "strengths": [
+        "MIT licence and LF AI & Data governance (donated March 2025; Graduate tier August 2026) [VF: A1-S057, V1-S091]",
+        "Local or self-hosted processing keeps documents in the firm's estate [AJ]",
+        "Broad format coverage including PPTX, XLSX and legacy Office [VF: A1-S111]",
+        "A documented canonical representation (DoclingDocument) that can serve as the firm's internal document model [AJ]"
+      ],
+      "limitations_risks": [
+        "No ACL, PII or lineage features in the README or docs navigation [VF: A1-S057]",
+        "Very fast release cadence (2.135.0 on 7 October 2026; 223 releases in about two years) makes version pinning mandatory [VF: A1-S008]",
+        "Individual models carry their own licences, which need separate review [VF: A1-S057]",
+        "Security policy, CVE handling and signed releases not verified [NPV]"
+      ],
+      "choose_when": [
+        "Documents must not leave the firm's estate",
+        "You want an open canonical document model that survives a change of parser or OCR engine"
+      ],
+      "avoid_when": [
+        "You need managed, permission-aware connectors out of the box",
+        "You have no platform team to run, pin and patch a Python service"
+      ],
+      "competitors": [
+        "L8-unstructured",
+        "L8-mineru",
+        "L8-llamaparse"
+      ],
+      "fs_note": "Default self-hosted parser for client and confidential documents; pin the docling version and each model version in a parse manifest so that a parse can be reproduced for audit [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "MIT, foundation-governed and self-hostable, so it can anchor the firm's canonical document model; enterprise controls are built around it."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 5,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Broad formats, OCR, VLM and chunking; no ACL, PII or lineage, and table accuracy not independently verified.",
+        "enterprise_readiness": "Library rule: inherits host controls; docling-serve gives an API boundary; commercial managed option via IBM watsonx.",
+        "security_compliance": "Library rule: clear MIT licence and foundation hosting; security policy and CVE process not verified.",
+        "deployment_flexibility": "Self-hosted, private cloud, on-prem and an IBM-managed service; air-gap not explicitly documented.",
+        "ecosystem": "MCP server, REST server and agent-framework integrations; LF AI & Data project.",
+        "reliability_maturity": "Graduate-tier foundation project with steady releases; rapid minor-version churn.",
+        "cost_tco": "Free; CPU sufficient for standard pipelines, GPU only for VLM/ASR paths [AJ].",
+        "lockin_portability": "MIT, open format, neutral governance."
+      },
+      "evidence_caps_applied": [
+        "Library rule applied (enterprise_readiness and security_compliance scored on what the library enables and project hygiene; inherits host controls)"
+      ],
+      "generic_total": 3.85,
+      "fs_total": 3.85
+    }
+  },
+  {
+    "id": "L8-unstructured",
+    "assessment": {
+      "capabilities": "Apache-2.0 'unstructured' partitioning library and 'unstructured-ingest' connectors (SharePoint including Teams channel files, OneDrive, Confluence, Salesforce, S3 and others) that move data to vector stores and warehouses; commercial Transform v2 API with shared, dedicated and in-VPC tiers [VF: A1-S075, A1-S094, A1-S117, V1-S019].",
+      "strengths": [
+        "Only L8 product with verified permission-aware ingestion: a permissions_version SHA-256 ACL digest that triggers reprocessing on ACL-only change [VF: A1-S094]",
+        "Distinguishes an unavailable permission fetch from an empty permission set [VF: A1-S094]",
+        "Vendor lists SOC 2 Type 2, ISO 27001, HIPAA and CMMC 2.0 Level 2 [VF: A1-S117, V1-S090]",
+        "Open-source library and connectors stay free, so the pipeline can run in the firm's estate [VF: A1-S075]"
+      ],
+      "limitations_risks": [
+        "Platform SSO and RBAC not verified [NPV]",
+        "Highest-quality models only via the proprietary API [VF: A1-S075]",
+        "Library still pre-1.0 after four years (0.27.16) [VF: A1-S011]",
+        "Per-page price conflict (US$0.015 vs US$0.03) [VF: A1-S117, A1-S118]",
+        "Library sends usage analytics by default [VF: A1-S075]"
+      ],
+      "choose_when": [
+        "You need connector-level ACL capture and incremental reprocessing from SharePoint, OneDrive or Confluence",
+        "You want one pipeline that can run as open source in-estate or as an in-VPC commercial tier"
+      ],
+      "avoid_when": [
+        "You need verified platform SSO/RBAC on the hosted service today",
+        "Your corpus is mostly scanned or table-heavy and you will not pay for the API models [AJ]"
+      ],
+      "competitors": [
+        "L8-docling",
+        "L8-llamaparse",
+        "L8-reducto"
+      ],
+      "fs_note": "The connector ACL digest is the nearest thing in this layer to entitlement-preserving ingestion; disable default analytics and confirm the hosted data region before any client data is sent [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "The open-source ingest connectors are the only verified source of ACL metadata and incremental reprocessing in L8, with an in-VPC commercial path."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 4,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Partitioning, chunking and the only verified ACL-aware incremental connectors; best table quality is API-only.",
+        "enterprise_readiness": "Capped: platform SSO/RBAC/audit not publicly verified.",
+        "security_compliance": "Vendor-listed SOC 2 Type 2, ISO 27001, HIPAA and CMMC 2.0 Level 2 (medium confidence); data region not verified.",
+        "deployment_flexibility": "Shared SaaS, dedicated, in-VPC, self-hosted open source and vendor-marketed on-prem/air-gapped.",
+        "ecosystem": "Large connector catalogue into vector stores and warehouses.",
+        "reliability_maturity": "Four years of releases, but pre-1.0 library and a PyPI/changelog version mismatch.",
+        "cost_tco": "Open source free; API pricing published but conflicting.",
+        "lockin_portability": "Apache-2.0 library and connectors; proprietary API for best models."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: platform SSO/RBAC/audit NPV"
+      ],
+      "generic_total": 3.65,
+      "fs_total": 3.7
+    }
+  },
+  {
+    "id": "L8-llamaparse",
+    "assessment": {
+      "capabilities": "LlamaParse is now LlamaIndex's whole document platform (formerly LlamaCloud): agentic OCR and parsing of 130+ formats in priced tiers, structured extraction, splitting, classification, managed ingest/index/RAG pipelines and document agents [VF: A1-S080, A1-S081, V1-S008].",
+      "strengths": [
+        "EU region with in-region storage and processing, EU DPA and SCCs [VF: A1-S115]",
+        "BYOC on Azure, AWS and GCP, self-hosting via Helm, and on-premises [VF: A1-S115]",
+        "SOC 2 Type II and a HIPAA pipeline with BAA on request [VF: A1-S115]",
+        "Transparent credit pricing by parse tier [VF: A1-S116]"
+      ],
+      "limitations_risks": [
+        "Permission sync, PII detection and lineage not found [VF: A1-S080]",
+        "SDK churn: legacy llama-cloud-services and llama-parse packages deprecated in 2026 [VF: A1-S013, A1-S014]",
+        "Platform scope spans L8, L6 and L3, which invites a single-vendor knowledge stack [AJ]",
+        "Whether SOC 2 covers BYOC or self-hosted installs is not stated [NPV]"
+      ],
+      "choose_when": [
+        "You want a managed parser with an EU region or BYOC and per-page tier choice",
+        "Complex layouts justify a higher-cost agentic tier on a subset of documents [AJ]"
+      ],
+      "avoid_when": [
+        "You would let the vendor's Index become the system of record for entitled content",
+        "You need ACL-preserving connectors"
+      ],
+      "competitors": [
+        "L8-reducto",
+        "L8-unstructured",
+        "L8-docling"
+      ],
+      "fs_note": "Use Parse and Extract behind the firm's own document model and keep indexing in the firm's L6 store; record the parse tier and SDK version with every output [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Capable managed parser with EU and BYOC options, but proprietary credits, SDK churn and a platform that reaches into L6/L3 argue against a foundational dependency."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Parse, extract, split, classify and index across 130+ formats; no ACL, PII or lineage.",
+        "enterprise_readiness": "SSO on Enterprise and OIDC for self-hosted; RBAC and audit logs not verified.",
+        "security_compliance": "SOC 2 Type II and HIPAA BAA (medium confidence); no ISO 27001 found.",
+        "deployment_flexibility": "SaaS NA/EU, BYOC, self-hosted and on-prem; air-gap not stated.",
+        "ecosystem": "LlamaIndex framework, MCP server, Python/TypeScript SDKs.",
+        "reliability_maturity": "Rename and SDK migration in 2026; company focus has shifted onto this product.",
+        "cost_tco": "Published credits, but agentic tiers cost up to 45 credits per page.",
+        "lockin_portability": "Proprietary credit model and API; managed index and agents deepen dependency."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.4,
+      "fs_total": 3.2
+    }
+  },
+  {
+    "id": "L8-reducto",
+    "assessment": {
+      "capabilities": "Proprietary document ingestion API with Parse, Extract, Split, Edit, Classify and Pipeline resources, asynchronous jobs and webhooks; EU and AU endpoints [VF: A1-S093, A1-S092].",
+      "strengths": [
+        "Vendor-stated VPC, on-prem and air-gapped deployment with offline model updates [VF: A1-S112]",
+        "Retention controls: auto-deletion within 24 hours on Growth/Enterprise and retention=0 on Enterprise [VF: A1-S112]",
+        "Published per-page pricing by operation [VF: A1-S113]",
+        "Funded (US$108M total, Series B led by a16z, October 2025) [VF: A1-S114, V1-S018]"
+      ],
+      "limitations_risks": [
+        "Security and deployment claims come from vendor-authored pages with internal inconsistencies; verifier says do not rely on them without the SOC 2 report [VF: A1-S112]",
+        "Platform SSO/RBAC and enterprise support not verified [NPV]",
+        "No PII, ACL or lineage features found [VF: A1-S092, A1-S093]",
+        "Proprietary API and output schema [VF: A1-S093]"
+      ],
+      "choose_when": [
+        "Complex financial or legal layouts where a managed extraction API justifies its price, and you can obtain the SOC 2 report and contract terms",
+        "You need an air-gapped commercial parser and will validate the claim in due diligence"
+      ],
+      "avoid_when": [
+        "Due diligence cannot obtain the SOC 2 report and BAA/DPA",
+        "Extraction output would be treated as authoritative numbers"
+      ],
+      "competitors": [
+        "L8-llamaparse",
+        "L8-google-document-ai",
+        "L8-unstructured"
+      ],
+      "fs_note": "Promising for complex documents, but treat every security claim as unverified until the SOC 2 report and contract are in hand; pin to the EU endpoint or on-prem install for EU/UK client data [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Technically strong managed extraction with flexible deployment on paper, but security evidence is vendor-only and the API is proprietary."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 2,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Parse, extract, split, classify, edit and pipelines with webhooks; no governance metadata.",
+        "enterprise_readiness": "Capped: SSO/SAML only at low confidence; support terms NPV.",
+        "security_compliance": "Capped: SOC 2/HIPAA/ZDR claims are vendor-only and flagged by the V1 verifier.",
+        "deployment_flexibility": "SaaS with EU/AU endpoints, VPC, on-prem and air-gap, all vendor-stated at medium confidence.",
+        "ecosystem": "REST API and Python SDK; wider integrations not verified.",
+        "reliability_maturity": "Well funded and in production use per vendor (about 1 billion pages, October 2025); SDK still 0.x.",
+        "cost_tco": "Transparent per-page rates; Parse at US$10 per 1,000 pages is above OCR-only engines.",
+        "lockin_portability": "Proprietary API and schema; no open format."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV (SSO low confidence only)",
+        "security_compliance capped at 2: certifications are vendor-only claims flagged in V1 verification_log section 4"
+      ],
+      "generic_total": 2.9,
+      "fs_total": 2.75
+    }
+  },
+  {
+    "id": "L8-mistral-ocr",
+    "assessment": {
+      "capabilities": "Mistral OCR 4.1 (alias mistral-ocr-latest), part of Mistral Document AI: OCR endpoint returning structured output with bounding boxes, block labels, table formatting, header/footer extraction and block-level confidence scores [VF: A1-S083, A1-S130].",
+      "strengths": [
+        "EU-hosted managed API [VF: A1-S135]",
+        "Self-managed single-container, private-cloud and on-prem deployment for enterprise customers [VF: A1-S135]",
+        "Low published price: US$4 per 1,000 pages, US$2 in batch [VF: A1-S130, V1-S010]",
+        "Block-level confidence scores support quarantine thresholds [VF: A1-S130]"
+      ],
+      "limitations_risks": [
+        "Model-version churn: OCR 4.1 GA 26 August 2026 and OCR 4.0 retired 30 September 2026; the original model is no longer maintained [VF: A1-S130, V1-S014]",
+        "Certifications are company-level; OCR scope not confirmed [VF: A1-S136]",
+        "Self-hosting licence terms and hardware sizing not published [NPV]",
+        "OCR only: no connectors, ACL, PII or lineage [AJ]"
+      ],
+      "choose_when": [
+        "You need an EU-resident or self-managed OCR engine behind your own parsing pipeline",
+        "Scanned documents dominate and cost per page matters"
+      ],
+      "avoid_when": [
+        "You cannot re-validate within a deprecation window of weeks",
+        "You call the 'latest' alias in production"
+      ],
+      "competitors": [
+        "L8-google-document-ai",
+        "L8-docling",
+        "L8-reducto"
+      ],
+      "fs_note": "Pin the dated model ID (not mistral-ocr-latest), store OCR outputs with the model ID, and treat each model retirement as a change-control event with re-validation [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "A good EU or self-managed OCR engine to sit behind an interface, but short model-retirement windows make it a component, not a foundation."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Strong OCR feature set with confidence scores; covers only the OCR step of the pipeline.",
+        "enterprise_readiness": "Capped: access controls and support terms NPV in the fact base.",
+        "security_compliance": "Company-level SOC 2 Type II, ISO 27001 and ISO 27701; OCR scope unconfirmed.",
+        "deployment_flexibility": "EU SaaS, private cloud, self-managed container and on-prem under enterprise agreement.",
+        "ecosystem": "Mistral SDKs with opt-in OTel spans; usable inside other parsers.",
+        "reliability_maturity": "OCR 4.0 retired about five weeks after 4.1 reached GA; frequent version replacement.",
+        "cost_tco": "US$4 per 1,000 pages, US$2 batch; self-host pricing unpublished.",
+        "lockin_portability": "Proprietary model, but text/JSON output is easy to swap behind an interface."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV"
+      ],
+      "generic_total": 3.0,
+      "fs_total": 2.95
+    }
+  },
+  {
+    "id": "L8-google-document-ai",
+    "assessment": {
+      "capabilities": "Google Cloud managed OCR, parsing, extraction and classification through processors: Enterprise Document OCR, Form Parser, Layout Parser (with initial chunking), Custom Extractor, classifier/splitter and Summarizer [VF: A1-S101].",
+      "strengths": [
+        "In scope for Google Cloud ISO 27001/27017/27018, SOC 1/2/3 and PCI DSS [VF: A1-S102]",
+        "Published per-page pricing; Enterprise Document OCR at US$1.50 per 1,000 pages [VF: A1-S101]",
+        "Runs on a provider designated under DORA and the UK CTP regime (Google Cloud EMEA Limited) [VF: A8-S020, A8-S023]"
+      ],
+      "limitations_risks": [
+        "Processor outputs are Google-specific and require Google Cloud [VF: A1-S101]",
+        "Region list, IAM and support terms not captured in the fact base [NPV]",
+        "SaaS only; no self-hosting [AJ]",
+        "Form Parser and Custom Extractor at US$30 per 1,000 pages [VF: A1-S101]"
+      ],
+      "choose_when": [
+        "Google Cloud is already the firm's approved cloud and processing region is confirmed",
+        "You want hyperscaler certifications and consolidated third-party oversight"
+      ],
+      "avoid_when": [
+        "Documents must stay on-prem or in a non-GCP estate",
+        "You are trying to reduce hyperscaler concentration"
+      ],
+      "competitors": [
+        "L8-mistral-ocr",
+        "L8-reducto",
+        "Azure AI Document Intelligence (not in fact base)",
+        "AWS Textract (not in fact base)"
+      ],
+      "fs_note": "Natural choice for a GCP-centred firm; confirm the processor region before use and keep outputs in the firm's canonical document model to avoid processor lock-in [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strong certifications and simple pricing, but SaaS-only and Google-specific outputs; strategic only inside a GCP-standardised estate."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "OCR, form parsing, layout parsing with chunking, custom extraction and classification.",
+        "enterprise_readiness": "Capped: IAM, audit and support specifics not captured in the fact base (NPV).",
+        "security_compliance": "ISO 27001/27017/27018, SOC 1/2/3 and PCI DSS scope; residency and CMK not verified.",
+        "deployment_flexibility": "Managed SaaS only; regions not verified.",
+        "ecosystem": "Google Cloud ecosystem; integrations not captured.",
+        "reliability_maturity": "Hyperscaler managed service; maturity facts not captured [AJ].",
+        "cost_tco": "Transparent per-page pricing with volume tiers.",
+        "lockin_portability": "Google-specific processors and outputs; adds to hyperscaler concentration."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/RBAC/audit specifics NPV in the fact base"
+      ],
+      "generic_total": 3.1,
+      "fs_total": 2.95
+    }
+  },
+  {
+    "id": "L8-firecrawl",
+    "assessment": {
+      "capabilities": "Web data API (v2) for scrape, crawl, map, search, extract and parse into Markdown or JSON, plus Cloud-only Agent, Browser and Interact; respects robots.txt by default; Alexandria agent data library launched September 2026 [VF: A1-S053, A1-S077, A1-S079, A1-S129].",
+      "strengths": [
+        "Per-request PII redaction, Zero Data Retention and an opt-in prompt-injection check for JSON extraction [VF: A1-S076, A1-S077]",
+        "Enterprise SSO (SAML, OIDC), SCIM, IP and key restrictions and a DPA [VF: A1-S076]",
+        "Self-hostable server for public-web crawling inside the firm's estate [VF: A1-S078]",
+        "Transparent credit pricing [VF: A1-S127]"
+      ],
+      "limitations_risks": [
+        "Server is AGPL-3.0; enterprise controls, Agent and Browser are Cloud-only [VF: A1-S053, A1-S079, V1-S002]",
+        "Privacy policy places servers and stored data in the US [VF: A1-S134]",
+        "Security claims are vendor pages only; verifier says do not rely on them [VF: A1-S076]",
+        "No document-level ACL or lineage [AJ]"
+      ],
+      "choose_when": [
+        "Batch acquisition of approved public web sources, where US processing is acceptable or the self-hosted server is used",
+        "You want PII redaction and ZDR as per-request switches on web content"
+      ],
+      "avoid_when": [
+        "You plan to modify and expose the server as a network service without AGPL review",
+        "Data must be processed in the EU or UK"
+      ],
+      "competitors": [
+        "L8-crawl4ai",
+        "L8-apify"
+      ],
+      "fs_note": "Use only for public, approved sources; route client or confidential data elsewhere, and obtain the SOC 2 report before relying on the Cloud for anything beyond public content [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "The most enterprise-ready web acquisition option, but AGPL open core, US-only data location and unverified security evidence keep it tactical."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Full web acquisition surface plus parsing, PII redaction and prompt-injection check.",
+        "enterprise_readiness": "SSO, SCIM, key restrictions and dedicated support on Enterprise; audit logs not verified.",
+        "security_compliance": "Capped: SOC 2 Type II and HIPAA wording are vendor-page claims flagged by the V1 verifier.",
+        "deployment_flexibility": "Cloud plus a reduced-feature self-hosted server.",
+        "ecosystem": "SDKs, CLI, webhooks; Alexandria plugins for major assistants.",
+        "reliability_maturity": "Two and a half years of SDK releases and recent Series B; API moved to v2.",
+        "cost_tco": "Published credits; self-hosting means owning auth, TLS, persistence and anti-bot services.",
+        "lockin_portability": "AGPL server and Cloud-only features create SaaS dependency."
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: Firecrawl security claims are vendor-only and flagged in V1 verification_log section 4"
+      ],
+      "generic_total": 3.1,
+      "fs_total": 2.85
+    }
+  },
+  {
+    "id": "L8-crawl4ai",
+    "assessment": {
+      "capabilities": "Open-source crawler and scraper producing LLM-ready Markdown or structured data with browser automation, batch crawling and LLM extraction; Python library, CLI, self-hosted REST server, MCP and a hosted Crawl4AI Cloud [VF: A1-S074].",
+      "strengths": [
+        "Self-hosted Docker server, with an API token required on every endpoint by default [VF: A1-S074]",
+        "Free library; cost is browser compute and proxies [VF: A1-S074]",
+        "Runs entirely inside the firm's estate [VF: A1-S074]"
+      ],
+      "limitations_risks": [
+        "Apache-2.0 plus an appended attribution requirement covering distributions and public uses; legal review advised [VF: A1-S056, V1-S001]",
+        "Pre-1.0 (0.9.4) with a single-maintainer origin [VF: A1-S009, A1-S074]",
+        "No disclosed venture funding (aggregator only) [R: A1-S132]",
+        "No certifications or enterprise support found [NPV]"
+      ],
+      "choose_when": [
+        "Self-hosted crawling of a small set of approved public sources by a team that can own it",
+        "Prototyping web acquisition before committing to a commercial service"
+      ],
+      "avoid_when": [
+        "It would be a critical production dependency without a support route",
+        "Legal cannot accept the attribution clause for your use"
+      ],
+      "competitors": [
+        "L8-firecrawl",
+        "L8-apify"
+      ],
+      "fs_note": "Acceptable for public data in a controlled estate; record the attribution clause in the open-source register and do not use the hosted cloud for anything confidential [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "Useful and permissive in practice, but pre-1.0, single-maintainer and carrying a non-standard licence term."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Covers crawling, Markdown and extraction; no PII, ACL or provenance features.",
+        "enterprise_readiness": "Library rule: token auth by default; no commercial enterprise support verified.",
+        "security_compliance": "Library rule: security policy and CVE handling not verified; licence carries an extra attribution term.",
+        "deployment_flexibility": "Library, Docker server, private cloud, on-prem and hosted cloud.",
+        "ecosystem": "MCP for common coding assistants; smaller ecosystem than commercial peers.",
+        "reliability_maturity": "Pre-1.0 versioning and single-maintainer origin.",
+        "cost_tco": "Free; operations cost is browsers and proxies.",
+        "lockin_portability": "Open source, but the attribution clause is not plain Apache-2.0."
+      },
+      "evidence_caps_applied": [
+        "Library rule applied (enterprise_readiness and security_compliance capped at 4; scored on project hygiene; inherits host controls)"
+      ],
+      "generic_total": 2.9,
+      "fs_total": 2.9
+    }
+  },
+  {
+    "id": "L8-mineru",
+    "assessment": {
+      "capabilities": "MinerU 4.0: local-first parsing of PDF, images, Office, OpenDocument, EPUB, OFD, HTML and CSV into Markdown/JSON with four parsing tiers, a document library with citation locators for agents, and a multi-service router [VF: A1-S055, A1-S010].",
+      "strengths": [
+        "Local by default; documents are not uploaded unless remote parsing is set explicitly [VF: A1-S055]",
+        "Citation locators give stable references for agent reading [VF: A1-S055]",
+        "Telemetry is anonymous, excludes document content and file names, and can be disabled [VF: A1-S055]"
+      ],
+      "limitations_risks": [
+        "Custom 'MinerU Open Source License': separate commercial licence above 100M MAU or US$20M monthly revenue (group-consolidated); rights terminate on breach [VF: A1-S054, V1-S003]",
+        "Commercial licence price not published [VF: A1-S054]",
+        "Standard/Advanced tiers need a GPU with 8 GB+ VRAM [VF: A1-S055]",
+        "Major-version migration (3.x to 4.0) in 2026 [VF: A1-S055]"
+      ],
+      "choose_when": [
+        "Below the licence thresholds, or with a commercial licence in place, and local GPU parsing is acceptable",
+        "As a second parser for reconciliation of hard tables [AJ]"
+      ],
+      "avoid_when": [
+        "A large firm whose group revenue exceeds the threshold has no commercial licence",
+        "You need vendor support or certifications"
+      ],
+      "competitors": [
+        "L8-docling",
+        "L8-unstructured",
+        "L8-llamaparse"
+      ],
+      "fs_note": "Large asset managers are likely to exceed the group-consolidated revenue threshold, so legal must clear the licence before any production use [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "Technically capable and local-first, but a custom licence with revenue thresholds, an unpublished commercial price and fresh major-version change."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 2,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Four parsing tiers, broad formats and citation locators; no ACL, PII or lineage.",
+        "enterprise_readiness": "Library rule: no enterprise support offer or access controls found.",
+        "security_compliance": "Library rule: local-first and telemetry opt-out, but custom licence with termination clause and no verified CVE process.",
+        "deployment_flexibility": "Local, self-hosted, on-prem and an optional remote service.",
+        "ecosystem": "Integrations not verified.",
+        "reliability_maturity": "GA 4.0 line with frequent releases, but young (first PyPI June 2025) and a 2026 major migration.",
+        "cost_tco": "Free below thresholds; commercial price above them is unpublished, plus GPU cost.",
+        "lockin_portability": "Custom licence with revenue/MAU thresholds and automatic termination."
+      },
+      "evidence_caps_applied": [
+        "Library rule applied (enterprise_readiness and security_compliance capped at 4; scored on project hygiene; inherits host controls)"
+      ],
+      "generic_total": 2.8,
+      "fs_total": 2.7
+    }
+  },
+  {
+    "id": "L8-apify",
+    "assessment": {
+      "capabilities": "Serverless 'Actor' platform for scrapers and automations with Apify Proxy, datasets, key-value stores and request queues, the Apify Store marketplace and an MCP server [VF: A1-S087, A1-S089].",
+      "strengths": [
+        "Large marketplace of ready-made Actors [VF: A1-S089]",
+        "SOC 2 Type II with report via trust.apify.com [VF: A1-S085, V1-S089]",
+        "Transparent compute-unit pricing [VF: A1-S133]"
+      ],
+      "limitations_risks": [
+        "Hosted only in AWS us-east-1; no EU region documented [VF: A1-S086, V1-S089]",
+        "Third-party Store Actors are outside Apify's control under its shared-responsibility model [VF: A1-S086]",
+        "Actors and storage are platform-specific [VF: A1-S087]",
+        "Access controls and enterprise support not verified [NPV]"
+      ],
+      "choose_when": [
+        "Long-tail public-web acquisition where a maintained Actor already exists and the data is public",
+        "Short-lived research or market-data collection that never touches client data"
+      ],
+      "avoid_when": [
+        "Any personal, client or confidential data is involved",
+        "Data must be processed in the EU or UK"
+      ],
+      "competitors": [
+        "L8-firecrawl",
+        "L8-crawl4ai"
+      ],
+      "fs_note": "US-only processing and third-party Actors make it unsuitable for anything beyond public data; review each Actor as third-party code [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Convenient for public long-tail scraping, but single US region, marketplace code risk and platform-specific Actors."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 3,
+        "deployment_flexibility": 1,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Scraping, automation, proxy and storage; no parsing depth or governance metadata.",
+        "enterprise_readiness": "Capped: SSO/RBAC/audit and support NPV.",
+        "security_compliance": "SOC 2 Type II, encryption in transit and at rest, tenant isolation.",
+        "deployment_flexibility": "One SaaS region only (AWS us-east-1).",
+        "ecosystem": "Store Actors, MCP server and connectors.",
+        "reliability_maturity": "Client library on PyPI since 2021 with frequent releases.",
+        "cost_tco": "Published plans and compute-unit rates.",
+        "lockin_portability": "Platform-specific Actors and storage; proprietary API."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV"
+      ],
+      "generic_total": 2.5,
+      "fs_total": 2.4
+    }
+  }
+]
