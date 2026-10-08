@@ -50,6 +50,7 @@
 | 15a | 8 October | All three writers done. `tools/check_tags.py` added: all tag IDs resolve. **Calibration issue:** L7 capped enterprise readiness for every hosted vendor, while L9 closed similar gaps by searching. A calibration reviewer was launched over L9–L7 (prompt in the `work/prompts/stageA_prime_and_stageB_prompts.md` appendix). | Reviewer running |
 | 15b | 8 October | The calibration reviewer finished. Built the CP2 pack (draft `.md` plus a pandoc `.docx`), rebuilt the dataset (1,151 sources, 0 issues), and pushed. **Stopped for CP2.** | |
 | 16 | 8 October | User's CP2 answers recorded. Rubric rules 6–9 and the brief (no length cap, deep-dive format) updated. Launched 8 agents: 1 rework and 7 writers. | Running |
+| 17 | 8 October | All 8 tranche-2 agents stopped with an API 429 "session limit" (resets 12:30 UTC) before writing any output. At 18:13 UTC, after the user said "continue", all 8 were resumed with SendMessage (context kept). | Running |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it
@@ -63,6 +64,7 @@
 | B5 | GitHub push was 403 at first | Resolved by the user | n/a |
 | B6 | No Bitbucket credentials | Not needed: the user chose GitHub | n/a |
 | B7 | The Veyans MCP server failed to connect | None; it is not used | n/a |
+| B9 | **Account usage limit**: HTTP 429 "session limit" | All 8 tranche-2 agents stopped mid-read; no output lost | Resume agents with SendMessage after the reset time; on the desktop, run fewer agents in parallel if the limit is tight |
 | B8 | `cloud.google.com` now redirects to `docs.cloud.google.com` (blocked) | Google facts come from search extracts | Desktop re-fetch |
 
 ## Known residual risks (carried forward)
