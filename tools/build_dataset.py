@@ -82,7 +82,7 @@ for p in products:
             issues.append("%s.%s labelled %s without source" % (p.get("id"), path, cell.get("label")))
 
 # Stage B writer-added sources
-for sp in sorted(glob.glob("work/stageB/*/sources_added.csv")):
+for sp in sorted(glob.glob("work/stageB/*/sources_added*.csv")):
     with open(sp, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             row = {k.strip(): (v or "").strip() for k, v in row.items() if k}

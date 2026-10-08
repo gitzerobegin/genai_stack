@@ -20,3 +20,17 @@ FIRST read and follow exactly: /home/user/genai_stack/work/stage0/07_stageB_writ
 **To re-run this tranche:**
 - **Writers:** copy the L6, L5 or L4 prompt pattern from `stageA_prime_and_stageB_prompts.md` (L9, L8, L7 writers), adding the preamble above and the product list and guidance from this table.
 - **Controls:** each writer prompt covers two controls, using numbering `## C<n>. <name>` and C<n>.1 to C<n>.13.
+
+## Tranche 2: interruptions and calibration reviewers
+
+**Interruptions.** Two usage-limit (429) interruptions occurred. Each time, the stopped agents were resumed with `SendMessage`, for example: "Resume after the rate limit. Status on disk: … MISSING. Write … then give the final reply."
+
+**Reviewers.** Two calibration reviewers ran in parallel. Both read the approved L9–L7 calibration (`checkpoints/CP2/02_Calibration_Review.md`, `work/stageB/_review/CP2_rework_log.md`) and the shared table `work/stageB/_review/all_scores.md`.
+
+| | Reviewer A | Reviewer B |
+|---|---|---|
+| **Scope** | L6, L5, L4, C1, C2 | C3–C8 |
+| **Focus** | Tier consistency (Pinecone vs MongoDB, MCP vs A2A, LiteLLM after its compromise, L6 scored above L7). Conflict-of-interest scoring for MCP, Agent Skills and turbopuffer. The L6 malformed tag. | C4 "all Strategic" tier inflation. MCP authorisation (conflict of interest). Pattern-vs-product tiering. C8 regulatory precision against `regulatory_facts.json`. |
+| **Common steps** | At least 12 claim spot-checks per section; do-not-rely lists; `check_tags.py`; up to 15 searches | Same |
+| **Source IDs** | B-REVA-S### | B-REVB-S### |
+| **Output** | `work/stageB/_review/CP3_review_A.md` | `work/stageB/_review/CP3_review_B.md` |
