@@ -81,6 +81,29 @@ for p in products:
         if cell.get("label") in ("Verified fact", "Reported") and not cell.get("src"):
             issues.append("%s.%s labelled %s without source" % (p.get("id"), path, cell.get("label")))
 
+# Stage B writer-added sources
+for sp in sorted(glob.glob("work/stageB/*/sources_added.csv")):
+    with open(sp, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            row = {k.strip(): (v or "").strip() for k, v in row.items() if k}
+            if row.get("id"):
+                row["stream"] = "B"
+                sources[row["id"]] = row
+
+# Stage B overlay: assessments, classification and scores per product
+by_id = {p.get("id"): p for p in products}
+for ap in sorted(glob.glob("work/stageB/*/assessments.json")):
+    try:
+        arr = json.load(open(ap, encoding="utf-8"))
+    except Exception as e:
+        issues.append("%s: invalid JSON (%s)" % (ap, e)); continue
+    for a in arr:
+        p = by_id.get(a.get("id"))
+        if not p:
+            issues.append("%s: unknown product id %s" % (ap, a.get("id"))); continue
+        for k in ("assessment", "classification", "scores"):
+            p[k] = a.get(k)
+
 def sort_key(p):
     l = p.get("layer", "Z")
     return (LAYER_ORDER.index(l) if l in LAYER_ORDER else 99, p.get("id", ""))
