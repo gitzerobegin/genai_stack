@@ -105,7 +105,7 @@
     "classification": {
       "tier": "Tactical",
       "flags": [],
-      "rationale": "FS total 3.55 falls just below the normal Strategic line after three borderline calls resolved against Anthropic under the conflict rule (technical, ecosystem, cost); the first-party residency gap and the June 2026 Fable 5 suspension are factual weaknesses; reviewer may re-examine [AJ]."
+      "rationale": "FS total 3.55 falls just below the normal Strategic line after borderline calls resolved against Anthropic under the conflict rule: technical, ecosystem and cost, and security held at 4 although the rule-8 certificate threshold for 5 is met; the first-party residency gap and the June 2026 Fable 5 suspension are factual weaknesses. The CP4 calibration review (review C, Q1) puts the tier and these calls to the reader with the neutral-rubric values; scores unchanged by the reviewer [AJ]."
     },
     "scores": {
       "criteria": {
@@ -407,7 +407,7 @@
         "Bedrock offers K3 only through cross-Region profiles (US, India, global); Foundry's K3 is Fireworks-operated with inference outside the customer's tenant [VF: A5-S086, A5-S087]",
         "Custom Kimi K3 License with revenue and MAU thresholds, not MIT [VF: A5-S069] [R: V2-S015]",
         "CAISI with UK AISI (July 2026): below frontier cyber capability; safeguards did not stop attempted exploit development; K2 Thinking heavily censored in Chinese [VF: A5-S051, V2-S021]",
-        "Anthropic alleges that Moonshot distilled Claude; unadjudicated competitor allegation [VF: A5-S046, V2-S022]",
+        "Context only, not a scored limitation: Anthropic alleges that Moonshot distilled Claude; this is an unadjudicated competitor allegation and the author is an Anthropic model, so it is not used in any score [VF: A5-S046, V2-S022]",
         "Certifications, access controls and support not publicly verified [NPV]"
       ],
       "choose_when": [
