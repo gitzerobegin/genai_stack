@@ -211,12 +211,12 @@
         "C4-okta-auth0-ai-agents",
         "OAuth 2.0 resource-server pattern for REST tools"
       ],
-      "fs_note": "Treat as Tactical but mandatory wherever MCP is used: make authorisation mandatory by firm policy, pin the spec revision at the gateway, and require EMA so the corporate IdP mediates access; the strategic components are the IdP and the gateway PDP, which keep working if the tool protocol changes [Rec]."
+      "fs_note": "Strategic, conditional, and mandatory wherever MCP is used (CP3 Q1): make authorisation mandatory by firm policy, pin the spec revision at the gateway, and require EMA so the corporate IdP mediates access; the durable controls are the IdP and the gateway PDP, which keep working if the tool protocol changes [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical, mandatory where MCP is used: the required interface contract for MCP tool calls, but not a foundational dependency on its own, because authorisation is optional, it rests on IETF drafts and it has had four breaking revisions (reliability 2); the strategic components are the workforce IdP (via EMA) and the gateway PDP. Borderline case resolved against the Anthropic-originated specification under the conflict-of-interest rule; independent alternatives named [AJ]."
+      "rationale": "Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions. Tier set by the reader at Checkpoint 3 (CP3 Q1): MCP (L4-mcp) and its authorisation profile are one decision. FS 3.45 and reliability 2 (IETF drafts, four breaking revisions) are why the condition includes pinning the specification revision at the gateway. Conflict of interest: MCP originated at Anthropic and the author is an Anthropic model [AJ]."
     },
     "scores": {
       "criteria": {
@@ -337,9 +337,9 @@
       "fs_note": "Review AI-generated policies before activation, keep the Cedar source in Git, and avoid Dogwood-only constructs where portability matters; platform controls presumed (CP2 Q1); confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical, preferred PDP inside an AWS AgentCore estate: FS 3.70 after the CP3 security re-base, but enforcement is tied to AgentCore Gateway, which C1 rates Tactical, so it cannot be more strategic than its enforcement point; OPA is the Strategic, cloud-neutral default. Cedar source stays portable [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud and agents run on AgentCore Gateway (CP3 Q2, rubric rule 10). AgentCore Policy is AWS's lead managed policy service for agent tool calls, and its enforcement point (AgentCore Gateway) is now Strategic on the same condition in C1 and L4. OPA remains the cloud-neutral default; keep Cedar source in Git so policies stay portable [AJ]."
     },
     "scores": {
       "criteria": {

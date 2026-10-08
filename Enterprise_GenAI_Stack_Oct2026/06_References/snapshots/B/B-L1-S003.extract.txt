@@ -1,0 +1,14 @@
+SOURCE ID: B-L1-S003
+URL: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com): Gemini model versions lifecycle stable model retirement date Google Cloud
+========================================================================
+
+Search-tool summary of Google Cloud Gemini Enterprise Agent Platform model pages and release notes:
+- Gemini 3.7 Flash: release date 13 August 2026, retirement date 28 January 2027 (docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash).
+- Gemini 3.6 Flash: retirement date 19 November 2026; page advises upgrading to Gemini 3.8 Flash (.../models/gemini/3-6-flash).
+- Gemini 3.5 Flash: release 19 May 2026, retirement 19 May 2027 or later (.../models/gemini/3-5-flash).
+- Gemini 2.5 Pro and 2.5 Flash: GA, released 17 June 2025, retirement 20 October 2026 per model pages; an April 2026 release note says 16 October 2026 (conflict).
+- Retirement dates apply to Google Cloud support; the Gemini API is a separate offering under its own terms.
+- Pinning a specific versioned model ID gives more predictable behaviour than stable/preview aliases.

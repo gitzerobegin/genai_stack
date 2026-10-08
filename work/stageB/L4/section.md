@@ -151,7 +151,7 @@ The gateway is the design choice that matters most. Without it, every MCP client
 - *Independent alternatives:* OpenAPI-described tools exposed through a gateway and called through each model's native function calling; AgentCore Gateway, Apigee and APIM can convert existing APIs into tools [VF: A6-S021, A6-S024, A6-S053]. Vendor-neutral private registries (Azure API Center, GitHub's enterprise registry setting) can hold the allow-list whichever protocol wins [VF: A3-S043, A3-S044].
 - *Competitors:* A2A (complementary, agent-to-agent), OpenAPI tool definitions, vendor function-calling schemas.
 - *FS note:* adopt the protocol, not the ecosystem: internal servers only, behind the gateway, with authorisation mandatory and definitions pinned [Rec].
-- **Tier: Strategic, conditional: only behind a firm-owned gateway that makes authorisation mandatory, enforces an allow-list and pins tool definitions, because the specification leaves these optional and security scores 2 [AJ]. No flag.** FS 3.55, below the 3.6 guide; the tier rests on MCP being the layer's de facto tool contract, and the alternative (Tactical) is put to the human reviewer at CP3 [AJ].
+- **Tier: Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions [AJ]. No flag.** Tier set by the reader at Checkpoint 3 (CP3 Q1); the author's reviewers had resolved the borderline call against the Anthropic-originated item [AJ]. MCP and its authorisation profile (C4) are one decision with one tier. FS 3.55 is below the 3.6 guide and security scores 2, which is why every part of the condition is mandatory; the independent alternative remains OpenAPI-described tools behind the same gateway [AJ].
 
 **Agent2Agent Protocol (A2A Project, AAIF / Linux Foundation).**
 - *What it is now:* an open protocol for communication between opaque agent applications. Specification 1.0.0 was released on 12 March 2026 and 1.0.1 on 26 May 2026; the Python SDK `a2a-sdk` is at 1.2.2 (5 October 2026) [VF: A3-S078, A3-S079, A3-S075, V1-S039]. Specification and SDKs are Apache-2.0 [VF: A3-S075, A3-S025].
@@ -163,7 +163,7 @@ The gateway is the design choice that matters most. Without it, every MCP client
 - *Avoid when:* a deterministic workflow calling tools would do; most regulated use cases today are in that category [AJ].
 - *Competitors:* MCP (agent-to-tool), framework-native multi-agent APIs (L3), agentgateway's A2A gateway [VF: A6-S061].
 - *FS note:* require signed Agent Cards and verify them; bound and revoke delegated authority yourself, because the protocol does not [Rec].
-- **Tier: Tactical. No flag.** It is the right standard when agent-to-agent delegation is needed, but it should not yet be a foundational dependency for regulated workflows [AJ].
+- **Tier: Strategic, conditional: where cross-team or cross-vendor agent delegation is in scope (CP3 Q1) [AJ]. No flag.** Signed Agent Cards must be verified, and delegated authority scoped and revocable by the firm, because the protocol does not define it. Where a deterministic workflow calling tools would do, as in most regulated use cases today, A2A is not needed at all [AJ].
 
 **Agent Skills (SKILL.md format; originated at Anthropic, Anthropic-maintained).**
 - *Conflict of interest:* Agent Skills originated at Anthropic and the author is an Anthropic model. It was scored on the same rubric as everything else [AJ].
@@ -259,7 +259,7 @@ The gateway is the design choice that matters most. Without it, every MCP client
 - *Avoid when:* tools and agents span several clouds and you want one policy point; use a cloud-neutral gateway (agentgateway, Kong) instead [VF: A6-S061, A6-S016] [AJ].
 - *Competitors:* Azure APIM AI gateway, Apigee, Kong AI Gateway, agentgateway (C1); Composio.
 - *FS note:* AWS EMEA SARL is a designated critical third party under both DORA and the UK CTP regime, so this service sits inside an already overseen relationship [VF: R-DORA, R-UK-CTP]; it adds to AWS concentration [AJ].
-- **Tier: Tactical, conditional: the default tool gateway where AWS is the agent platform [AJ]. No flag.** FS 3.45. AWS-only deployment (2) and one year of GA keep it below the Strategic guide, as for the same service in C1, AgentCore Memory (L5) and Bedrock Guardrails (C2) [AJ].
+- **Tier: Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10) [AJ]. No flag.** FS 3.45. It is AWS's lead managed tool gateway and agent identity service; AWS-only deployment (2) is accepted under rule 11 because the condition is an existing platform commitment. The same tier applies to the same service in C1, and to AgentCore Memory (L5) and Bedrock Guardrails (C2) [AJ].
 
 ### 4.8 Comparison table
 
@@ -268,14 +268,14 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | L4-mcp | 4 | 3 | 2 | 5 | 5 | 3 | 4 | 4 | 3.70 | 3.55 | Strategic |
-| L4-a2a | 3 | 3 | 3 | 5 | 4 | 3 | 4 | 5 | 3.60 | 3.70 | Tactical |
+| L4-a2a | 3 | 3 | 3 | 5 | 4 | 3 | 4 | 5 | 3.60 | 3.70 | Strategic |
 | L4-agent-skills | 3 | 2 | 2 | 5 | 4 | 2 | 5 | 3 | 3.20 | 3.00 | Tactical |
 | L4-composio | 4 | 3 | 2 | 4 | 4 | 2 | 3 | 2 | 3.15 | 2.90 | Experimental |
 | L4-exa | 3 | 3 | 3 | 1 | 3 | 3 | 3 | 3 | 2.70 | 2.70 | Tactical |
 | L4-tavily | 3 | 3 | 3 | 1 | 3 | 3 | 3 | 2 | 2.65 | 2.55 | Tactical |
 | L4-browserbase | 4 | 3 | 3 | 3 | 4 | 3 | 3 | 4 | 3.35 | 3.35 | Tactical |
 | L4-e2b | 4 | 2 | 3 | 4 | 4 | 3 | 3 | 4 | 3.35 | 3.35 | Tactical |
-| L4-aws-agentcore-gateway-identity | 4 | 4 | 4 | 2 | 4 | 3 | 4 | 3 | 3.55 | 3.45 | Tactical |
+| L4-aws-agentcore-gateway-identity | 4 | 4 | 4 | 2 | 4 | 3 | 4 | 3 | 3.55 | 3.45 | Strategic |
 
 **Scoring notes [AJ]:**
 - *Open specifications (rule 2).* MCP, A2A and Agent Skills were scored on project hygiene and on what they enable in the firm's estate, capped at 4. MCP security is 2 (it was 3 before the CP3 review): authorisation is optional, tool definitions cannot be signed, tool poisoning is a documented attack class, and the TypeScript SDK had several High advisories in 2026, one of which sent OAuth credentials to an authorisation server chosen by the MCP server [VF: A3-S055, A3-S023, B-REVA-S006]. Advisories are published with fixes, which is good hygiene, but on protocol integrity MCP sits below A2A, so the borderline call was resolved against the Anthropic-originated item. A2A is 3 because card signing is optional and delegated authority has no revocation semantics; Agent Skills is 2 because skills carry executable code with no signing or provenance.
@@ -283,7 +283,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - *Hyperscaler presumption (rule 6).* AgentCore enterprise readiness is 4: platform controls presumed (CP2 Q1); confirm per service. Security is 4, not 5, because the ISO wording is inconsistent across AWS pages (rule 8). At the CP3 review, deployment fell from 3 to 2 (AWS-managed only) and maturity from 4 to 3 (one year of GA), to match the same service in C1 and AgentCore Memory in L5.
 - *Deployment 1.* Exa and Tavily are SaaS-only with no processing region choice found.
 - *Ownership change (rule 3).* Tavily's lock-in was reduced by 1 for the Nebius acquisition.
-- *Tiers.* A2A reaches 3.70 FS but is Tactical: few regulated workflows need agent-to-agent delegation today, and it is a Strategic candidate when they do. MCP is Strategic at 3.55 FS, below the 3.6 guide and with security at 2, only on the gateway condition stated in its deep dive; this is the one tier in the section that sits above a higher-scoring peer, and it is put to the human reviewer at CP3 (Q2 in the CP3 review). AgentCore Gateway and Identity is Tactical, conditional: the default tool gateway where AWS is the agent platform, consistent with every other AWS-only managed service in tranche 2.
+- *Tiers (CP3 decisions).* The reader set the protocol tiers at Checkpoint 3 (CP3 Q1). MCP is Strategic, conditional at 3.55 FS: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions; it is one decision with the C4 authorisation profile. A2A is Strategic, conditional at 3.70 FS: only where cross-team or cross-vendor agent delegation is in scope. Criterion scores were not changed by either decision. AgentCore Gateway and Identity is Strategic, conditional: where AWS is your primary cloud, under rubric rule 10 (CP3 Q2), as AWS's lead service in this category; the same service in C1 has the same tier.
 
 **Key facts.**
 
@@ -422,15 +422,15 @@ STEP 6 [Rec]: Packaging procedures
 | Original (graphic) | Current (October 2026) | Recommended |
 |---|---|---|
 | "Tools and protocols" row of eight tiles | Protocols under foundations; gateways in C1 now carry MCP and A2A traffic [VF: A3-S018, A3-S116, A6-S061, A6-S016] | L4 split into connectivity (protocols, tools, runtimes) and a tool-governance sub-layer bound to C1 and C4 [Rec] |
-| MCP "tools standard" | Spec 2026-07-28: stateless, header routing, DCR deprecated, EMA stable; authorisation optional; Registry preview v0.1; AAIF-governed [VF: A3-S015, A3-S057, A3-S017, A3-S055, A3-S036, A3-S018] | Strategic, behind a gateway with mandatory authorisation and an allow-list; alternative: OpenAPI tools via gateway [Rec] |
-| A2A "agent-to-agent" | 1.0.0 (12 Mar 2026), 1.0.1; AAIF Growth Stage; optional card signing [VF: A3-S079, A3-S117, A3-S078] | Tactical: the standard when agent delegation is needed; signed cards required [Rec] |
+| MCP "tools standard" | Spec 2026-07-28: stateless, header routing, DCR deprecated, EMA stable; authorisation optional; Registry preview v0.1; AAIF-governed [VF: A3-S015, A3-S057, A3-S017, A3-S055, A3-S036, A3-S018] | Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions (CP3 Q1); alternative: OpenAPI tools via gateway [Rec] |
+| A2A "agent-to-agent" | 1.0.0 (12 Mar 2026), 1.0.1; AAIF Growth Stage; optional card signing [VF: A3-S079, A3-S117, A3-S078] | Strategic, conditional: where cross-team or cross-vendor agent delegation is in scope (CP3 Q1); signed cards required [Rec] |
 | Agent Skills "reusable skills" | Open format, 46 clients; Anthropic-maintained, no neutral body, no versions, no signing [VF: A3-S113, A3-S115, V1-S046, A3-S037] | Tactical: internal, script-free skills only; alternative: C5 packages or AGENTS.md [Rec] |
 | Composio "integrations" | Broker plus MCP gateway; US-hosted cloud; May 2026 token-exposure incident [VF: A3-S063, A3-S119, B-L4-S007] | Experimental; self-hosted only, never for client data [Rec] |
 | Exa "search API" | Search API with structured output; SOC 2 Type II; no EU region found [VF: A3-S010, A3-S100, A3-S121] | Tactical, via egress proxy with DLP, non-confidential queries only [Rec] |
 | Tavily "search API" | Nebius-owned since 19 Feb 2026 [VF: V1-S041] | Tactical; refresh due diligence [Rec] |
 | Browserbase "cloud browsers" | Browsers plus Stagehand; standalone MCP server archived [VF: A3-S013, A3-S054] | Tactical, only where no API exists [Rec] |
 | E2B "code sandboxes" | Firecracker microVMs, egress firewall, Apache-2.0 runtime, BYOC [VF: A3-S062, A3-S120] | Tactical; reference sandbox pattern for derived calculations [Rec] |
-| (absent) | AgentCore Gateway + Identity + Policy: managed tool gateway, token vault, Cedar policy [VF: A3-S047, A6-S026] | Tactical: default tool gateway in AWS estates; cloud-neutral alternatives in C1 [Rec] |
+| (absent) | AgentCore Gateway + Identity + Policy: managed tool gateway, token vault, Cedar policy [VF: A3-S047, A6-S026] | Strategic, conditional: where AWS is your primary cloud (CP3 Q2); cloud-neutral alternatives in C1 [Rec] |
 
 **H3 (tools and protocols need an explicit agent identity, authorisation and tool-governance sub-layer). Provisional view; verdict in synthesis.**
 

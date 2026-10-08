@@ -35,7 +35,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: only behind a firm-owned gateway that makes authorisation mandatory, enforces an allow-list and pins tool definitions, because the specification leaves these optional and security scores 2; FS 3.55 is below the 3.6 guide and the tier rests on MCP being the layer's de facto tool contract [AJ]."
+      "rationale": "Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions. Tier set by the reader at Checkpoint 3 (CP3 Q1), treating MCP and its authorisation profile (C4-mcp-authorization) as one decision; FS 3.55 is below the 3.6 guide and security scores 2, which is why the condition is mandatory. Conflict of interest: MCP originated at Anthropic and the author is an Anthropic model [AJ]."
     },
     "scores": {
       "criteria": {
@@ -91,9 +91,9 @@
       "fs_note": "Require signed Agent Cards and verify them; scope and revoke delegated authority in your own gateway and IdP [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Right standard for agent-to-agent delegation, but few regulated workflows should depend on it yet [AJ]."
+      "rationale": "Strategic, conditional: where cross-team or cross-vendor agent delegation is in scope (CP3 Q1); signed Agent Cards verified, and delegated authority scoped and revocable by the firm, because the protocol does not define it [AJ]."
     },
     "scores": {
       "criteria": {
@@ -502,9 +502,9 @@
       "fs_note": "Sits within AWS, a designated CTP under DORA and the UK regime; include in AWS concentration analysis; platform controls presumed (CP2 Q1), confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical, conditional: the default tool gateway where AWS is the agent platform; AWS-only deployment (2) and one year of GA keep it below the Strategic guide, consistent with C1-aws-agentcore-gateway, AgentCore Memory and Bedrock Guardrails; cloud-neutral gateways are the alternative [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10). AWS's lead managed tool gateway and agent identity service; deployment 2 (AWS-managed only) is accepted under rule 11 because the condition is an existing platform commitment. Same tier as C1-aws-agentcore-gateway [AJ]."
     },
     "scores": {
       "criteria": {

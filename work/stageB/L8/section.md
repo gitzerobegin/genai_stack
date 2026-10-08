@@ -221,7 +221,8 @@ Vendor accuracy claims, such as Unstructured's statement that its API gives 2x t
 - *Avoid when:* you are reducing hyperscaler concentration [AJ].
 - *Competitors:* Mistral OCR, Reducto, and the Azure and AWS equivalents.
 - *FS note:* under the UK CTP regime, regulated firms remain responsible for their own due diligence and contingency planning [VF: R-UK-CTP; A8-S023].
-- **Tier: Tactical. Flag: none.**
+- *Security score (CP3 rework):* 4, not 5. The scope page names a "SOC 2 Report" without stating Type II [VF: A1-S102], and rule 8 needs SOC 2 Type II in the product's scope for a 5; the same Google scope evidence gives 4 for Sensitive Data Protection (C3), Model Armor (C2) and Apigee (C1) [AJ].
+- **Tier: Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10) [AJ]. Flag: none.** It is Google's lead document-processing service. Confirm the processor region, and keep outputs in the firm's canonical document model so that processor lock-in (2) stays an engine choice [AJ].
 
 #### Web acquisition
 
@@ -267,7 +268,7 @@ Scores are integers from 1 to 5. Totals are weighted averages from `tools/score.
 | L8-llamaparse | 4 | 3 | 3 | 4 | 4 | 3 | 3 | 2 | 3.40 | 3.20 | Tactical |
 | L8-reducto | 4 | 3 | 2 | 4 | 2 | 3 | 3 | 2 | 3.05 | 2.90 | Tactical |
 | L8-mistral-ocr | 3 | 4 | 3 | 4 | 3 | 2 | 4 | 3 | 3.30 | 3.25 | Tactical |
-| L8-google-document-ai | 4 | 4 | 5 | 2 | 3 | 3 | 4 | 2 | 3.55 | 3.45 | Tactical |
+| L8-google-document-ai | 4 | 4 | 4 | 2 | 3 | 3 | 4 | 2 | 3.40 | 3.25 | Strategic |
 | L8-firecrawl | 4 | 4 | 2 | 3 | 4 | 3 | 3 | 2 | 3.25 | 3.00 | Tactical |
 | L8-crawl4ai | 3 | 2 | 2 | 4 | 3 | 2 | 4 | 4 | 2.90 | 2.90 | Experimental |
 | L8-mineru | 4 | 2 | 2 | 4 | 2 | 3 | 2 | 2 | 2.80 | 2.70 | Experimental |
@@ -279,7 +280,7 @@ Scores are integers from 1 to 5. Totals are weighted averages from `tools/score.
   - Mistral OCR and Firecrawl rise from 3 to 4: each has SSO, roles and audit logs plus SCIM (rule 7) [VF: B-REV-S014, B-REV-S015, B-REV-S024]. The conditions are Mistral's non-exportable audit logs and Firecrawl's built-in roles.
   - Google Document AI rises from 3 to 4 under the hyperscaler presumption (rule 6); platform controls presumed (CP2 Q1); confirm per service.
   - Unstructured, Reducto and Apify stay at 3, because each has one or two of the three controls and no documented audit log. Crawl4AI and MinerU stay at 2 under the library rule, with no SSO, RBAC or audit control verified.
-- **Security capped at 2:** Firecrawl and Reducto, because their security claims are vendor-only and flagged in V1 §4. Rule 8 (certification scope) is unchanged: Mistral OCR's company-level certifications score 3, and Document AI's product-scoped certifications with CMEK score 5.
+- **Security capped at 2:** Firecrawl and Reducto, because their security claims are vendor-only and flagged in V1 §4. Rule 8 (certification scope): Mistral OCR's company-level certifications score 3. Document AI's product-scoped certifications with CMEK scored 5 until the CP3 rework, which lowered it to 4 because the SOC 2 report type is not stated [VF: A1-S102], consistent with the other Google services in C1–C3.
 - **Library rule** (scored on project hygiene; inherits host controls): Docling (security 4, on a verified security policy and signed releases [VF: B-REV-S001]), Crawl4AI (2, on its advisory history [VF: B-REV-S003]) and MinerU.
 
 **Key facts** (as of 7–8 October 2026)
@@ -417,7 +418,7 @@ The performance-attribution commentary agent drafts monthly Brinson-style commen
 | Mistral OCR – OCR | OCR 4.1 (GA 26 August 2026); 4.0 retired 30 September 2026 [VF: A1-S130, V1-S014] | Tactical OCR engine; pin model ID [Rec] |
 | Unstructured – ETL for docs | Free OSS plus Transform v2 API; ACL-digest connectors [VF: A1-S075, A1-S094] | Strategic for connectors and entitlement capture [Rec] |
 | Apify – scrapers | Actor platform, MCP, US-only [VF: A1-S089, A1-S086] | Tactical; public data only [Rec] |
-| (missing) hyperscaler document AI | Google Document AI added; Azure and AWS equivalents not verified [VF: A1-S101] [NPV] | Tactical; strategic only inside a single-cloud estate [Rec] |
+| (missing) hyperscaler document AI | Google Document AI added; Azure and AWS equivalents not verified [VF: A1-S101] [NPV] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
 | (missing) lineage, classification, PII, entitlements, incremental indexing | Partial in products: Unstructured ACL digest [VF: A1-S094]; Firecrawl PII redaction and ZDR [VF: A1-S076]; no lineage in any L8 product; OpenLineage has no GenAI facets [VF: A7-S042] | A built ingestion control plane (below) [Rec] |
 
 **Hypothesis H7 (provisional; verdict in synthesis).** The evidence supports H7, with one refinement: the enterprise additions are not product features to buy but a control plane to build around replaceable parsers [AJ]. Only partial capabilities exist in products:

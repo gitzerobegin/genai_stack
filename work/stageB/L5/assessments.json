@@ -413,9 +413,9 @@
       "fs_note": "Set a customer-managed key at creation, deploy the pruner on day one, confirm the Region list for UK/EU data, and keep a periodic export to the firm's store; platform controls presumed (CP2 Q1), confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Sound default inside an AgentCore estate with good lifecycle documentation; single-cloud deployment and a proprietary API keep it Tactical (conditional default in AWS) [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud and the agent runtime is AgentCore (CP3 Q2, rubric rule 10). AWS's lead managed agent memory service with good lifecycle documentation; a customer-managed key at creation and a pruner from day one are part of the condition, and deployment and lock-in at 2 are accepted under rule 11 [AJ]."
     },
     "scores": {
       "criteria": {
@@ -473,11 +473,11 @@
       "fs_note": "Use a regional endpoint with CMEK, set TTL and a shorter revision retention, and obtain written residency confirmation; platform controls presumed (CP2 Q1), confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [
         "Renamed"
       ],
-      "rationale": "Good default inside a Google agent estate with a strong scope model; single-cloud, Gemini-dependent extraction and the residency conflict keep it Tactical (conditional default in Google Cloud) [AJ]."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud and the agent runtime is Agent Engine (CP3 Q2, rubric rule 10). Google's lead managed agent memory service with a strong scope model; written confirmation of data residency (the feature table and residency terms conflict) and a regional CMEK endpoint are part of the condition [AJ]."
     },
     "scores": {
       "criteria": {

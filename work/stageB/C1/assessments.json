@@ -281,9 +281,9 @@
       "fs_note": "Use the GA policies in existing tiers for production; do not place regulated traffic on the preview tier; keep policy logic documented so it can be re-expressed elsewhere [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: the natural default in Azure estates, but the dedicated tier is preview and lock-in is high; revisit as Strategic when the tier is GA with an SLA [AJ]."
+      "rationale": "Strategic, conditional: where Azure is your primary cloud (CP3 Q2, rubric rule 10), using the GA AI gateway policies in existing APIM tiers, not the preview AI Gateway tier (no SLA); lock-in 2 is accepted under rule 11 because the condition is an existing platform commitment [AJ]."
     },
     "scores": {
       "criteria": {
@@ -341,9 +341,9 @@
       "fs_note": "Use it for tool traffic first; keep model routing on a gateway with GA inference routing until AWS states GA and regions for inference targets [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: a strong MCP and policy gateway on AWS, but its LLM routing is too new to be the model gateway of record [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10), as the gateway for MCP and tool traffic. Maturity 2 is a stated condition: keep model routing on a gateway with GA inference routing until AWS states GA and Regions for inference targets. Same tier as L4-aws-agentcore-gateway-identity [AJ]."
     },
     "scores": {
       "criteria": {
@@ -404,7 +404,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: where Google Cloud or Apigee is the standard; lock-in at 2 is the stated condition [AJ]."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud or Apigee is already the API standard (CP3 Q2, rubric rule 10); lock-in at 2 is the stated condition [AJ]."
     },
     "scores": {
       "criteria": {

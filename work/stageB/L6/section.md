@@ -275,7 +275,7 @@ LIFECYCLE [Rec]
 - *Avoid when:* you need lexical search, low tail latency or a multi-cloud exit route [AJ].
 - *Competitors:* turbopuffer, Milvus 3.0, pgvector on Aurora.
 - *FS note:* enable CloudTrail data events on regulated indexes; set the KMS key at index creation; record S3 Vectors under the AWS CTPP concentration entry [Rec].
-- **Tier: Tactical. No flag.** Enterprise readiness at 4 under the hyperscaler presumption: platform controls presumed (CP2 Q1); confirm per service.
+- **Tier: Tactical, default in AWS estates as the low-cost vector tier. No flag.** Enterprise readiness at 4 under the hyperscaler presumption: platform controls presumed (CP2 Q1); confirm per service. Rubric rule 10 (CP3 Q2) does not make it Strategic, because it is not AWS's lead vector-search service: AWS positions it as a durable tier behind OpenSearch [VF: A2-S092] [AJ].
 
 ### 6.8 Comparison table
 
@@ -469,7 +469,7 @@ STEP 5 [Rec]: Checks before go-live
 | Elasticsearch "hybrid search" | Elastic 9.5; AGPL option; Jina models bundled [VF: A2-S133, A2-S132, A2-S023] | Strategic where already operated; OpenSearch as fork alternative [Rec] |
 | MongoDB "Atlas vector" | MongoDB Vector Search, self-managed GA as well as Atlas; hybrid GA; Voyage reranking preview [VF: A2-S137, A2-S141] | Strategic where MongoDB is the operational store [Rec] |
 | Chroma "open source" | Apache-2.0; Chroma Cloud with SOC 2 Type II; no PyPI release since May 2026 [VF: A2-S060, A2-S130] | Tactical: prototypes and harnesses [Rec] |
-| S3 Vectors "AWS" | GA December 2025; 2 billion vectors per index; no BM25 [VF: A2-S081, A2-S083, V1-S030] | Tactical: AWS cost tier and Bedrock Knowledge Bases [Rec] |
+| S3 Vectors "AWS" | GA December 2025; 2 billion vectors per index; no BM25 [VF: A2-S081, A2-S083, V1-S030] | Tactical: AWS cost tier and Bedrock Knowledge Bases; not AWS's lead vector-search service, so not Strategic under CP3 Q2 [Rec] |
 | (absent) | Azure AI Search, Vertex AI Vector Search, OpenSearch, Oracle and SQL Server vector support are not in the fact base, except OpenSearch inside the Elastic record [VF: A2-S136] [NPV] | Assess in a follow-up pass; Azure- or Google-centred firms should evaluate their platform's native option at STEP 1 [Rec] |
 
 **H5 ("vector database" should become "Retrieval / Knowledge Stores"). Provisional view; verdict in synthesis.**

@@ -210,9 +210,9 @@
       "fs_note": "Pin guardrail versions in C5, use the Classic tier or region-constrained profiles for client data, and evaluate false-positive rates per policy on your own data [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: the strongest managed policy set, but AWS-only with residency trade-offs on the Standard tier; the default choice inside AWS estates [AJ]."
+      "rationale": "Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10). The strongest managed policy set and AWS's lead guardrail service; use the Classic tier or region-constrained profiles for client data, because the Standard tier uses cross-region inference [AJ]."
     },
     "scores": {
       "criteria": {
@@ -270,9 +270,9 @@
       "fs_note": "Use Prompt Shields on retrieved documents as well as user input; treat preview features as non-production; confirm product scope in the Service Trust Portal [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: the default for Azure estates; agent-oriented features are still preview [AJ]."
+      "rationale": "Strategic, conditional: where Azure is your primary cloud (CP3 Q2, rubric rule 10). Azure's lead guardrail service; GA features only (Prompt Shields, protected material) on regulated routes, because the agent-oriented and groundedness features are preview [AJ]."
     },
     "scores": {
       "criteria": {
@@ -330,9 +330,9 @@
       "fs_note": "Pin templates to an EU region with strict residency left on; if UK residency is required, confirm the London feature and in-use residency status in writing [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Tactical: efficient and residency-aware, but narrower than Bedrock and Google-specific [AJ]."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10). Google's lead guardrail service, efficient and residency-aware; narrower than Bedrock (grounding not evidenced), and the London residency position must be confirmed in writing where UK residency is required [AJ]."
     },
     "scores": {
       "criteria": {

@@ -584,7 +584,7 @@
     "classification": {
       "tier": "Tactical",
       "flags": [],
-      "rationale": "A cost tier inside AWS controls, not a full retrieval engine; AWS-only [AJ]."
+      "rationale": "Tactical, default in AWS estates as the low-cost vector tier. Not AWS's lead vector-search service: AWS positions it as a durable tier behind OpenSearch [VF: A2-S092], so rubric rule 10 (CP3 Q2) does not make it Strategic [AJ]."
     },
     "scores": {
       "criteria": {

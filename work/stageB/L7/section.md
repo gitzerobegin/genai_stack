@@ -181,7 +181,7 @@ Each deep dive gives the current state as tagged facts, then judgement. Totals a
 - *Avoid when:* UK-only processing is mandatory [AJ].
 - *Competitors:* Cohere, Voyage, Jina.
 - *FS note:* Google Cloud EMEA Limited is a designated DORA CTPP and UK CTP [VF: A8-S020, A8-S023]. Consuming the model through Vertex AI therefore places it with a designated provider, but the firm's own SYSC 8 or SS2/21 duties remain [AJ].
-- **Tier: Tactical. Flag: none.** FS 3.20.
+- **Tier: Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10) [AJ]. Flag: none.** FS 3.20. It is Google's lead embedding model, consumed through Vertex AI; the condition excludes estates where UK-only processing is mandatory, because the eu multi-region excludes the UK [VF: A2-S039]. Deployment and lock-in at 2 are accepted under rule 11 because the condition is an existing platform commitment, and the dual-index migration route in this section limits the re-embedding cost of exit [AJ].
 
 **Voyage AI (MongoDB, Inc.).**
 - *What it is now:* MongoDB acquired Voyage AI, closing on 17 February 2025 for US$160.9M [VF: A2-S033, V1-S023]. The Voyage 4 family launched on 15 January 2026 in one shared embedding space; voyage-4-nano is open weights under Apache 2.0 [VF: A2-S006, A2-S071]. Alongside it sit voyage-context-4, voyage-code-4, voyage-multimodal-3.5, and the domain models voyage-finance-2 and voyage-law-2 [VF: A2-S007]. rerank-3 and rerank-3-lite were announced on 30 September 2026 [VF: A2-S034], but MongoDB's lifecycle page lists them as Preview [VF: V1-S024]. voyage-4 costs US$0.06 per 1M tokens, rerank-3 US$0.05 and rerank-3-lite US$0.02 (as of 7 October 2026) [VF: A2-S007, A2-S034]. The Atlas Embedding and Reranking API offers an EEA Geography at a 10% premium [VF: A2-S142].
@@ -269,7 +269,7 @@ Output of `tools/score.py` (scores 1–5; totals are weighted averages):
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | L7-openai | 3 | 4 | 4 | 2 | 3 | 4 | 4 | 2 | 3.30 | 3.20 | Tactical |
-| L7-gemini-embedding | 4 | 4 | 4 | 2 | 3 | 3 | 3 | 2 | 3.30 | 3.20 | Tactical |
+| L7-gemini-embedding | 4 | 4 | 4 | 2 | 3 | 3 | 3 | 2 | 3.30 | 3.20 | Strategic |
 | L7-voyage | 5 | 3 | 2 | 3 | 4 | 3 | 4 | 2 | 3.40 | 3.05 | Tactical |
 | L7-cohere | 4 | 4 | 4 | 4 | 4 | 3 | 3 | 3 | 3.75 | 3.70 | Tactical |
 | L7-qwen3-embedding | 4 | 2 | 2 | 4 | 3 | 3 | 4 | 4 | 3.20 | 3.15 | Tactical |
@@ -282,6 +282,7 @@ Output of `tools/score.py` (scores 1–5; totals are weighted averages):
 **Reading the scores** [AJ]:
 - The hosted vendors spread from 3.05 to 3.70 FS. OpenAI (3.20), Gemini and Jina (3.15, Elastic route) rose at CP2 review once their platform access controls were evidenced. The CP2 rework then applied the user's answers: Gemini rose to 3.20 under the hyperscaler presumption, Cohere to 3.70 on its Foundry and SageMaker routes, and Voyage to 3.05 once Atlas roles over model API keys were verified [VF: B-REV-S028]. No hosted vendor is now capped on enterprise readiness.
 - Cohere's 3.70 meets the usual Strategic guide, but it stays Tactical on its stated condition: per-service due diligence must confirm the presumed platform controls, and the Aleph Alpha combination is pending. It is the layer's first upgrade candidate.
+- Gemini Embedding (3.20) is Strategic, conditional, "where Google Cloud is your primary cloud" under rubric rule 10 (CP3 Q2), which applies to the lead hyperscaler service in a category with no criterion at 1; its scores are unchanged. Cohere is a multi-cloud vendor, not a hyperscaler-native service, so rule 10 does not apply to it, and it ranks above Gemini on score for any firm that is not Google-centred.
 - The spread on security (2 to 4) reflects how well certifications are evidenced, not a judgement of real security posture.
 - Voyage's technical lead does not survive the FS weighting until its certification scope is evidenced.
 - Qwen3 and NVIDIA are scored as self-hosted software under rule 2, like Sentence Transformers.
@@ -426,7 +427,7 @@ That is enough to show what the model was shown, and to reproduce it while the i
 | Original (graphic) | Current (October 2026) | Recommended |
 |---|---|---|
 | OpenAI – Embeddings 3 | Still text-embedding-3 (January 2024); no reranker found [VF: A2-S001, A2-S002] | Tactical text baseline where OpenAI is already approved; pair with a separate reranker [Rec] |
-| Gemini – Embedding 2 | gemini-embedding-2 GA 22 April 2026; multimodal; EU endpoint excludes UK [VF: A2-S004, A2-S039] | Tactical for Google-centred, multimodal estates [Rec] |
+| Gemini – Embedding 2 | gemini-embedding-2 GA 22 April 2026; multimodal; EU endpoint excludes UK [VF: A2-S004, A2-S039] | Strategic, conditional: where Google Cloud is your primary cloud and UK-only processing is not mandatory (CP3 Q2) [Rec] |
 | Voyage AI – Voyage-3 | MongoDB-owned; Voyage 4 family, rerank-3 (Preview) [VF: A2-S033, A2-S006, V1-S024] | Tactical; preferred where MongoDB is the store, after SOC 2 scope is evidenced [Rec] |
 | Cohere – Embed v3 + Rerank | Embed 5 and Rerank 4; Aleph Alpha combination pending [VF: A2-S012, A2-S010, A2-S018] | Tactical (FS 3.70 on Foundry or SageMaker); Strategic candidate for private or hyperscaler deployment once per-service due diligence confirms the presumed access controls [Rec] |
 | Qwen3 – Embeddings | Embedding **and** Reranker, Apache 2.0, plus VL variants [VF: A2-S020, A2-S021] | Tactical; self-host only, after provenance review [Rec] |

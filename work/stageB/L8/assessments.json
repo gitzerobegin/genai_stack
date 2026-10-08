@@ -363,15 +363,15 @@
       "fs_note": "Natural choice for a GCP-centred firm; confirm the processor region before use and keep outputs in the firm's canonical document model to avoid processor lock-in [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Strong certifications and simple pricing, but SaaS-only and Google-specific outputs; strategic only inside a GCP-standardised estate."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10). Google's lead document-processing service; confirm the processor region and keep outputs in the firm's canonical document model to limit processor lock-in [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 4,
         "enterprise_readiness": 4,
-        "security_compliance": 5,
+        "security_compliance": 4,
         "deployment_flexibility": 2,
         "ecosystem": 3,
         "reliability_maturity": 3,
@@ -381,7 +381,7 @@
       "rationale": {
         "technical": "OCR, form parsing, layout parsing with chunking, custom extraction and classification.",
         "enterprise_readiness": "Consumed through Google Cloud: IAM including deny policies, VPC Service Controls, IAM-governed Cloud Audit Logs and SAML/OIDC federation at platform level [VF: B-REV-S010, B-REV-S012]; rule 6 (CP2 Q1) presumes platform controls, and no product-specific gap is evidenced, so 4; platform controls presumed (CP2 Q1); confirm per service. Not 5: Document AI's predefined roles and SLA terms were not read.",
-        "security_compliance": "In scope for Google Cloud ISO 27001/27017/27018, SOC 1/2/3 and PCI DSS (A1-S102), plus CMEK and US/EU data residency (B-REV-S010, B-REV-S011); CMEK needs allowlisting in some regions.",
+        "security_compliance": "In scope for Google Cloud ISO 27001/27017/27018, SOC 1/2/3 and PCI DSS (A1-S102), plus CMEK and US/EU data residency (B-REV-S010, B-REV-S011); CMEK needs allowlisting in some regions. Held at 4, not 5, under rule 8: the scope page names a 'SOC 2 Report' without stating Type II, as for AgentCore Memory (L5); the same Google scope evidence gives 4 for Sensitive Data Protection, Model Armor and Apigee.",
         "deployment_flexibility": "Managed SaaS only; us and eu multi-regions and regional processors (B-REV-S010, B-REV-S011); no VPC or self-hosted option.",
         "ecosystem": "Google Cloud ecosystem; integrations not captured.",
         "reliability_maturity": "Hyperscaler managed service; maturity facts not captured [AJ].",
@@ -391,10 +391,10 @@
       "evidence_caps_applied": [
         "NPV cap lifted at CP2 review (8 October 2026): platform IAM, Cloud Audit Logs and federated SSO verified (B-REV-S010, S012)",
         "Rule 6 (CP2 Q1, hyperscaler presumption) applied at CP2 rework: enterprise_readiness 3 -> 4; platform controls presumed (CP2 Q1); confirm per service",
-        "Rule 8 (CP2 Q4) confirmed: certifications are product-scoped (A1-S102) with CMEK, so security_compliance 5 kept"
+        "Rule 8 (CP2 Q4) re-checked at CP3 rework (8 October 2026): certifications are product-scoped (A1-S102) with CMEK, but the SOC 2 report type is not stated, so security_compliance 5 -> 4 for consistency with other hyperscaler services"
       ],
-      "generic_total": 3.55,
-      "fs_total": 3.45
+      "generic_total": 3.4,
+      "fs_total": 3.25
     }
   },
   {

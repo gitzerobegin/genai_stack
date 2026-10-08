@@ -98,9 +98,9 @@
       "fs_note": "Google Cloud EMEA Limited is a designated DORA CTPP and UK CTP [VF: A8-S020, A8-S023]; consuming the model through Vertex AI places it with a designated provider, which does not remove the firm's own outsourcing duties [AJ]. The 'eu' endpoint does not cover the UK [VF: A2-S039]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Leading multimodal option for Google-centred estates, but hosted-only, young GA and without UK processing."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10), consumed through Vertex AI. Google's lead embedding model and the leading multimodal option; not where UK-only processing is mandatory, because the eu multi-region excludes the UK [AJ]."
     },
     "scores": {
       "criteria": {

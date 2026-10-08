@@ -1,6 +1,6 @@
 ## C1. AI / LLM gateway
 
-> **Executive summary.** The gateway is the single point through which every model call, and now every tool and agent call, leaves an application. It owns provider abstraction, routing and fallback, quotas and budgets, caching, policy enforcement and the request log [AJ]. The original graphic has no gateway. Its only nod to one is OpenRouter in L2, a hosted router that now carries budgets, allowlists, zero-data-retention and regional routing [VF: A4-S111, A4-S109]. Four things have changed since then. First, the gateways now carry three kinds of traffic: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. Second, ownership is moving towards security vendors: Palo Alto Networks completed its acquisition of Portkey on 29 May 2026 and sells it as Prisma AIRS AI Gateway [VF: A6-S011, A6-S012, V2-S025]. Third, the gateway has proved to be an attack target in its own right: malicious LiteLLM 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026 [VF: A6-S008, V2-S027]. Fourth, the hyperscaler offerings are real but uneven: the Azure API Management AI Gateway tier is preview with no SLA [VF: A6-S020, V2-S073], and no AWS product called "AI gateway" was found: AWS offers an MCP gateway with new inference targets and a LiteLLM-based reference pattern instead [VF: A6-S021, A6-S022, A6-S105]. **Recommendation:** run one firm-controlled gateway of record for all production LLM and MCP traffic, deployed in-region, failing closed, with pinned and signed builds. Choose LiteLLM (hardened and Enterprise-licensed), Kong or Apigee according to your existing API estate, and keep the model-switch route tested, because the gateway is what makes an exit plan executable [Rec].
+> **Executive summary.** The gateway is the single point through which every model call, and now every tool and agent call, leaves an application. It owns provider abstraction, routing and fallback, quotas and budgets, caching, policy enforcement and the request log [AJ]. The original graphic has no gateway. Its only nod to one is OpenRouter in L2, a hosted router that now carries budgets, allowlists, zero-data-retention and regional routing [VF: A4-S111, A4-S109]. Four things have changed since then. First, the gateways now carry three kinds of traffic: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. Second, ownership is moving towards security vendors: Palo Alto Networks completed its acquisition of Portkey on 29 May 2026 and sells it as Prisma AIRS AI Gateway [VF: A6-S011, A6-S012, V2-S025]. Third, the gateway has proved to be an attack target in its own right: malicious LiteLLM 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026 [VF: A6-S008, V2-S027]. Fourth, the hyperscaler offerings are real but uneven: the Azure API Management AI Gateway tier is preview with no SLA [VF: A6-S020, V2-S073], and no AWS product called "AI gateway" was found: AWS offers an MCP gateway with new inference targets and a LiteLLM-based reference pattern instead [VF: A6-S021, A6-S022, A6-S105]. **Recommendation:** run one firm-controlled gateway of record for all production LLM and MCP traffic, deployed in-region, failing closed, with pinned and signed builds. Choose LiteLLM (hardened and Enterprise-licensed), Kong, Apigee or the GA AI gateway policies in Azure API Management according to your existing API and cloud estate, and keep the model-switch route tested, because the gateway is what makes an exit plan executable [Rec].
 
 ### C1.1 Responsibility
 
@@ -127,7 +127,7 @@ For MCP the gateway becomes a tool federator. It presents one MCP endpoint to ag
 
 ### C1.7 Product deep dives
 
-**MCP disclosure.** MCP originated at Anthropic, and this author is an Anthropic model. The recommendation in this section is to govern whatever tool and agent protocols the estate uses (MCP, A2A or OpenAPI), and every product scored as Strategic supports more than one [VF: A6-S015, A6-S016, A6-S024] [AJ].
+**MCP disclosure.** MCP originated at Anthropic, and this author is an Anthropic model. The recommendation in this section is to govern whatever tool and agent protocols the estate uses (MCP, A2A or OpenAPI), and every product scored as Strategic supports more than one: LiteLLM, Kong, Apigee and Azure APIM govern MCP and A2A as well as model traffic, and AgentCore Gateway exposes MCP while accepting OpenAPI and Smithy targets [VF: A6-S015, A6-S016, A6-S024, A6-S020, A6-S053, A6-S021] [AJ].
 
 **LiteLLM (BerriAI).**
 - *What it is now:* an open-core Python SDK and proxy exposing 100+ providers through an OpenAI-format API, with virtual keys, budgets per key, user, team and customer, TPM/RPM limits, fallbacks, exact and semantic caching, guardrail hooks and logging callbacks. The same proxy fronts MCP servers and A2A agents [VF: A6-S015, A6-S051]. litellm 1.104.1 was published on 7 October 2026, with the proprietary litellm-enterprise 0.1.74 on the same day [VF: A6-S001, A6-S002, V2-S028]. No acquisition was found [VF: A6-S001].
@@ -191,7 +191,7 @@ For MCP the gateway becomes a tool federator. It presents one MCP endpoint to ag
 - *Avoid when:* you would put regulated traffic on the preview tier [AJ].
 - *Competitors:* Apigee, Kong, LiteLLM.
 - *FS note:* use the GA policies in existing tiers in UK or EU regions; keep a written statement of each policy's intent for exit [Rec].
-- **Tier: Tactical; revisit as Strategic for Azure estates when the AI Gateway tier is GA with an SLA [AJ]. Flag: none.**
+- **Tier: Strategic, conditional: where Azure is your primary cloud (CP3 Q2, rubric rule 10) [AJ]. Flag: none.** It is Azure's lead AI gateway. The condition covers the GA AI gateway policies in existing APIM tiers only; the preview AI Gateway tier (no SLA) stays off regulated traffic until it is GA. Lock-in at 2 is accepted under rule 11 because the condition is an existing platform commitment [AJ].
 
 **AWS: Amazon Bedrock AgentCore Gateway (Amazon Web Services).**
 - *What AWS actually offers:* no AWS product named "AI gateway" was found [AJ]. AWS offers (a) AgentCore Gateway, GA in October 2025 as an MCP gateway [VF: A6-S021]; (b) a LiteLLM-based reference architecture, the Guidance for Multi-Provider Generative AI Gateway on AWS [VF: A6-S022]; and (c) Bedrock cross-region inference for resilience [VF: A6-S022].
@@ -204,7 +204,7 @@ For MCP the gateway becomes a tool federator. It presents one MCP endpoint to ag
 - *Avoid when:* you need it as your multi-provider model gateway today [AJ].
 - *Competitors:* LiteLLM (also AWS's own Guidance pattern), Kong, agentgateway.
 - *FS note:* use it for tool traffic; keep model routing on a gateway with GA inference routing until AWS states GA and regions [Rec].
-- **Tier: Tactical. Flag: none.**
+- **Tier: Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10), as the gateway for MCP and tool traffic [AJ]. Flag: none.** Maturity 2 is a stated condition: it is not the model gateway of record until AWS states GA and Regions for inference targets. The same service has the same tier in L4 (`L4-aws-agentcore-gateway-identity`) [AJ].
 
 **Apigee as an AI gateway (Google Cloud).**
 - *What it is now:* Apigee is marketed as the AI gateway for agentic AI, with SSE and JSON-RPC support for MCP, A2A and AP2, multicloud model routing, MCP servers and transcoding, and Model Armor integration [VF: A6-S024]. Capabilities include token limit enforcement and monitoring, semantic caching, routing with circuit breaking, LLM auditing and logging, and API key, OAuth 2.0 and JWT [VF: A6-S024, A6-S023]. Apigee MCP support was GA on 31 March 2026, and the API hub MCP server on 24 July 2026 [VF: A6-S023, A6-S025]. An extension processor applies policies to traffic that bypasses a proxy [VF: A6-S023, A6-S025].
@@ -218,7 +218,7 @@ For MCP the gateway becomes a tool federator. It presents one MCP endpoint to ag
 - *Avoid when:* you want a light model gateway without an API-management estate [AJ].
 - *Competitors:* Azure API Management, Kong, LiteLLM.
 - *FS note:* run hybrid in a UK or EU region and confirm where LLM audit logs are stored [Rec].
-- **Tier: Strategic, conditional: where Google Cloud or Apigee is the standard; lock-in scores 2 [AJ]. Flag: none.**
+- **Tier: Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10) or Apigee is already the API standard; lock-in scores 2 [AJ]. Flag: none.**
 
 **agentgateway (Linux Foundation project).**
 - *What it is now:* an open-source proxy for agent-to-LLM, agent-to-tool and agent-to-agent traffic: OpenAI-compatible LLM routing with budget and spend controls, load balancing and failover; MCP tool federation over stdio, HTTP, SSE and Streamable HTTP with OAuth; and an A2A gateway [VF: A6-S061]. Apache-2.0; v1.6.0 was released on 2 October 2026 [VF: A6-S061, A6-S062, V2-S061].
@@ -252,8 +252,8 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | C1-portkey | 4 | 4 | 3 | 4 | 4 | 3 | 3 | 3 | 3.60 | 3.50 | Tactical |
 | C1-kong-ai-gateway | 5 | 4 | 4 | 4 | 4 | 3 | 2 | 3 | 3.85 | 3.80 | Strategic |
 | C1-cloudflare-ai-gateway | 3 | 3 | 3 | 2 | 4 | 3 | 4 | 2 | 3.00 | 2.80 | Tactical |
-| C1-azure-apim-ai-gateway | 4 | 4 | 4 | 2 | 4 | 3 | 3 | 2 | 3.40 | 3.25 | Tactical |
-| C1-aws-agentcore-gateway | 3 | 4 | 4 | 2 | 3 | 2 | 4 | 2 | 3.10 | 3.00 | Tactical |
+| C1-azure-apim-ai-gateway | 4 | 4 | 4 | 2 | 4 | 3 | 3 | 2 | 3.40 | 3.25 | Strategic |
+| C1-aws-agentcore-gateway | 3 | 4 | 4 | 2 | 3 | 2 | 4 | 2 | 3.10 | 3.00 | Strategic |
 | C1-google-apigee-ai-gateway | 4 | 4 | 4 | 4 | 4 | 4 | 3 | 2 | 3.80 | 3.65 | Strategic |
 | C1-agentgateway | 4 | 3 | 2 | 4 | 3 | 3 | 4 | 5 | 3.40 | 3.45 | Tactical |
 | C1-envoy-ai-gateway | 3 | 2 | 2 | 3 | 3 | 3 | 4 | 5 | 2.90 | 3.00 | Tactical |
@@ -265,6 +265,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - *Rule 2 (self-hosted open source).* LiteLLM, agentgateway and Agent Router are scored as software you run. LiteLLM and agentgateway have commercial support, so the cap at 4 does not bind; agentgateway's and Agent Router's security is 2 because their release hygiene is not verified.
 - *Rule 3 (ownership change).* Portkey's lock-in is reduced by 1 (MIT core, but not neutral governance).
 - *Strategic despite weaknesses.* LiteLLM is Strategic with security and maturity at 3 because of the March 2026 compromise; the condition is stated in its deep dive. Kong (cost 2) and Apigee (lock-in 2) are Strategic only where they are already the API standard.
+- *Hyperscaler lead services (CP3 Q2, rubric rule 10).* Azure APIM's AI gateway (FS 3.25) and AWS AgentCore Gateway (FS 3.00) are now Strategic, conditional: "where Azure (or AWS) is your primary cloud", as each cloud's lead service in this category with no criterion at 1. Apigee's condition was reworded to match. No criterion scores changed, and security stays at 4 under rule 8. The conditions carry the weaknesses: APIM on GA policies only, not the preview tier; AgentCore for tool traffic only until its inference targets are GA (maturity 2).
 - *Calibration.* Every product scores 2 or below on at least one criterion except LiteLLM and Portkey, whose weakest points (security and maturity at 3) are stated.
 
 **Key facts.**
@@ -386,9 +387,9 @@ STEP 4 [Rec]: Checks before go-live
 | (absent) Portkey | Acquired by Palo Alto Networks; now Prisma AIRS AI Gateway [VF: A6-S012, A6-S014] | Tactical; for Prisma AIRS estates [Rec] |
 | (absent) Kong AI Gateway | AI Gateway 2.0 GA 1 September 2026; 2.2 on 30 September [VF: A6-S016, V2-S034] | Strategic where Kong is the API standard [Rec] |
 | (absent) Cloudflare AI Gateway | Free core, DLP, Llama Guard guardrails, Unified Billing, new log pricing [VF: A6-S052, V2-S074] | Tactical; non-confidential workloads, BYOK [Rec] |
-| (absent) Azure APIM AI gateway | GA policies; AI Gateway tier preview with no SLA [VF: A6-S020, V2-S073] | Tactical; GA policies only; revisit at tier GA [Rec] |
-| (absent) "AWS AI gateway" | No product by that name found; AgentCore Gateway (MCP + new inference targets) and a LiteLLM-based Guidance [VF: A6-S021, A6-S022, A6-S105] | Tactical for MCP tool governance on AWS [Rec] |
-| (absent) Apigee | Marketed as an AI gateway; MCP GA 31 March 2026 [VF: A6-S024, A6-S023] | Strategic where Google Cloud or Apigee is the standard [Rec] |
+| (absent) Azure APIM AI gateway | GA policies; AI Gateway tier preview with no SLA [VF: A6-S020, V2-S073] | Strategic, conditional: where Azure is your primary cloud (CP3 Q2); GA policies only, not the preview tier [Rec] |
+| (absent) "AWS AI gateway" | No product by that name found; AgentCore Gateway (MCP + new inference targets) and a LiteLLM-based Guidance [VF: A6-S021, A6-S022, A6-S105] | Strategic, conditional: where AWS is your primary cloud (CP3 Q2), for MCP tool governance; model routing elsewhere until inference targets are GA [Rec] |
+| (absent) Apigee | Marketed as an AI gateway; MCP GA 31 March 2026 [VF: A6-S024, A6-S023] | Strategic, conditional: where Google Cloud is your primary cloud or Apigee is the standard (CP3 Q2) [Rec] |
 | (absent) agentgateway, Envoy AI Gateway | agentgateway v1.6.0 (open foundation); Envoy AI Gateway renamed Agent Router (AAIF) [VF: A6-S062, A6-S063] | Tactical; neutral options for Kubernetes estates [Rec] |
 
 **H1 (split L2 into serving → optimisation → gateway/routing, and promote the gateway to the control plane). Provisional view; verdict in synthesis.**

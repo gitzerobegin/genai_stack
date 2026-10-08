@@ -100,7 +100,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: in a Google Cloud estate, because deployment flexibility and lock-in score 2 [AJ]."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10), because deployment flexibility and lock-in score 2 [AJ]."
     },
     "scores": {
       "criteria": {
@@ -157,11 +157,11 @@
       "fs_note": "Use for SaaS AI and Copilot posture evidence; do not count it as the prompt-path DLP control for custom agents; platform controls presumed (CP2 Q1); confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [
         "Renamed"
       ],
-      "rationale": "Useful posture tooling for Microsoft estates, but not a run-time DLP engine and only just consolidated [AJ]."
+      "rationale": "Strategic, conditional: where Azure and Microsoft 365 are your primary cloud and E5 or the Purview Suite is already licensed (CP3 Q2, rubric rule 10). Microsoft's lead AI data-security posture service, for posture and Copilot evidence only: it is not the prompt-path DLP control for custom agents [AJ]."
     },
     "scores": {
       "criteria": {

@@ -186,7 +186,7 @@ Route-level design follows: deterministic rules everywhere, small classifiers on
 - *Avoid when:* the Standard tier's cross-region inference conflicts with your residency rules [AJ].
 - *Competitors:* Azure AI Content Safety, Model Armor, NeMo Guardrails.
 - *FS note:* use the Classic tier or region-constrained profiles for client data, and measure false positives per policy on your own benign set [Rec].
-- **Tier: Tactical; the default managed choice in AWS estates [AJ]. Flag: none.**
+- **Tier: Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10) [AJ]. Flag: none.** It is AWS's lead guardrail service and the broadest managed policy set here. The condition includes the Classic tier or region-constrained profiles for client data, because the Standard tier uses cross-region inference [AJ].
 
 **Azure AI Content Safety (Microsoft).**
 - *What it is now:* APIs that analyse text and images for sexual, violence, hate and self-harm content with severity levels; Prompt Shields for user-input and document attacks; protected-material detection; groundedness detection (preview); custom categories (preview); and Task Adherence for agent tool use (preview) [VF: A6-S054, A6-S055]. Product and pricing pages are now titled "Content Safety in Foundry Control Plane" [VF: A6-S102].
@@ -200,7 +200,7 @@ Route-level design follows: deterministic rules everywhere, small classifiers on
 - *Avoid when:* you need GA groundedness checks or a guardrail outside Azure [AJ].
 - *Competitors:* Bedrock Guardrails, Model Armor, Check Point AI Guardrails (C7).
 - *FS note:* apply Prompt Shields to retrieved documents, not only user input; keep preview features off regulated routes [Rec].
-- **Tier: Tactical; the default in Azure estates [AJ]. Flag: none.**
+- **Tier: Strategic, conditional: where Azure is your primary cloud (CP3 Q2, rubric rule 10) [AJ]. Flag: none.** It is Azure's lead guardrail service. The condition covers GA features only (Prompt Shields, protected material) on regulated routes; the agent-oriented and groundedness features are preview. Cost at 2 is accepted under rule 11 because the condition is an existing platform commitment [AJ].
 
 **Model Armor (Google Cloud).**
 - *What it is now:* a managed service that screens prompts, responses and agent interactions for prompt injection and jailbreaks, malicious URLs and files, harmful content with adjustable thresholds, and sensitive-data leaks, built on Sensitive Data Protection [VF: A6-S067]. It is invoked inline from Apigee, Gemini Enterprise Agent Platform, Google MCP servers, Service Extensions, Firebase or LangChain [VF: A6-S067].
@@ -212,7 +212,7 @@ Route-level design follows: deterministic rules everywhere, small classifiers on
 - *Avoid when:* you need grounding checks, or full features in London [AJ].
 - *Competitors:* Bedrock Guardrails, Azure AI Content Safety, Check Point AI Guardrails (C7).
 - *FS note:* leave strict residency on and pin templates to an EU region; confirm the London position in writing if UK residency is required [Rec].
-- **Tier: Tactical. Flag: none.**
+- **Tier: Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10) [AJ]. Flag: none.** It is Google's lead guardrail service. It is narrower than Bedrock (grounding checks not evidenced), so pair it with a grounding check elsewhere where one is needed [AJ].
 
 **Related products scored elsewhere.** Check Point AI Guardrails (formerly Lakera Guard) screens prompts and responses for prompt attacks, data leakage and off-policy agent behaviour, and is scored in C7 [VF: A7-S025]. Prisma AIRS inspects prompts and responses at runtime and is also scored in C7 [VF: A7-S027]. Opik ships guardrails within its L9 platform [VF: A1-S067], and Datadog detects prompt injection in its L9 module [VF: A1-S097].
 
@@ -225,12 +225,12 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | C2-nemo-guardrails | 4 | 3 | 3 | 4 | 4 | 2 | 4 | 4 | 3.50 | 3.45 | Tactical |
 | C2-guardrails-ai | 3 | 2 | 2 | 3 | 3 | 2 | 4 | 3 | 2.70 | 2.60 | Experimental |
 | C2-meta-llama-protections | 3 | 2 | 2 | 5 | 4 | 2 | 4 | 3 | 3.10 | 2.95 | Tactical |
-| C2-bedrock-guardrails | 5 | 4 | 4 | 2 | 3 | 3 | 3 | 2 | 3.50 | 3.35 | Tactical |
-| C2-azure-ai-content-safety | 4 | 4 | 4 | 2 | 4 | 3 | 2 | 2 | 3.30 | 3.20 | Tactical |
-| C2-google-model-armor | 4 | 4 | 4 | 2 | 4 | 3 | 5 | 2 | 3.60 | 3.35 | Tactical |
+| C2-bedrock-guardrails | 5 | 4 | 4 | 2 | 3 | 3 | 3 | 2 | 3.50 | 3.35 | Strategic |
+| C2-azure-ai-content-safety | 4 | 4 | 4 | 2 | 4 | 3 | 2 | 2 | 3.30 | 3.20 | Strategic |
+| C2-google-model-armor | 4 | 4 | 4 | 2 | 4 | 3 | 5 | 2 | 3.60 | 3.35 | Strategic |
 
 **Scoring notes [AJ]:**
-- *No Strategic product.* None reaches 3.6 FS, and that is the right outcome: in this control the strategic asset is the firm's own guardrail policy, its attack and benign test sets, and the gateway hooks that invoke detectors. The detectors themselves should be substitutable.
+- *No product is Strategic on score.* None reaches 3.6 FS. The three managed services (Bedrock Guardrails, Azure AI Content Safety, Model Armor) are Strategic, conditional, "where this is your primary cloud" under rubric rule 10 (CP3 Q2): each is its cloud's lead guardrail service and none has a criterion at 1. No criterion scores changed, and security stays at 4 under rule 8. The firm's own guardrail policy, its attack and benign test sets, and the gateway hooks that invoke detectors are still the durable asset; the detectors behind them should stay substitutable, which is why the open-source frameworks remain Tactical.
 - *Hyperscaler presumption (CP2 Q1).* Bedrock Guardrails, Azure AI Content Safety and Model Armor score 4 on enterprise readiness: platform controls presumed (CP2 Q1); confirm per service.
 - *Scope rule (CP2 Q4).* Bedrock Guardrails and Azure AI Content Safety score 4, not 5, on security because their certifications are stated for Bedrock or Azure without naming the guardrail service (B-C2-S001, B-C2-S002, B-C1-S007, B-C1-S008). Model Armor is named in Google's scope but CMK is not verified, so 4.
 - *Rule 2 (self-hosted software and open weights).* NeMo Guardrails, Guardrails AI and the Llama Protections are scored as software you run, so the NPV cap does not apply. NeMo has commercial support through NVIDIA AI Enterprise; the other two have none verified.
@@ -342,9 +342,9 @@ STEP 5 [Rec]: Checks before go-live
 | (absent) NeMo Guardrails | 0.24.1, still 0.x Beta; IORails engine; supported microservice [VF: A6-S003, A6-S036, A6-S111] | Tactical: in-estate orchestration, pinned [Rec] |
 | (absent) Guardrails AI | Hosted hub retired (6 or 25 August 2026); acquired by Harvey 9 September 2026 [VF: V2-S071, V2-S072, A6-S028] | Experimental: freeze and plan migration [Rec] |
 | (absent) Llama Guard / Prompt Guard | Llama Guard 4, Prompt Guard 2, LlamaFirewall 1.0.3; nothing since May 2025 [VF: A6-S030, A6-S006, A6-S107] | Tactical: one detector among several [Rec] |
-| (absent) Bedrock Guardrails | Content, prompt-attack, PII, grounding, Automated Reasoning; standalone API [VF: A6-S072, A6-S073] | Tactical: default in AWS estates [Rec] |
-| (absent) Azure AI Content Safety | Prompt Shields GA; Task Adherence and groundedness preview [VF: A6-S055, A6-S054] | Tactical: default in Azure estates [Rec] |
-| (absent) Model Armor | Screening with strict residency by default; Apigee and MCP integration [VF: A6-S067, B-C2-S003] | Tactical: default in Google Cloud estates [Rec] |
+| (absent) Bedrock Guardrails | Content, prompt-attack, PII, grounding, Automated Reasoning; standalone API [VF: A6-S072, A6-S073] | Strategic, conditional: where AWS is your primary cloud (CP3 Q2) [Rec] |
+| (absent) Azure AI Content Safety | Prompt Shields GA; Task Adherence and groundedness preview [VF: A6-S055, A6-S054] | Strategic, conditional: where Azure is your primary cloud (CP3 Q2); GA features only [Rec] |
+| (absent) Model Armor | Screening with strict residency by default; Apigee and MCP integration [VF: A6-S067, B-C2-S003] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
 
 **Relation to the hypotheses (provisional; verdict in synthesis).** C2 bears on two hypotheses rather than having its own [AJ].
 - **H1 (gateway as control plane).** Every gateway in C1 invokes guardrails inline, and the managed services are designed to be called from gateways [VF: A6-S015, A6-S017, A6-S020, A6-S024, A6-S073]. That supports drawing C2 as a set of services the gateway calls, not as a separate traffic hop [AJ].

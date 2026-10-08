@@ -164,7 +164,7 @@ GenAI multiplies copies of data [AJ]. One analyst question can place the same cl
 - *Avoid when:* policy forbids sending raw client text to a cloud service before it is tokenised [AJ].
 - *Competitors:* Presidio, Purview DSPM, Bedrock Guardrails PII filters.
 - *FS note:* pin processing and key location to an EU or UK-approved region and confirm it against the locations page; platform controls presumed (CP2 Q1); confirm per service [Rec].
-- **Tier: Strategic, conditional: in a Google Cloud estate, because deployment flexibility and lock-in score 2 [AJ]. No flag.**
+- **Tier: Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10), because deployment flexibility and lock-in score 2 [AJ]. No flag.**
 
 **Microsoft Purview Data Security Posture Management (formerly DSPM for AI).**
 - *What it is now:* the unified Purview DSPM, generally available in May 2026, which absorbed the earlier DSPM for AI experience; the classic experiences remained until June 2026. Partner (non-Microsoft) data sources and the Data Security Posture Agent are still in preview [VF: A6-S090, V2-S036].
@@ -177,7 +177,7 @@ GenAI multiplies copies of data [AJ]. One analyst question can place the same cl
 - *Avoid when:* you need run-time masking in a custom agent's prompt path [AJ].
 - *Competitors:* Google Sensitive Data Protection (discovery), Protegrity Data Discovery, Skyflow.
 - *FS note:* use it for shadow-AI and Copilot posture evidence; do not count it as the prompt-path DLP control for custom agents; platform controls presumed (CP2 Q1); confirm per service [Rec].
-- **Tier: Tactical. Flag: Renamed** (DSPM for AI folded into unified DSPM).
+- **Tier: Strategic, conditional: where Azure and Microsoft 365 are your primary cloud and E5 or the Purview Suite is already licensed (CP3 Q2, rubric rule 10) [AJ]. Flag: Renamed** (DSPM for AI folded into unified DSPM). It is Microsoft's lead AI data-security posture service. The condition limits it to posture and Copilot evidence: it is not the prompt-path DLP control for custom agents, which stays with Presidio or Sensitive Data Protection. Deployment, cost and lock-in at 2 are accepted under rule 11 because the condition is an existing platform commitment [AJ].
 
 **Protegrity.**
 - *What it is now:* an enterprise data-protection platform for discovery, tokenisation and masking, with semantic guardrails for GenAI [VF: A6-S082]. Data Discovery classifies PII in unstructured text; Find and Redact, Protect and Unprotect apply Protegrity protection policies; a Semantic Guardrail API scans conversations for PII and risk [VF: A6-S082].
@@ -213,7 +213,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | C3-presidio | 3 | 3 | 3 | 5 | 3 | 3 | 4 | 5 | 3.50 | 3.65 | Strategic |
 | C3-google-sdp | 5 | 4 | 4 | 2 | 4 | 5 | 3 | 2 | 3.80 | 3.60 | Strategic |
-| C3-microsoft-purview-dspm-ai | 3 | 4 | 4 | 2 | 4 | 3 | 2 | 2 | 3.10 | 3.05 | Tactical |
+| C3-microsoft-purview-dspm-ai | 3 | 4 | 4 | 2 | 4 | 3 | 2 | 2 | 3.10 | 3.05 | Strategic |
 | C3-protegrity | 4 | 3 | 2 | 3 | 3 | 3 | 2 | 2 | 2.90 | 2.75 | Tactical |
 | C3-skyflow | 4 | 3 | 4 | 2 | 3 | 3 | 2 | 2 | 3.05 | 3.00 | Tactical |
 
@@ -224,7 +224,8 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - *Security below 3.* Protegrity scores 2: its only verified certification is ISO 27001:2013 announced in 2023 with renewal unverified, and no SOC 2 report was found. This is an anchor-based score, not an NPV cap.
 - *Self-hosted library (rule 2).* Presidio is scored on project hygiene and on what it enables in-estate; both criteria are capped at 4.
 - *Ownership.* Presidio's move to community governance does not reduce lock-in, because it is MIT with neutral governance (rule 3 exemption).
-- *Calibration.* Every product scores 2 or below on at least one criterion. Presidio and Sensitive Data Protection are Strategic only on stated conditions.
+- *Calibration.* Every product scores 2 or below on at least one criterion. Presidio, Sensitive Data Protection and Purview DSPM are Strategic only on stated conditions.
+- *Hyperscaler lead services (CP3 Q2, rubric rule 10).* Purview DSPM moves from Tactical to Strategic, conditional: where Azure and Microsoft 365 are your primary cloud, as Microsoft's lead service for AI data-security posture with no criterion at 1. Its FS total (3.05) is unchanged and is among the lowest Strategic totals in C1–C8 (AgentCore Gateway in C1 is 3.00); the condition, posture evidence only, carries that weakness. Sensitive Data Protection's condition is reworded to "where Google Cloud is your primary cloud". Security stays at 4 for both under rule 8.
 
 **Key facts.**
 
@@ -332,8 +333,8 @@ STEP 4 [Rec]: Checks before go-live
 |---|---|---|
 | Absent from the graphic; ingestion (L8), memory (L5), vector stores (L6) and evals (L9) each copy data with no stated protection | DLP appears piecemeal inside gateways and guardrails (Cloudflare, Kong, Bedrock Guardrails, Model Armor) [VF: A6-S052, A6-S016, A6-S072, A6-S067] | A cross-cutting privacy service with one policy, called at six enforcement points [Rec] |
 | "Microsoft Presidio" (plan candidate) | Community-governed Presidio under Data Privacy Stack, MIT [VF: A6-S040, V2-S030] | Strategic, conditional: in-estate detection engine [Rec] |
-| Google Sensitive Data Protection (candidate) | Managed DLP positioned for GenAI; underpins Model Armor [VF: A6-S066, A6-S067] | Strategic in a Google Cloud estate [Rec] |
-| Microsoft Purview (candidate) | DSPM for AI folded into unified DSPM, GA May 2026; E5 or Purview Suite [VF: A6-S090, A6-S091] | Tactical: SaaS AI posture in Microsoft estates [Rec] |
+| Google Sensitive Data Protection (candidate) | Managed DLP positioned for GenAI; underpins Model Armor [VF: A6-S066, A6-S067] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
+| Microsoft Purview (candidate) | DSPM for AI folded into unified DSPM, GA May 2026; E5 or Purview Suite [VF: A6-S090, A6-S091] | Strategic, conditional: where Azure and Microsoft 365 are your primary cloud (CP3 Q2); AI posture, not prompt-path DLP [Rec] |
 | Protegrity (candidate) | AI Team Edition Tech Preview, AWS-only; ESA RBAC and audit [VF: A6-S093, B-C3-S004] | Tactical for existing customers [Rec] |
 | Skyflow (candidate) | LLM Privacy Vault with EU vaults; funding last verified 2024 [VF: A6-S095, A6-S096] | Tactical: reversible tokenisation where a vendor vault is acceptable [Rec] |
 
