@@ -249,7 +249,7 @@ Two observations follow [AJ]. A mapping to SR 11-7 now points to a superseded in
 - *FS note:* define a firm GenAI facet set (source document IDs, classification tags, chunking and embedding model versions, index version) and publish it internally [Rec].
 - **Tier: Strategic. No flag.**
 
-**Not assessed.** ServiceNow AI Control Tower and OneTrust AI governance could not be researched, so their materiality is not established [VF: A7-S098] [NPV].
+**Not assessed.** ServiceNow AI Control Tower and OneTrust AI governance could not be researched in Stage A, so their materiality is not established [NPV].
 
 ### C8.8 Comparison table
 

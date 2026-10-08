@@ -214,7 +214,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | C3-presidio | 3 | 3 | 3 | 5 | 3 | 3 | 4 | 5 | 3.50 | 3.65 | Strategic |
 | C3-google-sdp | 5 | 4 | 4 | 2 | 4 | 5 | 3 | 2 | 3.80 | 3.60 | Strategic |
 | C3-microsoft-purview-dspm-ai | 3 | 4 | 4 | 2 | 4 | 3 | 2 | 2 | 3.10 | 3.05 | Tactical |
-| C3-protegrity | 4 | 3 | 2 | 3 | 3 | 3 | 2 | 2 | 2.85 | 2.75 | Tactical |
+| C3-protegrity | 4 | 3 | 2 | 3 | 3 | 3 | 2 | 2 | 2.90 | 2.75 | Tactical |
 | C3-skyflow | 4 | 3 | 4 | 2 | 3 | 3 | 2 | 2 | 3.05 | 3.00 | Tactical |
 
 **Scoring notes [AJ]:**
