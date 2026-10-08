@@ -49,9 +49,9 @@ All pass-2 sources are search-tool extracts because the hosts are still blocked 
 | Fireworks AI – fast inference | The SDK is at 1.2.20. The SDK shows deployments, fine-tuning and batch inference. Enterprise facts are not verified. | Not publicly verified (enterprise facts) | A4-S094 |
 | Cerebras – ultra-scale cloud | Cerebras is a chip and system vendor (WSE-3, CS-3) that also runs an inference API, and it offers on-premise systems. IPO and funding status are not verified. | Mispositioned (descriptor omits hardware) | A4-S095 |
 | Ollama – run locally | The local runtime is MIT-licensed. **Ollama Cloud** now hosts larger models and offers OpenAI- and Anthropic-compatible APIs. The cloud features can be switched off. | Mispositioned (no longer local-only) | A4-S084, A4-S085, A4-S086 |
-| LM Studio – desktop app | It is still a desktop app with the lms CLI (MIT). The app's licence and commercial-use terms are not verified. | Not publicly verified (licence) | A4-S087, A4-S088, A4-S016 |
-| vLLM – high-throughput | vLLM 0.31.0 (Apache-2.0), released 5 October 2026, about every two weeks. It has a governance process with a TSC under "Linux Foundation Project Governance". | No change | A4-S009, A4-S063, A4-S064 |
-| SGLang – efficient engine | SGLang 0.5.21 (Apache-2.0). It is hosted by the **LMSYS** non-profit, and RadixArk appears as a collaborator. | No change | A4-S010, A4-S065 |
+| LM Studio – desktop app | It is still a desktop app. The app is **proprietary** and free for personal and internal business use; the separate commercial-licence requirement has been removed. It may not be redistributed or offered as a service. A paid Enterprise plan adds SSO. The lms CLI is MIT. | No change (licence clarified) | A4-S087, A4-S088, A4-S145 |
+| vLLM – high-throughput | vLLM 0.31.0 (Apache-2.0), released 5 October 2026, about every two weeks. It has been a **PyTorch Foundation-hosted project since 7 May 2025**. | No change | A4-S009, A4-S063, A4-S064, A4-S146 |
+| SGLang – efficient engine | SGLang 0.5.21 (Apache-2.0), hosted by the LMSYS non-profit. **RadixArk**, the creators' company, launched with a US$100M seed in May 2026 to steward SGLang commercially. | No change (new commercial steward) | A4-S010, A4-S065, A4-S147 |
 
 ---
 
