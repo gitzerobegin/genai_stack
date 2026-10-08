@@ -11,4 +11,6 @@ This repository executes `inputs/Enterprise_GenAI_Stack_Consolidated_Plan_v4.3.m
 | `Enterprise_GenAI_Stack_Oct2026/` | Deliverable package (plan §14 layout), built up checkpoint by checkpoint |
 | `tools/` | Helper scripts: source archiving, dataset build |
 
-**Status:** see the latest `CHECKPOINT_*.md` in the repo root.
+| `checkpoints/` | Checkpoint review packs (CP1 = research baseline) |
+
+**Status (8 October 2026):** stopped at **Checkpoint 1**. Start with `checkpoints/CP1/00_CP1_Summary.md`.

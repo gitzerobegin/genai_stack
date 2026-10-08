@@ -1,0 +1,1162 @@
+[
+  {
+    "stream": "A1",
+    "original": "Langfuse – open source",
+    "current": "Owned by ClickHouse, Inc. since January 2026. The core is MIT, but the product is open core: SCIM, audit logs, retention and project RBAC need an Enterprise licence key when self-hosted. Python SDK 4.17.0 (5 October 2026).",
+    "flag": "Acquired",
+    "sources": "A1-S021, A1-S022, A1-S023, A1-S033, A1-S001",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "LangSmith – trace & eval",
+    "current": "Still LangChain-owned. LangSmith has grown into an agent platform: Engine (beta), Fleet (renamed from Agent Builder), Sandboxes, LLM Gateway and Deployment. It offers BYOC and self-hosting on Enterprise. SOC 2 Type II, ISO 27001:2022 and HIPAA (BAA); US or EU region.",
+    "flag": "No change (scope broadened)",
+    "sources": "A1-S034, A1-S039, A1-S035, A1-S126",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "Braintrust – evals platform",
+    "current": "Independent; raised a US$80M Series B (February 2026). It now markets itself as \"active observability for agents\" (Topics, Loop, Gateway) and offers a hybrid data plane.",
+    "flag": "No change (repositioned)",
+    "sources": "A1-S028, A1-S043, A1-S041",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "Phoenix – Atrace",
+    "current": "Arize Phoenix under Elastic License 2.0, which is source-available, not OSI open source. Arize was acquired by Dynatrace (completed 1 October 2026). arize-phoenix 20.19.0. **A′:** Dynatrace completed the Arize acquisition on 1 October 2026 (Dynatrace IR).",
+    "flag": "Acquired",
+    "sources": "A1-S044, A1-S045, A1-S048, A1-S004, V1-S005",
+    "verification": "Corrected/extended by A′ (V1-S005)"
+  },
+  {
+    "stream": "A1",
+    "original": "DeepEval – LLM unit tests",
+    "current": "Apache-2.0 framework from Confident AI. 4.2.8 (2 October 2026). Agentic and trajectory metrics have been added.",
+    "flag": "No change",
+    "sources": "A1-S005, A1-S051, A1-S068",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "Promptfoo – red-teaming",
+    "current": "Acquired by OpenAI (announced 9 March 2026; the README says \"now part of OpenAI\"). Still MIT. It does evals and red teaming, so the \"red-teaming\" descriptor is incomplete. 0.124.0. **A′:** OpenAI announced the acquisition on 9 March 2026; no closing notice exists, only the README's 'part of OpenAI' wording.",
+    "flag": "Acquired (announced; closing not published)",
+    "sources": "A1-S024, A1-S025, A1-S062, A1-S020, V1-S006",
+    "verification": "Corrected/extended by A′ (V1-S006)"
+  },
+  {
+    "stream": "A1",
+    "original": "Opik – comet",
+    "current": "Opik by Comet ML. The whole platform is Apache-2.0, and self-hosting has no user management. 2.2.94.",
+    "flag": "No change",
+    "sources": "A1-S050, A1-S067, A1-S069, A1-S071",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "Arize – RAG metrics",
+    "current": "This is Arize AX, the commercial platform (Free / Pro US$50 / Enterprise), now a Dynatrace company. \"RAG metrics\" understates its scope. It duplicates the Arize vendor with the Phoenix tile. **A′:** Dynatrace completion date 1 October 2026 (Dynatrace IR).",
+    "flag": "Acquired; Duplicated",
+    "sources": "A1-S046, A1-S047, A1-S045, V1-S005",
+    "verification": "Corrected/extended by A′ (V1-S005)"
+  },
+  {
+    "stream": "A1",
+    "original": "Firecrawl – web to LLM-ready",
+    "current": "The server is AGPL-3.0 and the SDKs are MIT. Agent, Browser and enterprise controls are Cloud-only. SOC 2 Type II, ZDR and PII redaction. API v2. Raised a US$75M Series B and launched Alexandria, an agent data library (22 September 2026). The privacy policy places data in the US.",
+    "flag": "No change (repositioned towards agent data; licence note)",
+    "sources": "A1-S053, A1-S076, A1-S079, A1-S129, A1-S134",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "Docling – doc parser",
+    "current": "MIT. Hosted by the LF AI & Data Foundation; originated at IBM Research Zurich. 2.135.0. Managed option via IBM watsonx. **A′:** Donated by IBM to LF AI & Data in March 2025 (Incubation); Graduate in August 2026.",
+    "flag": "No change (governance moved to foundation)",
+    "sources": "A1-S057, A1-S008, A1-S110, V1-S091",
+    "verification": "Corrected/extended by A′ (V1-S091)"
+  },
+  {
+    "stream": "A1",
+    "original": "LlamaParse – PDF / documents",
+    "current": "LlamaParse is now the name of LlamaIndex's whole document platform (Parse, Extract, Index, Split, Agents), replacing the LlamaCloud branding. The old SDKs are deprecated, and the company's focus has shifted to LlamaParse.",
+    "flag": "Renamed",
+    "sources": "A1-S080, A1-S081, A1-S013, A1-S014",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "Crawl4AI – open crawler",
+    "current": "Apache-2.0 with an attribution clause. v0.9.4 (23 September 2026). A hosted Crawl4AI Cloud API has launched.",
+    "flag": "No change",
+    "sources": "A1-S009, A1-S056, A1-S074",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "MinerU – PDF parser",
+    "current": "MinerU 4.0 (4.0.10, 29 September 2026). Its custom licence is Apache-2.0 plus commercial-licence thresholds (more than 100M MAU or US$20M monthly revenue) and an attribution duty. It parses many formats, not just PDF.",
+    "flag": "Version label wrong (scope broader); licence note",
+    "sources": "A1-S010, A1-S054, A1-S055",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "Reducto – enterprise docs",
+    "current": "Proprietary API (Parse, Extract, Split, Edit, Classify, Pipeline). Vendor-stated SOC 2 Type II, HIPAA BAA, ZDR options, and VPC, on-prem or air-gapped deployment. EU and AU endpoints. US$75M Series B (a16z, October 2025).",
+    "flag": "No change",
+    "sources": "A1-S092, A1-S112, A1-S113, A1-S114",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A1",
+    "original": "Mistral OCR – OCR",
+    "current": "Current model is OCR 4.1 (`mistral-ocr-latest`, July 2026) at US$4 per 1,000 pages. OCR 4.0 was retired on 30 September 2026. Self-hosting is available to enterprise customers, and the API is EU-hosted. **A′:** OCR 4.1 released July 2026, GA 26 August 2026 (Mistral pages give 16 July, 26 July and 13 August).",
+    "flag": "Version label wrong (unversioned; now OCR 4.1)",
+    "sources": "A1-S130, A1-S135, A1-S083, V1-S014",
+    "verification": "Corrected/extended by A′ (V1-S014)"
+  },
+  {
+    "stream": "A1",
+    "original": "Unstructured – ETL for docs",
+    "current": "The Apache-2.0 library and ingest connectors are still free. The commercial offering is now the \"Transform v2 API\", with a dedicated or in-VPC Business tier. The vendor lists SOC 2 Type 2, ISO 27001 and HIPAA. Connectors emit ACL digests for incremental reprocessing. **A′:** Adds CMMC 2.0 Level 2. No FedRAMP authorisation found: do not repeat the 'FedRAMP adherence' wording.",
+    "flag": "Renamed (commercial API)",
+    "sources": "A1-S075, A1-S094, A1-S011, A1-S117, V1-S090",
+    "verification": "Corrected/extended by A′ (V1-S090)"
+  },
+  {
+    "stream": "A1",
+    "original": "Apify – scrapers",
+    "current": "Actor platform with an MCP server. SOC 2 Type II. Hosted only in AWS us-east-1.",
+    "flag": "No change",
+    "sources": "A1-S085, A1-S086, A1-S089",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "OpenAI – Embeddings 3",
+    "current": "Still text-embedding-3-large / -3-small (launched 25 January 2024). No newer OpenAI embedding model and no OpenAI reranker found.",
+    "flag": "No change",
+    "sources": "A2-S001, A2-S002, A2-S035",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Gemini – Embedding 2",
+    "current": "gemini-embedding-2: GA 22 April 2026 (preview 10 March 2026). Natively multimodal (text, image, video, audio, PDF); Matryoshka 128–3,072 dims. Vertex AI docs are being renamed \"Gemini Enterprise Agent Platform\".",
+    "flag": "No change",
+    "sources": "A2-S004, A2-S005, A2-S039",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Voyage AI – Voyage-3",
+    "current": "Voyage AI was acquired by MongoDB (closed 17 February 2025). Current models are the Voyage 4 family (15 January 2026), voyage-code-4, voyage-context-4 and voyage-multimodal-3.5, plus rerank-3 (30 September 2026). voyage-4-nano is open weights (Apache 2.0). **A′:** rerank-3 / rerank-3-lite are listed as Preview on MongoDB's model lifecycle page.",
+    "flag": "Acquired; Version label wrong",
+    "sources": "A2-S033, A2-S006, A2-S007, A2-S034, A2-S071, V1-S024",
+    "verification": "Corrected/extended by A′ (V1-S024)"
+  },
+  {
+    "stream": "A2",
+    "original": "Cohere – Embed v3 + Rerank",
+    "current": "Embed 5 Pro/Fast (30 September 2026) and Rerank 4 Pro/Fast (11 December 2025). Embed v4 is still listed. Aleph Alpha combination signed 16 September 2026, pending approval.",
+    "flag": "Superseded; Version label wrong",
+    "sources": "A2-S012, A2-S010, A2-S011, A2-S018",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Qwen3 – Embeddings",
+    "current": "Qwen3-Embedding **and Qwen3-Reranker** (0.6B/4B/8B, Apache 2.0, June 2025), plus Qwen3-VL-Embedding/-Reranker (January 2026). Hosted versions on Model Studio. The graphic omits the reranker.",
+    "flag": "Mispositioned (partial: embed-only label)",
+    "sources": "A2-S020, A2-S021, A2-S022",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Jina AI – Embeddings v3",
+    "current": "Elastic acquired Jina AI (October 2025). Current models: jina-embeddings-v5-text (February 2026), v5-omni (May 2026) and jina-reranker-v3.5 (July 2026). Weights are CC-BY-NC-4.0. **A′:** Elastic completed the acquisition on 9 October 2025.",
+    "flag": "Acquired; Version label wrong",
+    "sources": "A2-S023, A2-S024, A2-S025, A2-S026, V1-S025",
+    "verification": "Corrected/extended by A′ (V1-S025)"
+  },
+  {
+    "stream": "A2",
+    "original": "SBERT – Sentence transformers",
+    "current": "sentence-transformers 6.1.0 (18 September 2026), Apache-2.0. Now maintained by Hugging Face (Tom Aarsen); originated at UKP Lab. It covers embeddings, rerankers, sparse and multi-vector (ColBERT-style) models.",
+    "flag": "No change (stewardship moved)",
+    "sources": "A2-S029, A2-S032, A2-S028",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "NVIDIA – Embed",
+    "current": "NVIDIA NeMo Retriever embedding and reranking NIMs: nemotron-3-embed-1b, llama-nemotron-embed(-vl)-1b-v2 and llama-nemotron-rerank(-vl) models. Production use needs NVIDIA AI Enterprise. **A′:** nemotron-3-embed-1b added in Embedding NIM 2.2; 2.3 is current.",
+    "flag": "Renamed (ambiguous label resolved)",
+    "sources": "A2-S030, A2-S031, A2-S040, A2-S041, V1-S094",
+    "verification": "Corrected/extended by A′ (V1-S094)"
+  },
+  {
+    "stream": "A2",
+    "original": "EthicalAgents – embeddings",
+    "current": "No such product found after 6 searches. The nearest match, Ethical Agentic AI Inc., is an AI-agent audit firm.",
+    "flag": "Not publicly verified",
+    "sources": "A2-S079",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Ragoos – RAG re-rankers",
+    "current": "No such product found after 6 searches. Near-misses are a restaurant, RAGus.ai, RaGOO and Ragie.",
+    "flag": "Not publicly verified",
+    "sources": "A2-S080",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Postgres – + pgvector",
+    "current": "pgvector 0.8.7 (5 October 2026), with 2026 CVE fixes in 0.8.2 and 0.8.7. pgvecto.rs is deprecated in favour of VectorChord. pgvectorscale continues under Tiger Data (formerly Timescale). **A′:** 0.8.7 released 1 October 2026 (announced 5 October); fixes CVE-2026-103484 (CVSS 8.8); extension licence is the PostgreSQL License.",
+    "flag": "No change",
+    "sources": "A2-S061, A2-S062, A2-S063, A2-S064, A2-S066, A2-S067, V1-S020, V1-S021, V1-S022",
+    "verification": "Corrected/extended by A′ (V1-S020, V1-S021, V1-S022)"
+  },
+  {
+    "stream": "A2",
+    "original": "Pinecone – managed",
+    "current": "Still managed, now with BYOC (GA; AWS/GCP/Azure) and Dedicated Read Nodes (GA April 2026). Repositioned as \"knowledge infrastructure\", with Nexus \"knowledge engine for agents\" GA 6 August 2026. Hosts its own and Cohere rerankers plus a sparse model. SOC 2 Type II, ISO 27001, HIPAA BAA. New CEO September 2025; SDK v10 (September 2026). **A′:** BYOC announced GA late September 2026; requires Enterprise; some features (Assistant, Inference, on-demand indexes) not yet in BYOC as of late August.",
+    "flag": "Mispositioned (descriptor understates BYOC/Nexus/integrated inference)",
+    "sources": "A2-S069, A2-S072, A2-S073, A2-S068, A2-S051, A2-S095, A2-S097, A2-S101, V1-S034, V1-S029",
+    "verification": "Corrected/extended by A′ (V1-S034, V1-S029)"
+  },
+  {
+    "stream": "A2",
+    "original": "Qdrant – open source",
+    "current": "Server 1.19.2 (5 October 2026), Apache-2.0. Managed, Hybrid (in customer network) and Private Cloud. SOC 2 Type II and HIPAA. US$50M Series B (12 March 2026).",
+    "flag": "No change",
+    "sources": "A2-S102, A2-S108, A2-S106, A2-S105, A2-S107",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Milvus – vector search",
+    "current": "Milvus 3.0 GA 29 July 2026 (3.0.2, 20 September 2026), re-architected as \"lake-native\" (indexes over object storage/open formats); Apache-2.0; LF AI & Data graduated. Zilliz Cloud repositioned as \"Vector Lakebase\" with BYOC, SOC 2 Type II and ISO 27001.",
+    "flag": "Version label n/a; scope widened (repositioned)",
+    "sources": "A2-S117, A2-S118, A2-S119, A2-S120",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Weaviate – open source",
+    "current": "v1.39.7 (25 September 2026). Core still BSD-3-Clause, but a commercially licensed Enterprise Edition (`wl/`, licence key) is being introduced (1.40 RC). SOC 2 Type II, ISO 27001:2022, HIPAA on Premium Dedicated (AWS). BYOC available.",
+    "flag": "Mispositioned (descriptor \"open source\" now partial: open core)",
+    "sources": "A2-S109, A2-S115, A2-S111, A2-S112, A2-S113",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "turbopuffer – cloud vector store",
+    "current": "Serverless vector **and BM25 full-text** search with object storage as system of record; BYOC on AWS/GCP/Azure; SOC 2 Type 2, HIPAA BAA (Scale+), per-namespace CMEK (Enterprise). Customers include Atlassian, Cursor, Notion, Anthropic (press).",
+    "flag": "No change (descriptor understates full-text/BYOC)",
+    "sources": "A2-S056, A2-S124, A2-S125, A2-S123, A2-S126",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Elasticsearch – hybrid search",
+    "current": "Elastic 9.5 (GA 4 August 2026): BBQ/DiskBBQ quantisation by default, RRF/linear hybrid retrievers, semantic_text defaulting to Jina v5, VectorDB index mode (preview). AGPLv3 licence option since 2024 alongside SSPL/ELv2. Acquired Jina AI. OpenSearch 3.9.0 (29 September 2026) is the fork alternative.",
+    "flag": "No change",
+    "sources": "A2-S133, A2-S132, A2-S023, A2-S136",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "MongoDB – Atlas vector",
+    "current": "MongoDB Vector Search now GA self-managed (Community and Enterprise Advanced, 8.2+, SSPL) as well as Atlas; hybrid search GA; native `$rerank` with Voyage rerankers (preview); Atlas Embedding and Reranking API with EU Geography.",
+    "flag": "No change (scope widened; \"Atlas\" label too narrow)",
+    "sources": "A2-S137, A2-S141, A2-S142, A2-S078",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "Chroma – open source",
+    "current": "chromadb 1.5.9 (5 May 2026), Apache-2.0, Rust core since 1.0 (March 2025). Chroma Cloud: SOC 2 Type II, regions AWS us-east-1 and GCP europe-west1, Team plan US$250/month, BYOC custom. \"Open-source search/data infrastructure for AI\".",
+    "flag": "No change",
+    "sources": "A2-S060, A2-S128, A2-S129, A2-S130, A2-S131",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A2",
+    "original": "S3 Vectors – AWS",
+    "current": "Amazon S3 Vectors: preview July 2025, **GA December 2025**; ~34 Regions incl. GovCloud and European Sovereign Cloud; 2 billion vectors/index, 4,096 dims, 10,000 top-K; storage US$0.06/GB-month; integrates with Bedrock Knowledge Bases and OpenSearch.",
+    "flag": "No change (label correct)",
+    "sources": "A2-S081, A2-S083, A2-S084, A2-S087, A2-S089, A2-S093",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "Mem0 – memory layer",
+    "current": "Mem0 v2.x (mem0ai 2.2.1, 25 Sep 2026); open core. New April 2026 algorithm uses ADD-only extraction. On 14 Apr 2026, open-source v2.0.0 removed the graph stores, so graph memory is now Platform-only. **A′:** Open-source v2 replaced graph stores with built-in entity linking (not a queryable graph); deletions recorded under SDK v2.0.1.",
+    "flag": "No change (scope shift: OSS and Platform diverge)",
+    "sources": "A3-S001, A3-S053, A3-S080, A3-S081, V1-S043",
+    "verification": "Corrected/extended by A′ (V1-S043)"
+  },
+  {
+    "stream": "A3",
+    "original": "Zep – graph memory",
+    "current": "Zep is a managed \"context graph\" platform with a proprietary Context Graph Engine. Graphiti (Apache-2.0, 0.30.2) is the open-source core. Zep Community Edition is deprecated.",
+    "flag": "Deprecated (Community Edition); otherwise No change",
+    "sources": "A3-S003, A3-S059",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "Letta – stateful agents",
+    "current": "Letta (formerly MemGPT) has pivoted to Letta Code (0.34.4, 4 Oct 2026), a stateful agent harness with Letta Cloud, per the \"Letta's Next Phase\" post (Mar 2026). The V1 API server is retired to an archive branch, and the PyPI package `letta` is now the CLI.",
+    "flag": "Superseded (V1 server) / Mispositioned (agent harness, not a memory layer)",
+    "sources": "A3-S004, A3-S060, A3-S073, A3-S077, A3-S093",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "Cognee – knowledge graphs",
+    "current": "Cognee 1.6.3 (7 Oct 2026). Apache-2.0, with a licensed production Postgres graph and Cognee Cloud.",
+    "flag": "No change",
+    "sources": "A3-S005",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "Supermemory – memory API",
+    "current": "Supermemory v5 namespace-first API (SDK 5.0.0, 6 Oct 2026). Adds RAG, connectors and a self-hosted \"Supermemory local\".",
+    "flag": "No change (scope broader than memory)",
+    "sources": "A3-S012, A3-S064",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "LangMem – long-term",
+    "current": "LangMem 0.0.30. No PyPI release since 27 Oct 2025; it is a LangGraph library, not a service.",
+    "flag": "Not publicly verified (activity status) / Mispositioned (library inside L3)",
+    "sources": "A3-S006, A3-S054",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "MCP – tools standard",
+    "current": "Spec 2026-07-28 (stateless core). Governed by the Agentic AI Foundation (Linux Foundation) since 9 Dec 2025. Enterprise-Managed Authorization extension is stable. Registry is still preview (API v0.1).",
+    "flag": "No change (governance moved to a foundation)",
+    "sources": "A3-S015, A3-S018, A3-S017, A3-S036, A3-S042",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "A2A – agent-to-agent",
+    "current": "A2A 1.0.0 (12 Mar 2026) and 1.0.1 (26 May 2026), under the Linux Foundation; joined AAIF in Aug 2026. IBM ACP was merged into A2A in Aug 2025.",
+    "flag": "No change",
+    "sources": "A3-S078, A3-S079, A3-S040, A3-S032",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "Agent Skills – reusable skills",
+    "current": "Open format (SKILL.md), published as an open standard on 18 Dec 2025. Adopted by OpenAI Codex, Gemini CLI and others. Governance charter not found. **A′:** Open-standard date (18 December 2025) and independent adoption (OpenAI Codex) confirmed; no neutral governance body; not an AAIF-hosted project on available evidence.",
+    "flag": "No change (open format; no neutral governance body)",
+    "sources": "A3-S029, A3-S061, A3-S033, A3-S034, V1-S040, V1-S046, V1-S047",
+    "verification": "Corrected/extended by A′ (V1-S040, V1-S046, V1-S047)"
+  },
+  {
+    "stream": "A3",
+    "original": "Composio – integrations",
+    "current": "Composio SDK 0.25.0, with 2.0 in beta. Offers 1000+ toolkits, per-user sessions and auth brokering.",
+    "flag": "No change",
+    "sources": "A3-S008, A3-S063",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "Exa – search API",
+    "current": "Exa search API (exa-py 2.25.0, 1 Oct 2026).",
+    "flag": "No change",
+    "sources": "A3-S010",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "Tavily – search API",
+    "current": "Tavily API (tavily-python 0.8.5, 6 Oct 2026). Nebius announced the acquisition on 10 Feb 2026 and accounts for it as completed: fair value US$189.7M plus an ARR earnout; the press reported US$275M. **A′:** Closed 19 February 2026 (Nebius FY2025 Form 20-F). US$275M is a Bloomberg figure, not disclosed by Nebius.",
+    "flag": "Acquired",
+    "sources": "A3-S084, A3-S085, A3-S086, A3-S087, A3-S009, V1-S041",
+    "verification": "Corrected/extended by A′ (V1-S041)"
+  },
+  {
+    "stream": "A3",
+    "original": "Browserbase – cloud browsers",
+    "current": "Browserbase SDK 1.20.0 plus Stagehand 4.1.0. Standalone MCP server repository archived.",
+    "flag": "No change",
+    "sources": "A3-S013, A3-S076, A3-S054",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A3",
+    "original": "E2B – code sandboxes",
+    "current": "E2B SDK 2.53.1. Runtime (Firecracker microVMs) is open source under Apache-2.0. Dedicated in-customer-cloud deployments are available.",
+    "flag": "No change",
+    "sources": "A3-S007, A3-S062",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "LangGraph – workflow",
+    "current": "LangGraph 1.2.14 (MIT), GA since 1.0 on 17 October 2025. It covers both deterministic workflows and agent loops, with durable execution and HITL. Its managed runtime was renamed from **LangGraph Platform** to **LangSmith Deployment** on 14 October 2025.",
+    "flag": "Renamed (platform); descriptor incomplete",
+    "sources": "A4-S001, A4-S031, A4-S033, A4-S039",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "LlamaIndex – document agents",
+    "current": "The OSS framework is at 0.14.25, with Workflows as a standalone package (2.25.0). The vendor says its primary focus has moved to **LlamaParse**, the product formerly called LlamaCloud (parsing, extraction and LlamaAgents document agents). The framework is still available.",
+    "flag": "Mispositioned (commercial focus is L8); Renamed (LlamaCloud→LlamaParse)",
+    "sources": "A4-S002, A4-S013, A4-S117, A4-S042",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "Pydantic AI – type-safe",
+    "current": "Pydantic AI 2.54.0. v2.0 shipped on 23 June 2026 and removed graph persistence; durability now comes through Temporal, DBOS or Prefect capabilities. The 1.x line is still patched.",
+    "flag": "No change (major version moved)",
+    "sources": "A4-S003, A4-S044, A4-S045",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "CrewAI – multi-agent",
+    "current": "CrewAI 1.15.24 (MIT), with 1.0 on 20 October 2025. It has two modes: **Crews** (autonomous) and **Flows** (event-driven, deterministic). The commercial platform is **CrewAI AMP**, formerly CrewAI Enterprise. **A′:** 'AMP, formerly CrewAI Enterprise' is inferred, not confirmed by a rename notice: earlier materials call it CrewAI Enterprise.",
+    "flag": "Renamed (enterprise product); descriptor incomplete",
+    "sources": "A4-S004, A4-S050, A4-S049, V1-S075",
+    "verification": "Corrected/extended by A′ (V1-S075)"
+  },
+  {
+    "stream": "A4",
+    "original": "Agent SDK (OpenAI logo)",
+    "current": "OpenAI Agents SDK: openai-agents 0.23.1 and @openai/agents 0.19.0 (MIT). The harness and sandbox update came on 15 April 2026. It is a different product from the hosted **Agents API** (beta since 10 September 2026) and from **Agent Builder**, which shuts down on 30 November 2026.",
+    "flag": "Duplicated label (A7); Version label n/a",
+    "sources": "A4-S005, A4-S053, A4-S055, A4-S054",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "Agent SDK (Anthropic logo)",
+    "current": "Claude Agent SDK: claude-agent-sdk 0.2.164 (classified Alpha) and @anthropic-ai/claude-agent-sdk 0.3.293. It was **renamed from Claude Code SDK** on 29 September 2025 and the old package is deprecated. Use is governed by Anthropic's Commercial Terms, even though the Python repository LICENCE is MIT.",
+    "flag": "Renamed; Duplicated label (A7)",
+    "sources": "A4-S006, A4-S011, A4-S028, A4-S027, A4-S092",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "Mistral – Agents SDK",
+    "current": "There is no distinct \"Agents SDK\". There is the **Agents API**, called through the general `mistralai` SDKs (Python 3.1.0, TS 2.7.0), and **Mistral Workflows**, a separate SDK built on Temporal (3.15.0, beta).",
+    "flag": "Not publicly verified (as named); Mispositioned",
+    "sources": "A4-S057, A4-S007, A4-S058, A4-S061",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "AI SDK – AI SDK (triangle logo)",
+    "current": "**Vercel AI SDK**, npm package `ai`, at 7.0.131 (Apache-2.0); 7.0 released 25 June 2026. By default it routes through Vercel AI Gateway. The companion Workflow SDK, 5.1.0, adds durability.",
+    "flag": "No change (identity resolved, A15)",
+    "sources": "A4-S022, A4-S069, A4-S106",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "Agent Framework – Microsoft",
+    "current": "Microsoft Agent Framework 1.20.0 (MIT), GA at 1.0.0 on 2 April 2026. It is the declared successor to **Semantic Kernel** and **AutoGen**, and AutoGen is now in maintenance mode.",
+    "flag": "No change (supersedes SK/AutoGen)",
+    "sources": "A4-S008, A4-S012, A4-S068, A4-S066",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "Hugging Face – models & APIs",
+    "current": "One tile covers four things: the Hub, **Inference Providers** (a router with pass-through pricing), **Inference Endpoints** (managed dedicated serving on vLLM, SGLang, TGI, llama.cpp or TEI), and **TGI**, which is in **maintenance mode** \"as of 12/11/2025\". **A′:** TGI GitHub repository archived (read-only) on 21 March 2026.",
+    "flag": "Duplicated (several products); Deprecated (TGI)",
+    "sources": "A4-S075, A4-S081, A4-S073, A4-S072, V1-S054, V1-S055",
+    "verification": "Corrected/extended by A′ (V1-S054, V1-S055)"
+  },
+  {
+    "stream": "A4",
+    "original": "OpenRouter – multi-provider",
+    "current": "It is still a router, and it now has gateway-style controls: guardrails (budgets, allowlists, ZDR, data regions), EU/US in-region routing, and SSO/SCIM on Enterprise plans. Holds SOC 2 Type 2 but offers **no HIPAA BAA**. Charges a 5.5% fee on credit purchases. Raised a US$113M Series B in May 2026 (secondary source). **A′:** Stripe and OpenRouter announced on 19 August 2026 that Stripe will acquire OpenRouter; no completion notice by 8 October 2026; price undisclosed (press: US$7–8bn+). The US$113M Series B (26 May 2026) is now Verified.",
+    "flag": "Acquired (pending)",
+    "sources": "A4-S111, A4-S109, A4-S110, A4-S142–A4-S144, A4-S150, V1-S059, V1-S060, V1-S061",
+    "verification": "Corrected/extended by A′ (V1-S059, V1-S060, V1-S061)"
+  },
+  {
+    "stream": "A4",
+    "original": "Together AI – open-source cloud",
+    "current": "An \"AI-native cloud\" covering serverless, dedicated endpoints, PTU, fine-tuning and GPU clusters. Holds SOC 2 Type 2 and ISO 27001:2022. **ZDR is off by default**, and EU dedicated endpoints are only on Scale and Enterprise plans. Raised a US$800M Series C at US$8.3B on 1 July 2026.",
+    "flag": "No change (scope widened to GPU cloud)",
+    "sources": "A4-S093, A4-S129–A4-S132, A4-S151",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "Fireworks AI – fast inference",
+    "current": "Holds SOC 2 Type II, HIPAA, ISO 27001, ISO 27701 and ISO 42001. ZDR is on by default for open models, with the Response API as an exception. Offers BYOC. Raised a US$1.505B Series D at US$17.5B in July 2026.",
+    "flag": "No change",
+    "sources": "A4-S094, A4-S133–A4-S136, A4-S141, A4-S152",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "Cerebras – ultra-scale cloud",
+    "current": "A chip and system vendor that also runs an inference cloud. **IPO priced 13 May 2026 at US$185, Nasdaq: CBRS.** Has a 750MW inference agreement with OpenAI. Holds SOC 2 Type 2; HIPAA not listed. EU capacity is targeted for the end of 2026.",
+    "flag": "Mispositioned (descriptor omits hardware); status changed (public company)",
+    "sources": "A4-S095, A4-S137–A4-S140, A4-S153, A4-S154",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "Ollama – run locally",
+    "current": "The local runtime is MIT-licensed. **Ollama Cloud** now hosts larger models and offers OpenAI- and Anthropic-compatible APIs. The cloud features can be switched off.",
+    "flag": "Mispositioned (no longer local-only)",
+    "sources": "A4-S084, A4-S085, A4-S086",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "LM Studio – desktop app",
+    "current": "It is still a desktop app. The app is **proprietary** and free for personal and internal business use; the separate commercial-licence requirement has been removed. It may not be redistributed or offered as a service. A paid Enterprise plan adds SSO. The lms CLI is MIT.",
+    "flag": "No change (licence clarified)",
+    "sources": "A4-S087, A4-S088, A4-S145",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "vLLM – high-throughput",
+    "current": "vLLM 0.31.0 (Apache-2.0), released 5 October 2026, about every two weeks. It has been a **PyTorch Foundation-hosted project since 7 May 2025**.",
+    "flag": "No change",
+    "sources": "A4-S009, A4-S063, A4-S064, A4-S146",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A4",
+    "original": "SGLang – efficient engine",
+    "current": "SGLang 0.5.21 (Apache-2.0), hosted by the LMSYS non-profit. **RadixArk**, the creators' company, launched with a US$100M seed in May 2026 to steward SGLang commercially.",
+    "flag": "No change (new commercial steward)",
+    "sources": "A4-S010, A4-S065, A4-S147",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A5",
+    "original": "OpenAI \"GPT-6\"",
+    "current": "GPT-6 is a tiered family: **GPT-6 Astra** (gated flagship, early September 2026), **GPT-6 Sol** and **GPT-6 Luna** (22 September), **GPT-6.1 Sol** (29 September). GPT-5.6 Sol/Terra/Luna (9 July 2026) is still offered. Open weights: gpt-oss-120b/20b (Apache 2.0).",
+    "flag": "No change (label correct; incomplete as a single label)",
+    "sources": "A5-S001, A5-S002, A5-S003, A5-S004, A5-S005, A5-S008, A5-S009",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A5",
+    "original": "Claude \"Opus 5.5\"",
+    "current": "Opus 5.5 is current (22 September 2026) but is not the top tier. **Claude Fable 5.1** (1 September 2026) is the top GA model. **Mythos 5.1** is the same model with looser safeguards (trusted access only). Sonnet 5.5 (28 September) and Haiku 5.5 (7 October) complete the 5.5 family. **A′:** Also: Claude Fable 5 access was suspended 12 June 2026 and restored 1 July 2026; a related N.D. Cal. ruling is dated 27 August 2026 (see L1-anthropic record). Disclosure: the author is an Anthropic model.",
+    "flag": "No change (label correct; not the flagship)",
+    "sources": "A5-S010, A5-S012, A5-S016, A5-S019, A5-S020, V2-S004, V2-S068",
+    "verification": "Corrected/extended by A′ (V2-S004, V2-S068)"
+  },
+  {
+    "stream": "A5",
+    "original": "Gemini \"Gemini\"",
+    "current": "Production lineup is **Gemini 3.x**: 3.1 Pro (still preview), 3.8 Flash (GA 2 September 2026) and 3.5 Flash-Lite. **Gemini 4 Argon** was announced 30 September 2026 with restricted access. Gemini 3.5 Pro was never released (reported cancelled).",
+    "flag": "Not publicly verified (graphic gives no version)",
+    "sources": "A5-S027, A5-S030, A5-S031, A5-S032, A5-S036",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A5",
+    "original": "Grok (no version)",
+    "current": "**Grok 4.7** was launched on 21 September 2026 at US$2/US$6 per 1M with a 500K context. SpaceX acquired xAI in an all-stock deal announced and closed on 2 February 2026 (Verified, xAI's own post). The AI unit was rebranded SpaceXAI in mid-2026 (date unverified: May or July). On 4 October 2026 Musk announced a further rename to 'SpaceXSI', not yet effected.",
+    "flag": "Not publicly verified (graphic gives no version); vendor Acquired",
+    "sources": "A5-S079, A5-S081, A5-S027, V2-S011",
+    "verification": "Corrected/extended by A′ (V2-S011)"
+  },
+  {
+    "stream": "A5",
+    "original": "DeepSeek \"V4\"",
+    "current": "V4 preview 24 April 2026: V4-Pro 1.6T/49B active, V4-Flash 284B/13B, 1M context, MIT licence. V4-Pro GA 13 August. **V4.1-Flash** (10 September 2026) replaced V4-Flash in the API. V4.1-Pro has not been released. **A′:** The V4-Pro phase-out planned for 14 September 2026 was reversed (pricing-page note, 17 September): V4-Pro API continues.",
+    "flag": "Version label wrong (stale at point-release level)",
+    "sources": "A5-S063, A5-S064, A5-S065, V2-S013",
+    "verification": "Corrected/extended by A′ (V2-S013)"
+  },
+  {
+    "stream": "A5",
+    "original": "Qwen \"3.8\"",
+    "current": "**Qwen3.8** is current. API: qwen3.8-max (0902 snapshot), qwen3.8-flash, omni-flash. Open weights: Qwen3.8-27B, Qwen3.8-2.4T-A95B, Qwen3.8-Flash-Next (26 August 2026). Verified from Alibaba Cloud pages: the 2.4T flagship weights launched August 2026; Qwen3.8-27B is Apache 2.0. **A′:** Hosted Qwen3.8-Max launched 3 August 2026; the 2.4T-A95B weights (12 August) are under a custom 'Qwen3.8-Max License', not Apache 2.0 (Reported).",
+    "flag": "No change",
+    "sources": "A5-S066, A5-S068, A5-S038, V2-S014",
+    "verification": "Corrected/extended by A′ (V2-S014)"
+  },
+  {
+    "stream": "A5",
+    "original": "Kimi \"K3\"",
+    "current": "**Kimi K3** launched 16 July 2026, with weights released by 27 July. It is a 2.8T MoE with a 1M context, under the custom Kimi K3 License. Pricing is US$3/US$15 per 1M. Available on Bedrock.",
+    "flag": "No change",
+    "sources": "A5-S038, A5-S039, A5-S040, A5-S041",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A5",
+    "original": "\"QI4\" (Z logo) \"Q4\"",
+    "current": "No model named QI4 or Q4 was found. The Z logo matches **Z.ai GLM**. The current family is GLM-5.x: GLM-5.3 (API mid-August 2026: 14 August per NIST CAISI, 18 August per press; weights c. 28 August under a bespoke licence) and GLM-5.3-Flash (26 August 2026, MIT) and GLM-5.2 (open weights, June 2026, about 744–754B, 1M context).",
+    "flag": "Version label wrong",
+    "sources": "A5-S038, A5-S041, A5-S042, A5-S043, A5-S044, V2-S021, V2-S016",
+    "verification": "Corrected/extended by A′ (V2-S021, V2-S016)"
+  },
+  {
+    "stream": "A5",
+    "original": "Mistral \"Medium 3.1\"",
+    "current": "Superseded by **Mistral Medium 3.5** (28 April 2026; 128B; Modified MIT). **Mistral Large 4** entered public preview on 6 October 2026, with weights promised by the end of October. Large 3 (December 2025) is Apache 2.0. **A′:** Large 4 preview is API-only; weights targeted for 27 October 2026 (VentureBeat).",
+    "flag": "Superseded",
+    "sources": "A5-S074, A5-S076, A5-S038, V2-S017",
+    "verification": "Corrected/extended by A′ (V2-S017)"
+  },
+  {
+    "stream": "A5",
+    "original": "Gemma \"2.9\"",
+    "current": "No Gemma 2.9 exists. The current family is **Gemma 4**: E2B, E4B, 26B MoE and 31B released 31 March / 2 April 2026, and 12B on 3 June 2026. Licence is **Apache 2.0**.",
+    "flag": "Version label wrong",
+    "sources": "A5-S034, A5-S035",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A5",
+    "original": "Meta \"Llama (new: Muse)\"",
+    "current": "**Muse** comes from Meta Superintelligence Labs. Muse Spark was announced in April 2026. Versions 1.1 (9 July), 1.2 (5 August) and 1.3 (2 September) are served through the Meta Model API, now GA. **Muse Glimmer 30B** (August 2026) is Apache 2.0. Llama 4 remains the latest Llama, under the Llama 4 Community License. **A′:** Meta Model API GA confirmed (Connect, 23–24 September 2026).",
+    "flag": "Renamed",
+    "sources": "A5-S077, A5-S078, A5-S027, V2-S019",
+    "verification": "Corrected/extended by A′ (V2-S019)"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) LiteLLM",
+    "current": "Open-core gateway. litellm 1.104.1 (MIT) plus the proprietary litellm-enterprise package. The proxy also acts as an MCP gateway and an A2A agent gateway. PyPI supply-chain compromise on 24 March 2026 (1.82.7/1.82.8); clean v1.83.0 released 30 March 2026. **A′:** v1.83.0 uploaded to PyPI 31 March 2026 05:08 UTC (30 March US time); exposure window about 40 minutes (LiteLLM) to about 3 hours (Snyk).",
+    "flag": "No change",
+    "sources": "A6-S001, A6-S002, A6-S008, A6-S009, A6-S015, V2-S027, V2-S028",
+    "verification": "Corrected/extended by A′ (V2-S027, V2-S028)"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Portkey",
+    "current": "Acquired by Palo Alto Networks: announced 30 April 2026, closed 29 May 2026, US$117m per the 10-K. Now branded \"Prisma AIRS AI Gateway\". The open-source gateway (MIT) is moving to Gateway 2.0.",
+    "flag": "Acquired",
+    "sources": "A6-S011, A6-S012, A6-S014, A6-S049",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Kong AI Gateway",
+    "current": "Kong AI Gateway 2.0 became GA on 1 September 2026 as a dedicated runtime in Konnect. The AI plugins stay on Kong Gateway 3.14 LTS, and Kong recommends migrating before 3.18. **A′:** AI Gateway 2.2 GA 30 September 2026.",
+    "flag": "No change",
+    "sources": "A6-S016, A6-S017, V2-S034",
+    "verification": "Corrected/extended by A′ (V2-S034)"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Cloudflare AI Gateway",
+    "current": "Free core service. 2026 additions: spend limits, identity-based budgets, DLP, Llama Guard 3 8B guardrails, Unified Billing (5% fee), and new log pricing from 24 September 2026.",
+    "flag": "No change",
+    "sources": "A6-S019, A6-S052",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Azure API Management AI gateway",
+    "current": "Policies in existing tiers are GA. The dedicated \"AI Gateway tier\" is in public preview: East US 2 and Sweden Central only, free, no SLA. It covers LLM, MCP and A2A traffic.",
+    "flag": "No change",
+    "sources": "A6-S020, A6-S053",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) AWS \"AI gateway\"",
+    "current": "AWS has no product by that name. Bedrock AgentCore Gateway (an MCP gateway, GA October 2025) now has LLM inference targets, token-aware rate limits and principal rules in its API model. AWS also publishes a LiteLLM-based Guidance pattern.",
+    "flag": "Not publicly verified (GA wording for the inference targets; feature documented and token rate limits announced 6 August 2026)",
+    "sources": "A6-S021, A6-S022, A6-S074, A6-S105, A6-S106",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Google Apigee AI gateway",
+    "current": "Apigee is marketed as an AI gateway: token limits, semantic cache, Model Armor, MCP (GA 31 March 2026). Vertex AI has been renamed \"Gemini Enterprise Agent Platform\". **A′:** Vertex AI → Gemini Enterprise Agent Platform rename dated April 2026 (22 April release notes).",
+    "flag": "No change",
+    "sources": "A6-S023, A6-S024, A6-S025, A6-S070, V2-S037",
+    "verification": "Corrected/extended by A′ (V2-S037)"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) agentgateway",
+    "current": "Linux Foundation open-source gateway for LLM, MCP and A2A traffic, v1.6.0 (2 October 2026).",
+    "flag": "No change",
+    "sources": "A6-S061, A6-S062",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Envoy AI Gateway",
+    "current": "Renamed \"Agent Router\" and moved to the Agentic AI Foundation. v1.2.0 (6 October 2026).",
+    "flag": "Renamed",
+    "sources": "A6-S063, A6-S064",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) NVIDIA NeMo Guardrails",
+    "current": "0.24.1 (16 September 2026), Apache-2.0, still classed as Beta (0.x). Adds a new IORails engine.",
+    "flag": "No change",
+    "sources": "A6-S003, A6-S036",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Guardrails AI",
+    "current": "Acquired by Harvey on 9 September 2026. Hosted hub install and remote inference were retired on 25 August 2026; validators now ship on PyPI. Library 0.11.0 (Apache-2.0). **A′:** Cutoff date conflict: repository notice says 25 August 2026, docs migration guide says 6 August 2026.",
+    "flag": "Acquired",
+    "sources": "A6-S004, A6-S028, A6-S037, V2-S071, V2-S072",
+    "verification": "Corrected/extended by A′ (V2-S071, V2-S072)"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Meta Llama Guard / Prompt Guard / LlamaFirewall",
+    "current": "The newest releases found are Llama Guard 4 12B and Prompt Guard 2 (29 April 2025) and llamafirewall 1.0.3 (29 May 2025). Nothing newer was found.",
+    "flag": "No change",
+    "sources": "A6-S006, A6-S030, A6-S031, A6-S039",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Amazon Bedrock Guardrails",
+    "current": "Content filters (CLASSIC and STANDARD tiers, including PROMPT_ATTACK), denied topics, PII filters, contextual grounding, Automated Reasoning, cross-region profiles, and a standalone ApplyGuardrail API. Prices not verified.",
+    "flag": "No change",
+    "sources": "A6-S072, A6-S073",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Azure AI Content Safety",
+    "current": "Prompt Shields GA (August 2024). Task Adherence for agent tool use in preview (November 2025). Can be called from the APIM AI gateway on LLM, MCP and A2A traffic.",
+    "flag": "No change",
+    "sources": "A6-S054, A6-S055, A6-S020",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Google Model Armor",
+    "current": "Google's guardrail service. Free up to 2M tokens/month, then US$0.10 per 1M tokens. Integrated with Apigee and Google MCP servers.",
+    "flag": "No change",
+    "sources": "A6-S067",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) \"Microsoft Presidio\"",
+    "current": "No longer a Microsoft project. It is now community-governed under the \"Data Privacy Stack\" organisation (MIT; 2.2.364, 22 July 2026). Images have moved to GHCR.",
+    "flag": "Renamed",
+    "sources": "A6-S005, A6-S040, A6-S041",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Google Sensitive Data Protection",
+    "current": "Formerly Cloud DLP. Positioned for protecting GenAI prompts and responses, and underpins Model Armor. Content inspection is US$3/GiB after 1 GiB free.",
+    "flag": "No change",
+    "sources": "A6-S065, A6-S066",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Microsoft Purview (DSPM for AI)",
+    "current": "DSPM for AI has been folded into the new unified Purview Data Security Posture Management, GA May 2026. The classic experiences remained until June 2026. Requires Microsoft 365 E5 or the Purview Suite; Business Premium add-on coverage is conflicting.",
+    "flag": "Renamed",
+    "sources": "A6-S090, A6-S091, A6-S092",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Protegrity",
+    "current": "AI Team Edition launched 17 November 2025; the docs still say Tech Preview, and deployment is AWS-only. ISO 27001:2013 (2023). No 2025–2026 acquisition or funding found.",
+    "flag": "No change",
+    "sources": "A6-S082, A6-S093, A6-S094",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Skyflow",
+    "current": "LLM Privacy Vault offered, with EU vaults. Vendor claims ISO 27001, SOC 2 Type 2 and PCI DSS L1. Last verified funding: US$30m in March 2024. No acquisition found. SDK v1 reaches end of life on 31 October 2026.",
+    "flag": "No change",
+    "sources": "A6-S081, A6-S095, A6-S096",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Microsoft Entra Agent ID",
+    "current": "GA in April 2026 (Entra release log). Security features need Agent 365, included in M365 E7 and sold as an add-on to E5/A5/Business Premium. The agent registry is converging into Agent 365.",
+    "flag": "No change",
+    "sources": "A6-S057, A6-S058, A6-S059, V2-S032",
+    "verification": "Corrected/extended by A′ (V2-S032)"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Okta / Auth0 for AI Agents",
+    "current": "Auth0 for AI Agents GA 19 November 2025. Okta for AI Agents GA 30 April 2026. Okta Agent SSO (Cross App Access) GA 24 August 2026, included in core SSO; XAA is the MCP Enterprise-Managed Authorization extension. **A′:** GA-date conflict for Okta Agent SSO resolved in favour of 24 August 2026.",
+    "flag": "No change",
+    "sources": "A6-S097, A6-S099, A6-S100, A6-S080, V2-S035",
+    "verification": "Corrected/extended by A′ (V2-S035)"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) SPIFFE/SPIRE",
+    "current": "SPIRE v1.15.3 (21 August 2026). CNCF graduated, Apache-2.0.",
+    "flag": "No change",
+    "sources": "A6-S042, A6-S043, A6-S087",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) OAuth 2.1 / MCP authorisation",
+    "current": "MCP spec revision 2026-07-28: stateless protocol, RFC 9207 issuer validation, Dynamic Client Registration deprecated. The Enterprise-Managed Authorization extension (ID-JAG) is Stable. OAuth 2.1 itself is still an IETF draft. **A′:** 2026-07-28 also removes SSE resumability and deprecates the Roots, Sampling and Logging features.",
+    "flag": "No change",
+    "sources": "A6-S032, A6-S033, A6-S035, A6-S079, V2-S031",
+    "verification": "Corrected/extended by A′ (V2-S031)"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) OPA",
+    "current": "v1.21.1 (29 September 2026). CNCF graduated, Apache-2.0.",
+    "flag": "No change",
+    "sources": "A6-S046, A6-S048, A6-S088",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A6",
+    "original": "(not in graphic) Cedar / AgentCore Policy",
+    "current": "Cedar 4.13.0 (15 September 2026, Apache-2.0). AgentCore Policy (Cedar-based) GA 3 March 2026. Amazon Verified Permissions is active; Cedar 4 is required for its authorisation APIs from April 2026. **A′:** AgentCore Policy GA in 13 Regions; policies now authored in Dogwood, an open-source superset of Cedar.",
+    "flag": "No change",
+    "sources": "A6-S026, A6-S044, A6-S045, A6-S104, V2-S033",
+    "verification": "Corrected/extended by A′ (V2-S033)"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C5) Langfuse Prompt Management",
+    "current": "Prompt management is part of Langfuse v4. The core is MIT-licensed; protected prompt labels, RBAC and audit logs are Enterprise-only. Langfuse has been part of ClickHouse since January 2026. **A′:** ClickHouse announced the acquisition on 16 January 2026.",
+    "flag": "Acquired",
+    "sources": "A7-S071, A7-S074, A7-S075, V2-S041",
+    "verification": "Corrected/extended by A′ (V2-S041)"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C5) LangSmith prompt management",
+    "current": "Prompts are managed as commits, with Staging/Production environments, prompt owners, webhooks and GitHub sync. EU region is europe-west4. SOC 2 Type 2.",
+    "flag": "No change",
+    "sources": "A7-S076, A7-S077, A7-S078",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C5) PromptLayer",
+    "current": "Independent. Prompt Registry with release labels. Self-hosted or in the customer's AWS account (Enterprise). SSO and SCIM via WorkOS. SDK 1.5.16 (19 August 2026).",
+    "flag": "No change",
+    "sources": "A7-S004, A7-S085, A7-S086, A7-S087",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C5) LaunchDarkly AI Configs",
+    "current": "GA on 28 May 2025. Renamed **AgentControl** in 2026 (launch post 12 May 2026); the API is unchanged. Certifications: SOC 2 Type II, ISO 27001/27701, FedRAMP Moderate (Federal instance). Foundation plan is US$10 per service connection per month including 5,000 AI runs.",
+    "flag": "Renamed",
+    "sources": "A7-S117, A7-S118, A7-S119",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C5) Prompts-as-code pattern",
+    "current": "Prompty v2 (Microsoft, MIT), Dotprompt (Google, Apache-2.0) and Promptfoo configs. Promptfoo is now part of OpenAI and remains MIT. **A′:** OpenAI's Promptfoo acquisition was announced 9 March 2026; closing date not published.",
+    "flag": "Acquired (Promptfoo)",
+    "sources": "A7-S067, A7-S066, A7-S068, A7-S022, V2-S042",
+    "verification": "Corrected/extended by A′ (V2-S042)"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C6) Gateway-native cost tracking / chargeback",
+    "current": "Includes LiteLLM spend tracking and Anthropic's Usage & Cost Admin API. Portkey was acquired by Palo Alto Networks on 29 May 2026, and Palo Alto's AI Gateway went GA on 16 July 2026.",
+    "flag": "Acquired (Portkey)",
+    "sources": "A7-S010, A7-S070, A7-S016, A7-S028",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C6) Helicone",
+    "current": "**Acquired by Mintlify on 3 March 2026** and now in maintenance mode. Still Apache-2.0.",
+    "flag": "Acquired",
+    "sources": "A7-S112, A7-S046",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C6) Vantage",
+    "current": "Integrations for Anthropic (GA September 2025), Claude Enterprise (July 2026) and OpenAI. Managed AI Tags normalise AI spend across providers.",
+    "flag": "No change",
+    "sources": "A7-S113, A7-S090",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C6) CloudZero",
+    "current": "AI cost allocation across OpenAI, Anthropic, Bedrock and Azure OpenAI, plus a Kubernetes agent. Claims are vendor blog posts.",
+    "flag": "No change",
+    "sources": "A7-S114, A7-S091",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C6) FinOps FOCUS",
+    "current": "FOCUS v1.4 announced June 2026, CC BY 4.0. Tokens can be reported through the v1.2 virtual-currency columns. FOCUS 1.4 ratified 4 June 2026. FOCUS 1.5 (no ratification date) adds AI pricing dimensions on SkuPriceDetails and four model properties (ModelDeveloper, ModelFamily, ModelId, ModelVersion); a first-class input/output token-type column is deferred. The 2026 FinOps Framework adds a \"FinOps for AI\" category.",
+    "flag": "No change (token column deferred)",
+    "sources": "A7-S049, A7-S115, A7-S116, V2-S046",
+    "verification": "Corrected/extended by A′ (V2-S046)"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C7) Lakera",
+    "current": "Check Point announced the acquisition on 16 September 2025 and completed it in Q4 2025. The product is now \"Check Point AI Guardrails\", inside the AI Defense Plane (23 March 2026). AI Agent Security is in early access. **A′:** Completion date 22 October 2025 (Check Point Q3 2025 results); consideration about US$201.8m (20-F, second hand).",
+    "flag": "Acquired; Renamed",
+    "sources": "A7-S012, A7-S013, A7-S024, A7-S025, A7-S026, V2-S038",
+    "verification": "Corrected/extended by A′ (V2-S038)"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C7) Palo Alto Prisma AIRS",
+    "current": "Version 3.0 (23 March 2026). Protect AI was acquired on 22 July 2025, Koi on 14 April 2026 and Portkey on 29 May 2026. AI Gateway GA 16 July 2026.",
+    "flag": "Acquired (Protect AI)",
+    "sources": "A7-S014, A7-S016, A7-S027, A7-S028",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C7) HiddenLayer",
+    "current": "Independent. Raised a US$100m Series B in September 2026. Agent Harness Security launched August 2026. ISO 27001 and SOC 2 Type 2 (February 2025). **A′:** Series B dated 2 September 2026.",
+    "flag": "No change",
+    "sources": "A7-S017, A7-S030, V2-S047",
+    "verification": "Corrected/extended by A′ (V2-S047)"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C7) HashiCorp Vault",
+    "current": "IBM-owned since 27 February 2025. Vault 2.1.1 (16 September 2026). Agentic IAM is GA in Enterprise 2.1. Licence is BUSL 1.1. **A′:** 2.1.1 is the latest version in the changelog, but a v2.1.2 git tag exists: check before citing.",
+    "flag": "Acquired",
+    "sources": "A7-S032, A7-S034, A7-S060, A7-S061, V2-S061",
+    "verification": "Corrected/extended by A′ (V2-S061)"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C7) Model/package scanning",
+    "current": "Current versions: ModelScan 0.8.8, picklescan 1.0.5, fickling 0.1.12, safetensors 0.8.0. The Hugging Face Hub scans with ClamAV, picklescan, Protect AI and JFrog. Guardian has moved into Prisma AIRS (secondary sources).",
+    "flag": "Acquired (Protect AI)",
+    "sources": "A7-S002, A7-S006, A7-S037, A7-S039",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C7) OpenSSF Model Signing (added)",
+    "current": "OMS v1.0 released April 2025; model-signing 1.1.1.",
+    "flag": "No change",
+    "sources": "A7-S038, A7-S040",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C8) ValidMind",
+    "current": "Library 2.13.14, dual AGPL/commercial licence. Documentation maps the platform to SR 26-2 (which supersedes SR 11-7), SS1/23, the EU AI Act and E-23. Offered as SaaS or single-tenant VPV.",
+    "flag": "No change",
+    "sources": "A7-S003, A7-S051, A7-S052, A7-S053, A7-S054",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C8) Credo AI",
+    "current": "AI Registry and policy packs (EU AI Act, NIST AI RMF, ISO 42001). Offered as SaaS (AWS US, Azure EU) or self-hosted/air-gapped on Kubernetes. SOC 2 Type II report dated 31 December 2025. The open-source Lens library is deprecated.",
+    "flag": "No change",
+    "sources": "A7-S102, A7-S107, A7-S123, A7-S092",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C8) IBM watsonx.governance",
+    "current": "Available as SaaS, self-managed or on-premises. Frameworks: EU AI Act, NIST AI RMF, ISO 42001; SR 11-7 via Compliance Accelerators. 2026 additions: AI Asset Discovery and agent Enforcement Tracking. Pricing: Lite free; US$0.64 per evaluation.",
+    "flag": "No change",
+    "sources": "A7-S103, A7-S111, A7-S058",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C8) ModelOp",
+    "current": "ModelOp Center (\"Enterprise AI Command Center\"). Runs in cloud, on-premises or hybrid, with EKS via AWS Marketplace. Templates for EU AI Act, NIST AI RMF, SR 11-7 and E-23. Certifications not verified.",
+    "flag": "No change",
+    "sources": "A7-S098, A7-S104, A7-S109",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C8) Collibra AI Governance",
+    "current": "AI Command Center, SaaS on AWS and GCP. Certifications include SOC 2, ISO 27001 and ISO 42001. Templates for EU AI Act and NIST. **Acquired trail ML on 5 October 2026.**",
+    "flag": "No change",
+    "sources": "A7-S099, A7-S105, A7-S106, A7-S122",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A7",
+    "original": "(none – C8) OpenLineage / Marquez",
+    "current": "OpenLineage 1.53.0 (1 September 2026), spec 2-0-2, an LF AI & Data Graduate project. The latest Marquez release is 0.51.1 (March 2025).",
+    "flag": "No change",
+    "sources": "A7-S001, A7-S041, A7-S043, A7-S044",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "\"SR 11-7\" is the US model risk management (MRM) reference",
+    "current": "SR 11-7 was **superseded** on 17 April 2026 by Fed SR 26-2, OCC Bulletin 2026-13 and FDIC FIL-15-2026. **Generative and agentic AI are out of scope.** The announced AI RFI had not been found published",
+    "flag": "Superseded",
+    "sources": "A8-S001, A8-S002, A8-S003, A8-S005, A8-S007",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "PRA SS1/23",
+    "current": "Effective 17 May 2024. The PRA later narrowed its expectations to firms with internal-model (IM) approval. AI/ML roundtables were held in October 2025",
+    "flag": "No change (scope narrowed)",
+    "sources": "A8-S008, A8-S009, A8-S061",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "EU AI Act high-risk obligations from August 2026",
+    "current": "The Digital Omnibus, Regulation (EU) 2026/1744 (in force 27 July 2026), moved Annex III to **2 December 2027** and Annex I to **2 August 2028**. Article 4 was reworded",
+    "flag": "Superseded (dates)",
+    "sources": "A8-S011, A8-S012, A8-S014, A8-S060",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "GPAI obligations from August 2025",
+    "current": "Enforceable by the Commission from 2 August 2026. The Code of Practice was published 10 July 2025",
+    "flag": "No change",
+    "sources": "A8-S015, A8-S019",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "DORA critical third-party providers (CTPPs)",
+    "current": "First list on 18 November 2025: 19 providers. **No AI model vendor designated**",
+    "flag": "New fact",
+    "sources": "A8-S020, A8-S022",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "UK critical third parties (CTP) regime",
+    "current": "First designations in force 13 July 2026: AWS, Google Cloud, Microsoft and Oracle. **No AI model vendor designated**",
+    "flag": "New fact",
+    "sources": "A8-S023, A8-S024",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "PRA SS2/21",
+    "current": "Revised by PS7/26 (March 2026). New material third-party notification and register requirements apply from **18 March 2027**",
+    "flag": "Superseded (revised)",
+    "sources": "A8-S048, A8-S062",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "FCA SYSC 8 / FG16/5",
+    "current": "Unchanged in substance. FG16/5 dates from 2016, updated 2019. The FCA's PS26/2 material third-party reporting applies from **18 March 2027**",
+    "flag": "No change (new reporting layer)",
+    "sources": "A8-S049, A8-S062",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "EBA outsourcing guidelines (2019)",
+    "current": "Final replacement guidelines on non-ICT third-party risk issued **18 September 2026**, reference EBA/GL/2026/09; application date not yet fixed (translations pending); critical or important arrangements to be reviewed within two years of application. The 2019 guidelines are to be repealed",
+    "flag": "Superseded (pending application)",
+    "sources": "A8-S050, V2-S054",
+    "verification": "Corrected/extended by A′ (V2-S054)"
+  },
+  {
+    "stream": "A8",
+    "original": "Data (Use and Access) Act 2025",
+    "current": "All data protection provisions in force by 19 June 2026 (main tranche 5 February 2026)",
+    "flag": "New fact",
+    "sources": "A8-S051",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "EU–UK adequacy",
+    "current": "Renewed 19 December 2025, valid to 27 December 2031",
+    "flag": "New fact",
+    "sources": "A8-S052",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "EU–US Data Privacy Framework",
+    "current": "Upheld by the General Court on 3 September 2025 (T-553/23). The appeal, C-703/25 P, is **pending**",
+    "flag": "New fact",
+    "sources": "A8-S053, A8-S054",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "NIST AI RMF 1.0 / AI 600-1",
+    "current": "AI RMF 1.0 (January 2023) is **under revision**, with no new version published. AI 600-1 final (26 July 2024) unchanged",
+    "flag": "No change (revision pending)",
+    "sources": "A8-S043, A8-S044",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "ISO/IEC 42001 (42005/42006 \"if published\")",
+    "current": "42001: December 2023. 42005: May 2025. 42006: July 2025. All published **A′:** ISO/IEC 42006 published 7 July 2025.",
+    "flag": "New fact",
+    "sources": "A8-S045, A8-S046, A8-S047, V2-S057",
+    "verification": "Corrected/extended by A′ (V2-S057)"
+  },
+  {
+    "stream": "A8",
+    "original": "OWASP Top 10 for LLM Applications 2025",
+    "current": "The 2025 edition (November 2024) has been **superseded by a 2026 edition** (August–September 2026) **A′:** Date conflict stands (press release 2 September 2026 vs archive 3 August 2026): cite as August–September 2026.",
+    "flag": "Version label wrong",
+    "sources": "A8-S040, A8-S041, V2-S056",
+    "verification": "Corrected/extended by A′ (V2-S056)"
+  },
+  {
+    "stream": "A8",
+    "original": "\"OWASP Top 10 for Agentic Applications\"",
+    "current": "The correct name is \"OWASP Top 10 for Agentic Applications for 2026\", launched 9–10 December 2025",
+    "flag": "Renamed (edition label)",
+    "sources": "A8-S042",
+    "verification": "Checked by A′; no change"
+  },
+  {
+    "stream": "A8",
+    "original": "SEC predictive data analytics rule",
+    "current": "Withdrawn by Commission action on 12 June 2025; notice published 17 June 2025",
+    "flag": "Deprecated",
+    "sources": "A8-S057, V2-S058",
+    "verification": "Corrected/extended by A′ (V2-S058)"
+  }
+]
