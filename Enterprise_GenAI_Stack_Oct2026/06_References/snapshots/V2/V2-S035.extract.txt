@@ -1,0 +1,8 @@
+SOURCE ID: V2-S035
+URL: https://www.okta.com/newsroom/press-releases/okta-brings-first-class-identity-to-ai-agents-with-agent-sso/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Okta Agent SSO Cross App Access generally available 2026 (allowed_domains okta.com, auth0.com, help.okta.com)
+========================================================================
+
+Okta's press release dated August 24, 2026 announces the general availability of Agent SSO; "Agent SSO establishes a first-class identity model for AI agents at the point of connection and is included in core Okta SSO plans at no additional cost." A separate Okta (Oktane 2026) announcement says Agent SSO, Agent-to-Agent Connections, and Resource Access Certifications are generally available "today" (dated ~late September 2026 per search metadata). Okta Identity Engine release notes list Cross App Access support for AI agents and apps for all customers under Generally Available, tied to the August 2026 weekly release. Okta support article: Agent SSO is Generally Available and included in core workforce SSO plans. Okta for AI Agents is a separate subscription. XAA formally incorporated as an official MCP authorization extension (Okta June 2026 announcement).

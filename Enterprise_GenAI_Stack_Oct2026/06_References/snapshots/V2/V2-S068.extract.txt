@@ -1,0 +1,8 @@
+SOURCE ID: V2-S068
+URL: https://www.cnbc.com/2026/08/28/judge-blocks-pentagon-blacklist--anthropic-.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic v. Department of War Northern District of California Judge Rita Lin summary judgment supply chain risk ruling date
+========================================================================
+
+Ruling issued August 27, 2026, by Judge Rita F. Lin, N.D. Cal., Case No. 26-cv-01996-RFL: "Order on Cross Motions for Summary Judgment; Granting Motion to Supplement the Administrative Record". Summary judgment for Anthropic on all claims except the ultra vires separation of powers claim and certain claims against agency defendants. Designation found unlawful retaliation in violation of the First Amendment; Anthropic "was denied the pre-deprivation process required under the Fifth Amendment"; arbitrary and capricious under 10 U.S.C. § 3252. Judge ordered the designation removed. Press dated it August 28. D.C. Circuit No. 26-1049 (25 September 2026) reached the opposite result on the separate FASCSA designation.

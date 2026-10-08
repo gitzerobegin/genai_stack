@@ -1,0 +1,10 @@
+SOURCE ID: V2-S012
+URL: https://docs.x.ai/developers/grok-4-7
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Grok 4.7 release xAI API pricing context window (allowed_domains x.ai, docs.x.ai)
+========================================================================
+
+Grok 4.7 is live on the xAI API as grok-4.7. Context window 500k tokens. xAI's news page dates the launch to Sep 21, 2026. Release notes describe it as SpaceXAI's frontier model for coding, agentic tasks, and knowledge work.
+Pricing: $2.00 input, $0.50 cached input, $6.00 output per 1M tokens for prompts under 200k tokens; above that, $4 / $1 / $12 per 1M tokens.
+Effort levels low, medium, high (default), xhigh. US regional endpoint at 1.1x. Knowledge cutoff May 2026. Grok 4.7 Fast only in Cursor and Grok Build at 2x.

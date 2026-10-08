@@ -1,0 +1,8 @@
+SOURCE ID: V2-S059
+URL: https://www.wilmerhale.com/en/insights/blogs/wilmerhale-privacy-and-cybersecurity-law/20251201-european-court-of-justice-to-review-challenge-to-eu-us-data-privacy-framework
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Latombe appeal C-703/25 P EU-US Data Privacy Framework Court of Justice 2026
+========================================================================
+
+General Court dismissed Latombe on 3 September 2025 (T-553/23). Appeal to the Court of Justice lodged October 31, 2025, registered as C-703/25 P (points of law; four grounds). Parties: Commission, Ireland, United States. Microsoft allowed to intervene in support of the Commission (reported late June 2026, ieu-monitoring). No hearing date scheduled as of most recent source (~two months old). noyb has said it intends to file its own annulment challenge (not yet filed per that source).

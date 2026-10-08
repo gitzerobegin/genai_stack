@@ -1,0 +1,8 @@
+SOURCE ID: V1-S063
+URL: https://www.morningstar.com/news/business-wire/20260505077157/radixark-launches-with-100-million-in-seed-funding-led-by-accel-to-grow-sglang-and-democratize-frontier-ai-infrastructure
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: RadixArk SGLang seed funding $100 million (extended)
+========================================================================
+
+Business Wire 5 May 2026: RadixArk launches with $100M seed led by Accel (Spark Capital co-lead) at a $400 million post-money valuation, to grow SGLang. Participants include NVentures, AMD, MediaTek, HOF Capital, Walden Catalyst and others. Founders Ying Sheng and Banghua Zhu (SGLang creators). Plans an end-to-end platform covering training, fine-tuning, RL (Miles) and inference.

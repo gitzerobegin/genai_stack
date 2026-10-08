@@ -1,0 +1,8 @@
+SOURCE ID: V1-S034
+URL: https://www.pinecone.io/blog/byoc-generally-available/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone BYOC generally available AWS GCP Azure (allowed_domains pinecone.io, docs.pinecone.io)
+========================================================================
+
+Pinecone's GA announcement (about two weeks before 8 October 2026, i.e. late September 2026) covers BYOC on AWS, Google Cloud and Azure. 2026 changelog: BYOC recommended for production usage on the Enterprise plan across AWS, GCP and Azure; an older entry said public preview. Docs: a Pinecone Enterprise plan is required for BYOC access. In-cluster agent pulls operations, no inbound network access; Pulumi-based setup wizard; optional AWS PrivateLink, GCP Private Service Connect, Azure Private Link. A product blog post about 40 days earlier listed features not yet available in BYOC (Assistant, Inference, on-demand indexes, DRN indexes with integrated embedding).

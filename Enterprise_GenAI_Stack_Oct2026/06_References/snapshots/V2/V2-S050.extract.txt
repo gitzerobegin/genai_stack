@@ -1,0 +1,10 @@
+SOURCE ID: V2-S050
+URL: https://lawandtechnology.eu/en/digital-omnibus-on-ai-official-journal-regulation-2026-1744/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Regulation (EU) 2026/1744 digital omnibus AI Act high-risk 2 December 2027 Official Journal entry into force
+========================================================================
+
+Regulation dated 8 July 2026, published in the Official Journal on 24 July 2026. Entry into force "as a matter of urgency" on the third day following publication: 27 July 2026. Parliament vote 16 June 2026; Council final approval 29 June 2026.
+Stand-alone Annex III high-risk systems: comply from 2 December 2027 (was 2 August 2026). AI embedded as safety component in Annex I products: 2 August 2028.
+General body of the AI Act still applies from 2 August 2026. Sources disagree on whether transparency obligations' date moved and on the description of 2 December 2026 changes (new prohibitions on harmful generative AI content). Secondary commentary; OJ text not read.

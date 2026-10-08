@@ -1,0 +1,10 @@
+SOURCE ID: V2-S040
+URL: https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SentinelOne Prompt Security acquisition completed; F5 CalypsoAI acquisition completed; CrowdStrike Pangea acquisition completed
+========================================================================
+
+SentinelOne / Prompt Security: filings put the close on September 5, 2025. 8-K: consideration ~ $180 million in cash and Class A common stock. Later 10-Q: ~$133.6 million cash, 1,555,099 Class A shares and 415,109 assumed options; fair value ~ $160.2 million.
+F5 / CalypsoAI: F5 announced it completed the acquisition and launched F5 AI Guardrails and F5 AI Red Team. F5 10-Q dates the closing to September 26, 2025: "closed on a transaction for the acquisition of CalypsoAI Corp. for $145.2 million in cash." Wikipedia gives September 29, 2025. Announced figure ~ $180 million.
+CrowdStrike / Pangea: announced September 16, 2025 (Fal.Con). CrowdStrike posted it had officially completed the acquisition. 10-K gives closing date September 26, 2025; total consideration $212.1 million in cash net of $9.4 million cash acquired, plus ~$10.6 million replacement awards.

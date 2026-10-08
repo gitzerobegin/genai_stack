@@ -1,0 +1,12 @@
+SOURCE ID: V1-S005
+URL: https://ir.dynatrace.com/news-events/press-releases/detail/439/dynatrace-completes-acquisition-of-arize-extending-ai-observability-across-the-full-development-lifecycle
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Dynatrace completes acquisition of Arize date (allowed_domains dynatrace.com, ir.dynatrace.com)
+========================================================================
+
+Dynatrace completed its acquisition of Arize on October 1, 2026. The completion release was posted that afternoon at 4:05 p.m. EDT, according to Dynatrace's investor relations page.
+Announcement: Dynatrace first revealed the deal on August 13, 2026, when it signed a definitive agreement to acquire Arize in a cash and stock transaction valued at $915 million.
+Payment: About $815 million was to be paid in cash, with the rest in replacement equity awards for Arize employees joining Dynatrace.
+Product plans: Arize's AX platform and the open-source Phoenix project continue to operate, and Arize capabilities will be folded into Dynatrace over time.
+(Also listed: ir.dynatrace.com press release 435 "Dynatrace to Acquire AI Observability Leader Arize".)

@@ -1,0 +1,10 @@
+SOURCE ID: V2-S034
+URL: https://konghq.com/blog/product-releases/kong-ai-gateway-2-0-ga
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Kong AI Gateway 2.0 generally available Konnect September 2026
+========================================================================
+
+Kong's launch post: the production runtime, control plane, and Konnect experience introduced in beta are now production-ready. Third-party write-up dates GA to September 1, 2026. Features: MCP Server Bundling, modality-aware cost management, Kimi/Microsoft Foundry/SageMaker providers, identity-aware AI policies via Kong Identity, native IAM auth for Amazon Bedrock AgentCore.
+A Kong press release dated September 30, 2026 announces that version 2.2 is generally available, with a new user experience, cost management, and broader model support, "now generally available in Kong Konnect ... with no beta enablement required."
+Kong developer docs home page lists "AI Gateway v1.2.1" alongside "Kong Gateway v2.2.0" (confusing numbering).

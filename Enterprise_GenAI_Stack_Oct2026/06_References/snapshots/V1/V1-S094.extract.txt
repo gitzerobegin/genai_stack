@@ -1,0 +1,8 @@
+SOURCE ID: V1-S094
+URL: https://docs.nvidia.com/nim/nemo-retriever/embedding/2.2/release-notes.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: nemotron-3-embed-1b NeMo Retriever embedding NIM (allowed_domains nvidia.com etc.)
+========================================================================
+
+nvidia/nemotron-3-embed-1b is packaged as a NeMo Retriever Embedding NIM (OpenAI-compatible API); added in Release 2.2 as a text embedding NIM; current docs/Helm chart at 2.3.0. Text-only; 2048-dimensional output (no dimension reduction; other values return HTTP 400); max sequence 4096 tokens; float/int8/uint8/binary/ubinary. GPUs: NVFP4 on RTX PRO 6000 Blackwell and GB200; BF16 on A100 80GB, H100 80GB, L40S, A10G, GB10.

@@ -1,0 +1,9 @@
+SOURCE ID: V1-S039
+URL: https://a2a-protocol.org/latest/announcing-1.0/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: A2A protocol 1.0 release specification (allowed_domains a2a-protocol.org etc.); A2A protocol joins Agentic AI Foundation (extended)
+========================================================================
+
+Spec site lists 1.0.0 as the latest released version (older 0.3.0, 0.2.6, 0.1.0). GitHub releases page shows a 1.0.0 tag dated 2026-03-12. Linux Foundation: "release of version 1.0, its first stable specification". v1.0: a2a.proto normative; SendMessage; unified Part; OAuth device code and PKCE, implicit and password flows removed; Agent Card signing RFC 7515/8785; JSON-RPC, gRPC, HTTP+JSON bindings.
+AAIF: official A2A blog says A2A was "accepted as a Growth Stage project at the Agentic AI Foundation (AAIF)". Secondary coverage dates the move to August 20, 2026; one report says August 17, 2026 (Axios first report). Each protocol keeps its own maintainers, specification process and release schedule.

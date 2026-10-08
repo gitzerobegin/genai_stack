@@ -1,0 +1,8 @@
+SOURCE ID: V2-S076
+URL: https://www.kennedyslaw.com/en/thought-leadership/article/2026/the-data-use-and-access-act-2025-commencement-dates-and-planned-guidance-for-2026
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Data (Use and Access) Act 2025 commencement data protection provisions in force 5 February 2026 19 June 2026 ICO
+========================================================================
+
+20 August 2025 (Commencement No. 1): specified Part 5 provisions. 5 February 2026: Data (Use and Access) Act 2025 (Commencement No.6 and Transitional and Saving Provisions) Regulations 2026 (SI 2026/82) brought in the bulk of UK GDPR, PECR and DPA 2018 amendments, including automated decision making and international transfers to third countries, recognised legitimate interests. 19 June 2026: section 103 (data protection complaints) in force. ICO governance (Information Commission) provisions to follow later; status as of October 2026 not confirmed.

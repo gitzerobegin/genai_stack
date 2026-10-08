@@ -1,0 +1,8 @@
+SOURCE ID: V2-S069
+URL: https://digitalpolicyalert.org/event/42290-prohibition-on-use-of-deepseek-and-related-artificial-intelligence-in-national-defense-authorization-act-for-fiscal-year-2026-public-law-119-60-entered-into-force-for-department-of-defense-and-its-contractors
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: FY2026 NDAA section 1532 DeepSeek prohibition Department of Defense
+========================================================================
+
+House passed S. 1071 with amendment December 10, 2025; Senate agreed December 17; signed December 18, 2025 as Public Law 119-60. Section 1532 "Guidance and Prohibition on Use of Certain Artificial Intelligence" entered into force subject to a 30-day grace period; tracker lists January 17, 2026 as date the prohibition took effect for DoD and its contractors. Covered AI: developed by DeepSeek or High Flyer and associated entities; also entities on specific lists or subject to foreign influence. Contractors restricted from using covered AI in performing DoD contracts (commercial guide), with case-by-case waivers. Section 6604: remove DeepSeek from intelligence community systems. Statute text not read.

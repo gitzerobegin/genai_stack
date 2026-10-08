@@ -1,0 +1,8 @@
+SOURCE ID: V1-S030
+URL: https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon S3 Vectors generally available 2 billion vectors per index pricing (extended, allowed_domains aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+GA December 2025: a single index can hold up to 2 billion vectors, with up to 10,000 indexes per vector bucket (40x the 50 million per index in preview). Limitations page: "Vectors per vector index: Up to 2 billion." A GA blog subheading cites 1 billion but its body and the re:Invent recap say 2 billion. Pricing dimensions: PUT per logical GB, storage per logical GB, queries per-API plus $/TB by index size (lower beyond 100,000 vectors); later post: query charges on indexes >10 million vectors reduced by up to 80%. Bedrock-related AWS blog example storage rate $0.06 per GB per month. March 2026 expansion added 17 Regions: "S3 Vectors is now available in 31 AWS Regions."

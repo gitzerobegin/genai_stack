@@ -46,7 +46,8 @@
     "A8-S002",
     "A8-S003",
     "A8-S005",
-    "A8-S007"
+    "A8-S007",
+    "V2-S049"
    ],
    "conf": "high"
   },
@@ -63,7 +64,8 @@
    "src": [
     "A8-S001",
     "A8-S002",
-    "A8-S003"
+    "A8-S003",
+    "V2-S049"
    ],
    "conf": "high"
   },
@@ -99,7 +101,8 @@
    "A8-S002",
    "A8-S003",
    "A8-S005",
-   "A8-S007"
+   "A8-S007",
+   "V2-S049"
   ],
   "stage_a_notes": "Sources differ on 'SR 26-2' vs 'SR 26-02' and on 'revision' vs 'replacement'; the Fed letter says 'supersedes and replaces'. Full attachment text not read (occ.gov and federalreserve.gov blocked); validation and documentation detail rests on search extracts. The OCC 2022 testimony that many AI tools would be considered models contrasts with the 2026 carve-out (reported in search extract, not archived)."
  },
@@ -331,7 +334,7 @@
    "conf": "high"
   },
   "status_and_dates": {
-   "v": "Entered into force 1 August 2024 (reported). Prohibitions and AI literacy apply from 2 February 2025. GPAI obligations and governance from 2 August 2025; Commission enforcement powers over GPAI (fines up to 3% of global turnover) from 2 August 2026; GPAI models placed before 2 August 2025 must comply by 2 August 2027. Article 50 transparency applies from 2 August 2026 (Article 50(2) marking: systems already on the market have until 2 December 2026). Under the Digital Omnibus (Regulation (EU) 2026/1744, OJ 24 July 2026, in force 27 July 2026), Annex III stand-alone high-risk obligations moved from 2 August 2026 to 2 December 2027 and Annex I (product-embedded) high-risk obligations to 2 August 2028; new prohibitions (non-consensual intimate imagery, CSAM generation) apply from 2 December 2026.",
+   "v": "Entered into force 1 August 2024 (reported). Prohibitions and AI literacy apply from 2 February 2025. GPAI obligations and governance from 2 August 2025; Commission enforcement powers over GPAI (fines up to 3% of global turnover) from 2 August 2026; GPAI models placed before 2 August 2025 must comply by 2 August 2027. Article 50 transparency applies from 2 August 2026 (Article 50(2) marking: systems already on the market have until 2 December 2026). Under the Digital Omnibus (Regulation (EU) 2026/1744, OJ 24 July 2026, in force 27 July 2026), Annex III stand-alone high-risk obligations moved from 2 August 2026 to 2 December 2027 and Annex I (product-embedded) high-risk obligations to 2 August 2028; new prohibitions (non-consensual intimate imagery, CSAM generation; new Article 5(1)(ba) and (bb)) apply from 2 December 2026. The Article 50(2) grace period for generative systems already on the market sits in new Article 111(4); the rest of Article 50 has applied since 2 August 2026.",
    "label": "Verified fact",
    "src": [
     "A8-S011",
@@ -339,7 +342,9 @@
     "A8-S014",
     "A8-S018",
     "A8-S019",
-    "A8-S032"
+    "A8-S032",
+    "V2-S050",
+    "V2-S078"
    ],
    "conf": "high"
   },
@@ -410,7 +415,9 @@
    "A8-S018",
    "A8-S019",
    "A8-S032",
-   "A8-S060"
+   "A8-S060",
+   "V2-S050",
+   "V2-S078"
   ],
   "stage_a_notes": "Article 4 conflict RESOLVED (A8-S060, EUR-Lex text via search extract): the duty stays on providers and deployers but is reworded from 'ensure ... a sufficient level' to 'take measures to support'; the Commission's proposal to shift it to Member States was not adopted. Both earlier readings were partially right. Sources also disagree on the Omnibus signature date (8 July 2026 vs adoption dates 16/29 June 2026); publication 24 July 2026 and entry into force 27 July 2026 are consistent across Commission and EUR-Lex extracts. One extract notes a source conflict on the post-market monitoring template deadline; the Omnibus removed the Commission's power to adopt the Article 72(3) template."
  },
@@ -450,12 +457,13 @@
    "conf": "high"
   },
   "status_and_dates": {
-   "v": "Political agreement 7 May 2026; Parliament endorsement 16 June 2026; Council adoption 29 June 2026; published in OJ 24 July 2026; in force 27 July 2026. Council corrigendum (German text) 22 September 2026.",
+   "v": "Political agreement 7 May 2026; Parliament endorsement 16 June 2026; Council adoption 29 June 2026; regulation dated 8 July 2026; published in OJ 24 July 2026; in force 27 July 2026. Council corrigendum (German text) 22 September 2026.",
    "label": "Verified fact",
    "src": [
     "A8-S011",
     "A8-S012",
-    "A8-S014"
+    "A8-S014",
+    "V2-S050"
    ],
    "conf": "high"
   },
@@ -499,7 +507,8 @@
    "A8-S011",
    "A8-S012",
    "A8-S013",
-   "A8-S014"
+   "A8-S014",
+   "V2-S050"
   ],
   "stage_a_notes": "One aggregator (Usercentrics) contained contradictory text on whether the delay is law; EUR-Lex and Commission extracts confirm adoption."
  },
@@ -624,7 +633,8 @@
     "A8-S020",
     "A8-S021",
     "A8-S022",
-    "A8-S025"
+    "A8-S025",
+    "V2-S051"
    ],
    "conf": "high"
   },
@@ -676,7 +686,8 @@
    "A8-S020",
    "A8-S021",
    "A8-S022",
-   "A8-S025"
+   "A8-S025",
+   "V2-S051"
   ],
   "stage_a_notes": "Lead Overseer allocation per provider not verified from ESA primary (one secondary table said EBA for hyperscalers). Some designated providers have challenged designation before the ESAs' Joint Board of Appeal (A8-S022). DORA scope for asset managers stated as Reported because the list of in-scope entity types was not extracted in this run."
  },
@@ -719,7 +730,8 @@
    "label": "Verified fact",
    "src": [
     "A8-S023",
-    "A8-S024"
+    "A8-S024",
+    "V2-S052"
    ],
    "conf": "high"
   },
@@ -761,9 +773,10 @@
   },
   "sources": [
    "A8-S023",
-   "A8-S024"
+   "A8-S024",
+   "V2-S052"
   ],
-  "stage_a_notes": "Exact self-assessment deadline for the July 2026 cohort not verified from regulator text (practitioner estimate mid-October 2026). Treasury Committee report itself not archived; recommendation reported via law-firm extract."
+  "stage_a_notes": "Exact self-assessment deadline for the July 2026 cohort not verified from regulator text (practitioner estimate mid-October 2026). Treasury Committee report itself not archived; recommendation reported via law-firm extract. [V2 verification 8 October 2026] Designations re-confirmed against SI 2026/777 (made 8 July 2026) [V2-S052]. Commentary says first CTP self-assessments are due about three months after designation (mid-October 2026); not verified against regulator text."
  },
  {
   "id": "R-PRA-SS221",
@@ -805,7 +818,8 @@
    "label": "Verified fact",
    "src": [
     "A8-S048",
-    "A8-S062"
+    "A8-S062",
+    "V2-S053"
    ],
    "conf": "medium"
   },
@@ -857,7 +871,8 @@
   "sources": [
    "A8-S026",
    "A8-S048",
-   "A8-S062"
+   "A8-S062",
+   "V2-S053"
   ],
   "stage_a_notes": "SS2/21 live text not read directly (bankofengland.co.uk blocked); content via search extracts. No AI-specific SS2/21 wording found."
  },
@@ -901,7 +916,8 @@
    "label": "Verified fact",
    "src": [
     "A8-S049",
-    "A8-S062"
+    "A8-S062",
+    "V2-S053"
    ],
    "conf": "medium"
   },
@@ -958,7 +974,8 @@
    "A8-S027",
    "A8-S028",
    "A8-S049",
-   "A8-S062"
+   "A8-S062",
+   "V2-S053"
   ],
   "stage_a_notes": "Handbook not read directly; paragraph numbering differs across versions (A8-S049). No AI-specific FCA outsourcing guidance found."
  },
@@ -998,10 +1015,11 @@
    "conf": "medium"
   },
   "status_and_dates": {
-   "v": "2019 guidelines remain applicable until the new guidelines apply. New non-ICT third-party risk guidelines finalised 18 September 2026 (consultation 8 July - 8 October 2025), aligned with DORA, with a two-year transitional period; the 2019 guidelines will be repealed from the new application date (exact date not confirmed). ICT third-party arrangements are governed by DORA.",
+   "v": "2019 guidelines remain applicable until the new guidelines apply. New non-ICT third-party risk guidelines (EBA/GL/2026/09) finalised 18 September 2026 (consultation 8 July - 8 October 2025), aligned with DORA, with a two-year transitional period; the 2019 guidelines will be repealed from the new application date (application date not yet fixed; the guidelines await translation into EU official languages; commentary says critical or important arrangements must be reviewed within two years of the application date). ICT third-party arrangements are governed by DORA.",
    "label": "Verified fact",
    "src": [
-    "A8-S050"
+    "A8-S050",
+    "V2-S054"
    ],
    "conf": "medium"
   },
@@ -1042,9 +1060,10 @@
   },
   "sources": [
    "A8-S029",
-   "A8-S050"
+   "A8-S050",
+   "V2-S054"
   ],
-  "stage_a_notes": "Search tool gave reference 'EBA/GL/2026/09' for the new guidelines; not confirmed from the document itself. ESMA cloud outsourcing guidelines (relevant to UCITS/AIFMs) not researched."
+  "stage_a_notes": "Search tool gave reference 'EBA/GL/2026/09' for the new guidelines; not confirmed from the document itself. ESMA cloud outsourcing guidelines (relevant to UCITS/AIFMs) not researched. [V2 verification 8 October 2026] Reference EBA/GL/2026/09 corroborated by law-firm commentary [V2-S054]. 'Two-year transitional period' should be read as a review deadline running from a not-yet-fixed application date, not a fixed date."
  },
  {
   "id": "R-US-TPRM",
@@ -1173,7 +1192,10 @@
     "A8-S051",
     "A8-S052",
     "A8-S053",
-    "A8-S054"
+    "A8-S054",
+    "V2-S055",
+    "V2-S059",
+    "V2-S076"
    ],
    "conf": "high"
   },
@@ -1228,9 +1250,12 @@
    "A8-S051",
    "A8-S052",
    "A8-S053",
-   "A8-S054"
+   "A8-S054",
+   "V2-S055",
+   "V2-S059",
+   "V2-S076"
   ],
-  "stage_a_notes": "Latombe C-703/25 P: order dated 4 June 2026 listed on InfoCuria, content unknown; reported Microsoft intervention unverified. DUAA content summary (s.80, s.85) from commencement listing; detailed new UK transfer test wording not extracted. Relevance field mixes a Verified vendor fact (Anthropic, conflict of interest noted) with judgement; Stage B should split."
+  "stage_a_notes": "Latombe C-703/25 P: order dated 4 June 2026 listed on InfoCuria, content unknown; reported Microsoft intervention unverified. DUAA content summary (s.80, s.85) from commencement listing; detailed new UK transfer test wording not extracted. Relevance field mixes a Verified vendor fact (Anthropic, conflict of interest noted) with judgement; Stage B should split. [V2 verification 8 October 2026] EU-UK adequacy renewal (19 December 2025 to 27 December 2031) re-confirmed [V2-S055]. C-703/25 P still pending with no hearing date found; Microsoft has been admitted to intervene in support of the Commission (reported late June 2026, Reported) [V2-S059]. DUAA: the data protection provisions are in force; Information Commission governance provisions were still to follow [V2-S076]."
  },
  {
   "id": "R-NIST-AIRMF",
@@ -1273,7 +1298,8 @@
    "src": [
     "A8-S043",
     "A8-S044",
-    "A8-S006"
+    "A8-S006",
+    "V2-S060"
    ],
    "conf": "medium"
   },
@@ -1313,9 +1339,10 @@
   "sources": [
    "A8-S006",
    "A8-S043",
-   "A8-S044"
+   "A8-S044",
+   "V2-S060"
   ],
-  "stage_a_notes": "Govern/Map/Measure/Manage function names are known from memory and not confirmed in the extracts; key_obligations labelled Reported/low accordingly. Counts of AI 600-1 risks/actions disagree between sources (AIRC: 13 risks, 400+ actions). Tentative NISTIR 8605D title from draft slides; not asserted."
+  "stage_a_notes": "Govern/Map/Measure/Manage function names are known from memory and not confirmed in the extracts; key_obligations labelled Reported/low accordingly. Counts of AI 600-1 risks/actions disagree between sources (AIRC: 13 risks, 400+ actions). Tentative NISTIR 8605D title from draft slides; not asserted. [V2 verification 8 October 2026] Revision still in progress; no revised AI 100-1 draft found [V2-S060]. Note that NIST web pages now use 'Super Intelligence' terminology (e.g. 'Super Intelligence Standards'; CAISI page titled 'Center for Advancing Innovation and Standards for Super Intelligence') following a 29 September 2026 executive order; writers should cite the documents by their published titles [V2-S060, V2-S021]."
  },
  {
   "id": "R-ISO-42001",
@@ -1356,14 +1383,15 @@
    "conf": "medium"
   },
   "status_and_dates": {
-   "v": "ISO/IEC 42001 Edition 1 published December 2023, no amendment found. ISO/IEC 42005 Edition 1 published May 2025. ISO/IEC 42006 published July 2025.",
+   "v": "ISO/IEC 42001 Edition 1 published December 2023, no amendment found. ISO/IEC 42005 Edition 1 published May 2025. ISO/IEC 42006 Edition 1 published 7 July 2025.",
    "label": "Verified fact",
    "src": [
     "A8-S045",
     "A8-S046",
-    "A8-S047"
+    "A8-S047",
+    "V2-S057"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "key_obligations": {
    "v": [
@@ -1405,7 +1433,8 @@
    "A8-S031",
    "A8-S045",
    "A8-S046",
-   "A8-S047"
+   "A8-S047",
+   "V2-S057"
   ],
   "stage_a_notes": "iso.org read via search extracts only; exact publication days not confirmed."
  },
@@ -1446,7 +1475,8 @@
    "label": "Verified fact",
    "src": [
     "A8-S040",
-    "A8-S041"
+    "A8-S041",
+    "V2-S056"
    ],
    "conf": "medium"
   },
@@ -1487,9 +1517,10 @@
   },
   "sources": [
    "A8-S040",
-   "A8-S041"
+   "A8-S041",
+   "V2-S056"
   ],
-  "stage_a_notes": "2025 list numbering comes from an OWASP chapter slide deck on owasp.org (Reported); the LLM01 label was not explicit in the extract. Full 2026 list not retrieved; date conflict (3 August vs 2 September 2026)."
+  "stage_a_notes": "2025 list numbering comes from an OWASP chapter slide deck on owasp.org (Reported); the LLM01 label was not explicit in the extract. Full 2026 list not retrieved; date conflict (3 August vs 2 September 2026). [V2 verification 8 October 2026] 2026 edition re-confirmed [V2-S056]: press release dated 2 September 2026 (URL path 1 September), archive lists 3 August 2026; Excessive Agency moved to number three (per a contributor quote)."
  },
  {
   "id": "R-OWASP-AGENTIC",
@@ -1525,7 +1556,8 @@
    "v": "Launched 9-10 December 2025 (OWASP blog 9 December 2025; press release and London summit 10 December 2025); labelled the 2026 edition, identifiers ASI01:2026 etc.",
    "label": "Verified fact",
    "src": [
-    "A8-S042"
+    "A8-S042",
+    "V2-S056"
    ],
    "conf": "high"
   },
@@ -1563,7 +1595,8 @@
    "conf": "low"
   },
   "sources": [
-   "A8-S042"
+   "A8-S042",
+   "V2-S056"
   ],
   "stage_a_notes": "Entries ASI02-ASI10 not retrieved in this run."
  },
@@ -1700,11 +1733,12 @@
    "conf": "medium"
   },
   "status_and_dates": {
-   "v": "ESMA statement 30 May 2024 (MiFID II retail investment services); ESMA algorithmic trading supervisory briefing February 2026; joint ESMA-EBA consultation on management-body suitability incl. AI understanding (25 February 2026). IOSCO consultation report CR/01/2025 (March 2025); final Supervisory Toolkit FR/02/2026 (May 2026). No standalone 2025-2026 ESMA AI statement for UCITS/AIF managers found.",
+   "v": "ESMA statement 30 May 2024 (MiFID II retail investment services); ESMA algorithmic trading supervisory briefing February 2026; joint ESMA-EBA consultation on management-body suitability incl. AI understanding (25 February 2026). IOSCO consultation report CR/01/2025 (March 2025); final Supervisory Toolkit FR/02/2026 (Report of the Board dated 25 May 2026, with standalone toolkit OR/07/2026). No standalone 2025-2026 ESMA AI statement for UCITS/AIF managers found.",
    "label": "Verified fact",
    "src": [
     "A8-S058",
-    "A8-S059"
+    "A8-S059",
+    "V2-S077"
    ],
    "conf": "medium"
   },
@@ -1750,7 +1784,8 @@
   },
   "sources": [
    "A8-S058",
-   "A8-S059"
+   "A8-S059",
+   "V2-S077"
   ],
   "stage_a_notes": "Only an extract of the IOSCO toolkit was retrieved. FSB AI work not researched."
  },
@@ -1789,10 +1824,11 @@
    "conf": "high"
   },
   "status_and_dates": {
-   "v": "Proposed (Federal Register) 9 August 2023; withdrawn by notice of 17 June 2025 together with other proposals issued March 2022-November 2023. The SEC will not finalise it; any return to the topic requires a new proposal.",
+   "v": "Proposed (Federal Register) 9 August 2023; withdrawn by Commission action on 12 June 2025 (notice published 17 June 2025) together with other proposals issued March 2022-November 2023. The SEC will not finalise it; any return to the topic requires a new proposal.",
    "label": "Verified fact",
    "src": [
-    "A8-S057"
+    "A8-S057",
+    "V2-S058"
    ],
    "conf": "high"
   },
@@ -1828,7 +1864,8 @@
   },
   "sources": [
    "A8-S034",
-   "A8-S057"
+   "A8-S057",
+   "V2-S058"
   ],
   "stage_a_notes": "SEC stated reasons for withdrawal not found. Adviser Rule 204-2 and any SEC AI-washing enforcement actions not researched."
  }

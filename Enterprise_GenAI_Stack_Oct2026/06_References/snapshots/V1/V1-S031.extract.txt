@@ -1,0 +1,8 @@
+SOURCE ID: V1-S031
+URL: https://milvus.io/docs/release_notes.md
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Milvus 3.0 generally available lake-native release (extended, allowed_domains milvus.io, zilliz.com)
+========================================================================
+
+Release notes: v3.0.0 release date July 29, 2026, "Milvus 3.0.0 is officially released!"; 3.0-beta May 9, 2026. Zilliz press release dated July 16, 2026; Milvus blog announcement dated July 27, 2026. Lake-native: External Collections over Parquet, Lance, Iceberg, Vortex in object storage; Loon (Storage v3) with Vortex default format. Apache 2.0; graduated LF AI & Data project. Java SDK 3.0.5 listed.

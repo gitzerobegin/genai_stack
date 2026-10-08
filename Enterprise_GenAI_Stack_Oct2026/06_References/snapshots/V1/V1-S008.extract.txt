@@ -1,0 +1,11 @@
+SOURCE ID: V1-S008
+URL: https://developers.llamaindex.ai/python/framework/llama_cloud/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LlamaCloud renamed LlamaParse platform (extended)
+========================================================================
+
+The hosted platform once called LlamaCloud now goes by LlamaParse, according to LlamaIndex's own framework documentation ("LlamaParse (formerly LlamaCloud)"). That page points readers to developers.llamaindex.ai/llamaparse.
+LlamaParse covers parsing, extraction, classification, splitting, and indexing.
+A pull request to the LlamaIndex docs (run-llama/llama_index #23204, "LlamaCloud is now LlamaParse") says identifiers survived, including llama-cloud, LlamaCloud, LLAMA_CLOUD_API_KEY, while the packages llama-parse and llama-cloud-services are deprecated in favour of llama-cloud 2.x.
+No exact rename date in results.

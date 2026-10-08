@@ -1,0 +1,8 @@
+SOURCE ID: V1-S059
+URL: https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Stripe OpenRouter acquisition completed closed (extended, allowed_domains stripe.com, openrouter.ai)
+========================================================================
+
+Stripe announced that it had agreed to buy OpenRouter, a leading AI model gateway and routing platform. OpenRouter's own post ("OpenRouter is Joining Stripe", openrouter.ai/blog/announcements/openrouter-is-joining-stripe/) is dated August 19, 2026: "subject to customary closing conditions. We expect to close in the coming weeks." OpenRouter "will continue to operate as it is: same mission, same name, same product, same roadmap." OpenRouter's blog index (posts up to October 7, 2026) shows no closing notice. No completion notice found.

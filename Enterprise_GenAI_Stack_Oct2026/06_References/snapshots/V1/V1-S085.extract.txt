@@ -1,0 +1,8 @@
+SOURCE ID: V1-S085
+URL: https://www.elastic.co/blog/whats-new-elastic-9-5-0
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Elasticsearch 9.5 release generally available vector (allowed_domains elastic.co)
+========================================================================
+
+Elastic announces general availability of Elastic 9.5. VectorDB index mode and DiskBBQ auto-calibration are presented as headline features, but Elastic's August 2026 community newsletter and the Discuss announcement describe them as technical preview features. Multimodal semantic field is technical preview. GPU-accelerated vector indexing GA in 9.4.

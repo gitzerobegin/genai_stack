@@ -1,0 +1,8 @@
+SOURCE ID: V1-S027
+URL: https://docs.cohere.com/changelog/embed-v5
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere Embed 5 launch (extended, allowed_domains cohere.com, docs.cohere.com)
+========================================================================
+
+Cohere's changelog and newsroom date the Embed 5 launch to September 30, 2026. Tiers: Embed 5 Pro (embed-v5.0-pro) and Embed 5 Fast (embed-v5.0-fast), shared embedding space; multimodal; 100+ languages; 128K context; Matryoshka 256-2048 dims; float/int8/binary. Pricing: text $0.12 per million tokens Pro, $0.08 Fast; image input $0.40 per million tokens. Available via Cohere API, Microsoft Foundry, Amazon SageMaker, Model Vault; self-hostable with vLLM for private deployments.

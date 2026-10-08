@@ -1,0 +1,8 @@
+SOURCE ID: V1-S033
+URL: https://docs.cohere.com/changelog/rerank-v4.0
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere Rerank 4 release Rerank v4.0 Pro Fast (allowed_domains cohere.com, docs.cohere.com)
+========================================================================
+
+Release notes dated December 11, 2025 announce Rerank 4.0 (rerank-v4.0-pro, rerank-v4.0-fast); 32k context; available on Microsoft Azure AI Foundry; Cohere's model overview marks Amazon Bedrock as N/A for both v4.0 variants.

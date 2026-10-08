@@ -1,0 +1,10 @@
+SOURCE ID: V2-S048
+URL: https://www.paloaltonetworks.com/blog/2026/07/announcing-general-availability-of-prisma-airs-ai-gateway/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Palo Alto Networks Koi acquisition April 2026 Prisma AIRS AI Gateway generally available July 2026
+========================================================================
+
+Palo Alto's page says Prisma AIRS AI Gateway is generally available starting July 16, 2026; GA announcement says Portkey-based innovations brought into Prisma AIRS six weeks after closing (Portkey closed May 29, 2026).
+Koi: Calcalist (April 14, 2026) says Palo Alto finalised a deal previously estimated at around $400 million; Koi technology integrated with Prisma AIRS for agentic AI on endpoints; new Cortex XDR module; Koi remains available standalone (SDxCentral "Palo Alto Networks collects Koi in completed acquisition").
+Prisma AIRS 3.0 press release (March 23, 2026) contains a line saying AI Gateway generally available while AI Agent Gateway in limited preview (predates Portkey close).

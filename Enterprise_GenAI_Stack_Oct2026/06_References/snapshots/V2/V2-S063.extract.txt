@@ -1,0 +1,8 @@
+SOURCE ID: V2-S063
+URL: https://trust.anthropic.com/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic ISO 42001 SOC 2 Type II CSA STAR Level 2 trust center certifications (allowed_domains anthropic.com, trust.anthropic.com, support.claude.com, privacy.claude.com)
+========================================================================
+
+ISO/IEC 42001:2023 certification issued by Schellman Compliance, LLC (ANAB-accredited). Help centre lists ISO 27001:2022, SOC 2 Type I & Type II; Trust Center lists SOC 2 Type II and two 2026 SOC 2 bridge letters (August 2026; October 2026 update). CSA STAR Level 2: a 2025 report covering SOC 2 Type 2 and CSA STAR L2 is posted in Trust Center SOC 2 resources. Per-product table: Claude via the API, Claude Enterprise, and Claude in Microsoft Foundry (hosted on Anthropic) carry all four; Claude Team same except HIPAA; Microsoft Foundry deployment hosted on Azure listed "In-Process Q4 2026"; Claude for Government N/A. One cached copy shows N/A for all (older).

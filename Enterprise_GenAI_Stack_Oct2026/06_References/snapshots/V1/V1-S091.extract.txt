@@ -1,0 +1,8 @@
+SOURCE ID: V1-S091
+URL: https://lfaidata.foundation/projects/docling/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Docling LF AI & Data Foundation hosted project IBM contributed (allowed_domains lfaidata.foundation, linuxfoundation.org, ibm.com)
+========================================================================
+
+LF press release April 29, 2025: induction of three IBM projects (Docling, Data Prep Kit, BeeAI) into LF AI & Data. IBM newsroom listing dated March 18, 2025. Project page: "IBM donated Docling to LF AI & Data Foundation as an Incubation-stage project in March 2025. It graduated to a Graduate-tier project in August 2026." Page lists about 31,946 GitHub stars and 3,872 total contributors (snapshot). June 2026: DocLang Specification Working Group (Joint Development Foundation governance) founded by IBM, NVIDIA, Red Hat, ABBYY, HumanSignal.

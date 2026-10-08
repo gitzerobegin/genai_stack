@@ -1,0 +1,8 @@
+SOURCE ID: V1-S084
+URL: https://arize.com/docs/ax/security-and-settings/compliance
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Arize AX SOC 2 Type II ISO 27001 HIPAA EU region (allowed_domains arize.com)
+========================================================================
+
+Compliance docs: "Arize has certifications for the following: SOC 2 Type II, PCI DSS 4.0, HIPAA compliance, and CSA Star Level 1." Pricing comparison: SOC 2 Type II on AX Pro and Enterprise (not Free); HIPAA on Enterprise tier only. Self-hosted page lists SOC 2 Type II, ISO 27001 and HIPAA-ready; the official compliance page found does not list ISO 27001. AX hosting in US, EU or CA; EU region in Belgium (blog).

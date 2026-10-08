@@ -69,7 +69,8 @@
    "src": [
     "A4-S031",
     "A4-S001",
-    "A4-S036"
+    "A4-S036",
+    "V1-S056"
    ],
    "conf": "medium"
   },
@@ -316,10 +317,11 @@
    "A4-S040",
    "A4-S098",
    "A4-S118",
-   "A4-S149"
+   "A4-S149",
+   "V1-S056"
   ],
   "stage_a_notes": "ISO 27001 for LangSmith: pass 2 found it claimed on two LangChain pages (A4-S035, A4-S149) but absent from others and not visible in the public trust-centre listing; certificate is behind access request. Remains 'claimed, scope unconfirmed'. LangSmith Deployment is the renamed LangGraph Platform; Stage B should not profile them separately. LangSmith (L9) is covered by stream A1.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L3-llamaindex",
@@ -678,9 +680,10 @@
    "src": [
     "A4-S003",
     "A4-S044",
-    "A4-S046"
+    "A4-S046",
+    "V1-S074"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "what_it_does": {
    "v": "A typed, extensible agent loop for Python with model-agnostic providers, structured outputs and tools; pydantic_graph provides graph-based control flow; durable execution is attached as a capability via Temporal, DBOS or Prefect (plus Harness packages such as AWS Lambda and Step Persistence).",
@@ -891,23 +894,25 @@
    "A4-S044",
    "A4-S045",
    "A4-S046",
-   "A4-S119"
+   "A4-S119",
+   "V1-S074"
   ],
   "stage_a_notes": "H2: v2 removed graph persistence (pydantic_graph.persistence) and moved durability to agent-level capabilities, i.e. graph = deterministic control flow, durability delegated to workflow engines.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L3-crewai",
   "layer": "L3",
   "original_label": "CrewAI – multi-agent",
   "current_name": {
-   "v": "CrewAI (open-source framework: Crews and Flows); commercial platform CrewAI AMP (Agent Management Platform; previously CrewAI Enterprise)",
+   "v": "CrewAI (open-source framework: Crews and Flows); commercial platform CrewAI AMP (Agent Management Platform; earlier materials say CrewAI Enterprise; explicit rename notice not found)",
    "label": "Verified fact",
    "src": [
     "A4-S004",
-    "A4-S049"
+    "A4-S049",
+    "V1-S075"
    ],
-   "conf": "medium"
+   "conf": "low"
   },
   "company": {
    "v": "crewAI, Inc.",
@@ -956,14 +961,15 @@
   "status_events": {
    "v": [
     "20 October 2025: CrewAI 1.0.0",
-    "CrewAI Enterprise rebranded CrewAI AMP (one blog used 'AOP')"
+    "CrewAI AMP is the commercial platform; earlier materials call it CrewAI Enterprise (rename inferred from /enterprise/ doc paths and older naming; no explicit rename notice found; one blog used 'AOP')"
    ],
    "label": "Verified fact",
    "src": [
     "A4-S004",
-    "A4-S049"
+    "A4-S049",
+    "V1-S075"
    ],
-   "conf": "medium"
+   "conf": "low"
   },
   "what_it_does": {
    "v": "Crews: teams of role-playing agents that collaborate autonomously. Flows: event-driven, stateful process definitions (@start, @listen, @router, and_/or_) giving granular control; Flows can trigger Crews. AMP deploys and manages these in CrewAI cloud, customer VPC or on-premises.",
@@ -1189,10 +1195,11 @@
    "A4-S050",
    "A4-S051",
    "A4-S126",
-   "A4-S148"
+   "A4-S148",
+   "V1-S075"
   ],
   "stage_a_notes": "Original descriptor 'multi-agent' covers Crews only; Flows are the deterministic layer (H2). Pass 2: Series B still unconfirmed by any primary or major-outlet source (targeted search of crewai.com, TechCrunch, Business Wire, PR Newswire, Bloomberg, Fortune, VentureBeat).",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L3-openai-agents-sdk",
@@ -1264,7 +1271,9 @@
     "A4-S005",
     "A4-S054",
     "A4-S056",
-    "A4-S055"
+    "A4-S055",
+    "V1-S051",
+    "V1-S083"
    ],
    "conf": "medium"
   },
@@ -1484,10 +1493,12 @@
    "A4-S054",
    "A4-S055",
    "A4-S056",
-   "A4-S120"
+   "A4-S120",
+   "V1-S051",
+   "V1-S083"
   ],
   "stage_a_notes": "A7: one of three 'Agent SDK' tiles. Distinguish the open-source Agents SDK (this record) from the hosted Agents API (beta, US-only residency, no ZDR) and from AgentKit/Agent Builder (being shut down 30 November 2026).",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L3-claude-agent-sdk",
@@ -1536,7 +1547,8 @@
     "A4-S092",
     "A4-S006",
     "A4-S023",
-    "A4-S027"
+    "A4-S027",
+    "V1-S048"
    ],
    "conf": "high"
   },
@@ -1552,14 +1564,15 @@
   },
   "status_events": {
    "v": [
-    "29 September 2025: Claude Code SDK renamed Claude Agent SDK (packages claude-code-sdk -> claude-agent-sdk, @anthropic-ai/claude-code -> @anthropic-ai/claude-agent-sdk)",
+    "29 September 2025: Claude Code SDK renamed Claude Agent SDK (claude-agent-sdk 0.1.0 first published to PyPI 28 September 2025 UTC) (packages claude-code-sdk -> claude-agent-sdk, @anthropic-ai/claude-code -> @anthropic-ai/claude-agent-sdk)",
     "claude-code-sdk marked deprecated and no longer maintained (last release 0.0.25, 29 September 2025)"
    ],
    "label": "Verified fact",
    "src": [
     "A4-S029",
     "A4-S028",
-    "A4-S011"
+    "A4-S011",
+    "V1-S049"
    ],
    "conf": "high"
   },
@@ -1784,10 +1797,12 @@
    "A4-S092",
    "A4-S122",
    "A4-S123",
-   "A4-S124"
+   "A4-S124",
+   "V1-S048",
+   "V1-S049"
   ],
   "stage_a_notes": "Conflict of interest: Anthropic product, profiled by an Anthropic model; same rubric applied. Licence nuance: MIT repo licence vs docs stating Commercial Terms govern use, and npm 'SEE LICENSE IN README.md' (record both). Limitations recorded: Claude-only models, subprocess-per-session hosting model, Alpha status, Managed Agents excluded from ZDR. A7 resolved: separate product from OpenAI and Mistral.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L3-mistral-agents",
@@ -2016,7 +2031,8 @@
    "label": "Verified fact",
    "src": [
     "A4-S057",
-    "A4-S061"
+    "A4-S061",
+    "V1-S065"
    ],
    "conf": "medium"
   },
@@ -2078,10 +2094,11 @@
    "A4-S059",
    "A4-S060",
    "A4-S061",
-   "A4-S125"
+   "A4-S125",
+   "V1-S065"
   ],
-  "stage_a_notes": "A17: no distinct 'Mistral Agents SDK' found. Agents are an API (Agents & Conversations) accessed through the general mistralai SDKs; Mistral Workflows is a separate durable-execution SDK built on Temporal. Treat the graphic tile as 'Mistral Agents API (+ Workflows)'.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "A17: no distinct 'Mistral Agents SDK' found. Agents are an API (Agents & Conversations) accessed through the general mistralai SDKs; Mistral Workflows is a separate durable-execution SDK built on Temporal. Treat the graphic tile as 'Mistral Agents API (+ Workflows)'. [V1 verification, 8 October 2026] Workflows: announcement says v3.0 \"publicly available\"; docs label Public Preview; PyPI classifier Beta (V1-S065).",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L3-vercel-ai-sdk",
@@ -2117,7 +2134,8 @@
    "v": "ai 7.0.131 (7 October 2026); 7.0.0 released 25 June 2026 (6.0.0 22 December 2025; 5.0.0 31 July 2025)",
    "label": "Verified fact",
    "src": [
-    "A4-S022"
+    "A4-S022",
+    "V1-S082"
    ],
    "conf": "high"
   },
@@ -2349,10 +2367,11 @@
    "A4-S069",
    "A4-S070",
    "A4-S071",
-   "A4-S106"
+   "A4-S106",
+   "V1-S082"
   ],
   "stage_a_notes": "A15 resolved: the triangle-logo 'AI SDK' tile is Vercel's AI SDK (npm 'ai'), confirmed by npm description 'AI SDK by Vercel'. Vercel company certifications/funding not verified in this run.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L3-microsoft-agent-framework",
@@ -2424,7 +2443,9 @@
     "A4-S008",
     "A4-S012",
     "A4-S068",
-    "A4-S021"
+    "A4-S021",
+    "V1-S050",
+    "V1-S052"
    ],
    "conf": "high"
   },
@@ -2640,10 +2661,12 @@
    "A4-S067",
    "A4-S068",
    "A4-S101",
-   "A4-S102"
+   "A4-S102",
+   "V1-S050",
+   "V1-S052"
   ],
-  "stage_a_notes": "Relationship: MAF supersedes Semantic Kernel (README banner) and AutoGen (maintenance mode). Stage B should flag SK/AutoGen references as Superseded. The AG2 fork (ag2 1.1.2, Apache-2.0) continues independently of Microsoft.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Relationship: MAF supersedes Semantic Kernel (README banner) and AutoGen (maintenance mode). Stage B should flag SK/AutoGen references as Superseded. The AG2 fork (ag2 1.1.2, Apache-2.0) continues independently of Microsoft. [V1 verification, 8 October 2026] GA date: PyPI 1.0.0 uploaded 2 April 2026 16:39 UTC; some Microsoft posts date the 1.0 announcement 3 April (V1-S050, V1-S052).",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L3-google-adk",
@@ -3471,13 +3494,16 @@
   "status_events": {
    "v": [
     "TGI in maintenance mode 'as of 12/11/2025' (only minor bug fixes, docs and lightweight maintenance)",
-    "Endpoints: AWS H100 instances marked 'Deprecated from December 2025'"
+    "Endpoints: AWS H100 instances marked 'Deprecated from December 2025'",
+    "21 March 2026: TGI GitHub repository archived (read-only); latest release v3.3.7; Hugging Face recommends vLLM or SGLang"
    ],
    "label": "Verified fact",
    "src": [
     "A4-S073",
     "A4-S072",
-    "A4-S083"
+    "A4-S083",
+    "V1-S054",
+    "V1-S055"
    ],
    "conf": "high"
   },
@@ -3570,7 +3596,8 @@
    "label": "Verified fact",
    "src": [
     "A4-S074",
-    "A4-S082"
+    "A4-S082",
+    "V1-S097"
    ],
    "conf": "high"
   },
@@ -3715,10 +3742,13 @@
    "A4-S080",
    "A4-S081",
    "A4-S082",
-   "A4-S083"
+   "A4-S083",
+   "V1-S054",
+   "V1-S055",
+   "V1-S097"
   ],
-  "stage_a_notes": "A19 resolved: split into Hub, Inference Providers (router), Inference Endpoints (managed dedicated serving) and TGI (maintenance mode). The TGI date '12/11/2025' is ambiguous (11 December or 12 November 2025); record verbatim.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "A19 resolved: split into Hub, Inference Providers (router), Inference Endpoints (managed dedicated serving) and TGI (maintenance mode). The TGI date '12/11/2025' is ambiguous (11 December or 12 November 2025); record verbatim. [V1 verification, 8 October 2026] BAA is documented at Hub/Enterprise-plan level; Inference Endpoints docs do not name it - confirm BAA scope in writing (V1-S097).",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L2-openrouter",
@@ -3734,12 +3764,13 @@
    "conf": "high"
   },
   "company": {
-   "v": "OpenRouter, Inc.; privately held",
+   "v": "OpenRouter, Inc.; subject to a pending acquisition by Stripe (agreement announced 19 August 2026; not confirmed closed as of 8 October 2026)",
    "label": "Verified fact",
    "src": [
-    "A4-S143"
+    "A4-S143",
+    "V1-S059"
    ],
-   "conf": "low"
+   "conf": "high"
   },
   "category": {
    "v": "Hosted multi-provider model router / aggregator with gateway-style governance (budgets, allowlists, ZDR, regional routing)",
@@ -3777,10 +3808,17 @@
    "conf": "high"
   },
   "status_events": {
-   "v": [],
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": [
+    "26 May 2026: US$113M Series B led by CapitalG (company press release)",
+    "19 August 2026: Stripe signed an agreement to acquire OpenRouter (announced by both companies); closing expected \"in the coming weeks\", subject to customary conditions; no completion notice found as of 8 October 2026; price undisclosed (press reports range from over US$7B to over US$8B); OpenRouter says name, product and roadmap are unchanged"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "V1-S061",
+    "V1-S059",
+    "V1-S060"
+   ],
+   "conf": "high"
   },
   "what_it_does": {
    "v": "Single API to many models and providers with routing, fallbacks and provider selection; passes through provider pricing; lets organisations enforce ZDR, regions, budgets and model/provider allowlists per workspace, key or member.",
@@ -3915,7 +3953,8 @@
    "label": "Verified fact",
    "src": [
     "A4-S144",
-    "A4-S113"
+    "A4-S113",
+    "V1-S062"
    ],
    "conf": "medium",
    "asof": "2026-10-07"
@@ -3935,12 +3974,14 @@
    "conf": "medium"
   },
   "adoption_signals": {
-   "v": "Series B US$113M led by CapitalG (26 May 2026) at ~US$1.3B post-money (NYT via TechCrunch); Series A US$40M co-led by a16z and Menlo (2025); amounts conflict across trackers",
-   "label": "Reported",
+   "v": "Series B US$113M led by CapitalG (26 May 2026, company release), about US$1.3B post-money (New York Times, reported); Series A US$40M (June 2025); 25 trillion tokens per week (May 2026, company); Stripe acquisition agreement August 2026 (value reported, not disclosed)",
+   "label": "Verified fact",
    "src": [
-    "A4-S143"
+    "A4-S143",
+    "V1-S061",
+    "V1-S060"
    ],
-   "conf": "low"
+   "conf": "medium"
   },
   "maturity": {
    "v": "Not publicly verified",
@@ -3958,12 +3999,13 @@
     "conf": "medium"
    },
    "acquisition": {
-    "v": "One tracker (Tracxn) labels OpenRouter 'acquired by Stripe'; uncorroborated and contradicted by May 2026 funding",
-    "label": "Reported",
+    "v": "Stripe agreed to acquire OpenRouter (announced 19 August 2026); closing pending as of 8 October 2026; both companies say OpenRouter keeps its brand and product, but ownership by a payments company changes the neutrality and data-governance profile of this router",
+    "label": "Verified fact",
     "src": [
-     "A4-S143"
+     "V1-S059",
+     "V1-S060"
     ],
-    "conf": "low"
+    "conf": "high"
    },
    "funding": {
     "v": "Series B US$113M (May 2026)",
@@ -4011,10 +4053,14 @@
    "A4-S142",
    "A4-S143",
    "A4-S144",
-   "A4-S150"
+   "A4-S150",
+   "V1-S061",
+   "V1-S059",
+   "V1-S060",
+   "V1-S062"
   ],
-  "stage_a_notes": "Docs read from OpenRouter's public docs source repository (raw.githubusercontent.com/OpenRouterTeam/docs), which is served at openrouter.ai/docs. Pass 2: SOC 2 Type 2 confirmed via trust centre listing; no BAA; funding from TechCrunch (secondary).",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Docs read from OpenRouter's public docs source repository (raw.githubusercontent.com/OpenRouterTeam/docs), which is served at openrouter.ai/docs. Pass 2: SOC 2 Type 2 confirmed via trust centre listing; no BAA; funding from TechCrunch (secondary). [V1 verification, 8 October 2026] Stage A treated the Stripe acquisition as an uncorroborated tracker claim; it is in fact announced by Stripe and OpenRouter (19 August 2026) and pending closing (V1-S059, V1-S060). What-changed flag should be \"Acquired (pending)\", not \"No change\".",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L2-together-ai",
@@ -4080,9 +4126,10 @@
    ],
    "label": "Verified fact",
    "src": [
-    "A4-S132"
+    "A4-S132",
+    "V1-S057"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "what_it_does": {
    "v": "Hosts open-weight models behind serverless per-token APIs and per-minute dedicated endpoints, offers reserved token capacity (PTU), fine-tuning, and on-demand or reserved NVIDIA GPU clusters (H100 to GB300).",
@@ -4168,7 +4215,8 @@
    "v": "SOC 2 Type 2 and ISO 27001:2022 (vendor blog and product pages); HIPAA described inconsistently ('compliant', 'HIPAA-aligned', 'HIPAA-ready') with BAAs mentioned; report scope/dates not seen",
    "label": "Verified fact",
    "src": [
-    "A4-S129"
+    "A4-S129",
+    "V1-S079"
    ],
    "conf": "medium"
   },
@@ -4236,9 +4284,10 @@
    "v": "US$800M Series C at US$8.3B (July 2026); annual bookings reported above US$1.15B",
    "label": "Verified fact",
    "src": [
-    "A4-S132"
+    "A4-S132",
+    "V1-S057"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "maturity": {
    "v": "SDK first released April 2023; company funded through Series C",
@@ -4305,10 +4354,12 @@
    "A4-S130",
    "A4-S131",
    "A4-S132",
-   "A4-S151"
+   "A4-S151",
+   "V1-S057",
+   "V1-S079"
   ],
   "stage_a_notes": "Pass 2 (7 Oct 2026). Key enterprise caveat: ZDR is opt-in and default storage permits product-improvement use. Dedicated H100 price conflict between docs and pricing page. No trust-centre document read directly (trust.together.ai exists).",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L2-fireworks-ai",
@@ -4375,9 +4426,10 @@
    "label": "Verified fact",
    "src": [
     "A4-S136",
-    "A4-S141"
+    "A4-S141",
+    "V1-S058"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "what_it_does": {
    "v": "Serves open models via serverless per-token APIs and per-GPU-second dedicated deployments, batch inference at 50% of serverless price, fine-tuning and reinforcement fine-tuning, with enterprise reserved capacity and hybrid BYOC.",
@@ -4459,10 +4511,11 @@
    }
   },
   "certifications": {
-   "v": "SOC 2 Type II; HIPAA (report of compliance listed; 'HIPAA-ready' on inference page); ISO 27001:2022, ISO 27701, ISO/IEC 42001:2023; GDPR (trust centre). BAA availability not seen",
+   "v": "SOC 2 Type II; HIPAA (report of compliance listed; 'HIPAA-ready' on inference page); ISO 27001:2022, ISO 27701, ISO/IEC 42001:2023; GDPR (trust centre). BAA availability not seen; one Fireworks docs page still lists the three ISO certifications as \"(in progress)\" - request certificates from trust.fireworks.ai",
    "label": "Verified fact",
    "src": [
-    "A4-S133"
+    "A4-S133",
+    "V1-S067"
    ],
    "conf": "medium"
   },
@@ -4599,10 +4652,12 @@
    "A4-S135",
    "A4-S136",
    "A4-S141",
-   "A4-S152"
+   "A4-S152",
+   "V1-S058",
+   "V1-S067"
   ],
   "stage_a_notes": "Pass 2 (7 Oct 2026). EU serverless residency not self-serve (docs list US only). Response API is a ZDR exception (30-day retention by default).",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L2-cerebras",
@@ -4670,9 +4725,10 @@
    "src": [
     "A4-S154",
     "A4-S137",
-    "A4-S140"
+    "A4-S140",
+    "V1-S053"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "what_it_does": {
    "v": "Provides high-speed inference through an OpenAI-compatible REST API on CS-3 systems in Cerebras data centres, and sells CS-3 systems for on-premise deployment.",
@@ -4757,7 +4813,8 @@
    "v": "SOC 2 Type 2, GDPR, CCPA listed in trust centre; HIPAA not listed",
    "label": "Verified fact",
    "src": [
-    "A4-S138"
+    "A4-S138",
+    "V1-S095"
    ],
    "conf": "medium"
   },
@@ -4891,10 +4948,12 @@
    "A4-S139",
    "A4-S140",
    "A4-S153",
-   "A4-S154"
+   "A4-S154",
+   "V1-S053",
+   "V1-S095"
   ],
   "stage_a_notes": "Pass 2 (7 Oct 2026). Cerebras IPO resolved (priced 13 May 2026; primary press release via search extract). SEC filings cited by extract only (sec.gov blocked). HIPAA and SSO not evidenced. ZDR evidence is marketing/privacy-policy level, not contractual.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L2-ollama",
@@ -5075,12 +5134,14 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Local free (MIT); cloud usage on plans (pricing page referenced, not retrieved)",
+   "v": "Local runtime free (MIT). Ollama Cloud usage-based plans from 31 August 2026: Free (small monthly usage on starter models, pay-as-you-go credits), Pro US$20/month (US$60 usage included), Max US$100/month (US$300 included), Team US$500/month (US$1,000 shared usage, unlimited users); per-token rates by model; no hourly or weekly caps; off-peak discounts",
    "label": "Verified fact",
    "src": [
-    "A4-S084"
+    "A4-S084",
+    "V1-S066"
    ],
-   "conf": "medium"
+   "conf": "medium",
+   "asof": "2026-10-08"
   },
   "infra_cost_note": {
    "v": "Local cost is the user's own hardware (GPU/Apple silicon RAM)",
@@ -5097,10 +5158,12 @@
    "conf": "medium"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "US$65M funding round reported July 2026 (SiliconANGLE, 9 July 2026)",
+   "label": "Reported",
+   "src": [
+    "V1-S071"
+   ],
+   "conf": "medium"
   },
   "maturity": {
    "v": "Not publicly verified",
@@ -5157,10 +5220,12 @@
    "A4-S015",
    "A4-S084",
    "A4-S085",
-   "A4-S086"
+   "A4-S086",
+   "V1-S066",
+   "V1-S071"
   ],
-  "stage_a_notes": "Graphic's 'run locally' is now incomplete: Ollama offers hosted cloud models. Funding and certifications not verified.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Graphic's 'run locally' is now incomplete: Ollama offers hosted cloud models. Funding and certifications not verified. [V1 verification, 8 October 2026] Vendor states cloud requests run on dedicated compute in the US and Europe (plus Singapore for some Qwen models) with zero data retention (V1-S066).",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L2-lm-studio",
@@ -5205,7 +5270,8 @@
    "label": "Verified fact",
    "src": [
     "A4-S145",
-    "A4-S088"
+    "A4-S088",
+    "V1-S076"
    ],
    "conf": "medium"
   },
@@ -5410,10 +5476,11 @@
    "A4-S016",
    "A4-S087",
    "A4-S088",
-   "A4-S145"
+   "A4-S145",
+   "V1-S076"
   ],
   "stage_a_notes": "Pass 2: licence resolved. App is proprietary, free for internal business use (separate commercial licence requirement removed); not usable as a hosted service or redistributable component. Page dates of terms not seen.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L2-vllm",
@@ -5476,9 +5543,10 @@
    ],
    "label": "Verified fact",
    "src": [
-    "A4-S146"
+    "A4-S146",
+    "V1-S064"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "what_it_does": {
    "v": "High-throughput, memory-efficient inference and serving library and server for LLMs, multimodal, embedding and reward models.",
@@ -5694,10 +5762,11 @@
    "A4-S081",
    "A4-S089",
    "A4-S090",
-   "A4-S146"
+   "A4-S146",
+   "V1-S064"
   ],
   "stage_a_notes": "Pass 2: PyTorch Foundation hosting confirmed (pytorch.org announcement via search extract, consistent with the governance doc's Linux Foundation TSC reference).",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L2-sglang",
@@ -5761,9 +5830,10 @@
    ],
    "label": "Verified fact",
    "src": [
-    "A4-S147"
+    "A4-S147",
+    "V1-S063"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "what_it_does": {
    "v": "High-performance serving framework delivering low-latency, high-throughput inference from a single GPU to large clusters, OpenAI-API compatible, with broad model and hardware support (NVIDIA, AMD, Intel Xeon, Google TPU, Ascend).",
@@ -5980,10 +6050,11 @@
    "A4-S081",
    "A4-S090",
    "A4-S128",
-   "A4-S147"
+   "A4-S147",
+   "V1-S063"
   ],
   "stage_a_notes": "Pass 2: RadixArk is the SGLang creators' VC-backed company stewarding SGLang (Business Wire, May 2026). Repo still states hosting by LMSYS non-profit. No evidence of a formal governance transfer; watch for open-core divergence.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L2-nvidia-dynamo",

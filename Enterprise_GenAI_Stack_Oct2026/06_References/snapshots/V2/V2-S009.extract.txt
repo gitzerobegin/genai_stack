@@ -1,0 +1,13 @@
+SOURCE ID: V2-S009
+URL: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Gemini 4 Argon announced trusted cyber defenders (allowed_domains blog.google, deepmind.google, ai.google.dev, cloud.google.com)
+========================================================================
+
+Google has announced Gemini 4 Argon, a frontier model that is rolling out first to trusted cyber defenders through its Fairwind Program. A broader public release is planned for later, after more testing.
+The eventual general release is planned to start with paid API customers and Google AI Ultra subscribers.
+Fairwind is a limited access program for governments and trusted partners to use our cyber defense tools. Google reports more than 650 participating partners globally.
+For trusted defenders and Google's internal teams, Google says it will release Argon without cyber guardrails.
+The sources describe the 1-million-token limit inconsistently. Google's own announcement calls it a token limit, while a September recap ("The latest AI news we announced in September 2026") calls it an output limit.
+Benchmarks are Google and Wiz internal.

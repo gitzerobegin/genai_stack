@@ -1,0 +1,9 @@
+SOURCE ID: V1-S009
+URL: https://runtimewire.com/article/firecrawl-raises-75m-series-b-alexandria-ai-agent-data
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Firecrawl Series B $75 million (extended)
+========================================================================
+
+Firecrawl announced a $75 million Series B on September 22, 2026, alongside the launch of Alexandria, its data platform for AI agents. Smash Capital led the round; Altos Ventures, Nexus Venture Partners, Y Combinator, Freestyle and Offline Ventures participated.
+RuntimeWire: a Form D from Firecrawl's legal issuer, SideGuide Technologies Inc., showed $82,063,463 of preferred stock sold to seven investors, with the first sale recorded on August 31st. Firecrawl's announced Series B is about $7.1 million below the gross amount reported to the SEC, and neither disclosure explains the difference.

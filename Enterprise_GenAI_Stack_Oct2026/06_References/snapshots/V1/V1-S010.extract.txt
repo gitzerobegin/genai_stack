@@ -1,0 +1,11 @@
+SOURCE ID: V1-S010
+URL: https://docs.mistral.ai/models/ocr-4-1
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral OCR 4.1 mistral-ocr-latest pricing per 1000 pages (allowed_domains mistral.ai, docs.mistral.ai)
+========================================================================
+
+Mistral's current docs list OCR 4.1 at $4 per 1000 Pages, with $5 per 1000 Annotated Pages for annotated output.
+The changelog (docs.mistral.ai/resources/changelogs) says mistral-ocr-latest and mistral-ocr-4 now point to OCR 4.1. "Use OCR 4.1 (mistral-ocr-4-1 or mistral-ocr-latest) instead, at the same price."
+The OCR 4 announcement (mistral.ai/news/ocr-4) says with a 50% Batch-API discount, reducing the cost to $2 per 1,000 pages.
+Pricing page lists $0.4 /1000 Pages for cached input.

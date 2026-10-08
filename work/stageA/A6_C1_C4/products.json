@@ -34,7 +34,8 @@
       "label": "Verified fact",
       "src": [
         "A6-S001",
-        "A6-S002"
+        "A6-S002",
+        "V2-S028"
       ],
       "conf": "high"
     },
@@ -60,14 +61,16 @@
     },
     "status_events": {
       "v": [
-        "24 March 2026: malicious litellm 1.82.7 and 1.82.8 published to PyPI using release credentials stolen via a compromised Trivy scanner in CI; quarantined after about 40 minutes",
-        "30 March 2026: v1.83.0 released as first build from rebuilt CI/CD v2 pipeline after forensic review with Mandiant and Veria Labs"
+        "24 March 2026: malicious litellm 1.82.7 and 1.82.8 published to PyPI using release credentials stolen via a compromised Trivy scanner in CI; quarantined after about 40 minutes per LiteLLM (Snyk reports an exposure window of about three hours); both versions are no longer listed on PyPI",
+        "30 March 2026 (US time; PyPI upload 31 March 2026 05:08 UTC): v1.83.0 released as first build from rebuilt CI/CD v2 pipeline after forensic review with Mandiant and Veria Labs"
       ],
       "label": "Verified fact",
       "src": [
         "A6-S008",
         "A6-S009",
-        "A6-S010"
+        "A6-S010",
+        "V2-S027",
+        "V2-S028"
       ],
       "conf": "high"
     },
@@ -297,10 +300,12 @@
       "A6-S015",
       "A6-S022",
       "A6-S051",
-      "A6-S108"
+      "A6-S108",
+      "V2-S028",
+      "V2-S027"
     ],
-    "stage_a_notes": "Pricing model conflict: litellm.ai/pricing says annual licence sized on request capacity, 'never per token'; the docs Enterprise page says pricing is usage-based (A6-S007). Supply-chain incident 24 March 2026 (A6-S008/S009/S010) is material for regulated buyers; official Docker image path was reported unaffected. Docs moved to the separate BerriAI/litellm-docs repository (A6-S051). GitHub stars and funding not verified (search budget exhausted). GAP PASS: SOC 2 Type 2 report refreshed September 2026 (A6-S108); ISO 27001 recertification still unconfirmed - enterprise marketing page lists ISO 27001 but the docs data-security page does not.",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Pricing model conflict: litellm.ai/pricing says annual licence sized on request capacity, 'never per token'; the docs Enterprise page says pricing is usage-based (A6-S007). Supply-chain incident 24 March 2026 (A6-S008/S009/S010) is material for regulated buyers; official Docker image path was reported unaffected. Docs moved to the separate BerriAI/litellm-docs repository (A6-S051). GitHub stars and funding not verified (search budget exhausted). GAP PASS: SOC 2 Type 2 report refreshed September 2026 (A6-S108); ISO 27001 recertification still unconfirmed - enterprise marketing page lists ISO 27001 but the docs data-security page does not. [V2 verification 8 October 2026] Compromise facts and the clean 1.83.0 release re-confirmed independently (FutureSearch/NetSPI/Snyk reporting and PyPI JSON) [V2-S027, V2-S028]. The intrusion vector is reported differently (Trivy-stolen CI credentials vs hijacked maintainer account); attribution to 'TeamPCP' is a claim of responsibility, not an established finding.",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C1-portkey",
@@ -320,7 +325,8 @@
       "label": "Verified fact",
       "src": [
         "A6-S011",
-        "A6-S012"
+        "A6-S012",
+        "V2-S025"
       ],
       "conf": "high"
     },
@@ -370,7 +376,9 @@
       "src": [
         "A6-S011",
         "A6-S012",
-        "A6-S014"
+        "A6-S014",
+        "V2-S025",
+        "V2-S048"
       ],
       "conf": "high"
     },
@@ -587,10 +595,12 @@
       "A6-S013",
       "A6-S014",
       "A6-S049",
-      "A6-S050"
+      "A6-S050",
+      "V2-S025",
+      "V2-S048"
     ],
-    "stage_a_notes": "Acquisition consideration conflict: PANW FY2026 10-K reports US$117m; earlier 10-Q reported US$140m incl. replacement awards; a secondary outlet (cyber-biz.com) reported about US$700m. Use the 10-K. Pricing page and feature comparison may be stale (search tool flagged a page about 470 days old). Certification tier coverage unclear. SSO/RBAC detail not verified.",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Acquisition consideration conflict: PANW FY2026 10-K reports US$117m; earlier 10-Q reported US$140m incl. replacement awards; a secondary outlet (cyber-biz.com) reported about US$700m. Use the 10-K. Pricing page and feature comparison may be stale (search tool flagged a page about 470 days old). Certification tier coverage unclear. SSO/RBAC detail not verified. [V2 verification 8 October 2026] Close on 29 May 2026 and the 10-K figure of US$117m (vs US$140m in the 10-Q) re-confirmed [V2-S025]. Prisma AIRS AI Gateway GA 16 July 2026 [V2-S048]. The 30 April announcement date was not independently re-checked; one outlet dates the public announcement 2 June 2026.",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C1-kong-ai-gateway",
@@ -627,7 +637,8 @@
       "label": "Verified fact",
       "src": [
         "A6-S016",
-        "A6-S017"
+        "A6-S017",
+        "V2-S034"
       ],
       "conf": "medium"
     },
@@ -656,7 +667,8 @@
       "label": "Verified fact",
       "src": [
         "A6-S016",
-        "A6-S017"
+        "A6-S017",
+        "V2-S034"
       ],
       "conf": "medium"
     },
@@ -864,10 +876,11 @@
       "A6-S016",
       "A6-S017",
       "A6-S018",
-      "A6-S109"
+      "A6-S109",
+      "V2-S034"
     ],
-    "stage_a_notes": "Version naming changed: AI plugins ship with Kong Gateway 3.x (3.14 LTS, 7 April 2026), while 'Kong AI Gateway 2.0' (GA 1 September 2026) is a separate dedicated runtime in Konnect. One listing dates the 2.0 announcement to 16 July 2026 (beta). Pricing not verified from Kong's own page (a competitor blog cited about US$105/month per gateway service; not used). Funding round date not verified. GAP PASS: Trust Center confirms ISO 27001:2022 and SOC 2 Type II scope including Kong AI Gateway (A6-S109); 'HIPAA-ready' on the startup page is a readiness claim, not a certification.",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Version naming changed: AI plugins ship with Kong Gateway 3.x (3.14 LTS, 7 April 2026), while 'Kong AI Gateway 2.0' (GA 1 September 2026) is a separate dedicated runtime in Konnect. One listing dates the 2.0 announcement to 16 July 2026 (beta). Pricing not verified from Kong's own page (a competitor blog cited about US$105/month per gateway service; not used). Funding round date not verified. GAP PASS: Trust Center confirms ISO 27001:2022 and SOC 2 Type II scope including Kong AI Gateway (A6-S109); 'HIPAA-ready' on the startup page is a readiness claim, not a certification. [V2 verification 8 October 2026] AI Gateway 2.0 GA re-confirmed from Kong's launch post (the exact day, 1 September, is from a third-party write-up) and 2.2 GA from a Kong press release of 30 September 2026 [V2-S034]. notes.md row omits 2.2.",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C1-cloudflare-ai-gateway",
@@ -1046,10 +1059,11 @@
       "conf": "low"
     },
     "pricing": {
-      "v": "Core features (analytics, caching, rate limiting) free on all plans; DLP free; guardrails billed as Workers AI token inference; 5% fee on Unified Billing credits (no markup on provider tokens); Logpush 10M requests/month then US$0.05 per million on Workers Paid; logs follow Workers Logs pricing for gateways created on/after 24 September 2026",
+      "v": "Core features (analytics, caching, rate limiting) free on all plans; DLP free; guardrails billed as Workers AI token inference; 5% fee on Unified Billing credits (no markup on provider tokens); Logpush 10M requests/month then US$0.05 per million on Workers Paid; logs follow Workers Logs pricing for gateways created on/after 24 September 2026. From 1 December 2026 (announced): unified per-GB log pricing covering AI Gateway logs, US$0.25 per GB ingested and US$0.10 per GB-month stored after 50 GB / 10 GB-month included (blog announcement; terms may change).",
       "label": "Verified fact",
       "src": [
-        "A6-S052"
+        "A6-S052",
+        "V2-S074"
       ],
       "conf": "high",
       "asof": "2026-10-07"
@@ -1131,10 +1145,11 @@
     "sources": [
       "A6-S019",
       "A6-S052",
-      "A6-S110"
+      "A6-S110",
+      "V2-S074"
     ],
     "stage_a_notes": "Search extract said guardrails use 'a Llama Guard model'; the pricing source file names @cf/meta/llama-guard-3-8b (A6-S052). Log pricing changed for gateways created on or after 24 September 2026. Cloudflare certifications and EU data-localisation options for AI Gateway were not verified (trust pages blocked; search budget exhausted). GAP PASS: Trust Hub pages flagged as about two years old by the search tool; certification facts should be re-confirmed against the current report (A6-S110).",
-    "last_verified": "2026-10-07"
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C1-azure-apim-ai-gateway",
@@ -1170,7 +1185,8 @@
       "label": "Verified fact",
       "src": [
         "A6-S053",
-        "A6-S020"
+        "A6-S020",
+        "V2-S073"
       ],
       "conf": "medium"
     },
@@ -1392,10 +1408,11 @@
     "sources": [
       "A6-S020",
       "A6-S053",
-      "A6-S056"
+      "A6-S056",
+      "V2-S073"
     ],
-    "stage_a_notes": "Two offerings: (1) AI gateway capabilities in existing APIM tiers (policies llm-token-limit, llm-emit-metric, llm-content-safety, semantic caching are GA); (2) a dedicated 'AI Gateway tier' in public preview (East US 2 and Sweden Central; free during preview; no SLA; updated 27 July 2026). Microsoft Foundry integration with the AI Gateway tier is stated as 'coming in October' (preview). APIM per-tier prices not verified (Azure pricing page blocked).",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Two offerings: (1) AI gateway capabilities in existing APIM tiers (policies llm-token-limit, llm-emit-metric, llm-content-safety, semantic caching are GA); (2) a dedicated 'AI Gateway tier' in public preview (East US 2 and Sweden Central; free during preview; no SLA; updated 27 July 2026). Microsoft Foundry integration with the AI Gateway tier is stated as 'coming in October' (preview). APIM per-tier prices not verified (Azure pricing page blocked). [V2 verification 8 October 2026] AI Gateway tier preview facts (East US 2 and Sweden Central; free; no SLA; Entra sign-in only) re-confirmed [V2-S073].",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C1-aws-agentcore-gateway",
@@ -1971,7 +1988,8 @@
       "v": "v1.6.0 (2 October 2026)",
       "label": "Verified fact",
       "src": [
-        "A6-S062"
+        "A6-S062",
+        "V2-S061"
       ],
       "conf": "high"
     },
@@ -2172,10 +2190,11 @@
     "scores": null,
     "sources": [
       "A6-S061",
-      "A6-S062"
+      "A6-S062",
+      "V2-S061"
     ],
     "stage_a_notes": "Added as a material open-source agent-native gateway (MCP + A2A + LLM) under the Linux Foundation; relevant to H1 and H3. Originator and adoption not verified.",
-    "last_verified": "2026-10-07"
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C1-envoy-ai-gateway",
@@ -2185,7 +2204,8 @@
       "v": "Agent Router (formerly Envoy AI Gateway)",
       "label": "Verified fact",
       "src": [
-        "A6-S063"
+        "A6-S063",
+        "V2-S029"
       ],
       "conf": "high"
     },
@@ -2209,7 +2229,8 @@
       "v": "v1.2.0 (6 October 2026)",
       "label": "Verified fact",
       "src": [
-        "A6-S064"
+        "A6-S064",
+        "V2-S061"
       ],
       "conf": "high"
     },
@@ -2233,7 +2254,8 @@
       ],
       "label": "Verified fact",
       "src": [
-        "A6-S063"
+        "A6-S063",
+        "V2-S029"
       ],
       "conf": "medium"
     },
@@ -2414,10 +2436,12 @@
     "scores": null,
     "sources": [
       "A6-S063",
-      "A6-S064"
+      "A6-S064",
+      "V2-S061",
+      "V2-S029"
     ],
-    "stage_a_notes": "Added: Envoy AI Gateway renamed 'Agent Router' and moved to the Agentic AI Foundation ('same code, same maintainers... Apache 2.0'); Go module path remains github.com/envoyproxy/ai-gateway. Relevant to Kubernetes-centric estates.",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Added: Envoy AI Gateway renamed 'Agent Router' and moved to the Agentic AI Foundation ('same code, same maintainers... Apache 2.0'); Go module path remains github.com/envoyproxy/ai-gateway. Relevant to Kubernetes-centric estates. [V2 verification 8 October 2026] Rename to Agent Router and move to the Agentic AI Foundation re-confirmed from the project README (repository now theagentrouter/agent-router; CRDs, aigw CLI, images and Go module path unchanged) [V2-S029]; v1.2.0 (6 October 2026) confirmed on the Go module proxy [V2-S061].",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C2-nemo-guardrails",
@@ -2454,7 +2478,8 @@
       "label": "Verified fact",
       "src": [
         "A6-S003",
-        "A6-S036"
+        "A6-S036",
+        "V2-S028"
       ],
       "conf": "high"
     },
@@ -2683,10 +2708,11 @@
       "A6-S027",
       "A6-S036",
       "A6-S111",
-      "A6-S112"
+      "A6-S112",
+      "V2-S028"
     ],
     "stage_a_notes": "PyPI classifier still says 'Development Status :: 4 - Beta' and version is 0.x. Commercial packaging as a NeMo/NIM microservice, NVIDIA AI Enterprise pricing and support terms not verified (search budget exhausted). Current Nemotron safety model naming not verified beyond the changelog entry 'Parse Nemotron 3.5 responses'. GAP PASS: Microservice supports Colang 1.0 configurations only and lacks some toolkit server features (A6-S111). Content-safety category count conflicts (23 vs 42) across NVIDIA pages. NVIDIA corporate certifications for the microservice not verified.",
-    "last_verified": "2026-10-07"
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C2-guardrails-ai",
@@ -2721,7 +2747,8 @@
       "v": "guardrails-ai 0.11.0 (14 August 2026)",
       "label": "Verified fact",
       "src": [
-        "A6-S004"
+        "A6-S004",
+        "V2-S028"
       ],
       "conf": "high"
     },
@@ -2745,13 +2772,16 @@
     },
     "status_events": {
       "v": [
-        "6 July 2026: announced move of validators to PyPI and discontinuation of hosted remote inference (cutoff 25 August 2026)",
+        "6 July 2026: announced move of validators to PyPI and discontinuation of hosted remote inference (hard cutoff 25 August 2026 per the repository HUB_UPDATE.md; the docs-site 0.11 migration guide gives 6 August 2026)",
         "9 September 2026: acquired by Harvey; co-founders Shreya Rajpal and Zayd Simjee joined Harvey; terms undisclosed"
       ],
       "label": "Verified fact",
       "src": [
         "A6-S037",
-        "A6-S028"
+        "A6-S028",
+        "V2-S026",
+        "V2-S071",
+        "V2-S072"
       ],
       "conf": "high"
     },
@@ -2948,10 +2978,14 @@
       "A6-S004",
       "A6-S028",
       "A6-S029",
-      "A6-S037"
+      "A6-S037",
+      "V2-S028",
+      "V2-S026",
+      "V2-S071",
+      "V2-S072"
     ],
-    "stage_a_notes": "Acquired by Harvey (legal AI company) on 9 September 2026; terms undisclosed. Before the deal, Guardrails retired the hub install command, private validator registry and free hosted remote inference (cutoff 25 August 2026), moving validators to PyPI (guardrails-ai-<name>). Enterprise platform and 'Snowglobe' pricing are 'talk to sales' per a secondary source only. Funding figures conflict across aggregators ($7.5m seed vs $12m total).",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Acquired by Harvey (legal AI company) on 9 September 2026; terms undisclosed. Before the deal, Guardrails retired the hub install command, private validator registry and free hosted remote inference (cutoff 25 August 2026), moving validators to PyPI (guardrails-ai-<name>). Enterprise platform and 'Snowglobe' pricing are 'talk to sales' per a secondary source only. Funding figures conflict across aggregators ($7.5m seed vs $12m total). [V2 verification 8 October 2026] Harvey acquisition (announced 9 September 2026, undisclosed terms, alongside Harvey's US$550m round) confirmed from Harvey's own post [V2-S026]. Hub/inference cutoff date conflict: 25 August (repo) vs 6 August (docs site) [V2-S071, V2-S072]; plan as if hosted inference was gone from 6 August.",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C2-meta-llama-protections",
@@ -2990,7 +3024,8 @@
       "label": "Verified fact",
       "src": [
         "A6-S030",
-        "A6-S006"
+        "A6-S006",
+        "V2-S028"
       ],
       "conf": "medium"
     },
@@ -3221,10 +3256,11 @@
       "A6-S038",
       "A6-S039",
       "A6-S052",
-      "A6-S107"
+      "A6-S107",
+      "V2-S028"
     ],
     "stage_a_notes": "No Llama Guard 5, Prompt Guard 3 or 2026 LlamaFirewall release found; latest checkpoints dated 29 April 2025 and llamafirewall 1.0.3 on PyPI dated 29 May 2025. Search coverage was limited (budget exhausted), so newer releases cannot be ruled out. Independent tester reported Prompt Guard weak against non-English and obfuscated prompts (A6-S031). Cloudflare AI Gateway guardrails run Llama Guard 3 8B (A6-S052). GAP PASS: Second, vendor-domain search (7 October 2026) again found no release after April-May 2025 (A6-S107).",
-    "last_verified": "2026-10-07"
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C2-bedrock-guardrails",
@@ -4002,7 +4038,8 @@
       "v": "Community-governed open-source project under the Data Privacy Stack organisation (formerly Microsoft); Technical Steering Committee",
       "label": "Verified fact",
       "src": [
-        "A6-S040"
+        "A6-S040",
+        "V2-S030"
       ],
       "conf": "high"
     },
@@ -4018,7 +4055,8 @@
       "v": "presidio-analyzer and presidio-anonymizer 2.2.364 (22 July 2026)",
       "label": "Verified fact",
       "src": [
-        "A6-S005"
+        "A6-S005",
+        "V2-S028"
       ],
       "conf": "high"
     },
@@ -4240,10 +4278,12 @@
       "A6-S005",
       "A6-S040",
       "A6-S041",
-      "A6-S068"
+      "A6-S068",
+      "V2-S030",
+      "V2-S028"
     ],
-    "stage_a_notes": "Ownership changed: Presidio moved from Microsoft to an independent community-governed project under the 'Data Privacy Stack' GitHub organisation (licence copyright changed to 'Presidio Contributors'; images now on ghcr.io/data-privacy-stack; MCR images no longer updated). Exact transition date not stated; rebrand changes are in 2.2.363 (28 June 2026) and PyPI author e-mail changed to presidio@dataprivacystack.org. The graphic and the brief list it as 'Microsoft Presidio' - flag as Renamed/ownership change.",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Ownership changed: Presidio moved from Microsoft to an independent community-governed project under the 'Data Privacy Stack' GitHub organisation (licence copyright changed to 'Presidio Contributors'; images now on ghcr.io/data-privacy-stack; MCR images no longer updated). Exact transition date not stated; rebrand changes are in 2.2.363 (28 June 2026) and PyPI author e-mail changed to presidio@dataprivacystack.org. The graphic and the brief list it as 'Microsoft Presidio' - flag as Renamed/ownership change. [V2 verification 8 October 2026] Community-governance transition (Data Privacy Stack organisation, MIT, not owned by a commercial entity, GHCR images) re-read directly [V2-S030]. The transition date is not stated in the notice.",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C3-google-sdp",
@@ -4536,7 +4576,8 @@
       "v": "New DSPM generally available May 2026; classic DSPM and DSPM for AI remained until June 2026; partner (non-Microsoft) data sources and the Data Security Posture Agent still preview",
       "label": "Verified fact",
       "src": [
-        "A6-S090"
+        "A6-S090",
+        "V2-S036"
       ],
       "conf": "medium"
     },
@@ -4560,7 +4601,8 @@
       ],
       "label": "Verified fact",
       "src": [
-        "A6-S090"
+        "A6-S090",
+        "V2-S036"
       ],
       "conf": "medium"
     },
@@ -4746,10 +4788,11 @@
       "A6-S059",
       "A6-S090",
       "A6-S091",
-      "A6-S092"
+      "A6-S092",
+      "V2-S036"
     ],
-    "stage_a_notes": "Microsoft Purview documentation and pricing were not reachable (learn.microsoft.com blocked, Purview docs not in a public GitHub repo, search budget exhausted). Only peripheral facts verified: Purview is in Azure FedRAMP High scope (A6-S056) and Microsoft Purview Suite is one of the prerequisites for Microsoft Agent 365 (A6-S059). Current product name ('DSPM for AI' vs any 2026 rename), GA status, features and pricing are NOT verified. GAP PASS: Name, GA and licensing now sourced (A6-S090, A6-S091). Business Premium add-on coverage conflicts (A6-S092, community forum). Features list of the new DSPM beyond AI coverage not verified.",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Microsoft Purview documentation and pricing were not reachable (learn.microsoft.com blocked, Purview docs not in a public GitHub repo, search budget exhausted). Only peripheral facts verified: Purview is in Azure FedRAMP High scope (A6-S056) and Microsoft Purview Suite is one of the prerequisites for Microsoft Agent 365 (A6-S059). Current product name ('DSPM for AI' vs any 2026 rename), GA status, features and pricing are NOT verified. GAP PASS: Name, GA and licensing now sourced (A6-S090, A6-S091). Business Premium add-on coverage conflicts (A6-S092, community forum). Features list of the new DSPM beyond AI coverage not verified. [V2 verification 8 October 2026] Unified DSPM GA (May 2026 entry in What's new) re-confirmed; partner data sources and the Data Security Posture Agent remain preview; Business Premium licensing still conflicting [V2-S036].",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C3-protegrity",
@@ -5280,10 +5323,11 @@
       "conf": "high"
     },
     "version_or_lineup": {
-      "v": "Generally available (What's new page dated 1 May 2026); some admin-centre creation wizards still preview",
+      "v": "Generally available (Entra release log lists GA under April 2026; What's new page dated 1 May 2026); some admin-centre creation wizards still preview",
       "label": "Verified fact",
       "src": [
-        "A6-S058"
+        "A6-S058",
+        "V2-S032"
       ],
       "conf": "high"
     },
@@ -5306,11 +5350,12 @@
     },
     "status_events": {
       "v": [
-        "2026: Entra Agent ID generally available; agent registry converging under Microsoft Agent 365"
+        "April 2026: Entra Agent ID generally available (Entra release log); agent registry converging under Microsoft Agent 365"
       ],
       "label": "Verified fact",
       "src": [
-        "A6-S058"
+        "A6-S058",
+        "V2-S032"
       ],
       "conf": "high"
     },
@@ -5452,10 +5497,11 @@
       "conf": "low"
     },
     "maturity": {
-      "v": "GA in 2026 after preview; documentation marks some features as new or preview",
+      "v": "GA in April 2026 after preview (announced at Microsoft Build 2025); documentation marks some features as new or preview",
       "label": "Verified fact",
       "src": [
-        "A6-S058"
+        "A6-S058",
+        "V2-S032"
       ],
       "conf": "high"
     },
@@ -5508,10 +5554,11 @@
       "A6-S057",
       "A6-S058",
       "A6-S059",
-      "A6-S060"
+      "A6-S060",
+      "V2-S032"
     ],
-    "stage_a_notes": "GA confirmed by 'What's new' (ms.date 1 May 2026). Licensing: Agent ID available to all Entra customers, but extending Entra security features (Conditional Access, ID Protection, governance) to agents requires Microsoft Agent 365 (included in Microsoft 365 E7; add-on to E5/A5/Business Premium). Agent registry experiences converging into Microsoft Agent 365. Agent 365 prices not verified.",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "GA confirmed by 'What's new' (ms.date 1 May 2026). Licensing: Agent ID available to all Entra customers, but extending Entra security features (Conditional Access, ID Protection, governance) to agents requires Microsoft Agent 365 (included in Microsoft 365 E7; add-on to E5/A5/Business Premium). Agent registry experiences converging into Microsoft Agent 365. Agent 365 prices not verified. [V2 verification 8 October 2026] GA month (April 2026) and licensing re-confirmed [V2-S032]: Agent 365 is included in Microsoft 365 E7 and sold as an add-on to E5/A5/Business Premium; Copilot Studio auto-creates Agent IDs for new agents after May 2026.",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C4-okta-auth0-ai-agents",
@@ -5553,7 +5600,8 @@
         "A6-S100",
         "A6-S099",
         "A6-S076",
-        "A6-S077"
+        "A6-S077",
+        "V2-S035"
       ],
       "conf": "medium"
     },
@@ -5585,7 +5633,8 @@
       "src": [
         "A6-S097",
         "A6-S100",
-        "A6-S099"
+        "A6-S099",
+        "V2-S035"
       ],
       "conf": "medium"
     },
@@ -5735,7 +5784,8 @@
         "A6-S097",
         "A6-S099",
         "A6-S100",
-        "A6-S078"
+        "A6-S078",
+        "V2-S035"
       ],
       "conf": "medium"
     },
@@ -5793,10 +5843,11 @@
       "A6-S097",
       "A6-S098",
       "A6-S099",
-      "A6-S100"
+      "A6-S100",
+      "V2-S035"
     ],
-    "stage_a_notes": "Okta and Auth0 product pages were blocked and the search budget was exhausted. Verified: Auth0 AI SDKs (Python auth0-ai 1.0.2, JS @auth0/ai 6.0.2) with CIBA asynchronous authorisation, calling APIs on users' behalf, authorisation for RAG (Okta FGA); Okta's own Cross App Access MCP sample uses the Identity Assertion Authorization Grant (ID-JAG) draft, which MCP adopted in its Stable Enterprise-Managed Authorization extension. Product names ('Auth0 for AI Agents', 'Okta for AI Agents'), GA dates, pricing and certifications NOT verified. GAP PASS: Product names and GA dates now verified (A6-S097, A6-S099, A6-S100). Agent SSO GA date conflicts: one Okta release says GA since May 2026, the 24 August 2026 release announces GA. Certifications not searched (budget prioritised).",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Okta and Auth0 product pages were blocked and the search budget was exhausted. Verified: Auth0 AI SDKs (Python auth0-ai 1.0.2, JS @auth0/ai 6.0.2) with CIBA asynchronous authorisation, calling APIs on users' behalf, authorisation for RAG (Okta FGA); Okta's own Cross App Access MCP sample uses the Identity Assertion Authorization Grant (ID-JAG) draft, which MCP adopted in its Stable Enterprise-Managed Authorization extension. Product names ('Auth0 for AI Agents', 'Okta for AI Agents'), GA dates, pricing and certifications NOT verified. GAP PASS: Product names and GA dates now verified (A6-S097, A6-S099, A6-S100). Agent SSO GA date conflicts: one Okta release says GA since May 2026, the 24 August 2026 release announces GA. Certifications not searched (budget prioritised). [V2 verification 8 October 2026] Agent SSO GA date conflict resolved in favour of 24 August 2026 (Okta press release; Identity Engine release notes place XAA GA in the August 2026 weekly release) [V2-S035].",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C4-spiffe-spire",
@@ -5831,7 +5882,8 @@
       "label": "Verified fact",
       "src": [
         "A6-S043",
-        "A6-S042"
+        "A6-S042",
+        "V2-S061"
       ],
       "conf": "high"
     },
@@ -6043,10 +6095,11 @@
       "A6-S042",
       "A6-S043",
       "A6-S087",
-      "A6-S089"
+      "A6-S089",
+      "V2-S061"
     ],
     "stage_a_notes": "SPIFFE is the specification; SPIRE is its reference implementation. No agent-specific SPIFFE profile was verified in this run (search budget exhausted). Commercial distributions not assessed.",
-    "last_verified": "2026-10-07"
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C4-mcp-authorization",
@@ -6084,7 +6137,8 @@
       "src": [
         "A6-S032",
         "A6-S079",
-        "A6-S086"
+        "A6-S086",
+        "V2-S031"
       ],
       "conf": "high"
     },
@@ -6097,11 +6151,12 @@
       "conf": "medium"
     },
     "strategic_direction": {
-      "v": "Hardening for enterprise use: RFC 9207 issuer validation, issuer-bound client registration, Client ID Metadata Documents replacing Dynamic Client Registration, enterprise IdP control via ID-JAG; feature lifecycle policy with 12-month deprecation window",
+      "v": "Hardening for enterprise use: RFC 9207 issuer validation, issuer-bound client registration, Client ID Metadata Documents replacing Dynamic Client Registration, enterprise IdP control via ID-JAG; feature lifecycle policy with 12-month deprecation window; 2026-07-28 also makes the protocol stateless (no initialize handshake), removes SSE stream resumability, and deprecates the Roots, Sampling and Logging features",
       "label": "Verified fact",
       "src": [
         "A6-S032",
-        "A6-S035"
+        "A6-S035",
+        "V2-S031"
       ],
       "conf": "high"
     },
@@ -6111,7 +6166,8 @@
       ],
       "label": "Verified fact",
       "src": [
-        "A6-S032"
+        "A6-S032",
+        "V2-S031"
       ],
       "conf": "high"
     },
@@ -6313,10 +6369,11 @@
       "A6-S079",
       "A6-S080",
       "A6-S086",
-      "A6-S099"
+      "A6-S099",
+      "V2-S031"
     ],
-    "stage_a_notes": "Latest MCP specification revision is 2026-07-28 (docs nav marks it 'latest'). Material changes: stateless protocol (no initialize handshake, no Mcp-Session-Id); RFC 9207 'iss' validation; issuer-bound client credentials; Dynamic Client Registration deprecated in favour of Client ID Metadata Documents; Roots, Sampling and Logging deprecated. Authorisation remains OPTIONAL for MCP implementations. OAuth 2.1 itself is still an IETF draft (draft-ietf-oauth-v2-1-13 cited). AWS AgentCore Gateway and Kong AI Gateway 2.1.0 already list support for 2026-07-28.",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Latest MCP specification revision is 2026-07-28 (docs nav marks it 'latest'). Material changes: stateless protocol (no initialize handshake, no Mcp-Session-Id); RFC 9207 'iss' validation; issuer-bound client credentials; Dynamic Client Registration deprecated in favour of Client ID Metadata Documents; Roots, Sampling and Logging deprecated. Authorisation remains OPTIONAL for MCP implementations. OAuth 2.1 itself is still an IETF draft (draft-ietf-oauth-v2-1-13 cited). AWS AgentCore Gateway and Kong AI Gateway 2.1.0 already list support for 2026-07-28. [V2 verification 8 October 2026] 2026-07-28 changelog re-read directly [V2-S031]. Stage A omitted that Roots, Sampling and Logging are now Deprecated under the 12-month lifecycle policy; clients and servers built on them need a migration plan.",
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C4-opa",
@@ -6351,7 +6408,8 @@
       "label": "Verified fact",
       "src": [
         "A6-S048",
-        "A6-S047"
+        "A6-S047",
+        "V2-S061"
       ],
       "conf": "high"
     },
@@ -6557,10 +6615,11 @@
       "A6-S046",
       "A6-S047",
       "A6-S048",
-      "A6-S088"
+      "A6-S088",
+      "V2-S061"
     ],
     "stage_a_notes": "Reported 2025 move of OPA's original maintainers (Styra) to Apple could not be verified in this run (search budget exhausted); OPA README still states CNCF graduated status. No agent-specific OPA product verified.",
-    "last_verified": "2026-10-07"
+    "last_verified": "2026-10-08"
   },
   {
     "id": "C4-cedar",
@@ -6595,12 +6654,13 @@
       "conf": "high"
     },
     "version_or_lineup": {
-      "v": "cedar-policy 4.13.0 (15 September 2026; Cedar language version 4.5); Policy in Amazon Bedrock AgentCore GA 3 March 2026 (preview December 2025)",
+      "v": "cedar-policy 4.13.0 (15 September 2026; Cedar language version 4.5); Policy in Amazon Bedrock AgentCore GA 3 March 2026 in 13 Regions (preview December 2025)",
       "label": "Verified fact",
       "src": [
         "A6-S044",
         "A6-S085",
-        "A6-S026"
+        "A6-S026",
+        "V2-S033"
       ],
       "conf": "high"
     },
@@ -6614,11 +6674,12 @@
       "conf": "high"
     },
     "strategic_direction": {
-      "v": "AWS uses Cedar as the deny-by-default authorisation layer for agent tool calls through AgentCore Gateway, with natural-language policy authoring, schema generation from MCP tool descriptions and automated-reasoning analysis of policy sets",
+      "v": "AWS uses Cedar as the deny-by-default authorisation layer for agent tool calls through AgentCore Gateway, with natural-language policy authoring, schema generation from MCP tool descriptions and automated-reasoning analysis of policy sets; current AgentCore documentation has policies authored in Dogwood, described by AWS as an open-source, Cedar-compatible policy language for AI agents (every valid Cedar policy is valid Dogwood); AWS says Cedar has joined the CNCF",
       "label": "Verified fact",
       "src": [
         "A6-S026",
-        "A6-S074"
+        "A6-S074",
+        "V2-S033"
       ],
       "conf": "medium"
     },
@@ -6633,7 +6694,8 @@
       "src": [
         "A6-S026",
         "A6-S104",
-        "A6-S106"
+        "A6-S106",
+        "V2-S033"
       ],
       "conf": "medium"
     },
@@ -6839,9 +6901,10 @@
       "A6-S074",
       "A6-S085",
       "A6-S104",
-      "A6-S106"
+      "A6-S106",
+      "V2-S033"
     ],
-    "stage_a_notes": "Amazon Verified Permissions (managed Cedar service) was not verified in this run (AWS pages blocked; search budget exhausted). AgentCore Policy GA 3 March 2026 uses Cedar; the current AgentCore API model also describes AI-generated 'Dogwood' policy statements supporting temporal conditions and guardrail information providers - relationship between Dogwood and Cedar not verified (FAQ mention only). GAP PASS: Amazon Verified Permissions verified as active (A6-S104); Cedar 2 to 4 migration is a breaking change for existing AVP users.",
-    "last_verified": "2026-10-07"
+    "stage_a_notes": "Amazon Verified Permissions (managed Cedar service) was not verified in this run (AWS pages blocked; search budget exhausted). AgentCore Policy GA 3 March 2026 uses Cedar; the current AgentCore API model also describes AI-generated 'Dogwood' policy statements supporting temporal conditions and guardrail information providers - relationship between Dogwood and Cedar not verified (FAQ mention only). GAP PASS: Amazon Verified Permissions verified as active (A6-S104); Cedar 2 to 4 migration is a breaking change for existing AVP users. [V2 verification 8 October 2026] AgentCore Policy GA (March 2026) re-confirmed from AWS What's New [V2-S033]. The 'Dogwood' question from Stage A is resolved: AWS documents Dogwood as an open-source superset of Cedar used for AgentCore policy authoring [V2-S033]; its governance and licence were not checked.",
+    "last_verified": "2026-10-08"
   }
 ]

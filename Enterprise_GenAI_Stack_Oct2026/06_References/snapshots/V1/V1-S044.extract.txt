@@ -1,0 +1,8 @@
+SOURCE ID: V1-S044
+URL: https://blog.getzep.com/announcing-a-new-direction-for-zeps-open-source-strategy/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Zep Community Edition deprecated (allowed_domains getzep.com etc.)
+========================================================================
+
+"We've decided to stop maintaining and releasing Zep Community Edition. The existing repository will remain open under the Apache 2.0 license, but we will no longer provide updates or active support." Open-source effort now focuses on Graphiti. FAQ: "Zep Community Edition, which allows you to host Zep locally, is deprecated and no longer supported"; alternatives Zep Cloud, Graphiti, BYOC for enterprise customers. GitHub repo: legacy/ = Deprecated Zep Community Edition (unsupported). Third-party lists date the deprecation April 2025; exact date not confirmed from official results.

@@ -1,0 +1,8 @@
+SOURCE ID: V1-S019
+URL: https://docs.unstructured.io/transform/first-request
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Unstructured Transform v2 API platform (allowed_domains unstructured.io)
+========================================================================
+
+Transform turns documents into parsed content and structured data via web app or API. Operations: Parse (output defaults to Markdown) and Extract (JSON-schema-guided), plus upload and jobs endpoints. Base paths under https://transform.unstructured.io/api/v2/ (/parse, /extract, /upload, /jobs). API key in unstructured-api-key header. Uploaded files are stored temporarily for 24 hours. Async via Prefer: wait=0. SDKs for Python and TypeScript.

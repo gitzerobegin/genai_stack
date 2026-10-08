@@ -1,0 +1,8 @@
+SOURCE ID: V2-S062
+URL: https://trust.openai.com/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI API platform SOC 2 Type 2 ISO 42001 certification trust portal (allowed_domains openai.com, trust.openai.com)
+========================================================================
+
+Trust Portal: most recent SOC 2 Type 2 report covers July 1, 2025 to June 30, 2026 (Security, Availability, Confidentiality, Privacy TSC), available to authenticated users. Compliance list includes ISO/IEC 42001:2023; security page describes "an ISO/IEC 42001:2023 AI Management System covering OpenAI's consumer and business AI products and models in its role as an AI producer and AI provider" (does not name the API Platform). ISO 27001, 27017, 27018, 27701; security page ties ISO 27001/27701 to the API, ChatGPT Enterprise and ChatGPT Edu. CSA STAR entry; API Platform evaluated by CSA STAR registry. Product Compliance Status page lists products in scope.

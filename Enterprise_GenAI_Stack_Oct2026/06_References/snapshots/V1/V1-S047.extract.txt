@@ -1,0 +1,8 @@
+SOURCE ID: V1-S047
+URL: https://developers.openai.com/codex/skills
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Codex Agent Skills SKILL.md support OpenAI (allowed_domains openai.com etc.)
+========================================================================
+
+"Skills extend Codex with task-specific capabilities... built on the open agent skills standard." A skill is a directory with a SKILL.md file (name, description) plus optional scripts and references; progressive disclosure; repo skills in .agents/skills, user skills in $HOME/.agents/skills, admin skills in /etc/codex/skills; agents/openai.yaml optional metadata; available in the Codex CLI, IDE extension and Codex app; plugins are the distribution unit.

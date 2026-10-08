@@ -1,0 +1,8 @@
+SOURCE ID: V2-S042
+URL: https://openai.com/blog/openai-to-acquire-promptfoo
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI acquires Promptfoo
+========================================================================
+
+OpenAI announced on March 9, 2026 that it is acquiring Promptfoo, "an AI security platform that helps enterprises identify and remediate vulnerabilities in AI systems during development". Technology to be integrated into OpenAI Frontier "once the acquisition is finalized" (forward-looking wording); some outlets describe the deal as completed. Founders said Promptfoo would remain open source and support models beyond OpenAI's. Used by more than 25% of Fortune 500. Value not disclosed (PitchBook valuations conflict: $86m vs $119m).

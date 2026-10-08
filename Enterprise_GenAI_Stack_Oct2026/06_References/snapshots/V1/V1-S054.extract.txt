@@ -1,0 +1,8 @@
+SOURCE ID: V1-S054
+URL: https://api.github.com/repos/huggingface/text-generation-inference
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GitHub MCP search_repositories repo:huggingface/text-generation-inference (minimal_output false)
+========================================================================
+
+full_name: huggingface/text-generation-inference; archived: true; pushed_at: 2026-03-21T11:34:22Z; updated_at: 2026-10-05T11:08:05Z; license: Apache-2.0; stargazers_count: 10880; open_issues_count: 324.

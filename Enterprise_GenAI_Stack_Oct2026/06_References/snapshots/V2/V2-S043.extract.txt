@@ -1,0 +1,8 @@
+SOURCE ID: V2-S043
+URL: https://www.helicone.ai/blog/joining-mintlify
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mintlify acquires Helicone maintenance mode
+========================================================================
+
+Mintlify's announcement describes Helicone as an open-source LLM observability platform and AI gateway, being folded into Mintlify's AI products. Founders Justin Torre and Cole Gottdank join Mintlify in San Francisco. "Helicone will continue operating in maintenance mode - security updates, bug fixes, and new models will keep shipping." Helicone's blog post dates the announcement to March 3, 2026: "Helicone's services will remain live for the foreseeable future in maintenance mode." PostHog (competitor): roadmap frozen and new signups disabled entirely (single, rival source).

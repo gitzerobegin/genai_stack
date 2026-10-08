@@ -1,0 +1,10 @@
+SOURCE ID: V2-S025
+URL: https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-portkey-to-secure-ai-agents
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Palo Alto Networks completes acquisition of Portkey AI gateway
+========================================================================
+
+Palo Alto Networks closed its acquisition of Portkey on May 29, 2026, according to its own press release and SEC filings. Goal: make the AI gateway a central control layer for enterprise AI agents; Portkey to be the core gateway for Prisma AIRS (runtime AI security, agent identity security via Idira, observability via Chronosphere).
+10-K (FY2026, period ending 31 July 2026): total purchase consideration $117 million, mostly cash, $110 million goodwill. Earlier 10-Q (period ending 30 April 2026): agreement described as $140 million in cash and replacement awards, subject to adjustments.
+One outlet (INCYBER) reports announcement on June 2, 2026 with no deal value.

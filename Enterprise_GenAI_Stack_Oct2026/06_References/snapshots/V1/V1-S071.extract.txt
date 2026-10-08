@@ -1,0 +1,8 @@
+SOURCE ID: V1-S071
+URL: https://siliconangle.com/2026/07/09/open-source-ai-developer-tool-ollama-raises-65m-grow-platform/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: 2026 acquisition: CrewAI OR LlamaIndex OR Pydantic OR LM Studio OR Ollama OR Together AI OR Fireworks AI acquired (extended)
+========================================================================
+
+SiliconANGLE headline (9 July 2026): "Open-source AI developer tool Ollama raises $65M to grow its platform"; article describes Ollama as competing with cloud inference providers Together Computer, Fireworks AI and Groq. (Round details not in extract.) Same search: no 2026 acquisitions found of CrewAI, LlamaIndex, Pydantic, LM Studio, Ollama, Together AI or Fireworks AI; Fireworks acquired Hathora (8 Mar 2026, per a bibliography); Pydantic AI V2 stable listed 23 June 2026.

@@ -1,0 +1,8 @@
+SOURCE ID: V2-S018
+URL: https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral Medium 3.5 open weights modified MIT April 2026 (allowed_domains mistral.ai, docs.mistral.ai)
+========================================================================
+
+Mistral Medium 3.5: 128B dense model combining instruction-following, reasoning and coding in one set of weights, 256k context window. Model card: April 28, 2026; Blog; GA; Modified MIT v26.04. The changelog places the launch under April 26 (two-day discrepancy). Open weights on Hugging Face under modified MIT. Runs self-hosted on as few as four GPUs. API: $1.5 per million input tokens and $7.5 per million output tokens. Mistral inference page: "Licenses vary by model, commonly between Apache 2.0 or a modified MIT, and can change."

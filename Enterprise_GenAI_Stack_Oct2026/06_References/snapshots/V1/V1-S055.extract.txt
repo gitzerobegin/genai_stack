@@ -1,0 +1,8 @@
+SOURCE ID: V1-S055
+URL: https://huggingface.co/docs/inference-endpoints/engines/tgi
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: text-generation-inference maintenance mode Hugging Face TGI (allowed_domains huggingface.co, github.com)
+========================================================================
+
+Inference Endpoints docs date TGI maintenance mode to 12/11/2025: only minor bug fixes, documentation improvements and lightweight maintenance tasks. Recommended alternatives vLLM or SGLang; repo docs also name llama.cpp and MLX. Migration: create a new endpoint with vLLM, test, shift traffic, pause or delete the old one. GitHub shows the owner archived the repository on Mar 21, 2026; it is now read-only. Latest release listed v3.3.7.

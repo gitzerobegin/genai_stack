@@ -1,0 +1,8 @@
+SOURCE ID: V1-S046
+URL: https://aaif.io/blog/skills-over-mcp
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Agent Skills specification AAIF project governance agentskills (extended, allowed_domains aaif.io, agentskills.io, linuxfoundation.org, anthropic.com, claude.com)
+========================================================================
+
+AAIF blog on exposing skills through MCP: "the skill format itself remains owned by the Agent Skills specification" (SEP-2640 would expose skills as MCP resources). AAIF-hosted Agent Plugins post: Agent Plugins is an independently governed open specification, not an AAIF project; MCP is described as "an AAIF project". No source found stating that Agent Skills is an AAIF-hosted project or naming its governance body. Claude help article: specification published as an open standard at agentskills.io; skill = directory with SKILL.md; name max 64 characters.

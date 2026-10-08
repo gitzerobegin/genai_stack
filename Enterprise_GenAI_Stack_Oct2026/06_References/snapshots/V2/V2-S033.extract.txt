@@ -1,0 +1,9 @@
+SOURCE ID: V2-S033
+URL: https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon Bedrock AgentCore Policy generally available Cedar (allowed_domains aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+AWS What's New (2026/03): "Policy in Amazon Bedrock AgentCore is now generally available" - centralized, fine-grained controls for agent-tool interactions; available in thirteen AWS Regions (AgentCore overall in fifteen per FAQ). Natural language input automatically converts to Cedar. AWS blog: Cedar "an open source authorization policy language developed by AWS that has recently joined the Cloud Native Computing Foundation (CNCF)". Policies attached to a Gateway block everything by default. Preview December 2025.
+Current documentation: policies are authored in Dogwood; the authoring guide describes Dogwood as an open source policy language compatible with Cedar that adds conditions Cedar cannot express; every valid Cedar policy is also a valid Dogwood policy. FAQ: Dogwood "a new open source governance language purpose-built for AI agents".

@@ -1,0 +1,8 @@
+SOURCE ID: V1-S035
+URL: https://investors.mongodb.com/news-releases/news-release-details/mongodb-delivers-accurate-ai-retrieval-wherever-enterprise-data
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MongoDB Community Edition vector search generally available self-managed (extended, allowed_domains mongodb.com)
+========================================================================
+
+Press release: Search and Vector Search are now generally available for MongoDB Enterprise Advanced and Community Edition. Community Edition page: starting with MongoDB Community Edition version 8.2, developers can use full-text search and vector search directly ($search, $searchMeta, $vectorSearch); runs on Linux distributions supporting 8.2+, Docker and the Kubernetes Operator; separate mongot binary; licensed under SSPL. Automated Embedding still listed as preview on Community Edition.

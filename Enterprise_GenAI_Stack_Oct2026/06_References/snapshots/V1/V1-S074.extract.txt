@@ -1,0 +1,8 @@
+SOURCE ID: V1-S074
+URL: https://pydantic.dev/docs/ai/project/changelog/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pydantic AI v2 release harness (allowed_domains pydantic.dev)
+========================================================================
+
+Upgrade Guide: stable V2.0 release dated 2026-06-23 (betas from May). v2 centres on "capabilities". Pydantic AI Harness is a separate first-party 0.x package (Code Mode, Memory, Guardrails, Spend Limits; durable execution on AWS Lambda). Version Policy: security fixes for v1 continue for at least 6 months after V2's stable release; no-breaking-changes window between majors moves from six months to three.

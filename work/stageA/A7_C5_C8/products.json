@@ -15,7 +15,8 @@
    "v": "Langfuse (part of ClickHouse, Inc. since January 2026, per the Langfuse README; LICENSE copyright 'ClickHouse, Inc.')",
    "label": "Verified fact",
    "src": [
-    "A7-S075"
+    "A7-S075",
+    "V2-S041"
    ],
    "conf": "high"
   },
@@ -55,11 +56,12 @@
   },
   "status_events": {
    "v": [
-    "January 2026: Langfuse became part of ClickHouse (README statement; exact closing date not stated)"
+    "16 January 2026: ClickHouse announced its acquisition of Langfuse alongside a US$400m Series D; Langfuse states no planned licensing changes (closing date not stated)"
    ],
    "label": "Verified fact",
    "src": [
-    "A7-S075"
+    "A7-S075",
+    "V2-S041"
    ],
    "conf": "high"
   },
@@ -205,7 +207,8 @@
    "v": "langfuse Python package first published on PyPI 12 July 2023; latest 4.17.0 (5 October 2026)",
    "label": "Verified fact",
    "src": [
-    "A7-S009"
+    "A7-S009",
+    "V2-S028"
    ],
    "conf": "high"
   },
@@ -274,10 +277,12 @@
    "A7-S072",
    "A7-S073",
    "A7-S074",
-   "A7-S075"
+   "A7-S075",
+   "V2-S041",
+   "V2-S028"
   ],
   "stage_a_notes": "Scope limited to prompt-management capability; the Langfuse platform as a whole (pricing, ecosystem, adoption) is profiled by the L9 stream. Pricing and enterprise support not collected here. Protected prompt labels are an EE feature: relevant for segregation of duties on production prompts.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C5-langsmith-prompts",
@@ -572,7 +577,8 @@
    "v": "promptlayer Python SDK 1.5.16 released 19 August 2026",
    "label": "Verified fact",
    "src": [
-    "A7-S004"
+    "A7-S004",
+    "V2-S028"
    ],
    "conf": "high"
   },
@@ -796,10 +802,11 @@
    "A7-S085",
    "A7-S086",
    "A7-S087",
-   "A7-S088"
+   "A7-S088",
+   "V2-S028"
   ],
   "stage_a_notes": "Pricing, EU region and trust-centre details not reachable (promptlayer.com blocked; search budget exhausted).",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C5-launchdarkly-ai-configs",
@@ -809,7 +816,8 @@
    "v": "LaunchDarkly AgentControl (formerly AI Configs; API unchanged)",
    "label": "Verified fact",
    "src": [
-    "A7-S117"
+    "A7-S117",
+    "V2-S045"
    ],
    "conf": "medium"
   },
@@ -945,7 +953,8 @@
    "v": "SOC 2 Type II, ISO 27001, ISO 27701, FedRAMP Moderate (Federal instance), EU-U.S. Data Privacy Framework; annual SOC 2 Type 2 audit and twice-yearly penetration tests per Security Program Addendum",
    "label": "Verified fact",
    "src": [
-    "A7-S119"
+    "A7-S119",
+    "V2-S065"
    ],
    "conf": "medium"
   },
@@ -1060,10 +1069,12 @@
    "A7-S089",
    "A7-S117",
    "A7-S118",
-   "A7-S119"
+   "A7-S119",
+   "V2-S045",
+   "V2-S065"
   ],
-  "stage_a_notes": "AgentControl is an add-on whose availability depends on plan. EU residency scope (which data stays in the EU) not detailed in sources.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "AgentControl is an add-on whose availability depends on plan. EU residency scope (which data stays in the EU) not detailed in sources. [V2 verification 8 October 2026] Rename to AgentControl and API continuity (endpoints, paths, bodies and operation IDs unchanged) re-confirmed from the AgentControl API docs [V2-S045]; the 12 May 2026 date was not independently re-checked. Certifications re-confirmed from vendor pages (FedRAMP Moderate ATO; ISO 27701 listed without certificate details) [V2-S065].",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C5-prompts-as-code",
@@ -1085,7 +1096,8 @@
    "src": [
     "A7-S067",
     "A7-S066",
-    "A7-S068"
+    "A7-S068",
+    "V2-S042"
    ],
    "conf": "high"
   },
@@ -1132,12 +1144,13 @@
   },
   "status_events": {
    "v": [
-    "Promptfoo 'is now part of OpenAI' and 'remains open source and MIT licensed' (README; reported announcement March 2026)"
+    "Promptfoo 'is now part of OpenAI' and 'remains open source and MIT licensed' (README); OpenAI announced its agreement to acquire Promptfoo on 9 March 2026 (terms undisclosed; closing date not published)"
    ],
    "label": "Verified fact",
    "src": [
     "A7-S068",
-    "A7-S022"
+    "A7-S022",
+    "V2-S042"
    ],
    "conf": "high"
   },
@@ -1336,10 +1349,11 @@
    "A7-S068",
    "A7-S069",
    "A7-S076",
-   "A7-S095"
+   "A7-S095",
+   "V2-S042"
   ],
-  "stage_a_notes": "Pattern record. Prompty/Dotprompt docs sites (prompty.ai, google.github.io) blocked; facts from GitHub READMEs and package registries. Promptfoo itself is profiled in L9 by another stream.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Pattern record. Prompty/Dotprompt docs sites (prompty.ai, google.github.io) blocked; facts from GitHub READMEs and package registries. Promptfoo itself is profiled in L9 by another stream. [V2 verification 8 October 2026] Promptfoo acquisition dated from OpenAI's own announcement (9 March 2026) [V2-S042]; OpenAI's wording was forward-looking ('once the acquisition is finalized'), so the closing date remains unknown, although the README now says Promptfoo 'is now part of OpenAI'.",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C6-gateway-cost-attribution",
@@ -1411,7 +1425,9 @@
    "label": "Verified fact",
    "src": [
     "A7-S016",
-    "A7-S028"
+    "A7-S028",
+    "V2-S025",
+    "V2-S048"
    ],
    "conf": "high"
   },
@@ -1609,10 +1625,12 @@
    "A7-S081",
    "A7-S113",
    "A7-S114",
-   "A7-S116"
+   "A7-S116",
+   "V2-S025",
+   "V2-S048"
   ],
   "stage_a_notes": "Cloud-provider cost tags/labels for Bedrock, Azure OpenAI and Vertex AI could not be verified (AWS, Microsoft and docs.cloud.google.com blocked; search budget exhausted). LiteLLM and Portkey are profiled in C1 by another stream; this record covers only the cost-attribution pattern. Chargeback design itself is an architectural pattern, not a product.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C6-helicone",
@@ -1630,7 +1648,8 @@
    "v": "Helicone, acquired by Mintlify (announced and completed 3 March 2026)",
    "label": "Verified fact",
    "src": [
-    "A7-S112"
+    "A7-S112",
+    "V2-S043"
    ],
    "conf": "medium"
   },
@@ -1674,9 +1693,10 @@
    ],
    "label": "Verified fact",
    "src": [
-    "A7-S112"
+    "A7-S112",
+    "V2-S043"
    ],
-   "conf": "medium"
+   "conf": "high"
   },
   "what_it_does": {
    "v": "Proxies or logs LLM requests, then tracks cost, latency and quality per request, session and user; supports prompt versioning and an AI gateway with fallbacks.",
@@ -1870,10 +1890,11 @@
    "A7-S005",
    "A7-S046",
    "A7-S047",
-   "A7-S112"
+   "A7-S112",
+   "V2-S043"
   ],
-  "stage_a_notes": "Maintenance-mode status rests partly on a secondary migration post; licence of the separate Rust AI Gateway reported as GPL-3.0 (secondary). Stage B: treat as non-strategic.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Maintenance-mode status rests partly on a secondary migration post; licence of the separate Rust AI Gateway reported as GPL-3.0 (secondary). Stage B: treat as non-strategic. [V2 verification 8 October 2026] Mintlify acquisition and maintenance mode re-confirmed from both companies' posts (3 March 2026) [V2-S043]. A competitor (PostHog) states new sign-ups are disabled; single rival source.",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C6-vantage",
@@ -2373,10 +2394,11 @@
    "conf": "high"
   },
   "version_or_lineup": {
-   "v": "v1.4 announced June 2026 (adds BillingPeriod and InvoiceDetail datasets, 47 columns); v1.3 December 2025; v1.2 June 2025; v1.1 November 2024; v1.0 20 June 2024",
+   "v": "v1.4 ratified by the FOCUS Steering Committee on 4 June 2026 (adds BillingPeriod and InvoiceDetail datasets, 47 columns); v1.3 December 2025; v1.2 June 2025; v1.1 November 2024; v1.0 20 June 2024",
    "label": "Verified fact",
    "src": [
-    "A7-S049"
+    "A7-S049",
+    "V2-S046"
    ],
    "conf": "high"
   },
@@ -2389,19 +2411,24 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "FinOps Framework 2026 adds a 'FinOps for AI' technology category; State of FinOps 2026 ranks FinOps for AI the top forward-looking priority (98% of respondents manage AI spend); FOCUS 1.5 is scoped to surface AI model identity and input/output token consumption plus a price-sheet dataset; FinOps and Linux Foundations announced intent to form a Tokenomics Foundation for AI billing standards",
+   "v": "FinOps Framework 2026 adds a 'FinOps for AI' technology category; State of FinOps 2026 ranks FinOps for AI the top forward-looking priority (98% of respondents manage AI spend); FOCUS 1.5 (in progress; no ratification date) adds a Price Sheet and, for AI, confirmed scope of AI pricing dimensions (cached vs fresh tokens, global vs regional serving) as properties on SkuPriceDetails plus four model properties (ModelDeveloper, ModelFamily, ModelId, ModelVersion) with no new columns; a first-class input/output token-type column is deferred, so token splits stay in separate SKUs (SkuMeter) and ConsumedUnit/ConsumedQuantity; FinOps and Linux Foundations announced intent to form a Tokenomics Foundation for AI billing standards",
    "label": "Verified fact",
    "src": [
     "A7-S115",
-    "A7-S116"
+    "A7-S116",
+    "V2-S046"
    ],
    "conf": "high"
   },
   "status_events": {
-   "v": [],
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": [
+    "4 June 2026: FOCUS 1.4 ratified (Invoice Detail and Billing Period datasets; zero incompatible changes); validator support for 1.4 expected later in Q3 2026"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "V2-S046"
+   ],
+   "conf": "medium"
   },
   "what_it_does": {
    "v": "Defines standard datasets, columns (dimensions and metrics) and requirements so billing and usage data from different providers are interoperable and comparable.",
@@ -2585,10 +2612,11 @@
    "A7-S096",
    "A7-S113",
    "A7-S115",
-   "A7-S116"
+   "A7-S116",
+   "V2-S046"
   ],
-  "stage_a_notes": "Correction to first pass: a changelog text search for 'token' missed the FOCUS 1.2 virtual-currency (credits/tokens) columns. FinOps for AI practitioner guidance captured in notes (budgets at 110-120% of a 30-60-day baseline; pair caps with engineering quotas).",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Correction to first pass: a changelog text search for 'token' missed the FOCUS 1.2 virtual-currency (credits/tokens) columns. FinOps for AI practitioner guidance captured in notes (budgets at 110-120% of a 30-60-day baseline; pair caps with engineering quotas). [V2 verification 8 October 2026] Correction: Stage A said FOCUS 1.5 is scoped for input/output token consumption. The 1.5 release-scope page says FOCUS already carries tokens through existing columns, adds model-identity properties without new columns, and defers a token-type (input/output) column [V2-S046]. One FinOps blog still describes 1.5 as surfacing input/output tokens, so the wording conflicts; rely on the release-scope page.",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C7-lakera",
@@ -2600,7 +2628,8 @@
    "src": [
     "A7-S024",
     "A7-S025",
-    "A7-S023"
+    "A7-S023",
+    "V2-S067"
    ],
    "conf": "high"
   },
@@ -2651,7 +2680,7 @@
   "status_events": {
    "v": [
     "16 September 2025: Check Point announced agreement to acquire Lakera (value not disclosed; reported c. US$300 million)",
-    "22 October 2025: completion recorded (MarketScreener); completion press release circulated 11 November 2025",
+    "22 October 2025: completion (confirmed in Check Point Q3 2025 results); completion press release circulated 11 November 2025; FY2025 20-F reportedly gives consideration of about US$201.8m (second-hand)",
     "23 March 2026: Check Point AI Defense Plane launched",
     "10 April 2026: AI Agent Security in early access"
    ],
@@ -2660,7 +2689,9 @@
     "A7-S012",
     "A7-S013",
     "A7-S026",
-    "A7-S025"
+    "A7-S025",
+    "V2-S038",
+    "V2-S067"
    ],
    "conf": "high"
   },
@@ -2867,10 +2898,12 @@
    "A7-S023",
    "A7-S024",
    "A7-S025",
-   "A7-S026"
+   "A7-S026",
+   "V2-S038",
+   "V2-S067"
   ],
   "stage_a_notes": "Conflict: careers page lists Community, Pro and Enterprise plans; pricing page lists only Community and Enterprise. Deal value: c. US$300m reported (Calcalist); a secondary note cites US$201.8m from Check Point's 20-F - not verified. Naming in flux (Lakera Guard vs Check Point AI Guardrails).",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C7-prisma-airs",
@@ -2949,7 +2982,10 @@
     "A7-S015",
     "A7-S027",
     "A7-S016",
-    "A7-S028"
+    "A7-S028",
+    "V2-S039",
+    "V2-S048",
+    "V2-S025"
    ],
    "conf": "high"
   },
@@ -3158,10 +3194,13 @@
    "A7-S031",
    "A7-S039",
    "A7-S063",
-   "A7-S120"
+   "A7-S120",
+   "V2-S039",
+   "V2-S048",
+   "V2-S025"
   ],
-  "stage_a_notes": "Region documentation conflicts (newer API Intercept region table vs older firewall prerequisites). Conflict on naming: 'AI Agent Gateway' (preview, March 2026) vs 'AI Gateway' (GA July 2026). Protect AI Guardian appears to have become Prisma AIRS AI Model Security (secondary).",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Region documentation conflicts (newer API Intercept region table vs older firewall prerequisites). Conflict on naming: 'AI Agent Gateway' (preview, March 2026) vs 'AI Gateway' (GA July 2026). Protect AI Guardian appears to have become Prisma AIRS AI Model Security (secondary). [V2 verification 8 October 2026] Protect AI (22 July 2025), Koi (completed about 14 April 2026, about US$400m press estimate), Portkey (29 May 2026) and AI Gateway GA (16 July 2026) re-confirmed [V2-S039, V2-S048, V2-S025]. The Prisma AIRS 3.0 release (23 March 2026) contains an 'AI Gateway generally available' line that predates the Portkey close; rely on 16 July 2026.",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C7-hiddenlayer",
@@ -3227,7 +3266,8 @@
    ],
    "label": "Verified fact",
    "src": [
-    "A7-S017"
+    "A7-S017",
+    "V2-S047"
    ],
    "conf": "medium"
   },
@@ -3387,7 +3427,7 @@
     "conf": "low"
    },
    "acquisition": {
-    "v": "Independent as of 7 October 2026; peers acquired in 2025-2026 (Protect AI, Lakera, Prompt Security, CalypsoAI, Pangea)",
+    "v": "Independent as of 7 October 2026; peers acquired in 2025-2026 (Protect AI, Lakera, Prompt Security (SentinelOne, closed 5 September 2025), CalypsoAI (F5, closed 26 September 2025, US$145.2m cash), Pangea (CrowdStrike, closed 26 September 2025))",
     "label": "Verified fact",
     "src": [
      "A7-S017",
@@ -3395,7 +3435,8 @@
      "A7-S012",
      "A7-S018",
      "A7-S019",
-     "A7-S020"
+     "A7-S020",
+     "V2-S040"
     ],
     "conf": "high"
    },
@@ -3439,10 +3480,12 @@
    "A7-S029",
    "A7-S030",
    "A7-S040",
-   "A7-S062"
+   "A7-S062",
+   "V2-S047",
+   "V2-S040"
   ],
   "stage_a_notes": "SOC 2/ISO evidence dated February 2025; no trust centre found. Deployment breadth (SaaS/on-prem/air-gapped) rests on vendor text in a Gartner listing (secondary).",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C7-hashicorp-vault",
@@ -3479,9 +3522,10 @@
    "src": [
     "A7-S061",
     "A7-S033",
-    "A7-S034"
+    "A7-S034",
+    "V2-S061"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "licence_model": {
    "v": "Source-available Business Source License 1.1 (licensor IBM) for Vault 1.15.0 and later; production use permitted except competing hosted/embedded offerings; IBM Vault Self-Managed sold under IBM International Program License Agreement; Enterprise features need a licence",
@@ -3718,10 +3762,11 @@
    "A7-S035",
    "A7-S036",
    "A7-S060",
-   "A7-S061"
+   "A7-S061",
+   "V2-S061"
   ],
-  "stage_a_notes": "Conflict: a third-party summary gives HCP Vault Secrets EOL as 1 July 2026; HashiCorp support article gives 27 August 2025 (PAYG) - primary used. EU HCP regions not verified.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Conflict: a third-party summary gives HCP Vault Secrets EOL as 1 July 2026; HashiCorp support article gives 27 August 2025 (PAYG) - primary used. EU HCP regions not verified. [V2 verification 8 October 2026] Possible staleness: the Go module proxy resolves a git tag v2.1.2 in the Vault repository, while the CHANGELOG on main stops at 2.1.1 [V2-S061]. Treat 2.1.1 as 'latest documented' and check releases.hashicorp.com before citing a version.",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C7-model-supply-chain-scanning",
@@ -3768,7 +3813,8 @@
     "A7-S002",
     "A7-S006",
     "A7-S064",
-    "A7-S007"
+    "A7-S007",
+    "V2-S028"
    ],
    "conf": "high"
   },
@@ -3999,10 +4045,11 @@
    "A7-S039",
    "A7-S064",
    "A7-S082",
-   "A7-S083"
+   "A7-S083",
+   "V2-S028"
   ],
   "stage_a_notes": "ModelScan last PyPI release February 2026; continued open-source investment after the acquisition not verified.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C7-openssf-model-signing",
@@ -4039,7 +4086,8 @@
    "label": "Verified fact",
    "src": [
     "A7-S040",
-    "A7-S038"
+    "A7-S038",
+    "V2-S028"
    ],
    "conf": "high"
   },
@@ -4237,10 +4285,11 @@
   "scores": null,
   "sources": [
    "A7-S038",
-   "A7-S040"
+   "A7-S040",
+   "V2-S028"
   ],
   "stage_a_notes": "Commentary (secondary) stresses OMS proves integrity and signer, not provenance. Key-algorithm support (e.g. Ed25519) conflicts across community sources - not verified.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C8-validmind",
@@ -4275,7 +4324,8 @@
    "v": "ValidMind Library 2.13.14 released 3 September 2026; Platform is cloud-hosted",
    "label": "Verified fact",
    "src": [
-    "A7-S003"
+    "A7-S003",
+    "V2-S028"
    ],
    "conf": "high"
   },
@@ -4517,10 +4567,11 @@
    "A7-S057",
    "A7-S084",
    "A7-S097",
-   "A7-S121"
+   "A7-S121",
+   "V2-S028"
   ],
   "stage_a_notes": "Regulatory support (vendor claims): SR 26-2 [A7-S051], PRA SS1/23 [A7-S052], EU AI Act [A7-S053], OSFI E-23 [A7-S057]; NIST AI RMF and ISO/IEC 42001 discussed in blog content only, no product mapping verified [A7-S121]. ValidMind docs state SR 26-2 (17 April 2026) supersedes SR 11-7 and excludes generative/agentic AI; stream 8 has independently sourced SR 26-2 from regulators. Funding not found.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C8-credo-ai",
@@ -4785,7 +4836,7 @@
    "A7-S110",
    "A7-S123"
   ],
-  "stage_a_notes": "Regulatory claims (vendor): EU AI Act, NIST AI RMF, ISO 42001 policy packs [A7-S102]; no SR 11-7/SR 26-2 or PRA SS1/23 pack found [A7-S110]. Pricing not verified.",
+  "stage_a_notes": "Regulatory claims (vendor): EU AI Act, NIST AI RMF, ISO 42001 policy packs [A7-S102]; no SR 11-7/SR 26-2 or PRA SS1/23 pack found [A7-S110]. Pricing not verified. [V2 verification 8 October 2026] SOC 2 Type II report date (31 December 2025) could not be re-confirmed: Credo AI's SOC 2 page content was not captured and only third-party summaries were found [V2-S064].",
   "last_verified": "2026-10-07"
  },
  {
@@ -5351,7 +5402,9 @@
    "label": "Verified fact",
    "src": [
     "A7-S100",
-    "A7-S105"
+    "A7-S105",
+    "V2-S044",
+    "V2-S064"
    ],
    "conf": "high"
   },
@@ -5434,7 +5487,8 @@
    "label": "Verified fact",
    "src": [
     "A7-S106",
-    "A7-S100"
+    "A7-S100",
+    "V2-S064"
    ],
    "conf": "high"
   },
@@ -5541,10 +5595,12 @@
    "A7-S101",
    "A7-S105",
    "A7-S106",
-   "A7-S122"
+   "A7-S122",
+   "V2-S044",
+   "V2-S064"
   ],
   "stage_a_notes": "Regulatory claims (vendor): EU AI Act, NIST AI RMF, BCBS 239, OSFI E-23 inventory; ISO 42001 held by Collibra itself [A7-S099, A7-S100, A7-S110]. SR 11-7/SR 26-2 and PRA SS1/23 product support not found (a Collibra blog describes SR 26-2 excluding GenAI/agentic AI). Pricing, EU region list and SSO not verified.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "C8-openlineage",
@@ -5582,7 +5638,8 @@
    "src": [
     "A7-S001",
     "A7-S043",
-    "A7-S044"
+    "A7-S044",
+    "V2-S028"
    ],
    "conf": "high"
   },
@@ -5802,9 +5859,10 @@
    "A7-S043",
    "A7-S044",
    "A7-S045",
-   "A7-S122"
+   "A7-S122",
+   "V2-S028"
   ],
   "stage_a_notes": "H7: text search of the OpenLineage changelog found no GenAI-, LLM-, embedding- or vector-specific facets; tags facets and dbt meta capture exist and could carry classification labels. openlineage.io blocked, so integration docs not read.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  }
 ]

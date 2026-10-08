@@ -1,0 +1,8 @@
+SOURCE ID: V1-S065
+URL: https://mistral.ai/news/workflows/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral Workflows Temporal SDK beta (extended, allowed_domains mistral.ai, docs.mistral.ai, temporal.io)
+========================================================================
+
+Announcement: Workflows is built on Temporal's durable execution engine, extended with streaming, payload handling, multi-tenancy and observability; Mistral hosts the Temporal cluster, the Workflows API and Studio. "v3.0 is now publicly available" (uv add mistralai-workflows). Docs page labels Workflows "Public Preview" (may be older). Quickstart: uvx mistralai-workflows-cli setup. PyPI: mistralai-workflows 3.15.0 (14 Sep 2026), classifier Development Status 4 - Beta.

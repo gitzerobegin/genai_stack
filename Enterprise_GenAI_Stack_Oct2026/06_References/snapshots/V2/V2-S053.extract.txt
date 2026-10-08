@@ -1,0 +1,9 @@
+SOURCE ID: V2-S053
+URL: https://www.bankofengland.co.uk/prudential-regulation/publication/2026/march/operational-incident-and-third-party-reporting-policy-statement
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: PRA PS7/26 outsourcing third party risk material third-party notification 18 March 2027 FCA PS26/2
+========================================================================
+
+PRA published PS7/26 in March 2026 with an updated SS2/21: "This SS is effective from 18 March 2027 and was published as part of PS7/26." New rules effective from 18 March 2027 require firms to notify regulators when entering into or significantly changing a Material Third-Party (MTP) arrangement and submit an annual register using standardised templates. Outsourcing/third-party section relevant to all PRA-regulated firms.
+FCA published PS26/2 (Operational Incident and Third Party Reporting) on 18 March 2026, with FG26/3 and FG26/4. Final rules define a material third party arrangement, require notification of new or significantly changed arrangements and an annual register; no prescribed notification timeline but early notice expected. Dual-regulated firms make a single submission shared with both regulators (FCA Connect; RegData). Third-country branches excluded from notification but must submit register.

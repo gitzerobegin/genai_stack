@@ -1,0 +1,8 @@
+SOURCE ID: V1-S022
+URL: https://www.postgresql.org/about/news/pgvector-087-released-3392/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: pgvector 0.8.7 released CVE (allowed_domains postgresql.org, github.com)
+========================================================================
+
+PostgreSQL news: "This release fixes a buffer overflow with IVFFlat index builds (CVE-2026-103484), which can lead to arbitrary code execution. Users are encouraged to upgrade when possible." pgvector issue #1036 lists 0.8.6 and below as affected, 0.8.7 fixed; a database user able to create an IVFFlat index can write data out-of-bounds. NVD 8.8 (High). Changelog dates 0.8.7 to 2026-10-01; the PostgreSQL news post is dated 2026-10-05. CVE-2026-3172 (parallel HNSW build overflow) was fixed in 0.8.2.

@@ -1,0 +1,9 @@
+SOURCE ID: V2-S006
+URL: https://www.gpb.org/news/2026/06/01/ai-giant-anthropic-files-paperwork-for-ipo
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic confidentially submits draft S-1 IPO
+========================================================================
+
+Anthropic announced on Monday, June 1, 2026 that it had confidentially submitted a draft S-1 registration statement to the SEC for a proposed IPO. "This gives us the option to go public after the SEC completes its review," it said. "The proposed initial public offering will depend on market conditions and other factors." Number of shares and price not yet set.
+The filing came days after a funding round: Anthropic raised $65 billion in Series H funding at a reported $965 billion valuation (figures vary by outlet; aggregator sources).

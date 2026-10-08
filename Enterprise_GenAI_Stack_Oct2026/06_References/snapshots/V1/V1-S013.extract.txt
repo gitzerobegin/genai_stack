@@ -1,0 +1,10 @@
+SOURCE ID: V1-S013
+URL: https://arize.com/docs/phoenix/self-hosting/license
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Arize Phoenix license Elastic License 2.0 (allowed_domains arize.com, github.com)
+========================================================================
+
+Arize's license page states that Arize Phoenix is released under the Elastic License 2.0 (ELv2) by Arize AI, and that self-hosting on your own infrastructure or cloud account is permitted at no cost. Docs also describe it as fully open-source with no feature gates.
+ELv2 text: You may not provide the software to third parties as a hosted or managed service, where the service provides users with access to any substantial set of the features or functionality of the software.
+The arize-phoenix-client package is also under ELv2 (GitHub issue #9890 asks for Apache-2.0 relicensing).

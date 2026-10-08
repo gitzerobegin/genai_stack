@@ -1,0 +1,10 @@
+SOURCE ID: V2-S020
+URL: https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Gemma 4 release Apache 2.0 license Gemma 4 12B (allowed_domains Google)
+========================================================================
+
+Launch announcement: "Gemma 4 is released under a commercially permissive Apache 2.0 license." LiteRT-LM docs: Gemma 4 licensed under Apache-2.0.
+Releases page: Release of Gemma 4 in E2B, E4B, 31B and 26B A4B sizes - March 31, 2026. Release of Gemma 4 12B Unified - June 3, 2026.
+Model card: Apache 2.0; text and image input (audio on E2B, E4B and 12B); context window of up to 256K tokens; 140+ languages.

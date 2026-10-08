@@ -1,0 +1,8 @@
+SOURCE ID: V2-S022
+URL: https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic distillation attacks DeepSeek Moonshot MiniMax fraudulent accounts (allowed_domains anthropic.com)
+========================================================================
+
+Anthropic: DeepSeek, Moonshot, and MiniMax "generated over 16 million exchanges with Claude through approximately 24,000 fraudulent accounts, in violation of our terms of service and regional access restrictions." DeepSeek campaign over 150,000 exchanges. No public responses from the three labs found in results. Fable 5.1 release added distillation protections.

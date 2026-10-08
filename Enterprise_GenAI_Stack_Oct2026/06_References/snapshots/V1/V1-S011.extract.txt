@@ -1,0 +1,8 @@
+SOURCE ID: V1-S011
+URL: https://coreweave.com/news/coreweave-completes-acquisition-of-weights-biases-2
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CoreWeave completes acquisition of Weights & Biases (standard)
+========================================================================
+
+In a May 5, 2025 press release, CoreWeave (Nasdaq: CRWV) said it had completed its acquisition of Weights & Biases. The deal was first disclosed in early March 2025.

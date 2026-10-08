@@ -1,0 +1,8 @@
+SOURCE ID: V1-S052
+URL: https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Microsoft Agent Framework 1.0 generally available announcement (extended, allowed_domains devblogs.microsoft.com etc.)
+========================================================================
+
+Microsoft Agent Framework reached version 1.0 in early April 2026 (.NET and Python), production-ready with stable APIs and long-term support. A Foundry post and the blog author archive show April 3; the BUILD 2026 roundup gives April 2. Stable: single-agent abstraction, graph-based workflows with checkpointing, orchestration patterns (sequential, concurrent, handoff, group chat, Magentic-One); MCP and A2A (A2A 1.0 support still coming). Previews: DevUI, Foundry hosted agent integration, AG-UI adapters. RC February 2026. Positioned as the successor to Semantic Kernel and AutoGen.

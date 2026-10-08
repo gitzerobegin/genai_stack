@@ -1,0 +1,11 @@
+SOURCE ID: V1-S015
+URL: https://www.firecrawl.dev/blog/introducing-alexandria-series-b
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Firecrawl Series B Alexandria announcement (allowed_domains firecrawl.dev)
+========================================================================
+
+The $75M Series B was led by Smash Capital. Altos Ventures, Nexus Venture Partners, Y Combinator, Freestyle, and Offline Ventures also participated. Alexandria: a knowledge library for AI agents combining the live web, official data providers, site-specific connectors and Firecrawl's own indexes.
+The blog post is dated September 22, 2026. The changelog (firecrawl.dev/changelog) places the Series B entry under August 20, 2026.
+Homepage lists 113M+ indexed sources, 93 providers, 640 capabilities, 20 categories; other pages say 100+ data providers.
+October 6, 2026: Alexandria and the Developer Index available in ChatGPT and Codex through the Firecrawl plugin.

@@ -1,0 +1,8 @@
+SOURCE ID: V1-S037
+URL: https://blog.modelcontextprotocol.io/posts/2026-07-28/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Model Context Protocol specification 2026-07-28 release (extended, allowed_domains modelcontextprotocol.io)
+========================================================================
+
+Launch post: maintainers "officially pushed the release button on the next version of the MCP specification, 2026-07-28", with SDKs. RC frozen late May (ten-week validation window). Changes: protocol-level sessions and Mcp-Session-Id removed from Streamable HTTP; new server/discover; MRTR (SEP-2322); Mcp-Method and Mcp-Name headers; cache hints; Tasks moved to an extension; MCP Apps (SEP-1865); RFC 9207 iss check; Dynamic Client Registration deprecated in favour of CIMD; JSON Schema 2020-12; Roots, Sampling and Logging deprecated under SEP-2577 (keep working at least twelve months); HTTP+SSE deprecated. All four Tier 1 SDKs (TypeScript, Python, Go, C#) support 2026-07-28; Rust in beta. A v2 server answers the legacy initialize handshake alongside server/discover, so 2025-11-25 clients keep connecting.

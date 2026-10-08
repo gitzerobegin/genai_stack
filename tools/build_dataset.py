@@ -44,7 +44,7 @@ def walk_facts(obj, path=""):
             yield from walk_facts(v, (path + "." if path else "") + k)
 
 products, sources, issues = [], {}, []
-for d in sorted(glob.glob("work/stageA/A*_*/")):
+for d in sorted(glob.glob("work/stageA/A*_*/")) + sorted(glob.glob("work/stageA_verify/V*/")):
     stream = os.path.basename(d.rstrip("/")).split("_")[0]
     sp = os.path.join(d, "sources.csv")
     if os.path.exists(sp):
@@ -56,7 +56,7 @@ for d in sorted(glob.glob("work/stageA/A*_*/")):
                         issues.append("duplicate source id %s" % row["id"])
                     row["stream"] = stream
                     sources[row["id"]] = row
-    else:
+    elif "stageA_verify" not in d:
         issues.append("%s: no sources.csv" % d)
     pp = os.path.join(d, "products.json")
     if os.path.exists(pp):

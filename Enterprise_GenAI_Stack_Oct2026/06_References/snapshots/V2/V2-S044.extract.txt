@@ -1,0 +1,8 @@
+SOURCE ID: V2-S044
+URL: https://thenextweb.com/news/collibra-trail-ml-eu-ai-act-market
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Collibra acquires trail ML October 2026
+========================================================================
+
+Collibra announced its acquisition of trail ML on October 5, 2026. trail ML: Munich startup founded 2023 by Anna Spitznagel, Nikolaus Pinger and Sven Hoelzel; agents work out which rules apply to an AI system and whether its controls are working; can block agent actions violating policies; maps EU AI Act, ISO 42001, NIST AI RMF. CEO Felix Van de Maele quoted. No price disclosed. Collibra >700 customers incl. 78 of the Fortune 500.

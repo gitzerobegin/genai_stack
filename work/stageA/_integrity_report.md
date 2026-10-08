@@ -1,6 +1,6 @@
 # Stage A integrity report
 
-Products: 140 · Regulatory records: 20 · Sources: 942
+Products: 140 · Regulatory records: 20 · Sources: 1119
 
 ## Products per layer
 
@@ -24,26 +24,26 @@ Products: 140 · Regulatory records: 20 · Sources: 942
 
 ## Fact-cell labels
 
-- Verified fact: 2737
-- Not publicly verified: 1560
+- Verified fact: 2740
+- Not publicly verified: 1557
 - Architectural judgement: 210
 - Reported: 113
 
 ## Source access status
 
-- extract: 521
-- snapshot: 419
+- extract: 677
+- snapshot: 440
 - link-only: 2
 
 ## Source types
 
-- primary-docs: 596
-- primary-announcement: 184
-- regulatory: 58
-- primary-trust-centre: 43
-- secondary-news: 28
-- independent-technical: 22
-- secondary-aggregator: 11
+- primary-docs: 663
+- primary-announcement: 246
+- regulatory: 69
+- secondary-news: 52
+- primary-trust-centre: 50
+- independent-technical: 24
+- secondary-aggregator: 15
 
 ## Issues (0)
 

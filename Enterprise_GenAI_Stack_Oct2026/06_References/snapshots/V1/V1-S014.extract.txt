@@ -1,0 +1,13 @@
+SOURCE ID: V1-S014
+URL: https://docs.mistral.ai/resources/changelogs
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: mistral-ocr-4 OCR 4.0 deprecation retirement date OCR 4.1 release (allowed_domains docs.mistral.ai, mistral.ai)
+========================================================================
+
+Changelog: "OCR 4.0 (mistral-ocr-4-0) is deprecated and retires on September 30, 2026. Use OCR 4.1 (mistral-ocr-4-1 or mistral-ocr-latest) instead, at the same price." (entry dated September 26).
+OCR 4.0 model page: "Deprecation date 9/29/2026 Replacement OCR 4.1".
+OCR 4.1 model page: "July 16, 2026 GA Premier v4.1".
+Changelog has a July 26 entry: "We released OCR 4.1 (mistral-ocr-4-1). mistral-ocr-latest and mistral-ocr-4 now point to it." and a separate August 26 entry: "OCR 4.1 (mistral-ocr-4-1) is now Generally Available."
+legal.mistral.ai governance page: "Release Date: August 13, 2026."
+Model lifecycle policy: once retired, requests to its identifiers fail with a 404 error.

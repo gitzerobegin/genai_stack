@@ -1,0 +1,8 @@
+SOURCE ID: V1-S096
+URL: https://e2b.dev/security
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: E2B SOC 2 Type II BYOC self-hosted enterprise sandboxes (allowed_domains e2b.dev)
+========================================================================
+
+E2B maintains a SOC 2 Type II report (12-month observation; under NDA from the Trust Center; bridge letter available). Scope: E2B software and control plane; the customer cloud account in BYOC remains the customer's. E2B Cloud regions US, EU, APAC. BYOC: enterprise page says AWS, Google Cloud or Azure; BYOC docs say currently AWS and GCP only, Azure being added. Self-hosted: open-source infra (Apache-2.0, e2b-dev/infra). Private cloud tier "in development". E2B Secrets not yet supported in BYOC.

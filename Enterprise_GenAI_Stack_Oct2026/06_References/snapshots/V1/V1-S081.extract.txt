@@ -1,0 +1,15 @@
+SOURCE ID: V1-S081
+URL: https://api.github.com/search/repositories
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GitHub MCP search_repositories repo:browserbase/mcp-server-browserbase repo:mem0ai/mem0-mcp repo:letta-ai/lettabot repo:getzep/zep repo:microsoft/autogen repo:letta-ai/letta-code repo:pgvector/pgvector repo:qdrant/qdrant; repo:letta-ai/letta
+========================================================================
+
+browserbase/mcp-server-browserbase: archived true (updated 2026-10-06).
+mem0ai/mem0-mcp: archived true.
+letta-ai/lettabot: archived true; description "Archived - has been replaced by Letta Code channels/schedules!"
+letta-ai/letta: archived false; open_issues_count 0; 25,070 stars (2026-10-07).
+letta-ai/letta-code: archived false; created 2025-10-25; 3,541 stars.
+getzep/zep: archived false; description "Zep | Examples, Integrations, & More".
+microsoft/autogen: archived false; 61,285 stars.
+pgvector/pgvector: archived false; 23,265 stars. qdrant/qdrant: archived false; 34,967 stars.

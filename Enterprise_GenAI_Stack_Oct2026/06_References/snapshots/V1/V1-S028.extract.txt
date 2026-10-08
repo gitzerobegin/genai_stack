@@ -1,0 +1,8 @@
+SOURCE ID: V1-S028
+URL: https://cohere.com/blog/cohere-and-aleph-alpha-sign-agreement
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere Aleph Alpha agreement combination September 2026 (extended)
+========================================================================
+
+Cohere and Aleph Alpha signed a definitive business combination agreement on September 16, 2026, following the planned partnership disclosed in April. The deal still needs final regulatory approval; the combined company will operate as Cohere, dual-headquartered in Berlin and Toronto; expected to close later this year. Valuation (~US$20B, Reuters at April announcement) and Schwarz Group financing figures (US$600M vs EUR500M) conflict across secondary reports.

@@ -1,0 +1,8 @@
+SOURCE ID: V1-S041
+URL: https://www.sec.gov/Archives/edgar/data/0001513845/000110465926052948/nbis-20251231x20f.htm
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Nebius completes acquisition of Tavily (extended)
+========================================================================
+
+Nebius's SEC filing says the deal closed on February 19, 2026, when Nebius acquired a 100% ownership interest in Tavily. Announcement February 10, 2026. Filing describes a cash holdback due on the second anniversary of closing, replacement equity awards and an earnout of up to $67.3 (units not shown in excerpt) tied to performance targets and retention. Bloomberg reported a $275 million price (person familiar); Calcalist reported total value could reach $400 million.

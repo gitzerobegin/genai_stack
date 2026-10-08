@@ -1,0 +1,8 @@
+SOURCE ID: V1-S095
+URL: https://trust.cerebras.ai/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cerebras trust center SOC 2 HIPAA inference cloud Europe data center (allowed_domains cerebras.ai etc.)
+========================================================================
+
+Trust center lists SOC 2 Type 2, GDPR and CCPA; downloadable SOC 2 report, network diagram, pentest report. No HIPAA attestation on the trust center (only a LiveKit integration doc mentions HIPAA-compliant telehealth use). March 2025 press release: six new inference datacenters across North America and Europe, Europe site slated Q4 2025 (status unknown). Homepage: inference runs in-region (regions not named). Cloud page: customer data, models and outputs never stored, logged or reused.

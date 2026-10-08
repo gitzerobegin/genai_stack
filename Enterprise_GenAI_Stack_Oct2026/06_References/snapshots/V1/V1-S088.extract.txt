@@ -1,0 +1,8 @@
+SOURCE ID: V1-S088
+URL: https://docs.cloud.google.com/vertex-ai/docs/release-notes
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Vertex AI Agent Engine Memory Bank generally available (allowed_domains cloud.google.com, docs.cloud.google.com)
+========================================================================
+
+Release notes: "Vertex AI Agent Engine Sessions and Memory Bank are now Generally Available" (entry alongside the December 16, 2025 pricing update; exact day not shown in snippet). Preview July 8, 2025. "On January 28, 2026, Sessions, Memory Bank, and Code Execution will begin charging for usage." Published pricing: $0.25 per 1,000 memories stored and $0.50 per 1,000 memories retrieved; LLM costs billed separately. Docs rebranding: Agent Engine / Agent Runtime / Gemini Enterprise Agent Platform.

@@ -59,7 +59,7 @@
   },
   "status_events": {
    "v": [
-    "14 April 2026: open-source v2.0.0 removed all external graph store backends (Neo4j, Memgraph, Kuzu, Apache AGE); graph memory became a Platform-only feature",
+    "14 April 2026: open-source v2.0.0 removed all external graph store backends (Neo4j, Memgraph, Kuzu, Apache AGE, Neptune) and the enableGraph option (SDK changelog files the deletions under v2.0.1); OSS now uses built-in entity linking (a parallel entity collection that boosts retrieval, not a queryable graph); graph memory is a Platform-only feature",
     "October 2025: US$24M combined seed and Series A led by Basis Set Ventures (Reported)",
     "mem0ai/mem0-mcp repository archived (status on 7 October 2026)"
    ],
@@ -68,7 +68,9 @@
     "A3-S053",
     "A3-S081",
     "A3-S052",
-    "A3-S054"
+    "A3-S054",
+    "V1-S043",
+    "V1-S081"
    ],
    "conf": "medium"
   },
@@ -307,10 +309,12 @@
    "A3-S054",
    "A3-S080",
    "A3-S081",
-   "A3-S106"
+   "A3-S106",
+   "V1-S043",
+   "V1-S081"
   ],
   "stage_a_notes": "Security/compliance claims come only from vendor marketing pages via search extract; the trust centre was not reachable. Benchmark scores are vendor-reported and apply to the managed platform. The open-source extraction pipeline no longer issues UPDATE/DELETE (memories accumulate), which matters for retention and right-to-erasure design; explicit delete/delete_all APIs remain.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L5-zep",
@@ -376,7 +380,8 @@
    "label": "Verified fact",
    "src": [
     "A3-S059",
-    "A3-S003"
+    "A3-S003",
+    "V1-S044"
    ],
    "conf": "high"
   },
@@ -607,10 +612,11 @@
    "A3-S059",
    "A3-S089",
    "A3-S090",
-   "A3-S107"
+   "A3-S107",
+   "V1-S044"
   ],
-  "stage_a_notes": "Compliance is tier-gated: SOC 2 Type II/HIPAA only on Enterprise. Audit-log scope conflict: help page says web-app actions only, marketing says every request. Graphiti's 'invalidate, not delete' design gives history and audit; Zep platform adds explicit right-to-be-forgotten and retention purge.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Compliance is tier-gated: SOC 2 Type II/HIPAA only on Enterprise. Audit-log scope conflict: help page says web-app actions only, marketing says every request. Graphiti's 'invalidate, not delete' design gives history and audit; Zep platform adds explicit right-to-be-forgotten and retention purge. [V1 verification, 8 October 2026] Official post confirms Community Edition is no longer maintained or released; repository remains Apache-2.0 (legacy/). Deprecation date still unconfirmed from official sources; third parties say April 2025 (V1-S044).",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L5-letta",
@@ -666,7 +672,8 @@
    "label": "Verified fact",
    "src": [
     "A3-S093",
-    "A3-S073"
+    "A3-S073",
+    "V1-S042"
    ],
    "conf": "medium"
   },
@@ -682,7 +689,8 @@
     "A3-S060",
     "A3-S004",
     "A3-S073",
-    "A3-S054"
+    "A3-S054",
+    "V1-S081"
    ],
    "conf": "high"
   },
@@ -903,10 +911,12 @@
    "A3-S091",
    "A3-S092",
    "A3-S093",
-   "A3-S118"
+   "A3-S118",
+   "V1-S042",
+   "V1-S081"
   ],
-  "stage_a_notes": "Major repositioning confirmed by Letta's own 'Next Phase' post (March 2026). No SOC 2 or trust centre found (searched letta.com and docs.letta.com, A3-S118). Memory and conversation state of cloud agents are hosted in Letta Cloud (A3-S091).",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Major repositioning confirmed by Letta's own 'Next Phase' post (March 2026). No SOC 2 or trust centre found (searched letta.com and docs.letta.com, A3-S118). Memory and conversation state of cloud agents are hosted in Letta Cloud (A3-S091). [V1 verification, 8 October 2026] \"Letta's Next Phase\" post confirmed (March 2026). GitHub metadata: letta-ai/letta not archived (0 open issues), lettabot archived, letta-code active (V1-S042, V1-S081).",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L5-cognee",
@@ -1788,13 +1798,14 @@
   },
   "status_events": {
    "v": [
-    "October 2025: AgentCore GA (Memory included)",
+    "13 October 2025: AgentCore GA (Memory included; nine Regions at launch, fifteen by October 2026)",
     "August 2026: extraction from non-conversational JSON payloads"
    ],
    "label": "Verified fact",
    "src": [
     "A3-S047",
-    "A3-S111"
+    "A3-S111",
+    "V1-S087"
    ],
    "conf": "medium"
   },
@@ -1939,7 +1950,8 @@
    "v": "GA October 2025",
    "label": "Verified fact",
    "src": [
-    "A3-S047"
+    "A3-S047",
+    "V1-S087"
    ],
    "conf": "medium"
   },
@@ -1989,10 +2001,11 @@
   "sources": [
    "A3-S047",
    "A3-S048",
-   "A3-S111"
+   "A3-S111",
+   "V1-S087"
   ],
   "stage_a_notes": "Added as material missing product (platform-native memory). Retention design matters for right-to-erasure: long-term records have no native TTL. Pricing and certifications for AgentCore not verified in this stream.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L5-gcp-vertex-memory-bank",
@@ -2052,13 +2065,14 @@
   "status_events": {
    "v": [
     "8 July 2025: public preview",
-    "GA (date not verified)",
+    "December 2025: Agent Engine Sessions and Memory Bank GA (Vertex AI release notes; exact day not captured)",
     "28 January 2026: billing starts"
    ],
    "label": "Verified fact",
    "src": [
     "A3-S108",
-    "A3-S109"
+    "A3-S109",
+    "V1-S088"
    ],
    "conf": "medium"
   },
@@ -2173,12 +2187,14 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Usage-based per-memory storage and retrieval charges from 28 January 2026 (rates not captured)",
+   "v": "US$0.25 per 1,000 memories stored and US$0.50 per 1,000 memories retrieved; LLM usage for memory generation billed separately; charging began 28 January 2026",
    "label": "Verified fact",
    "src": [
-    "A3-S109"
+    "A3-S109",
+    "V1-S088"
    ],
-   "conf": "low"
+   "conf": "medium",
+   "asof": "2026-10-08"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -2201,11 +2217,12 @@
    "conf": "low"
   },
   "maturity": {
-   "v": "Preview July 2025; GA by 2026",
+   "v": "Preview 8 July 2025; GA December 2025; billing from 28 January 2026",
    "label": "Verified fact",
    "src": [
     "A3-S108",
-    "A3-S109"
+    "A3-S109",
+    "V1-S088"
    ],
    "conf": "medium"
   },
@@ -2256,10 +2273,11 @@
   "scores": null,
   "sources": [
    "A3-S108",
-   "A3-S109"
+   "A3-S109",
+   "V1-S088"
   ],
   "stage_a_notes": "Added as material missing product (platform-native memory, H4). docs.cloud.google.com blocked for direct fetch; doc facts via search extract (A3-S109); blog snapshot (A3-S108). Original link-only citation A3-S070 retained.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L4-mcp",
@@ -2279,7 +2297,8 @@
    "label": "Verified fact",
    "src": [
     "A3-S018",
-    "A3-S058"
+    "A3-S058",
+    "V1-S038"
    ],
    "conf": "high"
   },
@@ -2299,7 +2318,8 @@
     "A3-S015",
     "A3-S057",
     "A3-S011",
-    "A3-S074"
+    "A3-S074",
+    "V1-S037"
    ],
    "conf": "high"
   },
@@ -2339,7 +2359,10 @@
     "A3-S042",
     "A3-S057",
     "A3-S082",
-    "A3-S114"
+    "A3-S114",
+    "V1-S037",
+    "V1-S038",
+    "V1-S045"
    ],
    "conf": "high"
   },
@@ -2567,10 +2590,13 @@
    "A3-S058",
    "A3-S074",
    "A3-S082",
-   "A3-S114"
+   "A3-S114",
+   "V1-S037",
+   "V1-S038",
+   "V1-S045"
   ],
   "stage_a_notes": "Conflict of interest: MCP originated at Anthropic; author is an Anthropic model. Independent criticism recorded: tool poisoning (MCPTox: 36.5% average attack success across 20 models, AAAI 2026), rug pulls, tool shadowing, IDE auto-execution CVEs across Cursor, Claude Code, Gemini CLI, Copilot and Amazon Q (CSA, July 2026), OWASP MCP Top 10 (MCP03 Tool Poisoning). Spec makes authorisation OPTIONAL; annotations are hints only. Adoption figures are project-reported.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L4-a2a",
@@ -2591,7 +2617,8 @@
     "A3-S065",
     "A3-S116",
     "A3-S117",
-    "A3-S025"
+    "A3-S025",
+    "V1-S039"
    ],
    "conf": "medium"
   },
@@ -2609,7 +2636,8 @@
    "src": [
     "A3-S079",
     "A3-S078",
-    "A3-S075"
+    "A3-S075",
+    "V1-S039"
    ],
    "conf": "high"
   },
@@ -2646,7 +2674,9 @@
     "A3-S116",
     "A3-S026",
     "A3-S025",
-    "A3-S117"
+    "A3-S117",
+    "V1-S039",
+    "V1-S038"
    ],
    "conf": "high"
   },
@@ -2862,10 +2892,12 @@
    "A3-S078",
    "A3-S079",
    "A3-S116",
-   "A3-S117"
+   "A3-S117",
+   "V1-S039",
+   "V1-S038"
   ],
   "stage_a_notes": "Date conflicts resolved: 1.0.0 = 12 March 2026 (primary changelog, AAIF and Google agree); AAIF move = AAIF post 17 August 2026, A2A post 27 August 2026 (secondary '20 August' not supported by a primary source). IBM ACP is superseded. Card signing is optional, which limits trust guarantees.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L4-agent-skills",
@@ -2881,12 +2913,13 @@
    "conf": "high"
   },
   "company": {
-   "v": "Originated at Anthropic (launched 16 October 2025; published as an open standard 18 December 2025); specification maintained in the agentskills/agentskills repository and agentskills.io",
+   "v": "Originated at Anthropic (launched 16 October 2025; published as an open standard 18 December 2025); specification maintained in the agentskills/agentskills repository and agentskills.io; no published governance body or charter, and no evidence that it is an AAIF-hosted project (AAIF material treats the format as owned by the Agent Skills specification; secondary claims that Anthropic stewards it through AAIF are unsupported)",
    "label": "Verified fact",
    "src": [
     "A3-S028",
     "A3-S029",
-    "A3-S061"
+    "A3-S061",
+    "V1-S046"
    ],
    "conf": "high"
   },
@@ -2931,7 +2964,8 @@
    ],
    "label": "Verified fact",
    "src": [
-    "A3-S029"
+    "A3-S029",
+    "V1-S040"
    ],
    "conf": "high"
   },
@@ -3063,7 +3097,8 @@
     "A3-S027",
     "A3-S033",
     "A3-S034",
-    "A3-S113"
+    "A3-S113",
+    "V1-S047"
    ],
    "conf": "high"
   },
@@ -3144,10 +3179,13 @@
    "A3-S072",
    "A3-S112",
    "A3-S113",
-   "A3-S115"
+   "A3-S115",
+   "V1-S040",
+   "V1-S046",
+   "V1-S047"
   ],
-  "stage_a_notes": "Conflict of interest: Anthropic-originated. Governance resolved as far as possible: Anthropic-maintained living spec, proposed for AAIF (issue #47, September 2026), not yet an AAIF project per available evidence; secondary claim of AAIF stewardship (A3-S035) is premature. Licence conflict: secondary says MIT; primary repo says Apache-2.0 code / CC-BY-4.0 docs. OWASP 'Agentic Skills Top 10' project exists.",
-  "last_verified": "2026-10-07"
+  "stage_a_notes": "Conflict of interest: Anthropic-originated. Governance resolved as far as possible: Anthropic-maintained living spec, proposed for AAIF (issue #47, September 2026), not yet an AAIF project per available evidence; secondary claim of AAIF stewardship (A3-S035) is premature. Licence conflict: secondary says MIT; primary repo says Apache-2.0 code / CC-BY-4.0 docs. OWASP 'Agentic Skills Top 10' project exists. [V1 verification, 8 October 2026] Independent adoption re-confirmed from OpenAI Codex docs (\"built on the open agent skills standard\") (V1-S047). Governance remains vendor-originated without a neutral foundation (V1-S046).",
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L4-composio",
@@ -3183,7 +3221,8 @@
    "v": "Python SDK composio 0.25.0 (29 September 2026); 2.0.0b0 pre-release (31 August 2026)",
    "label": "Verified fact",
    "src": [
-    "A3-S008"
+    "A3-S008",
+    "V1-S098"
    ],
    "conf": "high"
   },
@@ -3433,10 +3472,11 @@
    "A3-S067",
    "A3-S098",
    "A3-S099",
-   "A3-S119"
+   "A3-S119",
+   "V1-S098"
   ],
   "stage_a_notes": "Now also positions as an MCP gateway (H3). Audit-log payload conflict: some pages say metadata only, another says inputs and outcomes captured. Credential custody remains the key due-diligence item. Most enterprise facts come from Composio marketing/comparison pages via search extract.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L4-exa",
@@ -3721,12 +3761,13 @@
    "conf": "high"
   },
   "company": {
-   "v": "Tavily, a wholly owned subsidiary of Nebius Group N.V. (acquisition announced 10 February 2026)",
+   "v": "Tavily, a wholly owned subsidiary of Nebius Group N.V. (acquisition announced 10 February 2026; closed 19 February 2026)",
    "label": "Verified fact",
    "src": [
     "A3-S084",
     "A3-S085",
-    "A3-S086"
+    "A3-S086",
+    "V1-S041"
    ],
    "conf": "high"
   },
@@ -3768,7 +3809,7 @@
   },
   "status_events": {
    "v": [
-    "10 February 2026: Tavily announced it is joining Nebius; Nebius 6-K describes a merger making Tavily a wholly owned subsidiary, cash consideration",
+    "10 February 2026: Tavily announced it is joining Nebius; 19 February 2026: acquisition closed, Nebius acquiring 100% ownership (Nebius FY2025 Form 20-F); Nebius 6-K describes a merger making Tavily a wholly owned subsidiary, cash consideration",
     "Nebius Q1 2026 filing accounts for the acquisition as completed: fair value of consideration US$189.7M (US$177.2M cash) plus an ARR-based earnout measured December 2026 and March 2027",
     "Press reported a US$275M deal value (not disclosed by Nebius)"
    ],
@@ -3777,7 +3818,8 @@
     "A3-S084",
     "A3-S085",
     "A3-S086",
-    "A3-S087"
+    "A3-S087",
+    "V1-S041"
    ],
    "conf": "high"
   },
@@ -3987,10 +4029,11 @@
    "A3-S085",
    "A3-S086",
    "A3-S087",
-   "A3-S088"
+   "A3-S088",
+   "V1-S041"
   ],
   "stage_a_notes": "Acquisition resolved: Nebius (announced 10 February 2026; accounted as completed in Q1 2026 filings). Deal value: US$189.7M fair value per filing vs US$275M press report (filing used). CB Insights dates it May 2026 (conflict, secondary). SOC 2 type not confirmed. Original label 'Tavily – search API' is still accurate as a product, but ownership changed.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L4-browserbase",
@@ -4053,7 +4096,8 @@
    ],
    "label": "Verified fact",
    "src": [
-    "A3-S054"
+    "A3-S054",
+    "V1-S081"
    ],
    "conf": "high"
   },
@@ -4264,10 +4308,11 @@
    "A3-S068",
    "A3-S076",
    "A3-S102",
-   "A3-S103"
+   "A3-S103",
+   "V1-S081"
   ],
   "stage_a_notes": "Some trust-centre and plan pages are over a year old by metadata; plan naming (Scale vs Enterprise) inconsistent for BAA.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L4-e2b",
@@ -4387,7 +4432,8 @@
     "src": [
      "A3-S104",
      "A3-S120",
-     "A3-S062"
+     "A3-S062",
+     "V1-S096"
     ],
     "conf": "medium"
    },
@@ -4417,7 +4463,8 @@
    "label": "Verified fact",
    "src": [
     "A3-S104",
-    "A3-S120"
+    "A3-S120",
+    "V1-S096"
    ],
    "conf": "medium"
   },
@@ -4547,10 +4594,11 @@
    "A3-S062",
    "A3-S104",
    "A3-S105",
-   "A3-S120"
+   "A3-S120",
+   "V1-S096"
   ],
   "stage_a_notes": "SOC 2 scope excludes customer BYOC cloud accounts. SSO/RBAC status may be outdated. Prague/US company per press.",
-  "last_verified": "2026-10-07"
+  "last_verified": "2026-10-08"
  },
  {
   "id": "L4-aws-agentcore-gateway-identity",

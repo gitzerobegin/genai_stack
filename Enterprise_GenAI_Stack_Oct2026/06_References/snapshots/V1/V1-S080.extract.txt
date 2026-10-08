@@ -1,0 +1,8 @@
+SOURCE ID: V1-S080
+URL: https://www.firecrawl.dev/parse
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Firecrawl SOC 2 Type II zero data retention enterprise (allowed_domains firecrawl.dev etc.)
+========================================================================
+
+Parse page: SOC 2 Type II certified, DPA available. Comparison pages: SOC 2 Type II, GDPR, DPA; enterprise plans with zero data retention and 99.9% SLA; security summary: in-memory processing, nothing persisted; automatic PII redaction, DPAs, custom MSAs; SSO via SAML and OIDC, SCIM, static IP allowlisting, IP-restricted API keys. Self-hostable under AGPL-3.0. No trust-centre page or independent report found in results.
