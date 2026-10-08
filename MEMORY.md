@@ -19,7 +19,7 @@
 | CP1 | Delivered. User replied "approved, proceed" (option (a) on Q1–Q8) |
 | L8 writer | **Done**: `work/stageB/L8/section.md`, `assessments.json`. Tiers: 2 Strategic, 6 Tactical, 2 Experimental. |
 | L9 writer | Running |
-| L7 writer | Running |
+| L7 writer | **Done**: 8 scored (1 Strategic, 7 Tactical); EthicalAgents and Ragoos unscored |
 | Next | Merge assessments (`tools/build_dataset.py`), run one calibration reviewer over L9–L7, write `checkpoints/CP2/`, push, **stop for CP2** |
 | After CP2 | Stage B tranche 2: L6, L5, L4 and C1–C8, then **CP3**. Tranche 3: L3, L2, L1 and Stage C synthesis, then **CP4**. Then C2 LinkedIn pair 1–2 (**CP4b**), the rest of C2, and Stage D packaging (**CP5**). |
 
