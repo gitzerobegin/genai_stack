@@ -1,0 +1,13 @@
+SOURCE ID: B-REVC-S002
+URL: https://nvd.nist.gov/vuln/detail/CVE-2026-3059
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: SGLang CVE-2026-3059 patched version fix (allowed: github.com, nvd.nist.gov, osv.dev); nvd.nist.gov blocked for direct fetch
+========================================================================
+
+Search-tool extract (NVD, OSV and GitHub Advisory Database results):
+- NVD CVE-2026-3059: SGLang multimodal generation module deserialises untrusted data with pickle.loads() without authentication, enabling unauthenticated remote code execution through the ZMQ broker; CVSS 3.1 9.8 (Critical). NVD lists the vulnerable range as 0.5.5 up to and including 0.5.9. NVD references point to the sgl-project/sglang release tag v0.5.10 and pull request #20904.
+- OSV CVE-2026-3059: affected git range with a fixed commit (1519acf) following the vulnerable commit (0c006b8).
+- GitHub Advisory Database GHSA-rgq9-fqf5-fv58: affected <= 0.5.9; "Patched versions: None" (conflicts with the NVD/OSV references).
+- The search tool's summary notes that an upstream advisory GHSA-3cp7-c6q2-94xr is referenced; it was not opened. Release notes and PR #20904 were not read directly.
+Reviewer reading: the fix version (0.5.10) rests on NVD and OSV references, not on the patch itself; confidence medium.

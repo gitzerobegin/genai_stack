@@ -69,7 +69,7 @@
         "Apache-2.0, OpenAI-compatible [VF: A4-S128, A4-S010]"
       ],
       "limitations_risks": [
-        "CVE-2026-3059 (critical, unauthenticated RCE via ZMQ broker, <=0.5.9) lists no patched version; an earlier fix (CVE-2025-10164) has an unanswered bypass report [VF: B-L2-S009]",
+        "CVE-2026-3059 (critical, unauthenticated RCE via ZMQ broker, <=0.5.9): the GitHub advisory lists no patched version, while NVD references a fix in v0.5.10 and OSV a fixed commit; an earlier fix (CVE-2025-10164) has an unanswered bypass report [VF: B-L2-S009, B-REVC-S002]",
         "Pre-1.0; governance with a non-profit plus a VC-backed steward, no formal transfer found [VF: A4-S010, A4-S147]",
         "No verified commercial support offer [NPV]"
       ],
@@ -107,7 +107,7 @@
       "rationale": {
         "technical": "Leading depth: RadixAttention, PD disaggregation, speculative decoding, quantisation [VF: A4-S010]",
         "enterprise_readiness": "Rule 2: inherits host controls; no verified commercial support, so the 4 cap applies; scored 3 [AJ]",
-        "security_compliance": "Rule 2 hygiene: critical unauthenticated RCE with no patched version listed; disclosure-response concerns [VF: B-L2-S009]",
+        "security_compliance": "Rule 2 hygiene: critical unauthenticated RCE (fix evidenced only by NVD/OSV references to v0.5.10; GitHub advisory lists none), disclosure-response concerns and a reported bypass of an earlier fix [VF: B-L2-S009, B-REVC-S002]; 2 vs 3 put to the reader at CP4",
         "deployment_flexibility": "Self-host, VPC, on-prem; managed via Hugging Face Endpoints [VF: A4-S065, A4-S081]",
         "ecosystem": "OpenAI-compatible; Dynamo backend; RL frameworks [VF: A4-S010, A4-S090, A4-S065]",
         "reliability_maturity": "0.x since January 2024; new commercial steward in May 2026 [VF: A4-S010, A4-S147]",

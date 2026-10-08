@@ -1,0 +1,15 @@
+SOURCE ID: B-REVC-S001
+URL: https://pypi.org/pypi/claude-agent-sdk/json
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Direct fetch of the PyPI JSON API (pypi.org is reachable) for openai-agents, claude-agent-sdk, google-adk, sglang, pydantic-ai and langgraph; classifier lines extracted by the reviewer
+========================================================================
+
+PyPI JSON API, read 8-9 October 2026 (reviewer C). Extracted fields: info.version and any "Development Status" classifier; count of releases.
+- claude-agent-sdk 0.2.165: "Development Status :: 3 - Alpha"; 150 releases. URL https://pypi.org/pypi/claude-agent-sdk/json
+- openai-agents 0.23.1: no Development Status classifier declared; 123 releases. URL https://pypi.org/pypi/openai-agents/json
+- google-adk 2.11.0: no Development Status classifier declared; 96 releases. URL https://pypi.org/pypi/google-adk/json
+- sglang 0.5.21: no Development Status classifier declared; 158 releases. URL https://pypi.org/pypi/sglang/json
+- pydantic-ai 2.54.0: "Development Status :: 5 - Production/Stable"; 344 releases.
+- langgraph 1.2.14: "Development Status :: 5 - Production/Stable"; 279 releases.
+Note: the absence of a classifier is not a statement of maturity; it only means the package does not self-classify.

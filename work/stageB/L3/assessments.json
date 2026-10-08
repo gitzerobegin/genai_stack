@@ -561,9 +561,9 @@
       "fs_note": "Treat Agent Engine as a hyperscaler service under CP2 Q1 and confirm its controls per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Default framework in a Google Cloud estate; younger and less stable than MAF or LangGraph."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (rule 10: ADK on Agent Engine is Google's lead agent framework and runtime, matching Strands/AgentCore on AWS and Microsoft Agent Framework on Azure); no criterion at 1; scored as a library under rule 2, so enterprise readiness and security stay at 3. Tier changed from Tactical by CP4 reviewer C for rule-10 parity."
     },
     "scores": {
       "criteria": {
