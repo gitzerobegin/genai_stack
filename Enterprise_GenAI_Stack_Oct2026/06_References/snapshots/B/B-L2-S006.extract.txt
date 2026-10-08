@@ -1,0 +1,8 @@
+SOURCE ID: B-L2-S006
+URL: https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Microsoft Foundry deployment types Global Data Zone Standard provisioned throughput data processing location (allowed: learn.microsoft.com)
+========================================================================
+
+Understanding deployment types in Microsoft Foundry Models (search-tool extract): For any deployment type labelled Global, prompts and responses may be processed in any geography where the relevant model is deployed. For Data Zone deployment types, prompts and responses are processed only within the specified data zone (US, EU; APAC listed on one page). Standard and Regional Provisioned: prompts and responses processed within the customer-specified Azure geography. Data at rest is stored in the designated Azure geography regardless of deployment type. Global Standard is the default recommendation, launches first for new models, lowest price. Provisioned types reserve capacity in provisioned throughput units (PTUs) with lower and more consistent latency; Data Zone Provisioned combines data zone processing with predictable throughput. Not all models support all deployment types.

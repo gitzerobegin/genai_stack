@@ -1,0 +1,15 @@
+SOURCE ID: B-L2-S004
+URL: https://github.com/vllm-project/vllm/security/advisories
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: vllm security advisory GHSA remote code execution 2026 (allowed: github.com); direct fetch HTTP 403
+========================================================================
+
+vLLM GitHub Security Advisories (search-tool extract):
+- GHSA-2pc9-4j83-qjmr (CVE-2026-22807, 21 Jan 2026, High): auto_map dynamic modules loaded during model resolution without checking trust_remote_code; affected 0.10.1 to <0.14.0; fixed 0.14.0.
+- GHSA-4r2x-xpjr-7cvv (CVE-2026-22778, 2 Feb 2026, Critical): crafted video URL to a video model endpoint can execute arbitrary commands; affected 0.8.3 to <0.14.1.
+- GHSA-7972-pg2x-xr59 (CVE-2026-27893, 26 Mar 2026, High): two model files hardcode trust_remote_code=True overriding user opt-out; affected 0.10.1 to <0.18.0; fixed 0.18.0.
+- GHSA-q8gq-377p-jq3r (CVE-2026-41523, 14 Jun 2026, High): assert-based check bypass when run with python -O allows code execution via malicious Hugging Face model; fixed 0.22.0.
+- GHSA-3c86-2m5g-59q7 (28 Aug 2026, High): LlavaOnevision2 processor loader executes attacker model code with trust_remote_code=False.
+- Advisories in August-September 2026 (e.g. GHSA-x6mc-67gf-chw4, 23 Sep 2026) include denial-of-service / resource-exhaustion issues.
+README: security disclosures via GitHub Security Advisories.

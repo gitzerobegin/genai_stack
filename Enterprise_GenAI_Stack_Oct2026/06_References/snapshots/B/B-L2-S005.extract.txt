@@ -1,0 +1,8 @@
+SOURCE ID: B-L2-S005
+URL: https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Amazon Bedrock geographic cross-Region inference EU profile data processed within geography (allowed: docs.aws.amazon.com, aws.amazon.com)
+========================================================================
+
+Geographic cross-Region inference - Amazon Bedrock (search-tool extract): Geographic cross-Region inference is designed for organizations with data residency and compliance obligations; requests to a geography-tied inference profile stay within that geography. Requests from EU source Regions can only be routed to other AWS Regions within the European Union; Zurich and London are not destinations under the EU profile; requests originating from London can be routed between available EU Regions and London. Data remains stored only in the source Region, but input prompts and output results might move outside the source Region during cross-Region inference. Customer-managed logs (model invocation logging), knowledge bases and stored configurations remain within the source Region. CloudTrail additionalEventData.inferenceRegion shows where the request was processed. If any destination Region is blocked in SCPs the request fails. If a new destination Region is added, Bedrock publishes a new geographic profile with a new inference profile ID. Global profiles can route to any commercial Region. Geo profile support varies by model (some listed not-supported).

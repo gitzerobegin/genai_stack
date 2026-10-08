@@ -1,0 +1,12 @@
+SOURCE ID: B-L3-S006
+URL: https://learn.microsoft.com/en-us/agent-framework/hosting/foundry-hosted-agent
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed learn.microsoft.com, devblogs.microsoft.com, azure.microsoft.com, techcommunity.microsoft.com): Microsoft Foundry Agent Service hosted agents Agent Framework general availability
+========================================================================
+
+Search-tool summary of learn.microsoft.com/en-us/agent-framework/hosting/foundry-hosted-agent and devblogs.microsoft.com/foundry posts (Build 2026; July-August 2026 roundup):
+- Learn documentation states Microsoft Foundry Hosted Agents is generally available and supports agents built with your own code or a preferred framework.
+- July/August 2026 roundup says GA was announced 9 July 2026 (original post not checked).
+- The Python agent-framework-foundry-hosting integration package is prerelease; the .NET hosting package installs with a prerelease flag.
+- Resilient task support in hosted agents is in private preview; routines in public preview. Hosted-agent tracing status inconsistent across sources.

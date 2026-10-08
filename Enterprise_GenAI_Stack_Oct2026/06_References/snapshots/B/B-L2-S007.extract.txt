@@ -1,0 +1,9 @@
+SOURCE ID: B-L2-S007
+URL: https://docs.ollama.com/faq
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Ollama API server no authentication expose OLLAMA_HOST security (allowed: docs.ollama.com, ollama.com, github.com); direct fetch failed
+========================================================================
+
+FAQ - Ollama (search-tool extract): Ollama binds 127.0.0.1 port 11434 by default. Change the bind address with the OLLAMA_HOST environment variable. Ollama can be exposed through a proxy server such as Nginx.
+(Third-party sources in the same search, not relied on: claims that the API server has no built-in authentication and reports of exposed instances.)

@@ -1,0 +1,9 @@
+SOURCE ID: B-L2-S001
+URL: https://docs.redhat.com/en/documentation/red_hat_ai_inference/3.4/html/release_notes/rhaii-340-ga-release-notes_release-notes
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Red Hat AI Inference Server vLLM llm-d supported distribution 2026 (allowed: redhat.com, docs.redhat.com)
+========================================================================
+
+Red Hat AI Inference 3.4 release notes (search-tool extract): In version 3.4, Red Hat AI Inference Server (RHAIIS) is now called Red Hat AI Inference, and its scope expanded to include distributed inference. The standalone vLLM-based inference experience is preserved and continues as a supported deployment option.
+Related Red Hat product page (https://www.redhat.com/en/products/ai/inference): llm-d-based capabilities are included in Red Hat AI Enterprise and Red Hat OpenShift AI; third-party Kubernetes support described as early access.
