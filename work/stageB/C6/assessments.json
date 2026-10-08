@@ -1,0 +1,313 @@
+[
+  {
+    "id": "C6-gateway-cost-attribution",
+    "assessment": {
+      "capabilities": "Pattern: the gateway (C1) issues virtual keys per team, project, user or customer and records tokens and cost per request, enforcing budgets and rate limits (LiteLLM: budgets at key, user, team and customer level, TPM/RPM limits); provider admin APIs (Anthropic Usage & Cost Admin API) and cloud billing tags (Bedrock application inference profiles, Microsoft Foundry project tags) are the reconciliation sources [VF: A7-S010, A6-S015, A7-S070, B-C6-S004, B-C6-S005].",
+      "strengths": [
+        "The gateway sees every model call, so it is the only point that can both attribute and stop spend in real time [AJ]",
+        "Mature open-source implementation with budgets, limits and spend tracking (LiteLLM MIT core) and managed equivalents in the cloud gateways (token limits and quotas in Azure APIM, Apigee and Kong; spend limits in Cloudflare) [VF: A6-S015, A6-S053, A6-S024, A6-S016, A6-S019]",
+        "Provider-side data breaks tokens into uncached input, cached input, cache creation and output, by API key, workspace, model and service tier, for reconciliation [VF: A7-S070]",
+        "Cloud billing tags carry AI spend into the existing cost tools (Cost Explorer and CUR; Azure cost analysis) [VF: B-C6-S004, B-C6-S005]"
+      ],
+      "limitations_risks": [
+        "Some LiteLLM controls fail open or are off by default: max_budget without a database, and a proxy admin key that bypasses budget checks [VF: A6-S015]",
+        "Cloud billing tags are aggregated per usage type per day, not per request; per-request attribution needs invocation logs or gateway data [VF: B-C6-S004]",
+        "Gateway consolidation: Portkey acquired by Palo Alto Networks (completed 29 May 2026) and folded into Prisma AIRS [VF: A6-S011, V2-S025]",
+        "LiteLLM suffered a PyPI supply-chain compromise on 24 March 2026 [VF: A6-S008, V2-S027]",
+        "Cost per task needs a join between gateway records and traces (L9); no product does this end to end in the fact base [AJ]"
+      ],
+      "choose_when": [
+        "Always, as the metering and enforcement point for model spend [Rec]"
+      ],
+      "avoid_when": [
+        "Never as the only record: reconcile against provider invoices and cloud bills monthly [Rec]"
+      ],
+      "competitors": [
+        "C6-helicone",
+        "C6-vantage",
+        "C6-cloudzero"
+      ],
+      "fs_note": "Budget enforcement is an operational-resilience control against runaway agents; test that budgets fail closed, restrict the admin key, and reconcile gateway spend to invoices for the outsourcing register [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "The only place where AI spend can be attributed per request and stopped in real time; implementations are replaceable behind the OpenAI-compatible interface. Acquired refers to Portkey [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Per-key/team/user/customer budgets, rate limits, spend tracking, provider and cloud reconciliation data; cost per task needs a trace join and some controls fail open by default.",
+        "enterprise_readiness": "Rubric rule 2 (pattern): implementations offer SSO, RBAC and audit (LiteLLM Enterprise SSO, RBAC, SCIM and audit logs; cloud IAM under CP2 Q1); capped at 4.",
+        "security_compliance": "Depends on implementation: LiteLLM SOC 2 Type 2 (September 2026), Cloudflare AI Gateway named in SOC 2 scope; LiteLLM's March 2026 supply-chain incident; Admin API keys are powerful credentials.",
+        "deployment_flexibility": "Self-hosted gateways, managed cloud gateways and SaaS gateways; runs in-estate or air-gapped.",
+        "ecosystem": "OpenAI-compatible gateway endpoints and provider admin APIs; FOCUS mapping not native.",
+        "reliability_maturity": "Cloud cost tags are mature, but Foundry project attribution is preview, LiteLLM had a supply-chain incident, and Portkey changed owner.",
+        "cost_tco": "Open-source core; a database is needed for budgets and spend tracking.",
+        "lockin_portability": "Base 4 (open interfaces, OSS gateways) reduced by 1 because a named implementation (Portkey) changed owner; cost data models differ per gateway."
+      },
+      "evidence_caps_applied": [
+        "Rubric rule 2 (pattern): enterprise readiness and security scored on what implementations enable and on their hygiene, each capped at 4; platform controls presumed for cloud gateways (CP2 Q1); confirm per service"
+      ],
+      "generic_total": 3.85,
+      "fs_total": 3.7
+    }
+  },
+  {
+    "id": "C6-helicone",
+    "assessment": {
+      "capabilities": "Proxy or logging layer for LLM requests that tracks cost, latency and quality per request, session and user, with prompt versioning and an OpenAI-compatible AI gateway with fallbacks [VF: A7-S046].",
+      "strengths": [
+        "Apache-2.0 and self-hostable with Docker [VF: A7-S046]",
+        "Simple integration by changing the base URL [VF: A7-S046]"
+      ],
+      "limitations_risks": [
+        "Acquired by Mintlify on 3 March 2026; in maintenance mode with security fixes, bug fixes and new model support only [VF: A7-S112, V2-S043]",
+        "No npm helper release since 7 November 2025 [VF: A7-S047]",
+        "'SOC 2 and GDPR compliant' stated without SOC 2 type; access controls not publicly verified [VF: A7-S046] [NPV]",
+        "A competitor states new sign-ups are disabled (single rival source) [NPV]"
+      ],
+      "choose_when": [
+        "Only as a short-term bridge for an existing deployment while migrating [AJ]"
+      ],
+      "avoid_when": [
+        "Any new deployment [Rec]"
+      ],
+      "competitors": [
+        "C6-gateway-cost-attribution",
+        "L9-langfuse",
+        "C1-litellm"
+      ],
+      "fs_note": "Plan migration of existing usage to the gateway (C1) and the L9 platform; record the change of ownership and maintenance status in third-party risk files [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [
+        "Acquired",
+        "Not recommended"
+      ],
+      "rationale": "Maintenance mode after the Mintlify acquisition makes it unsuitable as a dependency; not recommended for new use [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 1,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Per-request, session and user cost and latency tracking with a gateway and prompt versioning; no budgets or chargeback features evidenced.",
+        "enterprise_readiness": "SSO, RBAC and audit logs not publicly verified; NPV cap.",
+        "security_compliance": "SOC 2 claimed without type in a README; NPV cap.",
+        "deployment_flexibility": "SaaS and self-hosted (Docker; Helm on request for enterprise).",
+        "ecosystem": "OpenAI-compatible base URL, integrations for major providers and frameworks, PostHog export.",
+        "reliability_maturity": "Maintenance mode after the Mintlify acquisition (3 March 2026); feature development wound down.",
+        "cost_tco": "Apache-2.0; free tier of 10,000 requests per month.",
+        "lockin_portability": "Base 4 (Apache-2.0, base-URL integration) reduced by 1 for the ownership change; governance is company-controlled."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO, RBAC and audit logs NPV",
+        "security_compliance capped at 2: SOC 2 type not stated, no trust-centre report"
+      ],
+      "generic_total": 2.6,
+      "fs_total": 2.5
+    }
+  },
+  {
+    "id": "C6-vantage",
+    "assessment": {
+      "capabilities": "Cloud cost management platform that ingests cloud and AI-provider billing (Anthropic tokens by model, workspace, API key and service tier; Claude Enterprise; OpenAI tokens by model and operation), allocates it via virtual tagging and hierarchical allocation, normalises AI spend with Managed AI Tags (model, provider, token type) and exposes data through an API and an MCP server; its internal schema maps to FOCUS [VF: A7-S113, A7-S090].",
+      "strengths": [
+        "Direct AI-provider integrations, with Anthropic GA September 2025 and Claude Enterprise added July 2026 [VF: A7-S113]",
+        "Managed AI Tags normalise model, provider and token type across providers at no extra cost [VF: A7-S113]",
+        "SOC 1 Type 2 and SOC 2 Type 2 (reports on request) and self-service SAML SSO [VF: B-C6-S001]",
+        "Schema mapped to FOCUS [VF: A7-S113]"
+      ],
+      "limitations_risks": [
+        "AI cost features are described in vendor blog posts [VF: A7-S113]",
+        "Anthropic integration uses an Admin API key, which has revocable read-write access [VF: A7-S113]",
+        "SaaS only; EU region, RBAC and audit logs not publicly verified [NPV]",
+        "Billing data is per provider account, not per task; cost per commentary still needs gateway and trace data [AJ]"
+      ],
+      "choose_when": [
+        "Vantage is already the cloud FinOps tool and you want AI provider spend in the same allocation and showback model [AJ]"
+      ],
+      "avoid_when": [
+        "You cannot accept a third party holding a read-write provider admin key [AJ]",
+        "You need per-request or per-task attribution, which belongs to the gateway [AJ]"
+      ],
+      "competitors": [
+        "C6-cloudzero",
+        "C6-gateway-cost-attribution",
+        "C6-finops-focus"
+      ],
+      "fs_note": "Treat it as the showback and chargeback reporting layer, fed by provider billing and gateway exports; assess the admin-key access under C4 and C7 and the platform under the outsourcing register [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Useful reporting layer for organisations already using it; SaaS-only with unverified residency and vendor-described AI features [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Provider integrations, AI tag normalisation and hierarchical allocation; billing-level granularity only, and features described in vendor blogs.",
+        "enterprise_readiness": "SAML SSO verified (lifts NPV cap to max 3 under CP2 Q2); RBAC and audit logs not verified; SAML plan availability conflicts between pages.",
+        "security_compliance": "SOC 2 Type 2 and SOC 1 Type 2, reports on request; no ISO 27001 found.",
+        "deployment_flexibility": "SaaS only; regions not verified.",
+        "ecosystem": "AI-provider and cloud billing integrations, API, MCP server and FOCUS-mapped schema.",
+        "reliability_maturity": "Established cloud cost vendor; AI features added from 2025; ownership and funding not verified.",
+        "cost_tco": "Managed AI Tags at no extra cost; AI spend counts toward quota tiers whose prices were not verified.",
+        "lockin_portability": "Proprietary SaaS, but FOCUS-mapped data and an API make export feasible."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 2.95,
+      "fs_total": 2.9
+    }
+  },
+  {
+    "id": "C6-cloudzero",
+    "assessment": {
+      "capabilities": "Cloud cost intelligence platform that ingests token-level usage and cost from OpenAI, the Anthropic API, Amazon Bedrock (including Claude Platform on AWS) and Azure OpenAI, and allocates it by customer, feature, team, product and environment through its CostFormation engine; a Kubernetes agent supplies container telemetry [VF: A7-S114, A7-S091].",
+      "strengths": [
+        "Anthropic ingestion breaks out uncached input, cache hits, output and tool usage by model, workspace and API key (vendor statement) [VF: A7-S114]",
+        "Allocation by customer and feature supports unit economics [VF: A7-S114]",
+        "SOC 1 Type 2 and SOC 2 Type 2 listed in the Trust Center; SAML SSO with custom roles that scope data access and map to IdP groups [VF: B-C6-S002, B-C6-S003]"
+      ],
+      "limitations_risks": [
+        "AI cost claims are from CloudZero's own blog posts [VF: A7-S114]",
+        "No ISO 27001 found; SOC reports under NDA [VF: B-C6-S002]",
+        "Pricing, EU region and audit logs not publicly verified [NPV]",
+        "Proprietary allocation engine; FOCUS support not evidenced [NPV]"
+      ],
+      "choose_when": [
+        "CloudZero is already the cost platform and you want AI spend allocated by customer or product next to Kubernetes costs [AJ]"
+      ],
+      "avoid_when": [
+        "Residency of billing metadata must be documented in the UK or EU [AJ]",
+        "You want allocation rules in an open schema [AJ]"
+      ],
+      "competitors": [
+        "C6-vantage",
+        "C6-gateway-cost-attribution",
+        "C6-finops-focus"
+      ],
+      "fs_note": "Use for showback where already contracted; keep the allocation rules documented outside the tool so chargeback survives an exit [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Credible allocation features and SOC 2, but SaaS-only, proprietary allocation logic, unverified pricing and vendor-described AI claims [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Token-level ingestion across four AI sources and allocation by customer, feature and team; claims are vendor blog posts.",
+        "enterprise_readiness": "SAML SSO and role-based data access verified; audit logs not verified; max 3 under CP2 Q2.",
+        "security_compliance": "SOC 2 Type 2 and SOC 1 Type 2 listed; no ISO 27001 found.",
+        "deployment_flexibility": "SaaS receiving telemetry; regions not verified.",
+        "ecosystem": "Integrations for major AI providers and clouds plus a Kubernetes agent; FOCUS not evidenced.",
+        "reliability_maturity": "Established cost vendor with SOC 1 since 2022; ownership and funding not verified.",
+        "cost_tco": "Pricing not publicly verified.",
+        "lockin_portability": "Proprietary allocation engine (CostFormation); export and FOCUS support not verified."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 2.7,
+      "fs_total": 2.65
+    }
+  },
+  {
+    "id": "C6-finops-focus",
+    "assessment": {
+      "capabilities": "Open specification for cost and usage data. FOCUS 1.4 was ratified on 4 June 2026; 1.2 added virtual-currency columns for credits and tokens; tokens are carried today through SKU IDs, ConsumedUnit and ConsumedQuantity. FOCUS 1.5 (no ratification date) is scoped to add AI pricing dimensions on SkuPriceDetails and four model-identity properties (ModelDeveloper, ModelFamily, ModelId, ModelVersion) with no new columns; a first-class token-type (input/output) column is deferred [VF: A7-S049, A7-S116, V2-S046].",
+      "strengths": [
+        "Vendor-neutral target schema for normalising gateway logs, provider invoices and cloud bills [VF: A7-S048] [AJ]",
+        "Free, CC BY 4.0, with a conformance validator (2.2.1, August 2026) [VF: A7-S096, A7-S050]",
+        "Steady cadence: six public releases since June 2023 [VF: A7-S049]",
+        "FinOps Framework 2026 adds a FinOps for AI category; vendors such as Vantage map to FOCUS [VF: A7-S115, A7-S113]"
+      ],
+      "limitations_risks": [
+        "No AI-specific columns today; model identity arrives only with 1.5, which has no date, and token type is deferred [VF: A7-S116, V2-S046]",
+        "It is a data model only: no metering, budgets or enforcement [AJ]",
+        "Adoption by AI providers not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "Always, as the target schema for the firm's AI cost dataset [Rec]"
+      ],
+      "avoid_when": [
+        "Do not wait for 1.5 to start: map tokens to SKU and ConsumedQuantity now [Rec]"
+      ],
+      "competitors": [
+        "C6-vantage",
+        "C6-cloudzero",
+        "C6-gateway-cost-attribution"
+      ],
+      "fs_note": "A FOCUS-shaped AI cost dataset makes provider spend comparable for concentration analysis and lets cost allocation feed the outsourcing register without vendor-specific mapping [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Open, foundation-governed schema that removes tool lock-in from cost data; strategic as the data model, not as a product [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 5,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Covers cost and usage normalisation; AI model identity not yet ratified and token type deferred.",
+        "enterprise_readiness": "Rubric rule 2: enables a common cost dataset and chargeback inside the estate; no commercial support of its own.",
+        "security_compliance": "Rubric rule 2: a specification with clear CC BY 4.0 licence and a validator; inherits the controls of the data platform it lands in.",
+        "deployment_flexibility": "Specification; implemented anywhere.",
+        "ecosystem": "FinOps Foundation, validator and vendor mappings (e.g. Vantage); AI-provider adoption not verified.",
+        "reliability_maturity": "Ratified releases on a semi-annual cadence since 2024 under the Joint Development Foundation; AI scope still in progress.",
+        "cost_tco": "Free open specification.",
+        "lockin_portability": "Open standard, permissive licence, neutral governance."
+      },
+      "evidence_caps_applied": [
+        "Rubric rule 2 (open specification): enterprise readiness and security scored on what the specification enables and on hygiene, each capped at 4; inherits host controls"
+      ],
+      "generic_total": 3.8,
+      "fs_total": 3.85
+    }
+  }
+]

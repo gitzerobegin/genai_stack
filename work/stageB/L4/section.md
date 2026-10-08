@@ -398,10 +398,10 @@ STEP 6 [Rec]: Packaging procedures
 
 **What the commentary agent needs from L4 [AJ].** The agent drafts the monthly Brinson-style attribution commentary (allocation, selection, currency, benchmark-relative return) for a generic multi-asset fund. It is a deterministic workflow, not a free agent, and it needs exactly four tools:
 
-1. **`get_attribution_results` (read-only MCP tool onto the attribution engine output).** Parameters: fund identifier, period, attribution model version. Returns the engine's published effects with a snapshot identifier and hash. The tool reads only the engine's approved output store; it cannot trigger a re-run or change parameters. The snapshot hash goes into the trace, so L9 can compare every figure in the draft with it.
-2. **`get_fund_reference_data` (read-only MCP tool onto the fund data store).** Benchmark name, share-class currencies, sector and asset-class labels, and period dates. No client identifiers are returned.
-3. **`calculate` (sandboxed, E2B-style).** Used only if the draft needs a derived figure the engine does not publish, such as a sum of two effects or a contribution in basis points. Code runs in a microVM with no network egress and no credentials, on inputs passed from tool 1. The result is labelled "derived" and reconciled to the engine's totals before use; if reconciliation fails, the workflow stops and asks the analyst.
-4. **`search_approved_commentary` (retrieval, L6–L8).** Prior commentaries and the house style guide from the firm's own index.
+1. **`get_attribution_results` (read-only MCP tool onto the attribution engine output).** Parameters: fund identifier, period, attribution model version. Returns the engine's published effects with a snapshot identifier and hash. The tool reads only the engine's approved output store; it cannot trigger a re-run or change parameters. The snapshot hash goes into the trace, so L9 can compare every figure in the draft with it [AJ].
+2. **`get_fund_reference_data` (read-only MCP tool onto the fund data store).** Benchmark name, share-class currencies, sector and asset-class labels, and period dates. No client identifiers are returned [AJ].
+3. **`calculate` (sandboxed, E2B-style).** Used only if the draft needs a derived figure the engine does not publish, such as a sum of two effects or a contribution in basis points. Code runs in a microVM with no network egress and no credentials, on inputs passed from tool 1. The result is labelled "derived" and reconciled to the engine's totals before use; if reconciliation fails, the workflow stops and asks the analyst [AJ].
+4. **`search_approved_commentary` (retrieval, L6–L8).** Prior commentaries and the house style guide from the firm's own index [AJ].
 
 **How the calls are governed.**
 - The analyst signs in; the IdP issues an ID-JAG through EMA (or equivalent token exchange), so each tool call carries the analyst as subject and the commentary agent as actor [AJ].
