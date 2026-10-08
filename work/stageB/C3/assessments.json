@@ -1,0 +1,317 @@
+[
+  {
+    "id": "C3-presidio",
+    "assessment": {
+      "capabilities": "Open-source PII detection and de-identification SDK (analyzer, anonymizer, image redactor incl. DICOM, structured data) using NER, regex, rules and checksums with context; LLM-based recognisers added; Python packages and Docker REST services [VF: A6-S068, A6-S040, A6-S041]. 2.2.364 (22 July 2026), MIT [VF: A6-S005, V2-S028].",
+      "strengths": [
+        "Runs entirely in-estate, so 'must not leave' text is inspected before any external call [AJ]",
+        "MIT licence and community governance with a Technical Steering Committee [VF: A6-S040, V2-S030]",
+        "Custom recognisers are code the firm can own, version and test [AJ]",
+        "Published security policy with private vulnerability reporting and 48-hour acknowledgement [VF: B-C3-S001]"
+      ],
+      "limitations_risks": [
+        "README warns detection is not guaranteed to find all sensitive data [VF: A6-S068]",
+        "Maintained by volunteers; not owned or operated by a commercial entity; no commercial support [VF: A6-S040]",
+        "Ownership moved from Microsoft in 2026; images moved from MCR to GHCR [VF: A6-S040, A6-S041]",
+        "No vault, discovery or built-in authentication on REST services documented [NPV]",
+        "Signed releases not verified [NPV]"
+      ],
+      "choose_when": [
+        "You need in-estate detection behind a firm-owned privacy service [AJ]",
+        "You need firm-specific recognisers (client codes, account numbers) [AJ]"
+      ],
+      "avoid_when": [
+        "You need a supported product with an SLA [AJ]",
+        "You need reversible tokenisation at scale or estate-wide discovery [AJ]"
+      ],
+      "competitors": [
+        "C3-google-sdp",
+        "C2-bedrock-guardrails",
+        "C3-protegrity"
+      ],
+      "fs_note": "Pin versions, update image references after the GHCR move, and gate upgrades on recall per entity class measured on the firm's test corpus [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Strategic, conditional: as the in-estate engine behind a firm-owned privacy service with recall testing and a sampling second detector; enterprise readiness is what the firm builds around it [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Covers detection and masking across text, images and structured data; no vault tokenisation, discovery or classification of stores.",
+        "enterprise_readiness": "Rule 2 library: enables in-estate detection; no commercial support; REST services unauthenticated by default (NPV).",
+        "security_compliance": "Rule 2 hygiene: security policy with private reporting verified (B-C3-S001); MIT clear; signed releases NPV; inherits host controls.",
+        "deployment_flexibility": "Self-hosted library or containers, in-estate and offline-capable with local NER models.",
+        "ecosystem": "Python and REST interfaces; gateway and guardrail integrations not verified in the fact base.",
+        "reliability_maturity": "Releases since March 2020 with several a year; governance moved to volunteers in 2026.",
+        "cost_tco": "Free; operating cost is recogniser tuning and testing.",
+        "lockin_portability": "MIT with neutral community governance; rule 3 reduction not applied (permissive OSS, neutral governance)."
+      },
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted library): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls"
+      ],
+      "generic_total": 3.5,
+      "fs_total": 3.65
+    }
+  },
+  {
+    "id": "C3-google-sdp",
+    "assessment": {
+      "capabilities": "Managed discovery, classification and de-identification (formerly Cloud DLP): profiling of BigQuery, Cloud SQL, Cloud Storage and Agent Platform; 200+ detectors; masking, tokenisation, bucketing; hybrid jobs for external sources; underpins Model Armor [VF: A6-S066, A6-S065, A6-S067].",
+      "strengths": [
+        "Broadest managed detection and transformation set in the control [AJ]",
+        "Product-scoped SOC 2 and ISO 27001 [VF: A6-S070, A6-S071]",
+        "Tokenisation keys wrapped by Cloud KMS, global or in the request region [VF: B-C3-S002]",
+        "Transparent per-GiB pricing [VF: A6-S065]"
+      ],
+      "limitations_risks": [
+        "No self-hosted option [VF: A6-S066]",
+        "Google Cloud-specific API [VF: A6-S066]",
+        "Supported EU locations not retrieved [NPV]",
+        "Raw text must be sent to the service for inspection [AJ]"
+      ],
+      "choose_when": [
+        "Google Cloud is the data platform [AJ]",
+        "Model Armor or Apigee are already in the path [AJ]"
+      ],
+      "avoid_when": [
+        "Policy forbids sending raw client text to a cloud service before tokenisation [AJ]",
+        "You need a multi-cloud engine with one API [AJ]"
+      ],
+      "competitors": [
+        "C3-presidio",
+        "C3-microsoft-purview-dspm-ai",
+        "C2-bedrock-guardrails"
+      ],
+      "fs_note": "Pin processing and key location to an approved EU/UK region and confirm against the locations page; platform controls presumed (CP2 Q1); confirm per service [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: in a Google Cloud estate, because deployment flexibility and lock-in score 2 [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 5,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Discovery, profiling, 200+ detectors, masking, tokenisation and bucketing, runtime prompt/response use via Model Armor.",
+        "enterprise_readiness": "Hyperscaler presumption (CP2 Q1): platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "SOC 2 and ISO 27001 product-scoped; KMS-wrapped de-identification keys; CMEK for stored profiles and EU locations not verified, so 4 not 5.",
+        "deployment_flexibility": "SaaS only on Google Cloud; regional processing possible; no self-host.",
+        "ecosystem": "Built into Google Cloud storage services, Model Armor and Apigee; hybrid jobs for external data.",
+        "reliability_maturity": "Long-established service (client library since February 2018).",
+        "cost_tco": "Transparent but volume-priced: US$3.00/GiB after 1 GiB free; discovery subscription US$2,500/unit/month.",
+        "lockin_portability": "Google Cloud-specific API; outputs portable."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.8,
+      "fs_total": 3.6
+    }
+  },
+  {
+    "id": "C3-microsoft-purview-dspm-ai",
+    "assessment": {
+      "capabilities": "Unified Purview Data Security Posture Management (GA May 2026) absorbing DSPM for AI: discovers and assesses data-security risk in AI use, including prompts and responses for Microsoft 365 Copilot, Entra-registered AI apps and ChatGPT Enterprise; covers Foundry workloads; partner sources and the posture agent in preview [VF: A6-S090, A6-S091, V2-S036].",
+      "strengths": [
+        "Posture over the AI apps employees already use, inside the Microsoft compliance estate [AJ]",
+        "Purview portal in ISO 27001 scope; Purview in FedRAMP High scope [VF: B-C4-S008, A6-S056]"
+      ],
+      "limitations_risks": [
+        "Posture and governance, not an inline tokenisation engine for custom agents [AJ]",
+        "Requires Microsoft 365 E5 or Purview Suite; Business Premium coverage conflicting [VF: A6-S091] [R: A6-S092]",
+        "Partner data sources and the posture agent still preview [VF: V2-S036]",
+        "Feature list of the new DSPM beyond AI coverage not verified [NPV]"
+      ],
+      "choose_when": [
+        "Microsoft 365 Copilot or ChatGPT Enterprise is in use and E5/Purview Suite is licensed [AJ]"
+      ],
+      "avoid_when": [
+        "You need run-time masking in a custom agent's prompt path [AJ]",
+        "You are not a Microsoft estate [AJ]"
+      ],
+      "competitors": [
+        "C3-google-sdp",
+        "C3-protegrity",
+        "C3-skyflow"
+      ],
+      "fs_note": "Use for SaaS AI and Copilot posture evidence; do not count it as the prompt-path DLP control for custom agents; platform controls presumed (CP2 Q1); confirm per service [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Useful posture tooling for Microsoft estates, but not a run-time DLP engine and only just consolidated [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Posture, discovery and risk assessment of AI interactions; no verified inline transformation for custom apps.",
+        "enterprise_readiness": "Hyperscaler presumption (CP2 Q1): platform controls presumed (CP2 Q1); confirm per service.",
+        "security_compliance": "Purview portal ISO 27001 and Purview FedRAMP High; DSPM not named and commercial SOC 2 scope does not list the portal; scope rule applied (4).",
+        "deployment_flexibility": "Microsoft cloud service only; GCC coverage reduced.",
+        "ecosystem": "Microsoft 365, Entra-registered apps, ChatGPT Enterprise and Foundry; partner sources preview.",
+        "reliability_maturity": "Unified DSPM GA May 2026 after consolidation; preview components remain.",
+        "cost_tco": "Requires E5 or Purview Suite; licensing for Business Premium conflicting.",
+        "lockin_portability": "Microsoft-specific posture model and labels."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.1,
+      "fs_total": 3.05
+    }
+  },
+  {
+    "id": "C3-protegrity",
+    "assessment": {
+      "capabilities": "Enterprise data-protection platform: Data Discovery for PII in unstructured text; Find and Redact, Protect and Unprotect under Protegrity protection policies (tokenisation, masking); Semantic Guardrail API; ESA central policy with role-per-data-element permissions and audit [VF: A6-S082, B-C3-S004]. AI Team Edition (17 November 2025) still Tech Preview, AWS-only [VF: A6-S093].",
+      "strengths": [
+        "Role-per-data-element Unprotect rights and audit at every protection point [VF: B-C3-S004]",
+        "Same tokens and policies can span structured data and the AI path [AJ]"
+      ],
+      "limitations_risks": [
+        "AI Team Edition documented as Tech Preview; AWS-only [VF: A6-S093]",
+        "Only certification verified is ISO 27001:2013 (2023); no SOC 2 report found [VF: A6-S094, B-C3-S003]",
+        "SSO not verified; pricing not published [NPV]",
+        "Tokenised data depends on Protegrity policies to reverse [AJ]"
+      ],
+      "choose_when": [
+        "Protegrity already tokenises your structured data [AJ]"
+      ],
+      "avoid_when": [
+        "You are not on AWS for the AI editions [AJ]",
+        "A current SOC 2 Type II report is a procurement gate [AJ]"
+      ],
+      "competitors": [
+        "C3-skyflow",
+        "C3-google-sdp",
+        "C3-presidio"
+      ],
+      "fs_note": "Request the current ISO certificate and any SOC 2 report; treat AI Team Edition as a pilot until GA [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strong tokenisation and audit model for existing customers; AI editions not yet GA and certification currency unverified [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Discovery, tokenisation, masking, reversible protect/unprotect and semantic guardrails.",
+        "enterprise_readiness": "CP2 Q2: RBAC and audit verified for ESA (B-C3-S004); SSO NPV; max 3.",
+        "security_compliance": "Anchor-based 2: ISO 27001:2013 announced 2023 with renewal unverified; no SOC 2 found.",
+        "deployment_flexibility": "Customer-deployed core platform and containerised Developer Edition; AI Team Edition AWS-only.",
+        "ecosystem": "Python module, APIs, protectors and gateway; mainstream rather than broad.",
+        "reliability_maturity": "Established core platform; AI Team Edition Tech Preview.",
+        "cost_tco": "Pricing not published; enterprise licensing.",
+        "lockin_portability": "Proprietary policies and tokens; reversal depends on Protegrity."
+      },
+      "evidence_caps_applied": [
+        "security_compliance 2 by anchor (certificate currency unverified, no SOC 2 found); not an NPV cap",
+        "enterprise_readiness: CP2 Q2 partial evidence (RBAC and audit verified, SSO NPV), max 3"
+      ],
+      "generic_total": 2.9,
+      "fs_total": 2.75
+    }
+  },
+  {
+    "id": "C3-skyflow",
+    "assessment": {
+      "capabilities": "Data privacy vault: stores sensitive data and returns tokens; detokenises under role-scoped credentials; Detect APIs de-identify text and files; LLM Privacy Vault tokenises or masks data before models, prompts, RAG, tools, traces and agent workflows with authorised rehydration; EU vaults [VF: A6-S081, A6-S095].",
+      "strengths": [
+        "Built around reversible tokenisation of LLM traffic [VF: A6-S095]",
+        "Residency by vault region, including EU vaults [VF: A6-S095]",
+        "Security page lists ISO 27001:2022, SOC 2 Type II and PCI DSS Level 1 [VF: B-C3-S005]"
+      ],
+      "limitations_risks": [
+        "Vendor holds the sensitive values and sits on the critical path of re-identification [AJ]",
+        "Self-hosting, SSO, audit logs and pricing not verified [NPV]",
+        "SDK v1 end of life 31 October 2026 [VF: A6-S081]",
+        "No funding round verified after March 2024 [VF: A6-S096]",
+        "Certification reports not public [VF: B-C3-S005]"
+      ],
+      "choose_when": [
+        "You need reversible pseudonymisation across many applications with per-region vaults [AJ]"
+      ],
+      "avoid_when": [
+        "Policy requires identifiers to stay in the firm's estate [AJ]",
+        "You cannot test bulk detokenisation for exit [AJ]"
+      ],
+      "competitors": [
+        "C3-protegrity",
+        "C3-google-sdp",
+        "firm-built token service"
+      ],
+      "fs_note": "Migrate off SDK v1 before 31 October 2026; test bulk detokenisation as the exit plan; assess financial resilience as a material outsourcing [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Purpose-built for reversible LLM tokenisation, but a vendor-held vault is a lock-in and outsourcing decision, not a default [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Vault tokenisation, de-identification and authorised rehydration across the AI flow.",
+        "enterprise_readiness": "CP2 Q2: role-scoped credentials (RBAC) verified; SSO and audit NPV; max 3.",
+        "security_compliance": "ISO 27001:2022, SOC 2 Type II and PCI DSS L1 listed on the trust page; no CMK/ISO 42001/FedRAMP verified; reports not public.",
+        "deployment_flexibility": "Hosted vaults in many regions; self-host not verified.",
+        "ecosystem": "REST APIs and SDKs; mainstream.",
+        "reliability_maturity": "SDK since October 2021; v1 EOL forces migration; funding last verified 2024.",
+        "cost_tco": "Pricing not published.",
+        "lockin_portability": "Vendor-held vault and token map; exit requires bulk detokenisation."
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness: CP2 Q2 partial evidence (RBAC only verified), max 3"
+      ],
+      "generic_total": 3.05,
+      "fs_total": 3.0
+    }
+  }
+]
