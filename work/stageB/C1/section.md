@@ -158,9 +158,9 @@ For MCP the gateway becomes a tool federator. It presents one MCP endpoint to ag
 **Kong AI Gateway (Kong Inc.).**
 - *What it is now:* AI Gateway 2.0 became GA on 1 September 2026 as a dedicated runtime in Konnect with its own control plane, admin API and release cadence; 2.1.0 followed on 22 September and 2.2.0 on 30 September 2026 [VF: A6-S016, A6-S017, V2-S034]. The AI plugins remain on Kong Gateway 3.14 LTS, and Kong recommends migrating before 3.18 [VF: A6-S017].
 - *Capabilities:* multi-provider routing and load balancing, token budgets and rate limits, semantic caching, semantic prompt and response guards, PII sanitisation, AWS/Azure/GCP guardrail services, NVIDIA NeMo Guardrails, MCP access control and tool filtering, MCP Server Bundling with per-caller tool exposure, principal-aware policies via Kong Identity, and A2A traffic management [VF: A6-S016, A6-S017]. 2.1.0 supports MCP revision 2026-07-28 [VF: A6-S017].
-- *Certifications and deployment:* ISO/IEC 27001:2022 covering the API and AI Connectivity Platform, and SOC 2 Type II covering Kong AI Gateway among others [VF: A6-S109]. Deployment: Konnect SaaS, Dedicated Cloud Gateways, hybrid (customer data plane) and self-managed [VF: A6-S018]. A 99.99% Konnect SLA is advertised [VF: A6-S018].
+- *Certifications and deployment:* ISO/IEC 27001:2022 covering the API and AI Connectivity Platform, and SOC 2 Type II covering Kong AI Gateway among others [VF: A6-S109]. Deployment: Konnect SaaS, Dedicated Cloud Gateways, hybrid (customer data plane) and self-managed [VF: A6-S018]. A 99.99% Konnect SLA is advertised [VF: A6-S018]. Konnect supports organisation SSO with SAML or OIDC, teams with predefined roles, and mapping of IdP groups to teams [VF: B-REVA-S004].
 - *Strengths:* the broadest AI policy set built on an enterprise API gateway, with certifications that name the product [AJ].
-- *Limitations:* the configuration model changed from plugins to entities [VF: A6-S016]; advanced AI plugins and the 2.x runtime are licence-gated or Konnect-delivered [VF: A6-S017]; pricing is not published [VF: A6-S018]. Konnect SSO and RBAC are not in the fact base [NPV].
+- *Limitations:* the configuration model changed from plugins to entities [VF: A6-S016]; advanced AI plugins and the 2.x runtime are licence-gated or Konnect-delivered [VF: A6-S017]; pricing is not published [VF: A6-S018].
 - *Choose when:* Kong is already your API gateway [AJ].
 - *Avoid when:* you want a free self-hosted gateway with no licence dependency [AJ].
 - *Competitors:* LiteLLM, Apigee, Azure API Management.
@@ -249,8 +249,8 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | C1-litellm | 5 | 4 | 3 | 4 | 5 | 3 | 4 | 4 | 4.05 | 3.90 | Strategic |
-| C1-portkey | 4 | 3 | 3 | 4 | 4 | 3 | 3 | 3 | 3.45 | 3.35 | Tactical |
-| C1-kong-ai-gateway | 5 | 3 | 4 | 4 | 4 | 3 | 2 | 3 | 3.70 | 3.65 | Strategic |
+| C1-portkey | 4 | 4 | 3 | 4 | 4 | 3 | 3 | 3 | 3.60 | 3.50 | Tactical |
+| C1-kong-ai-gateway | 5 | 4 | 4 | 4 | 4 | 3 | 2 | 3 | 3.85 | 3.80 | Strategic |
 | C1-cloudflare-ai-gateway | 3 | 3 | 3 | 2 | 4 | 3 | 4 | 2 | 3.00 | 2.80 | Tactical |
 | C1-azure-apim-ai-gateway | 4 | 4 | 4 | 2 | 4 | 3 | 3 | 2 | 3.40 | 3.25 | Tactical |
 | C1-aws-agentcore-gateway | 3 | 4 | 4 | 2 | 3 | 2 | 4 | 2 | 3.10 | 3.00 | Tactical |
@@ -260,7 +260,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 **Scoring notes [AJ]:**
 - *Hyperscaler presumption (CP2 Q1).* Azure APIM, AgentCore Gateway and Apigee score 4 on enterprise readiness: platform controls presumed (CP2 Q1); confirm per service.
-- *NPV caps.* One cap was lifted under rule 7: Cloudflare, on its verified identity-based controls (maximum 3). Kong is held at 3 because Konnect SSO and RBAC are not in the fact base, although audit logs and an SLA are verified. Portkey's SSO, SCIM, roles and audit logs were evidenced by the writer (B-C1-S001 to S003), lifting it from a capped 2 to 3; it stays at 3 because the evidence is mainly marketing pages and the post-acquisition SLA is not public.
+- *NPV caps and rule 7.* Cloudflare's cap was lifted to 3 on its verified identity-based controls. At the CP3 review two scores rose to 4, because rule 7 gives 4 for all three of SSO, RBAC and audit logs plus SCIM, an SLA or an admin API (as for Firecrawl in L8 and LiteLLM here): Kong, now that Konnect SSO and teams-based roles are verified [VF: B-REVA-S004] alongside its audit logs and 99.99% SLA; and Portkey, whose SSO, SCIM, roles and audit logs the writer evidenced (B-C1-S001 to S003). Portkey's condition is stated: much of the evidence is vendor pages, and post-acquisition terms are not public.
 - *Scope rule (CP2 Q4).* Azure APIM's ISO 27001 and SOC 2 are platform-level without naming the service, but FedRAMP High names it, so security is 4. Portkey's certification tier coverage is unclear, so 3. AgentCore is held at 4 rather than 5 because its ISO evidence is a partly garbled search extract and FedRAMP status conflicts.
 - *Rule 2 (self-hosted open source).* LiteLLM, agentgateway and Agent Router are scored as software you run. LiteLLM and agentgateway have commercial support, so the cap at 4 does not bind; agentgateway's and Agent Router's security is 2 because their release hygiene is not verified.
 - *Rule 3 (ownership change).* Portkey's lock-in is reduced by 1 (MIT core, but not neutral governance).

@@ -229,7 +229,7 @@ The **subject index** is the key design choice [AJ]. Every memory that may conta
 - *Security and certifications:* encryption at rest with KMS, with a customer-managed key set at creation; AWS Config and Security Hub (control BedrockAgentCore.3) can flag memories without a customer-managed key [VF: B-L5-S002]. AgentCore is listed in AWS's scope for SOC 1, 2 and 3 and ISO/IEC 27001:2022 and related ISO standards, and is HIPAA eligible; Memory is covered as a generally available feature rather than named, and the SOC 2 report type is not stated in the evidence [VF: B-L5-S003]. VPC and PrivateLink are supported [VF: A3-S047].
 - *Access control:* platform controls presumed (CP2 Q1); confirm per service. AWS guidance recommends restricting IAM access to the memory APIs [VF: B-L5-S002].
 - *Strengths:* explicit, detailed lifecycle documentation, including AWS's own guidance on retention policies, and CMK enforcement through standard AWS compliance tooling [VF: A3-S111, B-L5-S002] [AJ].
-- *Limitations:* AWS only, with a proprietary API [VF: A3-S047]. Pricing was not verified [NPV]. The absence of a long-term TTL means retention is the firm's job [VF: A3-S111]. EU Region availability for Memory was not individually verified [NPV].
+- *Limitations:* AWS only, with a proprietary API [VF: A3-S047]. Pricing changed on 6 October 2026: short-term memory is now billed at US$1.00 per GB ingested, US$0.20 per GB retrieved and US$0.10 per GB-month stored, and long-term memory at US$0.75 per 1,000 records a month for built-in strategies (US$0.25 for self-managed or override strategies) plus US$0.50 per 1,000 retrievals, as of 8 October 2026 [VF: B-REVA-S005]. The absence of a long-term TTL means retention is the firm's job [VF: A3-S111]. EU Region availability for Memory was not individually verified [NPV].
 - *Choose when:* the agent runs on AgentCore or Strands in AWS, and you will build the policy gate and pruner around it [AJ].
 - *Avoid when:* you need memory portable across clouds, or the agent runtime is elsewhere [AJ].
 - *Competitors:* Memory Bank, Mem0 self-hosted on Amazon S3 Vectors or OpenSearch, Zep BYOC.
@@ -255,19 +255,21 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| L5-mem0 | 4 | 3 | 2 | 4 | 4 | 3 | 4 | 3 | 3.40 | 3.20 | Tactical |
-| L5-zep | 5 | 3 | 3 | 4 | 4 | 3 | 3 | 2 | 3.60 | 3.35 | Tactical |
+| L5-mem0 | 4 | 4 | 2 | 4 | 4 | 3 | 4 | 3 | 3.55 | 3.35 | Tactical |
+| L5-zep | 5 | 4 | 3 | 4 | 4 | 3 | 3 | 2 | 3.75 | 3.50 | Tactical |
 | L5-letta | 3 | 3 | 2 | 3 | 3 | 2 | 4 | 3 | 2.85 | 2.75 | Experimental |
-| L5-cognee | 4 | 2 | 2 | 5 | 3 | 3 | 3 | 3 | 3.20 | 3.10 | Tactical |
-| L5-supermemory | 4 | 2 | 2 | 5 | 4 | 2 | 3 | 2 | 3.15 | 2.90 | Experimental |
+| L5-cognee | 4 | 3 | 2 | 5 | 3 | 3 | 3 | 3 | 3.35 | 3.25 | Tactical |
+| L5-supermemory | 4 | 3 | 2 | 5 | 4 | 2 | 3 | 2 | 3.30 | 3.05 | Experimental |
 | L5-langmem | 3 | 2 | 2 | 4 | 3 | 1 | 4 | 3 | 2.75 | 2.65 | Experimental |
-| L5-aws-agentcore-memory | 4 | 4 | 4 | 2 | 3 | 3 | 2 | 2 | 3.20 | 3.15 | Tactical |
+| L5-aws-agentcore-memory | 4 | 4 | 4 | 2 | 3 | 3 | 3 | 2 | 3.30 | 3.20 | Tactical |
 | L5-gcp-vertex-memory-bank | 4 | 4 | 4 | 2 | 3 | 3 | 3 | 2 | 3.30 | 3.20 | Tactical |
 
 **Scoring notes [AJ]:**
-- **No product reaches Strategic.** The highest FS total is 3.35 (Zep), below the 3.6 guide. The independent products are held back by certification evidence (Mem0, Cognee, Supermemory, Letta) or lock-in (Zep Cloud), and the hyperscaler services by deployment and lock-in. This is consistent with the recommendation that memory be a governed record class on the firm's own stores rather than a strategic vendor dependency.
+- **No product reaches Strategic.** The highest FS total is 3.50 (Zep), below the 3.6 guide. The independent products are held back by certification evidence (Mem0, Cognee, Supermemory, Letta) or lock-in (Zep Cloud), and the hyperscaler services by deployment and lock-in. This is consistent with the recommendation that memory be a governed record class on the firm's own stores rather than a strategic vendor dependency.
 - **CP2 Q1 hyperscaler presumption** gives AgentCore Memory and Memory Bank enterprise readiness of 4. Their security is scored under rule 8: AgentCore's certifications are service-level and in scope (SOC 2 type not stated); Memory Bank's are platform-level with its inclusion not stated. Both score 4, not 5.
-- **Evidence caps and anchors.** Mem0 security is 2: the vendor confirms SOC 2 Type I, and its Type II claims conflict. Letta security is capped at 2 (no certification found). Cognee states it holds no certification, so it is scored as self-hosted software under rule 2 (its own recommended deployment); Cognee Cloud on its own would score 1. Supermemory security is 2 because the SOC 2 report type is unconfirmed. Cognee and Supermemory enterprise readiness is 2 on the anchors: the cap is lifted by verified SSO (CP2 Q2), but RBAC and audit logs are not documented.
+- **Evidence caps and anchors.** Mem0 security is 2: the vendor confirms SOC 2 Type I, and its Type II claims conflict. Letta security is capped at 2 (no certification found). Cognee states it holds no certification, so it is scored as self-hosted software under rule 2 (its own recommended deployment); Cognee Cloud on its own would score 1. Supermemory security is 2 because the SOC 2 report type is unconfirmed. Cognee and Supermemory enterprise readiness is 3: verified SSO lifts the cap to a maximum of 3 under rule 7 (CP2 Q2), as for LlamaParse (L8) and Browserbase (L4); RBAC and audit logs are not documented. They had been held at 2 before the CP3 review.
+- **Rule 7 at 4 (CP3 review).** Mem0 (SSO, audit logs and SLA on Enterprise; Platform roles [VF: A3-S049, A3-S080]) and Zep (IdP sign-in, RBAC and ABAC, audit logs, SLA [VF: A3-S107, A3-S089]) have all three controls plus an SLA, so they score 4, as Firecrawl and Mistral OCR do in L8. The conditions are stated: Mem0's evidence is a pricing page and its open source has no organisation concept; Zep's audit logs cover web-app actions, not API or SDK calls.
+- **AgentCore Memory cost** is 3, not 2: unit prices are published (short-term memory per GB from 6 October 2026; long-term US$0.75 or US$0.25 per 1,000 records a month and US$0.50 per 1,000 retrievals) [VF: B-REVA-S005].
 - **LangMem** is scored as a library under rule 2, and its maturity is 1: pre-1.0 with no release in eleven months.
 - **No ownership-change reduction** applies in this layer; no acquisition was found for any of the eight products.
 

@@ -97,7 +97,7 @@
     "classification": {
       "tier": "Tactical",
       "flags": [],
-      "rationale": "Scores 3.80 FS but lock-in is 2 and the vendor is widening into L5/L8 (Nexus); held at Tactical until an exit route is decided [AJ]."
+      "rationale": "Scores 3.80 FS but lock-in is 2 and it would be a net-new proprietary dependency whose vendor is widening into L5/L8 (Nexus); a criterion at 2 is accepted as a Strategic condition only where it rides on an existing platform commitment (Elastic, MongoDB), so Pinecone is held at Tactical until an exit route is decided [AJ]."
     },
     "scores": {
       "criteria": {
@@ -133,13 +133,15 @@
         "Filter-aware search and tiered multitenancy suit entitlement-heavy, many-tenant retrieval [VF: A2-S103] [AJ]",
         "Managed, Hybrid (customer network) and Private Cloud incl. air-gapped, plus self-host [VF: A2-S106]",
         "Cloud RBAC with custom roles, SSO add-on, collection-scoped JWT keys [VF: B-L6-S007]",
-        "Apache-2.0; US$50M Series B March 2026 [VF: A2-S108, A2-S107]"
+        "Apache-2.0; US$50M Series B March 2026 [VF: A2-S108, A2-S107]",
+        "Cloud Management API with management keys; 99.9% uptime SLA on Premium (99.95% multi-AZ) [VF: B-REVA-S002]"
       ],
       "limitations_risks": [
         "No ISO 27001 found; HIPAA BAA documented for Managed Cloud only [VF: V1-S069]",
         "Upgrade cannot skip 1.16 (storage migration) [VF: A2-S102]",
         "SSO is a Premium add-on [VF: B-L6-S007]",
-        "Managed pricing evidence thin and possibly stale [VF: A2-S106]"
+        "Managed pricing evidence thin and possibly stale [VF: A2-S106]",
+        "Management and database keys are not revoked when the creating user leaves; offboarding must revoke them [VF: B-REVA-S002]"
       ],
       "choose_when": [
         "A dedicated engine is needed in your own estate or cloud account, with strong filtering and tenant isolation [AJ]"
@@ -172,7 +174,7 @@
       },
       "rationale": {
         "technical": "Dense/sparse, ACORN filtering, RRF, multitenancy, quantisation; BM25 not evidenced",
-        "enterprise_readiness": "Cloud RBAC with custom roles, SSO (add-on), audit access logging; SCIM and SLA not verified",
+        "enterprise_readiness": "Cloud RBAC with custom roles, SSO (Premium add-on) and audit access logging (B-L6-S007), plus the Cloud Management API and a 99.9% (99.95% multi-AZ) SLA on Premium (B-REVA-S002): rule 7 allows 4; SCIM not verified",
         "security_compliance": "SOC 2 Type II and HIPAA but no ISO 27001: maximum 3 in this layer",
         "deployment_flexibility": "SaaS, hybrid, private incl. air-gap, self-host",
         "ecosystem": "REST/gRPC with OpenAPI, FastEmbed, three clouds",
@@ -193,13 +195,14 @@
         "Foundation governance and Apache-2.0 [VF: A2-S118]",
         "Zilliz Cloud SOC 2 Type II (incl. BYOC) and ISO 27001; CMEK on Business Critical [VF: A2-S119, A2-S120]",
         "Enterprise Dedicated with SSO, audit logs and 99.95% SLA [VF: A2-S120]",
-        "Same API from Lite to Distributed to Zilliz Cloud [VF: A2-S054]"
+        "Same API from Lite to Distributed to Zilliz Cloud [VF: A2-S054]",
+        "Organisation, project and cluster RBAC with custom roles, IdP group mapping and SCIM on Zilliz Cloud [VF: B-REVA-S001]"
       ],
       "limitations_risks": [
         "3.0 not guaranteed compatible with 2.6 servers [VF: A2-S117]",
         "Milvus Lite has no authentication, roles or TLS [VF: A2-S054]",
         "Distributed Milvus is a heavy operational commitment [AJ]",
-        "Zilliz last disclosed raise 2022; Zilliz RBAC not evidenced [VF: A2-S122] [NPV]"
+        "Zilliz last disclosed raise 2022 [VF: A2-S122]"
       ],
       "choose_when": [
         "Very large corpora, open-source portability with managed or BYOC options, or vectors alongside lakehouse data [AJ]"
@@ -233,8 +236,8 @@
       },
       "rationale": {
         "technical": "Dense/sparse, BM25, JSON indexing, lake-native storage; multi-tenancy and filtered performance not evidenced",
-        "enterprise_readiness": "SSO and audit logs plus 99.95% SLA on Enterprise Dedicated (rule 7 allows 4); RBAC not evidenced",
-        "security_compliance": "SOC 2 Type II and ISO 27001 plus CMEK, but SOC 2 report under NDA and certifications not re-checked by verifiers",
+        "enterprise_readiness": "SSO, audit logs and 99.95% SLA on Enterprise Dedicated (A2-S120), plus organisation, project and cluster RBAC with custom roles and SCIM (B-REVA-S001): all three controls plus SLA and SCIM (rule 7)",
+        "security_compliance": "Combined record: Zilliz Cloud has product-scoped SOC 2 Type II and ISO 27001 plus CMEK (would reach 5 under rule 8), but the self-hosted Milvus route is scored on rule 2 hygiene, which is not evidenced; 4 reflects the recommended mix of self-host and BYOC",
         "deployment_flexibility": "SaaS on three clouds, BYOC, self-host, on-prem",
         "ecosystem": "pymilvus; mainstream integrations",
         "reliability_maturity": "LF AI & Data graduated; 2.6 maintained; 3.0 GA only ten weeks",
@@ -338,7 +341,7 @@
     "classification": {
       "tier": "Tactical",
       "flags": [],
-      "rationale": "Distinctive object-storage design and per-namespace keys, but coarse key scoping, no ISO 27001 and a proprietary API; author conflict disclosed and rubric applied identically [AJ]."
+      "rationale": "Distinctive object-storage design and per-namespace keys, but coarse key scoping, no ISO 27001, an Enterprise entry price well above peers and a proprietary API; author conflict disclosed and borderline calls resolved against it [AJ]."
     },
     "scores": {
       "criteria": {
@@ -348,7 +351,7 @@
         "deployment_flexibility": 4,
         "ecosystem": 3,
         "reliability_maturity": 3,
-        "cost_tco": 4,
+        "cost_tco": 3,
         "lockin_portability": 2
       },
       "rationale": {
@@ -358,12 +361,12 @@
         "deployment_flexibility": "SaaS on three clouds, dedicated clusters and BYOC; no self-host",
         "ecosystem": "HTTP API and generated SDK; integrations not evidenced",
         "reliability_maturity": "Young company; named customers and profitability only via press",
-        "cost_tco": "Published minimums; object-storage pricing; Enterprise +35% premium",
+        "cost_tco": "Published minimums and object-storage pricing, but the Enterprise tier needed for CMEK and private networking starts at US$4,096 per month with a 35% usage premium (Pinecone Enterprise from US$500); 3, resolved against the Anthropic-related item (CP3 review A)",
         "lockin_portability": "Proprietary API and storage format"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.4,
-      "fs_total": 3.2
+      "generic_total": 3.3,
+      "fs_total": 3.15
     }
   },
   {
@@ -413,7 +416,7 @@
       },
       "rationale": {
         "technical": "BM25, quantised vectors, RRF/linear fusion, restrictive-filter optimisation and document-level security cover the layer's research questions",
-        "enterprise_readiness": "SAML/OIDC SSO, RBAC, DLS/FLS and audit logging (self-managed Platinum; Elastic Cloud SSO/RBAC confirmed); Cloud audit tier and SLA not confirmed",
+        "enterprise_readiness": "SAML/OIDC SSO, RBAC, DLS/FLS and audit logging (A2-S134; Elastic Cloud SSO/RBAC B-REV-S019), plus the Elastic Cloud API with role-bearing organisation API keys (B-REVA-S003): rule 7 allows 4; SCIM not found, Cloud audit tier and SLA not confirmed",
         "security_compliance": "Elastic Cloud ISO 27001 and SOC 2 Type II within the product, plus CMK",
         "deployment_flexibility": "Hosted and Serverless on three clouds, self-managed and on-prem; no BYOC evidenced",
         "ecosystem": "De-facto search standard; REST; OpenSearch fork",
@@ -459,7 +462,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: only where MongoDB is already the operational store, because lock-in scores 2 [AJ]."
+      "rationale": "Strategic, conditional: only where MongoDB is already the operational store, because lock-in scores 2; the condition is an existing platform commitment, which is why it differs from Pinecone [AJ]."
     },
     "scores": {
       "criteria": {
@@ -474,7 +477,7 @@
       },
       "rationale": {
         "technical": "Vector, full-text and hybrid GA; rerank and auto-embedding preview",
-        "enterprise_readiness": "SSO, roles and auditing verified (B-L6-S001); SCIM and SLA not verified",
+        "enterprise_readiness": "SSO, roles and auditing verified (B-L6-S001) plus the Atlas Admin API (B-REV-S028): rule 7 allows 4; SCIM and SLA not verified",
         "security_compliance": "Strong platform certifications but scope rule (CP2 Q4): platform-level, preview features excluded",
         "deployment_flexibility": "Atlas on three clouds plus self-managed; no BYOC",
         "ecosystem": "Official drivers and aggregation API; Voyage integration",

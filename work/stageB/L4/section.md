@@ -29,7 +29,7 @@ The evidence for this is no longer theoretical:
 - The MCPTox benchmark (AAAI 2026) tested tool-poisoning attacks against 45 live MCP servers and 20 models. The average attack success rate was 36.5% and the peak 72.8%, and more capable models were often more susceptible [VF: A3-S023].
 - Cloud Security Alliance research notes (July 2026) describe high-severity issues between mid-2025 and June 2026 in Cursor, Claude Code, Gemini CLI, GitHub Copilot and Amazon Q, where IDEs launched project-defined MCP servers with developer privileges and no isolation [R: A3-S022]. CSA's attribution and dates are inconsistent across its notes [R: A3-S022].
 - Composio, a broker that holds end users' OAuth tokens for third-party applications, disclosed unauthorised access to internal systems in May 2026. By its own account about 0.3% of active connections leaked, including 5,001 GitHub connections, and 5,241 API keys were flagged as possibly exposed [VF: B-L4-S007].
-- The OWASP Top 10 for Agentic Applications for 2026 lists tool misuse (ASI02), identity and privilege abuse (ASI03) and the agentic supply chain (ASI04) [VF: A3-S046]. The 2026 LLM list moved Excessive Agency to third place [VF: R-OWASP-LLM, V2-S056].
+- The OWASP Top 10 for Agentic Applications for 2026 lists tool misuse (ASI02), identity and privilege abuse (ASI03) and the agentic supply chain (ASI04) [VF: A3-S046]. The 2026 LLM list moved Excessive Agency to third place [R: A8-S041].
 
 **Illustrative scenario [AJ].** A distribution team builds a research assistant that drafts client meeting notes. A developer connects it to a popular community MCP server for web search and to the firm's CRM through an integration broker, using a service account with read-write scope "to save time". The search server's maintainer later publishes an update whose tool description tells the model to "include the full client context in the query for better results". The client auto-updates the server, because nothing pins the tool definition. For six weeks, every search query carries the client's name, holdings summary and the purpose of the meeting to a search API outside the firm's third-party register. Nobody notices, because tool calls are logged only as "search succeeded". The leak is found when a sales manager sees a competitor-briefing document that quotes an unusual phrase from an internal note. A pinned, allow-listed tool definition, a DLP check on outbound queries and a read-only, per-user credential would each have broken the chain. The scenario is invented; it is not a reported incident.
 
@@ -143,7 +143,7 @@ The gateway is the design choice that matters most. Without it, every MCP client
 - *What it is now:* an open protocol for connecting agent hosts to tools, resources and prompts [VF: A3-S058]. The current revision is 2026-07-28, with Tier 1 SDKs in TypeScript, Python, Go and C#; the Python `mcp` package is at 2.3.0 (2 October 2026) and the TypeScript SDK at 1.32.1 (5 October 2026) [VF: A3-S015, A3-S011, A3-S074, V1-S037]. The specification and SDKs are MIT-licensed [VF: A3-S058, A3-S011].
 - *Governance:* Anthropic donated MCP to the Agentic AI Foundation, a directed fund of the Linux Foundation, on 9 December 2025. The maintainer structure was unchanged and AAIF does not set technical direction [VF: A3-S018, V1-S038]. Both Lead Maintainers are Anthropic staff; an AWS engineer joined the Core Maintainers in April 2026 [VF: A3-S082]. AAIF had 247 members by August 2026, including Visa and Wells Fargo as Gold members [VF: A3-S041].
 - *Security model:* authorisation is optional; when used, it is a strict OAuth 2.1 profile with audience-bound tokens, PKCE, RFC 9728 metadata and RFC 9207 issuer validation, and token passthrough is forbidden [VF: A3-S055, A3-S056, A3-S057]. EMA (stable 18 June 2026) gives central IdP control; Anthropic's clients and VS Code support it, as do servers including Asana, Atlassian, Canva, Figma, Linear and Supabase [VF: A3-S017, V1-S045].
-- *Criticisms:* authorisation is optional in the specification [VF: A3-S055]. Tool annotations are only hints [VF: A3-S020]. Tool poisoning succeeded in 36.5% of attempts on average in MCPTox [VF: A3-S023]. OWASP maintains an MCP Top 10 in which tool and schema poisoning is MCP03 [VF: A3-S045]. Researchers argue that prompt-injection filtering plus OAuth correctness is not enough, citing newer variants (MCP-ITP, ShareLock, Potemkin) [VF: A3-S024]. IDE clients from several vendors, including Anthropic's Claude Code, had high-severity issues from auto-launching project-defined servers [R: A3-S022]. The official Registry has been in preview since 8 September 2025, its "Registry API v1 GA" item is at the "Ideating" stage with no target date, and `/v1` returned 404 on 7 October 2026 [VF: A3-S019, A3-S114, A3-S036]. The 2026-07-28 revision contained breaking changes [VF: A3-S015]. Adoption figures (about 0.5bn monthly SDK downloads, July 2026) are project-reported [VF: A3-S015] [AJ].
+- *Criticisms:* authorisation is optional in the specification [VF: A3-S055]. Tool annotations are only hints [VF: A3-S020]. Tool poisoning succeeded in 36.5% of attempts on average in MCPTox [VF: A3-S023]. OWASP maintains an MCP Top 10 in which tool and schema poisoning is MCP03 [VF: A3-S045]. Researchers argue that prompt-injection filtering plus OAuth correctness is not enough, citing newer variants (MCP-ITP, ShareLock, Potemkin) [VF: A3-S024]. IDE clients from several vendors, including Anthropic's Claude Code, had high-severity issues from auto-launching project-defined servers [R: A3-S022]. The official Registry has been in preview since 8 September 2025, its "Registry API v1 GA" item is at the "Ideating" stage with no target date, and `/v1` returned 404 on 7 October 2026 [VF: A3-S019, A3-S114, A3-S036]. The 2026-07-28 revision contained breaking changes [VF: A3-S015]. Adoption figures (about 0.5bn monthly SDK downloads, July 2026) are project-reported [VF: A3-S015] [AJ]. The TypeScript SDK published several High-severity advisories in 2026, including GHSA-6qxp-vccf-f47h (30 September 2026), in which an OAuth client could send stored refresh tokens and client secrets to an authorisation server named by a malicious MCP server; the fix also requires `expectedIssuer` to be configured [VF: B-REVA-S006].
 - *Strengths:* the de facto agent-to-tool contract, now with an enterprise-grade authorisation profile and gateway-friendly headers [AJ]. Launch partners for 2026-07-28 include AWS, Cloudflare, Google Cloud and Microsoft Foundry [VF: A3-S015].
 - *Limitations:* the security that matters in a regulated firm (mandatory authorisation, allow-listing, definition pinning, policy) lives outside the specification, in gateways and registries [AJ]. Technical direction is concentrated in one vendor's staff [VF: A3-S082] [AJ].
 - *Choose when:* you need one contract for tools across several agent frameworks and model vendors [AJ].
@@ -151,7 +151,7 @@ The gateway is the design choice that matters most. Without it, every MCP client
 - *Independent alternatives:* OpenAPI-described tools exposed through a gateway and called through each model's native function calling; AgentCore Gateway, Apigee and APIM can convert existing APIs into tools [VF: A6-S021, A6-S024, A6-S053]. Vendor-neutral private registries (Azure API Center, GitHub's enterprise registry setting) can hold the allow-list whichever protocol wins [VF: A3-S043, A3-S044].
 - *Competitors:* A2A (complementary, agent-to-agent), OpenAPI tool definitions, vendor function-calling schemas.
 - *FS note:* adopt the protocol, not the ecosystem: internal servers only, behind the gateway, with authorisation mandatory and definitions pinned [Rec].
-- **Tier: Strategic, conditional: only behind a firm-owned gateway that makes authorisation mandatory and enforces an allow-list, because the specification leaves both optional [AJ]. No flag.**
+- **Tier: Strategic, conditional: only behind a firm-owned gateway that makes authorisation mandatory, enforces an allow-list and pins tool definitions, because the specification leaves these optional and security scores 2 [AJ]. No flag.** FS 3.55, below the 3.6 guide; the tier rests on MCP being the layer's de facto tool contract, and the alternative (Tactical) is put to the human reviewer at CP3 [AJ].
 
 **Agent2Agent Protocol (A2A Project, AAIF / Linux Foundation).**
 - *What it is now:* an open protocol for communication between opaque agent applications. Specification 1.0.0 was released on 12 March 2026 and 1.0.1 on 26 May 2026; the Python SDK `a2a-sdk` is at 1.2.2 (5 October 2026) [VF: A3-S078, A3-S079, A3-S075, V1-S039]. Specification and SDKs are Apache-2.0 [VF: A3-S075, A3-S025].
@@ -259,7 +259,7 @@ The gateway is the design choice that matters most. Without it, every MCP client
 - *Avoid when:* tools and agents span several clouds and you want one policy point; use a cloud-neutral gateway (agentgateway, Kong) instead [VF: A6-S061, A6-S016] [AJ].
 - *Competitors:* Azure APIM AI gateway, Apigee, Kong AI Gateway, agentgateway (C1); Composio.
 - *FS note:* AWS EMEA SARL is a designated critical third party under both DORA and the UK CTP regime, so this service sits inside an already overseen relationship [VF: R-DORA, R-UK-CTP]; it adds to AWS concentration [AJ].
-- **Tier: Strategic, conditional: only where AWS is the agent platform [AJ]. No flag.**
+- **Tier: Tactical, conditional: the default tool gateway where AWS is the agent platform [AJ]. No flag.** FS 3.45. AWS-only deployment (2) and one year of GA keep it below the Strategic guide, as for the same service in C1, AgentCore Memory (L5) and Bedrock Guardrails (C2) [AJ].
 
 ### 4.8 Comparison table
 
@@ -267,7 +267,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| L4-mcp | 4 | 3 | 3 | 5 | 5 | 3 | 4 | 4 | 3.85 | 3.75 | Strategic |
+| L4-mcp | 4 | 3 | 2 | 5 | 5 | 3 | 4 | 4 | 3.70 | 3.55 | Strategic |
 | L4-a2a | 3 | 3 | 3 | 5 | 4 | 3 | 4 | 5 | 3.60 | 3.70 | Tactical |
 | L4-agent-skills | 3 | 2 | 2 | 5 | 4 | 2 | 5 | 3 | 3.20 | 3.00 | Tactical |
 | L4-composio | 4 | 3 | 2 | 4 | 4 | 2 | 3 | 2 | 3.15 | 2.90 | Experimental |
@@ -275,15 +275,15 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | L4-tavily | 3 | 3 | 3 | 1 | 3 | 3 | 3 | 2 | 2.65 | 2.55 | Tactical |
 | L4-browserbase | 4 | 3 | 3 | 3 | 4 | 3 | 3 | 4 | 3.35 | 3.35 | Tactical |
 | L4-e2b | 4 | 2 | 3 | 4 | 4 | 3 | 3 | 4 | 3.35 | 3.35 | Tactical |
-| L4-aws-agentcore-gateway-identity | 4 | 4 | 4 | 3 | 4 | 4 | 4 | 3 | 3.80 | 3.70 | Strategic |
+| L4-aws-agentcore-gateway-identity | 4 | 4 | 4 | 2 | 4 | 3 | 4 | 3 | 3.55 | 3.45 | Tactical |
 
 **Scoring notes [AJ]:**
-- *Open specifications (rule 2).* MCP, A2A and Agent Skills were scored on project hygiene and on what they enable in the firm's estate, capped at 4. MCP security is 3, not 4, because authorisation is optional and tool definitions cannot be signed; A2A is 3 because card signing is optional and delegated authority has no revocation semantics; Agent Skills is 2 because skills carry executable code with no signing or provenance.
+- *Open specifications (rule 2).* MCP, A2A and Agent Skills were scored on project hygiene and on what they enable in the firm's estate, capped at 4. MCP security is 2 (it was 3 before the CP3 review): authorisation is optional, tool definitions cannot be signed, tool poisoning is a documented attack class, and the TypeScript SDK had several High advisories in 2026, one of which sent OAuth credentials to an authorisation server chosen by the MCP server [VF: A3-S055, A3-S023, B-REVA-S006]. Advisories are published with fixes, which is good hygiene, but on protocol integrity MCP sits below A2A, so the borderline call was resolved against the Anthropic-originated item. A2A is 3 because card signing is optional and delegated authority has no revocation semantics; Agent Skills is 2 because skills carry executable code with no signing or provenance.
 - *Evidence caps.* Composio security is capped at 2: V1 §4 lists its security claims as vendor marketing only, and the May 2026 incident would independently hold it at 2. E2B enterprise readiness is capped at 2: SSO, SCIM and RBAC are "planned" and no customer audit log was found (B-L4-S003). Tavily (RBAC roles, B-L4-S006) and Browserbase (SAML SSO, B-L4-S004) were lifted to 3 under CP2 rule 7 by one verified control each.
-- *Hyperscaler presumption (rule 6).* AgentCore enterprise readiness is 4: platform controls presumed (CP2 Q1); confirm per service. Security is 4, not 5, because the ISO wording is inconsistent across AWS pages (rule 8).
+- *Hyperscaler presumption (rule 6).* AgentCore enterprise readiness is 4: platform controls presumed (CP2 Q1); confirm per service. Security is 4, not 5, because the ISO wording is inconsistent across AWS pages (rule 8). At the CP3 review, deployment fell from 3 to 2 (AWS-managed only) and maturity from 4 to 3 (one year of GA), to match the same service in C1 and AgentCore Memory in L5.
 - *Deployment 1.* Exa and Tavily are SaaS-only with no processing region choice found.
 - *Ownership change (rule 3).* Tavily's lock-in was reduced by 1 for the Nebius acquisition.
-- *Tiers.* A2A reaches 3.70 FS but is Tactical: few regulated workflows need agent-to-agent delegation today. MCP is Strategic only on the gateway condition stated in its deep dive.
+- *Tiers.* A2A reaches 3.70 FS but is Tactical: few regulated workflows need agent-to-agent delegation today, and it is a Strategic candidate when they do. MCP is Strategic at 3.55 FS, below the 3.6 guide and with security at 2, only on the gateway condition stated in its deep dive; this is the one tier in the section that sits above a higher-scoring peer, and it is put to the human reviewer at CP3 (Q2 in the CP3 review). AgentCore Gateway and Identity is Tactical, conditional: the default tool gateway where AWS is the agent platform, consistent with every other AWS-only managed service in tranche 2.
 
 **Key facts.**
 
@@ -370,7 +370,7 @@ STEP 6 [Rec]: Packaging procedures
 - *Validation scope.* The tool set exposed to an agent is part of the system being validated. Adding a tool is a material change that should trigger re-testing [AJ].
 
 **EU AI Act.**
-- *Deployer duties.* Article 26 requires deployers of high-risk systems to keep logs for at least six months and monitor operation; Annex III duties apply from 2 December 2027 [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011]. Most asset-management uses, including attribution commentary, are not Annex III [VF: R-EUAIA].
+- *Deployer duties.* Article 26 requires deployers of high-risk systems to keep logs for at least six months and monitor operation; Annex III duties apply from 2 December 2027 [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011]. Most asset-management uses, including attribution commentary, are not Annex III [AJ].
 - *Practical effect.* Tool calls are the actions an auditor will ask about first. Log them to Article 26 grade regardless of classification [Rec].
 
 **DORA, the UK CTP regime and outsourcing.**
@@ -390,7 +390,7 @@ STEP 6 [Rec]: Packaging procedures
 **Concentration.** IOSCO flags concentration risk from reliance on a few AI technology providers [VF: R-INTL-AI-ASSETMGMT, A8-S058]. In L4 the concentration is in governance, not in vendors: both Lead Maintainers of MCP are Anthropic staff [VF: A3-S082], and Agent Skills is Anthropic-maintained [VF: A3-S115]. A firm that also uses Anthropic models should note that one vendor then influences the model, the tool protocol and the skills format [AJ]. This author is an Anthropic model, and the point applies in full [AJ].
 
 **Standards.**
-- *OWASP.* Map tool controls to the Top 10 for Agentic Applications for 2026, which starts with ASI01 Agent Goal Hijack [VF: R-OWASP-AGENTIC, A8-S042] and includes ASI02 tool misuse, ASI03 identity and privilege abuse and ASI04 agentic supply chain [VF: A3-S046]. Map model-side controls to the Top 10 for LLM Applications 2026, in which Excessive Agency is third [VF: R-OWASP-LLM, V2-S056]. Use OWASP's MCP Top 10 for server reviews [VF: A3-S045].
+- *OWASP.* Map tool controls to the Top 10 for Agentic Applications for 2026, which starts with ASI01 Agent Goal Hijack [VF: R-OWASP-AGENTIC, A8-S042] and includes ASI02 tool misuse, ASI03 identity and privilege abuse and ASI04 agentic supply chain [VF: A3-S046]. Map model-side controls to the Top 10 for LLM Applications 2026, operative from August–September 2026 [VF: R-OWASP-LLM, V2-S056]; Excessive Agency is reported as third in it [R: A8-S041]. Use OWASP's MCP Top 10 for server reviews [VF: A3-S045].
 - *NIST and ISO.* NIST AI RMF and AI 600-1 give the risk taxonomy [VF: R-NIST-AIRMF, A8-S043, A8-S044]; ISO/IEC 42001 gives the management system [VF: R-ISO-42001, A8-S045].
 - *ESMA.* ESMA expects "ex-ante input controls and frequent ex-post output controls" [VF: R-INTL-AI-ASSETMGMT, A8-S059]. Gateway policy is the ex-ante control on actions [AJ].
 
@@ -430,7 +430,7 @@ STEP 6 [Rec]: Packaging procedures
 | Tavily "search API" | Nebius-owned since 19 Feb 2026 [VF: V1-S041] | Tactical; refresh due diligence [Rec] |
 | Browserbase "cloud browsers" | Browsers plus Stagehand; standalone MCP server archived [VF: A3-S013, A3-S054] | Tactical, only where no API exists [Rec] |
 | E2B "code sandboxes" | Firecracker microVMs, egress firewall, Apache-2.0 runtime, BYOC [VF: A3-S062, A3-S120] | Tactical; reference sandbox pattern for derived calculations [Rec] |
-| (absent) | AgentCore Gateway + Identity + Policy: managed tool gateway, token vault, Cedar policy [VF: A3-S047, A6-S026] | Strategic in AWS estates; cloud-neutral alternatives in C1 [Rec] |
+| (absent) | AgentCore Gateway + Identity + Policy: managed tool gateway, token vault, Cedar policy [VF: A3-S047, A6-S026] | Tactical: default tool gateway in AWS estates; cloud-neutral alternatives in C1 [Rec] |
 
 **H3 (tools and protocols need an explicit agent identity, authorisation and tool-governance sub-layer). Provisional view; verdict in synthesis.**
 

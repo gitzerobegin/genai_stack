@@ -90,7 +90,7 @@ There are two delivery models, and the recommended design combines them [AJ].
 ### C5.5 Enterprise design principles
 
 **Security**
-- Never put secrets, client identifiers or credentials into prompt templates or configuration files [Rec]. The OWASP 2025 list names System Prompt Leakage (LLM07) as a risk category [VF: R-OWASP-LLM, A8-S040]; assume any prompt can be extracted [AJ].
+- Never put secrets, client identifiers or credentials into prompt templates or configuration files [Rec]. The OWASP 2025 list names System Prompt Leakage (LLM07) as a risk category, cited for traceability [R: A8-S040]; assume any prompt can be extracted [AJ].
 - Treat the production label or branch as a privileged resource. Langfuse's protected labels and LangSmith's owners-only mode exist for this purpose [VF: A7-S072, A7-S076].
 - A third-party registry that proxies model calls (PromptLayer's SDK can proxy provider SDK calls for logging [VF: A7-S004]) becomes part of the data path for prompts and outputs. Decide that deliberately, not by default [AJ].
 
@@ -143,7 +143,7 @@ The Langfuse and LangSmith platforms are profiled in L9 §9.7 (ownership, certif
 - *Avoid when:* you will not license Enterprise, since then any writer can move the production label [AJ].
 - *Competitors:* LangSmith prompts, PromptLayer, prompts as code.
 - *FS note:* protect the production label and grant the right to move it only to the CI release identity; keep Git as the record [Rec].
-- **Tier: Strategic, conditional: only where Langfuse is the L9 platform and the Enterprise licence is bought. Flag: Acquired.**
+- **Tier: Strategic, conditional: only where Langfuse is the L9 platform and the Enterprise licence is bought (FS 3.85 after the CP3 alignment with L9). Flag: Acquired.**
 
 **LangSmith prompt management (LangChain).**
 - *What it is now:* prompts stored as a commit history with diffs; reserved Staging and Production environments assigned by promotion; per-environment rollback history; owners-only mode; webhooks on each commit; GitHub synchronisation; a public prompt hub [VF: A7-S076]. Platform profile: see §9.7.
@@ -201,7 +201,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| C5-langfuse-prompts | 4 | 3 | 4 | 4 | 4 | 4 | 4 | 3 | 3.80 | 3.70 | Strategic |
+| C5-langfuse-prompts | 4 | 4 | 4 | 4 | 4 | 4 | 4 | 3 | 3.95 | 3.85 | Strategic |
 | C5-langsmith-prompts | 4 | 4 | 4 | 5 | 4 | 4 | 3 | 3 | 4.00 | 3.95 | Strategic |
 | C5-promptlayer | 4 | 4 | 3 | 4 | 3 | 3 | 2 | 3 | 3.40 | 3.40 | Tactical |
 | C5-launchdarkly-ai-configs | 4 | 4 | 4 | 2 | 3 | 3 | 3 | 2 | 3.30 | 3.20 | Tactical |
@@ -210,9 +210,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 **Scoring notes [AJ]:**
 - No NPV cap was triggered. LaunchDarkly's enterprise readiness was evidenced by the writer (SAML SSO, custom roles and an audit log API) [VF: B-C5-S001, B-C5-S002]. PromptLayer's SOC 2 Type 2 is now a dated vendor statement with a DPA commitment [VF: B-C5-S003]; it scores 3, not 4, because no report or ISO 27001 was seen.
 - LaunchDarkly security is 4, not 5: SOC 2, ISO 27001 and FedRAMP Moderate are company-level, and AgentControl's coverage is not stated (CP2 Q4).
-- The registry scores for Langfuse and LangSmith match their L9 platform scores except on lock-in, where LangSmith's prompt capability scores 3 (L9: 2) because prompt text synchronises to GitHub [VF: A7-S076].
+- The registry scores for Langfuse and LangSmith match their L9 platform scores except on lock-in, where LangSmith's prompt capability scores 3 (L9: 2) because prompt text synchronises to GitHub [VF: A7-S076]. CP3 review: Langfuse enterprise readiness was raised from 3 to 4 (FS 3.70 to 3.85) to match the CP2-reworked L9 Langfuse score; SSO, project RBAC, audit logs, SCIM and the Org Management API are verified, Enterprise-licensed when self-hosted, which is the tier's stated condition [VF: A7-S074, A1-S033].
 - Langfuse deployment stays at 4 to match L9, although the C5 record verifies that self-hosted Langfuse can run fully offline [VF: A7-S073]. Both scores should be revisited together at synthesis.
-- Prompts as code is scored under rubric rule 2 and is Strategic at 3.65 FS because it is the record, not the runtime. The Acquired flag and the lock-in reduction come from Promptfoo, the example eval CLI, which is replaceable.
+- Prompts as code is scored under rubric rule 2 and is Strategic at 3.65 FS because it is the record, not the runtime. Its enterprise readiness of 4 is the rule 2 maximum; it is higher than the 3 given to OPA, FOCUS or OpenLineage because approval and audit, which are this control's whole function, are delivered by the firm's own source-control platform (inherits host controls). The Acquired flag and the lock-in reduction come from Promptfoo, the example eval CLI, which is replaceable.
 - The ownership-change reduction of 1 on lock-in was applied to Langfuse and prompts as code.
 
 **Key facts.**
@@ -271,7 +271,7 @@ STEP 3 [Rec]: Checks before go-live
 ### C5.11 Regulated FS lens (POV 2)
 
 **Model risk: a prompt change can be a model change.**
-- *SS1/23.* PRA SS1/23 applies to all models used to inform business decisions, including vendor models, and sets five principles: identification and classification, governance, development and implementation, independent validation, and risk mitigants [VF: R-PRA-SS123, A8-S008, A8-S037]. It is binding on banks, building societies and PRA-designated investment firms with internal-model approval [VF: R-PRA-SS123, A8-S008].
+- *SS1/23.* PRA SS1/23 applies to all models used to inform business decisions, including vendor models, and sets five principles: identification and classification, governance, development and implementation, independent validation, and risk mitigants [VF: R-PRA-SS123, A8-S008, A8-S037]. It applies to banks, building societies and PRA-designated investment firms with internal-model approval for credit, market or counterparty credit risk capital; insurers are not covered [VF: R-PRA-SS123, A8-S008].
 - *Applying it here.* For an LLM-based system, the "model" a validator approved is the combination of foundation model, prompt, retrieval configuration and tools [AJ]. Changing the system prompt or the embedding model can change outputs as much as changing the foundation model [AJ]. The firm's change policy should therefore define which configuration changes are material and trigger re-validation, and record each change against the inventory entry [Rec].
 - *SR 26-2.* SR 26-2 superseded SR 11-7 on 17 April 2026 and expressly excludes generative and agentic AI. For those tools, the firm's own risk-management practices determine governance and controls [VF: R-US-MRM, A8-S001, A8-S002]. No US regulator therefore defines prompt change control; the firm must set its own standard [AJ]. Writing it to SS1/23 quality is the defensible choice [Rec].
 - *Effective challenge.* SR 26-2 retains effective challenge by independent reviewers for in-scope models [VF: R-US-MRM, A8-S001]. The equivalent here is that a second person, ideally the risk owner for the use case, approves production configuration changes [AJ].
@@ -294,7 +294,7 @@ STEP 3 [Rec]: Checks before go-live
 
 **Standards.**
 - *NIST and ISO.* NIST AI RMF 1.0 and the GenAI Profile (AI 600-1) [VF: R-NIST-AIRMF, A8-S043, A8-S044] and ISO/IEC 42001 [VF: R-ISO-42001, A8-S045] both expect controlled change of AI systems; this control is where that evidence is produced [AJ].
-- *OWASP.* Use the OWASP Top 10 for LLM Applications 2026 and the Top 10 for Agentic Applications for 2026 [VF: R-OWASP-LLM, V2-S056; R-OWASP-AGENTIC, A8-S042]. For traceability, the 2025 list's LLM07 System Prompt Leakage is the direct mapping for prompt content [VF: R-OWASP-LLM, A8-S040].
+- *OWASP.* Use the OWASP Top 10 for LLM Applications 2026 and the Top 10 for Agentic Applications for 2026 [VF: R-OWASP-LLM, V2-S056; R-OWASP-AGENTIC, A8-S042]. For traceability, the 2025 list's LLM07 System Prompt Leakage is the direct mapping for prompt content [R: A8-S040].
 - *ESMA.* ESMA expects ex-ante input controls and frequent ex-post output controls [VF: R-INTL-AI-ASSETMGMT, A8-S059]. An approved, pinned configuration is the ex-ante control [AJ].
 
 ### C5.12 Worked-example slice (POV 3)

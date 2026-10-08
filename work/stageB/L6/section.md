@@ -66,7 +66,7 @@ The layer also holds a copy of the firm's most sensitive unstructured content in
 - *Partitioning* gives each tenant its own namespace, collection or index, so the filter becomes an address. Pinecone and turbopuffer route every query to a namespace [VF: A2-S051, A2-S056], turbopuffer isolates namespaces as prefixes in object storage [VF: A2-S124], Qdrant has tiered multitenancy with tenant promotion [VF: A2-S103], and Chroma scopes access control to the tenant, with databases beneath it [VF: B-L6-S008].
 
 ```text
-WRITE (L8 -> L7 -> L6)
+WRITE (L8 -> L7 -> L6) [AJ]
   approved doc --> chunk + metadata {doc_id, version, fund_id, client_id,
                    classification, region, retention_until, embed_model_version}
             --> dense vector (+ sparse terms)
@@ -74,7 +74,7 @@ WRITE (L8 -> L7 -> L6)
                        index    = ANN (HNSW / IVF / centroid / DiskANN-type) + BM25
                        payload  = text or pointer to source of truth (L8)
 
-QUERY (L3 -> C4 -> L6 -> L7 -> L3)
+QUERY (L3 -> C4 -> L6 -> L7 -> L3) [AJ]
   caller identity --> C4 entitlements {fund_ids, client_ids, max_classification}
             --> L6: select partition(s) the caller may use
                     filter INSIDE the search (never after ranking)
@@ -82,7 +82,7 @@ QUERY (L3 -> C4 -> L6 -> L7 -> L3)
             --> L7 reranker --> top-k passages + provenance
             --> L3 prompt assembly;  retrieval log (IDs, versions, scores) --> C8 / L9
 
-LIFECYCLE
+LIFECYCLE [Rec]
   source delete / retraction / erasure --> delete by ID --> compaction / vacuum
   embedding model change --> shadow index --> evaluate (L9) --> cut over --> drop old
   backup = rebuild-from-source (primary) + store snapshot (secondary)
@@ -170,13 +170,13 @@ LIFECYCLE
 - *Avoid when:* you need self-hosting or air-gap, or would let Nexus become the only place where curated knowledge exists [AJ].
 - *Competitors:* Zilliz Cloud (Milvus), Qdrant Cloud, turbopuffer.
 - *FS note:* use BYOC or an EU region; keep the source of truth and raw text outside; treat Nexus as a separate decision with its own exit plan [Rec].
-- **Tier: Tactical. No flag.** It scores 3.80 FS, above the Strategic guide. It is held at Tactical because lock-in scores 2 and the vendor is widening its scope into L5 and L8, so it should not be a foundational dependency without a decided exit route [AJ].
+- **Tier: Tactical. No flag.** It scores 3.80 FS, above the Strategic guide. It is held at Tactical because lock-in scores 2 and the vendor is widening its scope into L5 and L8, so it should not be a foundational dependency without a decided exit route [AJ]. The same lock-in score is accepted as a Strategic condition for MongoDB because there it rides on an existing platform commitment; for Pinecone it would be a new proprietary dependency [AJ].
 
 **Qdrant (Qdrant Solutions GmbH).**
 - *What it is now:* an Apache-2.0 vector search engine written in Rust, with dense and sparse vectors, payload filtering, hybrid fusion, multitenancy and quantisation [VF: A2-S108, A2-S052, A2-S103]. Server 1.19.2 was released on 5 October 2026 [VF: A2-S102]. Recent releases added ACORN filtered search and tiered multitenancy (1.16), weighted RRF and audit access logging (1.17), and TurboQuant quantisation and a low-memory mode (1.18) [VF: A2-S103, A2-S102].
 - *Deployment:* Managed Cloud on AWS, GCP and Azure; Hybrid Cloud with clusters in the customer's network, managed through the Qdrant Cloud console (Enterprise plan); Private Cloud, including air-gapped; and self-hosting [VF: A2-S106, A2-S105, A2-S108].
 - *Certifications and residency:* SOC 2 Type II and HIPAA, with the BAA documented for Managed Cloud only; ISO 27001 was not found [VF: A2-S105, V1-S069]. EU customers can keep data in EU regions exclusively [VF: A2-S105].
-- *Access control:* Qdrant Cloud has Base, Admin and Owner roles plus custom roles. SSO (SAML, OIDC, Okta, Azure AD and others) is an add-on for the Premium tier. Database access uses admin, read-only or JWT keys scoped to individual collections [VF: B-L6-S007].
+- *Access control:* Qdrant Cloud has Base, Admin and Owner roles plus custom roles. SSO (SAML, OIDC, Okta, Azure AD and others) is an add-on for the Premium tier. Database access uses admin, read-only or JWT keys scoped to individual collections [VF: B-L6-S007]. The Qdrant Cloud API manages accounts, clusters, backups and authentication methods with management keys, and the Premium tier carries a 99.9% uptime SLA (99.95% multi-AZ) [VF: B-REVA-S002]. Management and database keys are not revoked when the user who created them leaves, so offboarding must revoke them explicitly [VF: B-REVA-S002] [Rec].
 - *Funding:* a US$50M Series B on 12 March 2026, led by AVP [VF: A2-S107, V1-S032].
 - *Strengths:* filter-aware search and per-collection keys suit entitlement-heavy retrieval; a deployment range that includes air-gapped Private Cloud [AJ].
 - *Limitations:* no ISO 27001 [VF: V1-S069]. Upgrades cannot skip 1.16 [VF: A2-S102]. Managed pricing evidence is thin and may be stale [VF: A2-S106].
@@ -189,9 +189,9 @@ LIFECYCLE
 **Milvus and Zilliz Cloud (LF AI & Data; Zilliz).**
 - *What it is now:* Milvus is an Apache-2.0 distributed vector database and a graduated LF AI & Data project; Zilliz created it, maintains it and sells Zilliz Cloud [VF: A2-S118, A2-S053]. Milvus 3.0 reached GA on 29 July 2026 (3.0.2 on 20 September), and the 2.6 line is still patched [VF: A2-S117, V1-S031]. It supports dense and sparse vectors (SINDI sparse index), BM25 full-text search, JSON path indexing, faceted search and online schema changes [VF: A2-S117, A2-S054].
 - *Repositioning:* 3.0 is "lake-native": indexes over vectors kept in object storage and open formats (Loon engine, Vortex columnar format), with External Collections for lakehouse workflows. Zilliz Cloud is now a "Vector Lakebase" [VF: A2-S118].
-- *Certifications and deployment:* Zilliz Cloud holds SOC 2 Type II (scope includes Free, Serverless, Dedicated and BYOC; report under NDA) and ISO/IEC 27001 [VF: A2-S119, A2-S120]. CMEK and HIPAA eligibility come with Business Critical; SSO, audit logs and private endpoints with Enterprise Dedicated, which carries a 99.95% uptime SLA [VF: A2-S120]. BYOC puts the data plane in the customer's cloud account under a shared-responsibility model [VF: A2-S119]. EU regions include AWS Frankfurt and Ireland, GCP Frankfurt and Azure Germany West Central and North Europe [VF: A2-S121]. Milvus itself runs as Lite, Standalone or Distributed, with the same API as Zilliz Cloud [VF: A2-S054].
+- *Certifications and deployment:* Zilliz Cloud holds SOC 2 Type II (scope includes Free, Serverless, Dedicated and BYOC; report under NDA) and ISO/IEC 27001 [VF: A2-S119, A2-S120]. CMEK and HIPAA eligibility come with Business Critical; SSO, audit logs and private endpoints with Enterprise Dedicated, which carries a 99.95% uptime SLA [VF: A2-S120]. Zilliz Cloud access control has organisation, project and cluster roles, including custom project and cluster roles scoped to collections or operations, role assignment to IdP-synced groups, and SCIM provisioning [VF: B-REVA-S001]. BYOC puts the data plane in the customer's cloud account under a shared-responsibility model [VF: A2-S119]. EU regions include AWS Frankfurt and Ireland, GCP Frankfurt and Azure Germany West Central and North Europe [VF: A2-S121]. Milvus itself runs as Lite, Standalone or Distributed, with the same API as Zilliz Cloud [VF: A2-S054].
 - *Strengths:* foundation governance with a permissive licence, plus a certified managed and BYOC route from the same codebase [AJ].
-- *Limitations:* 3.0 is ten weeks old and not guaranteed compatible with 2.6 servers [VF: A2-S117]. Milvus Lite has no authentication or TLS [VF: A2-S054]. Zilliz's last disclosed raise was in 2022 [VF: A2-S122]. Distributed Milvus is a substantial operational commitment [AJ]. RBAC on Zilliz Cloud is not evidenced in the fact base [NPV].
+- *Limitations:* 3.0 is ten weeks old and not guaranteed compatible with 2.6 servers [VF: A2-S117]. Milvus Lite has no authentication or TLS [VF: A2-S054]. Zilliz's last disclosed raise was in 2022 [VF: A2-S122]. Distributed Milvus is a substantial operational commitment [AJ].
 - *Choose when:* the corpus is very large, you want open-source portability with a managed or BYOC option, or you want vectors to sit with lakehouse data [AJ].
 - *Avoid when:* a small team must self-operate it, or you need 3.0 features before the 3.x line has matured [AJ].
 - *Competitors:* Qdrant, Pinecone, Weaviate.
@@ -212,24 +212,24 @@ LIFECYCLE
 - **Tier: Tactical. No flag.**
 
 **turbopuffer.**
-- *Conflict of interest:* Anthropic, the author's developer, is reported as a turbopuffer customer [R: A2-S126]. The product is scored on the same rubric as every other product, and an independent alternative is named below [AJ].
+- *Conflict of interest:* Anthropic, the author's developer, is reported as a turbopuffer customer [R: A2-S126]. The product is scored on the same rubric as every other product, and an independent alternative is named below [AJ]. At the CP3 calibration review, the one borderline score (cost) was resolved against turbopuffer [AJ].
 - *What it is now:* a proprietary serverless search service with namespaced ANN vector search (a centroid-based SPFresh index), BM25 full-text ranking and filters [VF: A2-S056, A2-S124]. All durable state sits in object storage, and compute nodes are stateless [VF: A2-S124]. Python SDK 2.11.0 was released on 7 October 2026 [VF: A2-S056].
 - *Deployment and security:* SaaS in public regions on AWS, GCP and Azure, including Frankfurt, with customer data kept in the selected region [VF: B-L6-S002]. BYOC runs in the customer's Kubernetes cluster on AWS, GCP or Azure, and every vendor operation needs manual customer approval [VF: A2-S125]. SOC 2 Type 2, a HIPAA BAA on Scale and Enterprise, and per-namespace CMEK and private networking on Enterprise (from US$4,096 per month with a 35% usage premium) [VF: A2-S123, V1-S077].
 - *Access control:* SSO for the dashboard on Scale and Enterprise [VF: B-L6-S002]. There is no built-in document-level RBAC; permissions are implemented as filters [VF: B-L6-S002]. BYOC API keys are all admin keys for their organisation, and audit logs with SIEM integration were an opt-in beta in March 2026 [VF: B-L6-S002]. ISO 27001 was not found [NPV].
 - *Strengths:* object-storage economics and per-namespace keys suit very large, many-tenant corpora [AJ].
-- *Limitations:* cold queries are much slower than cached ones [R: A2-S124]. Revenue and funding figures are from press and an aggregator only [R: A2-S126, A2-S127]. Key scoping is coarse [VF: B-L6-S002].
+- *Limitations:* cold queries are much slower than cached ones [R: A2-S124]. Revenue and funding figures are from press and an aggregator only [R: A2-S126, A2-S127]. Key scoping is coarse [VF: B-L6-S002]. The controls a regulated firm needs (CMEK, private networking) sit on the Enterprise tier, which starts at US$4,096 per month with a 35% usage premium, against a US$500 Enterprise minimum for Pinecone [VF: A2-S123, V1-S077, A2-S074]; cost therefore scores 3, not 4 [AJ].
 - *Choose when:* you have very many tenants or a very large corpus with skewed access, and want BYOC with per-tenant keys [AJ].
 - *Avoid when:* you need fine-grained key scopes, ISO 27001 or self-hosting [AJ].
 - *Independent alternative:* Milvus 3.0 or Zilliz Cloud BYOC for an object-storage-oriented design [VF: A2-S118, A2-S119].
 - *Competitors:* Pinecone, Milvus/Zilliz, S3 Vectors.
 - *FS note:* BYOC only for client data; one namespace and one key per client; warm-up policy for latency-sensitive tenants [Rec].
-- **Tier: Tactical. No flag.**
+- **Tier: Tactical. No flag.** FS 3.15.
 
 **Elasticsearch (Elastic N.V.).**
 - *What it is now:* a distributed search engine combining BM25, dense and sparse vectors (BBQ and DiskBBQ quantisation, default since 9.1) and hybrid retrievers (RRF, and linear with l2_norm) [VF: A2-S133]. `semantic_text` fields chunk and embed automatically, defaulting to Jina v5, and support MMR [VF: A2-S133]. Elastic 9.5 reached GA on 4 August 2026, adding a VectorDB index mode in technical preview [VF: A2-S133, V1-S085].
 - *Licence and ownership:* source is available under AGPLv3 (an OSI licence added in 2024), SSPL 1.0 or the Elastic License 2.0; paid features are proprietary; clients are Apache-2.0 [VF: A2-S132]. Elastic acquired Jina AI, completing on 9 October 2025 [VF: A2-S023, V1-S025]. OpenSearch 3.9.0 (29 September 2026, Apache-2.0) is the fork alternative [VF: A2-S136].
 - *Certifications and deployment:* Elastic Cloud holds ISO 27001, 27017 and 27018 and SOC 2 Type II [VF: A2-S045]. Customer-managed keys (AWS KMS, Azure Key Vault, Google Cloud KMS) are available on Elastic Cloud Hosted with an Enterprise subscription; Serverless BYOK is on the roadmap [VF: A2-S134]. Private Link and Private Service Connect are supported, including London [VF: A2-S134]. EU and UK regions span AWS, GCP and Azure [VF: A2-S135]. Self-managed and on-premises deployment is supported [VF: A2-S132].
-- *Access control:* SAML/OIDC SSO, RBAC, field- and document-level security and audit logging (Platinum when self-managed) [VF: A2-S134]. Elastic Cloud SAML SSO and RBAC were confirmed in the CP2 review [VF: B-REV-S019]; the Cloud subscription tier for audit logging is not confirmed [VF: A2-S134].
+- *Access control:* SAML/OIDC SSO, RBAC, field- and document-level security and audit logging (Platinum when self-managed) [VF: A2-S134]. Elastic Cloud SAML SSO and RBAC were confirmed in the CP2 review [VF: B-REV-S019]; the Cloud subscription tier for audit logging is not confirmed [VF: A2-S134]. The Elastic Cloud API manages organisation membership and role-bearing, organisation-owned API keys; organisation SSO is SAML, and no Elastic Cloud SCIM documentation was found [VF: B-REVA-S003].
 - *Strengths:* mature lexical retrieval combined with vector and hybrid retrieval, and document-level security that maps directly onto entitlement-aware retrieval [AJ].
 - *Limitations:* the security features that matter here sit in paid tiers [VF: A2-S134]. Cluster pricing is not verified [NPV]. Elastic now bundles embedding models (Jina), which couples L6 and L7 [VF: A2-S023] [AJ].
 - *Choose when:* Elastic or OpenSearch is already a platform, or the corpus is lexical-heavy (identifiers, tickers, fund codes) [AJ].
@@ -283,17 +283,29 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-SCORE_TABLE_PLACEHOLDER
+| L6-pgvector | 4 | 4 | 3 | 5 | 5 | 4 | 5 | 5 | 4.25 | 4.20 | Strategic |
+| L6-pinecone | 4 | 4 | 5 | 4 | 3 | 4 | 3 | 2 | 3.85 | 3.80 | Tactical |
+| L6-qdrant | 4 | 4 | 3 | 5 | 4 | 3 | 4 | 4 | 3.90 | 3.85 | Strategic |
+| L6-milvus-zilliz | 4 | 4 | 4 | 5 | 4 | 4 | 3 | 5 | 4.10 | 4.25 | Strategic |
+| L6-weaviate | 4 | 3 | 4 | 5 | 4 | 3 | 3 | 3 | 3.75 | 3.70 | Tactical |
+| L6-turbopuffer | 4 | 3 | 3 | 4 | 3 | 3 | 3 | 2 | 3.30 | 3.15 | Tactical |
+| L6-elasticsearch | 5 | 4 | 5 | 4 | 5 | 5 | 2 | 3 | 4.30 | 4.25 | Strategic |
+| L6-mongodb-atlas-vector-search | 4 | 4 | 4 | 4 | 4 | 4 | 3 | 2 | 3.80 | 3.65 | Strategic |
+| L6-chroma | 3 | 2 | 3 | 4 | 3 | 2 | 4 | 4 | 3.05 | 3.10 | Tactical |
+| L6-s3-vectors | 3 | 4 | 4 | 2 | 3 | 3 | 5 | 2 | 3.30 | 3.15 | Tactical |
 
 **Scoring notes [AJ]:**
 - **NPV cap applied once:** Chroma's enterprise readiness is capped at 2, because customer-facing SSO, roles and audit logs are not documented (only tenant-scoped access and database-scoped keys were found) [VF: B-L6-S008].
 - **Caps lifted by this writer's searches (CP2 Q2):** MongoDB (SSO, roles and auditing [VF: B-L6-S001]), Qdrant (Cloud RBAC, SSO add-on and collection-scoped keys [VF: B-L6-S007]), Weaviate (RBAC, OIDC and audit logging [VF: B-L6-S009]) and turbopuffer (dashboard SSO [VF: B-L6-S002]). turbopuffer stays at 3, not higher, because keys are admin-level and roles are undocumented.
+- **Rule 7 basis for the 4s (CP3 review):** a 4 needs all three of SSO, RBAC and audit logs plus SCIM, an SLA or an admin API. Pinecone (SCIM), MongoDB (Atlas Admin API [VF: B-REV-S028]), Qdrant (Cloud Management API and Premium SLA [VF: B-REVA-S002]), Milvus/Zilliz (RBAC, SCIM and SLA [VF: A2-S120, B-REVA-S001]) and Elasticsearch (Elastic Cloud API [VF: B-REVA-S003]) meet it. Weaviate has the three controls but no SCIM, SLA or admin API evidence, so it stays at 3, as Braintrust does in L9.
 - **Hyperscaler presumption (CP2 Q1):** S3 Vectors enterprise readiness is 4. pgvector's enterprise readiness of 4 relies on the managed PostgreSQL host (RDS, Aurora, Cloud SQL, AlloyDB, Azure) [VF: B-L6-S004, B-L6-S005]; platform controls presumed (CP2 Q1), confirm per service.
-- **Certification scope (CP2 Q4):** S3 Vectors security is 4, not 5, because no compliance-programme scope statement for S3 Vectors was found [VF: B-L6-S006]. MongoDB is 4 because the Atlas certifications are platform-level and the SOC 2 scope excludes preview features [VF: B-REV-S027]. Milvus/Zilliz is 4 because the SOC 2 report is under NDA and Zilliz certifications were not re-checked by the verifiers.
+- **Certification scope (CP2 Q4):** S3 Vectors security is 4, not 5, because no compliance-programme scope statement for S3 Vectors was found [VF: B-L6-S006]. MongoDB is 4 because the Atlas certifications are platform-level and the SOC 2 scope excludes preview features [VF: B-REV-S027]. Milvus/Zilliz is 4 because the record combines Zilliz Cloud (product-scoped SOC 2 Type II and ISO 27001 plus CMEK, which would reach 5) with self-hosted Milvus, whose rule 2 hygiene is not evidenced.
 - **No ISO 27001, maximum 3:** Qdrant, turbopuffer and Chroma.
 - **Rule 2 (self-hosted software):** pgvector is scored on project hygiene (two CVEs fixed promptly, permissive licence) and on what it enables inside the firm's own PostgreSQL.
 - **Ownership change:** no L6 product changed owner in 2025–26. MongoDB and Elastic are acquirers (Voyage AI, Jina AI), which affects L7 lock-in, not L6 scores.
 - **Strategic despite a 2:** Elasticsearch (cost 2) and MongoDB (lock-in 2) are Strategic only on the conditions in their deep dives. Pinecone (3.80 FS) is Tactical by judgement, explained in its deep dive.
+- **Conflict of interest (turbopuffer).** Cost was lowered from 4 to 3 at the CP3 review: the Enterprise tier that carries CMEK and private networking starts at US$4,096 per month, against US$500 for Pinecone Enterprise [VF: A2-S123, A2-S074]. The borderline call was resolved against the Anthropic-related item.
+- **Why L6 scores above L7.** Four L6 products are permissively licensed or foundation-governed and self-hostable (deployment 5, lock-in 4–5), and Elastic and MongoDB are mature incumbent platforms; L7's hosted embedding APIs score 2 on deployment and lock-in because vectors force re-embedding. The gap comes from the FS weights on deployment and lock-in and from verified controls, not from more lenient scoring. pgvector's maturity of 4 despite 0.x versioning reflects years of production use and GA managed hosting on all three hyperscalers [VF: B-L6-S004, B-L6-S005]; it is not labelled beta, unlike NeMo Guardrails (C2).
 - **Low scores** are present in every column except ecosystem and maturity: S3 Vectors deployment 2, Chroma maturity 2, and four lock-in scores of 2 (Pinecone, turbopuffer, MongoDB, S3 Vectors).
 
 **Key facts.**
@@ -422,7 +434,6 @@ STEP 5 [Rec]: Checks before go-live
 ### 6.12 Worked-example slice (POV 3)
 
 **What the commentary agent needs from L6 [AJ].** The agent drafts the monthly Brinson-style attribution commentary (allocation, selection, currency, benchmark-relative return) for a generic multi-asset fund. Authoritative numbers come from the attribution engine through read-only L4 tools; L6 supplies only words and context. It needs:
-
 1. **Three logical collections, one store.**
    - *Prior commentaries:* approved monthly commentaries for this fund, with fund, share class, period, author, approver, approval date and version.
    - *House style guide and glossary:* firm-wide, versioned, with an "effective from" date.
@@ -454,7 +465,7 @@ STEP 5 [Rec]: Checks before go-live
 | Qdrant "open source" | Apache-2.0; Hybrid and air-gapped Private Cloud; Series B [VF: A2-S108, A2-S106, A2-S107] | Strategic dedicated engine for in-estate use [Rec] |
 | Milvus "vector search" | Milvus 3.0 lake-native; Zilliz Cloud "Vector Lakebase" [VF: A2-S118, A2-S117] | Strategic dedicated engine for very large corpora; 3.0 after validation [Rec] |
 | Weaviate "open source" | Open core in transition (`wl/` commercial licence, 1.40 RC) [VF: A2-S115, V1-S070] | Tactical until the licence position is settled [Rec] |
-| turbopuffer "cloud vector store" | Vector plus BM25 on object storage; BYOC; Anthropic reported as a customer [VF: A2-S056, A2-S124, A2-S125; R: A2-S126] | Tactical: many-tenant, cost-sensitive corpora, BYOC only [Rec] |
+| turbopuffer "cloud vector store" | Vector plus BM25 on object storage; BYOC; Anthropic reported as a customer [VF: A2-S056, A2-S124, A2-S125] [R: A2-S126] | Tactical: many-tenant, cost-sensitive corpora, BYOC only [Rec] |
 | Elasticsearch "hybrid search" | Elastic 9.5; AGPL option; Jina models bundled [VF: A2-S133, A2-S132, A2-S023] | Strategic where already operated; OpenSearch as fork alternative [Rec] |
 | MongoDB "Atlas vector" | MongoDB Vector Search, self-managed GA as well as Atlas; hybrid GA; Voyage reranking preview [VF: A2-S137, A2-S141] | Strategic where MongoDB is the operational store [Rec] |
 | Chroma "open source" | Apache-2.0; Chroma Cloud with SOC 2 Type II; no PyPI release since May 2026 [VF: A2-S060, A2-S130] | Tactical: prototypes and harnesses [Rec] |

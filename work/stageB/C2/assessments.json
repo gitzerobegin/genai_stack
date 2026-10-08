@@ -221,7 +221,7 @@
         "security_compliance": 4,
         "deployment_flexibility": 2,
         "ecosystem": 3,
-        "reliability_maturity": 4,
+        "reliability_maturity": 3,
         "cost_tco": 3,
         "lockin_portability": 2
       },
@@ -231,15 +231,15 @@
         "security_compliance": "Bedrock in AWS SOC 1/2/3 scope since 15 August 2023 and on the ISO 27001 list [VF: B-C2-S001, B-C2-S002]; Guardrails not named separately, so the scope rule applies; customer KMS key supported [VF: A6-S072]",
         "deployment_flexibility": "Managed AWS only; cross-region profiles [VF: A6-S072]",
         "ecosystem": "Referenced by Kong and AWS's gateway Guidance [VF: A6-S017, A6-S022]",
-        "reliability_maturity": "Priced since at least December 2024; tiers added June 2025 [VF: A6-S101, A6-S072]; InvokeGuardrailChecks GA not verified",
+        "reliability_maturity": "Priced since at least December 2024; tiers added June 2025 (A6-S101, A6-S072); maturity fact cell NPV and InvokeGuardrailChecks GA not verified; 3, consistent with Azure AI Content Safety (GA August 2024) and Model Armor (CP3 review A)",
         "cost_tco": "Transparent per-policy unit pricing, e.g. US$0.15 per 1,000 text units for content filters [VF: A6-S101]",
         "lockin_portability": "AWS-specific API [VF: A6-S072]"
       },
       "evidence_caps_applied": [
         "enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service"
       ],
-      "generic_total": 3.6,
-      "fs_total": 3.45
+      "generic_total": 3.5,
+      "fs_total": 3.35
     }
   },
   {

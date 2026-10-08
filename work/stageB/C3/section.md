@@ -305,7 +305,7 @@ STEP 4 [Rec]: Checks before go-live
 - PRA PS7/26 and FCA PS26/2 require material third-party notifications from 18 March 2027 [VF: R-PRA-SS221, R-FCA-SYSC8, A8-S062]. A specialist vault on the critical path of client-data access is a candidate for material classification [AJ].
 - SS2/21 expects documented and tested exit plans [VF: R-PRA-SS221, A8-S048]. For a vault, the exit test is bulk detokenisation [AJ].
 
-**Model risk.** PRA SS1/23 is the operative anchor for banks and PRA-designated firms; SR 26-2 places generative and agentic AI outside its scope [VF: R-PRA-SS123, A8-S008; R-US-MRM, A8-S001]. NER and LLM-based detectors are models whose recall drifts with data, so they should be inventoried and tested as such [AJ].
+**Model risk.** PRA SS1/23 applies to banks, building societies and PRA-designated investment firms with internal-model approval, and is technology-agnostic [VF: R-PRA-SS123, A8-S008]; SR 26-2 places generative and agentic AI outside its scope [VF: R-US-MRM, A8-S001]. SS1/23 and the EU AI Act are therefore the operative anchors [AJ]. NER and LLM-based detectors are models whose recall drifts with data, so they should be inventoried and tested as such [AJ].
 
 **Standards.** The OWASP 2025 list identified Sensitive Information Disclosure as LLM02, kept here for traceability [R: A8-S040]; the 2026 Top 10 for LLM Applications, released August–September 2026, is the operative list [VF: R-OWASP-LLM, V2-S056]. NIST AI 600-1 and ISO/IEC 42001 provide neutral risk and management-system frameworks [VF: R-NIST-AIRMF, A8-S044; R-ISO-42001, A8-S045].
 

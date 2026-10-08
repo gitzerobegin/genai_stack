@@ -1,0 +1,12 @@
+SOURCE ID: B-REVA-S004
+URL: https://developer.konghq.com/konnect-platform/authentication/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains developer.konghq.com, docs.konghq.com, konghq.com): Kong Konnect SSO OIDC SAML teams roles RBAC
+========================================================================
+
+Kong developer docs "Konnect platform authentication and authorization" (with the Konnect migration guide and federated-authentication release post), as summarised by the search tool:
+- Konnect organisation SSO with any SAML or OIDC provider, or built-in authentication; Okta and Microsoft Entra ID guides; each scheme can be toggled independently.
+- Access is managed with teams and predefined roles within an organisation; with OIDC SSO, Team Mappings map IdP group claims to Konnect teams.
+- Personal access tokens inherit the owner's roles and team memberships.
+- Dev Portal SSO and self-managed Kong Gateway RBAC are separate systems.

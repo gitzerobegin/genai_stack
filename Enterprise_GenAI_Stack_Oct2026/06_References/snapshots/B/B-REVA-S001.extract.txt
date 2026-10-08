@@ -1,0 +1,14 @@
+SOURCE ID: B-REVA-S001
+URL: https://docs.zilliz.com/docs/access-control
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.zilliz.com, zilliz.com): Zilliz Cloud RBAC organization project roles access control
+========================================================================
+
+Zilliz Cloud docs "Access Control Explained" (with "Manage Platform Users"), as summarised by the search tool:
+- Access control in three layers: organization, project and cluster.
+- Organization roles (predefined): Public (baseline sign-in), Organization Owner (settings, members, roles, projects, security, billing), Billing Admin.
+- Project roles: Project Admin, Data Admin, Data Operator, Data Viewer, plus custom project roles for least privilege; each project keeps at least one Project Admin; no cross-project wildcard assignment.
+- Cluster roles in the data layer: built-in Admin, Read-Write and Read-Only, plus custom cluster roles scoped to collections or operations; a newer cluster admin role.
+- Final permissions are the union of direct and group-based assignments; roles can be assigned to IdP-synced groups; users and groups can be provisioned with SCIM.
+- Older 2023-2024 blog posts use earlier role names (organization owner/member, project owner).

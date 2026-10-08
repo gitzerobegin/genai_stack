@@ -1,0 +1,15 @@
+SOURCE ID: B-REVA-S006
+URL: https://github.com/modelcontextprotocol/typescript-sdk/security/advisories
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains github.com, modelcontextprotocol.io): modelcontextprotocol python-sdk typescript-sdk security advisory GHSA CVE 2026
+========================================================================
+
+GitHub security advisories for modelcontextprotocol/typescript-sdk and the GitHub Advisory Database, as summarised by the search tool (snippets only; not checked against NVD):
+- GHSA-6qxp-vccf-f47h (High; published 30 September 2026): a malicious or compromised MCP server could name its own authorization server and the OAuth client would send stored refresh tokens and client secrets to it. Fixed in @modelcontextprotocol/sdk 1.31.0 and @modelcontextprotocol/client 2.2.0; bundled providers must also be configured with expectedIssuer.
+- GHSA-6prh-2h8m-c8cw (Moderate; 2 October 2026): HTTP client transports and OAuth requests followed cross-origin redirects, re-sending custom headers and, on 307/308, request bodies including tokens. Fixed in 1.32.0 and 2.3.0.
+- GHSA-22jm-h49p-29qw (High; 2 October 2026): experimental tasks not tied to the creating session; fixed in 1.32.0.
+- GHSA-345p-7cg4-v4c7 / CVE-2026-25536 (High; 4 February 2026): cross-client data leak via shared server/transport instance reuse; affected 1.10.0-1.25.3, fixed in 1.26.0.
+- GHSA-w48q-cv73-mx4w: DNS rebinding protection not enabled by default for HTTP servers (fixed version not confirmed).
+- GHSA-8r9q-7v3j-jr4g / CVE-2026-0621: ReDoS in resource templates with exploded array patterns.
+- No Python SDK advisories surfaced in this search.

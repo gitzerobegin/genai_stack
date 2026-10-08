@@ -2,7 +2,7 @@
 
 > **Executive summary.** This control answers the question every incident review and every regulator will ask: who did this, on whose authority, and with what permission [AJ]? For an agent that means five things: the agent has its own identity, it acts on behalf of a named human where a human started the work, its permissions are the least needed for the task, it holds no standing secrets, and every action is attributable to both the agent and the human [AJ]. The original graphic has no such control; it shows MCP and A2A as connectivity in L4 without saying who is allowed to call what [AJ]. Since then the products have reached general availability. Microsoft Entra Agent ID became GA in April 2026, with its security features tied to Microsoft Agent 365 licences [VF: A6-S058, A6-S059, V2-S032]. Auth0 for AI Agents became GA on 19 November 2025, Okta for AI Agents on 30 April 2026, and Okta Agent SSO (Cross App Access) on 24 August 2026; Okta states that Cross App Access is the MCP Enterprise-Managed Authorization extension [VF: A6-S097, A6-S100, A6-S099, V2-S035]. MCP revision 2026-07-28 deprecated Dynamic Client Registration and added issuer validation, but authorisation in MCP is still optional and OAuth 2.1 is still an IETF draft [VF: A6-S032, A6-S033]. Policy in Amazon Bedrock AgentCore, built on Cedar, became GA on 3 March 2026 and now authors policies in Dogwood, a Cedar superset [VF: A6-S026, V2-S033]. SPIFFE/SPIRE and OPA are CNCF graduated [VF: A6-S087, A6-S046]. **Recommendation:** register every agent in the firm's workforce identity provider (Entra or Okta, whichever already holds the humans) with a named sponsor; use on-behalf-of token exchange so tool calls carry short-lived, audience-bound tokens scoped to the user and the task; give runtimes workload identity (SPIFFE/SPIRE or the cloud equivalent) instead of secrets; and put a deny-by-default policy decision point (OPA, or Cedar in an AWS AgentCore estate) at the gateway for every tool call. Record user, agent, tool and policy decision in one audit event [Rec].
 
-**Conflict of interest.** The author is an Anthropic model, and MCP originated at Anthropic. MCP authorisation is scored on the same rubric as every other product, and independent alternatives are named in its deep dive [AJ].
+**Conflict of interest.** The author is an Anthropic model, and MCP originated at Anthropic. MCP authorisation is scored on the same rubric as every other product, and independent alternatives are named in its deep dive [AJ]. At the CP3 calibration review its tier was a borderline call, and it was resolved against the Anthropic-originated specification (Tactical, mandatory where MCP is used) [AJ].
 
 ### C4.1 Responsibility
 
@@ -30,7 +30,7 @@
 
 ### C4.2 Why it matters
 
-Agents turn identity mistakes into actions [AJ]. A human with excessive access usually does nothing with it; an agent with excessive access may be steered into using it by text it reads [AJ]. OWASP's Top 10 for Agentic Applications for 2026 lists ASI03 "Identity & Privilege Abuse", where leaked or excessive credentials let agents operate beyond their intended scope, next to ASI01 Agent Goal Hijack and ASI02 Tool Misuse and Exploitation [VF: B-C4-S005, R-OWASP-AGENTIC, A8-S042]. The 2026 OWASP LLM list moved Excessive Agency to third place [VF: R-OWASP-LLM, V2-S056]. Badly designed, the control fails in four ways [AJ]:
+Agents turn identity mistakes into actions [AJ]. A human with excessive access usually does nothing with it; an agent with excessive access may be steered into using it by text it reads [AJ]. OWASP's Top 10 for Agentic Applications for 2026 lists ASI03 "Identity & Privilege Abuse", where leaked or excessive credentials let agents operate beyond their intended scope, next to ASI01 Agent Goal Hijack and ASI02 Tool Misuse and Exploitation [VF: B-C4-S005, R-OWASP-AGENTIC, A8-S042]. The 2026 OWASP LLM list is reported to have moved Excessive Agency to third place, on a contributor's account; the full 2026 list was not retrieved [R: R-OWASP-LLM, V2-S056]. Badly designed, the control fails in four ways [AJ]:
 
 - **Shared service accounts.** Every agent runs as one technical user, so logs cannot say which human started an action.
 - **Standing credentials.** API keys and refresh tokens live in agent configuration or prompts and outlive the task.
@@ -164,16 +164,16 @@ Agents turn identity mistakes into actions [AJ]. A human with excessive access u
 **Okta for AI Agents, Auth0 for AI Agents and Okta Agent SSO (Okta, Inc.).**
 - *What it is now:* three products. Auth0 for AI Agents (GA 19 November 2025) covers user authentication, Token Vault for third-party API tokens, asynchronous authorisation and FGA for RAG; Auth for MCP and On-Behalf-Of Token Exchange became GA in May 2026 [VF: A6-S097]. Okta for AI Agents (GA 30 April 2026) discovers, onboards, protects and governs agent identities [VF: A6-S100]. Okta Agent SSO, or Cross App Access (XAA), became GA on 24 August 2026 and is included in core Okta SSO [VF: A6-S099, V2-S035].
 - *Standards:* XAA uses the Identity Assertion Authorization Grant; Okta says it is formally incorporated as the MCP Enterprise-Managed Authorization extension [VF: A6-S080, A6-S099]. The Auth0 AI SDKs implement OpenID CIBA for asynchronous human approval and calls on users' behalf [VF: A6-S078, A6-S076].
-- *Administration:* agents are managed under Directory > AI Agents, registered in Universal Directory with human owners (up to five individuals, or a group), and certified in Identity Governance campaigns with AI agents as the identity type [VF: B-C4-S007]. System Log coverage of agent activity is documented only on a training page [VF: B-C4-S007].
+- *Administration:* agents are managed under Directory > AI Agents, registered in Universal Directory with human owners (up to five individuals, or a group), and certified in Identity Governance campaigns with AI agents as the identity type [VF: B-C4-S007]. Okta's reference documentation states that admins can view System Log events for AI agents, and a dedicated AI agent administrator role can create, update and delete agents, manage MCP servers and view those events; the System Log is also exposed through a management API [VF: B-REVB-S001]. Okta support states that System Log events are retained for 90 days [VF: B-REVB-S001]. Export agent events to the firm's SIEM under the records policy [Rec].
 - *Certifications:* the Okta Security Trust Center lists ISO/IEC 27001:2022, SOC 1, SOC 2 and SOC 3, and FedRAMP Moderate and High (High on a separate government platform); SOC 2 Type II reports are shared under NDA, and product scope for the AI-agent products is not stated [VF: B-C4-S006].
 - *Ecosystem:* XAA out-of-the-box support includes Anthropic (Claude), Asana, Atlassian, Canva, Datadog, Figma, Glean, Linear, Notion, Slack and Supabase [VF: A6-S099].
 - *Strengths:* the most complete standards-based delegation set (token exchange, ID-JAG, CIBA, token vaulting) [AJ].
-- *Limitations:* the Auth0 AI SDKs are flagged "under heavy development", and @auth0/ai reached major version 6 in about 13 months [VF: A6-S078, A6-S077]. Okta Agent Gateway and Shadow AI Agent Discovery were announced for Q3 2026 and are not confirmed shipped [VF: A6-S100]. The Okta for AI Agents price and EU data location are not verified [NPV].
+- *Limitations:* the Auth0 AI SDKs are flagged "under heavy development", and @auth0/ai reached major version 6 in about 13 months [VF: A6-S078, A6-S077]. Okta Agent Gateway and Shadow AI Agent Discovery were announced for Q3 2026 [VF: A6-S100]; Okta help now documents Agent Gateway activity in the System Log [VF: B-REVB-S001], but its general availability is not confirmed [NPV]. The Okta for AI Agents price and EU data location are not verified [NPV].
 - *Choose when:* Okta is the workforce IdP, or customer-facing agents need Token Vault and CIBA [AJ].
 - *Avoid when:* Entra holds the workforce, or you need a self-hosted IdP [AJ].
 - *Competitors:* Entra Agent ID, HashiCorp Vault agentic IAM, MCP gateway-native auth.
 - *FS note:* use XAA/ID-JAG so the IdP mediates MCP access; pin SDK versions; obtain the SOC 2 report and confirm it covers the agent products [Rec].
-- **Tier: Strategic, conditional: where Okta is the workforce IdP. FS 3.40, with deployment at 2, accepted for the same reason as Entra [AJ]. No flag.**
+- **Tier: Strategic, conditional: where Okta is the workforce IdP. FS 3.55 (3.40 before the CP3 review lifted enterprise readiness to 4 on System Log and administrator-role evidence), below the usual 3.6 because deployment scores 2; accepted for the same reason as Entra [AJ]. No flag.**
 
 **SPIFFE and SPIRE (CNCF).**
 - *What it is now:* SPIFFE is the specification and SPIRE its runtime. SPIRE attests running software and issues SPIFFE IDs and SVIDs through the Workload API, so workloads can establish mTLS or signed-JWT trust and authenticate to secret stores, databases or cloud services; it also implements Envoy SDS [VF: A6-S087]. SPIRE v1.15.3 was released on 21 August 2026 under Apache-2.0, and the project is CNCF graduated [VF: A6-S043, A6-S089, A6-S087].
@@ -197,8 +197,8 @@ Agents turn identity mistakes into actions [AJ]. A human with excessive access u
 - *Choose when:* MCP is the firm's tool protocol [AJ].
 - *Avoid when:* tools are REST or OpenAPI services behind a gateway, where a plain OAuth 2.0 resource-server pattern is enough [AJ].
 - *Independent alternatives:* gateway-native tool authorisation (Kong MCP access controls and token exchange [VF: A6-S017]; AgentCore Gateway with IAM or OAuth [VF: A6-S026]; Azure API Management credential manager for MCP [VF: A6-S053]), and the plain OAuth 2.0 resource-server pattern for REST tools [AJ]. A2A is a peer protocol whose own specification does not define scope, validity or revocation semantics for authorisation obtained mid-task [VF: A3-S078].
-- *FS note:* make authorisation mandatory by firm policy, require EMA, and pin the specification revision at the gateway with a re-test on each revision [Rec].
-- **Tier: Strategic, conditional: only where MCP is the tool protocol, with authorisation mandated by policy and the revision pinned at the gateway, because reliability scores 2 [AJ]. No flag.**
+- *FS note:* make authorisation mandatory by firm policy, require EMA, and pin the specification revision at the gateway with a re-test on each revision [Rec]. Put the durable control in the workforce IdP (via EMA) and the gateway PDP, so it survives a change of tool protocol [Rec].
+- **Tier: Tactical, mandatory wherever MCP is the tool protocol. FS 3.45, reliability 2. It is the required interface contract for MCP tool calls, but not a foundational dependency on its own: authorisation is optional in the specification, it rests on IETF drafts and it has had four breaking revisions in about 16 months. The strategic components are the workforce IdP and the gateway policy decision point. The CP3 review judged this borderline and resolved it against the Anthropic-originated specification under the conflict-of-interest rule; it is the same treatment as OpenSSF Model Signing in C7 (FS 3.50, Tactical) [AJ]. No flag.**
 
 **Open Policy Agent (CNCF).**
 - *What it is now:* a general-purpose policy engine that evaluates Rego policies against JSON input and returns allow/deny or richer decisions, as a library, sidecar or daemon, across services, APIs, Kubernetes and infrastructure [VF: A6-S046]. v1.21.1 was released on 29 September 2026; it is Apache-2.0 and CNCF graduated since February 2021 [VF: A6-S048, A6-S088, A6-S046].
@@ -214,15 +214,16 @@ Agents turn identity mistakes into actions [AJ]. A human with excessive access u
 **Cedar and Policy in Amazon Bedrock AgentCore (Cedar project; AWS).**
 - *What it is now:* Cedar is an Apache-2.0 policy language and engine for RBAC and ABAC, validated against a schema and designed for automated-reasoning analysis; 4.13.0 was released on 15 September 2026 [VF: A6-S045, A6-S044]. Amazon Verified Permissions is the managed Cedar service and requires Cedar 4 from April 2026 [VF: A6-S104]. Policy in Amazon Bedrock AgentCore became GA on 3 March 2026 in 13 Regions, including Europe (Ireland) [VF: A6-S026, V2-S033].
 - *Agent tool governance:* AgentCore Policy attaches a policy engine to a Gateway, evaluates every agent-to-tool call before execution on identity claims and tool arguments, filters denied tools from `tools/list`, supports natural-language authoring with automated-reasoning checks, and logs decisions to CloudWatch [VF: A6-S026]. Temporal policies and rate limiting were announced on 6 August 2026 [VF: A6-S106]. Policies are now authored in Dogwood, which AWS describes as an open-source, Cedar-compatible superset [VF: V2-S033]; its governance and licence were not checked [NPV].
+- *Certifications:* Amazon Bedrock AgentCore is listed in AWS SOC 1, 2 and 3 scope, where GA features are in scope unless excluded, and in AWS's ISO/IEC 27001 programmes; the ISO wording in the extract is partly garbled and FedRAMP status is unresolved [VF: B-C1-S005, B-C1-S006, B-L4-S002]. These are the sources C1 and L4 use for AgentCore Gateway [AJ].
 - *Pricing:* Cedar is free; AgentCore Policy costs US$0.000025 per authorisation request and US$0.13 per 1,000 input tokens for natural-language policy processing, as of 7 October 2026 [VF: A6-S021].
 - *Project hygiene:* Cedar's security policy promises a non-automated acknowledgement within one business day and an initial assessment within five, with embargoed advisories [VF: B-C4-S003].
 - *Strengths:* the most complete managed tool-call authorisation found, with analysable policies [AJ].
-- *Limitations:* Cedar cannot do external lookups at evaluation time, and AWS recommends Lambda interceptors for those cases; enforcement is tied to AgentCore Gateway [VF: A6-S026]. The Cedar 2 to 4 migration was breaking for Verified Permissions users [VF: A6-S104]. AWS certifications for AgentCore were not searched [NPV].
+- *Limitations:* Cedar cannot do external lookups at evaluation time, and AWS recommends Lambda interceptors for those cases; enforcement is tied to AgentCore Gateway [VF: A6-S026]. The Cedar 2 to 4 migration was breaking for Verified Permissions users [VF: A6-S104].
 - *Choose when:* your agents run on AgentCore Gateway [AJ].
 - *Avoid when:* you are multi-cloud and want one PDP, or your policies need live external data [AJ].
 - *Competitors:* OPA, gateway-native policy (Kong).
 - *FS note:* review AI-generated policies before activation, keep Cedar source in Git, and avoid Dogwood-only constructs where portability matters; platform controls presumed (CP2 Q1); confirm per service [Rec].
-- **Tier: Strategic, conditional: in AWS agent estates using AgentCore Gateway; elsewhere Cedar is a Tactical alternative to OPA [AJ]. No flag.**
+- **Tier: Tactical; the preferred policy decision point inside an AWS AgentCore estate. FS 3.70 after the CP3 security re-base, which meets the usual Strategic guide, but AgentCore Policy enforces only at AgentCore Gateway, which C1 rates Tactical, and a policy engine cannot be more strategic than its enforcement point. OPA is the Strategic, cloud-neutral default; keep Cedar source in Git so policies stay portable [AJ]. No flag.**
 
 ### C4.8 Comparison table
 
@@ -231,19 +232,20 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | C4-entra-agent-id | 5 | 4 | 4 | 2 | 4 | 3 | 2 | 3 | 3.55 | 3.50 | Strategic |
-| C4-okta-auth0-ai-agents | 5 | 3 | 4 | 2 | 4 | 3 | 3 | 3 | 3.50 | 3.40 | Strategic |
+| C4-okta-auth0-ai-agents | 5 | 4 | 4 | 2 | 4 | 3 | 3 | 3 | 3.65 | 3.55 | Strategic |
 | C4-spiffe-spire | 3 | 3 | 4 | 5 | 4 | 5 | 3 | 5 | 3.85 | 4.05 | Strategic |
-| C4-mcp-authorization | 4 | 3 | 3 | 4 | 5 | 2 | 4 | 4 | 3.60 | 3.50 | Strategic |
+| C4-mcp-authorization | 4 | 3 | 3 | 4 | 4 | 2 | 4 | 4 | 3.50 | 3.45 | Tactical |
 | C4-opa | 4 | 3 | 4 | 5 | 5 | 4 | 4 | 5 | 4.15 | 4.20 | Strategic |
-| C4-cedar | 4 | 4 | 3 | 4 | 3 | 3 | 4 | 3 | 3.60 | 3.50 | Strategic |
+| C4-cedar | 4 | 4 | 4 | 4 | 3 | 3 | 4 | 3 | 3.75 | 3.70 | Tactical |
 
 **Scoring notes [AJ]:**
-- *Why six Strategic.* The products are complementary layers (IdP, workload identity, protocol profile, policy engine), not alternatives. Within each pair of alternatives only one is Strategic for a given firm: Entra or Okta (whichever holds the workforce), OPA or Cedar (OPA by default, Cedar in an AgentCore estate). Four of the six are conditional, and three are below the usual 3.6 FS line; the conditions are stated in each deep dive.
+- *Why four Strategic (CP3 review).* The products are mostly complementary layers (IdP, workload identity, protocol profile, policy engine). The exception is Entra and Okta, which are alternatives: only the one that holds the workforce is Strategic for a given firm. So a given firm adopts at most three Strategic components here: one IdP, SPIFFE/SPIRE (or its cloud equivalent) and OPA. The writer's draft rated all six Strategic; the review moved MCP authorisation to Tactical (see below) and Cedar to Tactical (it is FS 3.70, but its managed enforcement is tied to AgentCore Gateway, which C1 rates Tactical). Two Strategic entries remain below the usual 3.6 FS line, Entra (3.50) and Okta (3.55), each on a stated condition: agent identities must live in the directory that holds the delegating humans.
 - *Hyperscaler presumption (CP2 Q1).* Entra Agent ID and AgentCore Policy score 4 on enterprise readiness, with "platform controls presumed (CP2 Q1); confirm per service".
-- *Partial evidence (CP2 Q2).* Okta scores 3: SSO and agent ownership and certification controls are verified, but agent audit coverage is documented only on a training page.
+- *Partial evidence (CP2 Q2).* Okta now scores 4: SSO, a dedicated AI agent administrator role with agent ownership and certification (RBAC), System Log events for AI agents in reference documentation (audit) and the System Log management API are verified [VF: B-C4-S007, B-REVB-S001]. The writer's draft scored 3 because audit coverage was then documented only on a training page. Not 5: SLA and agent-specific SCIM are not verified.
 - *Certification scope (CP2 Q4).* Entra and Okta score 4, not 5: their certifications are at service or company level and do not name the agent products.
+- *Cedar and AgentCore Policy security (CP3 review).* Raised from 3 to 4 on the AgentCore SOC and ISO evidence already logged by C1 and L4 (B-C1-S005, B-C1-S006, B-L4-S002), held at 4 for the same reasons as there. FS moves from 3.50 to 3.70. The tier nonetheless moves from Strategic, conditional to Tactical, for the enforcement-point reason in the deep dive.
 - *Self-hosted software and open specifications (rule 2).* SPIFFE/SPIRE, OPA, the Cedar library and the MCP specification are scored on project hygiene and capped at 4. All four publish security policies (B-C4-S001 to S004).
-- *MCP authorisation.* Reliability is 2 because of four breaking revisions in about 16 months and draft dependencies; ecosystem is 5 on verified implementations by AWS, Kong, Okta and Microsoft products. The same rule would apply to any vendor-originated specification.
+- *MCP authorisation.* Reliability is 2 because of four breaking revisions in about 16 months and draft dependencies. Ecosystem is 4, not 5: implementations by AWS, Kong, Okta and Microsoft products are verified, but authorisation is optional and adoption of the authorisation profile across MCP servers is not publicly verified (L4 scores MCP itself 5) [AJ]. Tier: Tactical, mandatory where MCP is used (CP3 review; borderline, resolved against the Anthropic-originated specification). The same rule would apply to any vendor-originated specification.
 - *Calibration.* Every product except OPA scores 2 or 3 on at least one criterion; OPA's lowest is 3.
 
 **Key facts.**
@@ -255,7 +257,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | SPIFFE/SPIRE | Apache-2.0 [VF: A6-S089] | Self-hosted, on-premises [VF: A6-S087] | Not applicable; Cure53 audit 2021 [VF: A6-S087] | In-estate [VF: A6-S087] | CNCF graduated [VF: A6-S087] |
 | MCP authorisation | Open specification [VF: A6-S033] | Implementation-dependent [AJ] | Not applicable; security policy [VF: B-C4-S004] | Not applicable | AAIF (Linux Foundation); Anthropic-led maintainers [VF: A3-S018, A3-S082] |
 | OPA | Apache-2.0 [VF: A6-S088] | Self-hosted, on-premises [VF: A6-S046] | Not applicable; security policy [VF: B-C4-S001] | In-estate [VF: A6-S046] | CNCF graduated [VF: A6-S046] |
-| Cedar / AgentCore Policy | Cedar Apache-2.0; AgentCore proprietary [VF: A6-S045, A6-S026] | Library anywhere; AgentCore in 13 AWS Regions [VF: A6-S045, A6-S026] | AgentCore not searched [NPV] | Europe (Ireland) Region [VF: A6-S026] | Cedar project (created by AWS); AWS [VF: A6-S045, A6-S026] |
+| Cedar / AgentCore Policy | Cedar Apache-2.0; AgentCore proprietary [VF: A6-S045, A6-S026] | Library anywhere; AgentCore in 13 AWS Regions [VF: A6-S045, A6-S026] | AgentCore in AWS SOC 1/2/3 scope; ISO 27001 programmes; FedRAMP unresolved [VF: B-C1-S005, B-C1-S006, B-L4-S002] | Europe (Ireland) Region [VF: A6-S026] | Cedar project (created by AWS); AWS [VF: A6-S045, A6-S026] |
 
 ### C4.9 Decision tree
 
@@ -315,18 +317,18 @@ STEP 5 [Rec]: Runtime identity and secrets
 - Article 26 requires deployers of high-risk systems to monitor operation and keep logs for at least six months; Annex III duties apply from 2 December 2027 [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011]. Logs without user and agent identity cannot show who operated the system [AJ]. Build the attribution chain to Article 26 quality even where the use case is not high-risk [Rec].
 
 **Model risk.**
-- SR 26-2 places generative and agentic AI outside its scope; PRA SS1/23 is the operative anchor for banks and PRA-designated firms [VF: R-US-MRM, A8-S001; R-PRA-SS123, A8-S008]. An agent's permissions are part of its risk tier: the same model with write access is a different risk from one with read-only access [AJ].
+- SR 26-2 places generative and agentic AI outside its scope [VF: R-US-MRM, A8-S001]. PRA SS1/23 applies to banks, building societies and PRA-designated investment firms with internal-model approval, and covers vendor models [VF: R-PRA-SS123, A8-S008]. With the EU AI Act, it is the operative anchor [AJ]. An agent's permissions are part of its risk tier: the same model with write access is a different risk from one with read-only access [AJ].
 
 **Operational resilience and concentration.**
 - DORA's CTPP list and the UK CTP designations cover hyperscalers and no AI model provider [VF: R-DORA, A8-S021; R-UK-CTP, A8-S023]. Whether a given identity service sits inside a designated provider's scope is not verified [NPV]. The workforce IdP is already a critical dependency; adding agents makes it the root of trust for automated actions too [AJ].
 - PRA PS7/26 and FCA PS26/2 require material third-party notifications from 18 March 2027 [VF: R-PRA-SS221, R-FCA-SYSC8, A8-S062]. A move of agent identity onto a new IdP product or licence bundle should be assessed for materiality with that lead time [Rec].
 - Break-glass and revocation procedures for agents belong in the operational-resilience testing plan [Rec].
 
-**US view.** NIST published an NCCoE concept paper on software and AI agent identity and authorisation in February 2026, and a CAISI agent-security RFI is informing a planned SP 800-53 control overlay for AI agent systems [VF: R-NIST-AIRMF, A8-S044]. The US supervisory signal is currently observation-based: guardrails and human-in-the-loop [VF: R-US-AGENCY-AI].
+**US view.** NIST published an NCCoE concept paper on software and AI agent identity and authorisation in February 2026, and a CAISI agent-security RFI is informing a planned SP 800-53 control overlay for AI agent systems [VF: R-NIST-AIRMF, A8-S044]. The OCC observes banks adopting GenAI and agentic AI in limited use cases "with guardrails and human-in-the-loop accountability" [VF: R-US-AGENCY-AI, A8-S004]. The US supervisory signal is therefore observation-based rather than rule-based [AJ].
 
 **Standards.**
 - OWASP Top 10 for Agentic Applications for 2026: ASI03 Identity & Privilege Abuse, ASI02 Tool Misuse and Exploitation and ASI07 Insecure Inter-Agent Communication map directly to this control; ASI01 Agent Goal Hijack is the attack that excessive privilege turns into damage [VF: B-C4-S005, R-OWASP-AGENTIC, A8-S042].
-- OWASP Top 10 for LLM Applications 2026, with Excessive Agency ranked third [VF: R-OWASP-LLM, V2-S056].
+- OWASP Top 10 for LLM Applications 2026 (released August–September 2026) [VF: R-OWASP-LLM, V2-S056], with Excessive Agency reported as ranked third [R: R-OWASP-LLM, V2-S056].
 - ISO/IEC 42001 and NIST AI RMF supply the management-system and risk vocabulary [VF: R-ISO-42001, A8-S045; R-NIST-AIRMF, A8-S043].
 
 ### C4.12 Worked-example slice (POV 3)

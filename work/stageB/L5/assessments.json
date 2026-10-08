@@ -39,7 +39,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 2,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -49,7 +49,7 @@
       },
       "rationale": {
         "technical": "Covers extraction, scoping, hybrid recall, deletion and history; graph and decay only on Platform",
-        "enterprise_readiness": "Enterprise plan lists SSO and audit logs; Platform roles and event feed; SLA on Enterprise; OSS has no org concept",
+        "enterprise_readiness": "Enterprise plan lists SSO, audit logs and SLA support (A3-S049); Platform org/project member roles and an event feed (A3-S080): all three controls plus SLA reach 4 under rule 7 (CP3 review A, consistent with Firecrawl and Mistral OCR); condition: evidence is a pricing page and OSS has no org concept",
         "security_compliance": "SOC 2 Type I confirmed by vendor; Type II claims conflict; no report seen; HIPAA and BYOK vendor-stated",
         "deployment_flexibility": "SaaS, self-host and on-prem verified; VPC and air-gap are vendor claims from a marketing guide",
         "ecosystem": "Wide vector-store support, LangGraph and CrewAI integrations; MCP repository archived",
@@ -60,8 +60,8 @@
       "evidence_caps_applied": [
         "security_compliance at 2: SOC 2 Type II status conflicting on vendor pages, only Type I confirmed (treated as below the 3 anchor)"
       ],
-      "generic_total": 3.4,
-      "fs_total": 3.2
+      "generic_total": 3.55,
+      "fs_total": 3.35
     }
   },
   {
@@ -105,7 +105,7 @@
     "scores": {
       "criteria": {
         "technical": 5,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 3,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -115,7 +115,7 @@
       },
       "rationale": {
         "technical": "Bi-temporal graph, episodes with provenance, hybrid retrieval, users and threads: leading depth on the layer's memory-type questions",
-        "enterprise_readiness": "IdP sign-in, RBAC + ABAC, audit logs (web-app only), SLA on Enterprise",
+        "enterprise_readiness": "IdP sign-in, RBAC + ABAC and audit logs with one-year retention, plus a guaranteed SLA on Enterprise (A3-S107, A3-S089): rule 7 allows 4 (CP3 review A, consistent with Mistral OCR); condition: audit logs cover web-app actions only, not API or SDK calls",
         "security_compliance": "SOC 2 Type II + HIPAA + BYOK on Enterprise; no ISO 27001 found (same calibration as Braintrust in L9)",
         "deployment_flexibility": "SaaS and BYOC (AWS/GCP/Azure); Graphiti self-host; no supported self-host of Zep itself",
         "ecosystem": "Broad framework integrations; Graphiti 31,529 stars; MCP server",
@@ -124,8 +124,8 @@
         "lockin_portability": "Zep Cloud proprietary engine and API; Graphiti (Apache-2.0) is a partial exit with no documented migration"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.6,
-      "fs_total": 3.35
+      "generic_total": 3.75,
+      "fs_total": 3.5
     }
   },
   {
@@ -231,7 +231,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 2,
+        "enterprise_readiness": 3,
         "security_compliance": 2,
         "deployment_flexibility": 5,
         "ecosystem": 3,
@@ -241,7 +241,7 @@
       },
       "rationale": {
         "technical": "Graph + vector memory with remember/recall/improve/forget and local extraction",
-        "enterprise_readiness": "Authenticated multi-tenant users and Enterprise SSO verified; RBAC and audit logs NPV (cap lifted by SSO under CP2 Q2, 2 on anchors)",
+        "enterprise_readiness": "Rule 2 basis: authenticated multi-tenant users, Enterprise SSO, SLAs and a dedicated support engineer (A3-S005, A3-S095); one verified control gives 3 under rule 7 (CP3 review A, consistent with LlamaParse and Browserbase); RBAC and audit logs NPV",
         "security_compliance": "Scored as self-hosted software (vendor-recommended) under rule 2: encryption, private mode, air-gap verified; security policy and signed releases NPV. Cognee Cloud alone would score 1 (no certification by vendor statement)",
         "deployment_flexibility": "Cloud, BYOC, self-host, on-prem and air-gap",
         "ecosystem": "MCP server and community plugins; 31,561 stars; optional standard graph and vector stores",
@@ -250,10 +250,11 @@
         "lockin_portability": "Apache-2.0 core on standard stores, but production Postgres graph is licensed"
       },
       "evidence_caps_applied": [
-        "Rule 2 applied (self-hosted software; inherits host controls): security_compliance and enterprise_readiness scored on self-hosted basis, capped at 4"
+        "Rule 2 applied (self-hosted software; inherits host controls): security_compliance and enterprise_readiness scored on self-hosted basis, capped at 4",
+        "enterprise_readiness: NPV cap lifted to 3 by verified SSO (rule 7)"
       ],
-      "generic_total": 3.2,
-      "fs_total": 3.1
+      "generic_total": 3.35,
+      "fs_total": 3.25
     }
   },
   {
@@ -294,7 +295,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 2,
+        "enterprise_readiness": 3,
         "security_compliance": 2,
         "deployment_flexibility": 5,
         "ecosystem": 4,
@@ -304,7 +305,7 @@
       },
       "rationale": {
         "technical": "Memory, profiles, forgetting and hybrid RAG in one API",
-        "enterprise_readiness": "SSO on Enterprise (protocols undocumented) verified; RBAC and audit NPV (cap lifted under CP2 Q2; 2 on anchors)",
+        "enterprise_readiness": "SSO on Enterprise verified (protocols undocumented) (A3-S096): one verified control lifts the cap to 3 under rule 7 (CP3 review A, consistent with LlamaParse and Browserbase); RBAC and audit logs NPV",
         "security_compliance": "SOC 2 claimed from Scale tier with report type unconfirmed; HIPAA Enterprise; DPA",
         "deployment_flexibility": "SaaS, dedicated, customer cloud, self-host (Scale+), air-gap (Enterprise)",
         "ecosystem": "Framework wrappers, MCP, coding-agent plugins",
@@ -313,10 +314,11 @@
         "lockin_portability": "Proprietary server binary and API; namespace API just changed"
       },
       "evidence_caps_applied": [
-        "security_compliance at 2: SOC 2 report type not confirmed (pricing page only)"
+        "security_compliance at 2: SOC 2 report type not confirmed (pricing page only)",
+        "enterprise_readiness: NPV cap lifted to 3 by verified SSO (rule 7)"
       ],
-      "generic_total": 3.15,
-      "fs_total": 2.9
+      "generic_total": 3.3,
+      "fs_total": 3.05
     }
   },
   {
@@ -395,7 +397,7 @@
         "No built-in TTL for long-term records; firm must build a pruner [VF: A3-S111]",
         "Harness-managed memory cannot be deleted via the Memory APIs [VF: A3-S111]",
         "Customer-managed key cannot be changed after creation for harness-managed memory [VF: B-L5-S002]",
-        "AWS-only proprietary API [VF: A3-S047]; pricing NPV; EU Region availability for Memory not individually verified [VF: A3-S048] [NPV]"
+        "AWS-only proprietary API [VF: A3-S047]; memory pricing changed on 6 October 2026 (short-term now per GB) [VF: B-REVA-S005]; EU Region availability for Memory not individually verified [VF: A3-S048] [NPV]"
       ],
       "choose_when": [
         "The agent runs on AgentCore or Strands in AWS [AJ]"
@@ -413,7 +415,7 @@
     "classification": {
       "tier": "Tactical",
       "flags": [],
-      "rationale": "Sound default inside an AgentCore estate with good lifecycle documentation; single-cloud deployment, proprietary API and unverified pricing keep it Tactical (conditional default in AWS) [AJ]."
+      "rationale": "Sound default inside an AgentCore estate with good lifecycle documentation; single-cloud deployment and a proprietary API keep it Tactical (conditional default in AWS) [AJ]."
     },
     "scores": {
       "criteria": {
@@ -423,7 +425,7 @@
         "deployment_flexibility": 2,
         "ecosystem": 3,
         "reliability_maturity": 3,
-        "cost_tco": 2,
+        "cost_tco": 3,
         "lockin_portability": 2
       },
       "rationale": {
@@ -433,12 +435,12 @@
         "deployment_flexibility": "AWS managed only, with VPC/PrivateLink connectivity; no self-host",
         "ecosystem": "Strands SDK and AgentCore APIs; wider ecosystem NPV",
         "reliability_maturity": "GA October 2025 with steady feature additions",
-        "cost_tco": "Pricing not verified (opaque in evidence)",
+        "cost_tco": "Published unit pricing for short- and long-term memory (B-REVA-S005), changed on 6 October 2026; extraction LLM cost on top; transparent, so 3 (consistent with Memory Bank)",
         "lockin_portability": "Proprietary AWS API; records listable for export; hyperscaler lock-in"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.2,
-      "fs_total": 3.15
+      "generic_total": 3.3,
+      "fs_total": 3.2
     }
   },
   {

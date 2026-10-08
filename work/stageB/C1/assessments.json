@@ -103,7 +103,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 3,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -113,7 +113,7 @@
       },
       "rationale": {
         "technical": "Routing, fallback, budgets, guardrails, MCP gateway [VF: A6-S049, A6-S014]; A2A not evidenced [NPV]",
-        "enterprise_readiness": "SSO/SAML 2.0, SCIM, organisation and workspace roles and organisation-wide audit logs [VF: B-C1-S001, B-C1-S002, B-C1-S003]; held at 3 because the evidence is mainly marketing pages and the post-acquisition SLA is not public",
+        "enterprise_readiness": "SSO/SAML 2.0, SCIM, organisation and workspace roles and organisation-wide audit logs (B-C1-S001, B-C1-S002), with IdP group mapping in the docs changelog (B-C1-S003): all three controls plus SCIM reach 4 under rule 7 (CP3 review A, consistent with Firecrawl); condition: evidence is mainly vendor pages and post-acquisition terms are not public",
         "security_compliance": "SOC 2 Type 2, ISO 27001, GDPR and HIPAA claimed, tier coverage unclear [VF: A6-S013]; scope rule (CP2 Q4) applied",
         "deployment_flexibility": "SaaS, VPC, private cloud and self-hosted OSS; air-gap no longer offered [VF: A6-S013, A6-S049]",
         "ecosystem": "OpenAI-compatible API and SDKs, 1,600+ models, MCP, Cloudflare Workers [VF: A6-S049]",
@@ -121,9 +121,11 @@
         "cost_tco": "Published tiers (free, US$49/month Production, custom Enterprise) may be stale; post-acquisition pricing not verified [VF: A6-S013]",
         "lockin_portability": "MIT core reduces lock-in, but governance features are proprietary; ownership change minus 1 (rule 3) [VF: A6-S050, A6-S011]"
       },
-      "evidence_caps_applied": [],
-      "generic_total": 3.45,
-      "fs_total": 3.35
+      "evidence_caps_applied": [
+        "enterprise_readiness: NPV cap lifted by verified SSO, roles, audit logs and SCIM (rule 7)"
+      ],
+      "generic_total": 3.6,
+      "fs_total": 3.5
     }
   },
   {
@@ -133,7 +135,8 @@
       "strengths": [
         "Broad AI policy set on an enterprise API-gateway estate many firms already run [VF: A6-S016] [AJ]",
         "Product-scoped SOC 2 Type II and ISO 27001:2022 covering AI Gateway [VF: A6-S109]",
-        "Tracks the MCP 2026-07-28 revision and offers per-caller MCP tool exposure [VF: A6-S017, A6-S016]"
+        "Tracks the MCP 2026-07-28 revision and offers per-caller MCP tool exposure [VF: A6-S017, A6-S016]",
+        "Konnect organisation SSO (SAML or OIDC), teams and roles with IdP group mapping [VF: B-REVA-S004]"
       ],
       "limitations_risks": [
         "Configuration model changed from 3.x plugins to 2.x entities; migration needed before 3.18 [VF: A6-S016, A6-S017]",
@@ -153,7 +156,7 @@
         "C1-google-apigee-ai-gateway",
         "C1-azure-apim-ai-gateway"
       ],
-      "fs_note": "Prefer the hybrid mode (customer-run data plane) so prompts and logs stay in region; confirm audit-log export and SSO on Konnect [Rec]."
+      "fs_note": "Prefer the hybrid mode (customer-run data plane) so prompts and logs stay in region; confirm audit-log export on Konnect [Rec]."
     },
     "classification": {
       "tier": "Strategic",
@@ -163,7 +166,7 @@
     "scores": {
       "criteria": {
         "technical": 5,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 4,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -173,7 +176,7 @@
       },
       "rationale": {
         "technical": "Leading coverage across LLM, MCP and A2A, including guardrails, PII sanitisation and cost governance [VF: A6-S016, A6-S017]",
-        "enterprise_readiness": "Konnect audit logs, Kong Identity principals in AI policies and a 99.99% Konnect SLA verified [VF: A6-S109, A6-S016, A6-S018]; SSO and RBAC for Konnect not in the fact base [NPV], so rule 7 holds it at 3",
+        "enterprise_readiness": "Konnect SSO (SAML or OIDC) with teams, predefined roles and IdP group mapping (B-REVA-S004), audit logs, Kong Identity principals and a 99.99% Konnect SLA (A6-S109, A6-S016, A6-S018): all three controls plus SLA reach 4 under rule 7",
         "security_compliance": "ISO 27001:2022 and SOC 2 Type II both naming AI Gateway; PCI DSS for Konnect [VF: A6-S109]; no CMK, ISO 42001 or FedRAMP evidence, so not 5",
         "deployment_flexibility": "Konnect SaaS, Dedicated Cloud Gateways, hybrid and self-managed [VF: A6-S018]; on-prem and air-gap not verified [NPV]",
         "ecosystem": "Large API-gateway ecosystem; AWS SigV4, Foundry, SageMaker and NeMo integrations [VF: A6-S017, A6-S016]",
@@ -181,11 +184,9 @@
         "cost_tco": "Pricing 'contact sales'; advanced plugins licence-gated [VF: A6-S017, A6-S018]",
         "lockin_portability": "Apache-2.0 OSS core, but 2.x runtime and advanced plugins licence-gated [VF: A6-S017]"
       },
-      "evidence_caps_applied": [
-        "enterprise_readiness held at 3 under rule 7: SSO and RBAC NPV, audit logs and SLA verified"
-      ],
-      "generic_total": 3.7,
-      "fs_total": 3.65
+      "evidence_caps_applied": [],
+      "generic_total": 3.85,
+      "fs_total": 3.8
     }
   },
   {

@@ -16,7 +16,8 @@
         "IDE clients (including Claude Code) had high-severity auto-execution issues [R: A3-S022]",
         "Both Lead Maintainers are Anthropic staff; AAIF does not set technical direction [VF: A3-S082, A3-S018]",
         "Official Registry still preview, API v0.1, denylist moderation [VF: A3-S019, A3-S042, A3-S036]",
-        "2026-07-28 contained breaking changes and deprecations (Roots, Sampling, Logging, DCR) [VF: A3-S015, V2-S031]"
+        "2026-07-28 contained breaking changes and deprecations (Roots, Sampling, Logging, DCR) [VF: A3-S015, V2-S031]",
+        "2026 TypeScript SDK advisories include GHSA-6qxp-vccf-f47h (High: OAuth credentials sent to a server-chosen authorisation server; the fix also needs expectedIssuer configured), GHSA-22jm-h49p-29qw (High) and CVE-2026-25536 (High) [VF: B-REVA-S006]"
       ],
       "choose_when": [
         "One tool contract is needed across several agent frameworks and model vendors [AJ]"
@@ -34,13 +35,13 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic only behind a firm-owned gateway that makes authorisation mandatory and enforces an allow-list, because the specification leaves both optional [AJ]."
+      "rationale": "Strategic, conditional: only behind a firm-owned gateway that makes authorisation mandatory, enforces an allow-list and pins tool definitions, because the specification leaves these optional and security scores 2; FS 3.55 is below the 3.6 guide and the tier rests on MCP being the layer's de facto tool contract [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 4,
         "enterprise_readiness": 3,
-        "security_compliance": 3,
+        "security_compliance": 2,
         "deployment_flexibility": 5,
         "ecosystem": 5,
         "reliability_maturity": 3,
@@ -50,7 +51,7 @@
       "rationale": {
         "technical": "Covers tool invocation, enterprise authorisation and long-running tasks; security enforcement (allow-listing, signing) left outside the spec [AJ]",
         "enterprise_readiness": "Open spec (rule 2): enables central IdP policy via EMA; no commercial support from the project itself [AJ]",
-        "security_compliance": "Rule 2 hygiene: strong OAuth profile and security considerations, but authorisation optional and no tool-definition signing; documented tool-poisoning attack class [VF: A3-S055, A3-S023]",
+        "security_compliance": "Rule 2 hygiene: advisories are published with fixes (B-REVA-S006), but the specification leaves authorisation optional, has no tool-definition signing, carries a documented tool-poisoning attack class, and the TypeScript SDK had several High advisories in 2026, including one sending OAuth credentials to a server-chosen authorisation server [VF: A3-S055, A3-S023, B-REVA-S006]. Below A2A (optional card signing) on integrity; borderline 3/2 resolved against the Anthropic-originated item (CP3 review A)",
         "deployment_flexibility": "Implementations run anywhere, including stdio locally and air-gapped [AJ]",
         "ecosystem": "De facto standard with broad client and launch-partner support [VF: A3-S015, A3-S018]",
         "reliability_maturity": "Foundation-hosted with a 12-month deprecation policy, but breaking changes in July 2026 and Registry still preview [VF: A3-S015, A3-S042]",
@@ -58,8 +59,8 @@
         "lockin_portability": "MIT under AAIF, but technical direction concentrated in Anthropic maintainers, so not fully neutral governance [VF: A3-S082]"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.85,
-      "fs_total": 3.75
+      "generic_total": 3.7,
+      "fs_total": 3.55
     }
   },
   {
@@ -501,18 +502,18 @@
       "fs_note": "Sits within AWS, a designated CTP under DORA and the UK regime; include in AWS concentration analysis; platform controls presumed (CP2 Q1), confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Strategic",
+      "tier": "Tactical",
       "flags": [],
-      "rationale": "Strategic only where AWS is the agent platform; cloud-neutral gateways are the alternative [AJ]."
+      "rationale": "Tactical, conditional: the default tool gateway where AWS is the agent platform; AWS-only deployment (2) and one year of GA keep it below the Strategic guide, consistent with C1-aws-agentcore-gateway, AgentCore Memory and Bedrock Guardrails; cloud-neutral gateways are the alternative [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 4,
         "enterprise_readiness": 4,
         "security_compliance": 4,
-        "deployment_flexibility": 3,
+        "deployment_flexibility": 2,
         "ecosystem": 4,
-        "reliability_maturity": 4,
+        "reliability_maturity": 3,
         "cost_tco": 4,
         "lockin_portability": 3
       },
@@ -520,15 +521,15 @@
         "technical": "Tool conversion, inbound identity, outbound vault and Cedar policy [VF: A6-S021, A6-S026]",
         "enterprise_readiness": "Hyperscaler presumption: platform controls presumed (CP2 Q1); confirm per service [AJ]",
         "security_compliance": "SOC 1/2/3 scope listed; ISO listed with inconsistent wording; CMK for vault; one point below 5 under rule 8 [VF: B-L4-S001, B-L4-S002, A6-S074]",
-        "deployment_flexibility": "Managed in AWS regions with VPC and PrivateLink; no self-host [VF: A3-S047, A3-S048]",
+        "deployment_flexibility": "Managed AWS service only, with VPC and PrivateLink connectivity; no self-host (A3-S047, A3-S048); 2, consistent with C1-aws-agentcore-gateway and every other AWS-only managed service (CP3 review A)",
         "ecosystem": "MCP on both sides, OAuth and IAM integration [VF: A3-S047]",
-        "reliability_maturity": "GA October 2025 with regular feature releases [VF: A3-S047, A3-S048]",
+        "reliability_maturity": "GA October 2025 with regular feature releases (A3-S047, A3-S048); about one year GA, so 3, consistent with AgentCore Memory (L5) (CP3 review A)",
         "cost_tco": "Low published per-call pricing [VF: A6-S021]",
         "lockin_portability": "Proprietary AWS API but standard MCP/OAuth interfaces; Cedar policies portable [VF: A6-S045]"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.8,
-      "fs_total": 3.7
+      "generic_total": 3.55,
+      "fs_total": 3.45
     }
   }
 ]
