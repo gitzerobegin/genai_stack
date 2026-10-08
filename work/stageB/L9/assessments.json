@@ -100,7 +100,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strongest commercial option for LangGraph estates with the certifications and deployment options FS needs; lock-in is real and must be contained with OTel instrumentation [AJ]."
+      "rationale": "Strongest commercial option for LangGraph estates with the certifications and deployment options FS needs. Strategic is conditional: only inside a LangGraph estate, and only with OTel dual-instrumentation as the exit route, because lock-in scores 2 [AJ]."
     },
     "scores": {
       "criteria": {
@@ -178,7 +178,7 @@
       },
       "rationale": {
         "technical": "Leading offline-eval ergonomics plus production logging, clustering and gateway; red-teaming not native.",
-        "enterprise_readiness": "Enterprise RBAC, deployment approvals, retention controls and dedicated support; SSO and audit logs not documented in the fact base.",
+        "enterprise_readiness": "SSO/SAML (Okta, Entra ID, Google Workspace) and OIDC; built-in groups plus Enterprise custom, project and object-level permissions; Enterprise audit logs queryable by SQL (B-REV-S020, B-REV-S021); SCIM and SLA not documented.",
         "security_compliance": "SOC 2 Type II, encryption, CMK in hybrid and EU data plane; no ISO 27001 found and HIPAA wording inconsistent.",
         "deployment_flexibility": "SaaS, hybrid data plane in customer cloud, self-host on Enterprise; air-gap low confidence.",
         "ecosystem": "OTLP ingest, MCP endpoint, GitHub Action, several agent framework integrations.",
@@ -251,7 +251,9 @@
         "cost_tco": "Free with no caps; one instance per team and PostgreSQL to operate.",
         "lockin_portability": "Base 4 (portable OTel/OpenInference, source-available) reduced by 1 for the 2026 ownership change; ELv2 is not permissive."
       },
-      "evidence_caps_applied": [],
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls"
+      ],
       "generic_total": 3.5,
       "fs_total": 3.35
     }
@@ -379,7 +381,9 @@
         "cost_tco": "Free; judge-token spend dominates.",
         "lockin_portability": "Apache-2.0 library; company-governed, with commercial steering."
       },
-      "evidence_caps_applied": [],
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls"
+      ],
       "generic_total": 3.75,
       "fs_total": 3.7
     }
@@ -443,7 +447,9 @@
         "cost_tco": "Free MIT CLI; attack-generation and grader model spend.",
         "lockin_portability": "Base 4 (MIT, portable configs) reduced by 1 for the announced acquisition; governance is vendor-controlled."
       },
-      "evidence_caps_applied": [],
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls"
+      ],
       "generic_total": 3.7,
       "fs_total": 3.55
     }
@@ -459,7 +465,7 @@
         "Low published cloud pricing and free self-hosting [VF: A1-S123]"
       ],
       "limitations_risks": [
-        "Self-hosted open source has no user management; SSO and service accounts come with Enterprise [VF: A1-S069, A1-S122, A1-S123]",
+        "Self-hosted open source has no user management; SSO, custom roles and service accounts come with Enterprise [VF: A1-S069, A1-S122, A1-S123, B-REV-S022]",
         "Local Docker install is not production-ready; Kubernetes/Helm required [VF: A1-S069]",
         "OTel over HTTP only [VF: A1-S070]",
         "EU region and data residency not publicly verified [NPV]",
@@ -498,7 +504,7 @@
       },
       "rationale": {
         "technical": "Tracing, offline and online evals, guardrails and optimiser; red-teaming not native.",
-        "enterprise_readiness": "Enterprise adds SSO, service accounts, dedicated support and SLAs; open edition has no user management; RBAC and audit logs not documented.",
+        "enterprise_readiness": "Enterprise SAML/OIDC SSO, organisation and workspace roles with Enterprise custom roles (B-REV-S022); audit logs only on marketing pages; open edition has no user management.",
         "security_compliance": "SOC 2 Type 2 and ISO 27001:2022 at Comet level; residency NPV; no CMK documented.",
         "deployment_flexibility": "Comet SaaS, self-host on Kubernetes, on-prem as part of Comet; BYOC not verified.",
         "ecosystem": "OTel HTTP, PyTest, MCP and a moderate integration list.",
@@ -568,7 +574,9 @@
         "cost_tco": "Free; managed pricing per provider; tracking-server operations if self-hosted.",
         "lockin_portability": "Apache-2.0, Linux Foundation governance, OTel."
       },
-      "evidence_caps_applied": [],
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls"
+      ],
       "generic_total": 4.1,
       "fs_total": 4.1
     }
@@ -616,7 +624,7 @@
       "criteria": {
         "technical": 3,
         "enterprise_readiness": 4,
-        "security_compliance": 5,
+        "security_compliance": 4,
         "deployment_flexibility": 2,
         "ecosystem": 4,
         "reliability_maturity": 3,
@@ -626,7 +634,7 @@
       "rationale": {
         "technical": "Strong production tracing, cost, redaction and online evals; offline experiments and CI evaluation not evidenced.",
         "enterprise_readiness": "SAML SSO, RBAC with custom roles and Audit Trail (B-L9 sources); SLA and support terms not captured.",
-        "security_compliance": "SOC 2 Type 2, ISO 27001 and ISO 42001, HIPAA, FedRAMP High at company level; module-level scope not stated.",
+        "security_compliance": "SOC 2 Type 2, ISO 27001, ISO 42001, HIPAA and FedRAMP High at company level (B-L9-S001); module-level scope not stated, so one point below the anchor under the cross-layer scope rule applied to Gemini, Cohere and Mistral.",
         "deployment_flexibility": "SaaS only, though across isolated regional sites including EU1 (Germany).",
         "ecosystem": "OTel GenAI 1.37+ and OpenInference ingest; native APM integration.",
         "reliability_maturity": "Established platform, but the module's maturity and rename date are not verified.",
@@ -634,8 +642,8 @@
         "lockin_portability": "Proprietary SaaS on standard ingest interfaces; export not verified."
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.3,
-      "fs_total": 3.4
+      "generic_total": 3.15,
+      "fs_total": 3.2
     }
   },
   {

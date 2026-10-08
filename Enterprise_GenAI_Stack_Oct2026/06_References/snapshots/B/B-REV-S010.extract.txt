@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S010
+URL: https://cloud.google.com/document-ai/docs/security-cmek-logging
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com; direct fetch blocked: cloud.google.com now redirects to docs.cloud.google.com, denied by egress policy): Document AI IAM roles audit logging CMEK regional endpoints eu processor location
+========================================================================
+
+"Document AI security and compliance" page and Document AI release notes, as summarised by the search tool:
+- Multi-regional support (us and eu) for all features; a multi-region endpoint lets you store and process data in the United States or the European Union.
+- Supported controls listed: data residency, VPC Service Controls (including identity groups and third-party identities in ingress/egress rules), Access Transparency, IAM deny policies and CMEK.
+- Batch requests: documents stored briefly, encrypted with an ephemeral key, no human access. Online requests processed in memory and not written to disk; some request metadata (receipt time, request size) temporarily logged.
+- Audit-log access is governed by IAM permissions and roles (Logging API, Logs Explorer, gcloud).

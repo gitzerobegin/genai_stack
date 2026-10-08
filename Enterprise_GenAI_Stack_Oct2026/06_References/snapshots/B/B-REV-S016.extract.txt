@@ -1,0 +1,13 @@
+SOURCE ID: B-REV-S016
+URL: https://docs.unstructured.io/business/idp/overview
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.unstructured.io, unstructured.io): Unstructured platform SSO SAML role-based access control audit logs workspace
+========================================================================
+
+Unstructured docs "IdP overview", "Configure an identity provider" and "Security and compliance overview" (Business deployments), as summarised by the search tool:
+- An organisation's identity provider can be connected to its Unstructured deployment through Unstructured Pipelines; an SSO option then appears on the deployment's login page and IdP group memberships can drive access.
+- Supported protocols: Keycloak OpenID Connect, OpenID Connect v1.0 and SAML 2.0.
+- Roles are permission sets assignable to IdP groups or individual users. Account-level roles: Super Administrator, Account Member, Billing Administrator. Workspace-level roles: Workspace Administrator, Developer, Operator, Viewer. Group mappings control account access and role assignment.
+- Logging: logs are emitted to stdout/stderr and can be collected by pluggable agents (e.g. Elastic Agent) in the Kubernetes cluster; no workspace audit-log viewer or export API was found in the docs.
+- The security overview lists SOC 2 Type 2, ISO 27001, GDPR and "FedRAMP alignment" (alignment wording, not an authorisation; see V1 verification log section 4).

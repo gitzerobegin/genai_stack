@@ -1,11 +1,10 @@
 ## 7. Embeddings and reranking
 
-> **Executive summary.** This layer turns text, and now images, audio and PDF pages, into vectors that a retrieval store can search. It then reorders the candidates so that the few passages handed to the model are the right ones. Three things have changed since the original graphic. First, every serious vendor except OpenAI and Google now ships an embedding model and a reranker together: Cohere, Voyage, Jina, NVIDIA and Qwen all do [VF: A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S026, A2-S030, A2-S031, A2-S020]. Second, two of the graphic's vendors now belong to database companies: Voyage AI to MongoDB since 17 February 2025 [VF: A2-S033, V1-S023], and Jina AI to Elastic since 9 October 2025 [VF: A2-S023, V1-S025]. Third, the stores themselves now host embedding and reranking [VF: A2-S101, A2-S141, A2-S133]. The architectural point that matters most is this: the embedding model version is production configuration, because changing it forces the whole corpus to be re-embedded [AJ]. **Recommendation:** build one governed retrieval-optimisation service that pins the embedding and reranker versions, keeps raw text and model-version metadata, and migrates by dual index. Choose the models by in-domain evaluation. For regulated data, prefer options that run in your own estate or in a verified region [Rec].
+> **Executive summary.** This layer turns text, and now images, audio and PDF pages, into vectors that a retrieval store can search. It then reorders the candidates so that the few passages handed to the model are the right ones. Three things have changed since the original graphic. First, every model vendor in this layer except OpenAI now offers both an embedding model and a reranker: Cohere, Voyage, Jina, NVIDIA and Qwen ship them together, and Google offers a separate Vertex ranking API [VF: A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S026, A2-S030, A2-S031, A2-S020, B-REV-S026]. Second, two of the graphic's vendors now belong to database companies: Voyage AI to MongoDB since 17 February 2025 [VF: A2-S033, V1-S023], and Jina AI to Elastic since 9 October 2025 [VF: A2-S023, V1-S025]. Third, the stores themselves now host embedding and reranking [VF: A2-S101, A2-S141, A2-S133]. The architectural point that matters most is this: the embedding model version is production configuration, because changing it forces the whole corpus to be re-embedded [AJ]. **Recommendation:** build one governed retrieval-optimisation service that pins the embedding and reranker versions, keeps raw text and model-version metadata, and migrates by dual index. Choose the models by in-domain evaluation. For regulated data, prefer options that run in your own estate or in a verified region [Rec].
 
 ### 7.1 Responsibility
 
 **The problem this layer owns** [AJ]:
-
 - **Representation.** Encoding chunks and queries into a vector space in which "similar meaning" means "near". This covers dense vectors and, increasingly, sparse and multi-vector forms.
 - **Precision at the top.** Reordering the first-stage candidates with a more expensive model (a cross-encoder or listwise reranker) so that the top 5–10 results are correct.
 - **Version discipline.** Making sure every vector in an index came from one known model version with one known configuration (dimensions, quantisation, instructions).
@@ -59,7 +58,6 @@ INGESTION (L8 -> L7 -> L6)
    -> embedding service [model=X, version=v3, dims=1024, quant=int8]
    -> dense vector + sparse terms + {model_version, chunk_hash, acl, fund_id}
    -> store index "commentary_v3"          (raw text retained)
-
 QUERY (L3 -> L7/L6 -> L3)
  query + caller identity
    -> embed query with SAME model_version as target index
@@ -94,7 +92,7 @@ QUERY (L3 -> L7/L6 -> L3)
 **Security** [AJ]
 - Embeddings derived from client or personal data are a derivative of that data. Classify, retain and delete them with the source.
 - Enforce entitlements in the store's pre-filter, before ANN search, fusion and reranking. Never post-filter after the reranker, and never rely on the reranker to "down-rank" forbidden content.
-- The OWASP Top 10 for LLM Applications 2025 lists "Vector and Embedding Weaknesses" as LLM08 [VF: A8-S040]. The 2026 list, which CP1 makes the operative reference, was not fully retrieved, so its identifier for this risk is not given [NPV].
+- The operative reference is the OWASP Top 10 for LLM Applications 2026 [VF: A8-S041]. Its full contents were not retrieved, so its identifier for this risk is not given [NPV]. For traceability, the 2025 list named it LLM08 "Vector and Embedding Weaknesses" [R: A8-S040].
 
 **Scalability and cost** [AJ]
 - Choose dimensions and quantisation per index tier, by measurement.
@@ -135,7 +133,6 @@ QUERY (L3 -> L7/L6 -> L3)
 - Treating rerank scores as calibrated probabilities across queries.
 
 **What re-embedding actually costs.** The API bill is the small part. A corpus of 2 million chunks at about 500 tokens each is roughly 1 billion tokens. At list prices as of 7 October 2026 that is about US$130 with OpenAI text-embedding-3-large, about US$60 with voyage-4, or about US$120 with Cohere Embed 5 Pro [VF: A2-S001, A2-S007, A2-S013]. The arithmetic is the author's own [AJ]. The real costs are elsewhere [AJ]:
-
 - running a second index in parallel
 - re-running the retrieval evaluation and any downstream answer-quality evaluation
 - revalidation and change-control evidence
@@ -156,7 +153,7 @@ This is why model version belongs in production configuration and in the exit pl
 | Cost / TCO | Per-token price, Batch discount, rerank pricing basis (per search or per token), GPU and licence cost if self-hosted, storage effect of dimensions |
 | Lock-in / portability | Weights availability and licence; shared-space families; store bundling; re-embedding cost |
 
-**Public evidence of enterprise controls for hosted embedding APIs is thin.** No hosted embedding vendor in this layer had SSO, RBAC and audit-log evidence for the embedding service in the dataset, and each was capped at 2 under the CP1 rule (see the assessments) [AJ]. In practice these controls usually come from the platform account already contracted for L1, so a firm should verify them in due diligence rather than treat them as absent [Rec].
+**Enterprise controls for hosted embedding APIs are unevenly documented.** The CP2 review found SSO, RBAC and audit-log documentation for the OpenAI API platform [VF: B-REV-S004, B-REV-S005, B-REV-S006], IAM and audit logging on Google Cloud [VF: B-REV-S007, B-REV-S008], and SSO and RBAC on Elastic Cloud for the Elastic Inference Service route [VF: B-REV-S019]. Cohere documents only Owner and User team roles for its hosted platform [VF: B-REV-S013], and Voyage's Atlas API is accessed by model API keys with no access-control documentation found [VF: B-REV-S018]. Both therefore stay capped at 2 [AJ]. These controls usually come from the platform account already contracted for L1, so verify them per endpoint in due diligence [Rec].
 
 ### 7.7 Product deep dives
 
@@ -164,11 +161,11 @@ Each deep dive gives the current state as tagged facts, then judgement. Totals a
 
 #### OpenAI embeddings (text-embedding-3-large / -3-small)
 
-**What it is.** OpenAI's embeddings are still the text-embedding-3 generation, released 25 January 2024; no newer model was found as of 7 October 2026 [VF: A2-S001, A2-S002]. 3-large defaults to 3,072 dimensions, can be shortened with `dimensions`, and accepts 8,192 tokens [VF: A2-S001, A2-S003]. Prices are US$0.13 per 1M tokens for 3-large (US$0.065 on Batch) and US$0.02 for 3-small [VF: A2-S001, A2-S035]. The endpoint is ZDR-eligible and in scope for EU storage and processing, which requires Modified Abuse Monitoring or ZDR; the UK is storage-only [VF: A2-S144]. Certifications include SOC 2 Type 2, ISO/IEC 27001 and 27701, and a HIPAA BAA [VF: A2-S036, A2-S144]. No OpenAI reranker was found [VF: A2-S001].
+**What it is.** OpenAI's embeddings are still the text-embedding-3 generation, released 25 January 2024; no newer model was found as of 7 October 2026 [VF: A2-S001, A2-S002]. 3-large defaults to 3,072 dimensions, can be shortened with `dimensions`, and accepts 8,192 tokens [VF: A2-S001, A2-S003]. Prices are US$0.13 per 1M tokens for 3-large (US$0.065 on Batch) and US$0.02 for 3-small [VF: A2-S001, A2-S035]. The endpoint is ZDR-eligible and in scope for EU storage and processing, which requires Modified Abuse Monitoring or ZDR; the UK is storage-only [VF: A2-S144]. Certifications include SOC 2 Type 2, ISO/IEC 27001 and 27701, and a HIPAA BAA [VF: A2-S036, A2-S144]. No OpenAI reranker was found [VF: A2-S001]. The API platform documents SAML/OIDC SSO, SCIM, organisation and project roles with custom roles, an Admin API and audit logs of administrative events [VF: B-REV-S004, B-REV-S005, B-REV-S006].
 
 **Strengths.** A stable, cheap, well-controlled text baseline [AJ].
 
-**Limitations and risks.** It is text-only, hosted-only and has no reranker. The generation is ageing, and its successor's timing is unknown [AJ]. RBAC and audit scope are not verified [NPV].
+**Limitations and risks.** It is text-only, hosted-only and has no reranker. The generation is ageing, and its successor's timing is unknown [AJ]. Audit logs exclude request content and are kept on a best-effort basis [VF: B-REV-S006], so they must be exported to the firm's archive [Rec].
 
 **Choose when** OpenAI is already the approved L1 provider and EU processing under ZDR suffices. **Avoid when** UK processing or self-hosting is required.
 
@@ -176,15 +173,15 @@ Each deep dive gives the current state as tagged facts, then judgement. Totals a
 
 **FS note.** Exit means re-embedding everything [AJ].
 
-**Tier:** Tactical; no flags (FS 2.90).
+**Tier:** Tactical; no flags (FS 3.20).
 
 #### Gemini Embedding 2 (Google)
 
-**What it is.** gemini-embedding-2 went GA on 22 April 2026 [VF: A2-S004]. It maps text, images, video, audio and PDFs into one space across 100+ languages, with Matryoshka output from 128 to 3,072 dims [VF: A2-S004, A2-S005]. It runs on the Gemini API and on Vertex AI, now documented as Gemini Enterprise Agent Platform, with global, us and eu endpoints [VF: A2-S039]. The eu multi-region excludes the UK and Switzerland [VF: A2-S039]. Generative AI on Vertex AI holds SOC 2, ISO/IEC 27001, ISO/IEC 42001, HIPAA and FedRAMP High, but per-model coverage is not confirmed [VF: A2-S043]. Text costs US$0.20 per 1M tokens online and US$0.10 on Batch (as of 7 October 2026) [VF: A2-S038].
+**What it is.** gemini-embedding-2 went GA on 22 April 2026 [VF: A2-S004]. It maps text, images, video, audio and PDFs into one space across 100+ languages, with Matryoshka output from 128 to 3,072 dims [VF: A2-S004, A2-S005]. It runs on the Gemini API and on Vertex AI, now documented as Gemini Enterprise Agent Platform, with global, us and eu endpoints [VF: A2-S039]. The eu multi-region excludes the UK and Switzerland [VF: A2-S039]. Generative AI on Vertex AI holds SOC 2, ISO/IEC 27001, ISO/IEC 42001, HIPAA and FedRAMP High, but per-model coverage is not confirmed [VF: A2-S043]. Text costs US$0.20 per 1M tokens online and US$0.10 on Batch (as of 7 October 2026) [VF: A2-S038]. Access runs through Google Cloud IAM (predefined, custom and endpoint-level roles) and Cloud Audit Logs, where Data Access logs for predict calls must be switched on [VF: B-REV-S007, B-REV-S008].
 
-**Strengths.** The most complete native-multimodal option, with strong platform certifications [AJ].
+**Strengths.** A natively multimodal option with strong platform certifications [AJ].
 
-**Limitations and risks.** It is hosted-only and has been GA for under six months. The `task_type` parameter is unsupported [VF: A2-S005]. A Google reranker (the Vertex ranking API) was not researched [NPV].
+**Limitations and risks.** It is hosted-only and has been GA for under six months. The `task_type` parameter is unsupported [VF: A2-S005]. Google's reranker is a separate service, the Vertex ranking API (semantic-ranker models, with version 005 in preview from 1 September 2026) [VF: B-REV-S026].
 
 **Choose when** the estate is Google Cloud-centred and the content is multimodal. **Avoid when** UK-only processing is mandatory.
 
@@ -192,13 +189,13 @@ Each deep dive gives the current state as tagged facts, then judgement. Totals a
 
 **FS note.** Google Cloud EMEA Limited is a designated DORA CTPP and UK CTP [VF: A8-S020, A8-S023]. Consuming the model through Vertex AI therefore places it with a designated provider, but the firm's own SYSC 8 or SS2/21 duties remain [AJ].
 
-**Tier:** Tactical; no flags (FS 2.90).
+**Tier:** Tactical; no flags (FS 3.05).
 
 #### Voyage AI by MongoDB
 
-**What it is.** MongoDB acquired Voyage AI, closing on 17 February 2025 for US$160.9M [VF: A2-S033, V1-S023]. The Voyage 4 family launched on 15 January 2026 in one shared embedding space; voyage-4-nano is open weights under Apache 2.0 [VF: A2-S006, A2-S071]. Alongside it sit voyage-context-4, voyage-code-4, voyage-multimodal-3.5, and the domain models voyage-finance-2 and voyage-law-2 [VF: A2-S007]. rerank-3 and rerank-3-lite were announced on 30 September 2026 [VF: A2-S034], but MongoDB's lifecycle page lists them as Preview [VF: V1-S024]. voyage-4 costs US$0.06 per 1M tokens, rerank-3 US$0.05 and rerank-3-lite US$0.02 (as of 7 October 2026) [VF: A2-S007, A2-S034]. The Atlas Embedding and Reranking API offers an EEA Geography at a 10% premium [VF: A2-S142]. Certifications rest on a homepage listing [R: A2-S044].
+**What it is.** MongoDB acquired Voyage AI, closing on 17 February 2025 for US$160.9M [VF: A2-S033, V1-S023]. The Voyage 4 family launched on 15 January 2026 in one shared embedding space; voyage-4-nano is open weights under Apache 2.0 [VF: A2-S006, A2-S071]. Alongside it sit voyage-context-4, voyage-code-4, voyage-multimodal-3.5, and the domain models voyage-finance-2 and voyage-law-2 [VF: A2-S007]. rerank-3 and rerank-3-lite were announced on 30 September 2026 [VF: A2-S034], but MongoDB's lifecycle page lists them as Preview [VF: V1-S024]. voyage-4 costs US$0.06 per 1M tokens, rerank-3 US$0.05 and rerank-3-lite US$0.02 (as of 7 October 2026) [VF: A2-S007, A2-S034]. The Atlas Embedding and Reranking API offers an EEA Geography at a 10% premium [VF: A2-S142]. Certifications rest on a homepage listing [R: A2-S044]. MongoDB's SOC 2 scope page does not name Voyage and excludes preview features [VF: B-REV-S027].
 
-**Strengths.** The broadest lineup against this layer's questions, including a finance-domain model [AJ].
+**Strengths.** A broad lineup against this layer's questions, including a finance-domain model [AJ].
 
 **Limitations and risks.** Certification scope is unverified, key integrations are in preview, and the roadmap is now coupled to MongoDB [AJ].
 
@@ -212,13 +209,13 @@ Each deep dive gives the current state as tagged facts, then judgement. Totals a
 
 #### Cohere Embed 5 and Rerank 4
 
-**What it is.** Embed 5 (Pro and Fast, 30 September 2026) embeds text, images and mixed pages into one vector [VF: A2-S012]. It supports 100+ languages and a 128K-token context, with 256–2,048 dims and float, int8 or binary output [VF: A2-S012]. Rerank 4 (11 December 2025) adds a 32K-token context and handles JSON [VF: A2-S010, A2-S009]. Deployment options are SaaS, Microsoft Foundry, SageMaker, VPC, Model Vault single-tenant and on-premises [VF: A2-S012, A2-S015]. Cohere holds SOC 2 Type II, ISO 27001 and ISO 42001 [VF: A2-S014]. Enterprise logs are deleted after 30 days by default, and ZDR is available on request [VF: A2-S145]. SSO/SAML, RBAC and audit-log export for the hosted API were not found [VF: A2-S145]. Embed 5 Pro costs US$0.12 and Fast US$0.08 per 1M text tokens; the rerank price was not found [VF: A2-S013]. A business combination with Aleph Alpha was signed on 16 September 2026 and is pending regulatory approval [VF: A2-S018, V1-S028].
+**What it is.** Embed 5 (Pro and Fast, 30 September 2026) embeds text, images and mixed pages into one vector [VF: A2-S012]. It supports 100+ languages and a 128K-token context, with 256–2,048 dims and float, int8 or binary output [VF: A2-S012]. Rerank 4 (11 December 2025) adds a 32K-token context and handles JSON [VF: A2-S010, A2-S009]. Deployment options are SaaS, Microsoft Foundry, SageMaker, VPC, Model Vault single-tenant and on-premises [VF: A2-S012, A2-S015]. Cohere holds SOC 2 Type II, ISO 27001 and ISO 42001 [VF: A2-S014]. Enterprise logs are deleted after 30 days by default, and ZDR is available on request [VF: A2-S145]. The hosted platform documents only Owner and User team roles [VF: B-REV-S013]; SSO/SAML and audit-log documentation for the hosted API was not found [NPV]. Embed 5 Pro costs US$0.12 and Fast US$0.08 per 1M text tokens; the rerank price was not found [VF: A2-S013]. A business combination with Aleph Alpha was signed on 16 September 2026 and is pending regulatory approval [VF: A2-S018, V1-S028].
 
-**Strengths.** The most FS-shaped deployment range of the hosted vendors [AJ].
+**Strengths.** The widest deployment range of the hosted vendors here, from SaaS to on-premises [AJ].
 
 **Limitations and risks.** Hosted access controls are unverified, and the ownership event is pending [AJ].
 
-**Choose when** embed and rerank must run in your VPC or data centre with vendor support. **Avoid when** you cannot obtain access-control evidence in due diligence.
+**Choose when** embed and rerank must run in your VPC or data centre with vendor support. **Avoid when** you cannot obtain access-control evidence in due diligence [AJ].
 
 **Nearest competitors:** Voyage, Jina, NVIDIA.
 
@@ -240,17 +237,16 @@ Each deep dive gives the current state as tagged facts, then judgement. Totals a
 
 **FS note.** Self-hosted, the weights create no cross-border transfer. The hosted route is not suitable for EU or UK client data on the verified regions [AJ].
 
-**Tier:** Tactical; no flags (FS 3.15).
+**Tier:** Tactical; no flags (FS 3.15). Scored under rubric rule 2 as self-hosted weights, because the hosted route is not recommended [AJ].
 
 #### Jina AI (part of Elastic)
 
-**What it is.** Elastic completed its acquisition of Jina AI on 9 October 2025 [VF: A2-S023, V1-S025]. The current models are:
-
+**What it is.** Elastic completed its acquisition of Jina AI on 9 October 2025 [VF: A2-S023, V1-S025]. The current models are [VF: A2-S025, A2-S026, V1-S026]:
 - jina-embeddings-v5-text (February 2026; 32,768-token context)
 - jina-embeddings-v5-omni (May 2026; text, image, audio, video and PDF, with text vectors identical to v5-text)
 - jina-reranker-v3.5 (July 2026)
 
-[VF: A2-S025, A2-S026, V1-S026]. Weights are CC-BY-NC-4.0. Commercial use runs through the Jina API, marketplaces, Elastic Inference Service or an on-premises licence, which supports air-gapped Docker [VF: A2-S024, A2-S042, A2-S045]. `semantic_text` defaults to Jina v5 [VF: A2-S133]. Elastic Cloud holds ISO 27001 and SOC 2 Type II; whether the hosted Jina API is in scope is not confirmed [VF: A2-S045]. API per-token rates were not retrieved [VF: A2-S042].
+Weights are CC-BY-NC-4.0. Commercial use runs through the Jina API, marketplaces, Elastic Inference Service or an on-premises licence, which supports air-gapped Docker [VF: A2-S024, A2-S042, A2-S045]. `semantic_text` defaults to Jina v5 [VF: A2-S133]. Elastic Cloud holds ISO 27001 and SOC 2 Type II; whether the hosted Jina API is in scope is not confirmed [VF: A2-S045]. Elastic Cloud documents SAML SSO and RBAC at platform level; whether they govern EIS calls specifically is not stated [VF: B-REV-S019]. API per-token rates were not retrieved [VF: A2-S042].
 
 **Strengths.** The zero-integration path inside Elasticsearch, with multimodal and air-gap options [AJ].
 
@@ -262,22 +258,21 @@ Each deep dive gives the current state as tagged facts, then judgement. Totals a
 
 **FS note.** Get the licence route confirmed in writing [Rec].
 
-**Tier:** Tactical; flag Acquired (FS 3.00).
+**Tier:** Tactical; flag Acquired (FS 3.15, scored on the Elastic Inference Service route).
 
 #### Sentence Transformers (Hugging Face)
 
-**What it is.** sentence-transformers 6.1.0 was released on 18 September 2026 under Apache-2.0 [VF: A2-S029, A2-S032]. It is maintained by Hugging Face and originated at UKP Lab [VF: A2-S028, V1-S092]. It computes and trains:
-
+**What it is.** sentence-transformers 6.1.0 was released on 18 September 2026 under Apache-2.0 [VF: A2-S029, A2-S032]. It is maintained by Hugging Face and originated at UKP Lab [VF: A2-S028, V1-S092]. It computes and trains [VF: A2-S029]:
 - dense embeddings
 - Cross-Encoder reranker scores
 - Sparse Encoders
 - ColBERT-style Multi-Vector Encoders
 
-[VF: A2-S029]. More than 15,000 pre-trained models on Hugging Face load through it [VF: A2-S029].
+More than 15,000 pre-trained models on Hugging Face load through it [VF: A2-S029].
 
 **Strengths.** One permissive toolkit for every technique in this layer, and the practical route to domain fine-tuning and to exit from any hosted API [AJ].
 
-**Limitations and risks.** It is a library, not a model, and it has no verified commercial support [NPV]. Each Hub model carries its own licence [AJ].
+**Limitations and risks.** It is a library, not a model, and it has no verified commercial support [NPV]. It publishes a security policy with private reporting and CVE issuance through GitHub advisories [VF: B-REV-S002]. Each Hub model carries its own licence [AJ].
 
 **Choose when** retrieval must run in the firm's estate, or needs fine-tuning. **Avoid when** there is no team to operate serving.
 
@@ -314,22 +309,22 @@ Output of `tools/score.py` (scores 1–5; totals are weighted averages):
 
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| L7-openai | 3 | 2 | 4 | 2 | 3 | 4 | 4 | 2 | 3.00 | 2.90 | Tactical |
-| L7-gemini-embedding | 4 | 2 | 4 | 2 | 3 | 3 | 3 | 2 | 3.00 | 2.90 | Tactical |
+| L7-openai | 3 | 4 | 4 | 2 | 3 | 4 | 4 | 2 | 3.30 | 3.20 | Tactical |
+| L7-gemini-embedding | 4 | 3 | 4 | 2 | 3 | 3 | 3 | 2 | 3.15 | 3.05 | Tactical |
 | L7-voyage | 5 | 2 | 2 | 3 | 4 | 3 | 4 | 2 | 3.25 | 2.90 | Tactical |
 | L7-cohere | 4 | 2 | 4 | 4 | 4 | 3 | 3 | 3 | 3.45 | 3.40 | Tactical |
 | L7-qwen3-embedding | 4 | 2 | 2 | 4 | 3 | 3 | 4 | 4 | 3.20 | 3.15 | Tactical |
-| L7-jina | 4 | 2 | 3 | 4 | 4 | 3 | 2 | 2 | 3.15 | 3.00 | Tactical |
+| L7-jina | 4 | 3 | 3 | 4 | 4 | 3 | 2 | 2 | 3.30 | 3.15 | Tactical |
 | L7-sentence-transformers | 4 | 3 | 3 | 4 | 5 | 4 | 4 | 4 | 3.80 | 3.70 | Strategic |
 | L7-nvidia-nemo-retriever | 3 | 3 | 3 | 4 | 3 | 3 | 2 | 2 | 3.00 | 2.95 | Tactical |
 | L7-ethicalagents | – | – | – | – | – | – | – | – | n/a | n/a | not scored |
 | L7-ragoos | – | – | – | – | – | – | – | – | n/a | n/a | not scored |
 
 **Reading the scores** [AJ]:
-
-- The hosted vendors cluster at 2.9–3.4 FS because of the evidence cap on enterprise readiness.
+- The hosted vendors spread from 2.90 to 3.40 FS. OpenAI (3.20), Gemini (3.05) and Jina (3.15, Elastic route) rose at CP2 review once their platform access controls were evidenced; Cohere and Voyage stay capped on enterprise readiness.
 - The spread on security (2 to 4) reflects how well certifications are evidenced, not a judgement of real security posture.
 - Voyage's technical lead does not survive the FS weighting until its certification scope is evidenced.
+- Qwen3 and NVIDIA are scored as self-hosted software under rule 2, like Sentence Transformers.
 
 **Key facts** (as of 7 October 2026):
 
@@ -342,17 +337,15 @@ Output of `tools/score.py` (scores 1–5; totals are weighted averages):
 | Qwen3 Embedding/Reranker | Apache 2.0 weights; hosted proprietary [VF: A2-S020] | Self-host; Model Studio [VF: A2-S020, A2-S022] | Not publicly verified [NPV] | No EU hosted region verified; self-host in-estate [VF: A2-S022] | Unchanged (Alibaba) |
 | Jina AI | CC-BY-NC-4.0 weights; commercial via Elastic [VF: A2-S024, A2-S042] | API, Elastic Inference Service, on-prem/air-gap [VF: A2-S042] | Elastic Cloud ISO 27001, SOC 2 Type II; Jina API scope unconfirmed [VF: A2-S045] | Region details not verified [VF: A2-S024] | Acquired by Elastic, 9 Oct 2025 [VF: V1-S025] |
 | Sentence Transformers | Apache-2.0 [VF: A2-S029] | Self-host, on-prem [VF: A2-S029] | Not applicable (library) [AJ] | In-estate [AJ] | Stewardship moved to Hugging Face [VF: A2-S028] |
-| NVIDIA NeMo Retriever | Proprietary container plus per-model licences [VF: A2-S041] | Self-host on supported GPUs; API catalog for development [VF: A2-S040, A2-S031] | Not applicable to self-hosted containers [AJ] | In-estate [AJ] | Unchanged (NVIDIA) |
+| NVIDIA NeMo Retriever | Proprietary container plus per-model licences [VF: A2-S041] | Self-host on supported GPUs; NVIDIA API Catalog for development [VF: A2-S040, A2-S031] | Not applicable to self-hosted containers [AJ] | In-estate [AJ] | Unchanged (NVIDIA) |
 
 ### 7.9 Decision tree
 
 ```text
 START: a corpus to make retrievable (one decision per corpus / index)
-
 1. Does the corpus contain client, personal or confidential data?
    ├─ No  → go to 3 (any approved hosted API is acceptable)
    └─ Yes → 2
-
 2. Where may it be processed?
    ├─ Only inside our estate (or air-gapped)
    │    ├─ Need vendor support?
@@ -372,21 +365,17 @@ START: a corpus to make retrievable (one decision per corpus / index)
         ├─ Google-centred estate, multimodal → Gemini Embedding 2 on the 'eu' endpoint
         ├─ OpenAI already approved, text-only → text-embedding-3 on an EU project with ZDR
         └─ Otherwise → Cohere (SaaS with ZDR, or VPC)
-
 3. Do we need a reranker? (almost always yes for precision-critical answers)
    ├─ Same vendor offers one and it passes in-domain eval → use it
-   ├─ Embedding vendor has none (OpenAI, Gemini in this dataset)
+   ├─ Embedding vendor has none in the same API (OpenAI; Google's is the Vertex ranking API)
    │    → Cohere Rerank 4, Voyage rerank-3 (Preview), or a self-hosted cross-encoder
    └─ Store hosts it (MongoDB $rerank, Pinecone, Elastic) → acceptable if the
         model version is pinned and logged, and entitlement filtering precedes it
-
 4. Exact identifiers matter (fund codes, ISINs, share classes)?
    └─ Yes → hybrid first stage (BM25/sparse + dense, fused) before rerank
-
 5. Scanned pages, charts or images matter?
    └─ Yes → multimodal model (Gemini Embedding 2, Cohere Embed 5, Jina v5-omni,
             voyage-multimodal-3.5, NVIDIA VL), chosen by in-domain eval
-
 6. Always: pin versions in C5, keep raw text, tag vectors with model_version,
    and migrate by dual index behind an L9 regression gate.
 ```
@@ -405,7 +394,6 @@ START: a corpus to make retrievable (one decision per corpus / index)
 ### 7.11 Regulated FS lens (POV 2)
 
 **Model risk.** SR 26-2 superseded SR 11-7 on 17 April 2026, and it expressly excludes generative and agentic AI. Firms are left to govern those under their own frameworks (R-US-MRM) [VF: A8-S001, A8-S002, A8-S003]. PRA SS1/23 is the operative UK anchor where it applies. It covers vendor models and requires a complete inventory that includes AI/ML (R-PRA-SS123) [VF: A8-S008]. For this layer [AJ]:
-
 - Record the embedding model and the reranker in the inventory as components of each GenAI system, not as stand-alone "models".
 - Treat a change to either as a material change that triggers the L9 retrieval regression and sign-off.
 - Retrieval quality is part of the system's validation evidence. An unvalidated embedding swap is an unvalidated system change.
@@ -426,13 +414,12 @@ START: a corpus to make retrievable (one decision per corpus / index)
 **Chinese-origin open weights.**
 
 - Qwen3 weights are Apache 2.0 [VF: A2-S020].
-- Self-hosted, they create no data transfer [AJ]. They do need a model-provenance and supply-chain review, which is consistent with the OWASP supply-chain risk (LLM03 in the 2025 list) [VF: A8-S040] [AJ].
+- Self-hosted, they create no data transfer [AJ]. They do need a model-provenance and supply-chain review, which is consistent with the OWASP supply-chain risk (LLM03 in the 2025 list) [R: A8-S040] [AJ].
 - The hosted Model Studio API is a different decision, because its regions are Singapore, Hong Kong and Beijing [VF: A2-S022].
 
 **Concentration.** Database companies now own two of the graphic's vendors (Voyage and Jina) [VF: A2-S033, A2-S023]. Choosing MongoDB with Voyage, or Elastic with Jina, concentrates L6 and L7 on one supplier. Their outages and ownership events then become correlated [AJ]. IOSCO names concentration among few AI technology providers as a supervisory concern (R-INTL-AI-ASSETMGMT) [VF: A8-S058]. For important business services, either accept the bundle consciously and record it in the exit plan, or keep the embedding vendor independent of the store [Rec].
 
 **Auditability.** For every retrieval, the C8 evidence pack should hold [Rec]:
-
 - query hash
 - embedding model and version
 - index version
@@ -447,31 +434,28 @@ That is enough to show what the model was shown, and to reproduce it while the i
 
 - NIST AI 600-1 is the GenAI profile for the AI RMF (R-NIST-AIRMF) [VF: A8-S043, A8-S044].
 - ISO/IEC 42001 certification is a supplier signal (R-ISO-42001). Cohere [VF: A2-S014] and Generative AI on Vertex AI [VF: A2-S043] hold it.
-- The OWASP Top 10 for LLM Applications 2026 and the Top 10 for Agentic Applications for 2026 are the operative lists (R-OWASP-LLM, R-OWASP-AGENTIC) [VF: A8-S041, A8-S042]. The 2025 list's LLM08, "Vector and Embedding Weaknesses", is the direct mapping for this layer [VF: A8-S040].
+- The OWASP Top 10 for LLM Applications 2026 and the Top 10 for Agentic Applications for 2026 are the operative lists (R-OWASP-LLM, R-OWASP-AGENTIC) [VF: A8-S041, A8-S042]. For traceability, the 2025 list's LLM08, "Vector and Embedding Weaknesses", is the direct mapping for this layer, because the 2026 identifiers were not retrieved [R: A8-S040].
 
 ### 7.12 Worked-example slice (POV 3)
 
-**Context.** The performance-attribution commentary agent drafts the monthly commentary for a generic multi-asset fund. It explains Brinson-style allocation, selection and currency effects against the benchmark. A portfolio manager approves every draft (plan §11).
+**Context.** The performance-attribution commentary agent drafts the monthly commentary for a generic multi-asset fund. It explains Brinson-style allocation, selection and currency effects against the benchmark. A portfolio manager approves every draft (plan §11) [AJ].
 
 **What the agent needs from L7** [AJ]:
-
 1. **Comparable past commentary.** The fund's own approved commentaries for prior periods, and approved commentaries from comparable periods (for example, months with a large currency effect). These serve as style and structure exemplars.
 2. **The house style guide and terminology glossary.** For example: "allocation effect" vs "asset allocation contribution", how interaction is reported, and rounding and sign conventions.
 3. **Approved market-context notes** for the period, from L8's approved sources.
 
 **How the layer serves this** [AJ]:
-
 - **Hybrid retrieval.** Lexical retrieval matters because queries carry exact tokens: the fund code, share-class names and period labels ("Q3 2026"). Dense retrieval matters because "the overweight in Japanese equities detracted" must match "the allocation to Japan cost relative performance".
 - **Domain terminology.** Run an in-domain bake-off on 100–300 labelled queries written by analysts. Compare a general model, a finance-domain model and a fine-tuned open model:
   - Voyage publishes voyage-finance-2 [VF: A2-S007].
   - Sentence Transformers supports fine-tuning [VF: A2-S029].
 
-  Pick by recall@20 and nDCG@10, not by vendor claims.
+  Pick by recall@20 and nDCG@10, not by vendor claims [Rec].
 - **Reranking for the right fund and period.** The reranker receives the instruction-style query with the fund name, the period and the attribution theme. It is evaluated on whether the top 3 contains this fund's most recent comparable commentary and the current style guide. Metadata boosts for `fund_id` and `period` are applied in fusion. They are not left to the reranker alone.
 - **Entitlement first.** The store filters on `fund_id`, `client_id`, document classification and approval status *before* ANN search, BM25 and reranking. The reranker only ever sees documents the analyst is entitled to.
 
 **What it must never do** [AJ]:
-
 - **Retrieve another fund's or client's data.** Cross-fund probes run in CI and must return zero hits.
 - **Supply numbers.** Retrieved past commentary contains old figures. Those figures must never flow into the new draft as data. All figures come from the attribution engine through L4 tools, and the L9 numeric-faithfulness eval checks that every number in the draft traces to that output.
 - **Retrieve unapproved drafts** or superseded style-guide versions. Approval status and validity dates are filter fields.
@@ -490,12 +474,12 @@ That is enough to show what the model was shown, and to reproduce it while the i
 | SBERT – Sentence transformers | 6.1.0, Apache-2.0, Hugging Face; dense, cross-encoder, sparse, multi-vector [VF: A2-S029] | **Strategic** as the self-hosting, fine-tuning and exit toolkit [Rec] |
 | NVIDIA – Embed | NeMo Retriever embed and rerank NIMs; AI Enterprise needed for production [VF: A2-S031, A2-S040] | Tactical for NVIDIA-standardised estates [Rec] |
 | EthicalAgents; Ragoos | Not publicly verified; removed per CP1 Q4(a) [VF: A2-S079, A2-S080] | Do not use |
-| (missing) | Amazon Bedrock embeddings and Rerank, the Vertex AI ranking API, Mixedbread and ZeroEntropy were not researched in this run [NPV] | Candidates for a follow-up pass; not recommended or rejected here [AJ] |
+| (missing) | Amazon Bedrock embeddings and Rerank, Mixedbread and ZeroEntropy were not researched in this run [NPV]; the Vertex AI ranking API exists but was not scored [VF: B-REV-S026] | Candidates for a follow-up pass; not recommended or rejected here [AJ] |
 | Layer: "Embeddings" and "RAG re-rankers" as separate tiles | Vendors ship both; stores host both [VF: A2-S101, A2-S141, A2-S133] | One governed retrieval-optimisation service: pinned versions, raw text retained, dual-index migration, in-domain eval gate [Rec] |
 
 **H6, provisional; verdict in synthesis.** The evidence supports treating embedding and reranking as one **retrieval-optimisation** concern [AJ]:
 
-- Five of the seven verified model vendors ship both [VF: A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S026, A2-S030, A2-S020].
+- Six of the seven verified model vendors offer both; Google's reranker is a separate Vertex service [VF: A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S026, A2-S030, A2-S020, B-REV-S026].
 - Sentence Transformers covers both in one library [VF: A2-S029].
 - The two are evaluated together, and they are versioned together.
 

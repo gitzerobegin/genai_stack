@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S015
+URL: https://docs.mistral.ai/admin/security-access/audit-logs
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.mistral.ai, help.mistral.ai, mistral.ai, trust.mistral.ai): Mistral AI Studio La Plateforme SSO SAML roles audit logs organization admin
+========================================================================
+
+Mistral docs "Audit logs" overview, as summarised by the search tool:
+- Audit logs are an Enterprise feature, enabled by default for all Workspaces, opened from Admin Panel > Administration > Audit Logs.
+- Each entry records timestamp, actor (human user, API key or system), event, target resource and metadata.
+- Logged activity includes sign-ins and SSO flows, API key creation and deletion, organization and Workspace changes, invitations and role changes, settings modifications.
+- Log export is not supported.

@@ -117,18 +117,19 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 **LangSmith (LangChain).**
 - *What it is now:* trace capture, offline and online evaluation, prompt management and hosted agent deployment. It ingests native and OTLP traces [VF: A1-S034, A1-S037]. Interrupt 2026 added LangSmith Engine (public beta, which clusters production failures and can open PRs), Sandboxes GA and an LLM Gateway with audit logging. Agent Builder was renamed LangSmith Fleet [VF: A1-S039].
 - *Certifications and deployment:* SOC 2 Type II, ISO 27001:2022 and HIPAA, with a BAA on Enterprise. US or EU regions are available on all tiers [VF: A1-S036, A1-S126]. BYOC on AWS, self-hosting and air-gapped self-hosting are Enterprise options [VF: A1-S034].
-- *Strengths:* the tightest fit with LangGraph, and the broadest commercial feature set in this layer [AJ].
+- *Strengths:* the tightest fit with LangGraph, and a broad commercial feature set [AJ].
 - *Limitations:* LangChain recommends the native format over OTel for performance [VF: A1-S037]. The platform now bundles the agent runtime [VF: A1-S039]. Self-hosting needs at least 16 vCPU and 64 GB, plus PostgreSQL, Redis and ClickHouse [VF: A1-S034]. Pricing is per seat plus overage [VF: A1-S035].
 - *Choose when:* LangGraph is the standard [AJ].
 - *Avoid when:* your estate is framework-heterogeneous, or you want the observability vendor separated from the runtime vendor [AJ].
 - *Competitors:* Langfuse, Braintrust, Arize AX.
 - *FS note:* dual-instrument with OTel so that evidence survives an exit, and keep Engine's proposed fixes under change control [Rec].
-- **Tier: Strategic (conditional on LangGraph). No flag.**
+- **Tier: Strategic, conditional: only in a LangGraph estate and only with OTel dual-instrumentation as the exit route, because lock-in scores 2 [AJ]. No flag.**
 
 **Braintrust.**
 - *What it is now:* an independent, proprietary platform built around experiments, datasets and scorers, with production logging. Its Trace conference in February 2026 introduced Topics (trace clustering) and Loop (AI-assisted optimisation), and Braintrust Gateway routes and traces model calls [VF: A1-S043]. It raised a US$80M Series B on 17 February 2026 [VF: A1-S028].
 - *Deployment:* the hybrid model keeps a Braintrust-hosted control plane and puts the data plane in the customer's AWS, GCP or Azure. Customer-managed KMS keys are supported [VF: A1-S041]. The US or EU data plane is fixed when the organisation is created [VF: A1-S042].
 - *Certifications:* SOC 2 Type II, with a HIPAA BAA on Enterprise. No ISO 27001 certification was found [VF: A1-S125].
+- *Access control:* SSO/SAML and OIDC, built-in groups with Enterprise custom and object-level permissions, and Enterprise audit logs queryable by SQL [VF: B-REV-S020, B-REV-S021].
 - *Strengths:* evaluation ergonomics and PR-level feedback [VF: A1-S109] [AJ].
 - *Limitations:* evaluation logic and datasets sit in the proprietary platform [VF: A1-S042].
 - *Choose when:* eval-driven development matters most and the hybrid model is acceptable [AJ].
@@ -191,7 +192,7 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 - *Certifications:* the Comet Trust Center lists SOC 2 Type 2, ISO/IEC 27001:2022 and ISO 9001 [VF: A1-S122].
 - *Pricing:* self-hosting is free. Pro Cloud costs US$19 per month as of 7 October 2026 [VF: A1-S123].
 - *Strengths:* the most permissive full-platform licence in this layer [AJ].
-- *Limitations:* the self-hosted open-source edition has no user management, and SSO comes with Enterprise [VF: A1-S069, A1-S122]. The local Docker install is not production-ready [VF: A1-S069]. OTel is HTTP-only [VF: A1-S070]. An EU region is not publicly verified [NPV].
+- *Limitations:* the self-hosted open-source edition has no user management; SSO and custom roles come with Enterprise [VF: A1-S069, A1-S122, B-REV-S022]. Audit logs appear only on marketing pages [NPV]. The local Docker install is not production-ready [VF: A1-S069]. OTel is HTTP-only [VF: A1-S070]. An EU region is not publicly verified [NPV].
 - *Choose when:* you want Apache-2.0 end to end and will buy Enterprise for identity, or you already run Comet [AJ].
 - *Avoid when:* you would self-host the open edition for many teams [AJ].
 - *Competitors:* Langfuse, Phoenix, MLflow.
@@ -212,7 +213,7 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 **Datadog Agent Observability.**
 - *What it is now:* a Datadog module, documented under the LLM Observability path. It traces agent steps and LLM calls with latency, tokens, cost and errors, and scans and redacts sensitive data. It also detects prompt injection, runs quality, privacy and safety evaluations, and produces Insights [VF: A1-S097, A1-S099].
 - *Ingest:* it accepts OTel 1.37+ GenAI conventions or OpenInference [VF: A1-S098]. Pricing is metered per LLM span [VF: A1-S097].
-- *Certifications:* the Datadog Trust Center lists SOC 2 Type 2, ISO/IEC 27001, 27017, 27018, 27701 and 42001, HIPAA and FedRAMP High [VF: B-L9-S001]. Whether that scope covers this module specifically is not stated [NPV].
+- *Certifications:* the Datadog Trust Center lists SOC 2 Type 2, ISO/IEC 27001, 27017, 27018, 27701 and 42001, HIPAA and FedRAMP High [VF: B-L9-S001]. Whether that scope covers this module specifically is not stated [NPV], so security scores 4, not 5 [AJ].
 - *Regions and access:* EU1 is hosted in Germany, and sites are isolated from each other [VF: B-L9-S002]. SAML SSO, RBAC with custom roles and an Audit Trail are documented [VF: B-L9-S003, B-L9-S005].
 - *Strengths:* puts production LLM monitoring with on-call operations [AJ].
 - *Limitations:* SaaS only. Self-hosting is not publicly verified [NPV].
@@ -250,14 +251,14 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | L9-promptfoo | 4 | 3 | 3 | 5 | 4 | 3 | 4 | 3 | 3.70 | 3.55 | Tactical |
 | L9-opik | 4 | 3 | 4 | 4 | 3 | 3 | 5 | 4 | 3.75 | 3.75 | Tactical |
 | L9-mlflow-genai | 4 | 3 | 3 | 5 | 5 | 5 | 4 | 5 | 4.10 | 4.10 | Strategic |
-| L9-datadog-agent-observability | 3 | 4 | 5 | 2 | 4 | 3 | 2 | 3 | 3.30 | 3.40 | Tactical |
+| L9-datadog-agent-observability | 3 | 4 | 4 | 2 | 4 | 3 | 2 | 3 | 3.15 | 3.20 | Tactical |
 | L9-wandb-weave | 3 | 4 | 5 | 4 | 3 | 3 | 3 | 2 | 3.55 | 3.55 | Tactical |
 
-**Scoring notes [AJ].**
-
-- No NPV cap was triggered. Datadog's certification and access-control gaps were closed with new primary sources (B-L9-S001 to S005).
+**Scoring notes [AJ]:**
+- No NPV cap was triggered. Datadog's certification and access-control gaps were closed by the writer (B-L9-S001 to S005), and the CP2 review evidenced Braintrust's SSO, RBAC and audit logs and Opik's SSO and roles [VF: B-REV-S020, B-REV-S021, B-REV-S022].
+- Datadog security is 4, not 5: the certifications are company-level and the module's scope is not stated. The same one-point scope rule applies to Gemini Embedding and Cohere (L7) and Mistral OCR (L8).
 - DeepEval, Phoenix, MLflow and the Promptfoo CLI were scored as self-hosted software under rubric rule 2. Promptfoo Enterprise SaaS would be capped at 2 for security, because its certifications are NPV.
-- Arize AX, DeepEval and Opik reach 3.6 or above but are classed Tactical. AX was acquired seven days ago. DeepEval is a substitutable library. Opik's open edition lacks identity.
+- Arize AX, DeepEval and Opik reach 3.6 or above but are classed Tactical. AX was acquired seven days ago. DeepEval is a substitutable library. Opik's open edition lacks identity. LangSmith is Strategic with lock-in at 2 only on the condition stated in its deep dive.
 - The ownership-change reduction of 1 on lock-in was applied to Langfuse, Phoenix, AX, Promptfoo and Weave.
 
 **Key facts.**
@@ -281,10 +282,10 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 The tree is applied in four steps. Steps 0 and 4 are not product choices; step 4 is a set of checks to run after selection [Rec].
 
 ```text
-STEP 0 (not optional): instrument with OTel GenAI conventions (or OpenInference) via a
+STEP 0 [Rec] (not optional): instrument with OTel GenAI conventions (or OpenInference) via a
 firm-owned OTel Collector with redaction; keep datasets and metric code in Git.
 
-STEP 1: Platform of record for traces, datasets, evals, prompts
+STEP 1 [Rec]: Platform of record for traces, datasets, evals, prompts
   Do traces contain client/personal data that must stay in-estate or in UK/EU?
   ├─ Yes → Can you run Kubernetes + ClickHouse/PostgreSQL yourselves?
   │        ├─ Yes → Is an ML platform (Databricks / SageMaker / Azure ML) already the
@@ -298,20 +299,20 @@ STEP 1: Platform of record for traces, datasets, evals, prompts
   │                                     W&B Dedicated Cloud (EU region)
   └─ No  → Pick on team fit: LangSmith (LangGraph), Braintrust (eval-led), Langfuse
 
-STEP 2: Production monitoring with ops
+STEP 2 [Rec]: Production monitoring with ops
   Is Datadog or Dynatrace the APM standard?
   ├─ Datadog   → Datadog Agent Observability, fed by the same Collector (EU1 site)
   ├─ Dynatrace → Arize AX (re-assess after Dynatrace publishes its roadmap)
   └─ Neither   → platform of record's online evals + alerting
 
-STEP 3: CI evaluation and red-teaming
+STEP 3 [Rec]: CI evaluation and red-teaming
   Metrics library  → DeepEval (or the platform's own evaluators), judge model via gateway
   Red-team         → Promptfoo CLI locally
                      AND, if the system under test uses an OpenAI model,
                      a second, vendor-independent red-team tool (e.g. Confident AI)
   Validation sandbox for independent reviewers → Phoenix (auth on, telemetry off, air-gapped)
 
-STEP 4: Checks before go-live
+STEP 4 [Rec]: Checks before go-live
   Trace retention ≥ records policy (and ≥ 6 months where AI Act Art. 26 applies)?
   Judge calibrated against human labels?  Trace completeness reconciled with gateway?
 ```
@@ -368,7 +369,6 @@ STEP 4: Checks before go-live
 ### 9.12 Worked-example slice (POV 3)
 
 **What the commentary agent needs from L9 [AJ].** The agent drafts the monthly Brinson-style attribution commentary (allocation, selection, currency, benchmark-relative return) for a generic multi-asset fund. It needs eight things from this layer:
-
 1. **Numeric faithfulness, deterministic and blocking.** A code scorer extracts every figure, sign and direction word ("added", "detracted", "overweight") and compares it with the attribution-engine output recorded in the same trace. The read-only L4 tool call is a span, so the reference values are evidence, not memory. Any mismatch outside the agreed rounding rule fails the run; no LLM judge is involved.
 2. **Groundedness against approved sources.** Each market-context claim must be supported by a retrieved, approved document (calibrated judge or NLI metric). Unsupported claims are flagged, so inference stays distinguishable from source data.
 3. **House-style checks.** Rules for terminology, prohibited phrases, tense and length; an LLM judge only for tone.
@@ -379,7 +379,6 @@ STEP 4: Checks before go-live
 8. **Cost and latency per commentary**, reported to C6.
 
 **What L9 must never do [AJ]:**
-
 - pass a draft whose numbers fail the deterministic check because an LLM judge scored it "faithful"
 - send untokenised client or holdings data to an external judge or SaaS trace store that has not been assessed
 - let a vendor auto-fix feature (LangSmith Engine, Braintrust Loop) change a production prompt outside change control

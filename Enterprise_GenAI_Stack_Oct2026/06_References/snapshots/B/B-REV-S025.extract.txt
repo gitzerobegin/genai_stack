@@ -1,0 +1,13 @@
+SOURCE ID: B-REV-S025
+URL: https://docs.apify.com/platform/collaboration/organization-account
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.apify.com, apify.com): Apify organization account members roles permissions SSO SAML audit log
+========================================================================
+
+Apify docs "Organization account", "List of permissions", "Account settings" and "Shared responsibility model" (docs.apify.com/security/shared-responsibility), as summarised by the search tool:
+- Organisation accounts: each member holds one role; every new organisation starts with three predefined roles that can be customised or removed.
+- Permissions are set per resource type (Actors, tasks, storage); storage read access is all-or-nothing across the organisation's storages. Account-level permissions include managing access keys, subscription and organisation settings.
+- Admins can set maximum session lifetime and require two-factor authentication for members.
+- The shared responsibility page states that the platform provides two-factor authentication, SSO, scoped tokens, organisation roles and per-resource access rights, which customers must configure. No SSO configuration guide or IdP list was found.
+- No organisation audit log was found.

@@ -11,7 +11,7 @@
 | | |
 |---|---|
 | **Last updated** | 8 October 2026 |
-| **Stage** | **Stage B, tranche 1 (layers 9, 8, 7) in progress**, heading to **Checkpoint 2** |
+| **Stage** | **Checkpoint 2 delivered**: layers 9, 8 and 7 drafted and calibrated. **Waiting for the user's CP2 review.** |
 | **Branch** | `claude/nice-meitner-0me752` on `github.com/gitzerobegin/genai_stack` |
 
 | Item | State |
@@ -20,7 +20,9 @@
 | L8 writer | **Done**: `work/stageB/L8/section.md`, `assessments.json`. Tiers: 2 Strategic, 6 Tactical, 2 Experimental. |
 | L9 writer | **Done**: 11 scored (3 Strategic, 8 Tactical); 5 new sources (B-L9-S001…S005) |
 | L7 writer | **Done**: 8 scored (1 Strategic, 7 Tactical); EthicalAgents and Ragoos unscored |
-| Next | Merge assessments (`tools/build_dataset.py`), run one calibration reviewer over L9–L7, write `checkpoints/CP2/`, push, **stop for CP2** |
+| Calibration review | **Done**: 40 changes, 8 caps lifted, 5 kept, 1 added, no tier changes, 27 sources (B-REV-S001…S027). `work/stageB/_review/CP2_review.md` |
+| CP2 pack | `checkpoints/CP2/00_CP2_Summary.md`, `01_Draft_Layers_9-7.md`/`.docx`, `02_Calibration_Review.md` |
+| Next | Apply the user's CP2 answers (Q1–Q6) to L9–L7 and update the writer brief and rubric, then run tranche 2 (L6, L5, L4, C1–C8) and stop at **CP3** |
 | After CP2 | Stage B tranche 2: L6, L5, L4 and C1–C8, then **CP3**. Tranche 3: L3, L2, L1 and Stage C synthesis, then **CP4**. Then C2 LinkedIn pair 1–2 (**CP4b**), the rest of C2, and Stage D packaging (**CP5**). |
 
 ## Run log
@@ -44,6 +46,7 @@
 | 13 | 8 October | Wrote `work/stage0/07_stageB_writer_brief.md`, `08_scoring_rubric.md` and `tools/score.py`. Extended `build_dataset.py` to overlay `work/stageB/*/assessments.json` and `sources_added.csv`. | |
 | 14 | 8 October | **Stage B, tranche 1:** writers for L9, L8 and L7 in parallel (prompts in `work/prompts/stageA_prime_and_stageB_prompts.md`) | L8 done. L9 and L7 running. |
 | 15a | 8 October | All three writers done. `tools/check_tags.py` added: all tag IDs resolve. **Calibration issue:** L7 capped enterprise readiness for every hosted vendor, while L9 closed similar gaps by searching. A calibration reviewer was launched over L9–L7 (prompt in the `work/prompts/stageA_prime_and_stageB_prompts.md` appendix). | Reviewer running |
+| 15b | 8 October | The calibration reviewer finished. Built the CP2 pack (draft `.md` plus a pandoc `.docx`), rebuilt the dataset (1,151 sources, 0 issues), and pushed. **Stopped for CP2.** | |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it
@@ -57,6 +60,7 @@
 | B5 | GitHub push was 403 at first | Resolved by the user | n/a |
 | B6 | No Bitbucket credentials | Not needed: the user chose GitHub | n/a |
 | B7 | The Veyans MCP server failed to connect | None; it is not used | n/a |
+| B8 | `cloud.google.com` now redirects to `docs.cloud.google.com` (blocked) | Google facts come from search extracts | Desktop re-fetch |
 
 ## Known residual risks (carried forward)
 

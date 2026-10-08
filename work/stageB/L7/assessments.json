@@ -6,13 +6,14 @@
       "strengths": [
         "Stable, unchanged generation since January 2024, so a pinned model has not been forced to move [VF: A2-S002] [AJ]",
         "Strong documented controls for the endpoint: SOC 2 Type 2, ISO/IEC 27001 and 27701, ZDR-eligible /v1/embeddings, EU storage and processing residency with Modified Abuse Monitoring or ZDR, HIPAA BAA [VF: A2-S036, A2-S144]",
-        "Low, transparent price: 3-small US$0.02 and 3-large US$0.13 per 1M tokens, Batch at half price for 3-large (as of 7 October 2026) [VF: A2-S001, A2-S035]"
+        "Low, transparent price: 3-small US$0.02 and 3-large US$0.13 per 1M tokens, Batch at half price for 3-large (as of 7 October 2026) [VF: A2-S001, A2-S035]",
+        "API Platform identity and access: SAML/OIDC SSO, SCIM, organisation and project roles with custom roles, Admin API and audit logs [VF: B-REV-S004, B-REV-S005, B-REV-S006]"
       ],
       "limitations_risks": [
         "Text only; no reranker, so a second vendor or library is needed for two-stage retrieval [VF: A2-S001] [AJ]",
         "Hosted only, no downloadable weights; vectors are model-specific, so exit means re-embedding the corpus [AJ]",
         "UK region is storage-only for embeddings; processing in Europe needs Modified Abuse Monitoring or ZDR [VF: A2-S144]",
-        "RBAC granularity, SCIM and audit-log scope for the API platform not verified [NPV]; CMK/BYOK not verified [NPV]",
+        "Audit logs record administrative events only, not request content, and are kept on a best-effort basis, so they must be exported to the firm's archive [VF: B-REV-S006]; CMK/BYOK not verified [NPV]",
         "Ageing generation with no announced successor; successor timing unknown [AJ]"
       ],
       "choose_when": [
@@ -38,7 +39,7 @@
     "scores": {
       "criteria": {
         "technical": 3,
-        "enterprise_readiness": 2,
+        "enterprise_readiness": 4,
         "security_compliance": 4,
         "deployment_flexibility": 2,
         "ecosystem": 3,
@@ -48,7 +49,7 @@
       },
       "rationale": {
         "technical": "Core text embedding with shortening via 'dimensions'; no reranker, no multimodal, 2024 generation.",
-        "enterprise_readiness": "SSO/MFA advertised (low confidence); RBAC and audit-log scope NPV.",
+        "enterprise_readiness": "SAML/OIDC SSO, tenant SCIM for the API Platform (from 17 September 2026), organisation and project roles with custom roles, Admin API and audit logs of administrative events [VF: B-REV-S004, B-REV-S005, B-REV-S006]; support/SLA terms not verified and audit logs exclude request content with best-effort retention, so not 5.",
         "security_compliance": "SOC 2 Type 2, ISO 27001/27701, HIPAA BAA, ZDR and EU residency for the endpoint; CMK not verified.",
         "deployment_flexibility": "Hosted SaaS only, with US and EU processing regions; no VPC or self-host verified.",
         "ecosystem": "Standard REST endpoint, SDKs and Batch API; broader ecosystem evidence NPV in the dataset.",
@@ -57,10 +58,10 @@
         "lockin_portability": "Proprietary hosted API, no weights; switching forces full re-embedding."
       },
       "evidence_caps_applied": [
-        "enterprise_readiness capped at 2: RBAC and audit-log scope NPV (only SSO/MFA advertised, low confidence)"
+        "NPV cap lifted at CP2 review (8 October 2026): SSO, RBAC and audit logs verified (B-REV-S004 to S006)"
       ],
-      "generic_total": 3.0,
-      "fs_total": 2.9
+      "generic_total": 3.3,
+      "fs_total": 3.2
     }
   },
   {
@@ -76,7 +77,7 @@
         "EU multi-region excludes the UK and Switzerland [VF: A2-S039]",
         "Per-model certification coverage and CMEK applicability for embedding calls not confirmed [VF: A2-S043, A2-S039]",
         "Hosted only, no weights; coupling to Google platform services (File Search, Memory Bank) [AJ]",
-        "task_type parameter not supported [VF: A2-S005]; no reranker in the dataset (Vertex ranking API not researched) [NPV]",
+        "task_type parameter not supported [VF: A2-S005]; Google's reranker is a separate service, the Vertex ranking API (semantic-ranker models; version 005 in preview from 1 September 2026) [VF: B-REV-S026]",
         "Text price US$0.20 per 1M tokens is higher than most hosted peers (as of 7 October 2026) [VF: A2-S038]"
       ],
       "choose_when": [
@@ -103,7 +104,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 2,
+        "enterprise_readiness": 3,
         "security_compliance": 4,
         "deployment_flexibility": 2,
         "ecosystem": 3,
@@ -112,9 +113,9 @@
         "lockin_portability": 2
       },
       "rationale": {
-        "technical": "Multimodal, multilingual, Matryoshka 128-3,072; no reranker evidenced and task types unsupported.",
-        "enterprise_readiness": "Access controls and enterprise support for the model NPV in the dataset.",
-        "security_compliance": "Strong platform certifications including ISO 42001 and FedRAMP High; per-model scope and CMEK not confirmed.",
+        "technical": "Multimodal, multilingual, Matryoshka 128-3,072; task types unsupported; Google's reranker is the separate Vertex ranking API (B-REV-S026).",
+        "enterprise_readiness": "Google Cloud IAM predefined and custom roles down to endpoint level, Cloud Audit Logs (Admin Activity always on; Data Access logs for predict calls once enabled) and SAML/OIDC federation at platform level [VF: B-REV-S007, B-REV-S008, B-REV-S012]; per-model coverage, SCIM and support terms not evidenced, so 3.",
+        "security_compliance": "Strong platform certifications including ISO 42001 and FedRAMP High; generative AI on the platform supports CMEK, VPC-SC and data residency (B-REV-S009), but per-model scope for embedding calls is not confirmed, so 4.",
         "deployment_flexibility": "Gemini API and Vertex AI only (global, us, eu); no private or self-hosted route.",
         "ecosystem": "Google platform integration and one named adopter (Box); wider ecosystem NPV.",
         "reliability_maturity": "GA since April 2026 (about 5.5 months); pricing pages lagged the GA status.",
@@ -122,10 +123,10 @@
         "lockin_portability": "Proprietary hosted API plus Google platform coupling; re-embedding to switch."
       },
       "evidence_caps_applied": [
-        "enterprise_readiness capped at 2: access controls (SSO/RBAC/audit) for the embedding model NPV"
+        "NPV cap lifted at CP2 review (8 October 2026): platform IAM, Cloud Audit Logs and federated SSO verified (B-REV-S007, S008, S012); per-model coverage not confirmed"
       ],
-      "generic_total": 3.0,
-      "fs_total": 2.9
+      "generic_total": 3.15,
+      "fs_total": 3.05
     }
   },
   {
@@ -191,8 +192,8 @@
         "lockin_portability": "Proprietary API (except nano) on standard interfaces would be 3; reduced by 1 for the 2025 acquisition."
       },
       "evidence_caps_applied": [
-        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV",
-        "security_compliance capped at 2: certifications only Reported from a homepage listing; report scope NPV"
+        "enterprise_readiness capped at 2 (kept after CP2 review search): Atlas Embedding and Reranking API access is by model API keys; no SSO/RBAC/audit evidence for the API (B-REV-S018)",
+        "security_compliance capped at 2 (kept): certifications only Reported from a homepage listing; MongoDB's SOC 2 scope page does not name Voyage and excludes preview features (B-REV-S027)"
       ],
       "generic_total": 3.25,
       "fs_total": 2.9
@@ -209,7 +210,7 @@
         "Storage arithmetic is published: Cohere's example shrinks 100M chunks from about 819 GB to 3.2 GB with reduced dimensions and binary output [VF: A2-S013]"
       ],
       "limitations_risks": [
-        "SSO/SAML, RBAC and audit-log export for the hosted API not found [VF: A2-S145]; enterprise support terms NPV",
+        "The hosted platform documents only Owner and User team roles [VF: B-REV-S013]; SSO/SAML and audit logs for the hosted API were not found [NPV]; enterprise support terms NPV",
         "Rerank per-search price not found [VF: A2-S013]",
         "Aleph Alpha business combination signed 16 September 2026, pending regulatory approval [VF: A2-S018, V1-S028]; valuation figures conflict and are not used [AJ]",
         "EU hosted-region details not verified [NPV]; CMK for the hosted API not found [NPV]",
@@ -249,7 +250,7 @@
       },
       "rationale": {
         "technical": "Current embed and rerank, multimodal, 128K context, Matryoshka and binary; no domain-specific models evidenced.",
-        "enterprise_readiness": "SSO/SAML, RBAC and audit-log export for the hosted API not found in public sources.",
+        "enterprise_readiness": "The hosted platform documents only Owner and User team roles; no SSO/SAML or audit-log documentation found for the Embed/Rerank API (B-REV-S013). North's controls are a different product.",
         "security_compliance": "SOC 2 Type II, ISO 27001, ISO 42001, ZDR on request and private deployment; CMK and EU hosted region unverified.",
         "deployment_flexibility": "SaaS, partner clouds, VPC, single-tenant and on-prem; air-gap not verified.",
         "ecosystem": "Microsoft Foundry, SageMaker, LangChain, and Cohere Rerank hosted inside Pinecone.",
@@ -258,7 +259,7 @@
         "lockin_portability": "Proprietary, but deployable in the firm's estate; rule 3 not applied because Cohere is the combining party, revisit on close."
       },
       "evidence_caps_applied": [
-        "enterprise_readiness capped at 2: SSO/SAML, RBAC and audit-log export for the hosted API not found"
+        "enterprise_readiness capped at 2 (kept after CP2 review search): only Owner and User team roles documented; no SSO/SAML or audit-log evidence for the hosted API (B-REV-S013)"
       ],
       "generic_total": 3.45,
       "fs_total": 3.4
@@ -314,8 +315,8 @@
       },
       "rationale": {
         "technical": "Embed and rerank in three sizes, 32K context, 119 languages, multimodal VL variants.",
-        "enterprise_readiness": "No commercial support verified; hosted access controls NPV; self-hosted inherits host controls.",
-        "security_compliance": "Hosted certifications NPV; self-hosted path inherits host controls; provenance review needed.",
+        "enterprise_readiness": "Rule 2 (self-hosted open weights; hosted Model Studio route not recommended): enables in-estate serving only; no commercial support for self-hosting verified, so 2.",
+        "security_compliance": "Rule 2: Apache-2.0 licence is clear, but no security policy or signed-release evidence was verified and a model-provenance review is outstanding, so 2; inherits host controls.",
         "deployment_flexibility": "Self-host, on-prem and disconnected use via open weights, plus SaaS outside the EU.",
         "ecosystem": "Hugging Face and ModelScope weights; OpenAI-compatible batch API on Model Studio; wider ecosystem NPV.",
         "reliability_maturity": "Released June 2025 with a January 2026 multimodal successor; long-term support NPV.",
@@ -323,8 +324,7 @@
         "lockin_portability": "Apache 2.0 and self-hostable; single-vendor governance and model-specific vectors keep it below 5."
       },
       "evidence_caps_applied": [
-        "enterprise_readiness capped at 2: access controls and support NPV",
-        "security_compliance capped at 2: certifications for the hosted API NPV"
+        "Rule 2 (self-hosted open weights) applied instead of the NPV cap, because the recommendation is self-host only; scores unchanged at 2 on project hygiene and support, not on missing hosted certifications"
       ],
       "generic_total": 3.2,
       "fs_total": 3.15
@@ -372,7 +372,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 2,
+        "enterprise_readiness": 3,
         "security_compliance": 3,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -382,7 +382,7 @@
       },
       "rationale": {
         "technical": "Multilingual, multimodal, long-context embeddings and listwise and multimodal rerankers.",
-        "enterprise_readiness": "API-key access only verified; SSO/RBAC/audit and support NPV.",
+        "enterprise_readiness": "Scored on the recommended Elastic Inference Service route: Elastic Cloud SAML SSO and RBAC at platform level [VF: B-REV-S019]; audit logging of EIS calls not evidenced. The standalone Jina API (API keys only) would stay capped at 2.",
         "security_compliance": "Elastic Cloud SOC 2 Type II and ISO 27001 cover the EIS route; hosted Jina API scope unconfirmed.",
         "deployment_flexibility": "SaaS API, Elastic Inference Service, on-prem Docker with air-gap; VPC NPV.",
         "ecosystem": "Default in Elasticsearch semantic_text; Hugging Face and vLLM recipes.",
@@ -391,10 +391,10 @@
         "lockin_portability": "CC-BY-NC weights route commercial use through Elastic (would be 3); reduced by 1 for the 2025 acquisition."
       },
       "evidence_caps_applied": [
-        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV (API keys only)"
+        "NPV cap lifted at CP2 review for the Elastic Inference Service route (B-REV-S019); the standalone Jina API remains capped at 2 (API keys only)"
       ],
-      "generic_total": 3.15,
-      "fs_total": 3.0
+      "generic_total": 3.3,
+      "fs_total": 3.15
     }
   },
   {
@@ -408,7 +408,7 @@
       ],
       "limitations_risks": [
         "A library, not a model: quality depends on the model chosen and on the firm's evaluation [AJ]",
-        "No commercial support offer verified [NPV]; security policy and signed releases NPV",
+        "No commercial support offer verified [NPV]; a security policy with private reporting and CVE issuance exists [VF: B-REV-S002], but release signing is not verified [NPV]",
         "Depends on Hugging Face stewardship and a small maintainer team [AJ]",
         "Model licences on the Hub vary; each model needs its own licence check (for example, Jina weights are CC-BY-NC-4.0) [VF: A2-S024] [AJ]"
       ],
@@ -446,7 +446,7 @@
       "rationale": {
         "technical": "Covers dense, cross-encoder, sparse and multi-vector with fine-tuning; quality depends on the chosen model.",
         "enterprise_readiness": "Rule 2: enables in-estate serving and fine-tuning; no commercial support verified (capped at 4).",
-        "security_compliance": "Rule 2: Apache-2.0, PyPI releases; security policy and signing NPV; inherits host controls (capped at 4).",
+        "security_compliance": "Rule 2: Apache-2.0; SECURITY.md with private vulnerability reporting and CVE issuance through GitHub advisories (B-REV-S002); release signing not verified; inherits host controls.",
         "deployment_flexibility": "Self-host, on-prem and air-gap; no managed option of its own.",
         "ecosystem": "Over 15,000 models on Hugging Face; many MTEB models load through it.",
         "reliability_maturity": "Since 2019, regular 2026 releases, Hugging Face stewardship.",
@@ -513,7 +513,7 @@
         "technical": "Embed and rerank including multimodal; shorter context and fixed dimensions; Matryoshka not evidenced.",
         "enterprise_readiness": "Commercial subscription with Helm/Kubernetes deployment; inherits host IAM; support terms NPV.",
         "security_compliance": "Self-hosted container (certifications not applicable); licence clear; container hardening evidence NPV.",
-        "deployment_flexibility": "Any cloud or data centre with supported GPUs, API catalog for development; air-gap NPV.",
+        "deployment_flexibility": "Any cloud or data centre with supported GPUs, NVIDIA API Catalog for development; air-gap NPV.",
         "ecosystem": "NeMo Retriever pipeline and Helm chart; wider ecosystem NPV.",
         "reliability_maturity": "Frequent NIM releases; inconsistent version dating across pages.",
         "cost_tco": "Per-GPU licence on top of GPU infrastructure.",

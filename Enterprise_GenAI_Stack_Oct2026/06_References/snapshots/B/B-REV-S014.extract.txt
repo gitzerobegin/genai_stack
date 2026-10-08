@@ -1,0 +1,13 @@
+SOURCE ID: B-REV-S014
+URL: https://docs.mistral.ai/admin/set-up-organization/sign-in-method/saml-sso
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.mistral.ai, help.mistral.ai, mistral.ai, trust.mistral.ai): Mistral AI Studio La Plateforme SSO SAML roles audit logs organization admin
+========================================================================
+
+Mistral docs "SAML SSO", "SSO", "Admin overview" and "Admin Panel" pages, as summarised by the search tool:
+- SSO is available exclusively on Enterprise plans; Organization SSO uses SAML 2.0; OIDC is not supported. Named IdPs: Microsoft Entra ID, Google Workspace, Okta.
+- Users with a verified-domain email are redirected to the IdP and provisioned in the Organization on first sign-in.
+- Organization roles: Admin, Billing, Member. Admins control organization settings, members, security configuration, billing, privacy and audit logs.
+- Workspaces are isolated environments with independent API keys and usage tracking; members reach Workspaces through roles, groups and SCIM provisioning (SCIM setup steps not retrieved).
+- Pages disagree on the SSO settings location and on the Member role's permissions.

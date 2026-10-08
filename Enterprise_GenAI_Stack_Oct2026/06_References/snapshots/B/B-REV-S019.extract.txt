@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S019
+URL: https://www.elastic.co/subscriptions/cloud
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains elastic.co, www.elastic.co): Elastic Inference Service Elastic Cloud SAML SSO role-based access control audit logging Jina models
+========================================================================
+
+Elastic Cloud Feature Matrix, Elastic Inference Service docs and "Jina models" docs, as summarised by the search tool:
+- The Elastic Cloud feature matrix lists role-based access control and Elastic Cloud SAML single sign-on as platform services, and lists Elastic Inference Service (EIS) among machine learning and AI features.
+- Self-managed Platinum includes SSO, LDAP/Active Directory, field/document-level security and audit logging.
+- Jina search models on EIS are available to all Elastic Cloud users with consumption-based pricing and no separate licence or API key; models listed include jina-reranker-v3.5, jina-embeddings-v5-omni-small/-nano and jina-embeddings-v3.
+- No document found stating that EIS requests are covered by the cluster's RBAC or audit logs specifically.

@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S013
+URL: https://docs.cohere.com/reference/teams-and-roles
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.cohere.com, cohere.com, trustcenter.cohere.com): Cohere dashboard SSO SAML role-based access control audit logs enterprise
+========================================================================
+
+"Teams and Roles on the Cohere Platform" (docs.cohere.com), with cohere.com/enterprise-data-commitments and North product pages, as summarised by the search tool:
+- The standard Cohere platform has two team roles, Owner and User; owners invite members from the Team page of the Dashboard.
+- No SAML/SSO configuration guide, identity-provider list or finer-grained dashboard RBAC was found for the hosted API platform.
+- Enterprise data commitments: log data (organisational ID, dates of actions) is generated only on the SaaS Platform; Cohere does not receive log data in other deployment types.
+- North (Cohere's separate enterprise agent platform) advertises integration with existing IAM, roles and permissions and audit-ready logs; this is a different product from the Embed/Rerank API.

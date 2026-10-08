@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S021
+URL: https://braintrust-2uo21eqdc.preview.braintrust.dev/docs/admin/audit-logs
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains braintrust.dev, www.braintrust.dev): Braintrust SSO SAML audit logs RBAC enterprise organization permissions
+========================================================================
+
+Braintrust docs "Audit logging" page (found on a braintrust.dev preview domain; structure matches the main docs site, confirm against production docs), as summarised by the search tool:
+- Audit logs record administrative actions (creating projects, changing settings, granting permissions, managing members, creating API keys); recorded only while the organisation is on an Enterprise plan.
+- Owners can read them by default; others need the organisation-level "Read audit logs" permission.
+- Queryable with SQL via the audit_logs() data source (SQL sandbox, bt sql CLI or API).
+- Retained for the life of the Enterprise subscription, outside the plan's normal retention window.
