@@ -11,7 +11,7 @@
 | | |
 |---|---|
 | **Last updated** | 8 October 2026 |
-| **Stage** | **Stage B, tranche 2 in progress** (after CP2 decisions), heading to **Checkpoint 3** |
+| **Stage** | **Checkpoint 3 delivered**: L6–L4 and C1–C8 drafted and calibrated; L9–L7 reworked to the CP2 rules. **Waiting for the user's CP3 review.** |
 | **Branch** | `claude/nice-meitner-0me752` on `github.com/gitzerobegin/genai_stack` |
 
 | Item | State |
@@ -24,7 +24,9 @@
 | CP2 pack | `checkpoints/CP2/00_CP2_Summary.md`, `01_Draft_Layers_9-7.md`/`.docx`, `02_Calibration_Review.md` |
 | CP2 decisions | Q1 hyperscaler presumption; Q2 lenient (any one control lifts the cap to 3); Q3 judgement; Q4 one point below anchor; Q5 no length cap; Q6 L9 deep-dive format, one illustrative scenario per layer. `checkpoints/CP2/03_CP2_Decisions.md`; rubric rules 6–9 |
 | Tranche 2 (running) | Rework of L9–L7 **done** (14 score changes, no tier changes; `work/stageB/_review/CP2_rework_log.md`); writers for L6, L5, L4, C1+C2, C3+C4, C5+C6, C7+C8 (prompts in `work/prompts/stageB_tranche2_prompts.md`) |
-| Next | Merge, run a calibration reviewer across tranche 2 (and a cross-check of L9–L7), build the CP3 pack, push, **stop at CP3** |
+| Tranche 2 calibration | **Done**: reviewers A and B made 16 score changes and 3 tier changes (Strategic → Tactical: L4 AgentCore, C4 MCP authorisation, C4 Cedar); 181 claims checked |
+| CP3 pack | `checkpoints/CP3/00_CP3_Summary.md` (Q1–Q9), drafts as `.md`/`.docx`, reviews A and B, all scores |
+| Next | Apply the user's CP3 answers. Then **tranche 3**: L3, L2, L1 writers (same brief and rubric) and a reviewer, then **Stage C synthesis** (H1–H8 verdicts, reference architecture, 4 stacks, build vs buy, abstraction, lock-in, Phase 0–7 roadmap, select / don't-select / monitor), then **CP4** |
 | After CP2 | Stage B tranche 2: L6, L5, L4 and C1–C8, then **CP3**. Tranche 3: L3, L2, L1 and Stage C synthesis, then **CP4**. Then C2 LinkedIn pair 1–2 (**CP4b**), the rest of C2, and Stage D packaging (**CP5**). |
 
 ## Run log
@@ -53,6 +55,7 @@
 | 17 | 8 October | All 8 tranche-2 agents stopped with an API 429 "session limit" (resets 12:30 UTC) before writing any output. At 18:13 UTC, after the user said "continue", all 8 were resumed with SendMessage (context kept). | Running |
 | 18 | 8 October | **Second 429 interruption** (reset 23:10 UTC) hit 5 agents. Saved on disk: complete L6, C1, C3, C5, C6 (sections and assessments); C7 and C8 sections; C2 assessments; L4 and L5 done earlier. At 18:40 UTC, after the user said "continue", resumed only the 3 agents with work left: C2 section, C4 (all), C7 and C8 assessments. | Running |
 | 19 | 8 October | Tranche 2 writers all complete: L6, L5, L4, C1–C8 (about 92,000 words; 74 products scored). Built the shared table `work/stageB/_review/all_scores.md`. Launched calibration reviewers A (L6–L4, C1–C2) and B (C3–C8). Tool globs now read `sources_added*.csv`. | Reviewers running |
+| 20 | 8 October | Reviewers A and B finished. Built the CP3 pack (pandoc `.docx`); rebuilt the dataset (1,234 sources, 0 issues; 104 scored: 29 Strategic, 67 Tactical, 8 Experimental). **Stopped for CP3.** | |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it

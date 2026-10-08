@@ -11155,7 +11155,7 @@
       },
       "rationale": {
         "technical": "BM25, quantised vectors, RRF/linear fusion, restrictive-filter optimisation and document-level security cover the layer's research questions",
-        "enterprise_readiness": "SAML/OIDC SSO, RBAC, DLS/FLS and audit logging (self-managed Platinum; Elastic Cloud SSO/RBAC confirmed); Cloud audit tier and SLA not confirmed",
+        "enterprise_readiness": "SAML/OIDC SSO, RBAC, DLS/FLS and audit logging (A2-S134; Elastic Cloud SSO/RBAC B-REV-S019), plus the Elastic Cloud API with role-bearing organisation API keys (B-REVA-S003): rule 7 allows 4; SCIM not found, Cloud audit tier and SLA not confirmed",
         "security_compliance": "Elastic Cloud ISO 27001 and SOC 2 Type II within the product, plus CMK",
         "deployment_flexibility": "Hosted and Serverless on three clouds, self-managed and on-prem; no BYOC evidenced",
         "ecosystem": "De-facto search standard; REST; OpenSearch fork",
@@ -11465,13 +11465,14 @@
         "Foundation governance and Apache-2.0 [VF: A2-S118]",
         "Zilliz Cloud SOC 2 Type II (incl. BYOC) and ISO 27001; CMEK on Business Critical [VF: A2-S119, A2-S120]",
         "Enterprise Dedicated with SSO, audit logs and 99.95% SLA [VF: A2-S120]",
-        "Same API from Lite to Distributed to Zilliz Cloud [VF: A2-S054]"
+        "Same API from Lite to Distributed to Zilliz Cloud [VF: A2-S054]",
+        "Organisation, project and cluster RBAC with custom roles, IdP group mapping and SCIM on Zilliz Cloud [VF: B-REVA-S001]"
       ],
       "limitations_risks": [
         "3.0 not guaranteed compatible with 2.6 servers [VF: A2-S117]",
         "Milvus Lite has no authentication, roles or TLS [VF: A2-S054]",
         "Distributed Milvus is a heavy operational commitment [AJ]",
-        "Zilliz last disclosed raise 2022; Zilliz RBAC not evidenced [VF: A2-S122] [NPV]"
+        "Zilliz last disclosed raise 2022 [VF: A2-S122]"
       ],
       "choose_when": [
         "Very large corpora, open-source portability with managed or BYOC options, or vectors alongside lakehouse data [AJ]"
@@ -11505,8 +11506,8 @@
       },
       "rationale": {
         "technical": "Dense/sparse, BM25, JSON indexing, lake-native storage; multi-tenancy and filtered performance not evidenced",
-        "enterprise_readiness": "SSO and audit logs plus 99.95% SLA on Enterprise Dedicated (rule 7 allows 4); RBAC not evidenced",
-        "security_compliance": "SOC 2 Type II and ISO 27001 plus CMEK, but SOC 2 report under NDA and certifications not re-checked by verifiers",
+        "enterprise_readiness": "SSO, audit logs and 99.95% SLA on Enterprise Dedicated (A2-S120), plus organisation, project and cluster RBAC with custom roles and SCIM (B-REVA-S001): all three controls plus SLA and SCIM (rule 7)",
+        "security_compliance": "Combined record: Zilliz Cloud has product-scoped SOC 2 Type II and ISO 27001 plus CMEK (would reach 5 under rule 8), but the self-hosted Milvus route is scored on rule 2 hygiene, which is not evidenced; 4 reflects the recommended mix of self-host and BYOC",
         "deployment_flexibility": "SaaS on three clouds, BYOC, self-host, on-prem",
         "ecosystem": "pymilvus; mainstream integrations",
         "reliability_maturity": "LF AI & Data graduated; 2.6 maintained; 3.0 GA only ten weeks",
@@ -11840,7 +11841,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: only where MongoDB is already the operational store, because lock-in scores 2 [AJ]."
+      "rationale": "Strategic, conditional: only where MongoDB is already the operational store, because lock-in scores 2; the condition is an existing platform commitment, which is why it differs from Pinecone [AJ]."
     },
     "scores": {
       "criteria": {
@@ -11855,7 +11856,7 @@
       },
       "rationale": {
         "technical": "Vector, full-text and hybrid GA; rerank and auto-embedding preview",
-        "enterprise_readiness": "SSO, roles and auditing verified (B-L6-S001); SCIM and SLA not verified",
+        "enterprise_readiness": "SSO, roles and auditing verified (B-L6-S001) plus the Atlas Admin API (B-REV-S028): rule 7 allows 4; SCIM and SLA not verified",
         "security_compliance": "Strong platform certifications but scope rule (CP2 Q4): platform-level, preview features excluded",
         "deployment_flexibility": "Atlas on three clouds plus self-managed; no BYOC",
         "ecosystem": "Official drivers and aggregation API; Voyage integration",
@@ -12563,7 +12564,7 @@
     "classification": {
       "tier": "Tactical",
       "flags": [],
-      "rationale": "Scores 3.80 FS but lock-in is 2 and the vendor is widening into L5/L8 (Nexus); held at Tactical until an exit route is decided [AJ]."
+      "rationale": "Scores 3.80 FS but lock-in is 2 and it would be a net-new proprietary dependency whose vendor is widening into L5/L8 (Nexus); a criterion at 2 is accepted as a Strategic condition only where it rides on an existing platform commitment (Elastic, MongoDB), so Pinecone is held at Tactical until an exit route is decided [AJ]."
     },
     "scores": {
       "criteria": {
@@ -12902,13 +12903,15 @@
         "Filter-aware search and tiered multitenancy suit entitlement-heavy, many-tenant retrieval [VF: A2-S103] [AJ]",
         "Managed, Hybrid (customer network) and Private Cloud incl. air-gapped, plus self-host [VF: A2-S106]",
         "Cloud RBAC with custom roles, SSO add-on, collection-scoped JWT keys [VF: B-L6-S007]",
-        "Apache-2.0; US$50M Series B March 2026 [VF: A2-S108, A2-S107]"
+        "Apache-2.0; US$50M Series B March 2026 [VF: A2-S108, A2-S107]",
+        "Cloud Management API with management keys; 99.9% uptime SLA on Premium (99.95% multi-AZ) [VF: B-REVA-S002]"
       ],
       "limitations_risks": [
         "No ISO 27001 found; HIPAA BAA documented for Managed Cloud only [VF: V1-S069]",
         "Upgrade cannot skip 1.16 (storage migration) [VF: A2-S102]",
         "SSO is a Premium add-on [VF: B-L6-S007]",
-        "Managed pricing evidence thin and possibly stale [VF: A2-S106]"
+        "Managed pricing evidence thin and possibly stale [VF: A2-S106]",
+        "Management and database keys are not revoked when the creating user leaves; offboarding must revoke them [VF: B-REVA-S002]"
       ],
       "choose_when": [
         "A dedicated engine is needed in your own estate or cloud account, with strong filtering and tenant isolation [AJ]"
@@ -12941,7 +12944,7 @@
       },
       "rationale": {
         "technical": "Dense/sparse, ACORN filtering, RRF, multitenancy, quantisation; BM25 not evidenced",
-        "enterprise_readiness": "Cloud RBAC with custom roles, SSO (add-on), audit access logging; SCIM and SLA not verified",
+        "enterprise_readiness": "Cloud RBAC with custom roles, SSO (Premium add-on) and audit access logging (B-L6-S007), plus the Cloud Management API and a 99.9% (99.95% multi-AZ) SLA on Premium (B-REVA-S002): rule 7 allows 4; SCIM not verified",
         "security_compliance": "SOC 2 Type II and HIPAA but no ISO 27001: maximum 3 in this layer",
         "deployment_flexibility": "SaaS, hybrid, private incl. air-gap, self-host",
         "ecosystem": "REST/gRPC with OpenAPI, FastEmbed, three clouds",
@@ -13626,7 +13629,7 @@
     "classification": {
       "tier": "Tactical",
       "flags": [],
-      "rationale": "Distinctive object-storage design and per-namespace keys, but coarse key scoping, no ISO 27001 and a proprietary API; author conflict disclosed and rubric applied identically [AJ]."
+      "rationale": "Distinctive object-storage design and per-namespace keys, but coarse key scoping, no ISO 27001, an Enterprise entry price well above peers and a proprietary API; author conflict disclosed and borderline calls resolved against it [AJ]."
     },
     "scores": {
       "criteria": {
@@ -13636,7 +13639,7 @@
         "deployment_flexibility": 4,
         "ecosystem": 3,
         "reliability_maturity": 3,
-        "cost_tco": 4,
+        "cost_tco": 3,
         "lockin_portability": 2
       },
       "rationale": {
@@ -13646,12 +13649,12 @@
         "deployment_flexibility": "SaaS on three clouds, dedicated clusters and BYOC; no self-host",
         "ecosystem": "HTTP API and generated SDK; integrations not evidenced",
         "reliability_maturity": "Young company; named customers and profitability only via press",
-        "cost_tco": "Published minimums; object-storage pricing; Enterprise +35% premium",
+        "cost_tco": "Published minimums and object-storage pricing, but the Enterprise tier needed for CMEK and private networking starts at US$4,096 per month with a 35% usage premium (Pinecone Enterprise from US$500); 3, resolved against the Anthropic-related item (CP3 review A)",
         "lockin_portability": "Proprietary API and storage format"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.4,
-      "fs_total": 3.2
+      "generic_total": 3.3,
+      "fs_total": 3.15
     },
     "sources": [
       "A2-S056",
@@ -14274,7 +14277,7 @@
         "No built-in TTL for long-term records; firm must build a pruner [VF: A3-S111]",
         "Harness-managed memory cannot be deleted via the Memory APIs [VF: A3-S111]",
         "Customer-managed key cannot be changed after creation for harness-managed memory [VF: B-L5-S002]",
-        "AWS-only proprietary API [VF: A3-S047]; pricing NPV; EU Region availability for Memory not individually verified [VF: A3-S048] [NPV]"
+        "AWS-only proprietary API [VF: A3-S047]; memory pricing changed on 6 October 2026 (short-term now per GB) [VF: B-REVA-S005]; EU Region availability for Memory not individually verified [VF: A3-S048] [NPV]"
       ],
       "choose_when": [
         "The agent runs on AgentCore or Strands in AWS [AJ]"
@@ -14292,7 +14295,7 @@
     "classification": {
       "tier": "Tactical",
       "flags": [],
-      "rationale": "Sound default inside an AgentCore estate with good lifecycle documentation; single-cloud deployment, proprietary API and unverified pricing keep it Tactical (conditional default in AWS) [AJ]."
+      "rationale": "Sound default inside an AgentCore estate with good lifecycle documentation; single-cloud deployment and a proprietary API keep it Tactical (conditional default in AWS) [AJ]."
     },
     "scores": {
       "criteria": {
@@ -14302,7 +14305,7 @@
         "deployment_flexibility": 2,
         "ecosystem": 3,
         "reliability_maturity": 3,
-        "cost_tco": 2,
+        "cost_tco": 3,
         "lockin_portability": 2
       },
       "rationale": {
@@ -14312,12 +14315,12 @@
         "deployment_flexibility": "AWS managed only, with VPC/PrivateLink connectivity; no self-host",
         "ecosystem": "Strands SDK and AgentCore APIs; wider ecosystem NPV",
         "reliability_maturity": "GA October 2025 with steady feature additions",
-        "cost_tco": "Pricing not verified (opaque in evidence)",
+        "cost_tco": "Published unit pricing for short- and long-term memory (B-REVA-S005), changed on 6 October 2026; extraction LLM cost on top; transparent, so 3 (consistent with Memory Bank)",
         "lockin_portability": "Proprietary AWS API; records listable for export; hyperscaler lock-in"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.2,
-      "fs_total": 3.15
+      "generic_total": 3.3,
+      "fs_total": 3.2
     },
     "sources": [
       "A3-S047",
@@ -14632,7 +14635,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 2,
+        "enterprise_readiness": 3,
         "security_compliance": 2,
         "deployment_flexibility": 5,
         "ecosystem": 3,
@@ -14642,7 +14645,7 @@
       },
       "rationale": {
         "technical": "Graph + vector memory with remember/recall/improve/forget and local extraction",
-        "enterprise_readiness": "Authenticated multi-tenant users and Enterprise SSO verified; RBAC and audit logs NPV (cap lifted by SSO under CP2 Q2, 2 on anchors)",
+        "enterprise_readiness": "Rule 2 basis: authenticated multi-tenant users, Enterprise SSO, SLAs and a dedicated support engineer (A3-S005, A3-S095); one verified control gives 3 under rule 7 (CP3 review A, consistent with LlamaParse and Browserbase); RBAC and audit logs NPV",
         "security_compliance": "Scored as self-hosted software (vendor-recommended) under rule 2: encryption, private mode, air-gap verified; security policy and signed releases NPV. Cognee Cloud alone would score 1 (no certification by vendor statement)",
         "deployment_flexibility": "Cloud, BYOC, self-host, on-prem and air-gap",
         "ecosystem": "MCP server and community plugins; 31,561 stars; optional standard graph and vector stores",
@@ -14651,10 +14654,11 @@
         "lockin_portability": "Apache-2.0 core on standard stores, but production Postgres graph is licensed"
       },
       "evidence_caps_applied": [
-        "Rule 2 applied (self-hosted software; inherits host controls): security_compliance and enterprise_readiness scored on self-hosted basis, capped at 4"
+        "Rule 2 applied (self-hosted software; inherits host controls): security_compliance and enterprise_readiness scored on self-hosted basis, capped at 4",
+        "enterprise_readiness: NPV cap lifted to 3 by verified SSO (rule 7)"
       ],
-      "generic_total": 3.2,
-      "fs_total": 3.1
+      "generic_total": 3.35,
+      "fs_total": 3.25
     },
     "sources": [
       "A3-S005",
@@ -16007,7 +16011,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 2,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -16017,7 +16021,7 @@
       },
       "rationale": {
         "technical": "Covers extraction, scoping, hybrid recall, deletion and history; graph and decay only on Platform",
-        "enterprise_readiness": "Enterprise plan lists SSO and audit logs; Platform roles and event feed; SLA on Enterprise; OSS has no org concept",
+        "enterprise_readiness": "Enterprise plan lists SSO, audit logs and SLA support (A3-S049); Platform org/project member roles and an event feed (A3-S080): all three controls plus SLA reach 4 under rule 7 (CP3 review A, consistent with Firecrawl and Mistral OCR); condition: evidence is a pricing page and OSS has no org concept",
         "security_compliance": "SOC 2 Type I confirmed by vendor; Type II claims conflict; no report seen; HIPAA and BYOK vendor-stated",
         "deployment_flexibility": "SaaS, self-host and on-prem verified; VPC and air-gap are vendor claims from a marketing guide",
         "ecosystem": "Wide vector-store support, LangGraph and CrewAI integrations; MCP repository archived",
@@ -16028,8 +16032,8 @@
       "evidence_caps_applied": [
         "security_compliance at 2: SOC 2 Type II status conflicting on vendor pages, only Type I confirmed (treated as below the 3 anchor)"
       ],
-      "generic_total": 3.4,
-      "fs_total": 3.2
+      "generic_total": 3.55,
+      "fs_total": 3.35
     },
     "sources": [
       "A3-S001",
@@ -16355,7 +16359,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 2,
+        "enterprise_readiness": 3,
         "security_compliance": 2,
         "deployment_flexibility": 5,
         "ecosystem": 4,
@@ -16365,7 +16369,7 @@
       },
       "rationale": {
         "technical": "Memory, profiles, forgetting and hybrid RAG in one API",
-        "enterprise_readiness": "SSO on Enterprise (protocols undocumented) verified; RBAC and audit NPV (cap lifted under CP2 Q2; 2 on anchors)",
+        "enterprise_readiness": "SSO on Enterprise verified (protocols undocumented) (A3-S096): one verified control lifts the cap to 3 under rule 7 (CP3 review A, consistent with LlamaParse and Browserbase); RBAC and audit logs NPV",
         "security_compliance": "SOC 2 claimed from Scale tier with report type unconfirmed; HIPAA Enterprise; DPA",
         "deployment_flexibility": "SaaS, dedicated, customer cloud, self-host (Scale+), air-gap (Enterprise)",
         "ecosystem": "Framework wrappers, MCP, coding-agent plugins",
@@ -16374,10 +16378,11 @@
         "lockin_portability": "Proprietary server binary and API; namespace API just changed"
       },
       "evidence_caps_applied": [
-        "security_compliance at 2: SOC 2 report type not confirmed (pricing page only)"
+        "security_compliance at 2: SOC 2 report type not confirmed (pricing page only)",
+        "enterprise_readiness: NPV cap lifted to 3 by verified SSO (rule 7)"
       ],
-      "generic_total": 3.15,
-      "fs_total": 2.9
+      "generic_total": 3.3,
+      "fs_total": 3.05
     },
     "sources": [
       "A3-S012",
@@ -16717,7 +16722,7 @@
     "scores": {
       "criteria": {
         "technical": 5,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 3,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -16727,7 +16732,7 @@
       },
       "rationale": {
         "technical": "Bi-temporal graph, episodes with provenance, hybrid retrieval, users and threads: leading depth on the layer's memory-type questions",
-        "enterprise_readiness": "IdP sign-in, RBAC + ABAC, audit logs (web-app only), SLA on Enterprise",
+        "enterprise_readiness": "IdP sign-in, RBAC + ABAC and audit logs with one-year retention, plus a guaranteed SLA on Enterprise (A3-S107, A3-S089): rule 7 allows 4 (CP3 review A, consistent with Mistral OCR); condition: audit logs cover web-app actions only, not API or SDK calls",
         "security_compliance": "SOC 2 Type II + HIPAA + BYOK on Enterprise; no ISO 27001 found (same calibration as Braintrust in L9)",
         "deployment_flexibility": "SaaS and BYOC (AWS/GCP/Azure); Graphiti self-host; no supported self-host of Zep itself",
         "ecosystem": "Broad framework integrations; Graphiti 31,529 stars; MCP server",
@@ -16736,8 +16741,8 @@
         "lockin_portability": "Zep Cloud proprietary engine and API; Graphiti (Apache-2.0) is a partial exit with no documented migration"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.6,
-      "fs_total": 3.35
+      "generic_total": 3.75,
+      "fs_total": 3.5
     },
     "sources": [
       "A3-S002",
@@ -17729,18 +17734,18 @@
       "fs_note": "Sits within AWS, a designated CTP under DORA and the UK regime; include in AWS concentration analysis; platform controls presumed (CP2 Q1), confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Strategic",
+      "tier": "Tactical",
       "flags": [],
-      "rationale": "Strategic only where AWS is the agent platform; cloud-neutral gateways are the alternative [AJ]."
+      "rationale": "Tactical, conditional: the default tool gateway where AWS is the agent platform; AWS-only deployment (2) and one year of GA keep it below the Strategic guide, consistent with C1-aws-agentcore-gateway, AgentCore Memory and Bedrock Guardrails; cloud-neutral gateways are the alternative [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 4,
         "enterprise_readiness": 4,
         "security_compliance": 4,
-        "deployment_flexibility": 3,
+        "deployment_flexibility": 2,
         "ecosystem": 4,
-        "reliability_maturity": 4,
+        "reliability_maturity": 3,
         "cost_tco": 4,
         "lockin_portability": 3
       },
@@ -17748,15 +17753,15 @@
         "technical": "Tool conversion, inbound identity, outbound vault and Cedar policy [VF: A6-S021, A6-S026]",
         "enterprise_readiness": "Hyperscaler presumption: platform controls presumed (CP2 Q1); confirm per service [AJ]",
         "security_compliance": "SOC 1/2/3 scope listed; ISO listed with inconsistent wording; CMK for vault; one point below 5 under rule 8 [VF: B-L4-S001, B-L4-S002, A6-S074]",
-        "deployment_flexibility": "Managed in AWS regions with VPC and PrivateLink; no self-host [VF: A3-S047, A3-S048]",
+        "deployment_flexibility": "Managed AWS service only, with VPC and PrivateLink connectivity; no self-host (A3-S047, A3-S048); 2, consistent with C1-aws-agentcore-gateway and every other AWS-only managed service (CP3 review A)",
         "ecosystem": "MCP on both sides, OAuth and IAM integration [VF: A3-S047]",
-        "reliability_maturity": "GA October 2025 with regular feature releases [VF: A3-S047, A3-S048]",
+        "reliability_maturity": "GA October 2025 with regular feature releases (A3-S047, A3-S048); about one year GA, so 3, consistent with AgentCore Memory (L5) (CP3 review A)",
         "cost_tco": "Low published per-call pricing [VF: A6-S021]",
         "lockin_portability": "Proprietary AWS API but standard MCP/OAuth interfaces; Cedar policies portable [VF: A6-S045]"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.8,
-      "fs_total": 3.7
+      "generic_total": 3.55,
+      "fs_total": 3.45
     },
     "sources": [
       "A3-S015",
@@ -19415,7 +19420,8 @@
         "IDE clients (including Claude Code) had high-severity auto-execution issues [R: A3-S022]",
         "Both Lead Maintainers are Anthropic staff; AAIF does not set technical direction [VF: A3-S082, A3-S018]",
         "Official Registry still preview, API v0.1, denylist moderation [VF: A3-S019, A3-S042, A3-S036]",
-        "2026-07-28 contained breaking changes and deprecations (Roots, Sampling, Logging, DCR) [VF: A3-S015, V2-S031]"
+        "2026-07-28 contained breaking changes and deprecations (Roots, Sampling, Logging, DCR) [VF: A3-S015, V2-S031]",
+        "2026 TypeScript SDK advisories include GHSA-6qxp-vccf-f47h (High: OAuth credentials sent to a server-chosen authorisation server; the fix also needs expectedIssuer configured), GHSA-22jm-h49p-29qw (High) and CVE-2026-25536 (High) [VF: B-REVA-S006]"
       ],
       "choose_when": [
         "One tool contract is needed across several agent frameworks and model vendors [AJ]"
@@ -19433,13 +19439,13 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic only behind a firm-owned gateway that makes authorisation mandatory and enforces an allow-list, because the specification leaves both optional [AJ]."
+      "rationale": "Strategic, conditional: only behind a firm-owned gateway that makes authorisation mandatory, enforces an allow-list and pins tool definitions, because the specification leaves these optional and security scores 2; FS 3.55 is below the 3.6 guide and the tier rests on MCP being the layer's de facto tool contract [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 4,
         "enterprise_readiness": 3,
-        "security_compliance": 3,
+        "security_compliance": 2,
         "deployment_flexibility": 5,
         "ecosystem": 5,
         "reliability_maturity": 3,
@@ -19449,7 +19455,7 @@
       "rationale": {
         "technical": "Covers tool invocation, enterprise authorisation and long-running tasks; security enforcement (allow-listing, signing) left outside the spec [AJ]",
         "enterprise_readiness": "Open spec (rule 2): enables central IdP policy via EMA; no commercial support from the project itself [AJ]",
-        "security_compliance": "Rule 2 hygiene: strong OAuth profile and security considerations, but authorisation optional and no tool-definition signing; documented tool-poisoning attack class [VF: A3-S055, A3-S023]",
+        "security_compliance": "Rule 2 hygiene: advisories are published with fixes (B-REVA-S006), but the specification leaves authorisation optional, has no tool-definition signing, carries a documented tool-poisoning attack class, and the TypeScript SDK had several High advisories in 2026, including one sending OAuth credentials to a server-chosen authorisation server [VF: A3-S055, A3-S023, B-REVA-S006]. Below A2A (optional card signing) on integrity; borderline 3/2 resolved against the Anthropic-originated item (CP3 review A)",
         "deployment_flexibility": "Implementations run anywhere, including stdio locally and air-gapped [AJ]",
         "ecosystem": "De facto standard with broad client and launch-partner support [VF: A3-S015, A3-S018]",
         "reliability_maturity": "Foundation-hosted with a 12-month deprecation policy, but breaking changes in July 2026 and Registry still preview [VF: A3-S015, A3-S042]",
@@ -19457,8 +19463,8 @@
         "lockin_portability": "MIT under AAIF, but technical direction concentrated in Anthropic maintainers, so not fully neutral governance [VF: A3-S082]"
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.85,
-      "fs_total": 3.75
+      "generic_total": 3.7,
+      "fs_total": 3.55
     },
     "sources": [
       "A3-S011",
@@ -32078,7 +32084,8 @@
       "strengths": [
         "Broad AI policy set on an enterprise API-gateway estate many firms already run [VF: A6-S016] [AJ]",
         "Product-scoped SOC 2 Type II and ISO 27001:2022 covering AI Gateway [VF: A6-S109]",
-        "Tracks the MCP 2026-07-28 revision and offers per-caller MCP tool exposure [VF: A6-S017, A6-S016]"
+        "Tracks the MCP 2026-07-28 revision and offers per-caller MCP tool exposure [VF: A6-S017, A6-S016]",
+        "Konnect organisation SSO (SAML or OIDC), teams and roles with IdP group mapping [VF: B-REVA-S004]"
       ],
       "limitations_risks": [
         "Configuration model changed from 3.x plugins to 2.x entities; migration needed before 3.18 [VF: A6-S016, A6-S017]",
@@ -32098,7 +32105,7 @@
         "C1-google-apigee-ai-gateway",
         "C1-azure-apim-ai-gateway"
       ],
-      "fs_note": "Prefer the hybrid mode (customer-run data plane) so prompts and logs stay in region; confirm audit-log export and SSO on Konnect [Rec]."
+      "fs_note": "Prefer the hybrid mode (customer-run data plane) so prompts and logs stay in region; confirm audit-log export on Konnect [Rec]."
     },
     "classification": {
       "tier": "Strategic",
@@ -32108,7 +32115,7 @@
     "scores": {
       "criteria": {
         "technical": 5,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 4,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -32118,7 +32125,7 @@
       },
       "rationale": {
         "technical": "Leading coverage across LLM, MCP and A2A, including guardrails, PII sanitisation and cost governance [VF: A6-S016, A6-S017]",
-        "enterprise_readiness": "Konnect audit logs, Kong Identity principals in AI policies and a 99.99% Konnect SLA verified [VF: A6-S109, A6-S016, A6-S018]; SSO and RBAC for Konnect not in the fact base [NPV], so rule 7 holds it at 3",
+        "enterprise_readiness": "Konnect SSO (SAML or OIDC) with teams, predefined roles and IdP group mapping (B-REVA-S004), audit logs, Kong Identity principals and a 99.99% Konnect SLA (A6-S109, A6-S016, A6-S018): all three controls plus SLA reach 4 under rule 7",
         "security_compliance": "ISO 27001:2022 and SOC 2 Type II both naming AI Gateway; PCI DSS for Konnect [VF: A6-S109]; no CMK, ISO 42001 or FedRAMP evidence, so not 5",
         "deployment_flexibility": "Konnect SaaS, Dedicated Cloud Gateways, hybrid and self-managed [VF: A6-S018]; on-prem and air-gap not verified [NPV]",
         "ecosystem": "Large API-gateway ecosystem; AWS SigV4, Foundry, SageMaker and NeMo integrations [VF: A6-S017, A6-S016]",
@@ -32126,11 +32133,9 @@
         "cost_tco": "Pricing 'contact sales'; advanced plugins licence-gated [VF: A6-S017, A6-S018]",
         "lockin_portability": "Apache-2.0 OSS core, but 2.x runtime and advanced plugins licence-gated [VF: A6-S017]"
       },
-      "evidence_caps_applied": [
-        "enterprise_readiness held at 3 under rule 7: SSO and RBAC NPV, audit logs and SLA verified"
-      ],
-      "generic_total": 3.7,
-      "fs_total": 3.65
+      "evidence_caps_applied": [],
+      "generic_total": 3.85,
+      "fs_total": 3.8
     },
     "sources": [
       "A6-S016",
@@ -32827,7 +32832,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 3,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -32837,7 +32842,7 @@
       },
       "rationale": {
         "technical": "Routing, fallback, budgets, guardrails, MCP gateway [VF: A6-S049, A6-S014]; A2A not evidenced [NPV]",
-        "enterprise_readiness": "SSO/SAML 2.0, SCIM, organisation and workspace roles and organisation-wide audit logs [VF: B-C1-S001, B-C1-S002, B-C1-S003]; held at 3 because the evidence is mainly marketing pages and the post-acquisition SLA is not public",
+        "enterprise_readiness": "SSO/SAML 2.0, SCIM, organisation and workspace roles and organisation-wide audit logs (B-C1-S001, B-C1-S002), with IdP group mapping in the docs changelog (B-C1-S003): all three controls plus SCIM reach 4 under rule 7 (CP3 review A, consistent with Firecrawl); condition: evidence is mainly vendor pages and post-acquisition terms are not public",
         "security_compliance": "SOC 2 Type 2, ISO 27001, GDPR and HIPAA claimed, tier coverage unclear [VF: A6-S013]; scope rule (CP2 Q4) applied",
         "deployment_flexibility": "SaaS, VPC, private cloud and self-hosted OSS; air-gap no longer offered [VF: A6-S013, A6-S049]",
         "ecosystem": "OpenAI-compatible API and SDKs, 1,600+ models, MCP, Cloudflare Workers [VF: A6-S049]",
@@ -32845,9 +32850,11 @@
         "cost_tco": "Published tiers (free, US$49/month Production, custom Enterprise) may be stale; post-acquisition pricing not verified [VF: A6-S013]",
         "lockin_portability": "MIT core reduces lock-in, but governance features are proprietary; ownership change minus 1 (rule 3) [VF: A6-S050, A6-S011]"
       },
-      "evidence_caps_applied": [],
-      "generic_total": 3.45,
-      "fs_total": 3.35
+      "evidence_caps_applied": [
+        "enterprise_readiness: NPV cap lifted by verified SSO, roles, audit logs and SCIM (rule 7)"
+      ],
+      "generic_total": 3.6,
+      "fs_total": 3.5
     },
     "sources": [
       "A6-S011",
@@ -33462,7 +33469,7 @@
         "security_compliance": 4,
         "deployment_flexibility": 2,
         "ecosystem": 3,
-        "reliability_maturity": 4,
+        "reliability_maturity": 3,
         "cost_tco": 3,
         "lockin_portability": 2
       },
@@ -33472,15 +33479,15 @@
         "security_compliance": "Bedrock in AWS SOC 1/2/3 scope since 15 August 2023 and on the ISO 27001 list [VF: B-C2-S001, B-C2-S002]; Guardrails not named separately, so the scope rule applies; customer KMS key supported [VF: A6-S072]",
         "deployment_flexibility": "Managed AWS only; cross-region profiles [VF: A6-S072]",
         "ecosystem": "Referenced by Kong and AWS's gateway Guidance [VF: A6-S017, A6-S022]",
-        "reliability_maturity": "Priced since at least December 2024; tiers added June 2025 [VF: A6-S101, A6-S072]; InvokeGuardrailChecks GA not verified",
+        "reliability_maturity": "Priced since at least December 2024; tiers added June 2025 (A6-S101, A6-S072); maturity fact cell NPV and InvokeGuardrailChecks GA not verified; 3, consistent with Azure AI Content Safety (GA August 2024) and Model Armor (CP3 review A)",
         "cost_tco": "Transparent per-policy unit pricing, e.g. US$0.15 per 1,000 text units for content filters [VF: A6-S101]",
         "lockin_portability": "AWS-specific API [VF: A6-S072]"
       },
       "evidence_caps_applied": [
         "enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service"
       ],
-      "generic_total": 3.6,
-      "fs_total": 3.45
+      "generic_total": 3.5,
+      "fs_total": 3.35
     },
     "sources": [
       "A6-S017",
@@ -36618,7 +36625,7 @@
         "AgentCore Policy enforcement is tied to AgentCore Gateway [VF: A6-S026]",
         "Cedar 2 to 4 migration was breaking for Verified Permissions users [VF: A6-S104]",
         "Dogwood governance and licence not checked [NPV]",
-        "AWS certifications for AgentCore not searched [NPV]"
+        "AgentCore is in AWS SOC 1/2/3 scope and ISO/IEC 27001 programmes, but the ISO wording is partly garbled and FedRAMP status is unresolved [VF: B-C1-S005, B-C1-S006, B-L4-S002]"
       ],
       "choose_when": [
         "The agent estate runs on AWS AgentCore Gateway [AJ]",
@@ -36635,15 +36642,15 @@
       "fs_note": "Review AI-generated policies before activation, keep the Cedar source in Git, and avoid Dogwood-only constructs where portability matters; platform controls presumed (CP2 Q1); confirm per service [Rec]."
     },
     "classification": {
-      "tier": "Strategic",
+      "tier": "Tactical",
       "flags": [],
-      "rationale": "Strategic, conditional: in AWS agent estates using AgentCore Gateway; elsewhere Cedar is a Tactical alternative to OPA [AJ]."
+      "rationale": "Tactical, preferred PDP inside an AWS AgentCore estate: FS 3.70 after the CP3 security re-base, but enforcement is tied to AgentCore Gateway, which C1 rates Tactical, so it cannot be more strategic than its enforcement point; OPA is the Strategic, cloud-neutral default. Cedar source stays portable [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 4,
         "enterprise_readiness": 4,
-        "security_compliance": 3,
+        "security_compliance": 4,
         "deployment_flexibility": 4,
         "ecosystem": 3,
         "reliability_maturity": 3,
@@ -36653,7 +36660,7 @@
       "rationale": {
         "technical": "Strong tool-call authorisation with partial evaluation and automated reasoning; no external lookups.",
         "enterprise_readiness": "Hyperscaler presumption (CP2 Q1) for AgentCore Policy and Verified Permissions: platform controls presumed (CP2 Q1); confirm per service; Cedar library under rule 2.",
-        "security_compliance": "Cedar hygiene verified (B-C4-S003); AgentCore certifications not searched; blended 3.",
+        "security_compliance": "Cedar library hygiene verified (B-C4-S003); Amazon Bedrock AgentCore listed in AWS SOC 1/2/3 scope (GA features in scope unless excluded) and in ISO/IEC 27001 programmes [VF: B-C1-S005, B-C1-S006, B-L4-S002]; held at 4, not 5, for consistency with C1 and L4 (ISO wording partly garbled, FedRAMP unresolved).",
         "deployment_flexibility": "Cedar library anywhere; AgentCore Policy in 13 AWS regions incl. Ireland and GovCloud.",
         "ecosystem": "AWS services and CNCF (per AWS); narrower than OPA.",
         "reliability_maturity": "Cedar 4.x regular releases; AgentCore Policy GA March 2026; Dogwood new.",
@@ -36662,10 +36669,10 @@
       },
       "evidence_caps_applied": [
         "Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls (Cedar library part)",
-        "AgentCore Policy security not capped: rule 6 presumption applies to enterprise readiness only; security scored 3 on Cedar hygiene with AWS service certifications not searched"
+        "CP3 review: AgentCore Policy security re-based on the AgentCore SOC and ISO evidence already logged by C1 and L4 (B-C1-S005, B-C1-S006, B-L4-S002); 3 to 4"
       ],
-      "generic_total": 3.6,
-      "fs_total": 3.5
+      "generic_total": 3.75,
+      "fs_total": 3.7
     },
     "sources": [
       "A6-S021",
@@ -37286,12 +37293,12 @@
         "C4-okta-auth0-ai-agents",
         "OAuth 2.0 resource-server pattern for REST tools"
       ],
-      "fs_note": "Make authorisation mandatory by firm policy, pin the spec revision at the gateway, and require EMA so the corporate IdP mediates access [Rec]."
+      "fs_note": "Treat as Tactical but mandatory wherever MCP is used: make authorisation mandatory by firm policy, pin the spec revision at the gateway, and require EMA so the corporate IdP mediates access; the strategic components are the IdP and the gateway PDP, which keep working if the tool protocol changes [Rec]."
     },
     "classification": {
-      "tier": "Strategic",
+      "tier": "Tactical",
       "flags": [],
-      "rationale": "Strategic, conditional: only where MCP is the tool protocol, with authorisation made mandatory by policy and the revision pinned at the gateway, because reliability scores 2; conflict of interest disclosed [AJ]."
+      "rationale": "Tactical, mandatory where MCP is used: the required interface contract for MCP tool calls, but not a foundational dependency on its own, because authorisation is optional, it rests on IETF drafts and it has had four breaking revisions (reliability 2); the strategic components are the workforce IdP (via EMA) and the gateway PDP. Borderline case resolved against the Anthropic-originated specification under the conflict-of-interest rule; independent alternatives named [AJ]."
     },
     "scores": {
       "criteria": {
@@ -37299,7 +37306,7 @@
         "enterprise_readiness": 3,
         "security_compliance": 3,
         "deployment_flexibility": 4,
-        "ecosystem": 5,
+        "ecosystem": 4,
         "reliability_maturity": 2,
         "cost_tco": 4,
         "lockin_portability": 4
@@ -37309,7 +37316,7 @@
         "enterprise_readiness": "Rule 2: EMA lets the corporate IdP govern access; enterprise features come from implementations.",
         "security_compliance": "Rule 2 hygiene: private advisory reporting and documented trust model (B-C4-S004); optional authorisation and draft dependencies keep it at 3.",
         "deployment_flexibility": "Implementation-dependent; usable in self-hosted and managed gateways.",
-        "ecosystem": "Implemented by AWS, Kong, Okta and Microsoft products; broad MCP adoption (L4).",
+        "ecosystem": "Implemented by AWS AgentCore Gateway, Kong AI Gateway, Okta XAA and Azure API Management; MCP itself is the de facto tool protocol (L4 scores it 5), but authorisation is optional and adoption of the authorisation profile across servers is not publicly verified, so 4.",
         "reliability_maturity": "Four breaking revisions in about 16 months; OAuth 2.1 still draft.",
         "cost_tco": "Free specification; implementation and re-certification on each revision cost effort.",
         "lockin_portability": "Open specification under Linux Foundation hosting; maintainer concentration at one vendor."
@@ -37317,8 +37324,8 @@
       "evidence_caps_applied": [
         "Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls"
       ],
-      "generic_total": 3.6,
-      "fs_total": 3.5
+      "generic_total": 3.5,
+      "fs_total": 3.45
     },
     "sources": [
       "A6-S017",
@@ -37618,7 +37625,7 @@
       "limitations_risks": [
         "Auth0 AI SDKs flagged 'under heavy development'; @auth0/ai at major version 6 within about 13 months [VF: A6-S078, A6-S077]",
         "Okta Agent Gateway and Shadow AI Agent Discovery announced, not confirmed shipped [VF: A6-S100]",
-        "System Log coverage of agents documented only on a training page [VF: B-C4-S007]",
+        "System Log records AI agent events and a dedicated AI agent administrator role exists [VF: B-REVB-S001]; System Log retention is 90 days per Okta support, so export agent events to the firm's SIEM [VF: B-REVB-S001]",
         "Okta for AI Agents price not published; EU residency not verified [NPV]"
       ],
       "choose_when": [
@@ -37639,12 +37646,12 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: where Okta is the workforce IdP; FS 3.40 with deployment at 2, accepted for the same same-directory reason as Entra [AJ]."
+      "rationale": "Strategic, conditional: where Okta is the workforce IdP; FS 3.55 is below the usual 3.6 because deployment scores 2 (SaaS only), accepted because agent identities must live in the same directory as the delegating humans [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 5,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 4,
         "deployment_flexibility": 2,
         "ecosystem": 4,
@@ -37654,7 +37661,7 @@
       },
       "rationale": {
         "technical": "Delegation, token vaulting, async human approval, fine-grained RAG authorisation and enterprise-managed MCP access.",
-        "enterprise_readiness": "CP2 Q2: SSO (Agent SSO) and directory ownership/certification verified; audit only from a training page; SCIM/SLA for agents not verified; 3.",
+        "enterprise_readiness": "CP2 Q2 (rule 7): SSO (Agent SSO, core Okta SSO), a dedicated AI agent administrator role plus agent ownership and certification campaigns (RBAC), and System Log events for AI agents in reference documentation (audit), plus the System Log management API [VF: B-C4-S007, B-REVB-S001]; 4. Not 5: SLA and agent-specific SCIM not verified, and System Log retention is 90 days.",
         "security_compliance": "ISO 27001:2022, SOC 2 Type II and FedRAMP at company level; product scope not stated (scope rule, 4).",
         "deployment_flexibility": "SaaS only (Okta and Auth0 clouds); private deployment not verified.",
         "ecosystem": "XAA adopted as the MCP extension with named SaaS support; SDKs for Python and JavaScript frameworks.",
@@ -37663,10 +37670,10 @@
         "lockin_portability": "Proprietary platforms on open standards (OAuth, OIDC, CIBA, ID-JAG)."
       },
       "evidence_caps_applied": [
-        "enterprise_readiness: CP2 Q2 partial evidence (SSO and ownership controls verified, audit from a training page only), max 3"
+        "CP3 review: earlier CP2 Q2 cap (audit only on a training page) lifted; System Log coverage of AI agents and the AI agent administrator role are in Okta reference documentation (B-REVB-S001)"
       ],
-      "generic_total": 3.5,
-      "fs_total": 3.4
+      "generic_total": 3.65,
+      "fs_total": 3.55
     },
     "sources": [
       "A6-S035",
@@ -38599,7 +38606,7 @@
     "scores": {
       "criteria": {
         "technical": 4,
-        "enterprise_readiness": 3,
+        "enterprise_readiness": 4,
         "security_compliance": 4,
         "deployment_flexibility": 4,
         "ecosystem": 4,
@@ -38609,7 +38616,7 @@
       },
       "rationale": {
         "technical": "Versions, environment/tenant/experiment labels, client caching, loud failure on missing labels and trace linkage; no documented approval workflow, Git sync or percentage rollout.",
-        "enterprise_readiness": "Project RBAC, protected labels, audit logs, SCIM and Org Management API exist but are Enterprise-licensed when self-hosted; SLA terms not published (L9 record).",
+        "enterprise_readiness": "Rule 7, aligned with the CP2 rework of L9 Langfuse (4): SSO, project-level RBAC, audit logs, SCIM and the Org Management API verified [VF: A7-S074, A1-S033]; Enterprise-licensed when self-hosted, which is a stated condition of the tier; SLA terms not published.",
         "security_compliance": "SOC 2 Type II and ISO 27001 with annual audits, DPA, EU region on Cloud; no CMK/BYOK documented, so not 5.",
         "deployment_flexibility": "SaaS (US, EU, JP, HIPAA regions), self-hosted in any region and fully offline; kept at 4 for consistency with L9 because vendor-managed BYOC is not documented (see scoring notes).",
         "ecosystem": "Open-source SDKs in Python and JS/TS, OTel-based platform, wide adoption of the parent platform; prompt API is Langfuse-specific.",
@@ -38617,9 +38624,11 @@
         "cost_tco": "MIT core free; the governance controls this control needs are in the paid Enterprise tier.",
         "lockin_portability": "Base 4 (MIT, self-hostable, prompts are text) reduced by 1 for the 2026 ownership change."
       },
-      "evidence_caps_applied": [],
-      "generic_total": 3.8,
-      "fs_total": 3.7
+      "evidence_caps_applied": [
+        "CP3 review: enterprise readiness raised from 3 to 4 to match the CP2-reworked L9 Langfuse score (rule 7: all three controls plus SCIM and an admin API)"
+      ],
+      "generic_total": 3.95,
+      "fs_total": 3.85
     },
     "sources": [
       "A7-S009",
@@ -39906,7 +39915,7 @@
       },
       "rationale": {
         "technical": "Versioning, review, diff and CI evaluation are strong; runtime delivery, segmentation, instant rollback and trace linkage have to be built.",
-        "enterprise_readiness": "Rubric rule 2: inherits the firm's source-control SSO, RBAC, approvals and audit; capped at 4 because no commercial support exists for the formats.",
+        "enterprise_readiness": "Rubric rule 2: scored on what the pattern enables in-estate. It inherits the firm's source-control SSO, RBAC, mandatory approvals and audit; scored at the rule 2 maximum of 4 (no commercial support for the formats) because approval and audit are the whole function of this control, unlike OPA or OpenLineage (3).",
         "security_compliance": "Rubric rule 2: clear permissive licences; security policies, signed releases and CVE handling for the format libraries not verified; inherits host controls.",
         "deployment_flexibility": "Files in the customer's repository; runs anywhere, including air-gapped.",
         "ecosystem": "Two vendor-originated formats plus CLI tooling, langchain-prompty and LangSmith GitHub sync; no single standard.",
