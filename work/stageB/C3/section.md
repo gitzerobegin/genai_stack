@@ -172,7 +172,7 @@ GenAI multiplies copies of data [AJ]. One analyst question can place the same cl
 - *Certifications:* the Microsoft Purview portal is in Microsoft's ISO/IEC 27001 scope for commercial and government clouds, and Purview is in Azure FedRAMP High scope; DSPM is not named separately [VF: B-C4-S008, A6-S056].
 - *Licensing:* it requires Microsoft 365 E5 or the Purview Suite; community answers claim the Business Premium add-on also covers DSPM for AI, which an official licensing matrix does not confirm [VF: A6-S091] [R: A6-S092].
 - *Strengths:* posture and visibility for the AI apps employees already use, inside the Microsoft compliance estate [AJ].
-- *Limitations:* it is a posture and governance tool, not an inline tokenisation engine for custom applications; its feature list beyond AI coverage is not verified [NPV]. It is SaaS only [VF: A6-S056].
+- *Limitations:* it is a posture and governance tool, not an inline tokenisation engine for custom applications; its feature list beyond AI coverage is not verified [NPV]. It runs as a Microsoft cloud service [VF: A6-S056]; no other deployment model is verified [NPV].
 - *Choose when:* Microsoft 365 Copilot or ChatGPT Enterprise is in use and the firm already licenses E5 or the Purview Suite [AJ].
 - *Avoid when:* you need run-time masking in a custom agent's prompt path [AJ].
 - *Competitors:* Google Sensitive Data Protection (discovery), Protegrity Data Discovery, Skyflow.
