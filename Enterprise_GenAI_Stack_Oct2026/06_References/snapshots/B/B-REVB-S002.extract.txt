@@ -1,0 +1,12 @@
+SOURCE ID: B-REVB-S002
+URL: https://www.ibm.com/products/cloud/compliance/soc-2
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed ibm.com, cloud.ibm.com): watsonx.governance SOC 2 ISO 27001 compliance IBM Cloud services in scope
+========================================================================
+
+IBM Cloud compliance pages (SOC 2 services list; ISO/IEC 27001 page) and the IBM announcement "Introducing FedRAMP-authorized watsonx services on AWS GovCloud", as reported by the search tool:
+- IBM Cloud SOC 2 page lists the services with a SOC 2 Type 2 report (many infrastructure, database and platform services); no watsonx entries appear in the list as extracted.
+- IBM Cloud ISO 27001 page names a shorter set of certified services, mostly infrastructure (virtual servers, object storage, backup); it says VPC, PaaS and SaaS offerings implemented a PIMS under ISO/IEC 27701:2019 and that ISMS and PIMS are listed on the ISO 27001 certificate for VPC, PaaS and SaaS services. watsonx.governance is not named in the extract.
+- The GovCloud announcement lists watsonx.governance among offerings on AWS GovCloud while stating IBM is "on our way to receiving the FedRAMP Moderate authorization" (consistent with B-C8-S002).
+- Negative finding: no SOC 2 or ISO 27001 scope document naming watsonx.governance was found.

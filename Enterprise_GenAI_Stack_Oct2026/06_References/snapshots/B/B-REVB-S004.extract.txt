@@ -1,0 +1,11 @@
+SOURCE ID: B-REVB-S004
+URL: https://validmind.com/platform/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed validmind.com, docs.validmind.ai, trust.validmind.com): ValidMind SOC 2 Type II trust center security
+========================================================================
+
+ValidMind platform page and docs FAQ "Data handling and privacy", as reported by the search tool:
+- Platform page: "We tick all the boxes: Data encryption and segmentation, multi-factor authentication, adherence to GDPR, CCPA, and SOC 2, secure APIs, incident reporting, and automated backups." No SOC 2 type stated.
+- Docs FAQ: multi-tenant or single-tenant deployment; isolation controls; data retention policy "aligns with the SOC 2 security standard"; Virtual Private ValidMind for the strictest requirements.
+- Negative finding: no ValidMind trust centre and no SOC 2 Type II report or ISO certificate was found.

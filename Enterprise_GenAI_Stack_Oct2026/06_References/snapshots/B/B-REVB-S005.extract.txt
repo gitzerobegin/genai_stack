@@ -1,0 +1,12 @@
+SOURCE ID: B-REVB-S005
+URL: https://www.modelop.com/solutions/defense-government-public-sector
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed modelop.com): ModelOp SOC 2 Type II security compliance ModelOp Center
+========================================================================
+
+ModelOp marketing pages (Enterprise AI Command Center; AI governance software; Defense, Government and Public Sector FAQ), as reported by the search tool:
+- ModelOp says its software installs into the customer's environment: on-premises, private cloud, public cloud or hybrid.
+- It says it references data in place without copying or transferring sensitive data; the public-sector FAQ says the software does not store data, and that the codebase is kept secure through automated vulnerability scans and base-image refreshes.
+- It integrates with enterprise identity providers over OAuth2 and SAML for role-based access.
+- Negative finding: no SOC 2, ISO 27001 or trust-centre page was found.
