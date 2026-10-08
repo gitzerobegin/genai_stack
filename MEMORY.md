@@ -57,6 +57,7 @@
 | 19 | 8 October | Tranche 2 writers all complete: L6, L5, L4, C1–C8 (about 92,000 words; 74 products scored). Built the shared table `work/stageB/_review/all_scores.md`. Launched calibration reviewers A (L6–L4, C1–C2) and B (C3–C8). Tool globs now read `sources_added*.csv`. | Reviewers running |
 | 20 | 8 October | Reviewers A and B finished. Built the CP3 pack (pandoc `.docx`); rebuilt the dataset (1,234 sources, 0 issues; 104 scored: 29 Strategic, 67 Tactical, 8 Experimental). **Stopped for CP3.** | |
 | 21 | 8 October | CP3 answers recorded (`checkpoints/CP3/06_CP3_Decisions.md`). Rubric rules 10–13 added. Launched the CP3 rework agent and the L3, L2 and L1 writers (prompts in `work/prompts/stageB_tranche3_prompts.md`). | Running |
+| 22 | 8 October | **Third 429 interruption** (reset 23:40 UTC) hit all 4 tranche-3 agents early. Only the L2 and L3 search extracts were saved (committed). At 23:42 UTC, after the user confirmed the reset, all 4 were resumed with explicit on-disk status. | Running |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it
