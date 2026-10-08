@@ -61,9 +61,7 @@ You are a Stage B writer for an enterprise GenAI reference architecture. Today i
 ### <n>.6 Product selection criteria
     What to evaluate, mapped to the 8 scorecard criteria.
 ### <n>.7 Product deep dives
-    For each product, 150–250 words: what it is now (tagged facts); strengths;
-    limitations and risks; choose when; avoid when; nearest competitors;
-    FS note; tier and flags.
+    For each product, use the CP2 labelled-bullet format given below.
 ### <n>.8 Comparison table
     Paste the output of tools/score.py, plus a key-facts table:
     licence | deployment | certifications | EU residency | ownership status.
@@ -83,7 +81,27 @@ You are a Stage B writer for an enterprise GenAI reference architecture. Today i
     ("provisional; verdict in synthesis").
 ```
 
-**Target length:** 4,000–6,500 words, including the deep dives. Depth beats breadth: one sharp decision tree is worth more than a feature list.
+**Length (CP2 Q5):** there is no word cap. Use whatever depth the layer needs; 7,500 words or more is acceptable. Depth beats padding: one sharp decision tree is worth more than a feature list.
+
+**Deep-dive format (CP2 Q6):** use exactly this labelled-bullet format for every product:
+
+```text
+**<Product name> (<owner>).**
+- *What it is now:* … [VF: …]
+- *<optional extra labelled bullets, e.g. Certifications and deployment:>* … [VF: …]
+- *Strengths:* … [AJ]
+- *Limitations:* … [VF/AJ]
+- *Choose when:* … [AJ]
+- *Avoid when:* … [AJ]
+- *Competitors:* …
+- *FS note:* … [Rec]
+- **Tier: <Strategic|Tactical|Experimental>[, conditional: …]. Flag: <flags or none>.**
+```
+(This is the L9 format; see `work/stageB/L9/section.md` §9.7 for examples.)
+
+**Failure stories:** one "Illustrative scenario [AJ]" per layer, in §x.2.
+
+**Scoring:** apply rubric rules 6–9 (the CP2 calibration rules) in `08_scoring_rubric.md`.
 
 ## Assessments (write to `work/stageB/<LAYER>/assessments.json`)
 

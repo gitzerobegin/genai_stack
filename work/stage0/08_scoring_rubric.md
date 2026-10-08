@@ -54,6 +54,16 @@
 - At least one product should usually score 2 or below on some criterion. If none does, justify it.
 - Avoid giving every product a 4.
 
+## CP2 calibration rules (binding from 8 October 2026; see `checkpoints/CP2/03_CP2_Decisions.md`)
+
+**6. Hyperscaler presumption (Q1).** A service consumed through AWS, Azure or Google Cloud inherits platform IAM, SSO and audit logging as verified. Enterprise readiness is 4 unless there is evidence of a product-specific gap. Add the note "platform controls presumed (CP2 Q1); confirm per service". Security still follows rule 8.
+
+**7. Partial evidence (Q2).** Any one verified control among SSO, RBAC and audit logs lifts the NPV cap, to a maximum of 3. Use the anchors above 3: all three controls plus SCIM, an SLA or admin APIs can reach 4–5.
+
+**8. Certification scope (Q4).** Company- or platform-level certifications whose coverage of the product is not stated score one point below the anchor. A security score of 5 needs SOC 2 Type II **and** ISO 27001 within the product's scope, **plus** at least one of: CMK/BYOK, ISO 42001, FedRAMP.
+
+**9. Strategic tier (Q3).** Architect's judgement, normally FS ≥ 3.6 and no criterion at 1. A criterion at 2 is allowed if stated as a condition, e.g. "Strategic only if X is your standard".
+
 ## Tiers (plan §8.2)
 
 | Tier | Definition |
