@@ -1,0 +1,10 @@
+SOURCE ID: B-L4-S001
+URL: https://aws.amazon.com/compliance/services-in-scope/SOC/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains aws.amazon.com, docs.aws.amazon.com): Amazon Bedrock AgentCore services in scope SOC ISO compliance programs
+========================================================================
+
+AWS Services in Scope by Compliance Program - System and Organization Controls (SOC): the services-in-scope table lists "Amazon Bedrock AgentCore" with a checkmark for SOC 1, 2, 3.
+AgentCore release notes (docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html) per search summary: July 2026 - AgentCore became SOC compliant and in scope for SOC 1, 2 and 3 reports; February 2026 - AgentCore achieved ISO and CSA STAR compliance standards.
+AWS note: AWS includes generally available features of services in assurance scope (preview features such as AgentCore Agent Registry and Payments, per the AgentCore FAQ, are therefore not clearly covered - search-tool inference).

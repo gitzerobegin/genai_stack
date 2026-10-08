@@ -1,0 +1,10 @@
+SOURCE ID: B-L6-S001
+URL: https://www.mongodb.com/docs/atlas/security/manage-federated-auth/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains mongodb.com): MongoDB Atlas federated authentication SAML SSO, Atlas user roles RBAC, database auditing
+========================================================================
+
+Atlas Federation Management Console links an external SAML IdP to Atlas (guides for Okta, Microsoft Entra ID, Google Workspace, PingOne). SAML covers Atlas UI access; database users can use OIDC/OAuth 2.0 workforce SSO. At most two workforce IdPs per organisation (one OIDC for database access, one SAML for UI). Organisations can set default role, restrict access by domain, restrict membership to the federation; Atlas roles can be mapped to IdP groups.
+Atlas authorization guidance (https://www.mongodb.com/docs/atlas/architecture/current/auth/authorization/): organisation-level and project-level roles (Organization Owner, Member, Project Creator, Billing Admin); fine-grained custom database roles recommended for cluster access; least privilege.
+Database auditing (https://www.mongodb.com/docs/atlas/database-auditing/): not available on Free or Flex clusters (M10+ per architecture guidance); administrators choose actions, database users, roles and LDAP groups to audit; JSON audit filters; Atlas Resource Policies can require auditing; Atlas keeps log and audit messages for 30 days (https://www.mongodb.com/docs/atlas/mongodb-logs/).
