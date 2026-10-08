@@ -167,20 +167,34 @@ The following were noted but not added. Evidence was insufficient or they belong
 
 ## (e) Gaps: what could not be verified, and why
 
-1. **Together AI, Fireworks AI, Cerebras.**
-   - Not verified: SOC 2, ISO and HIPAA status; retention and ZDR; EU region; SSO and RBAC; pricing; funding.
-   - Not verified: Cerebras IPO and funding status.
-   - Why: vendor sites and trust centres were blocked by egress policy, and the shared web-search budget was exhausted before these products were reached.
-2. **OpenRouter.** Certifications and funding are not verified. The credit-purchase fee percentage is rendered dynamically in the docs source and was not captured.
-3. **LM Studio.** The desktop app's licence and commercial-use terms are not verified. Only the MIT licence of the lms CLI is confirmed.
-4. **vLLM.** PyTorch Foundation hosting is not confirmed from a primary page because pytorch.org was blocked. The governance doc only references "Linux Foundation Project Governance".
-5. **SGLang and RadixArk.** The corporate relationship between RadixArk and SGLang is not verified.
+Items resolved in pass 2:
+
+- Cerebras IPO: priced 13 May 2026 [A4-S137].
+- Together AI and Fireworks AI: certifications, ZDR, EU region, pricing and funding [A4-S129–A4-S136, A4-S141].
+- OpenRouter SOC 2 and fees [A4-S142, A4-S144].
+- LM Studio licence [A4-S145].
+- vLLM PyTorch Foundation hosting [A4-S146].
+- SGLang and RadixArk [A4-S147].
+
+What remains unverified:
+
+1. **Audit scope and dates.** No SOC 2 report or ISO certificate was read directly for Together AI, Fireworks AI, Cerebras or OpenRouter. These sit behind trust-centre access requests, so scope and dates are not confirmed.
+   - Together AI's HIPAA wording is inconsistent across its own pages.
+   - BAA availability is unconfirmed for Together AI and Fireworks AI. OpenRouter says it offers no BAA.
+2. **Cerebras.**
+   - No SSO is documented, and HIPAA is not listed.
+   - Its ZDR evidence comes from the privacy policy (an old page) and from blog posts, not from contract terms.
+   - EU capacity is announced but not yet operational.
+   - The SEC filings were read only through a search extract, because sec.gov is blocked.
+3. **OpenRouter funding.** This comes from TechCrunch and trackers only, and the amounts conflict. One tracker claims OpenRouter was "acquired by Stripe"; this is uncorroborated.
+4. **Pricing conflicts.** Together AI's dedicated H100 rate is US$3.99/h in the docs but US$5.49/h on the pricing page. Fireworks lists H100 on-demand at US$8.00/h, while a secondary source gives US$7.00/h.
+5. **SGLang governance.** No source confirms whether SGLang governance or trademark has moved from LMSYS to RadixArk.
 6. **Ollama.** The server/app version is not verified, since GitHub releases were blocked. Only the Python client version (0.6.3) is confirmed.
 7. **Funding.**
-   - CrewAI Series B (about US$20M, April 2026) rests only on aggregators.
+   - CrewAI's Series B (about US$20M, April 2026) is still found only on PitchBook and Forge. No vendor or major-outlet confirmation exists; the confirmed total is about US$20M [A4-S148].
    - LlamaIndex funding has conflicting secondary figures.
-   - No 2025 or 2026 funding was found for Pydantic. Only the US$12.5M Series A is confirmed.
-   - Vercel, Hugging Face and OpenRouter funding were not checked.
-8. **LangSmith ISO 27001.** It is claimed on the enterprise page but missing from the EU-residency announcement. This needs checking at trust.langchain.com.
+   - Only Pydantic's US$12.5M Series A is confirmed.
+   - Vercel and Hugging Face funding were not checked.
+8. **LangSmith ISO 27001.** It is claimed on two LangChain pages (the enterprise page and the Engine security docs) but omitted from others. The public trust-centre listing seen does not name it, and the certificate requires an access request. Status: claimed, scope unconfirmed [A4-S149].
 9. **Vendor certifications not covered here.** Mistral's company-level certifications (SOC 2 Type II, ISO 27001/27701) are recorded, but scope and dates were not seen. Certifications for Vercel, Temporal and AgentCore were not retrieved.
 10. **Search-tool extracts.** Every source with access status `extract` came through the search tool. Facts that rest on them alone are capped at `conf: medium`.
