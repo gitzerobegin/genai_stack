@@ -1,0 +1,1835 @@
+[
+  {
+    "id": "R-US-MRM",
+    "instrument": {
+      "v": "Revised Guidance on Model Risk Management: Federal Reserve SR 26-2 / OCC Bulletin 2026-13 / FDIC FIL-15-2026 (supersedes SR 11-7 and SR 21-8)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S001",
+        "A8-S002",
+        "A8-S005"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "United States (federally supervised banking organisations)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S001",
+        "A8-S002"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "Board of Governors of the Federal Reserve System, OCC and FDIC (interagency)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S001",
+        "A8-S002"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "supervisory guidance (non-enforceable)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S002",
+        "A8-S003"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Issued 17 April 2026. Supersedes and replaces SR 11-7 (4 April 2011) and SR 21-8 (9 April 2021); OCC rescinded Bulletins 2011-12, 1997-24 and 2021-19 and the Comptroller's Handbook 'Model Risk Management' booklet. Expected to be most relevant to banking organisations with over US$30 billion in total assets. Generative AI and agentic AI models are expressly outside its scope; the agencies said they plan to issue 'in the near future' a request for information on model risk management and banks' use of AI including generative and agentic AI. No such RFI was found published as of 7 October 2026.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S001",
+        "A8-S002",
+        "A8-S003",
+        "A8-S005",
+        "A8-S007"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "Model defined as 'a complex quantitative method, system, or approach that applies statistical, economic, or financial theories to process input data into quantitative estimates'; excludes simple arithmetic and deterministic rule-based software without such theories",
+        "Risk-based, materiality-driven MRM scaled to model risk profile, size and complexity; immaterial models identified and monitored for change in materiality",
+        "Effective challenge by qualified, independent reviewers; model risk assessed individually and in aggregate",
+        "Principles apply to traditional statistical and quantitative models and non-generative, non-agentic AI models",
+        "For tools, processes or systems not covered (including GenAI and agentic AI), the firm's own risk management and governance practices should determine governance and controls",
+        "Not enforceable in itself, but supervisory action may follow violations of law or unsafe or unsound practices stemming from insufficient management of model risk"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S001",
+        "A8-S002",
+        "A8-S003"
+      ],
+      "conf": "high"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "For an asset manager with US exposure, SR 26-2 is not directly binding unless it is part of a US banking organisation, but US bank-owned managers and counterparties will use it as the reference MRM standard. The explicit GenAI/agentic carve-out removes the 'is an LLM a model?' debate for US banks only by deferring it; firms still need their own governance for LLM-based agents, and the AI RFI may reintroduce expectations. Architecture should therefore keep MRM-grade inventory, versioning and monitoring for LLM components regardless of scope.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "C8",
+      "L9",
+      "L1",
+      "L3",
+      "C5"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Model inventory with materiality/tiering",
+        "Independent validation and effective-challenge records for in-scope models",
+        "Ongoing monitoring evidence and materiality re-assessment",
+        "Documented governance for out-of-scope GenAI/agentic tools under the firm's own risk framework"
+      ],
+      "label": "Reported",
+      "src": [
+        "A8-S001",
+        "A8-S002"
+      ],
+      "conf": "medium"
+    },
+    "sources": [
+      "A8-S001",
+      "A8-S002",
+      "A8-S003",
+      "A8-S005",
+      "A8-S007"
+    ],
+    "stage_a_notes": "Sources differ on 'SR 26-2' vs 'SR 26-02' and on 'revision' vs 'replacement'; the Fed letter says 'supersedes and replaces'. Full attachment text not read (occ.gov and federalreserve.gov blocked); validation and documentation detail rests on search extracts. The OCC 2022 testimony that many AI tools would be considered models contrasts with the 2026 carve-out (reported in search extract, not archived)."
+  },
+  {
+    "id": "R-US-AGENCY-AI",
+    "instrument": {
+      "v": "US federal banking agency and NIST statements on generative and agentic AI, 2026",
+      "label": "Verified fact",
+      "src": [
+        "A8-S003",
+        "A8-S004",
+        "A8-S006",
+        "A8-S039"
+      ],
+      "conf": "medium"
+    },
+    "jurisdiction": {
+      "v": "United States",
+      "label": "Verified fact",
+      "src": [
+        "A8-S003",
+        "A8-S039"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "OCC, Federal Reserve, FDIC; NIST Center for AI Standards and Innovation (CAISI)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S003",
+        "A8-S006",
+        "A8-S039"
+      ],
+      "conf": "medium"
+    },
+    "type": {
+      "v": "supervisory statement",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "status_and_dates": {
+      "v": "Planned interagency RFI on MRM and AI (announced 17 April 2026; not found published by 7 October 2026). OCC Spring 2026 Semiannual Risk Perspective on GenAI/agentic adoption. Federal Reserve statement of 26 March 2026 highlighting generative and agentic AI. NIST CAISI RFI on security considerations for AI agents published in the Federal Register on 8 January 2026, comments due 9 March 2026.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S003",
+        "A8-S004",
+        "A8-S006",
+        "A8-S007",
+        "A8-S039"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "No new binding AI-specific obligations identified for banks or advisers in these statements",
+        "OCC observes banks adopting GenAI/agentic AI in limited use cases 'with guardrails and human-in-the-loop accountability'",
+        "OCC: many AI risks are the same as those of models and tools that do not rely on AI"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S004"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Supervisory expectation in the US is currently signalled through observation (guardrails, human-in-the-loop) rather than rules. The NIST CAISI agent-security RFI indicates agent identity, oversight and security are the next standards focus; the architecture should be able to evidence human-in-the-loop controls and guardrails per use case.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "C2",
+      "C4",
+      "C7",
+      "C8",
+      "L3",
+      "L4"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Use-case register showing guardrails and human-in-the-loop accountability"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S003",
+      "A8-S004",
+      "A8-S006",
+      "A8-S007",
+      "A8-S039"
+    ],
+    "stage_a_notes": "Treasury's 2024 RFI on AI in financial services was seen in results but not archived. No SEC statement on agentic AI was retrieved (search budget exhausted)."
+  },
+  {
+    "id": "R-PRA-SS123",
+    "instrument": {
+      "v": "PRA Supervisory Statement SS1/23 'Model risk management principles for banks' (published with PS6/23)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S008"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "United Kingdom",
+      "label": "Verified fact",
+      "src": [
+        "A8-S008"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "Prudential Regulation Authority (Bank of England)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S008"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "supervisory statement",
+      "label": "Verified fact",
+      "src": [
+        "A8-S008"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Published 17 May 2023; effective from 17 May 2024. In scope: banks, building societies and PRA-designated investment firms with internal model approval for credit, market or counterparty credit risk capital; insurers not covered. PRA held AI/ML roundtables with CROs on applying SS1/23 in October 2025 (published November 2025). No amendment found as of 7 October 2026. The PRA later narrowed SS1/23 expectations to internal-model (IM) firms and said it would address other firms at a later date.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S008",
+        "A8-S009",
+        "A8-S061"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "Model definition: firms adopt the SS1/23 definition (a quantitative method, system or approach applying statistical, economic, financial or mathematical theories ...; full sentence not extracted); models are a subset of 'quantitative methods'. Principle 1.1(b): relevant MRM aspects can be applied to material, complex deterministic quantitative methods (decision-based rules or algorithms) that are not models",
+        "Principle 1: model identification and model risk classification (complete inventory, including AI/ML models)",
+        "Principle 2: governance, with responsibility for the MRM framework allocated to an SMF holder and MRM effectiveness reported to the audit committee",
+        "Principle 3: model development, implementation and use",
+        "Principle 4: independent model validation",
+        "Principle 5: model risk mitigants",
+        "Applies to all models used to inform business decisions, in-house or vendor; technology-agnostic but includes factors for AI (explainability and transparency as complexity factors)"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S008",
+        "A8-S037",
+        "A8-S061"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "SS1/23 does not apply directly to most UK asset managers (FCA solo-regulated), but it is the de facto UK benchmark for MRM and applies to bank-affiliated managers. Because it covers vendor models and is technology-agnostic, an LLM or agent used to inform business decisions is likely in scope where SS1/23 applies; BoE AI Consortium minutes record that GenAI systems are often classified as high risk under SS1/23 frameworks.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "C8",
+      "L9",
+      "L1",
+      "L3",
+      "C5"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Model inventory including AI/ML and vendor models with risk tiering",
+        "Named SMF accountability and audit-committee reporting on MRM effectiveness",
+        "Independent validation reports",
+        "Ongoing performance monitoring and risk-appetite statements for AI models"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S008",
+        "A8-S009",
+        "A8-S037"
+      ],
+      "conf": "medium"
+    },
+    "sources": [
+      "A8-S008",
+      "A8-S009",
+      "A8-S037",
+      "A8-S061"
+    ],
+    "stage_a_notes": "Effective date confirmed via search extract only (bankofengland.co.uk blocked). The full SS1/23 definition sentence was truncated in the search snippet (A8-S061); quote only the confirmed fragment. Scope narrowing to IM firms is from a search summary; date of narrowing not verified."
+  },
+  {
+    "id": "R-EUAIA",
+    "instrument": {
+      "v": "Regulation (EU) 2024/1689 (Artificial Intelligence Act), as amended by Regulation (EU) 2026/1744 (Digital Omnibus on AI)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S011",
+        "A8-S012"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "European Union (extraterritorial: providers placing on EU market, deployers in the EU)",
+      "label": "Reported",
+      "src": [
+        "A8-S012"
+      ],
+      "conf": "medium"
+    },
+    "issuer": {
+      "v": "European Parliament and Council; enforced by the AI Office (GPAI) and Member State authorities",
+      "label": "Verified fact",
+      "src": [
+        "A8-S012",
+        "A8-S019"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "regulation",
+      "label": "Verified fact",
+      "src": [
+        "A8-S011"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Entered into force 1 August 2024 (reported). Prohibitions and AI literacy apply from 2 February 2025. GPAI obligations and governance from 2 August 2025; Commission enforcement powers over GPAI (fines up to 3% of global turnover) from 2 August 2026; GPAI models placed before 2 August 2025 must comply by 2 August 2027. Article 50 transparency applies from 2 August 2026 (Article 50(2) marking: systems already on the market have until 2 December 2026). Under the Digital Omnibus (Regulation (EU) 2026/1744, OJ 24 July 2026, in force 27 July 2026), Annex III stand-alone high-risk obligations moved from 2 August 2026 to 2 December 2027 and Annex I (product-embedded) high-risk obligations to 2 August 2028; new prohibitions (non-consensual intimate imagery, CSAM generation) apply from 2 December 2026.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S011",
+        "A8-S012",
+        "A8-S014",
+        "A8-S018",
+        "A8-S019",
+        "A8-S032"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "Article 4 AI literacy (as amended, effective 27 July 2026): 'Providers and deployers of AI systems shall take measures to support the development of AI literacy of their staff and other persons dealing with the operation and use of AI systems on their behalf'; 'This obligation does not require providers or deployers to guarantee any specific level of AI literacy of any individual'; Commission publishes practical examples; enforced by national market surveillance authorities from 2 August 2026",
+        "Article 5 prohibited practices",
+        "Article 26 deployers of high-risk systems: use per instructions; competent human oversight; relevant and representative input data where controlled; keep logs at least six months (financial institutions within financial-services documentation); monitor operation and inform provider; suspend and notify on risk; report serious incidents; inform workers and affected persons",
+        "Article 25: a deployer becomes a provider if it rebrands, substantially modifies a high-risk system, or changes the intended purpose of an AI system (including a GPAI system) so that it becomes high-risk",
+        "Article 27: fundamental rights impact assessment by deployers of Annex III 5(b) and 5(c) systems",
+        "Article 50: providers disclose AI interaction (chatbots) and mark synthetic output machine-readably; deployers disclose deep fakes and AI-generated public-interest text unless human-reviewed with editorial responsibility",
+        "Articles 53/55: GPAI providers keep technical documentation, inform downstream providers, copyright policy, training-content summary; systemic-risk models (presumed above 10^25 FLOP) add evaluations, adversarial testing, incident reporting, cybersecurity",
+        "Article 72: providers of high-risk systems run a documented post-market monitoring system and plan, collecting performance data over the lifetime including from deployers",
+        "Annex III relevant to financial services: 4(a)/(b) employment and worker management; 5(b) creditworthiness and credit scoring (fraud detection excluded); 5(c) risk assessment and pricing for natural persons in life and health insurance"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S011",
+        "A8-S013",
+        "A8-S016",
+        "A8-S017",
+        "A8-S018",
+        "A8-S019",
+        "A8-S060"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "An asset manager using third-party LLMs is normally a deployer, not a GPAI provider; GPAI obligations sit with the model vendor. Most asset-management use cases (research summaries, performance-attribution commentary, operations) are not in Annex III, so the main live duties are AI literacy, Article 50 transparency for client-facing chat or published content, and prohibitions. HR use (Annex III point 4) and any credit or life/health insurance pricing would be high-risk from 2 December 2027. Fine-tuning or repurposing a model into a high-risk purpose can make the firm a provider (Article 25). Logging duties for financial institutions fold into existing financial-services record-keeping.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "C8",
+      "L9",
+      "L1",
+      "L3",
+      "L4",
+      "C2",
+      "C3",
+      "C5"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "AI inventory with risk classification per use case (prohibited / high-risk / Article 50 / minimal)",
+        "AI literacy programme records",
+        "Article 50 disclosures and synthetic-content marking evidence",
+        "For any high-risk deployment: instructions-for-use adherence, human-oversight assignments, logs kept six months or more, monitoring and incident records, FRIA for 5(b)/5(c)",
+        "Supplier documentation from GPAI providers (Article 53 downstream information)"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S016",
+        "A8-S017",
+        "A8-S018",
+        "A8-S019"
+      ],
+      "conf": "medium"
+    },
+    "sources": [
+      "A8-S011",
+      "A8-S012",
+      "A8-S013",
+      "A8-S014",
+      "A8-S016",
+      "A8-S017",
+      "A8-S018",
+      "A8-S019",
+      "A8-S032",
+      "A8-S060"
+    ],
+    "stage_a_notes": "Article 4 conflict RESOLVED (A8-S060, EUR-Lex text via search extract): the duty stays on providers and deployers but is reworded from 'ensure ... a sufficient level' to 'take measures to support'; the Commission's proposal to shift it to Member States was not adopted. Both earlier readings were partially right. Sources also disagree on the Omnibus signature date (8 July 2026 vs adoption dates 16/29 June 2026); publication 24 July 2026 and entry into force 27 July 2026 are consistent across Commission and EUR-Lex extracts. One extract notes a source conflict on the post-market monitoring template deadline; the Omnibus removed the Commission's power to adopt the Article 72(3) template."
+  },
+  {
+    "id": "R-EU-OMNIBUS-AI",
+    "instrument": {
+      "v": "Regulation (EU) 2026/1744 ('Digital Omnibus on AI') amending Regulations (EU) 2024/1689, 2018/1139 and 2023/1230",
+      "label": "Verified fact",
+      "src": [
+        "A8-S011"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "European Union",
+      "label": "Verified fact",
+      "src": [
+        "A8-S011"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "European Parliament and Council (Commission proposal COM(2025)836)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S011",
+        "A8-S012"
+      ],
+      "conf": "medium"
+    },
+    "type": {
+      "v": "regulation",
+      "label": "Verified fact",
+      "src": [
+        "A8-S011"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Political agreement 7 May 2026; Parliament endorsement 16 June 2026; Council adoption 29 June 2026; published in OJ 24 July 2026; in force 27 July 2026. Council corrigendum (German text) 22 September 2026.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S011",
+        "A8-S012",
+        "A8-S014"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "Annex III high-risk application date deferred to 2 December 2027; Annex I to 2 August 2028; legacy public-sector high-risk systems to 2 August 2030",
+        "Article 50(2) grace period to 2 December 2026 for generative systems placed on the market before 2 August 2026",
+        "Article 4 AI literacy reworded (obligation of means; Commission and Member States to support)",
+        "Commission power to adopt the Article 72(3) post-market monitoring template removed",
+        "New prohibitions on generating non-consensual intimate material and CSAM from 2 December 2026",
+        "GPAI, prohibitions and general transparency timelines unchanged"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S011",
+        "A8-S012",
+        "A8-S013",
+        "A8-S014"
+      ],
+      "conf": "high"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "The deferral gives firms until December 2027 for any Annex III use, but it does not defer GPAI-provider duties (which flow to vendors from August 2025, enforceable from August 2026) or Article 50. Architecture work on logging, oversight and post-market monitoring should continue on the original plan because the same artefacts serve MRM and operational-resilience expectations.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "C8",
+      "L9"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Updated AI Act compliance plan reflecting the new dates"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S011",
+      "A8-S012",
+      "A8-S013",
+      "A8-S014"
+    ],
+    "stage_a_notes": "One aggregator (Usercentrics) contained contradictory text on whether the delay is law; EUR-Lex and Commission extracts confirm adoption."
+  },
+  {
+    "id": "R-EU-GPAI-COP",
+    "instrument": {
+      "v": "General-Purpose AI Code of Practice (AI Act Articles 53 and 55)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S015"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "European Union",
+      "label": "Verified fact",
+      "src": [
+        "A8-S015"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "European Commission / AI Office (drafted by independent experts)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S015"
+      ],
+      "conf": "medium"
+    },
+    "type": {
+      "v": "voluntary code of practice (route to demonstrate compliance)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S015"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Published 10 July 2025. Signatories include Amazon, Anthropic, Google, IBM, Microsoft, Mistral AI, OpenAI, Cohere, Aleph Alpha, ServiceNow, WRITER and others; xAI signed the Safety and Security chapter only. Signatory Taskforce met 17 July 2026.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S015",
+        "A8-S035"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "Transparency chapter (Model Documentation Form) and Copyright chapter for all GPAI providers",
+        "Safety and Security chapter for providers of GPAI models with systemic risk",
+        "Opting out of a chapter loses the facilitation benefit for that part"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S015"
+      ],
+      "conf": "high"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Vendor signature status is a due-diligence data point for L1 model selection: it indicates how a provider evidences Article 53/55 compliance and what documentation a deployer can request. Non-signatories must show 'alternative adequate means'.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Vendor due-diligence file recording each model provider's Code of Practice status and Model Documentation Form availability"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S015",
+      "A8-S035"
+    ],
+    "stage_a_notes": "Meta reportedly declined to sign (arXiv secondary, not archived). Separate Code of Practice on Transparency of AI-generated Content (about 190 signatories) is distinct. Conflict of interest: Anthropic (author's developer) is a signatory; recorded as fact only."
+  },
+  {
+    "id": "R-DORA",
+    "instrument": {
+      "v": "Regulation (EU) 2022/2554 Digital Operational Resilience Act (DORA)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S021"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "European Union (financial entities incl. investment firms, UCITS management companies and AIFMs)",
+      "label": "Reported",
+      "src": [
+        "A8-S021"
+      ],
+      "conf": "medium"
+    },
+    "issuer": {
+      "v": "European Parliament and Council; ESAs (EBA, ESMA, EIOPA) as Lead Overseers of CTPPs",
+      "label": "Verified fact",
+      "src": [
+        "A8-S020",
+        "A8-S021"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "regulation",
+      "label": "Verified fact",
+      "src": [
+        "A8-S021"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Entered into force 16 January 2023; applies from 17 January 2025. Registers of information first reported by competent authorities to the ESAs by 30 April 2025, then annually by 31 March (reference date 31 December) from 2026. First CTPP list published 18 November 2025 (19 providers including Amazon Web Services EMEA Sarl, Google Cloud EMEA Limited, Microsoft Ireland Operations Limited, Oracle Nederland, IBM, SAP, Bloomberg, LSEG Data and Risk). No AI model provider (e.g. OpenAI, Anthropic, Mistral) found designated as of 7 October 2026; list to be updated annually.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S020",
+        "A8-S021",
+        "A8-S022",
+        "A8-S025"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "ICT risk management framework with ongoing monitoring of ICT risk, extending to services from ICT third parties",
+        "ICT-related incident classification and reporting",
+        "Digital operational resilience testing (TLPT for some entities; pooled testing permitted)",
+        "ICT third-party risk management (Articles 28-30) including contractual provisions (Article 30) and register of information covering all ICT third-party arrangements",
+        "Oversight framework: CTPPs designated by ESAs under Article 31 are subject to direct Lead Overseer oversight (annual engagement, inspections, recommendations)"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S021",
+        "A8-S020",
+        "A8-S025"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "For EU entities, every LLM API, vector database SaaS, observability SaaS and AI gateway SaaS used by an asset manager is an ICT third-party service and must appear in the register of information, with Article 30 contract terms and exit strategies where it supports a critical or important function. Hyperscaler-hosted models (Bedrock, Vertex/Gemini Enterprise Agent Platform, Azure) sit under a designated CTPP; direct model-vendor APIs do not, which shifts more oversight burden onto the firm. Commentary suggests LLM vendors could be designated in future rounds.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L2",
+      "L6",
+      "L9",
+      "C1",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Register of information entries for each AI/LLM-related ICT provider (CSV per ESA specification)",
+        "Article 30-compliant contracts incl. sub-outsourcing, audit, termination",
+        "Exit strategies and tested exit plans for critical or important functions",
+        "ICT incident logs and classification"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S021",
+        "A8-S025"
+      ],
+      "conf": "medium"
+    },
+    "sources": [
+      "A8-S020",
+      "A8-S021",
+      "A8-S022",
+      "A8-S025"
+    ],
+    "stage_a_notes": "Lead Overseer allocation per provider not verified from ESA primary (one secondary table said EBA for hyperscalers). Some designated providers have challenged designation before the ESAs' Joint Board of Appeal (A8-S022). DORA scope for asset managers stated as Reported because the list of in-scope entity types was not extracted in this run."
+  },
+  {
+    "id": "R-UK-CTP",
+    "instrument": {
+      "v": "UK Critical Third Parties regime (FSMA 2023 / FSMA 2000 s312L; PRA/FCA/BoE CTP rules) and the Critical Third Parties (Designation) Regulations 2026 (SI 2026/777)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S023"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "United Kingdom",
+      "label": "Verified fact",
+      "src": [
+        "A8-S023"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "HM Treasury (designation); Bank of England, PRA and FCA (oversight)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S023"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "law/regulation (statutory instrument plus regulator rules)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S023"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Regulators' CTP rules in force 1 January 2025, applying on designation. First designations made 8 July 2026 (announced 10 July 2026), in force 13 July 2026: Amazon Web Services EMEA SARL, Google Cloud EMEA Limited, Microsoft Ireland Operations Limited, Oracle Corporation UK Limited. Joint regulator oversight from 13 July 2026. No AI model provider designated as of 7 October 2026.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S023",
+        "A8-S024"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "Obligations fall on designated CTPs for their systemic services to the UK financial sector (not their wider operations)",
+        "Designated CTPs file an initial self-assessment within three months of designation (reported)",
+        "Regulated firms remain responsible for due diligence, risk management and contingency planning for third-party arrangements",
+        "HMT may designate further CTPs or de-designate; no statutory cap"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S023",
+        "A8-S024"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "CTP oversight of the hyperscalers does not relieve a UK asset manager of SS2/21/SYSC 8 outsourcing duties. The Treasury Committee's January 2026 recommendation to designate AI and cloud providers signals possible future designation of model vendors; architecture should not assume that a direct LLM API will remain outside the perimeter.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L2",
+      "C1",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Third-party risk files for AI services hosted on designated CTPs, still including the firm's own due diligence and contingency plans"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S023"
+      ],
+      "conf": "medium"
+    },
+    "sources": [
+      "A8-S023",
+      "A8-S024"
+    ],
+    "stage_a_notes": "Exact self-assessment deadline for the July 2026 cohort not verified from regulator text (practitioner estimate mid-October 2026). Treasury Committee report itself not archived; recommendation reported via law-firm extract."
+  },
+  {
+    "id": "R-PRA-SS221",
+    "instrument": {
+      "v": "PRA SS2/21 'Outsourcing and third party risk management' (revised by PS7/26, March 2026)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S048",
+        "A8-S062"
+      ],
+      "conf": "medium"
+    },
+    "jurisdiction": {
+      "v": "United Kingdom",
+      "label": "Verified fact",
+      "src": [
+        "A8-S048"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "Prudential Regulation Authority",
+      "label": "Verified fact",
+      "src": [
+        "A8-S048"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "supervisory statement",
+      "label": "Verified fact",
+      "src": [
+        "A8-S048"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Original published March 2021; March 2021 PDF marked superseded on 31 December 2024 (live web version continues). PS7/26 (March 2026) revised SS2/21, clarifying identification of material third-party (MTP) arrangements; revised SS2/21 and new MTP notification and register requirements effective 18 March 2027. Original 31 March 2022 effective date: Not publicly verified in this run.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S048",
+        "A8-S062"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "Documented exit plan for material outsourcing where exit is possible, explicitly catering for unexpected termination",
+        "Stressed exit as last-resort mitigation (e.g. provider insolvency); outcome focus on continued provision of important business services; in-house or alternative provider routes",
+        "Begin business continuity and stressed-exit planning in the pre-outsourcing phase once an arrangement is judged material; test plans as soon as practicable",
+        "Consider temporary measures (contractual, escrow) for a transition period",
+        "From 18 March 2027: notify before entering into or significantly changing an MTP arrangement and submit an annual register (via FCA Connect); not an approval process",
+        "Outsourcing agreements, data security, access/audit/information rights, sub-outsourcing (vendor summary)"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S048",
+        "A8-S062",
+        "A8-S026"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Applies to PRA-regulated firms; bank- or insurer-owned asset managers fall under it. A hosted LLM supporting an important business service is likely a material outsourcing or MTP arrangement, so the firm needs a stressed-exit route that works if the model vendor fails or withdraws a model: gateway abstraction (C1), portable prompts and configuration (C5), and evaluation suites (L9) that can re-qualify an alternative model quickly. MTP notification from March 2027 means new LLM vendor contracts need regulator notification lead time.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L2",
+      "L9",
+      "C1",
+      "C5",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Materiality/MTP assessment per AI arrangement",
+        "Documented and tested exit plans incl. stressed exit",
+        "MTP notifications and annual third-party register (from 18 March 2027)",
+        "Contracts with audit/access rights"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S048",
+        "A8-S062"
+      ],
+      "conf": "medium"
+    },
+    "sources": [
+      "A8-S026",
+      "A8-S048",
+      "A8-S062"
+    ],
+    "stage_a_notes": "SS2/21 live text not read directly (bankofengland.co.uk blocked); content via search extracts. No AI-specific SS2/21 wording found."
+  },
+  {
+    "id": "R-FCA-SYSC8",
+    "instrument": {
+      "v": "FCA Handbook SYSC 8 (Outsourcing); FG16/5 'Guidance for firms outsourcing to the cloud and other third-party IT services'; PS26/2 operational incident and third-party reporting",
+      "label": "Verified fact",
+      "src": [
+        "A8-S049",
+        "A8-S062"
+      ],
+      "conf": "medium"
+    },
+    "jurisdiction": {
+      "v": "United Kingdom",
+      "label": "Verified fact",
+      "src": [
+        "A8-S049"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "Financial Conduct Authority",
+      "label": "Verified fact",
+      "src": [
+        "A8-S049"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "regulation (Handbook rules) and guidance (FG16/5, non-binding)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S049"
+      ],
+      "conf": "medium"
+    },
+    "status_and_dates": {
+      "v": "SYSC 8.1 in force (common platform provisions seen dated 23 October 2025). FG16/5 issued July 2016, substantively updated September 2019; web page last updated 18 March 2026 (link to new MTP reporting rules only). PS26/2 / FG26/4: notification of material third-party arrangements and incident reporting apply from 18 March 2027.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S049",
+        "A8-S062"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "A function is critical or important if a defect or failure would materially impair continuing compliance, financial performance or continuity of investment services (market data and price feeds excluded)",
+        "Senior management may not delegate responsibility through outsourcing",
+        "Care and competence through to termination; provider capacity; ongoing performance review; retain in-house expertise to supervise",
+        "Ability to terminate with immediate effect where in clients' interest; effective access for firm, auditors and FCA to data and premises",
+        "Sub-outsourcing only with the firm's written consent; notify critical, important or material outsourcing",
+        "FG16/5: cloud for important business functions is (potentially material) outsourcing; covers data location, effective access to data, concentration risk, supply chain/sub-contracting and exit plans",
+        "From 18 March 2027: notify material third-party arrangements before entering/changing; annual register"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S049",
+        "A8-S062"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "SYSC 8 is the main outsourcing regime for FCA solo-regulated asset managers. An LLM API or agent platform underpinning an investment-management or client-servicing function is likely critical or important; FG16/5's data-location and effective-access expectations apply to prompts, retrieved documents and traces held by the vendor (L5, L6, L9). Immediate-termination rights and exit plans map to the gateway (C1) and prompt/config portability (C5).",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L2",
+      "L5",
+      "L6",
+      "L9",
+      "C1",
+      "C5",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Outsourcing register and due diligence",
+        "Contracts with termination, access, audit and sub-outsourcing consent clauses",
+        "Exit/transition plans",
+        "FCA notifications (and MTP register from March 2027)"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S027",
+        "A8-S028",
+        "A8-S049",
+        "A8-S062"
+      ],
+      "conf": "medium"
+    },
+    "sources": [
+      "A8-S027",
+      "A8-S028",
+      "A8-S049",
+      "A8-S062"
+    ],
+    "stage_a_notes": "Handbook not read directly; paragraph numbering differs across versions (A8-S049). No AI-specific FCA outsourcing guidance found."
+  },
+  {
+    "id": "R-EBA-OUTSOURCING",
+    "instrument": {
+      "v": "EBA Guidelines on outsourcing arrangements (25 February 2019), to be repealed and replaced by EBA Guidelines on the sound management of third-party risk (non-ICT services), final report 18 September 2026",
+      "label": "Verified fact",
+      "src": [
+        "A8-S050"
+      ],
+      "conf": "medium"
+    },
+    "jurisdiction": {
+      "v": "European Union (institutions within the EBA's mandate: credit institutions, investment firms, payment and e-money institutions)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S050",
+        "A8-S029"
+      ],
+      "conf": "medium"
+    },
+    "issuer": {
+      "v": "European Banking Authority",
+      "label": "Verified fact",
+      "src": [
+        "A8-S050"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "guidance (ESA guidelines; legal basis Article 74 CRD)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S050"
+      ],
+      "conf": "medium"
+    },
+    "status_and_dates": {
+      "v": "2019 guidelines remain applicable until the new guidelines apply. New non-ICT third-party risk guidelines finalised 18 September 2026 (consultation 8 July - 8 October 2025), aligned with DORA, with a two-year transitional period; the 2019 guidelines will be repealed from the new application date (exact date not confirmed). ICT third-party arrangements are governed by DORA.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S050"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "Focus on arrangements supporting critical or important functions",
+        "Lifecycle: risk assessment and due diligence, contracting, subcontracting, monitoring, documentation and exit strategies",
+        "Hybrid arrangements: judge whether ICT element is material enough to fall under DORA",
+        "Contract contents incl. sub-outsourcing, security, access/information/audit and termination rights (2019 guidelines, vendor summary)"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S050",
+        "A8-S029"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "For EU banks and investment firms, an LLM API or AI SaaS is an ICT service and sits under DORA, not the new non-ICT guidelines; the EBA guidelines matter mainly for hybrid AI services (e.g. AI-enabled outsourced operations) and as the governance template. EU UCITS/AIF managers are outside the EBA's mandate.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L2",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Third-party register and lifecycle documentation; exit strategies for critical or important functions"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S050"
+      ],
+      "conf": "medium"
+    },
+    "sources": [
+      "A8-S029",
+      "A8-S050"
+    ],
+    "stage_a_notes": "Search tool gave reference 'EBA/GL/2026/09' for the new guidelines; not confirmed from the document itself. ESMA cloud outsourcing guidelines (relevant to UCITS/AIFMs) not researched."
+  },
+  {
+    "id": "R-US-TPRM",
+    "instrument": {
+      "v": "Interagency Guidance on Third-Party Relationships: Risk Management (Federal Reserve, FDIC, OCC)",
+      "label": "Reported",
+      "src": [
+        "A8-S033"
+      ],
+      "conf": "medium"
+    },
+    "jurisdiction": {
+      "v": "United States",
+      "label": "Reported",
+      "src": [
+        "A8-S033"
+      ],
+      "conf": "medium"
+    },
+    "issuer": {
+      "v": "Federal Reserve, FDIC, OCC",
+      "label": "Reported",
+      "src": [
+        "A8-S033"
+      ],
+      "conf": "medium"
+    },
+    "type": {
+      "v": "supervisory guidance",
+      "label": "Reported",
+      "src": [
+        "A8-S033"
+      ],
+      "conf": "medium"
+    },
+    "status_and_dates": {
+      "v": "Not publicly verified",
+      "label": "Not publicly verified",
+      "src": [],
+      "conf": "low"
+    },
+    "key_obligations": {
+      "v": [
+        "Lifecycle risk management of third-party relationships: planning, due diligence, contract negotiation, ongoing monitoring and termination",
+        "Replaces each agency's previous general third-party guidance"
+      ],
+      "label": "Reported",
+      "src": [
+        "A8-S033"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Commentators note that third-party risk management, cybersecurity and record-keeping obligations still apply to GenAI/agentic AI even though SR 26-2 excludes them; for US bank-affiliated managers this guidance is the main lever over LLM vendors.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L2",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Third-party lifecycle file per AI vendor including ongoing monitoring and termination planning"
+      ],
+      "label": "Reported",
+      "src": [
+        "A8-S033",
+        "A8-S007"
+      ],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S007",
+      "A8-S033"
+    ],
+    "stage_a_notes": "Issue date (reported elsewhere as June 2023) not verified in this run."
+  },
+  {
+    "id": "R-DATA-TRANSFERS",
+    "instrument": {
+      "v": "UK GDPR as amended by the Data (Use and Access) Act 2025; EU adequacy decisions for the UK (GDPR and LED); EU-US Data Privacy Framework (Commission Implementing Decision (EU) 2023/1795)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S051",
+        "A8-S052",
+        "A8-S053"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "United Kingdom, European Union, United States",
+      "label": "Verified fact",
+      "src": [
+        "A8-S051",
+        "A8-S052",
+        "A8-S053"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "UK Parliament / DSIT / ICO; European Commission / EDPB; Court of Justice of the EU",
+      "label": "Verified fact",
+      "src": [
+        "A8-S051",
+        "A8-S052",
+        "A8-S053"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "law",
+      "label": "Verified fact",
+      "src": [
+        "A8-S051",
+        "A8-S053"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "DUAA: Royal Assent 19 June 2025; Commencement No. 1 on 20 August 2025; majority of Part 5 data protection changes (incl. automated decision-making s.80 and third-country transfers s.85) in force 5 February 2026; complaints provisions 19 June 2026; ICO states all data protection provisions in force as of 19 June 2026. EU-UK adequacy: technical six-month extension 24 June 2025; renewal decisions adopted 19 December 2025, valid until 27 December 2031. EU-US DPF: General Court dismissed Latombe's annulment action on 3 September 2025 (T-553/23); appeal C-703/25 P lodged 31 October 2025 and pending as of 7 October 2026; DPF remains in effect.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S051",
+        "A8-S052",
+        "A8-S053",
+        "A8-S054"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "UK: DUAA amends UK GDPR rules on automated decision-making and the third-country transfer test (new adequacy-style test for UK transfers)",
+        "EU to UK transfers: may rely on adequacy until 27 December 2031, subject to Commission monitoring (EDPB flagged onward transfers, ADM, ICO structure, Technical Capability Notices, national security exemptions)",
+        "EU to US transfers: DPF-certified recipients may rely on adequacy decision 2023/1795; SCCs remain an alternative",
+        "GDPR transfer mechanisms: adequacy or appropriate safeguards such as SCCs"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S051",
+        "A8-S052",
+        "A8-S053",
+        "A8-S030"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Processing location is an explicit, priced control on at least one first-party LLM API: Anthropic's Claude API offers inference_geo 'global' (default) and 'us' (US-only, 1.1x price for Claude 4.6 and later); workspace geo is currently 'us' only. Architectural judgement: for EU/UK personal data sent to US-hosted LLM APIs, the lawful basis rests on DPF certification or SCCs, so the pending C-703/25 P appeal is a live concentration risk; region-pinned deployments (via partner clouds) and DLP masking (C3) reduce exposure, and the AI gateway (C1) is the natural enforcement point.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S036"
+      ],
+      "conf": "medium"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L2",
+      "L5",
+      "L6",
+      "L8",
+      "L9",
+      "C1",
+      "C3"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Transfer mechanism per AI vendor (DPF certification check or SCCs) and transfer risk assessment",
+        "Records of processing incl. LLM vendors as processors",
+        "Configuration evidence of processing-location controls",
+        "ADM safeguards where agents make significant decisions (UK GDPR as amended)"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S030",
+      "A8-S036",
+      "A8-S051",
+      "A8-S052",
+      "A8-S053",
+      "A8-S054"
+    ],
+    "stage_a_notes": "Latombe C-703/25 P: order dated 4 June 2026 listed on InfoCuria, content unknown; reported Microsoft intervention unverified. DUAA content summary (s.80, s.85) from commencement listing; detailed new UK transfer test wording not extracted. Relevance field mixes a Verified vendor fact (Anthropic, conflict of interest noted) with judgement; Stage B should split."
+  },
+  {
+    "id": "R-NIST-AIRMF",
+    "instrument": {
+      "v": "NIST AI Risk Management Framework (AI RMF 1.0, NIST AI 100-1) and Generative AI Profile (NIST AI 600-1)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S043",
+        "A8-S044"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "United States (voluntary, internationally referenced)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S043"
+      ],
+      "conf": "medium"
+    },
+    "issuer": {
+      "v": "National Institute of Standards and Technology",
+      "label": "Verified fact",
+      "src": [
+        "A8-S043"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "framework (voluntary)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S043"
+      ],
+      "conf": "medium"
+    },
+    "status_and_dates": {
+      "v": "AI RMF 1.0 dated 26 January 2023 remains the current version; NIST states it is being revised under the White House AI Action Plan (23 July 2025), including removal of references to misinformation, DEI and climate change; no revised version published as of 7 October 2026. NIST AI 600-1 final released 26 July 2024. Related 2026 work: AI RMF Profile on Trustworthy AI in Critical Infrastructure concept note (7 April 2026); Cyber AI Profile (NIST IR 8596 draft, December 2025) adding agentic AI content; NCCoE concept paper on software and AI agent identity and authorisation (February 2026); CAISI agent-security RFI (January 2026) informing a planned SP 800-53 control overlay for AI agent systems.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S043",
+        "A8-S044",
+        "A8-S006"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "Voluntary: Govern, Map, Measure, Manage functions (AI RMF 1.0)",
+        "AI 600-1: GenAI-specific risks and suggested actions",
+        "No binding obligations"
+      ],
+      "label": "Reported",
+      "src": [
+        "A8-S043",
+        "A8-S044"
+      ],
+      "conf": "low"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Useful as a neutral control taxonomy for C8 and L9 and for US-facing assurance. The pending revision may change terminology; agent-specific NIST guidance is emerging through the Cyber AI Profile, agent identity (C4) and the planned SP 800-53 overlay rather than a dedicated AI RMF agent profile.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "C8",
+      "L9",
+      "C4",
+      "C7"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Mapping of the firm's AI controls to AI RMF functions and AI 600-1 actions (voluntary)"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S006",
+      "A8-S043",
+      "A8-S044"
+    ],
+    "stage_a_notes": "Govern/Map/Measure/Manage function names are known from memory and not confirmed in the extracts; key_obligations labelled Reported/low accordingly. Counts of AI 600-1 risks/actions disagree between sources (AIRC: 13 risks, 400+ actions). Tentative NISTIR 8605D title from draft slides; not asserted."
+  },
+  {
+    "id": "R-ISO-42001",
+    "instrument": {
+      "v": "ISO/IEC 42001:2023 AI management systems; ISO/IEC 42005:2025 AI system impact assessment; ISO/IEC 42006:2025 requirements for AIMS audit and certification bodies",
+      "label": "Verified fact",
+      "src": [
+        "A8-S045",
+        "A8-S046",
+        "A8-S047"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "International",
+      "label": "Verified fact",
+      "src": [
+        "A8-S045"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "ISO/IEC JTC 1/SC 42",
+      "label": "Verified fact",
+      "src": [
+        "A8-S045"
+      ],
+      "conf": "medium"
+    },
+    "type": {
+      "v": "standard (42001 certifiable management-system standard; 42005 guidance; 42006 requirements for certification bodies)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S045",
+        "A8-S046",
+        "A8-S047"
+      ],
+      "conf": "medium"
+    },
+    "status_and_dates": {
+      "v": "ISO/IEC 42001 Edition 1 published December 2023, no amendment found. ISO/IEC 42005 Edition 1 published May 2025. ISO/IEC 42006 published July 2025.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S045",
+        "A8-S046",
+        "A8-S047"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "42001: requirements for an AI management system (AIMS), best practices and AI management controls; does not mandate specific AI controls",
+        "42005: guidance for AI system impact assessments on individuals, groups and society; complements 42001",
+        "42006: additional requirements (supplementing ISO/IEC 17021-1) for bodies auditing and certifying AIMS against 42001"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S031",
+        "A8-S046",
+        "A8-S047"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Certification is now a vendor due-diligence signal: Google Cloud states that Google Cloud, Google Workspace and Gemini products (including Gemini Enterprise Agent Platform, formerly Vertex AI) are certified to ISO/IEC 42001:2023. Architectural judgement: 42001 gives the management-system wrapper for C8; 42006 makes certificates more comparable across vendors; 42005 is a usable template for EU AI Act Article 27 FRIA-style assessments.",
+      "label": "Reported",
+      "src": [
+        "A8-S031"
+      ],
+      "conf": "medium"
+    },
+    "stack_layers_affected": [
+      "C8",
+      "L1",
+      "L2",
+      "L9"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "AIMS scope, AI policy, risk and impact assessments (42005-style), Statement of Applicability; vendor 42001 certificates from 42006-compliant certification bodies"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S031",
+      "A8-S045",
+      "A8-S046",
+      "A8-S047"
+    ],
+    "stage_a_notes": "iso.org read via search extracts only; exact publication days not confirmed."
+  },
+  {
+    "id": "R-OWASP-LLM",
+    "instrument": {
+      "v": "OWASP Top 10 for LLM Applications 2025 (superseded by the OWASP GenAI LLM Top 10 2026)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S040",
+        "A8-S041"
+      ],
+      "conf": "medium"
+    },
+    "jurisdiction": {
+      "v": "International (industry)",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "issuer": {
+      "v": "OWASP GenAI Security Project (OWASP Foundation)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S040",
+        "A8-S041"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "framework (industry security guidance)",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "status_and_dates": {
+      "v": "2025 edition announced November 2024 (17 or 19 November per OWASP pages). 2026 edition released August-September 2026 (OWASP press release dated 2 September 2026; archive lists 3 August 2026), alongside a new Agent Control Standard donated to the project.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S040",
+        "A8-S041"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "2025 list: LLM01 Prompt Injection; LLM02 Sensitive Information Disclosure; LLM03 Supply Chain; LLM04 Data and Model Poisoning; LLM05 Improper Output Handling; LLM06 Excessive Agency; LLM07 System Prompt Leakage; LLM08 Vector and Embedding Weaknesses; LLM09 Misinformation; LLM10 Unbounded Consumption",
+        "2026 edition: rankings weighted against real incident data; Excessive Agency now ranked third; mapped to NIST, MITRE ATLAS, CWE and the Agentic Top 10 (full 2026 list not retrieved)"
+      ],
+      "label": "Reported",
+      "src": [
+        "A8-S040",
+        "A8-S041"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Industry baseline for C2 guardrails and C7 testing. LLM08 (vector and embedding weaknesses) bears directly on L6/L7; Excessive Agency on L3/L4 tool permissions and C4 identity. Reference the 2026 edition going forward and keep 2025 identifiers for traceability.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "C2",
+      "C7",
+      "C4",
+      "L3",
+      "L4",
+      "L6",
+      "L7"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Threat model and test evidence mapped to the current OWASP LLM Top 10"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S040",
+      "A8-S041"
+    ],
+    "stage_a_notes": "2025 list numbering comes from an OWASP chapter slide deck on owasp.org (Reported); the LLM01 label was not explicit in the extract. Full 2026 list not retrieved; date conflict (3 August vs 2 September 2026)."
+  },
+  {
+    "id": "R-OWASP-AGENTIC",
+    "instrument": {
+      "v": "OWASP Top 10 for Agentic Applications for 2026",
+      "label": "Verified fact",
+      "src": [
+        "A8-S042"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "International (industry)",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "issuer": {
+      "v": "OWASP GenAI Security Project (Agentic Security Initiative)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S042"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "framework (industry security guidance)",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "status_and_dates": {
+      "v": "Launched 9-10 December 2025 (OWASP blog 9 December 2025; press release and London summit 10 December 2025); labelled the 2026 edition, identifiers ASI01:2026 etc.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S042"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "ASI01 Agent Goal Hijack (other nine entries not retrieved)",
+        "Peer-reviewed with more than 100 contributors"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S042"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "The agent-specific companion to the LLM list; the natural checklist for L3 orchestration, L4 tool/MCP connectivity, C4 agent identity and C7 security testing. Goal hijack via indirect prompt injection is directly relevant to an agent reading external documents (L8).",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L3",
+      "L4",
+      "L8",
+      "C2",
+      "C4",
+      "C7"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Agent threat model mapped to ASI01-ASI10 and red-team results"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S042"
+    ],
+    "stage_a_notes": "Entries ASI02-ASI10 not retrieved in this run."
+  },
+  {
+    "id": "R-UK-AI-STATEMENTS",
+    "instrument": {
+      "v": "FCA, Bank of England and PRA statements and initiatives on AI, 2024-2026",
+      "label": "Verified fact",
+      "src": [
+        "A8-S055",
+        "A8-S056",
+        "A8-S009",
+        "A8-S010"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "United Kingdom",
+      "label": "Verified fact",
+      "src": [
+        "A8-S055",
+        "A8-S056"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "Financial Conduct Authority; Bank of England (FPC, PRA)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S055",
+        "A8-S056"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "supervisory statement (non-binding publications and initiatives)",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "status_and_dates": {
+      "v": "FCA AI Lab and AI Live Testing (FS25/5): second cohort announced 21 April 2026 (incl. Barclays, Experian, Lloyds/Scottish Widows, UBS), use cases incl. agentic payments and targeted investment support; testing to end-2026, evaluation report Q1 2027. FCA Mills Review on long-term AI impact on retail financial services (call for input). FPC (meeting 27 March 2026): GenAI/agentic AI not yet adopted in a way presenting systemic risk, but risks likely to increase potentially rapidly; asked Bank and FCA for further work on agentic AI in payments and financial markets. 2026 BoE/FCA AI survey (fourth biennial edition) ran June-31 July 2026, results due later in 2026. PRA SS1/23 AI/ML roundtables (October 2025); AI Consortium (3 June 2026). BoE response to Treasury Committee AI inquiry dated 1 April 2026.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S055",
+        "A8-S056",
+        "A8-S009",
+        "A8-S010",
+        "A8-S038"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "No new AI-specific rules: the FCA relies on existing frameworks (Consumer Duty, SM&CR, governance and controls expectations)",
+        "PRA expects risk appetite, tiering, explainability, independent validation and ongoing monitoring for AI under SS1/23 (where applicable)",
+        "April 2025 BoE analysis: 55% of AI use cases had some autonomous decision-making, 2% fully autonomous"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S055",
+        "A8-S009",
+        "A8-S056"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "UK direction is technology-neutral supervision through existing regimes, with agentic AI now an explicit FPC and FCA focus. For asset managers, the operative levers are SM&CR accountability (a named senior manager for AI use), Consumer Duty outcomes for client-facing agents, and evidence of human intervention and monitoring. AI Live Testing is an available route to test novel agentic use cases with the regulator.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "C8",
+      "L9",
+      "L3",
+      "C2"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "SMF accountability mapping for AI",
+        "Consumer Duty outcome monitoring for AI-assisted client journeys",
+        "Monitoring evidence and human-intervention metrics"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S009",
+      "A8-S010",
+      "A8-S038",
+      "A8-S055",
+      "A8-S056"
+    ],
+    "stage_a_notes": "FPC July 2026 updated assessment not retrieved. FCA 'AI Update' (2024) seen in results but not extracted. FCA statement of no new AI rules is via search summary of FCA pages."
+  },
+  {
+    "id": "R-INTL-AI-ASSETMGMT",
+    "instrument": {
+      "v": "IOSCO Supervisory Toolkit for AI Use in Capital Markets (FR/02/2026) and ESMA Public Statement on AI and investment services (30 May 2024)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S058",
+        "A8-S059"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "International (IOSCO members); European Union (MiFID II firms)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S058",
+        "A8-S059"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "IOSCO; ESMA",
+      "label": "Verified fact",
+      "src": [
+        "A8-S058",
+        "A8-S059"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "supervisory statement / guidance (non-binding)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S058",
+        "A8-S059"
+      ],
+      "conf": "medium"
+    },
+    "status_and_dates": {
+      "v": "ESMA statement 30 May 2024 (MiFID II retail investment services); ESMA algorithmic trading supervisory briefing February 2026; joint ESMA-EBA consultation on management-body suitability incl. AI understanding (25 February 2026). IOSCO consultation report CR/01/2025 (March 2025); final Supervisory Toolkit FR/02/2026 (May 2026). No standalone 2025-2026 ESMA AI statement for UCITS/AIF managers found.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S058",
+        "A8-S059"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "ESMA: management bodies remain responsible for decisions whether taken by people or AI tools; robust governance, regular AI model testing and monitoring; ex-ante input controls and frequent ex-post output controls; due diligence on third-party AI; disclose chatbot use to clients; heightened diligence for advice and portfolio management",
+        "IOSCO: supervisory indicators for asset managers include accuracy of AI-supported valuations vs benchmarks, AI-driven mis-selling incidents, and level/frequency of human intervention in AI-driven investment processes",
+        "IOSCO: AI-washing (false claims about AI use or AI-attributed performance) observed at asset and fund managers",
+        "IOSCO: concentration risk from reliance on few AI technology providers"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S058",
+        "A8-S059"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "These are the most asset-management-specific supervisory texts found. They translate directly into L9 metrics (human-intervention rate, output-accuracy checks), C8 evidence (board accountability, AI-claims substantiation against AI-washing) and vendor-concentration analysis across L1.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "C8",
+      "L9",
+      "L1",
+      "C2"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Board/management-body AI oversight records",
+        "Ex-ante and ex-post control evidence",
+        "Substantiation of AI claims in marketing (anti AI-washing)",
+        "Human-intervention metrics for AI-assisted investment processes"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "A8-S058",
+        "A8-S059"
+      ],
+      "conf": "medium"
+    },
+    "sources": [
+      "A8-S058",
+      "A8-S059"
+    ],
+    "stage_a_notes": "Only an extract of the IOSCO toolkit was retrieved. FSB AI work not researched."
+  },
+  {
+    "id": "R-SEC-ADVISERS",
+    "instrument": {
+      "v": "SEC proposed rule 'Conflicts of Interest Associated With the Use of Predictive Data Analytics by Broker-Dealers and Investment Advisers' (File S7-12-23) - withdrawn",
+      "label": "Verified fact",
+      "src": [
+        "A8-S057"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "United States",
+      "label": "Verified fact",
+      "src": [
+        "A8-S057"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "US Securities and Exchange Commission",
+      "label": "Verified fact",
+      "src": [
+        "A8-S057"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "regulation (proposed rule, withdrawn)",
+      "label": "Verified fact",
+      "src": [
+        "A8-S057"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Proposed (Federal Register) 9 August 2023; withdrawn by notice of 17 June 2025 together with other proposals issued March 2022-November 2023. The SEC will not finalise it; any return to the topic requires a new proposal.",
+      "label": "Verified fact",
+      "src": [
+        "A8-S057"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "No AI-specific SEC rule for advisers in force from this proposal",
+        "SEC Rule 17a-4(f)(2) (broker-dealers) allows a complete time-stamped audit-trail alternative to WORM storage, effective January 2023 (vendor summary)"
+      ],
+      "label": "Reported",
+      "src": [
+        "A8-S057",
+        "A8-S034"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "With PDA withdrawn, US adviser obligations for AI rest on existing fiduciary duty, marketing, compliance-programme and record-keeping rules (not verified in this run). Record-keeping of AI-generated communications and evidence of AI claims (cf. IOSCO AI-washing) remain the practical touchpoints.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L9",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Books-and-records retention of AI-generated client communications; substantiation of AI-related marketing claims"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "A8-S034",
+      "A8-S057"
+    ],
+    "stage_a_notes": "SEC stated reasons for withdrawal not found. Adviser Rule 204-2 and any SEC AI-washing enforcement actions not researched."
+  }
+]
