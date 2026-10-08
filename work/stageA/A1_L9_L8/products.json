@@ -458,10 +458,11 @@
    }
   },
   "certifications": {
-   "v": "SOC 2 Type II; HIPAA (BAA on Enterprise plan only); ISO 27001 referenced only for the LangSmith Engine feature",
+   "v": "SOC 2 Type II; ISO 27001:2022 (stated in LangChain resource page and LangSmith Engine security docs); HIPAA (BAA on Enterprise plan only); GDPR; reports via trust.langchain.com",
    "label": "Verified fact",
    "src": [
-    "A1-S036"
+    "A1-S036",
+    "A1-S126"
    ],
    "conf": "medium"
   },
@@ -597,9 +598,10 @@
    "A1-S037",
    "A1-S038",
    "A1-S039",
-   "A1-S108"
+   "A1-S108",
+   "A1-S126"
   ],
-  "stage_a_notes": "Sacra reports an earlier July 2025 'Series B' at US$1.1B; LangChain's own post (Oct 2025) used. BYOC GA on AWS only in sources reviewed.",
+  "stage_a_notes": "Sacra reports an earlier July 2025 'Series B' at US$1.1B; LangChain's own post (Oct 2025) used. BYOC GA on AWS only in sources reviewed. Gap-fill: ISO 27001:2022 now stated by LangChain (A1-S126); older enterprise page lists only SOC 2/HIPAA/GDPR.",
   "last_verified": "2026-10-07"
  },
  {
@@ -746,10 +748,11 @@
    }
   },
   "certifications": {
-   "v": "SOC 2 Type II (annual audit, report via Trust Center under NDA); HIPAA support with BAA",
+   "v": "SOC 2 Type II (reports via Trust Center under mutual NDA); HIPAA support with BAA on Enterprise plans; no ISO 27001 certification found",
    "label": "Verified fact",
    "src": [
-    "A1-S041"
+    "A1-S041",
+    "A1-S125"
    ],
    "conf": "medium"
   },
@@ -881,7 +884,8 @@
    "A1-S041",
    "A1-S042",
    "A1-S043",
-   "A1-S109"
+   "A1-S109",
+   "A1-S125"
   ],
   "stage_a_notes": "Valuation (US$800M) is from Axios headline only (paywalled, link-only); vendor post does not state it. Starter allowances conflict between vendor post and third-party pages. OTLP logs support conflicting in docs. HIPAA wording varies ('fully compliant' vs 'supports with BAA').",
   "last_verified": "2026-10-07"
@@ -1340,18 +1344,21 @@
    }
   },
   "certifications": {
-   "v": "HIPAA listed as an Enterprise-plan feature; SOC 2 / ISO 27001 status not verified in this run",
+   "v": "SOC 2 Type II; ISO/IEC 27001 (audited by A-LIGN, announced c. August 2026); HIPAA (docs say compliant, self-hosted page says HIPAA-ready); PCI DSS 4.0 Level 1 Service Provider; CSA STAR Level 1 self-assessment",
    "label": "Verified fact",
    "src": [
+    "A1-S124",
     "A1-S047"
    ],
-   "conf": "low"
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "EU data region in Belgium; self-hosted (customer Kubernetes and object storage, Arize stores nothing) and air-gapped options; GDPR compliance claimed",
+   "label": "Verified fact",
+   "src": [
+    "A1-S124"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Not publicly verified",
@@ -1360,10 +1367,11 @@
    "conf": "low"
   },
   "access_controls": {
-   "v": "SSO, RBAC and audit trails; multi-tenancy via organisations and spaces",
+   "v": "SSO, RBAC and audit trails; self-hosted AX supports any SAML 2.0 IdP (Okta, Entra, OneLogin, Ping) with RBAC role mapping; 'Enterprise SSO' on Enterprise tier; multi-tenancy via organisations and spaces",
    "label": "Verified fact",
    "src": [
-    "A1-S046"
+    "A1-S046",
+    "A1-S124"
    ],
    "conf": "medium"
   },
@@ -1477,9 +1485,10 @@
    "A1-S046",
    "A1-S047",
    "A1-S049",
-   "A1-S066"
+   "A1-S066",
+   "A1-S124"
   ],
-  "stage_a_notes": "A8: 'Arize – RAG metrics' resolved to Arize AX, the commercial platform; Phoenix is the ELv2 self-hosted product. EU region and SOC 2/ISO not verified (web search budget exhausted before the trust-centre query ran).",
+  "stage_a_notes": "A8: 'Arize – RAG metrics' resolved to Arize AX, the commercial platform; Phoenix is the ELv2 self-hosted product. Gap-fill: certifications and EU region (Belgium) from Arize AX compliance docs (A1-S124); HIPAA wording varies between pages.",
   "last_verified": "2026-10-07"
  },
  {
@@ -1569,19 +1578,21 @@
    "conf": "high"
   },
   "integration_model": {
-   "v": "Python and TypeScript integrations (LangChain/LangGraph callbacks, Pydantic AI, CrewAI, OpenAI Agents, AWS AgentCore, Google ADK, AI SDK, Mastra, LlamaIndex); 'integrates with any CI/CD environment'",
+   "v": "Python and TypeScript integrations (LangChain/LangGraph callbacks, Pydantic AI, CrewAI, OpenAI Agents, AWS AgentCore, Google ADK, AI SDK, Mastra, LlamaIndex, Strands); runs in any CI/CD; OpenTelemetry: ConfidentSpanExporter and framework OTel span processors export to Confident AI's OTLP/HTTP endpoint (no gRPC), regional endpoint via CONFIDENT_OTEL_URL, run_otel exports evaluation-run spans to an OTLP endpoint",
    "label": "Verified fact",
    "src": [
-    "A1-S068"
+    "A1-S068",
+    "A1-S121"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "deployment": {
    "saas": {
     "v": "Yes (Confident AI platform)",
     "label": "Verified fact",
     "src": [
-     "A1-S068"
+     "A1-S068",
+     "A1-S120"
     ],
     "conf": "medium"
    },
@@ -1592,49 +1603,62 @@
     "conf": "low"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
-   },
-   "private_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
-   },
-   "self_hosted": {
-    "v": "Yes (library runs locally)",
+    "v": "Yes (Enterprise: deploy in own VPC via Terraform module)",
     "label": "Verified fact",
     "src": [
-     "A1-S068"
+     "A1-S119"
     ],
-    "conf": "high"
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (AWS, Azure, GCP)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S119"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes (library runs locally; platform self-host on Enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S068",
+     "A1-S119"
+    ],
+    "conf": "medium"
    },
    "on_prem": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "Yes (on-prem on Enterprise, per vendor homepage)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S119"
+    ],
     "conf": "low"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Confident AI states SOC 2 and HIPAA compliance (HIPAA BAA); plan gating conflicts between pages (Team-and-above vs Enterprise/Premium add-on); self-hosted compliance depends on customer environment",
+   "label": "Verified fact",
+   "src": [
+    "A1-S119"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Confident AI regions: US (default, North Carolina), EU (Frankfurt) and AU; GDPR handling applies to EU-region data; EU hosting may need a higher plan or add-on (pages conflict)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S119"
+   ],
+   "conf": "medium"
   },
   "security_features": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Encryption at rest and TLS in transit (Confident AI); self-hosted keeps keys and data in customer cloud account",
+   "label": "Verified fact",
+   "src": [
+    "A1-S119"
+   ],
+   "conf": "medium"
   },
   "access_controls": {
    "v": "Not publicly verified",
@@ -1649,12 +1673,14 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Framework free (Apache-2.0); Confident AI pricing not verified",
+   "v": "DeepEval framework free (Apache-2.0); Confident AI: Free (2 seats, 1 project, 1 GB-month spans), Starter US$200/month (unlimited seats, 5 projects, 5 GB-months, then US$1 per GB-month), Team US$2,000/month (75 GB-months), Enterprise custom",
    "label": "Verified fact",
    "src": [
-    "A1-S051"
+    "A1-S051",
+    "A1-S120"
    ],
-   "conf": "medium"
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Main cost driver is LLM-judge token spend per evaluation run",
@@ -1736,9 +1762,12 @@
   "sources": [
    "A1-S005",
    "A1-S051",
-   "A1-S068"
+   "A1-S068",
+   "A1-S119",
+   "A1-S120",
+   "A1-S121"
   ],
-  "stage_a_notes": "Confident AI certifications, pricing and funding not verified (search budget exhausted). OTel support for DeepEval not verified.",
+  "stage_a_notes": "Gap-fill: Confident AI pricing (A1-S120) conflicts with older per-seat figures on vendor comparison pages; certifications are vendor statements with inconsistent plan gating. OTel export is primarily to Confident AI; export to arbitrary third-party collectors not confirmed. Funding not researched.",
   "last_verified": "2026-10-07"
  },
  {
@@ -2187,10 +2216,12 @@
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Comet Trust Center: SOC 2 Type 2, ISO/IEC 27001:2022, ISO 9001:2015; HIPAA and GDPR listed as Enterprise-plan features (not certifications)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S122"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
    "v": "Not publicly verified",
@@ -2205,26 +2236,33 @@
    "conf": "low"
   },
   "access_controls": {
-   "v": "Self-hosted open-source deployment has all features but no user management",
+   "v": "Self-hosted open source has no user management; Enterprise adds SSO and service accounts",
    "label": "Verified fact",
    "src": [
-    "A1-S069"
-   ],
-   "conf": "high"
-  },
-  "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
-  },
-  "pricing": {
-   "v": "Free tier on cloud and free self-hosting; paid tiers not verified",
-   "label": "Verified fact",
-   "src": [
-    "A1-S067"
+    "A1-S069",
+    "A1-S122",
+    "A1-S123"
    ],
    "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Enterprise plan: dedicated support and SLAs, flexible deployments",
+   "label": "Verified fact",
+   "src": [
+    "A1-S122",
+    "A1-S123"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Self-hosted free; Free cloud (25k spans/month, 10 members, 60-day retention); Pro Cloud US$19/month (100k spans, 50 members); Enterprise custom",
+   "label": "Verified fact",
+   "src": [
+    "A1-S123",
+    "A1-S067"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -2314,9 +2352,11 @@
    "A1-S069",
    "A1-S070",
    "A1-S071",
-   "A1-S072"
+   "A1-S072",
+   "A1-S122",
+   "A1-S123"
   ],
-  "stage_a_notes": "A18: confirmed Opik is developed by Comet (the graphic's 'comet' descriptor is the owner, not a feature). Comet certifications, EU region and pricing not verified (search budget exhausted).",
+  "stage_a_notes": "A18: confirmed Opik is developed by Comet. Gap-fill: Comet certifications (A1-S122) and pricing (A1-S123); a 2025 Comet blog listed Pro at US$39/month (superseded). EU region not verified.",
   "last_verified": "2026-10-07"
  },
  {
@@ -2844,6 +2884,301 @@
   "last_verified": "2026-10-07"
  },
  {
+  "id": "L9-wandb-weave",
+  "layer": "L9",
+  "original_label": null,
+  "current_name": {
+   "v": "W&B Weave (Weights & Biases)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S104",
+    "A1-S137"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Weights & Biases, part of CoreWeave, Inc. (acquisition completed 5 May 2025); now a named product within CoreWeave Forge",
+   "label": "Verified fact",
+   "src": [
+    "A1-S131",
+    "A1-S138"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Tracing and evaluation toolkit for AI agents and LLM applications",
+   "label": "Verified fact",
+   "src": [
+    "A1-S104"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "weave 0.53.11 (Python), released 25 September 2026",
+   "label": "Verified fact",
+   "src": [
+    "A1-S018"
+   ],
+   "conf": "high",
+   "asof": "2026-09-25"
+  },
+  "licence_model": {
+   "v": "SDK Apache-2.0; hosted W&B platform proprietary (Pro/Enterprise)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S018",
+    "A1-S138"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Agent-focused tracing (Agents view, dedicated OTLP endpoint for agent spans) inside CoreWeave Forge",
+   "label": "Verified fact",
+   "src": [
+    "A1-S104",
+    "A1-S139",
+    "A1-S138"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "Weights & Biases acquired by CoreWeave (announced 4 March 2025, completed 5 May 2025)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S131"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Traces agent conversations, turns, LLM and tool calls, and evaluates agents and LLM applications; autopatches agent SDKs such as OpenAI Agents SDK, Claude Agent SDK and Google ADK.",
+   "label": "Verified fact",
+   "src": [
+    "A1-S104"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Cross-cutting L9 tracing/evaluation within the broader W&B ML platform",
+   "label": "Verified fact",
+   "src": [
+    "A1-S104",
+    "A1-S137"
+   ],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Self-managed W&B Server: Kubernetes, MySQL 8.4.x, S3-compatible object storage, Redis; Dedicated Cloud stores Weave data in a dedicated ClickHouse Cloud cluster",
+   "label": "Verified fact",
+   "src": [
+    "A1-S137"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Python/TypeScript SDK; OTLP/HTTP protobuf endpoint (trace.wandb.ai/otel/v1/traces) and agents endpoint; OTel Collector forwarding",
+   "label": "Verified fact",
+   "src": [
+    "A1-S104",
+    "A1-S139"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (multi-tenant on Google Cloud, North America)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S137"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (Dedicated Cloud on AWS, Google Cloud, Azure)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S137"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes (Self-Managed)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S137"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S137"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (on-premises Self-Managed)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S137"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II (multi-tenant and Dedicated Cloud); ISO/IEC 27001:2022, 27017:2015, 27018:2019; HIPAA on Dedicated Cloud with BAA (Weave HIPAA status on other deployments conflicting)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S137"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Multi-tenant cloud in North America; Dedicated Cloud in customer-chosen cloud and region",
+   "label": "Verified fact",
+   "src": [
+    "A1-S137"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Dedicated Cloud: isolated network/compute/storage, per-instance encryption key, IP allowlisting, private connectivity; Enterprise: customer-managed encryption keys",
+   "label": "Verified fact",
+   "src": [
+    "A1-S137",
+    "A1-S138"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Enterprise: SSO, automated user provisioning, custom roles, audit logs",
+   "label": "Verified fact",
+   "src": [
+    "A1-S138"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Enterprise support package; Enterprise invoiced annually upfront",
+   "label": "Verified fact",
+   "src": [
+    "A1-S138"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Pro from US$60/month; Enterprise by quote; Weave data ingestion billed monthly in arrears by usage; extra storage US$0.03/GB",
+   "label": "Verified fact",
+   "src": [
+    "A1-S138"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Self-managed instances can use ingest sampling to control cost at high trace volume",
+   "label": "Verified fact",
+   "src": [
+    "A1-S137"
+   ],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Integrations incl. OpenAI Agents SDK, Claude Agent SDK, Google ADK, Agno, Vercel AI SDK",
+   "label": "Verified fact",
+   "src": [
+    "A1-S104",
+    "A1-S139"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "weave first on PyPI 7 June 2023; 147 releases",
+   "label": "Verified fact",
+   "src": [
+    "A1-S018"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "OTel ingest reduces instrumentation lock-in",
+    "label": "Verified fact",
+    "src": [
+     "A1-S139"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Owned by CoreWeave since May 2025",
+    "label": "Verified fact",
+    "src": [
+     "A1-S131"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Parent CoreWeave is Nasdaq-listed (CRWV)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S131"
+    ],
+    "conf": "medium"
+   },
+   "ecosystem_dependency": {
+    "v": "Product sits inside CoreWeave Forge; vendor states it remains cloud-agnostic",
+    "label": "Verified fact",
+    "src": [
+     "A1-S131"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary hosted platform",
+    "label": "Verified fact",
+    "src": [
+     "A1-S138"
+    ],
+    "conf": "medium"
+   },
+   "maturity": {
+    "v": "Three years of releases; pre-1.0 SDK versioning",
+    "label": "Verified fact",
+    "src": [
+     "A1-S018"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A1-S018",
+   "A1-S104",
+   "A1-S131",
+   "A1-S137",
+   "A1-S138",
+   "A1-S139"
+  ],
+  "stage_a_notes": "Added in gap-fill pass as material L9 omission (ownership confirmed: CoreWeave). Deal value (~US$1.7B) only from a secondary listing, not used.",
+  "last_verified": "2026-10-07"
+ },
+ {
   "id": "L8-firecrawl",
   "layer": "L8",
   "original_label": "Firecrawl – web to LLM-ready",
@@ -2856,13 +3191,14 @@
    "conf": "high"
   },
   "company": {
-   "v": "Firecrawl (PyPI author listed as Mendable.ai)",
+   "v": "Firecrawl (PyPI author listed as Mendable.ai); venture-backed (Series B US$75M, September 2026)",
    "label": "Verified fact",
    "src": [
     "A1-S015",
-    "A1-S053"
+    "A1-S053",
+    "A1-S129"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "category": {
    "v": "Web data API for AI: scrape, crawl, map, search, extract, parse, browser interaction and an autonomous research agent",
@@ -2893,14 +3229,14 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Expanding from scraping to agent tooling (Agent, Interact browser sessions, search, PII redaction, prompt-injection check) and enterprise controls",
+   "v": "Launched Alexandria (September 2026): one interface over official data providers (e.g. Wikimedia Enterprise), custom connectors, Firecrawl indexes and the live web for agents; available as plugin in ChatGPT, Codex, Claude and Claude Code (October 2026); plus Agent, Interact, PII redaction and enterprise controls",
    "label": "Verified fact",
    "src": [
-    "A1-S077",
+    "A1-S129",
     "A1-S076",
     "A1-S079"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "status_events": {
    "v": [],
@@ -2998,12 +3334,13 @@
    "conf": "high"
   },
   "gdpr_residency": {
-   "v": "DPA and custom contracts available (Enterprise); Zero Data Retention option for scrape and search; data region not verified",
+   "v": "Privacy policy states servers and stored data are in the United States; vendor pages conflict (one older blog claims EU residency; 2026 page says US data residency); DPA and Zero Data Retention available",
    "label": "Verified fact",
    "src": [
+    "A1-S134",
     "A1-S076"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "security_features": {
    "v": "Zero Data Retention (+1 credit/page), PII redaction (+4 credits/page), opt-in prompt-injection check for JSON extraction, static IP allowlisting, IP and API-key restrictions",
@@ -3031,12 +3368,13 @@
    "conf": "high"
   },
   "pricing": {
-   "v": "Credit-based, billed in USD: scrape/crawl 1 credit per page, search 2 credits per 10 results, JSON extraction +4, ZDR +1, PII redaction +4; plan dollar prices on pricing page (not captured)",
+   "v": "Free 1,000 credits/month; Hobby US$19/month (5k credits); Standard US$99/month (100k); Growth US$399/month (500k); Scale and Enterprise above; annual discounts; credits: scrape 1/page, JSON extraction +4, ZDR +1, PII redaction +4",
    "label": "Verified fact",
    "src": [
+    "A1-S127",
     "A1-S077"
    ],
-   "conf": "high",
+   "conf": "medium",
    "asof": "2026-10-07"
   },
   "infra_cost_note": {
@@ -3057,10 +3395,13 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Series A US$14.5M (Nexus, 19 August 2025; >350,000 developers, 48k GitHub stars then); Series B US$75M led by Smash Capital (22 September 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S128",
+    "A1-S129"
+   ],
+   "conf": "medium"
   },
   "maturity": {
    "v": "firecrawl-py first published 12 April 2024; 209 releases",
@@ -3086,10 +3427,12 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Well funded after US$75M Series B (September 2026)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S129"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
     "v": "Not publicly verified",
@@ -3123,9 +3466,13 @@
    "A1-S076",
    "A1-S077",
    "A1-S078",
-   "A1-S079"
+   "A1-S079",
+   "A1-S127",
+   "A1-S128",
+   "A1-S129",
+   "A1-S134"
   ],
-  "stage_a_notes": "Funding and data region not verified (search budget exhausted). AGPL is material for enterprises embedding a modified server.",
+  "stage_a_notes": "Gap-fill: Series B date conflict (blog 22 Sep 2026 vs changelog 20 Aug 2026). Data location US per privacy policy (page c. 650 days old). AGPL is material for enterprises embedding a modified server.",
   "last_verified": "2026-10-07"
  },
  {
@@ -3494,12 +3841,13 @@
    "conf": "high"
   },
   "dependencies": {
-   "v": "LlamaParse cloud service and API key",
+   "v": "LlamaParse cloud (NA or EU) and API key; self-hosted/BYOC: Helm chart on Kubernetes (EKS, AKS, GKE or conformant) plus customer-selected LLM providers",
    "label": "Verified fact",
    "src": [
-    "A1-S081"
+    "A1-S081",
+    "A1-S115"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "integration_model": {
    "v": "REST API, Python and TypeScript SDKs, MCP server; usable with or without the LlamaIndex framework",
@@ -3512,12 +3860,12 @@
   },
   "deployment": {
    "saas": {
-    "v": "Yes",
+    "v": "Yes (NA and EU regions)",
     "label": "Verified fact",
     "src": [
-     "A1-S081"
+     "A1-S115"
     ],
-    "conf": "high"
+    "conf": "medium"
    },
    "managed_cloud": {
     "v": "Not publicly verified",
@@ -3526,41 +3874,53 @@
     "conf": "low"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (BYOC on Azure, AWS, GCP)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S115"
+    ],
+    "conf": "medium"
    },
    "private_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S115"
+    ],
+    "conf": "medium"
    },
    "self_hosted": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S115"
+    ],
+    "conf": "medium"
    },
    "on_prem": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (on-premises)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S115"
+    ],
+    "conf": "medium"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 Type II (report via Trust Center); HIPAA-compliant pipeline for Enterprise with BAA on request",
+   "label": "Verified fact",
+   "src": [
+    "A1-S115"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "EU region (api.cloud.eu.llamaindex.ai): data stored and processed in EU; EU DPA, SCCs and Article 27 representative; region-specific API keys; self-hosted LLM provider choice affects residency",
+   "label": "Verified fact",
+   "src": [
+    "A1-S115"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Not publicly verified",
@@ -3569,22 +3929,30 @@
    "conf": "low"
   },
   "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Self-hosted: OIDC with Microsoft Entra ID, Okta; Enterprise plan includes SSO",
+   "label": "Verified fact",
+   "src": [
+    "A1-S115",
+    "A1-S116"
+   ],
+   "conf": "medium"
   },
   "enterprise_support": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Enterprise: negotiated credits and rate limits (5x), dedicated support, flexible deployment; Pro priority support",
+   "label": "Verified fact",
+   "src": [
+    "A1-S116"
+   ],
+   "conf": "medium"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Free (10k credits/month), Starter US$50/month (40k credits), Pro US$500/month (400k credits), Enterprise custom; overage US$1.25 per 1,000 credits; parse 1-45 credits/page by tier (Fast 1, Cost-effective 3, Agentic 10, Agentic Plus 45)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S116"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -3618,10 +3986,13 @@
   },
   "strategic_risk": {
    "lock_in": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Proprietary credit model and tiers; BYOC/self-host available for Enterprise",
+    "label": "Verified fact",
+    "src": [
+     "A1-S115",
+     "A1-S116"
+    ],
+    "conf": "medium"
    },
    "acquisition": {
     "v": "Not publicly verified",
@@ -3664,9 +4035,11 @@
    "A1-S013",
    "A1-S014",
    "A1-S080",
-   "A1-S081"
+   "A1-S081",
+   "A1-S115",
+   "A1-S116"
   ],
-  "stage_a_notes": "Certifications, EU region, self-hosting/BYOC and pricing not verified (search budget exhausted; vendor sites blocked). Rename date not verified.",
+  "stage_a_notes": "Gap-fill: compliance, regions, BYOC and pricing from developers.llamaindex.ai (A1-S115, A1-S116). Audit scope for BYOC/self-hosted installs not stated. Rename date not verified.",
   "last_verified": "2026-10-07"
  },
  {
@@ -3846,12 +4219,13 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Library free; cloud pay-as-you-go (prices not captured)",
-   "label": "Verified fact",
+   "v": "Library free; Crawl4AI Cloud pay-as-you-go with free starting credit; 1 credit = US$0.001",
+   "label": "Reported",
    "src": [
+    "A1-S132",
     "A1-S074"
    ],
-   "conf": "medium"
+   "conf": "low"
   },
   "infra_cost_note": {
    "v": "Self-hosting cost is browser compute and proxies",
@@ -3868,10 +4242,10 @@
    "conf": "high"
   },
   "adoption_signals": {
-   "v": "Maintainer claims it is the most-starred crawler on GitHub (unverified count)",
-   "label": "Verified fact",
+   "v": "No venture funding found; aggregator lists Crawl4AI as unfunded (Singapore, founded 2024); project funded via sponsorships and Crawl4AI Cloud",
+   "label": "Reported",
    "src": [
-    "A1-S074"
+    "A1-S132"
    ],
    "conf": "low"
   },
@@ -3899,9 +4273,11 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
+    "v": "No disclosed venture funding; sponsorship and cloud revenue model",
+    "label": "Reported",
+    "src": [
+     "A1-S132"
+    ],
     "conf": "low"
    },
    "ecosystem_dependency": {
@@ -3934,9 +4310,10 @@
   "sources": [
    "A1-S009",
    "A1-S056",
-   "A1-S074"
+   "A1-S074",
+   "A1-S132"
   ],
-  "stage_a_notes": "Funding/company structure behind Crawl4AI Cloud not verified.",
+  "stage_a_notes": "Gap-fill: funding only from an aggregator (Tracxn), labelled Reported/low. Beware lookalike domain crawl4ai-cloud.com (affiliation unconfirmed).",
   "last_verified": "2026-10-07"
  },
  {
@@ -4220,10 +4597,10 @@
    "conf": "high"
   },
   "company": {
-   "v": "Reducto (private company)",
+   "v": "Reducto (private; US$108M total funding after US$75M Series B led by a16z, October 2025)",
    "label": "Verified fact",
    "src": [
-    "A1-S091"
+    "A1-S114"
    ],
    "conf": "medium"
   },
@@ -4253,10 +4630,12 @@
    "conf": "high"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Series B used for model research, product and enterprise adoption; launched pay-as-you-go tier with 15k free credits (October 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S114"
+   ],
+   "conf": "medium"
   },
   "status_events": {
    "v": [],
@@ -4314,55 +4693,69 @@
     "conf": "low"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (customer VPC)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S112"
+    ],
+    "conf": "medium"
    },
    "private_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (customer VPC)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S112"
+    ],
+    "conf": "medium"
    },
    "self_hosted": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A1-S112"
+    ],
+    "conf": "medium"
    },
    "on_prem": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (on-prem and air-gapped)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S112"
+    ],
+    "conf": "medium"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "SOC 2 Type I and Type II completed (report on request); HIPAA BAAs offered",
+   "label": "Verified fact",
+   "src": [
+    "A1-S112"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Regional API environments: production (platform.reducto.ai), EU (eu.platform.reducto.ai) and Australia (au.platform.reducto.ai)",
+   "v": "EU and AU regional endpoints (Enterprise option); API data auto-deleted within 24 hours on Growth/Enterprise, retention=0 (immediate deletion) for Enterprise; customer data not used for training on Growth/Enterprise",
    "label": "Verified fact",
    "src": [
     "A1-S092",
-    "A1-S091"
+    "A1-S112"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "security_features": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Zero/short data retention controls; VPC deployment with no external storage; air-gapped install with offline model updates",
+   "label": "Verified fact",
+   "src": [
+    "A1-S112"
+   ],
+   "conf": "medium"
   },
   "access_controls": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
+   "v": "SSO/SAML supported (VPC deployment)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S112"
+   ],
    "conf": "low"
   },
   "enterprise_support": {
@@ -4372,10 +4765,13 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Per 1,000 pages: Parse US$10, Extract US$20, Deep Extract US$40, Split US$20, Classify US$7.50, Edit US$60; Standard pay-as-you-go with US$150 free usage (page also says 15,000 free credits); Enterprise custom",
+   "label": "Verified fact",
+   "src": [
+    "A1-S113"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -4390,10 +4786,13 @@
    "conf": "low"
   },
   "adoption_signals": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Close to 1 billion pages processed; named customers Harvey, Rogo, Scale AI (October 2025)",
+   "label": "Verified fact",
+   "src": [
+    "A1-S114"
+   ],
+   "conf": "medium",
+   "asof": "2025-10-14"
   },
   "maturity": {
    "v": "SDK first published on PyPI 12 October 2024",
@@ -4417,10 +4816,12 @@
     "conf": "low"
    },
    "funding": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "US$108M raised; Series B led by a16z (October 2025)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S114"
+    ],
+    "conf": "medium"
    },
    "ecosystem_dependency": {
     "v": "Not publicly verified",
@@ -4450,9 +4851,12 @@
    "A1-S090",
    "A1-S091",
    "A1-S092",
-   "A1-S093"
+   "A1-S093",
+   "A1-S112",
+   "A1-S113",
+   "A1-S114"
   ],
-  "stage_a_notes": "Certifications, VPC/on-prem options, pricing and funding not verified (search budget exhausted; vendor site blocked). EU endpoint verified from SDK source only.",
+  "stage_a_notes": "Gap-fill: security claims come from llms.reducto.ai (vendor-authored AI-oriented pages) with internal inconsistencies on ZDR tier eligibility; request SOC 2 report and BAA. Pricing page mixes per-page and credit framing.",
   "last_verified": "2026-10-07"
  },
  {
@@ -4460,12 +4864,12 @@
   "layer": "L8",
   "original_label": "Mistral OCR – OCR",
   "current_name": {
-   "v": "Mistral OCR (OCR API, /v1/ocr)",
+   "v": "Mistral OCR 4.1 (alias mistral-ocr-latest), part of Mistral Document AI",
    "label": "Verified fact",
    "src": [
-    "A1-S083"
+    "A1-S130"
    ],
-   "conf": "high"
+   "conf": "medium"
   },
   "company": {
    "v": "Mistral AI",
@@ -4485,28 +4889,41 @@
    "conf": "high"
   },
   "version_or_lineup": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "OCR 4.1, launched July 2026 (docs say 16 July, changelog 26 July); OCR 4.0 retired 30 September 2026; OCR 3 (25.12) still available for existing integrations; original Mistral OCR no longer maintained",
+   "label": "Verified fact",
+   "src": [
+    "A1-S130"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "licence_model": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Proprietary model; hosted API, with self-managed deployment for enterprise customers under agreement",
+   "label": "Verified fact",
+   "src": [
+    "A1-S135"
+   ],
+   "conf": "medium"
   },
   "strategic_direction": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "OCR 4 positioned for document intelligence: paragraph-level bounding boxes, structural block labels, block-level confidence scores; compact single-container self-hosting for residency and sovereignty",
+   "label": "Verified fact",
+   "src": [
+    "A1-S130",
+    "A1-S135"
+   ],
+   "conf": "medium"
   },
   "status_events": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": [
+    "OCR 4.0 retired 30 September 2026 (replaced by OCR 4.1 at same price)",
+    "Original Mistral OCR no longer maintained"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A1-S130"
+   ],
+   "conf": "medium"
   },
   "what_it_does": {
    "v": "OCR endpoint that processes a document (URL or file) and returns structured output, with optional bounding-box and document annotations in a requested format, table formatting, header/footer extraction, layout blocks and confidence scores.",
@@ -4543,10 +4960,10 @@
   },
   "deployment": {
    "saas": {
-    "v": "Yes",
+    "v": "Yes (EU-hosted serverless API)",
     "label": "Verified fact",
     "src": [
-     "A1-S083"
+     "A1-S135"
     ],
     "conf": "medium"
    },
@@ -4563,35 +4980,45 @@
     "conf": "low"
    },
    "private_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (private cloud, enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S135"
+    ],
+    "conf": "medium"
    },
    "self_hosted": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (single-container self-managed, enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S135"
+    ],
+    "conf": "medium"
    },
    "on_prem": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (on-premises, enterprise)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S135"
+    ],
+    "conf": "medium"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Mistral AI company-level SOC 2 Type II, ISO/IEC 27001:2022 and ISO/IEC 27701:2019 (Trust Center); scope for OCR not confirmed",
+   "label": "Verified fact",
+   "src": [
+    "A1-S136"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Managed API runs on Mistral infrastructure hosted in the EU; self-hosting keeps documents in customer environment",
+   "label": "Verified fact",
+   "src": [
+    "A1-S135"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Not publicly verified",
@@ -4612,10 +5039,14 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "US$4 per 1,000 pages (cached input US$0.40); annotated pages US$5 per 1,000; 50% batch discount (US$2 per 1,000); no-code Document AI US$5 per 1,000 pages",
+   "label": "Verified fact",
+   "src": [
+    "A1-S130",
+    "A1-S135"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -4669,10 +5100,10 @@
     "conf": "low"
    },
    "proprietary_api": {
-    "v": "Proprietary API",
+    "v": "Proprietary model and API; self-hosting requires enterprise agreement",
     "label": "Verified fact",
     "src": [
-     "A1-S083"
+     "A1-S135"
     ],
     "conf": "medium"
    },
@@ -4689,9 +5120,12 @@
   "sources": [
    "A1-S017",
    "A1-S083",
-   "A1-S084"
+   "A1-S084",
+   "A1-S130",
+   "A1-S135",
+   "A1-S136"
   ],
-  "stage_a_notes": "Current Mistral OCR model version (graphic says only 'OCR') could not be verified: docs.mistral.ai blocked and web-search budget exhausted before the query ran. Cross-check with stream covering Mistral L1.",
+  "stage_a_notes": "Gap-fill: version and pricing from docs.mistral.ai via search extracts (A1-S130, A1-S135). 4.1 launch date conflict (16 vs 26 July 2026). Self-hosting licence terms and hardware sizing not published.",
   "last_verified": "2026-10-07"
  },
  {
@@ -4802,24 +5236,29 @@
   },
   "deployment": {
    "saas": {
-    "v": "Yes (hosted API)",
+    "v": "Yes (hosted API; Let's Go / Pay-As-You-Go shared)",
     "label": "Verified fact",
     "src": [
-     "A1-S075"
+     "A1-S117",
+     "A1-S118"
     ],
-    "conf": "high"
+    "conf": "medium"
    },
    "managed_cloud": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (dedicated instance in Unstructured's cloud, Business plan)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S117"
+    ],
+    "conf": "medium"
    },
    "vpc_byoc": {
-    "v": "Not publicly verified",
-    "label": "Not publicly verified",
-    "src": [],
-    "conf": "low"
+    "v": "Yes (in-VPC in customer cloud, Business plan)",
+    "label": "Verified fact",
+    "src": [
+     "A1-S117"
+    ],
+    "conf": "medium"
    },
    "private_cloud": {
     "v": "Yes (open source)",
@@ -4838,25 +5277,30 @@
     "conf": "high"
    },
    "on_prem": {
-    "v": "Yes (open source)",
+    "v": "Yes (open source; vendor markets on-prem/air-gapped)",
     "label": "Verified fact",
     "src": [
-     "A1-S075"
+     "A1-S075",
+     "A1-S117"
     ],
-    "conf": "high"
+    "conf": "medium"
    }
   },
   "certifications": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Pricing page lists SOC 2 Type 2, HIPAA, ISO 27001 and GDPR (as 'GDPR Compliant SaaS Hosted Product'); certificates via trust.unstructured.io",
+   "label": "Verified fact",
+   "src": [
+    "A1-S117"
+   ],
+   "conf": "medium"
   },
   "gdpr_residency": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "DPA available; GDPR claim scoped to SaaS hosted product; data region not verified",
+   "label": "Verified fact",
+   "src": [
+    "A1-S117"
+   ],
+   "conf": "medium"
   },
   "security_features": {
    "v": "Ingest connectors emit a permissions_version ACL digest (SHA-256) so ACL-only changes trigger reprocessing; credential redaction in connector errors; library sends lightweight usage analytics by default",
@@ -4882,10 +5326,14 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Not publicly verified",
-   "label": "Not publicly verified",
-   "src": [],
-   "conf": "low"
+   "v": "Let's Go free (10,000 pages once per account); Pay-As-You-Go US$0.015 per page; Business (dedicated or in-VPC) custom. Conflict: Terms of Service and older pages state US$0.03 per page after 15,000 free pages/month",
+   "label": "Verified fact",
+   "src": [
+    "A1-S117",
+    "A1-S118"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -4967,9 +5415,11 @@
    "A1-S012",
    "A1-S075",
    "A1-S094",
-   "A1-S095"
+   "A1-S095",
+   "A1-S117",
+   "A1-S118"
   ],
-  "stage_a_notes": "Unstructured Platform certifications, VPC/in-VPC deployment and pricing not verified (docs.unstructured.io blocked; search budget exhausted).",
+  "stage_a_notes": "Gap-fill: platform compliance and pricing from unstructured.io (A1-S117, A1-S118); per-page rate conflict recorded. Platform SSO/RBAC not verified.",
   "last_verified": "2026-10-07"
  },
  {
@@ -5146,12 +5596,14 @@
    "conf": "low"
   },
   "pricing": {
-   "v": "Usage measured in compute units (1 CU = 1 GB memory for 1 hour); CU price depends on subscription plan",
+   "v": "Free US$0 (US$5 prepaid usage, CU US$0.20); Starter US$19/month (CU US$0.20); Scale US$199/month (CU US$0.16); Business US$999/month (CU US$0.13); 1 CU = 1 GB RAM for 1 hour",
    "label": "Verified fact",
    "src": [
+    "A1-S133",
     "A1-S088"
    ],
-   "conf": "high"
+   "conf": "medium",
+   "asof": "2026-10-07"
   },
   "infra_cost_note": {
    "v": "Not publicly verified",
@@ -5232,7 +5684,8 @@
    "A1-S086",
    "A1-S087",
    "A1-S088",
-   "A1-S089"
+   "A1-S089",
+   "A1-S133"
   ],
   "stage_a_notes": "Only US region documented: material for EU/UK FS data-residency. Third-party Actors in the Store are outside Apify's control (shared-responsibility page).",
   "last_verified": "2026-10-07"

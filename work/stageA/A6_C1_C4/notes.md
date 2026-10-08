@@ -13,7 +13,7 @@ As of 7 October 2026. These are control-plane records, so none of them appears i
 | (not in graphic) Kong AI Gateway | Kong AI Gateway 2.0 became GA on 1 September 2026 as a dedicated runtime in Konnect. The AI plugins stay on Kong Gateway 3.14 LTS, and Kong recommends migrating before 3.18. | No change | A6-S016, A6-S017 |
 | (not in graphic) Cloudflare AI Gateway | Free core service. 2026 additions: spend limits, identity-based budgets, DLP, Llama Guard 3 8B guardrails, Unified Billing (5% fee), and new log pricing from 24 September 2026. | No change | A6-S019, A6-S052 |
 | (not in graphic) Azure API Management AI gateway | Policies in existing tiers are GA. The dedicated "AI Gateway tier" is in public preview: East US 2 and Sweden Central only, free, no SLA. It covers LLM, MCP and A2A traffic. | No change | A6-S020, A6-S053 |
-| (not in graphic) AWS "AI gateway" | AWS has no product by that name. Bedrock AgentCore Gateway (an MCP gateway, GA October 2025) now has LLM inference targets, token-aware rate limits and principal rules in its API model. AWS also publishes a LiteLLM-based Guidance pattern. | Not publicly verified (GA status of the inference targets) | A6-S021, A6-S022, A6-S074 |
+| (not in graphic) AWS "AI gateway" | AWS has no product by that name. Bedrock AgentCore Gateway (an MCP gateway, GA October 2025) now has LLM inference targets, token-aware rate limits and principal rules in its API model. AWS also publishes a LiteLLM-based Guidance pattern. | Not publicly verified (GA wording for the inference targets; feature documented and token rate limits announced 6 August 2026) | A6-S021, A6-S022, A6-S074, A6-S105, A6-S106 |
 | (not in graphic) Google Apigee AI gateway | Apigee is marketed as an AI gateway: token limits, semantic cache, Model Armor, MCP (GA 31 March 2026). Vertex AI has been renamed "Gemini Enterprise Agent Platform". | No change | A6-S023, A6-S024, A6-S025, A6-S070 |
 | (not in graphic) agentgateway | Linux Foundation open-source gateway for LLM, MCP and A2A traffic, v1.6.0 (2 October 2026). | No change | A6-S061, A6-S062 |
 | (not in graphic) Envoy AI Gateway | Renamed "Agent Router" and moved to the Agentic AI Foundation. v1.2.0 (6 October 2026). | Renamed | A6-S063, A6-S064 |
@@ -25,15 +25,15 @@ As of 7 October 2026. These are control-plane records, so none of them appears i
 | (not in graphic) Google Model Armor | Google's guardrail service. Free up to 2M tokens/month, then US$0.10 per 1M tokens. Integrated with Apigee and Google MCP servers. | No change | A6-S067 |
 | (not in graphic) "Microsoft Presidio" | No longer a Microsoft project. It is now community-governed under the "Data Privacy Stack" organisation (MIT; 2.2.364, 22 July 2026). Images have moved to GHCR. | Renamed | A6-S005, A6-S040, A6-S041 |
 | (not in graphic) Google Sensitive Data Protection | Formerly Cloud DLP. Positioned for protecting GenAI prompts and responses, and underpins Model Armor. Content inspection is US$3/GiB after 1 GiB free. | No change | A6-S065, A6-S066 |
-| (not in graphic) Microsoft Purview (DSPM for AI) | Current name, status and pricing could not be verified. Purview is in Azure FedRAMP High scope. | Not publicly verified | A6-S056, A6-S059 |
-| (not in graphic) Protegrity | "AI Developer Edition" SDK with Semantic Guardrail (1.1.1, December 2025). Corporate status not verified. | Not publicly verified | A6-S082 |
-| (not in graphic) Skyflow | Vault and Detect SDK 2.1.3 (August 2026). SDK v1 reaches end of life on 31 October 2026. Corporate status not verified. | Not publicly verified | A6-S081 |
+| (not in graphic) Microsoft Purview (DSPM for AI) | DSPM for AI has been folded into the new unified Purview Data Security Posture Management, GA May 2026. The classic experiences remained until June 2026. Requires Microsoft 365 E5 or the Purview Suite; Business Premium add-on coverage is conflicting. | Renamed | A6-S090, A6-S091, A6-S092 |
+| (not in graphic) Protegrity | AI Team Edition launched 17 November 2025; the docs still say Tech Preview, and deployment is AWS-only. ISO 27001:2013 (2023). No 2025–2026 acquisition or funding found. | No change | A6-S082, A6-S093, A6-S094 |
+| (not in graphic) Skyflow | LLM Privacy Vault offered, with EU vaults. Vendor claims ISO 27001, SOC 2 Type 2 and PCI DSS L1. Last verified funding: US$30m in March 2024. No acquisition found. SDK v1 reaches end of life on 31 October 2026. | No change | A6-S081, A6-S095, A6-S096 |
 | (not in graphic) Microsoft Entra Agent ID | GA in 2026 (What's new page dated 1 May 2026). Security features require Microsoft Agent 365 licences. The agent registry is converging into Agent 365. | No change | A6-S057, A6-S058, A6-S059 |
-| (not in graphic) Okta / Auth0 for AI Agents | Auth0 AI SDKs (Python 1.0.2, JS 6.0.2, "under heavy development"). Okta Cross App Access is based on the ID-JAG IETF draft. Product branding and GA not verified. | Not publicly verified | A6-S076, A6-S077, A6-S078, A6-S080 |
+| (not in graphic) Okta / Auth0 for AI Agents | Auth0 for AI Agents GA 19 November 2025. Okta for AI Agents GA 30 April 2026. Okta Agent SSO (Cross App Access) GA 24 August 2026, included in core SSO; XAA is the MCP Enterprise-Managed Authorization extension. | No change | A6-S097, A6-S099, A6-S100, A6-S080 |
 | (not in graphic) SPIFFE/SPIRE | SPIRE v1.15.3 (21 August 2026). CNCF graduated, Apache-2.0. | No change | A6-S042, A6-S043, A6-S087 |
 | (not in graphic) OAuth 2.1 / MCP authorisation | MCP spec revision 2026-07-28: stateless protocol, RFC 9207 issuer validation, Dynamic Client Registration deprecated. The Enterprise-Managed Authorization extension (ID-JAG) is Stable. OAuth 2.1 itself is still an IETF draft. | No change | A6-S032, A6-S033, A6-S035, A6-S079 |
 | (not in graphic) OPA | v1.21.1 (29 September 2026). CNCF graduated, Apache-2.0. | No change | A6-S046, A6-S048, A6-S088 |
-| (not in graphic) Cedar / AgentCore Policy | Cedar 4.13.0 (15 September 2026, Apache-2.0). AgentCore Policy (Cedar-based) GA 3 March 2026. Amazon Verified Permissions not verified. | No change | A6-S026, A6-S044, A6-S045 |
+| (not in graphic) Cedar / AgentCore Policy | Cedar 4.13.0 (15 September 2026, Apache-2.0). AgentCore Policy (Cedar-based) GA 3 March 2026. Amazon Verified Permissions is active; Cedar 4 is required for its authorisation APIs from April 2026. | No change | A6-S026, A6-S044, A6-S045, A6-S104 |
 
 ## (b) Ambiguities owned
 
@@ -143,22 +143,47 @@ Noted but not added:
 
 ## (e) Gaps
 
-- **Search budget.** The shared WebSearch budget (200 calls per turn) was exhausted during C2, so trust centres and pricing pages could not be searched for C2 to C4. The following are therefore **not publicly verified**:
-  - Bedrock Guardrails prices and certifications.
-  - Azure AI Content Safety unit prices and the current 2026 naming.
-  - Microsoft Purview DSPM for AI: name, GA status, features, pricing.
-  - Protegrity and Skyflow: certifications, EU regions, pricing, corporate events.
-  - Okta/Auth0 product branding, GA dates and pricing.
-  - Amazon Verified Permissions.
-  - Agent 365 prices.
-  - Any agent-specific SPIFFE work.
+### Gap-filling pass (second turn, fresh search budget, 23 vendor-domain searches; sources A6-S090 to A6-S112)
+
+Resolved:
+- **Purview DSPM for AI:** name, GA status and licensing [A6-S090, A6-S091].
+- **Protegrity:** AI Team Edition, ISO 27001:2013, no 2025–2026 corporate events found [A6-S093, A6-S094].
+- **Skyflow:** certification claims, EU vaults, latest funding [A6-S095, A6-S096].
+- **Okta / Auth0:** product names, GA dates, XAA, pricing structure [A6-S097 to A6-S100].
+- **Bedrock Guardrails:** per-policy pricing [A6-S101].
+- **Azure Content Safety:** pricing structure and Foundry naming [A6-S102, A6-S103].
+- **Amazon Verified Permissions:** active, Cedar 4 migration [A6-S104].
+- **AgentCore Gateway:** inference targets and token rate limits documented [A6-S105, A6-S106].
+- **Meta:** still no 2026 Llama Guard, Prompt Guard or LlamaFirewall release [A6-S107].
+- **Trust centres:**
+  - LiteLLM: SOC 2 Type 2 (September 2026); ISO 27001 recertification unconfirmed [A6-S108].
+  - Kong: ISO 27001:2022 plus SOC 2 Type II covering AI Gateway [A6-S109].
+  - Cloudflare: SOC 2 Type II with AI Gateway in scope; platform-wide ISO 27001:2022 [A6-S110].
+  - NVIDIA: NeMo Guardrails microservice is AI Enterprise supported; US$4,500 per GPU per year [A6-S111, A6-S112].
+
+### Still not publicly verified
+
+- **Azure Content Safety:** S0 unit prices, including Prompt Shields. The pricing page did not render, and the US$0.38 per 1,000 records figure comes only from a community post.
+- **Bedrock Guardrails:** a separate Standard-tier rate. AWS-specific certifications for Bedrock Guardrails and AgentCore were not searched.
+- **AgentCore Gateway inference targets:** no explicit GA wording or regional list.
+- **Okta / Auth0:**
+  - Okta for AI Agents price.
+  - Auth0 Token Vault add-on price; the Auth0 pricing page may be stale.
+  - Certifications (not searched).
+  - Agent SSO GA date conflict: May 2026 vs 24 August 2026.
+- **Purview:** Business Premium add-on coverage (community sources conflict); feature list of the new DSPM.
+- **Protegrity:**
+  - Current ISO certificate version.
+  - SOC 2 report.
+  - Whether AI Team Edition is GA: the docs say Tech Preview, an April 2026 release says "available now".
+- **Skyflow:** certification reports themselves (vendor wording is "complies with"); any funding after March 2024.
+- **Cloudflare:** AI Gateway-specific data localisation; whether AI Gateway is named in the ISO scope.
+- **NVIDIA:** corporate certifications covering the NeMo Guardrails microservice.
+- **Carried over from the first pass:**
+  - GitHub stars (github.com is blocked).
+  - Reported 2025 move of OPA maintainers (Styra) to Apple.
+  - Kong pricing and funding date.
+  - Agent-specific SPIFFE work.
   - IETF agent-identity drafts beyond those cited by MCP.
-- **Trust centres.** These were not reachable for any vendor. Certifications are recorded only where a vendor page, extract or Google compliance-scope page states them:
-  - Portkey and Kong: vendor claims via search extract.
-  - Apigee, Model Armor and SDP: Google SOC 2 and ISO 27001 scope pages.
-  - APIM, Entra and Purview: Azure FedRAMP scope.
-- **Adoption signals.** GitHub stars could not be verified anywhere because github.com and its API are blocked. LiteLLM download volumes are secondary only [A6-S010].
-- **Unconfirmed GA status.** AWS AgentCore Gateway inference targets and rate limits, and Bedrock `InvokeGuardrailChecks`, appear in the AWS API model (botocore, 7 October 2026), but their GA status is unconfirmed [A6-S074, A6-S073].
-- **OPA maintainers.** A reported 2025 move of OPA's maintainers (Styra) to Apple was not verified.
-- **Kong.** Pricing and the date of the reported US$175m round were not verified [A6-S018].
-- **Undated or stale primary pages.** Portkey's pricing page may be stale (search tool flagged about 470 days) [A6-S013]. The Azure Content Safety Learn pages are dated 16 September 2025 [A6-S054].
+  - Portkey pricing page staleness [A6-S013].
+  - Azure Content Safety Learn page dates [A6-S054].

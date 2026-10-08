@@ -2,7 +2,16 @@
 
 As of 7 October 2026. Researcher disclosure: this stream was researched by an Anthropic model. Anthropic records were held to the same sourcing rules, and its controversies are recorded alongside its lineup.
 
-**Research constraint (read first).** The shared WebSearch budget for this turn (200 calls, shared across all agents) ran out after 21 searches by this stream. At that point the research had covered OpenAI, Anthropic and Google (Gemini, Gemma), and none of the other vendors.
+**Update (gap-filling pass, sources A5-S048 to A5-S087).** A second pass with a fresh search budget covered the gaps listed in (e) of the first pass:
+
+- the regulatory position of Chinese-origin models
+- vendor-domain searches for xAI, DeepSeek, Qwen, Kimi, GLM, Mistral and Meta
+- the date of GPT-6 Astra
+- court sources for the Anthropic controversies
+
+Vendor and regulator hosts are still egress-blocked, so these new sources are search-tool extracts of the primary pages. Unless a second source agrees, confidence is capped at medium. The text below has been updated in place; the first-pass constraint note is kept for the record.
+
+**First-pass research constraint (historical).** The shared WebSearch budget for this turn (200 calls, shared across all agents) ran out after 21 searches by this stream. At that point the research had covered OpenAI, Anthropic and Google (Gemini, Gemma), and none of the other vendors.
 
 - All other vendor hosts and all regulator hosts are egress-blocked: x.ai, deepseek.com, mistral.ai, alibabacloud.com, qwen.ai, moonshot.ai, z.ai, llama.com, ai.meta.com, huggingface.co, AWS and Microsoft docs, garanteprivacy.it, gov.uk, nist.gov and others.
 - The xAI, DeepSeek, Qwen, Kimi, GLM, Mistral and Meta records therefore rest on four kinds of source:
@@ -20,14 +29,14 @@ As of 7 October 2026. Researcher disclosure: this stream was researched by an An
 | OpenAI "GPT-6" | GPT-6 is a tiered family: **GPT-6 Astra** (gated flagship, early September 2026), **GPT-6 Sol** and **GPT-6 Luna** (22 September), **GPT-6.1 Sol** (29 September). GPT-5.6 Sol/Terra/Luna (9 July 2026) is still offered. Open weights: gpt-oss-120b/20b (Apache 2.0). | No change (label correct; incomplete as a single label) | A5-S001, A5-S002, A5-S003, A5-S004, A5-S005, A5-S008, A5-S009 |
 | Claude "Opus 5.5" | Opus 5.5 is current (22 September 2026) but is not the top tier. **Claude Fable 5.1** (1 September 2026) is the top GA model. **Mythos 5.1** is the same model with looser safeguards (trusted access only). Sonnet 5.5 (28 September) and Haiku 5.5 (7 October) complete the 5.5 family. | No change (label correct; not the flagship) | A5-S010, A5-S012, A5-S016, A5-S019, A5-S020 |
 | Gemini "Gemini" | Production lineup is **Gemini 3.x**: 3.1 Pro (still preview), 3.8 Flash (GA 2 September 2026) and 3.5 Flash-Lite. **Gemini 4 Argon** was announced 30 September 2026 with restricted access. Gemini 3.5 Pro was never released (reported cancelled). | Not publicly verified (graphic gives no version) | A5-S027, A5-S030, A5-S031, A5-S032, A5-S036 |
-| Grok (no version) | Newest model in the xAI API list and on Google Cloud is **Grok 4.7**. Also offered: 4.6, 4.5, 4.3, 4.20, 4.1 Fast and grok-code-fast-1. Release dates were not verified. | Not publicly verified (graphic gives no version; lineup Reported only) | A5-S027, A5-S038 |
-| DeepSeek "V4" | Family is **DeepSeek-V4** (V4-Pro about 1.6T; V4-Flash about 284B; 1M context), released around April 2026 as open weights. The snapshots dated 0731 and 0813 come from the model IDs. **V4.1-Flash** is listed by Microsoft Foundry, Together and OpenRouter (aggregator only). | No change (generation correct; point release V4.1 Reported) | A5-S038, A5-S039, A5-S042, A5-S044 |
-| Qwen "3.8" | **Qwen3.8** is current. API: qwen3.8-max (0902 snapshot), qwen3.8-flash, omni-flash. Open weights: Qwen3.8-27B, Qwen3.8-2.4T-A95B, Qwen3.8-Flash-Next (26 August 2026). No Alibaba primary source was read. | No change (Reported) | A5-S038, A5-S040, A5-S041 |
-| Kimi "K3" | **Kimi K3** is current: open weights released July 2026 (ms-swift 22 July; SGLang day-0 27 July), 1M context, US$3/US$15 per 1M on Moonshot's API, and available on Bedrock. | No change (Reported) | A5-S038, A5-S039, A5-S040, A5-S041 |
+| Grok (no version) | **Grok 4.7** was launched on 21 September 2026 at US$2/US$6 per 1M with a 500K context. xAI merged into SpaceX (2 February 2026) and was rebranded **SpaceXAI** (July 2026) (Reported). | Not publicly verified (graphic gives no version); vendor Acquired | A5-S079, A5-S081, A5-S027 |
+| DeepSeek "V4" | V4 preview 24 April 2026: V4-Pro 1.6T/49B active, V4-Flash 284B/13B, 1M context, MIT licence. V4-Pro GA 13 August. **V4.1-Flash** (10 September 2026) replaced V4-Flash in the API. V4.1-Pro has not been released. | Version label wrong (stale at point-release level) | A5-S063, A5-S064, A5-S065 |
+| Qwen "3.8" | **Qwen3.8** is current. API: qwen3.8-max (0902 snapshot), qwen3.8-flash, omni-flash. Open weights: Qwen3.8-27B, Qwen3.8-2.4T-A95B, Qwen3.8-Flash-Next (26 August 2026). Verified from Alibaba Cloud pages: the 2.4T flagship weights launched August 2026; Qwen3.8-27B is Apache 2.0. | No change | A5-S066, A5-S068, A5-S038 |
+| Kimi "K3" | **Kimi K3** launched 16 July 2026, with weights released by 27 July. It is a 2.8T MoE with a 1M context, under the custom Kimi K3 License. Pricing is US$3/US$15 per 1M. Available on Bedrock. | No change | A5-S038, A5-S039, A5-S040, A5-S041 |
 | "QI4" (Z logo) "Q4" | No model named QI4 or Q4 was found. The Z logo matches **Z.ai GLM**. The current family is GLM-5.x: GLM-5.3 and GLM-5.3-Flash (August 2026) and GLM-5.2 (open weights, June 2026, about 744–754B, 1M context). | Version label wrong | A5-S038, A5-S041, A5-S042, A5-S043, A5-S044 |
-| Mistral "Medium 3.1" | Medium 3.1 existed but was superseded by **Mistral Medium 3.5** (model card 26.04, April 2026). Other current models: Large 3 (25.12), Small 4.0 (26.03), Ministral 3, Magistral, Devstral 2, OCR 4.1. | Superseded | A5-S038, A5-S027 |
+| Mistral "Medium 3.1" | Superseded by **Mistral Medium 3.5** (28 April 2026; 128B; Modified MIT). **Mistral Large 4** entered public preview on 6 October 2026, with weights promised by the end of October. Large 3 (December 2025) is Apache 2.0. | Superseded | A5-S074, A5-S076, A5-S038 |
 | Gemma "2.9" | No Gemma 2.9 exists. The current family is **Gemma 4**: E2B, E4B, 26B MoE and 31B released 31 March / 2 April 2026, and 12B on 3 June 2026. Licence is **Apache 2.0**. | Version label wrong | A5-S034, A5-S035 |
-| Meta "Llama (new: Muse)" | **Muse** is a real Meta family. Muse Spark 1.1–1.3 is offered through Meta's API (1M context) and Microsoft Foundry. Muse Glimmer 30B is open weights (support dated 11 August 2026). **Llama 4** Scout and Maverick remain the latest Llama; no Llama 5 was found. | Renamed (Reported: frontier brand moved from Llama to Muse) | A5-S038, A5-S040, A5-S027, A5-S047 |
+| Meta "Llama (new: Muse)" | **Muse** comes from Meta Superintelligence Labs. Muse Spark was announced in April 2026. Versions 1.1 (9 July), 1.2 (5 August) and 1.3 (2 September) are served through the Meta Model API, now GA. **Muse Glimmer 30B** (August 2026) is Apache 2.0. Llama 4 remains the latest Llama, under the Llama 4 Community License. | Renamed | A5-S077, A5-S078, A5-S027 |
 
 ## (b) Ambiguities owned by this stream
 
@@ -41,7 +50,8 @@ As of 7 October 2026. Researcher disclosure: this stream was researched by an An
 
 **A5: "Meta – Llama (new: Muse)".**
 
-- Resolved at Reported level: Muse exists.
+- Gap-pass update: verified from Meta's own pages. Muse Spark was announced in April 2026; the Meta Model API preview opened on 9 July 2026; Spark 1.3 shipped on 2 September; Muse Glimmer 30B is Apache 2.0 [A5-S077, A5-S078].
+- First pass: resolved at Reported level only; Muse exists.
 - The LiteLLM map lists `meta/muse-spark-1.1/1.2/1.3`, citing ai.developer.meta.com pricing: 1,048,576 context, US$1.25/US$4.25 per 1M, plus a "contributor" variant at US$0.10/US$0.20. Microsoft Foundry lists `muse-spark-1.3` [A5-S038].
 - ms-swift added support for "Muse-Glimmer-30B" (`modelscope.cn/models/meta-models/...`) on 11 August 2026 [A5-S040].
 - Llama 4 Scout and Maverick are still sold on Google Cloud [A5-S027].
@@ -66,7 +76,11 @@ As of 7 October 2026. Researcher disclosure: this stream was researched by an An
 - **Honest conflict with the caller's early signal.** The caller suggested "GPT-6 Astra" might rest on thin sources. A search restricted to openai.com returned OpenAI's own pages (gpt-6-astra, introducing-gpt-6-sol-and-luna, introducing-gpt-6-1-sol, pricing, Deployment Safety Hub system card). I therefore treat Astra as verified.
 - openai.com itself is egress-blocked, so the wording rests on search extracts plus the AWS and Microsoft pages.
 - GPT-5.6 Sol/Terra/Luna (9 July 2026) is also verified [A5-S001].
-- Date conflicts for Astra: 3 September (release notes, CNBC), 8 September (Bedrock model card) and 10 September (research index).
+- Astra date, resolved in the gap pass:
+  - 3 September 2026 is the launch date: the ChatGPT release notes headline "Introducing GPT-6 Astra", with access first for a limited set of organisations [A5-S083].
+  - 4 September is API and Pro/Enterprise availability (OpenAI forum post).
+  - 8 September is the AWS Bedrock GA date.
+  - 10 September is only the date of the research-index entry.
 - Status conflict for Astra: OpenAI says Astra is "not yet generally available", while AWS says it is GA on Bedrock.
 - There is no "GPT-6 Terra".
 
@@ -76,7 +90,7 @@ As of 7 October 2026. Researcher disclosure: this stream was researched by an An
 |---|---|---|
 | Qwen 3.8 | Correct (Reported) | A5-S038, A5-S040, A5-S041 |
 | Kimi K3 | Correct (Reported) | A5-S038–S041 |
-| DeepSeek V4 | Correct at generation level; "DeepSeek V4.1" exists only as V4.1-Flash in aggregator listings | A5-S038 |
+| DeepSeek V4 | Correct at generation level. V4.1-Flash (10 September 2026) is verified from DeepSeek [A5-S064]; there is no V4.1-Pro. | A5-S064 |
 | Mistral Medium 3.1 | Stale; Medium 3.5 is current | A5-S038 |
 | Claude Opus 5.5 | Correct, but Fable 5.1 is the top GA tier | A5-S010, A5-S019 |
 
@@ -130,7 +144,7 @@ No hypothesis (H1–H8) is assigned to stream ⑤. Evidence for the plan §5 L1 
 - Anthropic first-party inference geography is "global" or "us" only, and workspace (storage) geography is "us" only. EU processing is available via Google Cloud EU multi-region and Bedrock regional endpoints [A5-S013, A5-S011, A5-S027].
 - Google: generative AI data-at-rest residency in the UK and several EU countries (2023 commitment) [A5-S029].
 
-**Sovereignty facts available (the regulatory side is not covered).**
+**Sovereignty facts from the first pass.** For the regulatory position, see (c2) below.
 
 - Anthropic bars sales to entities controlled from China (4 September 2025) [A5-S045].
 - Anthropic alleges that DeepSeek, Moonshot and MiniMax distilled Claude through about 24,000 fraudulent accounts (23 February 2026) [A5-S046]. This is a competitor's allegation and a conflict of interest.
@@ -146,7 +160,87 @@ No hypothesis (H1–H8) is assigned to stream ⑤. Evidence for the plan §5 L1 
 
 - The US Department of Defense designated Anthropic a "supply chain risk".
 - A California district court ruled the designation illegal (August 2026).
-- The D.C. Circuit upheld it 2–1 on 25 September 2026 [A5-S025] (secondary source).
+- The D.C. Circuit upheld the second designation 2–1 under FASCSA on 25 September 2026 (No. 26-1049; Katsas and Rao, Henderson dissenting). The ruling is stayed while a rehearing petition can be filed. The California ruling (on the other designation) stands. Now sourced to the court opinion via a search extract [A5-S084], with CNBC [A5-S025].
+- Bartz v. Anthropic: the US$1.5bn settlement received final approval on 20 July 2026. Sources: the settlement administrator and the Washington Post [A5-S085], plus SEC filings [A5-S026]. Judge Alsup had earlier held that training itself was fair use, but that building a library from pirated books was not.
+
+## (c2) Chinese-origin models: sovereignty and regulatory position (gap pass; facts only)
+
+**Italy.**
+
+- On 30 January 2025 the Garante imposed an urgent limitation on DeepSeek's processing of Italian users' data [A5-S048].
+- Findings: breaches of GDPR Arts 6 and 31, Chapter III and Art. 32. Data is stored in the PRC, and the companies claimed EU law did not apply.
+- No record was found of the limitation being lifted or of a fine.
+
+**Korea.**
+
+- PIPC: DeepSeek app downloads were suspended from 15 February 2025 [A5-S053].
+- On 24 April 2025 the PIPC found that prompts and device data had been sent without consent to four overseas firms (three in China, one in the US).
+
+**Germany and the EU.**
+
+- Berlin DPA: on 27 June 2025 it reported the DeepSeek app to Apple and Google as illegal content under DSA Art. 16, citing unlawful transfers to China [A5-S058].
+- France, the Netherlands, Luxembourg and Portugal are also reviewing DeepSeek [A5-S058].
+
+**Australia.**
+
+- PSPF Direction 001-2025 (4 February 2025) is mandatory for non-corporate Commonwealth entities [A5-S054].
+- It requires removing DeepSeek from government systems and devices. It does not cover private firms.
+
+**Taiwan.**
+
+- Government agencies are barred from DeepSeek (February 2025) [A5-S059].
+- In November 2025 the National Security Bureau assessed five PRC models (DeepSeek, Tongyi/Qwen, Doubao, Yiyan, Yuanbao) and found security and bias failings in all five.
+- A report that all PRC AI is banned in government agencies is unconfirmed.
+
+**US federal.**
+
+- FY2026 NDAA s.1532 bans DoD use or acquisition of DeepSeek/High Flyer AI, with waivers available. Whether it covers contractors is not confirmed [A5-S057].
+- s.6604 requires removing DeepSeek from intelligence-community systems [A5-S057].
+- The No DeepSeek on Government Devices Act is still in committee [A5-S055].
+- Several Commerce bureaus bar DeepSeek on their devices [A5-S056].
+- No ban on private-sector use exists as of October 2026. There are House investigations, a reported revival of executive-action plans (Axios, 20 July 2026), and a pending "No Adversarial AI Act" [A5-S060].
+
+**US states.**
+
+- Texas (31 January 2025), New York (10 February), Virginia and Iowa ban DeepSeek on state devices [A5-S056].
+
+**UK.**
+
+- No government-wide ban [A5-S061].
+- A Lords written answer (HL4479) says DeepSeek inputs "will be sent to China and thus [are] subject to Chinese law" [A5-S061].
+- DWP bars DeepSeek on its devices [A5-S061].
+
+**US Commerce/NIST CAISI evaluations.**
+
+| Model | Finding | Source |
+|---|---|---|
+| DeepSeek R1/V3.1 (30 September 2025) | Lags US models; much more susceptible to agent hijacking and jailbreaks; censorship risk | A5-S049 |
+| DeepSeek V4 Pro (1 May 2026) | About 8 months behind the frontier; more cost-efficient than models of similar capability | A5-S050 |
+| Kimi K2 Thinking | Heavily censored in Chinese | A5-S051 |
+| Kimi K3 (with UK AISI, July 2026) | Below frontier cyber capability; safeguards did not stop attempted exploit development | A5-S051 |
+| GLM-5.2 (July 2026) | Around GPT-5.2 level; assists agentic exploit development | A5-S052 |
+| GLM-5.3 (September 2026) | Most cyber-capable open-weight model; about 4 months behind the frontier | A5-S052 |
+| Qwen | No CAISI evaluation found | A5-S051 |
+
+**Export controls.**
+
+- Zhipu AI (Z.ai) has been on the US Entity List since 16 January 2025 (90 FR 4619), with a presumption of denial for EAR items [A5-S072].
+
+**Where each vendor's own API holds data.**
+
+| Vendor | Where the hosted API holds data | Sources |
+|---|---|---|
+| DeepSeek | Stores data in the PRC; terms are under PRC law; API training position not stated | A5-S062 |
+| Alibaba Model Studio | Region-bound: Frankfurt EU scope, Singapore International, US Virginia, Beijing mainland. Says it never trains on customer data. | A5-S067 |
+| Moonshot | International API stores data in Singapore; mainland platform in the PRC. An API page says no training; the privacy policy conflicts. | A5-S070 |
+| Z.ai | Data generally processed in Singapore (Singapore operating entity). The current DPA says API content is not stored. | A5-S073 |
+
+**Hosting outside the vendor (non-China options).**
+
+- **Microsoft Foundry:** sells DeepSeek V4-Pro and V4-Flash directly, processed in the customer's geography, DataZone or Global [A5-S087]. Kimi K3 and GLM-5.x on Foundry run through Fireworks, with inference outside the customer's Azure tenant [A5-S087].
+- **AWS Bedrock:** Kimi K3 via cross-Region profiles only; GLM 5.3 (from 5 October 2026, cross-Region only); GLM 5 in-Region in places including London; DeepSeek V3.2/V3.1/R1 but not V4; Qwen3 in EU and UK regions, but not Qwen3.8 [A5-S086].
+- **Google Cloud:** DeepSeek V3.x/R1, Kimi K2-Thinking, Qwen3, GLM-4.7/5/5.2 [A5-S027].
+- **Self-hosting:** open weights are available under MIT (DeepSeek V4), Apache 2.0 (Qwen3.8-27B), the Kimi K3 License, and MIT or MIT-with-MaaS-condition (GLM-5.3-Flash and GLM-5.3) [A5-S063, A5-S066, A5-S069, A5-S071].
 
 ## (d) Products the graphic misses (not added to products.json)
 
@@ -154,7 +248,22 @@ No hypothesis (H1–H8) is assigned to stream ⑤. Evidence for the plan §5 L1 
 - **NVIDIA Nemotron 3 (Nano, Super, Ultra):** open models with SGLang day-0 support (Ultra June 2026). Relevant to sovereign or self-hosted stacks. [A5-S039]
 - **Amazon Nova and Microsoft first-party models:** not researched (search budget exhausted).
 
-## (e) Gaps: what could not be verified, and why
+## (e) Gaps after the gap pass
+
+What remains unverified after the gap pass:
+
+- The Garante's final decision or any fine, and current status of the Korea and Berlin cases.
+- Whether NDAA s.1532 covers contractors.
+- The licence of Qwen3.8-2.4T-A95B.
+- Certifications (SOC 2/ISO) for DeepSeek, Alibaba Model Studio, Moonshot, Z.ai and the Meta Model API.
+- Meta Model API data terms.
+- The status of DeepSeek V4-Pro after 14 September 2026 (DeepSeek's own pages conflict).
+- The Mistral Large 4 licence and price.
+- Whether the SpaceXSI rename happened.
+- The exact launch dates of GLM-5.3 and Qwen3.8-Max.
+- The texts of the D.C. Circuit opinion and the Bartz order. Both were read only through search extracts, because the court sites are blocked.
+
+## (e-first-pass) Gaps recorded in the first pass (largely superseded)
 
 **1. Chinese-origin sovereignty and regulation: entirely unverified.** The shared search budget was exhausted, and the regulator sites (Garante, PIPC, gov.uk, NCSC, commerce.gov, nist.gov, congress.gov, EDPB) are all egress-blocked. Not verified:
 
