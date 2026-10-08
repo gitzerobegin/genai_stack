@@ -21,7 +21,7 @@
   - *Change management:* triggers for re-validation.
 - **Prove.**
   - *Evidence:* the audit evidence pack per use case and per output.
-  - *Regulatory evidence:* the artefacts each regime expects, retained under the records policy.
+  - *Regulatory evidence:* the artefacts each regime expects, retained under the records policy [AJ].
 
 **Hand-offs.** This control produces little evidence itself; it governs evidence produced by others [AJ]:
 
@@ -260,9 +260,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | C8-validmind | 4 | 3 | 2 | 3 | 3 | 3 | 2 | 3 | 2.95 | 2.90 | Tactical |
 | C8-credo-ai | 3 | 4 | 2 | 5 | 4 | 3 | 2 | 3 | 3.30 | 3.25 | Tactical |
 | C8-watsonx-governance | 5 | 3 | 2 | 4 | 4 | 4 | 3 | 3 | 3.60 | 3.40 | Tactical |
-| C8-modelop | 4 | 3 | 2 | 4 | 3 | 2 | 2 | 3 | 3.05 | 2.95 | Tactical |
-| C8-collibra-ai-governance | 4 | 3 | 4 | 2 | 4 | 3 | 2 | 3 | 3.25 | 3.20 | Tactical |
-| C8-openlineage | 3 | 3 | 3 | 5 | 5 | 4 | 4 | 5 | 3.85 | 3.85 | Strategic |
+| C8-modelop | 4 | 3 | 2 | 4 | 3 | 2 | 2 | 3 | 3.00 | 2.95 | Tactical |
+| C8-collibra-ai-governance | 4 | 3 | 4 | 2 | 4 | 3 | 2 | 3 | 3.20 | 3.20 | Tactical |
+| C8-openlineage | 3 | 3 | 3 | 5 | 5 | 4 | 4 | 5 | 3.80 | 3.85 | Strategic |
 
 **Scoring notes [AJ]:**
 - **NPV caps.** Security is capped at 2 for four products:
@@ -271,7 +271,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
   - watsonx.governance: no product-scoped SOC 2 or ISO found, and the FedRAMP wording conflicts (B-C8-S002).
   - ModelOp: no certifications found (B-C8-S001).
 
-  These caps reflect public evidence, not a finding that controls are absent. They are the first thing to resolve in due diligence.
+  These caps reflect public evidence, not a finding that controls are absent [AJ]. They are the first thing to resolve in due diligence [Rec].
 - **Partial evidence (rule 7).**
   - ValidMind: RBAC and audit logs verified, SSO not, so 3.
   - watsonx.governance: roles and an approval audit trail verified, so 3.
@@ -477,7 +477,7 @@ Pinning versions and keeping a fallback model qualified on the same suite is als
 | (absent) ValidMind | MRM platform with GenAI tests; only SS1/23 claimant; AGPL library [VF: A7-S003, A7-S052] | Tactical: MRM-led firms, after SOC 2 Type II evidence [Rec] |
 | (absent) Credo AI | Policy-led registry and packs; EU SaaS and air-gapped self-host [VF: A7-S102, A7-S107, A7-S123] | Tactical: policy- and compliance-led programmes [Rec] |
 | (absent) IBM watsonx.governance | Agent discovery and Enforcement Tracking (2026) [VF: A7-S111] | Tactical, conditional Strategic for IBM estates once certification scope is confirmed [Rec] |
-| (absent) ModelOp | Lifecycle automation with blocking workflows; thin public evidence [VF: A7-S098; NPV] | Tactical, after full due diligence [Rec] |
+| (absent) ModelOp | Lifecycle automation with blocking workflows; thin public evidence [VF: A7-S098] [NPV] | Tactical, after full due diligence [Rec] |
 | (absent) Collibra AI Governance | "Enterprise AI Control Plane"; trail ML acquisition announced 5 Oct 2026; OpenLineage integration [VF: A7-S122, A7-S101, V2-S044] | Tactical: where Collibra is the catalogue of record [Rec] |
 | (absent) OpenLineage | Graduate LF AI & Data spec; no GenAI facets [VF: A7-S041, A7-S042] | Strategic lineage standard, with firm GenAI facets [Rec] |
 

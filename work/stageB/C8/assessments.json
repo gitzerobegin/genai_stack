@@ -1,0 +1,365 @@
+[
+  {
+    "id": "C8-validmind",
+    "assessment": {
+      "capabilities": "Model risk management platform: Python Library logs tests and documentation artefacts; Platform holds a customisable model inventory and runs documentation, validation workflows, approvals and ongoing monitoring with thresholds, alerts and workflow triggers; LLM test extras and LLM features; point-in-time model attestation [VF: A7-S003, A7-S054, A7-S056, A7-S097, B-C8-S005].",
+      "strengths": [
+        "Closest fit to bank-style MRM (inventory, documentation, validation, monitoring) with GenAI tests [AJ]",
+        "Only vendor in the set claiming PRA SS1/23 mapping; also SR 26-2, EU AI Act Article 9 and OSFI E-23 (vendor claims) [VF: A7-S051, A7-S052, A7-S053, A7-S057]",
+        "Single-tenant Virtual Private ValidMind on AWS, GCP or Azure with private connectivity [VF: A7-S054, A7-S084]",
+        "RBAC, audit logs, data isolation and encryption documented [VF: A7-S055]"
+      ],
+      "limitations_risks": [
+        "SOC 2 claimed without type; no SOC 2 Type II report or ISO certificate found [VF: A7-S121, B-C8-S005]",
+        "SSO and self-hosting not publicly verified [NPV]",
+        "Library is AGPL-3.0 or commercial (licence consideration under rule 4) [VF: A7-S003]",
+        "Pricing not published [VF: A7-S003]"
+      ],
+      "choose_when": [
+        "A second-line MRM function wants GenAI in the same validation workflow as other models [AJ]"
+      ],
+      "avoid_when": [
+        "You need a broad AI policy and third-party AI register more than validation, or cannot obtain a SOC 2 Type II report [AJ]"
+      ],
+      "competitors": [
+        "C8-watsonx-governance",
+        "C8-modelop",
+        "C8-credo-ai"
+      ],
+      "fs_note": "Request the SOC 2 Type II report before loading risk records; check AGPL obligations for any modified Library code you distribute [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Best MRM workflow fit and the only SS1/23 claimant, held back by unverified certification evidence and unpublished pricing [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Inventory, documentation, validation, approvals, monitoring thresholds and attestation; lineage and agent discovery not evidenced.",
+        "enterprise_readiness": "RBAC and audit logs verified; SSO not verified, so maximum 3 (rule 7).",
+        "security_compliance": "Capped at 2: SOC 2 type not stated and no report found; vendor statement only.",
+        "deployment_flexibility": "Multi-tenant SaaS plus single-tenant VPV in the major clouds; self-hosting not verified.",
+        "ecosystem": "Python Library with LLM, PyTorch and Hugging Face extras; data-source connectors.",
+        "reliability_maturity": "Frequent Library releases since May 2023; funding not verified.",
+        "cost_tco": "Pricing not published.",
+        "lockin_portability": "Proprietary platform holding inventory and documentation; export not verified; AGPL library noted."
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: SOC 2 Type II not publicly verified (vendor claim, type not stated)"
+      ],
+      "generic_total": 2.95,
+      "fs_total": 2.9
+    }
+  },
+  {
+    "id": "C8-credo-ai",
+    "assessment": {
+      "capabilities": "AI governance platform: AI Registry with auto-discovery, policy packs (EU AI Act, NIST AI RMF, ISO 42001, SOC 2) from a knowledge graph of 160+ policies and 110+ controls, audit-ready evidence and audit trails; moving to agent registry and runtime governance; AIUC-1 integrated [VF: A7-S102].",
+      "strengths": [
+        "Widest deployment choice: SaaS on AWS (US) or Azure (EU), self-hosted Kubernetes, air-gapped [VF: A7-S107, A7-S123]",
+        "SSO via OIDC (SAML via dex), SCIM, audit logs and audit-log APIs, role scopes [VF: A7-S123]",
+        "Integrations with Azure, watsonx, Databricks, Collibra and 30+ partners [VF: A7-S102, A7-S110]"
+      ],
+      "limitations_risks": [
+        "SOC 2 Type II report listed but not re-confirmed by the verifier [VF: A7-S107, V2-S064]; no ISO 27001/42001 found",
+        "No SR 26-2 or SS1/23 mapping found; light on model validation [VF: A7-S110] [AJ]",
+        "Open-source Lens deprecated (last release May 2023) [VF: A7-S092, A7-S093]",
+        "Pricing not published [NPV]"
+      ],
+      "choose_when": [
+        "The programme is policy- and compliance-led across many business units [AJ]"
+      ],
+      "avoid_when": [
+        "The main need is quantitative model validation [AJ]"
+      ],
+      "competitors": [
+        "C8-collibra-ai-governance",
+        "C8-watsonx-governance",
+        "C8-modelop"
+      ],
+      "fs_note": "Self-host or use the Azure EU instance; obtain the current SOC 2 report directly [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strong deployment and identity controls for policy-led governance; certification evidence unconfirmed and validation depth limited [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 4,
+        "security_compliance": 2,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Inventory, policy and evidence strong; validation and monitoring workflows not evidenced.",
+        "enterprise_readiness": "SSO, SCIM, audit-log APIs and role scopes verified.",
+        "security_compliance": "Capped at 2: SOC 2 Type II report not re-confirmed (V2 section 4 item 9).",
+        "deployment_flexibility": "EU SaaS, self-hosted and air-gapped.",
+        "ecosystem": "30+ partner integrations including Azure, watsonx, Databricks, Collibra.",
+        "reliability_maturity": "Independent; last disclosed round July 2024; Lens deprecated.",
+        "cost_tco": "Pricing not published.",
+        "lockin_portability": "Proprietary but independent; audit-log APIs give data access."
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: SOC 2 Type II report not re-confirmed (V2 verification log section 4)"
+      ],
+      "generic_total": 3.3,
+      "fs_total": 3.25
+    }
+  },
+  {
+    "id": "C8-watsonx-governance",
+    "assessment": {
+      "capabilities": "Inventories AI use cases and models; evaluates models, prompt templates and agents; monitors in production and ties metrics to risks, controls and approvals; Compliance Accelerators; AI Asset Discovery (9 July 2026) for unmanaged agents, tools, MCP servers and models; Enforcement Tracking (11 August 2026) for agent metrics against thresholds; exportable factsheets [VF: A7-S103, A7-S111, A7-S058, B-C8-S003].",
+      "strengths": [
+        "Broadest agent-aware governance; consumes evaluation and Guardium security evidence automatically [VF: A7-S111] [AJ]",
+        "SaaS (IBM Cloud, AWS), self-managed in AWS/Azure, on-prem and hybrid [VF: A7-S103]",
+        "Published, indicative pricing (Lite free; US$0.64 per evaluation) [VF: A7-S103]",
+        "IAM and Governance-console roles; approval-workflow audit trail [VF: B-C8-S003]"
+      ],
+      "limitations_risks": [
+        "No product-scoped SOC 2 or ISO 27001 found; FedRAMP wording conflicts [VF: A7-S103, B-C8-S002]",
+        "SR 11-7 accelerator maps to a superseded instrument; no SS1/23 or SR 26-2 claim [VF: A7-S103] [AJ]",
+        "Coupling to IBM's agent runtime (watsonx Orchestrate) [VF: A7-S111]",
+        "Pricing table in source garbled; confirm [VF: A7-S103]"
+      ],
+      "choose_when": [
+        "You run watsonx Orchestrate or OpenPages, or want one platform for discovery, evaluation and governance of agents [AJ]"
+      ],
+      "avoid_when": [
+        "You want governance independent of your agent runtime vendor [AJ]"
+      ],
+      "competitors": [
+        "C8-validmind",
+        "C8-modelop",
+        "C8-credo-ai"
+      ],
+      "fs_note": "Obtain SOC 2 and ISO scope letters naming watsonx.governance; record IBM as one concentration point if Vault (C7) is also used [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Highest technical coverage; Tactical only because certification scope is not publicly verified; conditional Strategic for IBM estates after due diligence [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Leading coverage: inventory, evaluation of models, prompts and agents, discovery, thresholds, approvals, compliance mapping.",
+        "enterprise_readiness": "IAM-controlled access, console roles and approval audit trail verified (B-C8-S003); SSO federation and SCIM not verified, so 3. Rule 6 not applied (IBM service on AWS, not an AWS service).",
+        "security_compliance": "Capped at 2: product-scoped certifications not publicly verified and FedRAMP status conflicting.",
+        "deployment_flexibility": "SaaS, self-managed in customer cloud, on-prem and hybrid; air-gap not verified.",
+        "ecosystem": "Python SDK, Orchestrate, OpenPages and SageMaker integration.",
+        "reliability_maturity": "IBM product with continuous releases (SDK 1.5.2, September 2026).",
+        "cost_tco": "Published indicative pricing including free tier.",
+        "lockin_portability": "Proprietary, IBM-licensed; factsheets exportable."
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: product-scoped SOC 2/ISO 27001 not publicly verified; FedRAMP status conflicting (B-C8-S002)"
+      ],
+      "generic_total": 3.6,
+      "fs_total": 3.4
+    }
+  },
+  {
+    "id": "C8-modelop",
+    "assessment": {
+      "capabilities": "AI governance and lifecycle automation ('Enterprise AI Command Center'): inventory with self-service intake, risk tiering and approvals; 25+ governance process templates and 100+ tests and controls; risk-based workflows that can block non-compliant actions; claimed inline protections for agents [VF: A7-S098].",
+      "strengths": [
+        "Lifecycle automation that can enforce, not only record [VF: A7-S098] [AJ]",
+        "Self-hosted, on-prem, hybrid and EKS via AWS Marketplace [VF: A7-S109]",
+        "Identity-provider integration via OAuth2 and SAML with role-based access [VF: B-C8-S001]"
+      ],
+      "limitations_risks": [
+        "No SOC 2 or ISO 27001 evidence found [VF: B-C8-S001] [NPV]",
+        "Maturity, release cadence and SaaS availability not publicly verified [NPV]",
+        "Small disclosed funding (US$10m, date not confirmed) [VF: A7-S104]",
+        "SR 11-7 templates map to a superseded instrument [VF: A7-S110] [AJ]"
+      ],
+      "choose_when": [
+        "You want self-hosted governance automation with blocking workflows and will do full due diligence [AJ]"
+      ],
+      "avoid_when": [
+        "Certification evidence is a shortlisting gate [AJ]"
+      ],
+      "competitors": [
+        "C8-watsonx-governance",
+        "C8-validmind",
+        "C8-credo-ai"
+      ],
+      "fs_note": "Require SOC 2 Type II and audit-log documentation before any pilot with production records [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Credible automation claims but the thinnest public evidence in the set [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Inventory, intake, tiering, approvals, templates, tests and blocking workflows (vendor-described).",
+        "enterprise_readiness": "SAML/OAuth2 IdP integration and role-based access verified (rule 7, maximum 3); audit logs not documented.",
+        "security_compliance": "Capped at 2: no certifications publicly verified.",
+        "deployment_flexibility": "Self-hosted, on-prem, hybrid and EKS; SaaS not verified.",
+        "ecosystem": "Connectors and REST APIs; SageMaker, S3, Redshift.",
+        "reliability_maturity": "Maturity and release cadence not publicly verified; small disclosed funding.",
+        "cost_tco": "List pricing not published.",
+        "lockin_portability": "Proprietary but self-hostable; independent."
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: certifications not publicly verified (B-C8-S001)"
+      ],
+      "generic_total": 3.0,
+      "fs_total": 2.95
+    }
+  },
+  {
+    "id": "C8-collibra-ai-governance",
+    "assessment": {
+      "capabilities": "AI governance on Collibra's data intelligence platform: AI use-case register, model and agent asset domains linked to model versions and agents from integrated AI platforms, EU AI Act and NIST AI RMF assessment templates, 46 controls mapped to EU AI Act, NIST and BCBS 239; OpenLineage integration; trail ML acquisition (announced 5 October 2026) for continuous assessment and runtime enforcement [VF: A7-S099, A7-S122, A7-S101].",
+      "strengths": [
+        "Only product joining the AI inventory to the data catalogue and lineage (OpenLineage) [VF: A7-S122, A7-S099] [AJ]",
+        "Company-level SOC 1/2, ISO 27001/27017/27018, ISO 42001, FedRAMP, HIPAA [VF: A7-S106, A7-S100, V2-S064]",
+        "SAML 2.0 SSO with IdP group mapping and global roles [VF: B-C8-S004]",
+        "BCBS 239 control mapping useful for bank-owned managers [VF: A7-S099]"
+      ],
+      "limitations_risks": [
+        "SaaS only on current evidence (AWS and GCP); self-hosting and EU region list not verified [VF: A7-S122] [NPV]",
+        "No model validation or monitoring workflow [AJ]",
+        "trail ML deal three days old; integration roadmap open [VF: V2-S044]",
+        "Pricing not published [NPV]"
+      ],
+      "choose_when": [
+        "Collibra is already the data catalogue of record [AJ]"
+      ],
+      "avoid_when": [
+        "You need self-hosting or a model-validation workflow [AJ]"
+      ],
+      "competitors": [
+        "C8-credo-ai",
+        "C8-watsonx-governance",
+        "C8-modelop"
+      ],
+      "fs_note": "Use the BCBS 239 mapping for bank-owned managers; confirm EU hosting and the trail ML integration roadmap [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strong certifications and the lineage bridge, but SaaS-only deployment and no validation workflow [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Inventory, assessments, controls mapping and lineage link; no validation or monitoring workflow.",
+        "enterprise_readiness": "SAML SSO and roles verified (B-C8-S004); audit logs not documented, so 3 (rule 7).",
+        "security_compliance": "Company-level certifications meeting the 5 anchor, product scope not stated: 4 (rule 8).",
+        "deployment_flexibility": "SaaS on AWS and GCP only; no self-host or VPC evidence.",
+        "ecosystem": "SageMaker, Azure AI Foundry and Databricks connectors; CLI; OpenLineage.",
+        "reliability_maturity": "Established vendor; AI module repositioned and acquisition just announced.",
+        "cost_tco": "Pricing not published.",
+        "lockin_portability": "Proprietary SaaS; OpenLineage integration eases lineage portability."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.2,
+      "fs_total": 3.2
+    }
+  },
+  {
+    "id": "C8-openlineage",
+    "assessment": {
+      "capabilities": "Open specification for runtime data-lineage metadata (run, job and dataset entities extended by facets, and an event protocol), with Python, Java and SQL clients and the Marquez reference implementation; 1.53.0 adds explicit dataset-, field- and job-level lineage facets [VF: A7-S041, A7-S043, A7-S042].",
+      "strengths": [
+        "Neutral, foundation-governed (LF AI & Data Graduate) and Apache-2.0 [VF: A7-S041]",
+        "Airflow provider, Spark, dbt and Flink integrations; GCP Lineage transport; Collibra integration [VF: A7-S045, A7-S042, A7-S122]",
+        "Tag facets can carry classification labels [VF: A7-S042]"
+      ],
+      "limitations_risks": [
+        "No GenAI, LLM, embedding or vector facets [VF: A7-S042]",
+        "Marquez releases slowed (0.51.1, March 2025) [VF: A7-S044]",
+        "Does not capture run-time LLM calls (OTel's job) [AJ]"
+      ],
+      "choose_when": [
+        "Always, for L8 ingestion and index-build pipelines [Rec]"
+      ],
+      "avoid_when": [
+        "You expect it to trace run-time LLM calls [AJ]"
+      ],
+      "competitors": [
+        "C8-collibra-ai-governance",
+        "OTel GenAI semantic conventions"
+      ],
+      "fs_note": "Define and publish a firm GenAI facet set (source document IDs, classification tags, chunking and embedding model versions, index version) [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "The neutral lineage interchange standard; the firm must add GenAI facets [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 5,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Competent lineage model and protocol; no GenAI facets.",
+        "enterprise_readiness": "Rule 2: specification and clients inherit host controls; no commercial support verified.",
+        "security_compliance": "Rule 2 hygiene: Apache-2.0, foundation governance, monthly releases; no security policy file found.",
+        "deployment_flexibility": "Self-hosted consumers anywhere; cloud lineage transports.",
+        "ecosystem": "De-facto open lineage standard across Airflow, Spark, dbt, Flink, Collibra and GCP.",
+        "reliability_maturity": "Graduate project with roughly monthly releases since 2021; Marquez slower.",
+        "cost_tco": "Free; a backend (Marquez or catalogue) must be operated.",
+        "lockin_portability": "Open specification, Apache-2.0, neutral governance."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.8,
+      "fs_total": 3.85
+    }
+  }
+]
