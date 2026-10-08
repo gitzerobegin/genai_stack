@@ -312,7 +312,6 @@ STEP 4 [Rec]: Checks before go-live
 ### C3.12 Worked-example slice (POV 3)
 
 **What the commentary agent needs from C3 [AJ].** The agent drafts the monthly Brinson-style attribution commentary for a generic multi-asset fund. Most of its inputs are fund-level numbers, which are confidential but not personal data. Client identifiers appear when a commentary is produced for a segregated mandate, and personal data appears in the approval record. It needs six things:
-
 1. **Tokenise before any model call.** Client names, mandate references, account numbers and named client contacts are replaced with consistent placeholders (CLIENT_A, MANDATE_1) at the gateway, so the model can write "the mandate's currency overlay" without seeing who the client is. Fund-level attribution figures are not tokenised; they are confidential data whose protection is the model endpoint's residency and contract.
 2. **Detect again in the output.** The draft is inspected before re-identification. Any clear-text identifier that was not in the approved inputs blocks the draft. Placeholders must match the input set exactly: none invented, none altered.
 3. **Re-identify only for the reviewer.** Placeholders are restored in the reviewer's view, under the reviewing PM's entitlement checked through C4, and the re-identification is logged.
