@@ -64,6 +64,16 @@
 
 **9. Strategic tier (Q3).** Architect's judgement, normally FS ≥ 3.6 and no criterion at 1. A criterion at 2 is allowed if stated as a condition, e.g. "Strategic only if X is your standard".
 
+## CP3 rules (binding from 8 October 2026; see `checkpoints/CP3/06_CP3_Decisions.md`)
+
+**10. Hyperscaler lead services (CP3 Q2).** The lead service in a category on AWS, Azure or Google Cloud is **Strategic, conditional "where this is your primary cloud"**. It must have no criterion at 1. Other hyperscaler services are Tactical, "default in that estate". Security stays at 4 under rule 8.
+
+**11. Strategic with a criterion at 2 (CP3 Q5).** Allowed only when the condition is an existing platform commitment, e.g. "where Elastic, MongoDB or Kong is already operated". A net-new proprietary dependency with lock-in 2 stays Tactical.
+
+**12. Evidence for 4 (CP3 Q3).** Any primary vendor page counts, with the limitation stated as a condition.
+
+**13. Certification caps (CP3 Q9).** Keep the caps. A platform capped only for missing product-scoped certification may carry "candidate for Strategic after due diligence". Vendor regulatory-mapping claims never raise a score.
+
 ## Tiers (plan §8.2)
 
 | Tier | Definition |

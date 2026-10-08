@@ -11,7 +11,7 @@
 | | |
 |---|---|
 | **Last updated** | 8 October 2026 |
-| **Stage** | **Checkpoint 3 delivered**: L6–L4 and C1–C8 drafted and calibrated; L9–L7 reworked to the CP2 rules. **Waiting for the user's CP3 review.** |
+| **Stage** | **Stage B, tranche 3** (L3, L2, L1) plus the CP3 rework, heading to **CP4** (with Stage C synthesis) |
 | **Branch** | `claude/nice-meitner-0me752` on `github.com/gitzerobegin/genai_stack` |
 
 | Item | State |
@@ -56,6 +56,7 @@
 | 18 | 8 October | **Second 429 interruption** (reset 23:10 UTC) hit 5 agents. Saved on disk: complete L6, C1, C3, C5, C6 (sections and assessments); C7 and C8 sections; C2 assessments; L4 and L5 done earlier. At 18:40 UTC, after the user said "continue", resumed only the 3 agents with work left: C2 section, C4 (all), C7 and C8 assessments. | Running |
 | 19 | 8 October | Tranche 2 writers all complete: L6, L5, L4, C1–C8 (about 92,000 words; 74 products scored). Built the shared table `work/stageB/_review/all_scores.md`. Launched calibration reviewers A (L6–L4, C1–C2) and B (C3–C8). Tool globs now read `sources_added*.csv`. | Reviewers running |
 | 20 | 8 October | Reviewers A and B finished. Built the CP3 pack (pandoc `.docx`); rebuilt the dataset (1,234 sources, 0 issues; 104 scored: 29 Strategic, 67 Tactical, 8 Experimental). **Stopped for CP3.** | |
+| 21 | 8 October | CP3 answers recorded (`checkpoints/CP3/06_CP3_Decisions.md`). Rubric rules 10–13 added. Launched the CP3 rework agent and the L3, L2 and L1 writers (prompts in `work/prompts/stageB_tranche3_prompts.md`). | Running |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it
