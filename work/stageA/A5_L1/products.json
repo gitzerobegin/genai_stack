@@ -1454,7 +1454,7 @@
    }
   },
   "certifications": {
-   "v": "None found on DeepSeek pages searched.",
+   "v": "Not publicly verified",
    "label": "Not publicly verified",
    "src": [],
    "conf": "low"
@@ -3274,7 +3274,7 @@
    "conf": "low"
   },
   "gdpr_residency": {
-   "v": "No Meta Model API retention/training policy found; earlier (2025) Llama API preview stated prompts and responses not used for training - different product.",
+   "v": "Not publicly verified",
    "label": "Not publicly verified",
    "src": [],
    "conf": "low"
@@ -3394,7 +3394,7 @@
    "A5-S077",
    "A5-S078"
   ],
-  "stage_a_notes": "Ambiguity A5 resolved and upgraded to Verified (Meta announcements via search extracts). Still unverified: Meta Model API data retention/training terms, certifications, EU residency; meaning of the \"contributor\" price tier (aggregator only).",
+  "stage_a_notes": "Ambiguity A5 resolved and upgraded to Verified (Meta announcements via search extracts). Still unverified: Meta Model API data retention/training terms, certifications, EU residency; meaning of the \"contributor\" price tier (aggregator only). No Meta Model API retention/training policy was found; the 2025 Llama API preview stated prompts/responses were not used for training (different product) [A5-S078 search context].",
   "last_verified": "2026-10-07"
  }
 ]
