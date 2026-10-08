@@ -105,6 +105,12 @@ The baseline inventory assigns none of A1–A19 to stream ⑥. The open question
   - Controls extended to agents: Conditional Access, ID Governance access packages, ID Protection, network controls and audit logs [A6-S058].
   - Third-party agents (AWS Bedrock, n8n) are supported via a sidecar SDK or workload identity federation [A6-S057].
   - Licensing is tied to Microsoft Agent 365 [A6-S059].
+- **Okta / Auth0 products are now GA.**
+  - Auth0 for AI Agents: GA 19 November 2025. It includes Token Vault for third-party API tokens, CIBA asynchronous authorisation and FGA for RAG [A6-S097]. Auth for MCP and On-Behalf-Of Token Exchange followed as GA in May 2026 [A6-S097].
+  - Okta for AI Agents: GA 30 April 2026 [A6-S100].
+  - Okta Agent SSO (Cross App Access): GA 24 August 2026, included in core SSO. Okta says XAA is the MCP Enterprise-Managed Authorization extension [A6-S099].
+- **Agent-identity authorisation, AWS.** Amazon Verified Permissions remains AWS's managed Cedar service and requires Cedar 4 from April 2026 [A6-S104]. AgentCore added temporal policies and token rate limiting on 6 August 2026 [A6-S106].
+- **Agent tool calls in guardrail products.** Microsoft Foundry guardrails inspect tool calls and tool responses (preview), but only for Foundry Agent Service agents [A6-S103].
 - **Auth0 AI SDKs.** Delegated API calls on users' behalf, authorisation for RAG, and asynchronous human approval via OpenID CIBA. The SDKs are flagged "under heavy development" [A6-S076, A6-S078].
 - **Policy-based tool governance (AWS).**
   - AgentCore Policy (GA 3 March 2026) is deny-by-default for gateway tool calls [A6-S026].
