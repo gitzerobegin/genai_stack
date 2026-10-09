@@ -89,9 +89,9 @@
       "fs_note": "Qualify as the alternative engine in the exit plan; isolate internal ports and confirm CVE-2026-3059 status for the deployed version before use [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Strong engine but weaker security hygiene evidence and no verified commercial support; the alternative engine, not the default"
+      "rationale": "Strategic, conditional: as the qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed in the deployed version (NVD and OSV reference a fix in 0.5.10; the GitHub advisory lists none), with internal ports isolated; not the default engine. Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.65), with security 2 carried as the tier condition [AJ]."
     },
     "scores": {
       "criteria": {
@@ -107,7 +107,7 @@
       "rationale": {
         "technical": "Leading depth: RadixAttention, PD disaggregation, speculative decoding, quantisation [VF: A4-S010]",
         "enterprise_readiness": "Rule 2: inherits host controls; no verified commercial support, so the 4 cap applies; scored 3 [AJ]",
-        "security_compliance": "Rule 2 hygiene: critical unauthenticated RCE (fix evidenced only by NVD/OSV references to v0.5.10; GitHub advisory lists none), disclosure-response concerns and a reported bypass of an earlier fix [VF: B-L2-S009, B-REVC-S002]; 2 vs 3 put to the reader at CP4",
+        "security_compliance": "Rule 2 hygiene: critical unauthenticated RCE (fix evidenced only by NVD/OSV references to v0.5.10; GitHub advisory lists none), disclosure-response concerns and a reported bypass of an earlier fix [VF: B-L2-S009, B-REVC-S002]; kept at 2 at Checkpoint 4 (CP4-4 changed the tier only; a confirmed fix is the tier condition)",
         "deployment_flexibility": "Self-host, VPC, on-prem; managed via Hugging Face Endpoints [VF: A4-S065, A4-S081]",
         "ecosystem": "OpenAI-compatible; Dynamo backend; RL frameworks [VF: A4-S010, A4-S090, A4-S065]",
         "reliability_maturity": "0.x since January 2024; new commercial steward in May 2026 [VF: A4-S010, A4-S147]",
@@ -569,9 +569,9 @@
       "fs_note": "Request ISO certificates and BAA terms from the trust centre; prefer BYOC or EU dedicated deployments; disable Response API storage [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Strongest controls among the independent inference clouds; candidate for Strategic after due diligence on ISO certificates and EU residency"
+      "rationale": "Strategic, conditional: for managed open-model inference, once its ISO 27001, 27701 and 42001 certificates are confirmed (trust-centre and docs pages conflict); the strongest controls among the independent inference clouds. For client data use EU dedicated or BYOC deployments, because the self-serve residency setting is US-only. Upgraded from Tactical ('candidate for Strategic after due diligence') by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.65) [AJ]."
     },
     "scores": {
       "criteria": {

@@ -156,7 +156,7 @@ The eleven records are grouped by H1 sub-layer: serving engines, optimisation an
 - *Avoid when:* the engine's internal ports could be reachable outside a locked-down serving namespace, or you need vendor support now [AJ].
 - *Competitors:* vLLM, TensorRT-LLM, NVIDIA Dynamo (as orchestrator over either).
 - *FS note:* qualify SGLang as the alternative engine in the exit plan, confirm the CVE status of the deployed version, and keep its multimodal and weight-update endpoints disabled or isolated [Rec].
-- **Tier: Tactical. Flag: none.**
+- **Tier: Strategic, conditional: as the qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed in the deployed version. Flag: none.** Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores are unchanged (FS 3.65), and security 2 is carried as the tier condition rather than raised. Keep internal ports isolated and do not make it the default engine [AJ].
 
 *TensorRT-LLM (NVIDIA)* is noted without a record: an open-sourced library for optimising LLM inference with quantisation and speculative decoding, at 1.2.1 and classed beta [VF: A4-S099].
 
@@ -251,7 +251,7 @@ The eleven records are grouped by H1 sub-layer: serving engines, optimisation an
 - *Avoid when:* using the Response API for client data without disabling storage, or where ISO certificates are a hard gate you have not yet checked [AJ].
 - *Competitors:* Together AI, Hugging Face Inference Endpoints, hyperscaler model catalogues (Fireworks also operates some models sold through Microsoft Foundry [VF: A5-S087]).
 - *FS note:* request the ISO certificates and BAA terms from trust.fireworks.ai, contract EU deployments or BYOC, and set `store=False` in the gateway for any Response API route [Rec].
-- **Tier: Tactical; candidate for Strategic after due diligence on ISO certificates and EU residency. Flag: none.**
+- **Tier: Strategic, conditional: for managed open-model inference, once its ISO certificates are confirmed. Flag: none.** Upgraded from Tactical ("candidate for Strategic after due diligence") by the reader at Checkpoint 4 (CP4-4); scores are unchanged (FS 3.65). For client data, use EU dedicated or BYOC deployments, because the self-serve residency setting is US-only [VF: A4-S134] [AJ].
 
 **Cerebras (Cerebras Systems Inc.).**
 - *What it is now:* a chip and system vendor (WSE-3, CS-3) that also runs an inference cloud with an OpenAI-compatible API, and sells CS-3 systems for on-premise deployment [VF: A4-S095, A4-S139]. The graphic's "ultra-scale cloud" omits the hardware business [AJ]. Its IPO priced on 13 May 2026 at US$185 per share (Nasdaq: CBRS) [VF: A4-S137, V1-S053]. It has a 750MW inference agreement with OpenAI from December 2025 [VF: A4-S154].
@@ -297,7 +297,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | L2-vllm | 5 | 4 | 3 | 5 | 5 | 4 | 4 | 5 | 4.35 | 4.30 | Strategic |
-| L2-sglang | 5 | 3 | 2 | 5 | 4 | 3 | 4 | 4 | 3.80 | 3.65 | Tactical |
+| L2-sglang | 5 | 3 | 2 | 5 | 4 | 3 | 4 | 4 | 3.80 | 3.65 | Strategic |
 | L2-nvidia-dynamo | 4 | 3 | 2 | 4 | 3 | 2 | 3 | 3 | 3.10 | 3.00 | Experimental |
 | L2-llm-d | 4 | 3 | 2 | 4 | 4 | 2 | 3 | 5 | 3.30 | 3.35 | Experimental |
 | L2-ollama | 3 | 2 | 2 | 4 | 4 | 2 | 4 | 4 | 3.00 | 2.95 | Tactical |
@@ -305,17 +305,17 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 | L2-hugging-face | 4 | 4 | 3 | 3 | 5 | 3 | 4 | 4 | 3.70 | 3.60 | Strategic |
 | L2-openrouter | 4 | 4 | 3 | 2 | 4 | 3 | 3 | 2 | 3.25 | 3.05 | Tactical |
 | L2-together-ai | 4 | 3 | 3 | 4 | 3 | 3 | 4 | 4 | 3.50 | 3.50 | Tactical |
-| L2-fireworks-ai | 4 | 4 | 3 | 4 | 4 | 3 | 3 | 4 | 3.65 | 3.65 | Tactical |
+| L2-fireworks-ai | 4 | 4 | 3 | 4 | 4 | 3 | 3 | 4 | 3.65 | 3.65 | Strategic |
 | L2-cerebras | 3 | 3 | 2 | 3 | 3 | 3 | 3 | 3 | 2.85 | 2.80 | Tactical |
 
 **Scoring notes [AJ]:**
 - *Rule 2 (self-hosted software).* vLLM, SGLang, Dynamo and llm-d are scored as software you run; they inherit host controls. vLLM's enterprise readiness reaches 4 because a supported distribution exists (Red Hat AI Inference) [VF: B-L2-S001]. Dynamo has commercial support, but only month-long feature branches [VF: B-L2-S003], so it stays at 3. llm-d's Red Hat support is Technology Preview without production SLAs [VF: B-L2-S002], so the cap at 4 applies (not binding at 3). SGLang has no verified support offer, so the cap applies (not binding at 3).
-- *Rule 2 security hygiene.* vLLM scores 3: a working advisory process with fixed versions, against a run of 2026 code-execution flaws [VF: B-L2-S004]. SGLang scores 2: a critical unauthenticated flaw whose fix is evidenced only by NVD and OSV references (the GitHub advisory still lists no patched version), plus disclosure-response concerns and a reported bypass of an earlier fix [VF: B-L2-S009, B-REVC-S002]. Whether this is 2 or 3 is put to the reader at Checkpoint 4 (CP4 review C). Dynamo and llm-d score 2 because their security policies and CVE handling were not verified [NPV].
+- *Rule 2 security hygiene.* vLLM scores 3: a working advisory process with fixed versions, against a run of 2026 code-execution flaws [VF: B-L2-S004]. SGLang scores 2: a critical unauthenticated flaw whose fix is evidenced only by NVD and OSV references (the GitHub advisory still lists no patched version), plus disclosure-response concerns and a reported bypass of an earlier fix [VF: B-L2-S009, B-REVC-S002]. The reader kept the score at 2 at Checkpoint 4 and upgraded the tier instead, conditional on the fix being confirmed (CP4-4). Dynamo and llm-d score 2 because their security policies and CVE handling were not verified [NPV].
 - *NPV caps (rule 1).* Ollama: enterprise readiness and security capped at 2 (Ollama Cloud SSO, audit and certifications NPV). LM Studio: security capped at 2. LM Studio's enterprise readiness could rise to 3 under rule 7 on its Enterprise SSO, but that evidence is a low-confidence extract with no audit or support evidence, so 2 is kept.
 - *Rule 7 (partial evidence).* Cerebras is lifted to 3 on verified console roles despite no SSO. OpenRouter (SSO, SCIM, roles, Enterprise SLA), Fireworks (SSO, RBAC, audit logs with CLI) and Hugging Face (SSO, SCIM, RBAC, audit logs) reach 4.
 - *Rule 8 (certification scope).* Together AI's SOC 2 and ISO 27001 are vendor-stated without product scope, so 3 rather than 4. Cerebras' SOC 2 is a trust-centre listing without product scope, so 2. Fireworks scores 3 because its ISO claims conflict and are not relied on (V1 section 4); with confirmed certificates it would be a candidate for 4.
 - *Rule 3 (ownership change).* OpenRouter's lock-in falls from 3 to 2 for the pending Stripe acquisition, and the change is noted in its maturity rationale. No other product in this layer changed owner in 2025–26; RadixArk's stewardship of SGLang is not an acquisition, but it is reflected in SGLang's lock-in score of 4 rather than 5.
-- *Tiers.* vLLM is Strategic (FS 4.30). Hugging Face is Strategic, conditional (FS 3.60), on the narrow basis of its Hub as governed open-weight supply. SGLang (FS 3.65) and Fireworks (FS 3.65) clear 3.6 but stay Tactical: SGLang because of its security evidence (criterion at 2 with no platform-commitment condition, rule 11); Fireworks pending ISO and residency due diligence (rule 13). Dynamo and llm-d are Experimental on maturity.
+- *Tiers.* vLLM is Strategic (FS 4.30). Hugging Face is Strategic, conditional (FS 3.60), on the narrow basis of its Hub as governed open-weight supply. SGLang (FS 3.65) and Fireworks (FS 3.65) were drafted as Tactical (SGLang under rule 11, with security 2 and no platform-commitment condition; Fireworks pending ISO and residency due diligence under rule 13). The reader upgraded both to Strategic, conditional at Checkpoint 4 (CP4-4), with no score changes: SGLang as the qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed; Fireworks for managed open-model inference, once its ISO certificates are confirmed. Dynamo and llm-d are Experimental on maturity.
 - *Calibration (rule 5).* Every product except vLLM, Hugging Face, Together and Fireworks scores 2 or below on at least one criterion. For those four, the weakest scores (3 on security for all of them) are stated as conditions.
 
 **Key facts.**
@@ -363,12 +363,14 @@ STEP 2 [Rec]: Is the model you need available, processed in your approved region
            └─ Yes → Do you have, or will you fund, GPU capacity AND an SRE team that
                     can patch engines monthly and run on-call?
                     ├─ No  → PRIVATE-VPC MANAGED INFERENCE: Fireworks BYOC or EU
+                    │        (Strategic, conditional: once its ISO certificates are confirmed)
                     │        dedicated deployment; Together EU dedicated endpoint
                     │        (Scale/Enterprise, ZDR on); HF Inference Endpoints in an
                     │        approved region with PrivateLink.
                     └─ Yes → OWN GPUs: vLLM (supported distribution if your operating
                              model needs a vendor), weights from an internal mirror;
-                             SGLang qualified as the alternative engine.
+                             SGLang qualified as the backup engine (Strategic, conditional:
+                             once CVE-2026-3059 is confirmed fixed in the deployed version).
                              Multi-node, high volume, Kubernetes standard?
                              ├─ Yes → pilot llm-d (CNCF) or Dynamo (NVIDIA estates)
                              │        as the optimisation layer; non-production first
@@ -461,12 +463,12 @@ STEP 4 [Rec]: Checks before go-live
 | Hugging Face "models & APIs" | Four products: Hub, Inference Providers, Inference Endpoints, TGI (repository archived 21 Mar 2026) [VF: A4-S075, A4-S081, V1-S054] | Strategic, conditional: Hub as governed open-weight supply; Endpoints Tactical [Rec] |
 | OpenRouter "multi-provider" | Router with budgets, allowlists, ZDR, EU/US routing; SOC 2, no BAA; 5.5% credit fee; Stripe acquisition pending [VF: A4-S111, A4-S142, V1-S062, V1-S059] | Tactical: model-access source behind C1, not the gateway; no client data without contractual ZDR and residency [Rec] |
 | Together AI "open-source cloud" | AI-native cloud incl. GPU clusters; ZDR off by default; EU dedicated on Scale/Enterprise [VF: A4-S131, A4-S130] | Tactical: EU dedicated with ZDR on [Rec] |
-| Fireworks AI "fast inference" | ZDR on by default (Response API excepted); BYOC; ISO claims conflicting [VF: A4-S134, A4-S152, V1-S067] | Tactical; candidate for Strategic after ISO and residency due diligence [Rec] |
+| Fireworks AI "fast inference" | ZDR on by default (Response API excepted); BYOC; ISO claims conflicting [VF: A4-S134, A4-S152, V1-S067] | Strategic, conditional: managed open-model inference, once ISO certificates are confirmed; EU dedicated or BYOC for client data (CP4-4) [Rec] |
 | Cerebras "ultra-scale cloud" | Chip vendor plus inference cloud; public since May 2026; no EU capacity yet [VF: A4-S095, A4-S137, A4-S140] | Tactical: latency-critical, non-confidential workloads [Rec] |
 | Ollama "run locally" | MIT local runtime plus Ollama Cloud [VF: A4-S086, A4-S084] | Tactical: developer tier with cloud disabled [Rec] |
 | LM Studio "desktop app" | Proprietary app, free for internal business use, no service use [VF: A4-S145] | Tactical: managed desktops only [Rec] |
 | vLLM "high-throughput" | 0.31.0, PyTorch Foundation-hosted, supported distribution available [VF: A4-S009, A4-S146, B-L2-S001] | Strategic: default engine for private routes [Rec] |
-| SGLang "efficient engine" | 0.5.21, RadixArk steward; open critical advisory [VF: A4-S010, A4-S147, B-L2-S009] | Tactical: qualified alternative engine [Rec] |
+| SGLang "efficient engine" | 0.5.21, RadixArk steward; open critical advisory [VF: A4-S010, A4-S147, B-L2-S009] | Strategic, conditional: qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed (CP4-4) [Rec] |
 | (absent) NVIDIA Dynamo, llm-d | Optimisation layers above engines; beta / sandbox [VF: A4-S098, A4-S089] | Experimental: pilot only [Rec] |
 | (absent) Hyperscaler model services | In-geography processing and reserved capacity on Bedrock, Foundry and Google Cloud; hyperscalers designated under DORA and UK CTP [VF: B-L2-S005, B-L2-S006, B-L2-S008, R-UK-CTP] | Default enterprise access route in the primary cloud [Rec] |
 

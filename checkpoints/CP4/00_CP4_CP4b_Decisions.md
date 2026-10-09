@@ -40,3 +40,4 @@ The questions were asked before the drafts were produced, at the user's request.
 | CP5-2 Claude Doc | **Executive summary and synthesis only** (about 25–30k words), linking to the full Word/PDF on GitHub |
 | CP5-3 Explorer | **Offline single-file HTML only**, in the repo and the ZIP. Not published as a hosted page. |
 | CP5-4 ZIP delivery | **GitHub Release asset.** Attach the ZIP to a tagged release; the branch "Download ZIP" also works. |
+| CP5-4 follow-up | This session cannot create a GitHub Release: there is no release tool and the gh token is invalid. **The user chose to commit the ZIP in the working branch's package folder** (`claude/nice-meitner-0me752`, `Enterprise_GenAI_Stack_Oct2026/`). |

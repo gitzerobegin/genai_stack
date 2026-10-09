@@ -149,9 +149,9 @@
       "fs_note": "Pin the major version; v1 receives security fixes for at least six months after v2 [VF: V1-S074] [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Strong typed agent step, but young major versions and no verified support offer."
+      "rationale": "Strategic, conditional: for Python teams wanting type-safe agents, typically as the typed agent step inside a Temporal or DBOS workflow; pin the major version (breaking v2 ten months after v1) and note that commercial support is not verified. Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.55) [AJ]."
     },
     "scores": {
       "criteria": {
@@ -330,7 +330,7 @@
       "flags": [
         "Renamed"
       ],
-      "rationale": "Alpha, single-model and subprocess-bound; borderline calls resolved against it (conflict of interest)."
+      "rationale": "Alpha (the vendor's own PyPI classifier), single-model and subprocess-bound; stays Experimental. Maturity set to 2 by the reader at Checkpoint 4 (CP4-9), in line with the OpenAI Agents SDK; technical 3 and deployment 3 are the peer-consistent values (CP4 review C). Conflict of interest disclosed."
     },
     "scores": {
       "criteria": {
@@ -339,7 +339,7 @@
         "security_compliance": 3,
         "deployment_flexibility": 3,
         "ecosystem": 3,
-        "reliability_maturity": 1,
+        "reliability_maturity": 2,
         "cost_tco": 3,
         "lockin_portability": 2
       },
@@ -349,13 +349,13 @@
         "security_compliance": "Library (rule 2); inherits Claude API terms where ZDR is available, but Managed Agents excluded from ZDR [VF: A4-S123]",
         "deployment_flexibility": "Self-hosted in containers/Kubernetes; model inference remains a cloud API; subprocess-per-session hosting [VF: A4-S122]; borderline 3/4 resolved down",
         "ecosystem": "MCP, plugins and skills; Claude models only [VF: A4-S027]",
-        "reliability_maturity": "Alpha development status, pre-1.0, renamed September 2025 [VF: A4-S006, A4-S029]; pre-1.0/beta anchor applied strictly",
+        "reliability_maturity": "Alpha development status (PyPI 'Development Status: 3 - Alpha'), pre-1.0, renamed September 2025 [VF: A4-S006, A4-S029, B-REVC-S001]. Scored 2, the same as the pre-1.0 OpenAI Agents SDK, by the reader at Checkpoint 4 (CP4-9; previously 1 under a strict reading of the anchor). The Alpha label is recorded as a limitation and reflected in the Experimental tier.",
         "cost_tco": "No SDK charge; compute scales with concurrent sessions [VF: A4-S122] [AJ]",
         "lockin_portability": "Claude-only, bundled CLI binary, Commercial Terms [VF: A4-S027, A4-S092]"
       },
       "evidence_caps_applied": [],
-      "generic_total": 2.75,
-      "fs_total": 2.65
+      "generic_total": 2.85,
+      "fs_total": 2.75
     }
   },
   {
@@ -563,7 +563,7 @@
     "classification": {
       "tier": "Strategic",
       "flags": [],
-      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (rule 10: ADK on Agent Engine is Google's lead agent framework and runtime, matching Strands/AgentCore on AWS and Microsoft Agent Framework on Azure); no criterion at 1; scored as a library under rule 2, so enterprise readiness and security stay at 3. Tier changed from Tactical by CP4 reviewer C for rule-10 parity."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (rule 10: ADK on Agent Engine is Google's lead agent framework and runtime, matching Strands/AgentCore on AWS and Microsoft Agent Framework on Azure); no criterion at 1; scored as a library under rule 2, so enterprise readiness and security stay at 3. Tier changed from Tactical by CP4 reviewer C for rule-10 parity. Confirmed by the reader at Checkpoint 4 (CP4-4)."
     },
     "scores": {
       "criteria": {
