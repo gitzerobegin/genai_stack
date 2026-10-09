@@ -14,8 +14,9 @@ step() { printf '\n=== %s\n' "$*"; }
 
 step "1. Dataset, bibliography, what-changed table (expect 0 issues)"
 python3 -I tools/build_dataset.py .
-step "2. Claim-tag check on the synthesis and the 17 chapters"
-python3 -I tools/check_tags.py . work/stageC/synthesis.md work/stageB/*/section.md | tail -5
+step "2. Further views (TS, SW, SU): re-weighted scores; claim-tag check on synthesis, chapters and views"
+python3 -I tools/build_views.py .
+python3 -I tools/check_tags.py . work/stageC/synthesis.md work/stageB/*/section.md work/stageE/views/*/view.md | tail -5
 step "3. Figures: Mermaid diagrams, LinkedIn post visuals, stack graphic, one-page architecture"
 node tools/render_diagrams.js
 node tools/render_post_visuals.js

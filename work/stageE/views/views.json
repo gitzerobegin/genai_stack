@@ -1,0 +1,44 @@
+{
+  "_comment": "Stage E further views (user request, 9 October 2026). Each view re-weights the SAME eight criterion scores (work/stage0/08_scoring_rubric.md) that the regulated-FS view uses; no product fact or criterion score changes. Weights are architectural judgement [AJ] and sum to 100. tools/build_views.py computes the view scores and an indicative fit. To add or change a view, edit this file and re-run the tool.",
+  "criteria": ["technical", "enterprise_readiness", "security_compliance", "deployment_flexibility", "ecosystem", "reliability_maturity", "cost_tco", "lockin_portability"],
+  "fit_rules": {
+    "core_threshold": 3.6,
+    "rule": "Core candidate: view score >= 3.6, no criterion at 1, and the product is not Experimental or Not recommended in the master tiers (immaturity and evidence gaps do not depend on the view). Situational: everything else that is scored. The fit is computed, indicative and not checkpoint-reviewed; conditions attached to the master tier still apply."
+  },
+  "views": [
+    {
+      "id": "FS",
+      "name": "Regulated financial services (the master view)",
+      "short": "Regulated FS",
+      "weights": {"technical": 15, "enterprise_readiness": 15, "security_compliance": 20, "deployment_flexibility": 15, "ecosystem": 5, "reliability_maturity": 10, "cost_tco": 5, "lockin_portability": 15},
+      "profile": "A regulated UK/EU asset manager deploying GenAI internally and to clients under model-risk, outsourcing and operational-resilience rules. This is the view in Parts I to XII."
+    },
+    {
+      "id": "TS",
+      "name": "Technology service provider",
+      "short": "Tech services",
+      "weights": {"technical": 15, "enterprise_readiness": 15, "security_compliance": 15, "deployment_flexibility": 10, "ecosystem": 10, "reliability_maturity": 15, "cost_tco": 15, "lockin_portability": 5},
+      "profile": "A technology company that runs GenAI inside services it operates for its customers: a multi-tenant SaaS platform, a managed or hosted service, or a digital platform. It hosts customer data as a processor, owes customers uptime and security commitments, answers their security questionnaires, and earns a gross margin on every model call.",
+      "why_weights": "Reliability and cost per call rise (service-level commitments and gross margin are the business); lock-in falls because the provider runs one estate it controls; deployment flexibility falls because the provider chooses where its own service runs.",
+      "worked_example": "A multi-tenant customer-support platform adds an agent that drafts replies to its customers' end users from each tenant's own knowledge base, with a human agent approving each reply. Tenant isolation, per-tenant cost and the customer's right to opt out of AI are the hard parts."
+    },
+    {
+      "id": "SW",
+      "name": "Software product company",
+      "short": "Software products",
+      "weights": {"technical": 15, "enterprise_readiness": 10, "security_compliance": 15, "deployment_flexibility": 20, "ecosystem": 10, "reliability_maturity": 10, "cost_tco": 5, "lockin_portability": 15},
+      "profile": "A software vendor that ships products with GenAI features built in, which its customers deploy and operate: self-managed or on-premises installs, private-cloud and air-gapped editions, cloud-marketplace images and SDKs. The vendor must let each customer choose or bring the model, redistribute only what licences allow, and support many customer estates it does not control.",
+      "why_weights": "Deployment flexibility and licence portability dominate (the product must run wherever the customer runs it, and every bundled component must be redistributable); cost matters less because the customer usually pays for inference; enterprise readiness of a component matters less because the product inherits the customer's identity and audit stack.",
+      "worked_example": "A vendor of an on-premises document-management product ships an 'ask your documents' assistant. Customers choose a hosted model through their own account, or a bundled open-weight model for air-gapped sites; retrieval respects the product's existing permissions."
+    },
+    {
+      "id": "SU",
+      "name": "Start-up technology company",
+      "short": "Start-up",
+      "weights": {"technical": 25, "enterprise_readiness": 5, "security_compliance": 10, "deployment_flexibility": 5, "ecosystem": 15, "reliability_maturity": 10, "cost_tco": 20, "lockin_portability": 10},
+      "profile": "An early-stage technology company (pre-seed to Series B) building an AI-native product with a small team. Speed to a working product, cash runway and developer productivity come first; the first enterprise customers will soon ask for security assurance, and the architecture must not trap the company when it scales.",
+      "why_weights": "Technical capability, developer ecosystem and cost carry the most weight; enterprise readiness and deployment flexibility matter little until the first enterprise deal; a modest lock-in weight keeps exits open at low cost.",
+      "worked_example": "A five-person start-up builds an AI assistant for small accounting firms that drafts client emails and summarises bookkeeping anomalies. It must ship in weeks, keep model spend below a set share of revenue, and pass its first customer's security questionnaire within a year."
+    }
+  ]
+}

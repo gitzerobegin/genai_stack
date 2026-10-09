@@ -22,6 +22,7 @@ Work through, item by item:
 2. Every dated event in the roadmap calendar (Part X.1) that has now passed, or falls within the next six months.
 3. Every reader-set conditional tier (checkpoints/CP3/06_CP3_Decisions.md, checkpoints/CP4/00_CP4_CP4b_Decisions.md), e.g. SGLang CVE-2026-3059 fix, Fireworks AI ISO certificates.
 4. The "Known residual risks" and "Not yet profiled" lists in MEMORY.md.
+5. The volatile Stage E facts in work/stageE/E1_regulation/facts.md and work/stageE/E2_commercial/facts.md (start-up credits, US state AI-law dates, CRA and PLD milestones, model licence and API terms).
 
 For each item, find the current primary source, archive it with python3 -I tools/snapshot.py into <PKG>/06_References/snapshots/R<N>-R0/, and record a new source as R<N>-R0-S### in work/refresh/R<N>/R0/sources.csv (same columns as work/stageA/*/sources.csv).
 
@@ -51,6 +52,8 @@ Outputs:
 - work/refresh/R<N>/<STREAM>/changes.md: table of product id · field · old value · new value · source IDs · why it matters (one line)
 Finish with a summary of at most 200 words listing the five most material changes.
 ```
+
+For the **Stage E streams**, run the same prompt with <STREAM> = E1 (folder work/stageE/E1_regulation, records in its regulatory_facts.json) and E2 (work/stageE/E2_commercial, facts in facts.md), new sources R<N>-E1-S### / R<N>-E2-S###.
 
 For **A8 (regulation)**, add: "Also update `work/stageA/A8_Regulation/regulatory_facts.json` (the build script copies it into `<PKG>/05_Data/`): dates that have passed, new final rules, consultations closed, new designations under DORA and the UK CTP regime. Log each change in `changes.md`."
 
@@ -101,6 +104,20 @@ Run python3 -I tools/check_tags.py . work/stageC/synthesis.md and fix every unkn
 ```
 
 Then run an independent synthesis reviewer, as in the October run (45-edit review, log in `work/stageC/synthesis_review.md`).
+
+## R4b: Further views (three agents, one per view, after R3 and `python3 -I tools/build_views.py .`)
+
+```text
+You are the Stage E refresh editor for view <VIEW> (TS technology service provider, SW software product company, SU start-up). Today is <DATE>.
+Read work/stage0/11_stageE_views_brief.md, work/stageE/views/views.json, work/stageE/views/<VIEW>_scores.md (regenerated),
+work/refresh/R<N>/tier_changes.md, the refreshed E1/E2 facts.md files and the current work/stageE/views/<VIEW>/view.md.
+Update the view in place: findings, scoring section (counts and movers from <VIEW>_scores.md), layer-by-layer table,
+regulation section (dates that passed or moved), reference stack, roadmap and checklist. Keep the structure, the claim
+tags, British spelling, layer order L1 -> L9 then C1 -> C8, and an independent alternative beside every Anthropic product.
+Update the figure source 08_Graphic/diagrams/<VIEW>-1.md if the architecture changed and re-render it.
+Run python3 -I tools/check_tags.py . work/stageE/views/<VIEW>/view.md and fix every unknown ID or untagged paragraph.
+Append a "Refresh <DATE>" note at the end of section 1 listing what changed.
+```
 
 ## R5: LinkedIn (optional)
 

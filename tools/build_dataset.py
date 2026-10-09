@@ -70,7 +70,7 @@ for d in sorted(glob.glob("work/stageA/A*_*/")) + sorted(glob.glob("work/stageA_
 
 # Desktop gap-fill sources (G-<stream>-S###, RERUN_ON_DESKTOP.md step 2.3-2.5) and
 # quarterly refresh sources (R<n>-<stream>-S###, REFRESH_QUARTERLY.md)
-for sp in sorted(glob.glob("work/gapfill/*/sources*.csv")) + sorted(glob.glob("work/refresh/*/*/sources*.csv")):
+for sp in sorted(glob.glob("work/gapfill/*/sources*.csv")) + sorted(glob.glob("work/refresh/*/*/sources*.csv")) + sorted(glob.glob("work/stageE/*/sources*.csv")):
     with open(sp, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             row = {k.strip(): (v or "").strip() for k, v in row.items() if k}
@@ -78,7 +78,7 @@ for sp in sorted(glob.glob("work/gapfill/*/sources*.csv")) + sorted(glob.glob("w
                 if row["id"] in sources:
                     issues.append("duplicate source id %s" % row["id"])
                 parts = sp.replace(os.sep, "/").split("/")
-                row["stream"] = ("G-" + parts[2]) if parts[1] == "gapfill" else (parts[2] + "-" + parts[3])
+                row["stream"] = ("G-" + parts[2]) if parts[1] == "gapfill" else parts[2] if parts[1] == "stageE" else (parts[2] + "-" + parts[3])
                 sources[row["id"]] = row
 
 # integrity: every src id resolves; Verified/Reported cells carry sources
@@ -129,6 +129,13 @@ reg = []
 rp = "work/stageA/A8_Regulation/regulatory_facts.json"
 if os.path.exists(rp):
     reg = json.load(open(rp, encoding="utf-8"))
+    # Stage E (further views) adds records for software and service providers, e.g. the EU Cyber Resilience Act
+    for ep in sorted(glob.glob("work/stageE/*/regulatory_facts*.json")):
+        for r in json.load(open(ep, encoding="utf-8")):
+            if any(x.get("id") == r.get("id") for x in reg):
+                issues.append("duplicate regulatory id %s (%s)" % (r.get("id"), ep))
+            else:
+                reg.append(r)
     json.dump(reg, open(PKG + "/05_Data/regulatory_facts.json", "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     for r in reg:
         for path, cell in walk_facts(r):

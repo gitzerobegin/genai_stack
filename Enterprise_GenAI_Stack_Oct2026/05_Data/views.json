@@ -1,0 +1,4992 @@
+{
+ "generated_by": "tools/build_views.py",
+ "views": [
+  {
+   "id": "FS",
+   "name": "Regulated financial services (the master view)",
+   "short": "Regulated FS",
+   "weights": {
+    "technical": 15,
+    "enterprise_readiness": 15,
+    "security_compliance": 20,
+    "deployment_flexibility": 15,
+    "ecosystem": 5,
+    "reliability_maturity": 10,
+    "cost_tco": 5,
+    "lockin_portability": 15
+   },
+   "profile": "A regulated UK/EU asset manager deploying GenAI internally and to clients under model-risk, outsourcing and operational-resilience rules. This is the view in Parts I to XII."
+  },
+  {
+   "id": "TS",
+   "name": "Technology service provider",
+   "short": "Tech services",
+   "weights": {
+    "technical": 15,
+    "enterprise_readiness": 15,
+    "security_compliance": 15,
+    "deployment_flexibility": 10,
+    "ecosystem": 10,
+    "reliability_maturity": 15,
+    "cost_tco": 15,
+    "lockin_portability": 5
+   },
+   "profile": "A technology company that runs GenAI inside services it operates for its customers: a multi-tenant SaaS platform, a managed or hosted service, or a digital platform. It hosts customer data as a processor, owes customers uptime and security commitments, answers their security questionnaires, and earns a gross margin on every model call.",
+   "why_weights": "Reliability and cost per call rise (service-level commitments and gross margin are the business); lock-in falls because the provider runs one estate it controls; deployment flexibility falls because the provider chooses where its own service runs.",
+   "worked_example": "A multi-tenant customer-support platform adds an agent that drafts replies to its customers' end users from each tenant's own knowledge base, with a human agent approving each reply. Tenant isolation, per-tenant cost and the customer's right to opt out of AI are the hard parts."
+  },
+  {
+   "id": "SW",
+   "name": "Software product company",
+   "short": "Software products",
+   "weights": {
+    "technical": 15,
+    "enterprise_readiness": 10,
+    "security_compliance": 15,
+    "deployment_flexibility": 20,
+    "ecosystem": 10,
+    "reliability_maturity": 10,
+    "cost_tco": 5,
+    "lockin_portability": 15
+   },
+   "profile": "A software vendor that ships products with GenAI features built in, which its customers deploy and operate: self-managed or on-premises installs, private-cloud and air-gapped editions, cloud-marketplace images and SDKs. The vendor must let each customer choose or bring the model, redistribute only what licences allow, and support many customer estates it does not control.",
+   "why_weights": "Deployment flexibility and licence portability dominate (the product must run wherever the customer runs it, and every bundled component must be redistributable); cost matters less because the customer usually pays for inference; enterprise readiness of a component matters less because the product inherits the customer's identity and audit stack.",
+   "worked_example": "A vendor of an on-premises document-management product ships an 'ask your documents' assistant. Customers choose a hosted model through their own account, or a bundled open-weight model for air-gapped sites; retrieval respects the product's existing permissions."
+  },
+  {
+   "id": "SU",
+   "name": "Start-up technology company",
+   "short": "Start-up",
+   "weights": {
+    "technical": 25,
+    "enterprise_readiness": 5,
+    "security_compliance": 10,
+    "deployment_flexibility": 5,
+    "ecosystem": 15,
+    "reliability_maturity": 10,
+    "cost_tco": 20,
+    "lockin_portability": 10
+   },
+   "profile": "An early-stage technology company (pre-seed to Series B) building an AI-native product with a small team. Speed to a working product, cash runway and developer productivity come first; the first enterprise customers will soon ask for security assurance, and the architecture must not trap the company when it scales.",
+   "why_weights": "Technical capability, developer ecosystem and cost carry the most weight; enterprise readiness and deployment flexibility matter little until the first enterprise deal; a modest lock-in weight keeps exits open at low cost.",
+   "worked_example": "A five-person start-up builds an AI assistant for small accounting firms that drafts client emails and summarises bookkeeping anomalies. It must ship in weeks, keep model spend below a set share of revenue, and pass its first customer's security questionnaire within a year."
+  }
+ ],
+ "fit_rules": {
+  "core_threshold": 3.6,
+  "rule": "Core candidate: view score >= 3.6, no criterion at 1, and the product is not Experimental or Not recommended in the master tiers (immaturity and evidence gaps do not depend on the view). Situational: everything else that is scored. The fit is computed, indicative and not checkpoint-reviewed; conditions attached to the master tier still apply."
+ },
+ "products": [
+  {
+   "id": "L1-alibaba-qwen",
+   "name": "Alibaba Qwen model family (Qwen3.8: Max, Flash, Omni-Flash API; open-weight Qwen3.8-27B, Qwen3.8-2.4T-A95B, Qwen3.8-Flash-Next)",
+   "layer": "L1",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.0,
+    "TS": 3.05,
+    "SW": 3.2,
+    "SU": 3.3
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 10,
+    "TS": 9,
+    "SW": 7,
+    "SU": 7
+   }
+  },
+  {
+   "id": "L1-anthropic",
+   "name": "Anthropic Claude model family (Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5; restricted Claude Mythos 5.1)",
+   "layer": "L1",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 5,
+    "deployment_flexibility": 3,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.8,
+    "TS": 3.85,
+    "SW": 3.7,
+    "SU": 3.85
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 2,
+    "SW": 4,
+    "SU": 2
+   }
+  },
+  {
+   "id": "L1-deepseek",
+   "name": "DeepSeek V4 family (DeepSeek-V4-Pro; DeepSeek-V4.1-Flash, which replaced V4-Flash in the API)",
+   "layer": "L1",
+   "tier": "Tactical",
+   "flags": [
+    "Not recommended"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 1,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 3,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.15,
+    "TS": 3.1,
+    "SW": 3.3,
+    "SU": 3.3
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 7,
+    "SW": 5,
+    "SU": 8
+   }
+  },
+  {
+   "id": "L1-google-gemini",
+   "name": "Google Gemini model family (Gemini 3.x: 3.1 Pro, 3.8 Flash, 3.5 Flash-Lite; Gemini 4 Argon in limited release)",
+   "layer": "L1",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.45,
+    "SW": 3.2,
+    "SU": 3.5
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 6,
+    "SW": 8,
+    "SU": 6
+   }
+  },
+  {
+   "id": "L1-google-gemma",
+   "name": "Google Gemma 4 (open-weight family)",
+   "layer": "L1",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.8,
+    "TS": 3.8,
+    "SW": 3.9,
+    "SU": 3.7
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 3,
+    "SW": 3,
+    "SU": 4
+   }
+  },
+  {
+   "id": "L1-meta",
+   "name": "Meta Muse family (Muse Spark 1.1-1.3 via Meta Model API; Muse Glimmer 30B open weights; Muse Code; Muse Image) plus Llama 4 (Scout, Maverick)",
+   "layer": "L1",
+   "tier": "Tactical",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.05,
+    "TS": 3.05,
+    "SW": 3.15,
+    "SU": 3.05
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 9,
+    "TS": 10,
+    "SW": 10,
+    "SU": 10
+   }
+  },
+  {
+   "id": "L1-mistral",
+   "name": "Mistral AI model family (Mistral Large 4 preview; Mistral Medium 3.5; Mistral Large 3; Mistral Small 4.0; Ministral 3; Magistral; Devstral 2; Codestral; Mistral OCR; Voxtral)",
+   "layer": "L1",
+   "tier": "Strategic",
+   "flags": [
+    "Superseded"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.85,
+    "TS": 3.8,
+    "SW": 3.95,
+    "SU": 3.85
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 4,
+    "SW": 2,
+    "SU": 3
+   }
+  },
+  {
+   "id": "L1-moonshot-kimi",
+   "name": "Moonshot AI Kimi model family (Kimi K3; K2.7-Code, K2.6, K2.5, K2-Thinking)",
+   "layer": "L1",
+   "tier": "Experimental",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.8,
+    "TS": 2.7,
+    "SW": 2.8,
+    "SU": 2.65
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 11,
+    "TS": 11,
+    "SW": 11,
+    "SU": 11
+   }
+  },
+  {
+   "id": "L1-openai",
+   "name": "OpenAI GPT model family (GPT-6: Astra, Sol, Luna; GPT-6.1 Sol), plus GPT-5.6 Sol/Terra/Luna and open-weight gpt-oss",
+   "layer": "L1",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 5,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 4.05,
+    "TS": 4.2,
+    "SW": 4.1,
+    "SU": 4.3
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "L1-xai-grok",
+   "name": "xAI Grok model family (Grok 4.7 flagship; 4.6, 4.5, 4.3, 4.20; Grok 4.1 Fast; grok-code-fast-1 / Grok Build)",
+   "layer": "L1",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 3,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.25,
+    "TS": 3.5,
+    "SW": 3.25,
+    "SU": 3.55
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 5,
+    "SW": 6,
+    "SU": 5
+   }
+  },
+  {
+   "id": "L1-zai-glm",
+   "name": "Z.ai (Zhipu) GLM model family (GLM-5.3, GLM-5.3-Flash, GLM-5.2, GLM-5.1, GLM-5; GLM-4.7)",
+   "layer": "L1",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.15,
+    "TS": 3.1,
+    "SW": 3.2,
+    "SU": 3.15
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 8,
+    "SW": 9,
+    "SU": 9
+   }
+  },
+  {
+   "id": "L2-cerebras",
+   "name": "Cerebras Systems (Cerebras Inference / Cerebras Cloud; CS-3 systems)",
+   "layer": "L2",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.8,
+    "TS": 2.85,
+    "SW": 2.85,
+    "SU": 2.9
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 10,
+    "TS": 10,
+    "SW": 10,
+    "SU": 10
+   }
+  },
+  {
+   "id": "L2-fireworks-ai",
+   "name": "Fireworks AI",
+   "layer": "L2",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.65,
+    "TS": 3.55,
+    "SW": 3.7,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Situational",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 4,
+    "SW": 3,
+    "SU": 4
+   }
+  },
+  {
+   "id": "L2-hugging-face",
+   "name": "Hugging Face: Hub (models/datasets/Spaces/buckets/Jobs), Inference Providers (routed serverless inference), Inference Endpoints (managed dedicated deployments); Text Generation Inference (TGI) in maintenance mode",
+   "layer": "L2",
+   "tier": "Strategic",
+   "flags": [
+    "Duplicated",
+    "Deprecated"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 3,
+    "ecosystem": 5,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.6,
+    "TS": 3.7,
+    "SW": 3.65,
+    "SU": 3.9
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 2,
+    "SW": 4,
+    "SU": 3
+   }
+  },
+  {
+   "id": "L2-llm-d",
+   "name": "llm-d",
+   "layer": "L2",
+   "tier": "Experimental",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 3,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.15,
+    "SW": 3.5,
+    "SU": 3.45
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 7,
+    "SW": 6,
+    "SU": 6
+   }
+  },
+  {
+   "id": "L2-lm-studio",
+   "name": "LM Studio (desktop app) with lms CLI and Python/JS SDKs",
+   "layer": "L2",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 2,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 2,
+    "ecosystem": 2,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.25,
+    "TS": 2.35,
+    "SW": 2.25,
+    "SU": 2.5
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 11,
+    "TS": 11,
+    "SW": 11,
+    "SU": 11
+   }
+  },
+  {
+   "id": "L2-nvidia-dynamo",
+   "name": "NVIDIA Dynamo",
+   "layer": "L2",
+   "tier": "Experimental",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.0,
+    "TS": 2.95,
+    "SW": 3.1,
+    "SU": 3.1
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 8,
+    "SW": 8,
+    "SU": 9
+   }
+  },
+  {
+   "id": "L2-ollama",
+   "name": "Ollama (local runtime) with Ollama Cloud (hosted cloud models)",
+   "layer": "L2",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 2.95,
+    "TS": 2.95,
+    "SW": 3.15,
+    "SU": 3.25
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 9,
+    "TS": 9,
+    "SW": 7,
+    "SU": 8
+   }
+  },
+  {
+   "id": "L2-openrouter",
+   "name": "OpenRouter",
+   "layer": "L2",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.05,
+    "TS": 3.25,
+    "SW": 3.0,
+    "SU": 3.3
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 6,
+    "SW": 9,
+    "SU": 7
+   }
+  },
+  {
+   "id": "L2-sglang",
+   "name": "SGLang",
+   "layer": "L2",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.65,
+    "TS": 3.65,
+    "SW": 3.85,
+    "SU": 3.95
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 3,
+    "SW": 2,
+    "SU": 2
+   }
+  },
+  {
+   "id": "L2-together-ai",
+   "name": "Together AI",
+   "layer": "L2",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.5,
+    "TS": 3.45,
+    "SW": 3.55,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 5,
+    "SW": 5,
+    "SU": 5
+   }
+  },
+  {
+   "id": "L2-vllm",
+   "name": "vLLM",
+   "layer": "L2",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 5,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 4.3,
+    "TS": 4.25,
+    "SW": 4.45,
+    "SU": 4.45
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "L3-aws-strands-agentcore",
+   "name": "Strands Agents (open-source SDK) and Amazon Bedrock AgentCore (managed agent runtime and services)",
+   "layer": "L3",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.25,
+    "TS": 3.4,
+    "SW": 3.15,
+    "SU": 3.4
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 6,
+    "SW": 10,
+    "SU": 7
+   }
+  },
+  {
+   "id": "L3-claude-agent-sdk",
+   "name": "Claude Agent SDK (Python: claude-agent-sdk; TypeScript: @anthropic-ai/claude-agent-sdk); formerly Claude Code SDK",
+   "layer": "L3",
+   "tier": "Experimental",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.75,
+    "TS": 2.8,
+    "SW": 2.75,
+    "SU": 2.8
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 11,
+    "TS": 11,
+    "SW": 11,
+    "SU": 11
+   }
+  },
+  {
+   "id": "L3-crewai",
+   "name": "CrewAI (open-source framework: Crews and Flows); commercial platform CrewAI AMP (Agent Management Platform; earlier materials say CrewAI Enterprise; explicit rename notice not found)",
+   "layer": "L3",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.2,
+    "SW": 3.3,
+    "SU": 3.2
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 9,
+    "SW": 7,
+    "SU": 10
+   }
+  },
+  {
+   "id": "L3-google-adk",
+   "name": "Agent Development Kit (ADK)",
+   "layer": "L3",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.4,
+    "SW": 3.4,
+    "SU": 3.5
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 5,
+    "SW": 5,
+    "SU": 6
+   }
+  },
+  {
+   "id": "L3-langgraph",
+   "name": "LangGraph (open-source framework); managed runtime now branded LangSmith Deployment (formerly LangGraph Platform)",
+   "layer": "L3",
+   "tier": "Strategic",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 5,
+    "ecosystem": 5,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 4.2,
+    "TS": 4.3,
+    "SW": 4.3,
+    "SU": 4.35
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "L3-llamaindex",
+   "name": "LlamaIndex (open-source framework, incl. Workflows); commercial platform now named LlamaParse (formerly LlamaCloud), which includes LlamaAgents",
+   "layer": "L3",
+   "tier": "Tactical",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.15,
+    "TS": 3.2,
+    "SW": 3.25,
+    "SU": 3.3
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 10,
+    "TS": 10,
+    "SW": 9,
+    "SU": 9
+   }
+  },
+  {
+   "id": "L3-microsoft-agent-framework",
+   "name": "Microsoft Agent Framework (MAF)",
+   "layer": "L3",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.65,
+    "TS": 3.8,
+    "SW": 3.7,
+    "SU": 3.8
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 2,
+    "SW": 3,
+    "SU": 2
+   }
+  },
+  {
+   "id": "L3-mistral-agents",
+   "name": "Mistral Agents API (exposed through the mistralai Python and TypeScript client SDKs, with an 'agents' extra) and Mistral Workflows (mistralai-workflows SDK); no separately branded 'Mistral Agents SDK' product found",
+   "layer": "L3",
+   "tier": "Experimental",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 3,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 2,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.55,
+    "TS": 2.5,
+    "SW": 2.6,
+    "SU": 2.55
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 12,
+    "TS": 12,
+    "SW": 12,
+    "SU": 12
+   }
+  },
+  {
+   "id": "L3-openai-agents-sdk",
+   "name": "OpenAI Agents SDK (Python: openai-agents; JS/TS: @openai/agents)",
+   "layer": "L3",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.3,
+    "TS": 3.35,
+    "SW": 3.4,
+    "SU": 3.55
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 7,
+    "SW": 6,
+    "SU": 5
+   }
+  },
+  {
+   "id": "L3-pydantic-ai",
+   "name": "Pydantic AI",
+   "layer": "L3",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.55,
+    "TS": 3.55,
+    "SW": 3.65,
+    "SU": 3.75
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 4,
+    "SW": 4,
+    "SU": 3
+   }
+  },
+  {
+   "id": "L3-temporal",
+   "name": "Temporal (durable execution platform; Python SDK temporalio)",
+   "layer": "L3",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 3,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.9,
+    "TS": 3.8,
+    "SW": 4.0,
+    "SU": 3.75
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 3,
+    "SW": 2,
+    "SU": 4
+   }
+  },
+  {
+   "id": "L3-vercel-ai-sdk",
+   "name": "AI SDK (by Vercel); npm package 'ai'",
+   "layer": "L3",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.15,
+    "TS": 3.2,
+    "SW": 3.25,
+    "SU": 3.3
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 9,
+    "TS": 8,
+    "SW": 8,
+    "SU": 8
+   }
+  },
+  {
+   "id": "L4-a2a",
+   "name": "Agent2Agent (A2A) Protocol",
+   "layer": "L4",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 3.7,
+    "TS": 3.55,
+    "SW": 3.85,
+    "SU": 3.65
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Situational",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 3,
+    "SW": 1,
+    "SU": 3
+   }
+  },
+  {
+   "id": "L4-agent-skills",
+   "name": "Agent Skills (SKILL.md open format)",
+   "layer": "L4",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 5,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.0,
+    "TS": 3.15,
+    "SW": 3.25,
+    "SU": 3.4
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 6,
+    "SW": 6,
+    "SU": 6
+   }
+  },
+  {
+   "id": "L4-aws-agentcore-gateway-identity",
+   "name": "Amazon Bedrock AgentCore Gateway and AgentCore Identity",
+   "layer": "L4",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.45,
+    "TS": 3.6,
+    "SW": 3.35,
+    "SU": 3.7
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Core candidate",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 1,
+    "SW": 5,
+    "SU": 2
+   }
+  },
+  {
+   "id": "L4-browserbase",
+   "name": "Browserbase (cloud browser infrastructure) and Stagehand (open-source browser automation SDK)",
+   "layer": "L4",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 3,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.3,
+    "SW": 3.4,
+    "SU": 3.5
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 4,
+    "SW": 4,
+    "SU": 4
+   }
+  },
+  {
+   "id": "L4-composio",
+   "name": "Composio",
+   "layer": "L4",
+   "tier": "Experimental",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.9,
+    "TS": 3.0,
+    "SW": 3.05,
+    "SU": 3.15
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 7,
+    "SW": 7,
+    "SU": 7
+   }
+  },
+  {
+   "id": "L4-e2b",
+   "name": "E2B",
+   "layer": "L4",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 2,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.25,
+    "SW": 3.5,
+    "SU": 3.5
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 5,
+    "SW": 3,
+    "SU": 5
+   }
+  },
+  {
+   "id": "L4-exa",
+   "name": "Exa",
+   "layer": "L4",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 1,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.7,
+    "TS": 2.8,
+    "SW": 2.6,
+    "SU": 2.9
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 8,
+    "SW": 8,
+    "SU": 8
+   }
+  },
+  {
+   "id": "L4-mcp",
+   "name": "Model Context Protocol (MCP)",
+   "layer": "L4",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 5,
+    "ecosystem": 5,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.55,
+    "TS": 3.6,
+    "SW": 3.8,
+    "SU": 3.85
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 2,
+    "SW": 2,
+    "SU": 1
+   }
+  },
+  {
+   "id": "L4-tavily",
+   "name": "Tavily",
+   "layer": "L4",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 1,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.55,
+    "TS": 2.75,
+    "SW": 2.45,
+    "SU": 2.8
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 9,
+    "TS": 9,
+    "SW": 9,
+    "SU": 9
+   }
+  },
+  {
+   "id": "L5-aws-agentcore-memory",
+   "name": "Amazon Bedrock AgentCore Memory",
+   "layer": "L5",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.3,
+    "SW": 3.05,
+    "SU": 3.25
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 3,
+    "SW": 5,
+    "SU": 3
+   }
+  },
+  {
+   "id": "L5-cognee",
+   "name": "Cognee",
+   "layer": "L5",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 5,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.25,
+    "TS": 3.2,
+    "SW": 3.4,
+    "SU": 3.25
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 5,
+    "SW": 3,
+    "SU": 4
+   }
+  },
+  {
+   "id": "L5-gcp-vertex-memory-bank",
+   "name": "Vertex AI Agent Engine Memory Bank (newer docs: 'Agent Platform Memory Bank' in Gemini Enterprise Agent Platform)",
+   "layer": "L5",
+   "tier": "Strategic",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.3,
+    "SW": 3.05,
+    "SU": 3.25
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 4,
+    "SW": 6,
+    "SU": 5
+   }
+  },
+  {
+   "id": "L5-langmem",
+   "name": "LangMem",
+   "layer": "L5",
+   "tier": "Experimental",
+   "flags": [
+    "Not publicly verified"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 1,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.65,
+    "TS": 2.65,
+    "SW": 2.8,
+    "SU": 2.9
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 8,
+    "SW": 7,
+    "SU": 8
+   }
+  },
+  {
+   "id": "L5-letta",
+   "name": "Letta (formerly MemGPT); current product is Letta Code, a stateful agent harness, with Letta Cloud",
+   "layer": "L5",
+   "tier": "Experimental",
+   "flags": [
+    "Superseded"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.75,
+    "TS": 2.85,
+    "SW": 2.8,
+    "SU": 3.0
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 7,
+    "SW": 8,
+    "SU": 7
+   }
+  },
+  {
+   "id": "L5-mem0",
+   "name": "Mem0 (open-source library and self-hosted server; Mem0 Platform managed service)",
+   "layer": "L5",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.5,
+    "SW": 3.45,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 2,
+    "SW": 2,
+    "SU": 2
+   }
+  },
+  {
+   "id": "L5-supermemory",
+   "name": "Supermemory",
+   "layer": "L5",
+   "tier": "Experimental",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.05,
+    "TS": 3.1,
+    "SW": 3.25,
+    "SU": 3.2
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 6,
+    "SW": 4,
+    "SU": 6
+   }
+  },
+  {
+   "id": "L5-zep",
+   "name": "Zep (managed context-graph platform, 'Zep Cloud') and Graphiti (open-source temporal knowledge-graph framework)",
+   "layer": "L5",
+   "tier": "Tactical",
+   "flags": [
+    "Deprecated"
+   ],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.5,
+    "TS": 3.6,
+    "SW": 3.55,
+    "SU": 3.65
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Core candidate",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "L6-chroma",
+   "name": "Chroma (open source) and Chroma Cloud",
+   "layer": "L6",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.1,
+    "TS": 3.0,
+    "SW": 3.2,
+    "SU": 3.2
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 10,
+    "TS": 10,
+    "SW": 8,
+    "SU": 9
+   }
+  },
+  {
+   "id": "L6-elasticsearch",
+   "name": "Elasticsearch (Elastic Search AI Platform)",
+   "layer": "L6",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 5,
+    "deployment_flexibility": 4,
+    "ecosystem": 5,
+    "reliability_maturity": 5,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 4.25,
+    "TS": 4.2,
+    "SW": 4.25,
+    "SU": 4.1
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 2,
+    "SW": 3,
+    "SU": 2
+   }
+  },
+  {
+   "id": "L6-milvus-zilliz",
+   "name": "Milvus (open source) and Zilliz Cloud (managed Milvus)",
+   "layer": "L6",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 3,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 4.25,
+    "TS": 4.0,
+    "SW": 4.3,
+    "SU": 3.95
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 3,
+    "SW": 2,
+    "SU": 3
+   }
+  },
+  {
+   "id": "L6-mongodb-atlas-vector-search",
+   "name": "MongoDB Vector Search (Atlas; self-managed Community Edition and Enterprise Advanced)",
+   "layer": "L6",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.65,
+    "TS": 3.75,
+    "SW": 3.65,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 6,
+    "SW": 7,
+    "SU": 5
+   }
+  },
+  {
+   "id": "L6-pgvector",
+   "name": "PostgreSQL with the pgvector extension",
+   "layer": "L6",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 5,
+    "reliability_maturity": 4,
+    "cost_tco": 5,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 4.2,
+    "TS": 4.25,
+    "SW": 4.35,
+    "SU": 4.4
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "L6-pinecone",
+   "name": "Pinecone (vector database; Pinecone Nexus knowledge engine)",
+   "layer": "L6",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 5,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 4,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.8,
+    "TS": 3.8,
+    "SW": 3.7,
+    "SU": 3.55
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 4,
+    "SW": 6,
+    "SU": 7
+   }
+  },
+  {
+   "id": "L6-qdrant",
+   "name": "Qdrant (open-source vector search engine; Qdrant Cloud, Hybrid Cloud, Private Cloud)",
+   "layer": "L6",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.85,
+    "TS": 3.8,
+    "SW": 3.95,
+    "SU": 3.85
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 5,
+    "SW": 4,
+    "SU": 4
+   }
+  },
+  {
+   "id": "L6-s3-vectors",
+   "name": "Amazon S3 Vectors",
+   "layer": "L6",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 5,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.15,
+    "TS": 3.45,
+    "SW": 3.0,
+    "SU": 3.4
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 8,
+    "SW": 10,
+    "SU": 8
+   }
+  },
+  {
+   "id": "L6-turbopuffer",
+   "name": "turbopuffer",
+   "layer": "L6",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.15,
+    "TS": 3.2,
+    "SW": 3.2,
+    "SU": 3.2
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 9,
+    "TS": 9,
+    "SW": 9,
+    "SU": 10
+   }
+  },
+  {
+   "id": "L6-weaviate",
+   "name": "Weaviate (database; Weaviate Cloud: Shared, Dedicated, BYOC)",
+   "layer": "L6",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 4,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.7,
+    "TS": 3.6,
+    "SW": 3.8,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 7,
+    "SW": 5,
+    "SU": 6
+   }
+  },
+  {
+   "id": "L7-cohere",
+   "name": "Cohere Embed 5 (embed-v5.0-pro, embed-v5.0-fast) and Cohere Rerank 4 (rerank-v4.0-pro, rerank-v4.0-fast)",
+   "layer": "L7",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.7,
+    "TS": 3.65,
+    "SW": 3.7,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 2,
+    "SW": 2,
+    "SU": 3
+   }
+  },
+  {
+   "id": "L7-gemini-embedding",
+   "name": "Gemini Embedding 2 (model id gemini-embedding-2)",
+   "layer": "L7",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.3,
+    "SW": 3.05,
+    "SU": 3.25
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 5,
+    "SW": 6,
+    "SU": 6
+   }
+  },
+  {
+   "id": "L7-jina",
+   "name": "Jina AI search foundation models (jina-embeddings-v5-text, jina-embeddings-v5-omni, jina-reranker-v3.5), part of Elastic",
+   "layer": "L7",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.15,
+    "TS": 3.15,
+    "SW": 3.25,
+    "SU": 3.15
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 6,
+    "SW": 4,
+    "SU": 7
+   }
+  },
+  {
+   "id": "L7-nvidia-nemo-retriever",
+   "name": "NVIDIA NeMo Retriever embedding and reranking NIM microservices (Nemotron embedding/reranking models)",
+   "layer": "L7",
+   "tier": "Tactical",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.95,
+    "TS": 2.9,
+    "SW": 3.0,
+    "SU": 2.75
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 8,
+    "SW": 8,
+    "SU": 8
+   }
+  },
+  {
+   "id": "L7-openai",
+   "name": "OpenAI embeddings: text-embedding-3-large and text-embedding-3-small",
+   "layer": "L7",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.45,
+    "SW": 3.05,
+    "SU": 3.3
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 3,
+    "SW": 7,
+    "SU": 5
+   }
+  },
+  {
+   "id": "L7-qwen3-embedding",
+   "name": "Qwen3-Embedding and Qwen3-Reranker (open weights); Qwen3-VL-Embedding / Qwen3-VL-Reranker (multimodal); hosted as text-embedding-v4 and qwen3-rerank on Alibaba Cloud Model Studio",
+   "layer": "L7",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.15,
+    "TS": 3.15,
+    "SW": 3.3,
+    "SU": 3.45
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 7,
+    "SW": 3,
+    "SU": 4
+   }
+  },
+  {
+   "id": "L7-sentence-transformers",
+   "name": "Sentence Transformers (sentence-transformers library; SBERT.net)",
+   "layer": "L7",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 5,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.7,
+    "TS": 3.8,
+    "SW": 3.85,
+    "SU": 4.0
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "L7-voyage",
+   "name": "Voyage AI by MongoDB (Voyage 4 embedding family; Rerank 3 rerankers)",
+   "layer": "L7",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.05,
+    "TS": 3.35,
+    "SW": 3.15,
+    "SU": 3.65
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 4,
+    "SW": 5,
+    "SU": 2
+   }
+  },
+  {
+   "id": "L8-apify",
+   "name": "Apify",
+   "layer": "L8",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 1,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.55,
+    "TS": 2.75,
+    "SW": 2.45,
+    "SU": 2.8
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 10,
+    "TS": 9,
+    "SW": 10,
+    "SU": 9
+   }
+  },
+  {
+   "id": "L8-crawl4ai",
+   "name": "Crawl4AI",
+   "layer": "L8",
+   "tier": "Experimental",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 2.9,
+    "TS": 2.85,
+    "SW": 3.05,
+    "SU": 3.1
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 8,
+    "SW": 6,
+    "SU": 7
+   }
+  },
+  {
+   "id": "L8-docling",
+   "name": "Docling",
+   "layer": "L8",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 5,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 4.05,
+    "TS": 4.05,
+    "SW": 4.1,
+    "SU": 4.25
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "L8-firecrawl",
+   "name": "Firecrawl",
+   "layer": "L8",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.0,
+    "TS": 3.2,
+    "SW": 3.05,
+    "SU": 3.25
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 6,
+    "SW": 7,
+    "SU": 5
+   }
+  },
+  {
+   "id": "L8-google-document-ai",
+   "name": "Google Cloud Document AI",
+   "layer": "L8",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.25,
+    "TS": 3.45,
+    "SW": 3.1,
+    "SU": 3.45
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 3,
+    "SW": 5,
+    "SU": 3
+   }
+  },
+  {
+   "id": "L8-llamaparse",
+   "name": "LlamaParse (now the name of LlamaIndex's whole document platform: Parse, Extract, Index, Split, Agents; previously marketed as LlamaCloud)",
+   "layer": "L8",
+   "tier": "Tactical",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.3,
+    "SW": 3.3,
+    "SU": 3.35
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 4,
+    "SW": 3,
+    "SU": 4
+   }
+  },
+  {
+   "id": "L8-mineru",
+   "name": "MinerU",
+   "layer": "L8",
+   "tier": "Experimental",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 2,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.7,
+    "TS": 2.65,
+    "SW": 2.8,
+    "SU": 2.7
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 9,
+    "TS": 10,
+    "SW": 9,
+    "SU": 10
+   }
+  },
+  {
+   "id": "L8-mistral-ocr",
+   "name": "Mistral OCR 4.1 (alias mistral-ocr-latest), part of Mistral Document AI",
+   "layer": "L8",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.25,
+    "TS": 3.25,
+    "SW": 3.25,
+    "SU": 3.2
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 5,
+    "SW": 4,
+    "SU": 6
+   }
+  },
+  {
+   "id": "L8-reducto",
+   "name": "Reducto",
+   "layer": "L8",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 2,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.9,
+    "TS": 2.95,
+    "SW": 2.95,
+    "SU": 2.95
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 7,
+    "SW": 8,
+    "SU": 8
+   }
+  },
+  {
+   "id": "L8-unstructured",
+   "name": "Unstructured: open-source 'unstructured' library and 'unstructured-ingest' connectors; commercial Transform v2 API / platform",
+   "layer": "L8",
+   "tier": "Strategic",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 4,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.85,
+    "TS": 3.65,
+    "SW": 3.95,
+    "SU": 3.7
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 2,
+    "SW": 2,
+    "SU": 2
+   }
+  },
+  {
+   "id": "L9-arize-ax",
+   "name": "Arize AX",
+   "layer": "L9",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired",
+    "Duplicated"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.7,
+    "TS": 3.7,
+    "SW": 3.75,
+    "SU": 3.55
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 5,
+    "SW": 5,
+    "SU": 8
+   }
+  },
+  {
+   "id": "L9-arize-phoenix",
+   "name": "Arize Phoenix",
+   "layer": "L9",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.5,
+    "TS": 3.65,
+    "SW": 3.6,
+    "SU": 3.75
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 6,
+    "SW": 8,
+    "SU": 5
+   }
+  },
+  {
+   "id": "L9-braintrust",
+   "name": "Braintrust",
+   "layer": "L9",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.3,
+    "SW": 3.3,
+    "SU": 3.35
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 10,
+    "TS": 10,
+    "SW": 9,
+    "SU": 9
+   }
+  },
+  {
+   "id": "L9-datadog-agent-observability",
+   "name": "Datadog Agent Observability (documented under the LLM Observability URL path)",
+   "layer": "L9",
+   "tier": "Tactical",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.15,
+    "SW": 3.1,
+    "SU": 3.05
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 11,
+    "TS": 11,
+    "SW": 11,
+    "SU": 11
+   }
+  },
+  {
+   "id": "L9-deepeval",
+   "name": "DeepEval",
+   "layer": "L9",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.7,
+    "TS": 3.65,
+    "SW": 3.85,
+    "SU": 3.8
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 7,
+    "SW": 2,
+    "SU": 4
+   }
+  },
+  {
+   "id": "L9-langfuse",
+   "name": "Langfuse",
+   "layer": "L9",
+   "tier": "Strategic",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.85,
+    "TS": 3.95,
+    "SW": 3.85,
+    "SU": 3.9
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 2,
+    "SW": 4,
+    "SU": 2
+   }
+  },
+  {
+   "id": "L9-langsmith",
+   "name": "LangSmith",
+   "layer": "L9",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.8,
+    "TS": 3.85,
+    "SW": 3.85,
+    "SU": 3.65
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 3,
+    "SW": 3,
+    "SU": 7
+   }
+  },
+  {
+   "id": "L9-mlflow-genai",
+   "name": "MLflow (GenAI capabilities: tracing, evaluation, prompt registry, AI Gateway)",
+   "layer": "L9",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 5,
+    "reliability_maturity": 5,
+    "cost_tco": 4,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 4.25,
+    "TS": 4.25,
+    "SW": 4.4,
+    "SU": 4.3
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "L9-opik",
+   "name": "Opik",
+   "layer": "L9",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 5,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.75,
+    "TS": 3.75,
+    "SW": 3.75,
+    "SU": 3.9
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 4,
+    "SW": 6,
+    "SU": 3
+   }
+  },
+  {
+   "id": "L9-promptfoo",
+   "name": "Promptfoo",
+   "layer": "L9",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.55,
+    "TS": 3.6,
+    "SW": 3.7,
+    "SU": 3.7
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 8,
+    "SW": 7,
+    "SU": 6
+   }
+  },
+  {
+   "id": "L9-wandb-weave",
+   "name": "W&B Weave (Weights & Biases)",
+   "layer": "L9",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.35,
+    "SW": 3.3,
+    "SU": 3.1
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 9,
+    "TS": 9,
+    "SW": 10,
+    "SU": 10
+   }
+  },
+  {
+   "id": "C1-agentgateway",
+   "name": "agentgateway",
+   "layer": "C1",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 3.45,
+    "TS": 3.35,
+    "SW": 3.55,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 6,
+    "SW": 5,
+    "SU": 4
+   }
+  },
+  {
+   "id": "C1-aws-agentcore-gateway",
+   "name": "Amazon Bedrock AgentCore Gateway (plus 'Guidance for Multi-Provider Generative AI Gateway on AWS')",
+   "layer": "C1",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.0,
+    "TS": 3.15,
+    "SW": 2.85,
+    "SU": 3.1
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 8,
+    "TS": 7,
+    "SW": 8,
+    "SU": 9
+   }
+  },
+  {
+   "id": "C1-azure-apim-ai-gateway",
+   "name": "AI gateway in Azure API Management (plus the AI Gateway tier, preview)",
+   "layer": "C1",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.25,
+    "TS": 3.4,
+    "SW": 3.15,
+    "SU": 3.4
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 5,
+    "SW": 6,
+    "SU": 6
+   }
+  },
+  {
+   "id": "C1-cloudflare-ai-gateway",
+   "name": "Cloudflare AI Gateway",
+   "layer": "C1",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.8,
+    "TS": 3.1,
+    "SW": 2.8,
+    "SU": 3.2
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 9,
+    "TS": 8,
+    "SW": 9,
+    "SU": 8
+   }
+  },
+  {
+   "id": "C1-envoy-ai-gateway",
+   "name": "Agent Router (formerly Envoy AI Gateway)",
+   "layer": "C1",
+   "tier": "Tactical",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 3.0,
+    "TS": 2.95,
+    "SW": 3.1,
+    "SU": 3.25
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 7,
+    "TS": 9,
+    "SW": 7,
+    "SU": 7
+   }
+  },
+  {
+   "id": "C1-google-apigee-ai-gateway",
+   "name": "Apigee (API management) used as an AI gateway",
+   "layer": "C1",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.65,
+    "TS": 3.75,
+    "SW": 3.65,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 2,
+    "SW": 3,
+    "SU": 3
+   }
+  },
+  {
+   "id": "C1-kong-ai-gateway",
+   "name": "Kong AI Gateway (AI Gateway 2.x runtime in Kong Konnect; AI plugins in Kong Gateway 3.x)",
+   "layer": "C1",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.8,
+    "TS": 3.65,
+    "SW": 3.8,
+    "SU": 3.65
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 3,
+    "SW": 2,
+    "SU": 2
+   }
+  },
+  {
+   "id": "C1-litellm",
+   "name": "LiteLLM (Python SDK and LiteLLM Proxy / 'AI Gateway')",
+   "layer": "C1",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 5,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.9,
+    "TS": 3.95,
+    "SW": 4.0,
+    "SU": 4.2
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "C1-portkey",
+   "name": "Portkey AI Gateway, now branded 'Prisma AIRS AI Gateway' (Palo Alto Networks)",
+   "layer": "C1",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired",
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.5,
+    "TS": 3.5,
+    "SW": 3.55,
+    "SU": 3.5
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 4,
+    "SW": 4,
+    "SU": 5
+   }
+  },
+  {
+   "id": "C2-azure-ai-content-safety",
+   "name": "Azure AI Content Safety (Prompt Shields); Azure product and pricing pages now titled 'Content Safety in Foundry Control Plane'",
+   "layer": "C2",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.25,
+    "SW": 3.1,
+    "SU": 3.2
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 4,
+    "SW": 5,
+    "SU": 4
+   }
+  },
+  {
+   "id": "C2-bedrock-guardrails",
+   "name": "Amazon Bedrock Guardrails",
+   "layer": "C2",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.45,
+    "SW": 3.2,
+    "SU": 3.5
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 2,
+    "SW": 3,
+    "SU": 3
+   }
+  },
+  {
+   "id": "C2-google-model-armor",
+   "name": "Model Armor",
+   "layer": "C2",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 5,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.7,
+    "SW": 3.25,
+    "SU": 3.8
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Core candidate",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 1,
+    "SW": 2,
+    "SU": 1
+   }
+  },
+  {
+   "id": "C2-guardrails-ai",
+   "name": "Guardrails AI (open-source 'guardrails' framework and Guardrails Hub validators)",
+   "layer": "C2",
+   "tier": "Experimental",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.6,
+    "TS": 2.7,
+    "SW": 2.7,
+    "SU": 2.95
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 6,
+    "SW": 6,
+    "SU": 6
+   }
+  },
+  {
+   "id": "C2-meta-llama-protections",
+   "name": "Llama Protections: Llama Guard 4 (12B), Llama Prompt Guard 2 (86M/22M), LlamaFirewall, Code Shield",
+   "layer": "C2",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.95,
+    "TS": 3.0,
+    "SW": 3.2,
+    "SU": 3.2
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 5,
+    "SW": 4,
+    "SU": 5
+   }
+  },
+  {
+   "id": "C2-nemo-guardrails",
+   "name": "NVIDIA NeMo Guardrails (open-source library and Guardrails server)",
+   "layer": "C2",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.45,
+    "TS": 3.4,
+    "SW": 3.55,
+    "SU": 3.65
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 3,
+    "SW": 1,
+    "SU": 2
+   }
+  },
+  {
+   "id": "C3-google-sdp",
+   "name": "Sensitive Data Protection (including Cloud Data Loss Prevention / DLP API)",
+   "layer": "C3",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 5,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.6,
+    "TS": 3.85,
+    "SW": 3.5,
+    "SU": 3.85
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 1,
+    "SW": 2,
+    "SU": 1
+   }
+  },
+  {
+   "id": "C3-microsoft-purview-dspm-ai",
+   "name": "Microsoft Purview Data Security Posture Management (new unified DSPM, GA May 2026), absorbing the earlier 'DSPM for AI' experience",
+   "layer": "C3",
+   "tier": "Strategic",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.05,
+    "TS": 3.1,
+    "SW": 2.95,
+    "SU": 2.95
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 3,
+    "SW": 3,
+    "SU": 4
+   }
+  },
+  {
+   "id": "C3-presidio",
+   "name": "Presidio (Data Privacy Stack)",
+   "layer": "C3",
+   "tier": "Strategic",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 3.65,
+    "TS": 3.45,
+    "SW": 3.75,
+    "SU": 3.5
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Situational",
+    "SW": "Core candidate",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 2,
+    "SW": 1,
+    "SU": 2
+   }
+  },
+  {
+   "id": "C3-protegrity",
+   "name": "Protegrity (data protection platform; 'Protegrity AI Developer Edition')",
+   "layer": "C3",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.75,
+    "TS": 2.8,
+    "SW": 2.8,
+    "SU": 2.85
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 5,
+    "SW": 5,
+    "SU": 5
+   }
+  },
+  {
+   "id": "C3-skyflow",
+   "name": "Skyflow (Data Privacy Vault; Detect)",
+   "layer": "C3",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.0,
+    "TS": 3.0,
+    "SW": 2.9,
+    "SU": 3.0
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 4,
+    "SW": 4,
+    "SU": 3
+   }
+  },
+  {
+   "id": "C4-cedar",
+   "name": "Cedar policy language; Amazon Verified Permissions (managed Cedar); Policy in Amazon Bedrock AgentCore (Cedar-based)",
+   "layer": "C4",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.7,
+    "TS": 3.7,
+    "SW": 3.65,
+    "SU": 3.65
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 3,
+    "SW": 3,
+    "SU": 4
+   }
+  },
+  {
+   "id": "C4-entra-agent-id",
+   "name": "Microsoft Entra Agent ID",
+   "layer": "C4",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.5,
+    "TS": 3.45,
+    "SW": 3.4,
+    "SU": 3.55
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 5,
+    "SW": 6,
+    "SU": 6
+   }
+  },
+  {
+   "id": "C4-mcp-authorization",
+   "name": "MCP Authorization (MCP specification 2026-07-28) plus Enterprise-Managed Authorization extension",
+   "layer": "C4",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 2,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.45,
+    "TS": 3.4,
+    "SW": 3.55,
+    "SU": 3.65
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 6,
+    "SW": 4,
+    "SU": 5
+   }
+  },
+  {
+   "id": "C4-okta-auth0-ai-agents",
+   "name": "Auth0 for AI Agents; Okta for AI Agents; Okta Agent SSO (Cross App Access, XAA)",
+   "layer": "C4",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.55,
+    "TS": 3.6,
+    "SW": 3.45,
+    "SU": 3.75
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Core candidate",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 4,
+    "SW": 5,
+    "SU": 2
+   }
+  },
+  {
+   "id": "C4-opa",
+   "name": "Open Policy Agent (OPA)",
+   "layer": "C4",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 4,
+    "deployment_flexibility": 5,
+    "ecosystem": 5,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 4.2,
+    "TS": 4.1,
+    "SW": 4.35,
+    "SU": 4.25
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "C4-spiffe-spire",
+   "name": "SPIFFE (specification) and SPIRE (SPIFFE Runtime Environment)",
+   "layer": "C4",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 4,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 5,
+    "cost_tco": 3,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 4.05,
+    "TS": 3.85,
+    "SW": 4.15,
+    "SU": 3.75
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 2,
+    "SW": 2,
+    "SU": 3
+   }
+  },
+  {
+   "id": "C5-langfuse-prompts",
+   "name": "Langfuse Prompt Management (a capability of the Langfuse platform)",
+   "layer": "C5",
+   "tier": "Strategic",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.85,
+    "TS": 3.95,
+    "SW": 3.85,
+    "SU": 3.9
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 1,
+    "SW": 2,
+    "SU": 1
+   }
+  },
+  {
+   "id": "C5-langsmith-prompts",
+   "name": "LangSmith prompt management (Prompts, Prompt Hub)",
+   "layer": "C5",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.95,
+    "TS": 3.9,
+    "SW": 4.0,
+    "SU": 3.75
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 2,
+    "SW": 1,
+    "SU": 2
+   }
+  },
+  {
+   "id": "C5-launchdarkly-ai-configs",
+   "name": "LaunchDarkly AgentControl (formerly AI Configs; API unchanged)",
+   "layer": "C5",
+   "tier": "Tactical",
+   "flags": [
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.3,
+    "SW": 3.05,
+    "SU": 3.25
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 4,
+    "SW": 5,
+    "SU": 4
+   }
+  },
+  {
+   "id": "C5-promptlayer",
+   "name": "PromptLayer (Prompt Registry)",
+   "layer": "C5",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.4,
+    "TS": 3.25,
+    "SW": 3.4,
+    "SU": 3.15
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 5,
+    "SW": 4,
+    "SU": 5
+   }
+  },
+  {
+   "id": "C5-prompts-as-code",
+   "name": "Prompts-as-code pattern: Git-versioned prompt files (Prompty, Dotprompt) tested by config-driven evals (e.g. Promptfoo)",
+   "layer": "C5",
+   "tier": "Strategic",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.65,
+    "TS": 3.55,
+    "SW": 3.7,
+    "SU": 3.45
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Situational",
+    "SW": "Core candidate",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 3,
+    "SW": 3,
+    "SU": 3
+   }
+  },
+  {
+   "id": "C6-cloudzero",
+   "name": "CloudZero",
+   "layer": "C6",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 2,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 2.65,
+    "TS": 2.7,
+    "SW": 2.6,
+    "SU": 2.65
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 4,
+    "SW": 4,
+    "SU": 5
+   }
+  },
+  {
+   "id": "C6-finops-focus",
+   "name": "FinOps Open Cost and Usage Specification (FOCUS)",
+   "layer": "C6",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 5,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 3.85,
+    "TS": 3.85,
+    "SW": 4.0,
+    "SU": 3.95
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "C6-gateway-cost-attribution",
+   "name": "Gateway-native and provider-native token cost tracking, budgets and chargeback (pattern)",
+   "layer": "C6",
+   "tier": "Strategic",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.7,
+    "TS": 3.75,
+    "SW": 3.8,
+    "SU": 3.75
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 2,
+    "SW": 2,
+    "SU": 2
+   }
+  },
+  {
+   "id": "C6-helicone",
+   "name": "Helicone (AI Gateway and LLM Observability Platform)",
+   "layer": "C6",
+   "tier": "Experimental",
+   "flags": [
+    "Acquired",
+    "Not recommended"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 2,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 1,
+    "cost_tco": 4,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.5,
+    "TS": 2.55,
+    "SW": 2.6,
+    "SU": 2.85
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 5,
+    "SW": 5,
+    "SU": 4
+   }
+  },
+  {
+   "id": "C6-vantage",
+   "name": "Vantage (cloud cost management platform)",
+   "layer": "C6",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.9,
+    "TS": 3.0,
+    "SW": 2.9,
+    "SU": 3.1
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 3,
+    "SW": 3,
+    "SU": 3
+   }
+  },
+  {
+   "id": "C7-hashicorp-vault",
+   "name": "HashiCorp Vault (IBM Vault Self-Managed; HCP Vault Dedicated)",
+   "layer": "C7",
+   "tier": "Strategic",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 4,
+    "security_compliance": 4,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.65,
+    "TS": 3.75,
+    "SW": 3.65,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 2,
+    "SU": 2
+   }
+  },
+  {
+   "id": "C7-hiddenlayer",
+   "name": "HiddenLayer AI Security Platform",
+   "layer": "C7",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.1,
+    "TS": 3.0,
+    "SW": 3.1,
+    "SU": 3.05
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 6,
+    "SW": 5,
+    "SU": 5
+   }
+  },
+  {
+   "id": "C7-lakera",
+   "name": "Check Point AI Guardrails (formerly Lakera Guard), part of the Check Point AI Defense Plane; AI Agent Security in early access",
+   "layer": "C7",
+   "tier": "Tactical",
+   "flags": [
+    "Acquired",
+    "Renamed"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.0,
+    "TS": 3.05,
+    "SW": 3.05,
+    "SU": 2.95
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 5,
+    "SW": 6,
+    "SU": 6
+   }
+  },
+  {
+   "id": "C7-model-supply-chain-scanning",
+   "name": "Model and package supply-chain scanning (pattern): ModelScan, picklescan, fickling, Hugging Face Hub scanning, safetensors",
+   "layer": "C7",
+   "tier": "Strategic",
+   "flags": [
+    "Acquired"
+   ],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 5,
+    "lockin_portability": 4
+   },
+   "scores": {
+    "FS": 3.6,
+    "TS": 3.65,
+    "SW": 3.75,
+    "SU": 3.75
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 2,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "C7-openssf-model-signing",
+   "name": "OpenSSF Model Signing (OMS) specification and model-signing library",
+   "layer": "C7",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 2,
+    "reliability_maturity": 3,
+    "cost_tco": 5,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 3.5,
+    "TS": 3.4,
+    "SW": 3.5,
+    "SU": 3.5
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 4,
+    "SW": 3,
+    "SU": 4
+   }
+  },
+  {
+   "id": "C7-prisma-airs",
+   "name": "Prisma AIRS (AI Runtime Security) 3.0",
+   "layer": "C7",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 3,
+    "lockin_portability": 2
+   },
+   "scores": {
+    "FS": 3.35,
+    "TS": 3.45,
+    "SW": 3.45,
+    "SU": 3.6
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 3,
+    "SW": 4,
+    "SU": 3
+   }
+  },
+  {
+   "id": "C8-collibra-ai-governance",
+   "name": "Collibra AI Governance / AI Command Center (Collibra 'Enterprise AI Control Plane')",
+   "layer": "C8",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 4,
+    "deployment_flexibility": 2,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.2,
+    "TS": 3.15,
+    "SW": 3.15,
+    "SU": 3.25
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 4,
+    "TS": 3,
+    "SW": 4,
+    "SU": 3
+   }
+  },
+  {
+   "id": "C8-credo-ai",
+   "name": "Credo AI AI governance platform (AI Registry, policy packs, Govern AI Assistant)",
+   "layer": "C8",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 4,
+    "security_compliance": 2,
+    "deployment_flexibility": 5,
+    "ecosystem": 4,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.25,
+    "TS": 3.15,
+    "SW": 3.4,
+    "SU": 3.0
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 3,
+    "TS": 4,
+    "SW": 3,
+    "SU": 4
+   }
+  },
+  {
+   "id": "C8-modelop",
+   "name": "ModelOp Center (positioned as 'Enterprise AI Command Center')",
+   "layer": "C8",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 3,
+    "reliability_maturity": 2,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.95,
+    "TS": 2.8,
+    "SW": 3.05,
+    "SU": 2.9
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 5,
+    "TS": 6,
+    "SW": 5,
+    "SU": 6
+   }
+  },
+  {
+   "id": "C8-openlineage",
+   "name": "OpenLineage (with Marquez reference implementation)",
+   "layer": "C8",
+   "tier": "Strategic",
+   "flags": [],
+   "criteria": {
+    "technical": 3,
+    "enterprise_readiness": 3,
+    "security_compliance": 3,
+    "deployment_flexibility": 5,
+    "ecosystem": 5,
+    "reliability_maturity": 4,
+    "cost_tco": 4,
+    "lockin_portability": 5
+   },
+   "scores": {
+    "FS": 3.85,
+    "TS": 3.8,
+    "SW": 4.05,
+    "SU": 3.9
+   },
+   "fit": {
+    "FS": "Core candidate",
+    "TS": "Core candidate",
+    "SW": "Core candidate",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 1,
+    "TS": 1,
+    "SW": 1,
+    "SU": 1
+   }
+  },
+  {
+   "id": "C8-validmind",
+   "name": "ValidMind AI risk platform (ValidMind Platform and ValidMind Library)",
+   "layer": "C8",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 4,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 3,
+    "ecosystem": 3,
+    "reliability_maturity": 3,
+    "cost_tco": 2,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 2.9,
+    "TS": 2.85,
+    "SW": 2.95,
+    "SU": 2.95
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Situational"
+   },
+   "rank": {
+    "FS": 6,
+    "TS": 5,
+    "SW": 6,
+    "SU": 5
+   }
+  },
+  {
+   "id": "C8-watsonx-governance",
+   "name": "IBM watsonx.governance",
+   "layer": "C8",
+   "tier": "Tactical",
+   "flags": [],
+   "criteria": {
+    "technical": 5,
+    "enterprise_readiness": 3,
+    "security_compliance": 2,
+    "deployment_flexibility": 4,
+    "ecosystem": 4,
+    "reliability_maturity": 4,
+    "cost_tco": 3,
+    "lockin_portability": 3
+   },
+   "scores": {
+    "FS": 3.4,
+    "TS": 3.5,
+    "SW": 3.55,
+    "SU": 3.7
+   },
+   "fit": {
+    "FS": "Situational",
+    "TS": "Situational",
+    "SW": "Situational",
+    "SU": "Core candidate"
+   },
+   "rank": {
+    "FS": 2,
+    "TS": 2,
+    "SW": 2,
+    "SU": 2
+   }
+  }
+ ]
+}

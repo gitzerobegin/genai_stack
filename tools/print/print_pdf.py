@@ -44,6 +44,7 @@ try:
     desktop = ctx.ServiceManager.createInstanceWithContext("com.sun.star.frame.Desktop", ctx)
     doc = desktop.loadComponentFromURL(uno.systemPathToFileUrl(src), "_blank", 0, (prop("Hidden", True),))
     E = lambda t, v: uno.Enum(t, v)
+    doc.lockControllers(); doc.addActionLock()   # re-paginate once at the end, not after every style change
 
     # ---------- page styles
     fam = doc.StyleFamilies.getByName("PageStyles")
@@ -134,6 +135,7 @@ try:
         elif st in ("Heading 2", "Heading2") and seen_part1 and CHAPTER_H2.match(txt):
             n_ch += 1; par.BreakType = PB; par.CharHeight = 22; par.ParaTopMargin = int(0.5 * IN); par.ParaBottomMargin = int(0.2 * IN)
 
+    doc.removeActionLock(); doc.unlockControllers()
     # ---------- table of contents: refresh twice so the numbers settle after the layout changes
     idx = doc.getDocumentIndexes(); n_idx = idx.getCount()
     for _ in range(2):

@@ -100,7 +100,7 @@ if pre_part:
 rest = [p for p in parts if p is not exec_part and p is not pre_orig]
 
 doc = []
-doc.append("---\ntitle: \"The Enterprise GenAI Stack\"\nsubtitle: \"The view at end of Q3 2026: reference architecture, product assessment and regulated-FS view\"\ndate: \"%s\"\n---\n" % "Veyan · evidence as of 9 October 2026")
+doc.append("---\ntitle: \"The Enterprise GenAI Stack\"\nsubtitle: \"The view at end of Q3 2026: reference architecture and product assessment for regulated financial services, technology service providers, software companies and start-ups\"\ndate: \"%s\"\n---\n" % "Veyan · evidence as of 9 October 2026")
 doc.append("![Veyan](brand/veyan_lockup.png){width=2.6in}\n")
 doc.append("> **The view at end of Q3 2026.** The popular stack diagram was the inspiration and baseline; this document presents the stack as it stands at the end of Q3 2026, and Part XII sets out what changed since the diagram. Not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Part II.\n")
 if pre_part:
@@ -120,6 +120,9 @@ for pid, head in SYN_VIS:
     if fig and head in rest_md:
         rest_md = rest_md.replace("\n" + head, "\n" + fig + head, 1)
 doc.append(rest_md)
+# Stage E further views (Parts XIII-XV): technology service provider, software product company, start-up
+for vid in ("TS", "SW", "SU"):
+    doc.append(read("work/stageE/views/%s/view.md" % vid))
 doc.append("# Annex: Sources, data and companion documents\n\nEach item below has one home; this document does not repeat it [AJ].\n\n"
            "| Item | Where it lives |\n|---|---|\n"
            "| All sources, with access dates and the claim map | `06_References/bibliography.xlsx` |\n"
