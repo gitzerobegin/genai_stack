@@ -584,3 +584,113 @@ The table maps each evidence artefact to the component that produces it and the 
 | Red-team results mapped to OWASP 2026 | C7, L9 | ✓ | | ✓ (testing) | | |
 | Build-time lineage (OpenLineage) and parse manifests | L8, C8 | ✓ | ✓ (input data) | | ✓ (erasure) | |
 | AI-claims substantiation | C8 | | ✓ (Art. 50) | | | ✓ (AI-washing) |
+
+---
+
+# Part VI: Worked example — the performance-attribution commentary agent, end to end
+
+**The use case.** An agent drafts the monthly performance-attribution commentary for a generic multi-asset fund: Brinson-style allocation and selection effects, currency, and benchmark-relative return. A portfolio manager reviews and approves every draft before release (plan §11) [AJ]. The example is generic, illustrative and cloud-neutral: each component is named once in cloud-neutral form, with AWS, Azure and Google Cloud equivalents side by side (CP4-6) [AJ].
+
+**The architectural reading in one paragraph.** This is a deterministic workflow, not a free agent. Every number comes from the attribution engine through a read-only tool; the model's only job is to write narrative around figures it is given; a deterministic check proves every figure in the draft matches the engine; and a named human approves. The LLM is therefore governed as a model-dependent use case under the firm's standard, and the use case is not Annex III [AJ].
+
+## VI.1 Request trace, rebuilt with the recommended components
+
+```text
+ 0  RELEASE MANIFEST "commentary-release 2026.10" pinned (C5): prompt set v14, drafting model@date
+    (temperature 0), fallback model@date, embedding + reranker versions = index model_version tag,
+    top-k 8, tool list (read-only), guardrail policy v6, eval threshold set v3      [illustrative]
+ 1  Analyst signs in through SSO; workflow started for fund X, period 2026-09 ........ C4
+ 2  Agent identity (registered, sponsor = head of performance reporting) obtains an OBO
+    token: audience = attribution MCP server, scope attribution.read, TTL minutes .... C4, C7
+ 3  L3 WORKFLOW GRAPH (durable; graph version recorded):
+    3a get_attribution_results(fund X, 2026-09, model v) via TOOL GATEWAY
+       -> allow-list + definition hash + policy (fund within analyst entitlements)
+       -> snapshot ID + hash recorded as a durable activity ........................ L4, C4, L3
+    3b get_fund_reference_data (benchmark, share classes; no client identifiers) ..... L4
+    3c search_approved_commentary: embed (pinned) -> entitlement-filtered hybrid search
+       over prior approved commentaries, style guide, approved market notes -> rerank -> L7, L6
+       chunks carry doc ID, version, ACL, trust tier, parse manifest ................ L8
+    3d retrieved chunks screened for indirect injection; flagged chunk dropped + logged C2, C7
+    3e client identifiers tokenised (segregated mandates) ........................... C3
+    3f ONE LLM DRAFTING STEP via gateway route attribution-commentary-draft:
+       in-region primary model; qualified different-vendor fallback; budget + per-run
+       ceiling; fail closed if both unavailable .................................... C1, L2, L1, C6
+    3g OUTPUT GUARDS: deterministic numeric comparator (every figure, sign, direction
+       word vs snapshot); PII re-check; placeholders unchanged; denied topics
+       (forecasts, advice); narrative grounding flags for reviewer ................... C2, C3
+    3h EVAL GATE: numeric faithfulness 100% (blocking), groundedness, style, trajectory L9
+       fail -> bounded retry edge to 3f (limit) or "returned for revision"; never approval
+    3i APPROVAL INTERRUPT: named PM (not the requester, not the agent), step-up auth;
+       decision, identity, edit diff, reason code recorded ........................... L3, C4
+ 4  Release service publishes using the approver's identity (outside the agent) ...... L3
+ 5  Evidence pack written to the immutable archive, keyed by trace ID ................ C8
+ 6  Edit diff feeds the human-intervention metric and proposed style rules (PR to C5) L9, C5
+```
+
+## VI.2 Per-layer slice (cloud-neutral, with AWS / Azure / Google Cloud equivalents)
+
+| Layer / control | What it does for this agent [AJ] | Cloud-neutral component [Rec] | AWS | Azure | Google Cloud |
+|---|---|---|---|---|---|
+| L8 | Parse prior factsheets and commentaries; dual-parse tables and reconcile; register market-note licences | Docling self-hosted; Unstructured ingest pattern for ACL capture; built control envelope | Same, on the firm's AWS account (no AWS document service verified [NPV]) | Same, on Azure (no Azure document service verified [NPV]) | Docling, or Document AI where confirmed in region [VF: A1-S101] |
+| L7 | Hybrid retrieval of comparable commentary; rerank by fund, period and theme | Sentence Transformers model or Cohere private deployment, pinned; in-domain bake-off | Cohere or Voyage on SageMaker [VF: A2-S012, A2-S044] | Cohere on Microsoft Foundry [VF: A2-S012] | Gemini Embedding 2, EU endpoint (excludes UK) [VF: A2-S004, A2-S039] |
+| L6 | One store, three collections; entitlement filter inside the search; hard empty result; retention per chunk | pgvector on managed PostgreSQL, schema per segregated mandate; Elasticsearch if already operated | pgvector on RDS or Aurora [VF: B-L6-S004] | pgvector on Azure Database for PostgreSQL [VF: B-L6-S005] | pgvector on Cloud SQL [VF: B-L6-S005] |
+| L5 | Versioned style memory (glossary, approved style rules), recalled by version hash | No memory product: Git or the prompt store (C5) plus L6 retrieval | AgentCore Memory only if later needed [VF: V1-S087] | No Azure memory service profiled [NPV] | Memory Bank only if later needed [VF: V1-S088] |
+| L4 | Read-only tools onto the attribution engine and fund reference data; sandbox for derived figures | Read-only MCP servers owned by the engine team (alt: OpenAPI tools); E2B-style microVM sandbox, no egress | AgentCore Gateway + Identity [VF: A3-S047, A6-S026] | APIM AI gateway + API Center private registry [VF: A6-S053, A3-S044] | Apigee MCP support [VF: A6-S023] |
+| L3 | Pinned graph; one drafting step; eval gate as a hard edge; approval interrupt; durable resume reuses the same snapshot | LangGraph with a firm-controlled Postgres checkpointer, or Temporal activities | Strands on AgentCore Runtime [VF: A4-S116, B-L3-S004] | Microsoft Agent Framework Workflows on Foundry Hosted Agents [VF: A4-S066, B-L3-S006] | ADK 2.0 Workflow Runtime on Agent Engine [VF: A4-S114] |
+| L2 | In-region managed endpoint; reserved capacity for month-end; qualified fallback; vLLM stressed-exit route | Primary cloud's model service; vLLM private route for one open-weight model | Bedrock geographic or in-Region profile [VF: B-L2-S005] | Foundry Data Zone or Regional deployment, PTUs [VF: B-L2-S006] | Regional endpoint, Provisioned Throughput with overflow pinned [VF: B-L2-S008] |
+| L1 | Primary drafting model, different-vendor fallback, small classifier, self-hosted open-weight model | Two-vendor mid tier; Gemma 4 or Mistral Medium 3.5 self-hosted | Claude Sonnet 5.5 primary, a GPT-6 tier or Mistral fallback (independent alternative to Claude named) | GPT-6.1 Sol primary, Mistral Medium 3.5 fallback | Gemini 3.8 Flash primary, Claude Sonnet 5.5 via Google Cloud EU fallback |
+| L9 | Numeric faithfulness, groundedness, style, trajectory; regression suite of 24–36 months; edit capture | OTel Collector with redaction; Langfuse self-hosted or MLflow; DeepEval; Promptfoo plus an independent red-team tool | MLflow on SageMaker [VF: A1-S103] | MLflow on Azure ML [VF: A1-S103] | Langfuse self-hosted (no native option profiled) |
+| C1 | Route with residency constraint, fallback, budgets, inline guards, MCP endpoint | LiteLLM Enterprise or Kong AI Gateway hybrid | AgentCore Gateway for tools; model routing on the cloud-neutral gateway [VF: A6-S021, A6-S022] | APIM GA AI policies [VF: A6-S020] | Apigee AI gateway [VF: A6-S024] |
+| C2 | Injection screening of retrieved chunks; numeric comparator; denied topics | Firm-coded comparator; NeMo Guardrails with Prompt Guard 2 plus a second detector | Bedrock Guardrails (ApplyGuardrail) [VF: A6-S072, A6-S073] | Azure AI Content Safety Prompt Shields on documents [VF: A6-S054, A6-S055] | Model Armor, strict residency [VF: A6-S067, B-C2-S003] |
+| C3 | Tokenise client identifiers; re-identify only for the reviewer; redacted traces | Presidio behind the firm's privacy-service API | Presidio, or Bedrock Guardrails PII filter behind the same API [VF: A6-S072] | Presidio; Purview DSPM for posture [VF: A6-S090] | Sensitive Data Protection [VF: A6-S066] |
+| C4 | Agent identity with sponsor; OBO; deny-by-default policy; approver identity | Workforce IdP + OPA + SPIFFE/SPIRE | AgentCore Identity + Policy (Cedar) [VF: A6-S026] | Entra Agent ID [VF: V2-S032] | Workforce IdP (Okta or Entra) + OPA; no Google agent-identity product profiled [NPV] |
+| C5 | Prompt set and release manifest in Git; PR with investment-risk approver; protected production label | Prompty or Dotprompt files; registry of the L9 platform | Same | Same | Same |
+| C6 | Cost per approved commentary; budget that fails closed; loop alerts | Gateway virtual keys; FOCUS-shaped dataset | Bedrock application inference profiles [VF: B-C6-S004] | Foundry project cost tags [VF: B-C6-S005] | Not profiled |
+| C7 | No outbound channel; secrets brokered; canary documents; pinned dependencies | Vault agentic IAM or cloud secrets plus workload identity; private package mirror | Same | Same | Same |
+| C8 | Inventory entry; validation; evidence pack; quarterly attestation | Firm evidence store; OpenLineage; governance tool optional | Same | Same | Same |
+
+**Why the L1 row names Claude only for AWS.** In the L1 section's per-cloud portfolio, Claude Sonnet 5.5 is the primary drafting model only in an AWS estate and the fallback in a Google Cloud estate; GPT-6.1 Sol, Gemini 3.8 Flash and Mistral Medium 3.5 are named as independent alternatives in the same table [AJ]. Claude's EU processing runs through Bedrock or Google Cloud regional endpoints, not the first-party API [VF: V2-S075, A5-S027]. GPT-6 Astra on Bedrock is in-Region only in two US Regions, so EU availability of any GPT-6 tier on Bedrock must be confirmed per model [VF: A5-S008, V2-S079].
+
+**What it costs [AJ].** On the C6 worked arithmetic, a draft of about 40,000 input and 3,000 output tokens on a mid-tier model at US$2 / US$10 per 1M tokens (the list price of both Claude Sonnet 5.5 and GPT-6.1 Sol as of 7 October 2026 [VF: A5-S011, A5-S004]) costs about US$0.11, and with judges and an average of 2.5 drafts per approved commentary the token cost is roughly US$0.30, or about US$12 a month for 40 funds. The token figures are the author's own. The conclusion matters more than the number: tokens are not the cost driver; reviewer time is, so the metric to manage is the regeneration and edit rate [AJ].
+
+**The threat it is built to survive [AJ].** C7's scenario is a third-party market note containing hidden text telling the model to state that currency hedging added 40 basis points and to send the draft elsewhere. The defence is layered so that no single control has to catch it: there is no outbound tool to hijack; the numeric comparator fails any figure not in the engine snapshot; retrieved text is wrapped as data; a detector screens retrieved chunks and quarantines the source; canary documents in staging fail the release gate; and the PM approves before release.
+
+## VI.3 Boundaries
+
+**What the agent may do [Rec]:**
+- draft narrative text around figures supplied by the attribution engine;
+- explain allocation, selection and currency effects in the house style;
+- reference market context from approved, registered sources, with citations to document versions;
+- propose wording, and propose new style rules as a pull request for human approval.
+
+**What the agent must never do, and the component that enforces it [Rec]:**
+
+| Never | Enforced by |
+|---|---|
+| Generate, round, recompute or "correct" an authoritative number | L4 read-only tools; C2 numeric comparator; L9 blocking eval; L1 boundary |
+| Use a figure from retrieved commentary, memory or a parsed document as data | L8 `document_derived` tag; L6/L7 context-only rule; L5 contradiction check |
+| Present inference as source data | C2 narrative grounding; L9 groundedness; citations to document versions |
+| Publish without recorded human approval | L3 approval interrupt; release service acting on the approver's identity; C4 segregation of duties |
+| Produce an output that cannot be reproduced, or discard evaluation evidence | C5 manifest; C8 evidence pack in the firm archive; L9 retention beyond any vendor tier |
+| Call a write, publish, e-mail or HTTP tool | L4 allow-list (no such tool exists); C4 policy; C7 capability separation |
+| Send client identifiers to an external model, search or SaaS store | C3 tokenisation; L4 egress proxy; L9 Collector redaction |
+| Retrieve another fund's or client's material | L6 entitlement filter inside the search; partition per segregated mandate; CI cross-fund probes |
+| Run on a model alias, a preview model or an unqualified fallback | C1 route definition; C5 pins; L9 re-qualification |
+| Mix two attribution snapshots in one draft after a resume | L3 durable activity reuses the recorded snapshot |
+
+## VI.4 The audit evidence pack
+
+Each approved commentary produces one evidence pack, written automatically to the firm's immutable archive at approval and keyed by trace ID (C8 §C8.12) [Rec]:
+
+| # | Element | Contents | Produced by |
+|---:|---|---|---|
+| 1 | Prompt version | Template ID and version; system-prompt hash; rendered prompt (tokenised per C3); release manifest ID | C5, C3 |
+| 2 | Model version | Provider, model ID and exact version as returned by the gateway (not the alias); parameters; processing region; fallback flag | C1, L2 |
+| 3 | Data snapshot | Attribution snapshot hash and run ID; holdings and benchmark as-of dates; retrieved document IDs, versions, trust tiers and scores; index version; embedding and reranker versions; parse manifests | L4, L6, L7, L8 |
+| 4 | Tool calls | Each call with arguments hash, response hash, definition hash, policy decision, latency, and the identities used (agent and on-behalf-of analyst) | L4, C4, C7 |
+| 5 | Evaluation results | Numeric faithfulness per figure; groundedness; style; trajectory; detector verdicts; metric-code and judge versions; thresholds | L9, C2, C7 |
+| 6 | Approver | PM's authenticated identity; decision; edit diff between draft and final; reason code | L3, C4 |
+| 7 | Timestamps | Request, each step, evaluation, approval and release, from a synchronised clock | L9 |
+| 8 | Final output and cost | Released text and hash; distribution record; tokens and cost per commentary | L3, C6 |
+
+The inventory entry that governs the use case records its owner, accountable SMF, materiality tier (tier 1: client-facing, regulated communication, uses model outputs), EU AI Act category (not Annex III; Article 50 assessed, human editorial review applies), outsourcing entries, the full version bundle, validation reference and use limitations ("no figures generated by the model"), monitoring thresholds (numeric faithfulness 100%), change triggers and a quarterly review cycle (C8 §C8.12) [AJ]. Pinning versions and keeping a fallback qualified on the same suite is also the SS2/21 exit route [VF: R-PRA-SS221, A8-S048] [AJ].

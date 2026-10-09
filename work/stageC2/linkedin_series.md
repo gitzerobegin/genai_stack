@@ -1347,3 +1347,404 @@ Personal views. Sources: the Enterprise GenAI Stack review, C1 AI / LLM gateway 
 - Vendors only in the first comment: yes
 
 ---
+
+## Week 8
+
+### Post 15 · Week 8, Tuesday · L1 Foundation models
+
+**Pair:** Post 16 (C6, Week 8 Thursday). **Bridge:** A portfolio of models needs a way to choose between them on cost without fooling yourself; Thursday supplies the metric.
+
+**Theme and source:** A small, governed model portfolio with a qualified second vendor. `work/stageB/L1/section.md` (executive summary, §1.2, §1.3, §1.9, §1.11–§1.13), with the CP4-1 tier decision.
+
+**Tension:** Treat models as a portfolio, not a bet.
+
+#### Full post
+
+Treat foundation models as a portfolio, not a bet.
+
+Every major vendor now sells a tiered family rather than a single model, and lifetimes are short. One generally available model version released in August 2026 is already scheduled to retire in January 2027. Earlier this year, one leading vendor's top tier was withdrawn for nearly three weeks before being restored.
+
+A firm that hard-codes one vendor cannot respond to either. Nor can a firm whose "fallback model" is a line in a design document that was never tested on the real workload.
+
+A portfolio does not need to be large. Two mid-tier models from unrelated vendors, a small model for high-volume classification, and one open-weight model the firm can run itself. All of them called through the gateway, pinned to exact versions rather than "latest", and each qualified on the same evaluation suite.
+
+The signal is qualified-alternative coverage: the share of production use cases with a second model, from a different vendor, that passed the same evaluation within the last quarter. For an important business service the target is 100%.
+
+The leadership move is to keep the frontier tier switched off until an evaluation shows the mid tier fails a named use case. And to remember that no model, at any tier, is fit to produce authoritative figures. Numbers come from the system of record.
+
+[Anecdote slot: one or two sentences on a supplier change, withdrawal or end-of-life that tested your contingency plan, and what the team learned from it.]
+
+Capability changes every quarter. The ability to change your mind safely is the asset worth building.
+
+#### Short variant
+
+Treat foundation models as a portfolio, not a bet.
+
+Vendors sell tiered families, and lifetimes are short. One generally available model released in August 2026 is due to retire in January 2027. This year, one leading vendor's top tier was withdrawn for nearly three weeks.
+
+A portfolio need not be large: two mid-tier models from unrelated vendors, a small model, and one open-weight model you can run yourself. All behind the gateway, pinned to exact versions, qualified on the same evaluation suite.
+
+The signal is qualified-alternative coverage: use cases with a second-vendor model that passed the same evaluation in the last quarter. For important business services, 100%.
+
+Keep the frontier tier off until evaluation shows a need. And no model, at any tier, produces authoritative figures.
+
+The ability to change your mind safely is the asset worth building.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a supplier, product or platform that was withdrawn, changed its terms or reached end of life, and how ready the fallback really was. Credit the people who had qualified the alternative; own it if the "fallback" turned out to be untested.
+- **Fits:** "turning external deadlines into refresh mandates" and resilience.
+- **Avoid:** naming the supplier or implying anything about current vendor relationships.
+
+#### Fallback version
+
+Treat foundation models as a portfolio, not a bet.
+
+Every major vendor now sells a tiered family rather than a single model, and lifetimes are short. One generally available model version released in August 2026 is already scheduled to retire in January 2027. Earlier this year, one leading vendor's top tier was withdrawn for nearly three weeks before being restored.
+
+A firm that hard-codes one vendor cannot respond to either. Nor can a firm whose "fallback model" is a line in a design document that was never tested on the real workload.
+
+A portfolio does not need to be large. Two mid-tier models from unrelated vendors, a small model for high-volume classification, and one open-weight model the firm can run itself. All of them called through the gateway, pinned to exact versions rather than "latest", and each qualified on the same evaluation suite.
+
+The signal is qualified-alternative coverage: the share of production use cases with a second model, from a different vendor, that passed the same evaluation within the last quarter. For an important business service the target is 100%.
+
+The leadership move is to keep the frontier tier switched off until an evaluation shows the mid tier fails a named use case. And to remember that no model, at any tier, is fit to produce authoritative figures. Numbers come from the system of record.
+
+The honest caveat: a portfolio multiplies validation and contract work. The answer is to keep it small and let the evaluation suite do the re-qualification, not to give up the second vendor.
+
+Capability changes every quarter. The ability to change your mind safely is the asset worth building.
+
+#### Suggested visual
+
+Portfolio grid: four roles (primary mid tier, fallback mid tier from a different vendor, small classifier, self-hosted open weight) as rows, with columns "pinned version", "region", "qualified on eval suite (date)", "retirement runway". All rows feed one gateway. A "frontier tier: off by default" tile sits above. Source: L1 §1.9 and §1.12 (shown without vendor names).
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, L1 Foundation models (§1.2, §1.3 KPIs, §1.9, §1.11, §1.12), with the CP4-1 tier decision.
+- The two events: a Gemini Flash version released on 13 August 2026 retires on 28 January 2027 [B-L1-S003]; Anthropic's Claude Fable 5 was unavailable from 12 June 2026 and restored from 1 July 2026 [V2-S004].
+- Tiered families: OpenAI GPT-6 (Astra, Sol, Luna) and GPT-6.1 Sol; Anthropic Claude Fable 5.1 above Opus, Sonnet and Haiku 5.5; Google Gemini 3.x with a restricted Gemini 4 Argon [A5-S002, A5-S004, A5-S010, A5-S019, A5-S030, A5-S031].
+- Review tiers: OpenAI, Anthropic and Mistral Strategic for the mid tier (Anthropic re-scored to neutral rubric values at CP4); Gemini Strategic where Google Cloud is the primary cloud; Gemma 4 Strategic as the small self-hosted tier. Chinese-origin open weights (DeepSeek, Qwen, Kimi, GLM) only by explicit policy, self-hosted or in-tenant. Conflict of interest: these drafts were prepared with an Anthropic model, and an independent alternative is named wherever a Claude model is recommended.
+- Vendor benchmarks, including Anthropic's, were not used as decision inputs.
+
+#### Hashtags
+
+#FoundationModels #VendorRisk
+
+#### Re-verify before posting
+
+- The Gemini Flash retirement date and the Claude Fable 5 suspension dates (both cited in the first comment)
+- Current model families and versions, which change monthly
+- CP4 tier decisions as published in the final document
+
+#### Compliance check
+
+- Personal views; no statement about any firm's model choices: yes
+- Body vendor-neutral; both example events are attributed evenly in the first comment: yes
+- No vendor criticised beyond the cited facts: yes
+
+---
+
+### Post 16 · Week 8, Thursday · C6 AI FinOps
+
+**Pair:** Post 15 (L1, Week 8 Tuesday). **Bridge:** A model portfolio is only as good as the cost metric used to choose within it, and cost per token is the wrong one.
+
+**Theme and source:** Cost per task, metered at the gateway and joined to traces. `work/stageB/C6/section.md` (executive summary, §C6.2, §C6.3, §C6.9, §C6.11–§C6.13).
+
+**Tension:** Cost per task, not cost per token, is the metric executives understand.
+
+#### Full post
+
+Cost per token is the number on the price list. Cost per task is the number executives understand, and the one that tells you whether a change saved anything.
+
+A cheaper token that needs three retries and a longer human review is not cheaper. Teams that optimise price per token can move to a smaller model and lose more in regeneration and review time than they saved.
+
+Tuesday's post argued for a portfolio of models. This is how to choose between them on cost without fooling yourself. Meter every call at the gateway, tagged by use case and run. Join those records to the traces so that failed and regenerated attempts count. Reconcile monthly against provider bills. Keep the result in a dataset the firm owns, shaped to the open billing standard.
+
+In the illustrative cost model for this series' worked example, a monthly fund commentary at current list prices, tokens come to well under a dollar per approved commentary. Reviewer time is the real cost. So the signal I would report is cost per approved output, counting every failed and regenerated draft, alongside the regeneration rate.
+
+Budgets need teeth. The FinOps Foundation puts it plainly: a budget without a quota is a number, not a control. Every cap needs an enforcement point that fails closed, so a runaway agent loop stops itself long before the invoice arrives.
+
+The leadership move is to send cost optimisations through the same change control and evaluation gate as any other change.
+
+[Anecdote slot: one or two sentences on a cost saving that turned out to cost more elsewhere, and what the team measured next time.]
+
+What a task costs is a design question. The invoice only reports the answer.
+
+#### Short variant
+
+Cost per token is the number on the price list. Cost per task is the one executives understand.
+
+A cheaper token that needs three retries and a longer review is not cheaper.
+
+Meter every call at the gateway, tagged by use case and run. Join to traces so failed and regenerated attempts count. Reconcile monthly against bills, in a dataset the firm owns.
+
+In this series' illustrative worked example, tokens come to well under a dollar per approved commentary. Reviewer time is the real cost. So report cost per approved output, alongside the regeneration rate.
+
+Give budgets teeth. As the FinOps Foundation puts it, a budget without a quota is a number, not a control. Fail closed, so a runaway loop stops itself.
+
+What a task costs is a design question. The invoice only reports the answer.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a cost-reduction decision (cheaper tool, smaller team, lower tier) whose hidden costs appeared elsewhere (rework, review time, incidents), or one where measuring the whole task showed the saving was real. Let the numbers you are permitted to share stand plainly; if none are shareable, keep it qualitative. Credit whoever built the measure.
+- **Fits:** "let the numbers do the bragging" and making invisible work visible to executives.
+- **Avoid:** real budget figures, vendor spend or internal cost centres.
+
+#### Fallback version
+
+Cost per token is the number on the price list. Cost per task is the number executives understand, and the one that tells you whether a change saved anything.
+
+A cheaper token that needs three retries and a longer human review is not cheaper. Teams that optimise price per token can move to a smaller model and lose more in regeneration and review time than they saved.
+
+A portfolio of models needs a fair way to choose between them on cost. Meter every call at the gateway, tagged by use case and run. Join those records to the traces so that failed and regenerated attempts count. Reconcile monthly against provider bills. Keep the result in a dataset the firm owns, shaped to the open billing standard.
+
+In an illustrative cost model for a monthly fund commentary, at current list prices, tokens come to well under a dollar per approved commentary. Reviewer time is the real cost. So the signal to report is cost per approved output, counting every failed and regenerated draft, alongside the regeneration rate.
+
+Budgets need teeth. The FinOps Foundation puts it plainly: a budget without a quota is a number, not a control. Every cap needs an enforcement point that fails closed, so a runaway agent loop stops itself long before the invoice arrives.
+
+The leadership move is to send cost optimisations through the same change control and evaluation gate as any other change.
+
+The honest caveat: the open billing standard does not yet have a first-class column for input and output tokens, so part of the mapping is still the firm's own.
+
+What a task costs is a design question. The invoice only reports the answer.
+
+#### Suggested visual
+
+Side-by-side bars for one approved commentary (illustrative): "token cost" (small) versus "reviewer time" (large), with a third bar "regenerations" that multiplies the token cost. Beneath, the data flow: gateway meter (tags: use case, fund, run ID) → join to trace → monthly reconciliation to invoice → firm-owned cost dataset. Label clearly as illustrative. Source: C6 §C6.9 and §C6.12.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, C6 AI FinOps (§C6.2, §C6.3 KPIs, §C6.9, §C6.12, §C6.13).
+- The worked-example arithmetic (illustrative, author's own): about 40,000 input and 3,000 output tokens per draft at US$2 / US$10 per million tokens (the list price of both Claude Sonnet 5.5 and gpt-6.1-sol as of 7 October 2026 [A5-S011, A5-S004]), about 2.5 drafts per approved commentary, gives roughly US$0.30 per approved commentary.
+- FinOps Foundation: "Pair every financial cap with an engineering enforcement point. A budget without a quota is a number, not a control." Its tokenomics guidance: baseline for 30–60 days, budget at 110–120%, alerts at 80% and 100% [A7-S115].
+- FOCUS 1.4 ratified 4 June 2026; 1.5 adds model identity, and a token-type column was deferred [V2-S046, A7-S116].
+- Tools: gateway metering (LiteLLM, Cloudflare, Azure API Management, Apigee, Kong); Vantage and CloudZero as optional reporting layers; Helicone (acquired by Mintlify, maintenance mode) not recommended [A7-S112].
+
+#### Hashtags
+
+#FinOps #UnitEconomics
+
+#### Re-verify before posting
+
+- List prices used in the illustrative arithmetic (they change often; "well under a dollar" should still hold)
+- FOCUS 1.5 ratification status
+
+#### Compliance check
+
+- Personal views; arithmetic labelled illustrative and generic: yes
+- No real firm cost data: yes
+- Vendor prices cited evenly for two vendors in the first comment: yes
+
+---
+
+## Week 9
+
+### Post 17 · Week 9, Tuesday · L5 Memory (deliberately last)
+
+**Pair:** Post 18 (Regulated reality, Week 9 Thursday). **Bridge:** Memory is where governance gets personal (erasure, retention, reproducibility); Thursday steps back to the regulations that frame all of it.
+
+**Theme and source:** Agent memory as a governed record class, built last. `work/stageB/L5/section.md` (executive summary, §5.2, §5.3, §5.9, §5.11–§5.13); plan §12.6 build order.
+
+**Tension:** What an agent remembers is a governance question before it is a technical one, which is why memory comes last.
+
+#### Full post
+
+I left memory until week nine on purpose. What an agent remembers is a governance question before it is a technical one, and it is the layer I would build last.
+
+Memory is the one part of the stack that writes its own inputs. A mistaken "fact" extracted from one conversation can be recalled in hundreds of later ones. A stale preference can override a newer instruction. An injected instruction that lands in memory keeps working long after the original input has gone, which is why the OWASP list for agentic applications now names memory and context poisoning as a risk of its own.
+
+It also creates a regulatory object that did not exist before: a growing store of extracted personal and business information with no natural expiry. Several memory products keep long-term records indefinitely unless the firm sets a limit.
+
+So the design starts with a question: does this use case need long-term memory at all? Often session state plus retrieval of approved knowledge is enough. In the worked example, what looks like memory, such as fund terminology and the portfolio manager's preferred phrasing, is better held as a versioned style file, with recurring edits proposed as changes and approved by a person.
+
+The signal is erasure completion time: from request to deletion confirmed across the store, its indexes, revisions and backups. Within the one-month statutory window, with an internal target well inside it.
+
+The leadership move is to treat memory as a governed record class with an approved write path.
+
+[Anecdote slot: one or two sentences on a time data was easy to collect and hard to delete, and who made the clean-up possible.]
+
+Forgetting is a feature. In a regulated firm, it has to be engineered.
+
+#### Short variant
+
+I left memory until week nine on purpose. What an agent remembers is a governance question before it is a technical one.
+
+Memory writes its own inputs. A mistaken "fact" from one conversation can be recalled in hundreds of later ones, and an injected instruction stored in memory keeps working long after the input has gone.
+
+It also creates a new regulatory object: extracted personal and business information with no natural expiry.
+
+So ask first whether the use case needs long-term memory at all. Often session state plus approved retrieval is enough. Style and terminology belong in a versioned file a person approves.
+
+The signal is erasure completion time across the store, its indexes, revisions and backups, within the one-month statutory window.
+
+Forgetting is a feature. In a regulated firm, it has to be engineered.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a data-retention, archive or deletion exercise (a subject access request, a decommissioning, a records-policy refresh) that showed how much easier it is to collect data than to remove it. Credit the people who built the deletion capability; own any "keep everything" default you once accepted.
+- **Fits:** platform modernisation and regulated-environment themes.
+- **Avoid:** any real data-subject request, volume or client.
+
+#### Fallback version
+
+Memory is deliberately the last layer in this series. What an agent remembers is a governance question before it is a technical one, and it is the layer worth building last.
+
+Memory is the one part of the stack that writes its own inputs. A mistaken "fact" extracted from one conversation can be recalled in hundreds of later ones. A stale preference can override a newer instruction. An injected instruction that lands in memory keeps working long after the original input has gone, which is why the OWASP list for agentic applications now names memory and context poisoning as a risk of its own.
+
+It also creates a regulatory object that did not exist before: a growing store of extracted personal and business information with no natural expiry. Several memory products keep long-term records indefinitely unless the firm sets a limit.
+
+So the design starts with a question: does this use case need long-term memory at all? Often session state plus retrieval of approved knowledge is enough. In the worked example, what looks like memory, such as fund terminology and the portfolio manager's preferred phrasing, is better held as a versioned style file, with recurring edits proposed as changes and approved by a person.
+
+The signal is erasure completion time: from request to deletion confirmed across the store, its indexes, revisions and backups. Within the one-month statutory window, with an internal target well inside it.
+
+The leadership move is to treat memory as a governed record class with an approved write path.
+
+The honest caveat: the independent memory products are moving fast and in different directions, while the platforms absorb the feature. Owning the memory interface in front of them keeps that churn survivable.
+
+Forgetting is a feature. In a regulated firm, it has to be engineered.
+
+#### Suggested visual
+
+The build-order roadmap (plan §12.6) as a horizontal timeline: governance → evaluation and observability → model access (gateway first) → retrieval → workflows → tools → **memory** (highlighted) → optimisation. Inset: a memory write path with a policy gate (DLP screen, allow-list, approval), a subject index and a "forget-by-subject" arrow reaching store, vectors, revisions and backups. Source: L5 §5.9 and §5.12.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, L5 Memory (§5.2, §5.3 KPIs, §5.9, §5.11 on erasure and retention, §5.12), and the plan's day-one build order.
+- OWASP Top 10 for Agentic Applications for 2026: ASI06 memory and context poisoning [B-L5-S001].
+- Defaults that run against storage limitation: no long-term time limit in Amazon Bedrock AgentCore Memory (AWS recommends a pruner) [A3-S111]; no default TTL in Google's Memory Bank [A3-S109]; ADD-only accumulation in Mem0 open source [A3-S081]; invalidation rather than deletion in Graphiti [A3-S003].
+- ICO erasure expectations, including backups put "beyond use" and a one-month response [B-L5-S005]; storage limitation [B-L5-S006].
+- Market: Mem0 removed external graph stores from open source; Zep deprecated its Community Edition (Graphiti remains); Letta pivoted to an agent harness; LangMem has had no release since 27 October 2025 [A3-S081, A3-S059, A3-S093, A3-S006]. Model vendors also ship memory features (Anthropic's memory tool, OpenAI's Conversations API) [A3-S069, A3-S110].
+
+#### Hashtags
+
+#AgentMemory #DataProtection
+
+#### Re-verify before posting
+
+- ICO guidance (under review following the Data (Use and Access) Act)
+- Memory product defaults (TTL and pruning) and LangMem release status
+
+#### Compliance check
+
+- Personal views; "I left memory until week nine" refers to the series design, not to any firm: yes
+- No real erasure request or data described: yes
+- Vendors only in the first comment: yes
+
+---
+
+### Post 18 · Week 9, Thursday · Regulated reality: EU AI Act and DORA
+
+**Pair:** Post 17 (L5, Week 9 Tuesday). **Bridge:** After eight weeks of layers and controls, the regulatory frame explains why multi-vendor design and retained evidence stop being optional.
+
+**Theme and source:** The 2026–27 regulatory frame for GenAI in asset management. `work/stageB/C8/section.md` §C8.11 (with §C8.13), `work/stageB/L1/section.md` §1.11 (concentration), and `Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json` (R-US-MRM, R-EUAIA, R-EU-OMNIBUS-AI, R-DORA, R-UK-CTP, R-PRA-SS221, R-FCA-SYSC8, R-INTL-AI-ASSETMGMT).
+
+**Tension:** Concentration risk turns multi-vendor from a preference into a requirement.
+
+#### Full post
+
+Concentration risk is turning multi-vendor AI from a preference into something close to a requirement.
+
+Four facts frame it. In the US, SR 26-2 replaced the long-standing model-risk guidance in April 2026 and placed generative and agentic AI outside its scope, so firms write their own standard. In the EU, enforcement of the AI Act's duties on general-purpose model providers began in August 2026, while the high-risk duties for Annex III uses moved to 2 December 2027. For most asset-management uses, today's live duties are literacy and transparency. Under DORA, and the UK's new critical third parties regime, the providers designated for direct oversight are hyperscalers and infrastructure firms; no model vendor is on either list. And from 18 March 2027, UK firms must notify material third-party arrangements before entering or significantly changing them.
+
+Read together, oversight of a direct model-vendor contract rests largely on the firm. No rule says "use two model vendors". But a tested stressed-exit plan for a model behind an important business service needs a second route that already works: qualified on the same evaluation suite, through the same gateway, in an approved region. International supervisors now name concentration on a few AI providers as a risk in itself.
+
+The signal is a concentration ratio: the share of production usage, or of important services, served by the largest single model vendor, reported to the risk committee against a ceiling the firm sets.
+
+The leadership move is to use these deadlines as a mandate, building the evidence once.
+
+[Anecdote slot: one or two sentences on a regulatory deadline you turned into a broader refresh, and who carried it.]
+
+Regulation rarely tells you what to build. It tells you what you will have to prove.
+
+#### Short variant
+
+Concentration risk is turning multi-vendor AI from a preference into something close to a requirement.
+
+The frame: SR 26-2 leaves GenAI governance to US firms themselves. The EU AI Act's general-purpose model duties have been enforceable since August 2026; Annex III high-risk duties apply from 2 December 2027. DORA and the UK critical third parties regime designate hyperscalers, not model vendors. UK third-party notifications start on 18 March 2027.
+
+So oversight of a direct model contract rests on the firm. No rule demands two vendors, but a tested stressed exit needs a second route that already works.
+
+The signal is a concentration ratio: usage served by the largest model vendor, reported against a ceiling the firm sets.
+
+Use the deadlines as a mandate. Regulation rarely tells you what to build. It tells you what you will have to prove.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** an external deadline (a regulation, an end-of-support date, a market change) that you used to fund or justify a wider modernisation, and what made the case land with executives. Credit the team that delivered it.
+- **Fits:** the signature theme "turning compressed external deadlines into refresh mandates".
+- **Avoid:** naming regulators' interactions with your firm or any supervisory finding.
+
+#### Fallback version
+
+Concentration risk is turning multi-vendor AI from a preference into something close to a requirement.
+
+Four facts frame it. In the US, SR 26-2 replaced the long-standing model-risk guidance in April 2026 and placed generative and agentic AI outside its scope, so firms write their own standard. In the EU, enforcement of the AI Act's duties on general-purpose model providers began in August 2026, while the high-risk duties for Annex III uses moved to 2 December 2027. For most asset-management uses, today's live duties are literacy and transparency. Under DORA, and the UK's new critical third parties regime, the providers designated for direct oversight are hyperscalers and infrastructure firms; no model vendor is on either list. And from 18 March 2027, UK firms must notify material third-party arrangements before entering or significantly changing them.
+
+Read together, oversight of a direct model-vendor contract rests largely on the firm. No rule says "use two model vendors". But a tested stressed-exit plan for a model behind an important business service needs a second route that already works: qualified on the same evaluation suite, through the same gateway, in an approved region. International supervisors now name concentration on a few AI providers as a risk in itself.
+
+The signal is a concentration ratio: the share of production usage, or of important services, served by the largest single model vendor, reported to the risk committee against a ceiling the firm sets.
+
+The leadership move is to use these deadlines as a mandate, building the evidence once.
+
+The honest caveat: the DORA list is updated every year, and nothing guarantees a direct model API stays outside the perimeter.
+
+Regulation rarely tells you what to build. It tells you what you will have to prove.
+
+#### Suggested visual
+
+A timeline from April 2026 to December 2027: 17 Apr 2026 SR 26-2 (GenAI out of scope); 13 Jul 2026 UK CTP designations in force; 2 Aug 2026 GPAI enforcement and Article 50 transparency; 18 Mar 2027 UK material third-party notifications; 2 Dec 2027 EU AI Act Annex III. Beneath it, a two-column panel: "designated for direct oversight: hyperscalers and infrastructure" versus "not designated: model vendors (oversight rests on the firm)". Source: regulatory_facts.json and C8 §C8.11.
+
+#### First comment
+
+Personal views; not legal advice. Sources: the Enterprise GenAI Stack review, C8 §C8.11 and L1 §1.11, and the regulatory fact base.
+- SR 26-2 / OCC Bulletin 2026-13 / FDIC FIL-15-2026, 17 April 2026: supersedes SR 11-7; generative and agentic AI expressly out of scope; a planned AI request for information not published as of 7 October 2026 [R-US-MRM: A8-S001, A8-S002, A8-S003, V2-S049].
+- EU AI Act: Commission enforcement powers over GPAI from 2 August 2026; Article 50 transparency from 2 August 2026; Annex III moved to 2 December 2027 and Annex I to 2 August 2028 by Regulation (EU) 2026/1744 (in force 27 July 2026) [R-EUAIA, R-EU-OMNIBUS-AI: A8-S011, A8-S019, V2-S050]. GPAI Code of Practice signatories include Amazon, Anthropic, Google, IBM, Microsoft, Mistral AI and OpenAI [R-EU-GPAI-COP: A8-S015].
+- DORA: first CTPP list 18 November 2025, 19 providers including AWS, Google Cloud, Microsoft, Oracle, IBM, SAP, Bloomberg and LSEG; no AI model provider; updated annually [R-DORA: A8-S020, A8-S021, V2-S051]. UK CTPs in force 13 July 2026: AWS, Google Cloud, Microsoft, Oracle; no model vendor [R-UK-CTP: A8-S023, V2-S052].
+- PRA PS7/26 and FCA PS26/2: material third-party notifications and an annual register from 18 March 2027 [R-PRA-SS221, R-FCA-SYSC8: A8-S062, V2-S053]. SS2/21 stressed-exit expectations [A8-S048].
+- IOSCO Supervisory Toolkit (FR/02/2026) flags concentration risk from reliance on few AI providers [R-INTL-AI-ASSETMGMT: A8-S058].
+
+#### Hashtags
+
+#EUAIAct #DORA
+
+#### Re-verify before posting
+
+- Any update to the DORA CTPP list or new UK CTP designations (especially any model vendor)
+- Whether the US agencies' AI request for information has been published
+- EU AI Act dates (any further Omnibus changes) and the PS7/26 effective date
+- "For most asset-management uses, today's live duties are literacy and transparency" is a judgement; keep it phrased as such
+
+#### Compliance check
+
+- Personal views and "not legal advice" stated in the first comment: yes
+- No statement about the firm's regulatory status or engagement: yes
+- Vendors named only in the first comment, from the official lists: yes
+
+---
+
+## Weeks 10–13 and reactive templates (to be added after the synthesis)
+
+Placeholder. These will be drafted in a later run from `work/stageC/synthesis.md`, once the synthesis exists:
+
+- **Week 10:** #19 The worked example (Tuesday) · #20 Start small (Thursday)
+- **Week 11:** #21 Build vs buy (Tuesday) · #22 Where *not* to abstract (Thursday)
+- **Week 12:** #23 Which lock-in is acceptable (Tuesday) · #24 Close: what I'd select, and what I'd deliberately not select (Thursday)
+- **Week 13:** Buffer
+- **Reactive templates (2–3):** model launch · acquisition · regulatory milestone
+
+---
+
+## Appendix: automated checks
+
+The checks are run with `python3 -I` over this file. For every post they confirm that:
+- the full post and the fallback version are each 220–300 words, with the anecdote slot counted as drafted
+- the short variant is 120–150 words
+- the full post contains exactly one anecdote slot, and the short variant and fallback contain none
+- there are at most 2 hashtags
+- there are no emoji characters
+
+Result on 9 October 2026, posts #1–#18: all passed.
