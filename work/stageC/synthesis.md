@@ -809,3 +809,101 @@ The plan asks for four stacks with different priorities (plan §12.2). By the re
 **Build now (Stack D) [Rec].** Exactly the table above, for one use case (the attribution commentary is a good first candidate because its boundaries are clear and its numbers are checkable).
 
 **Do NOT build yet (Stack D) [Rec].** Memory; agents with autonomy; A2A; MCP beyond the first read-only tool; web search; code sandboxes; a dedicated vector database; a second cloud; self-hosted serving beyond a documented exit option; fine-tuning; a governance platform; a FinOps SaaS; a runtime AI-security platform; semantic caching; Agent Skills; any Experimental product (Part XI).
+
+---
+
+# Part VIII: Build vs buy
+
+**The rule.** Build where the capability is the firm's control statement, evidence or domain logic; buy where it is commodity infrastructure with a heavy security, compliance or maintenance burden; and use a hybrid (open-source or bought engine, firm-owned interface and policy) wherever a product will be replaced within the planning horizon (plan §12.3) [AJ]. The evidence of 2026 pushes more components into the hybrid column than a year ago, because so many "neutral" products changed owner (Part I, finding 2) [AJ].
+
+| Component | Decision | What the firm builds | What it buys or adopts | Rationale [AJ] |
+|---|---|---|---|---|
+| AI traffic gateway (C1) | **Hybrid** | Route definitions, fallback lists, budgets and policy intent as data in Git; the two-deployment topology and exit drill | Gateway product (LiteLLM Enterprise, Kong, APIM, Apigee, AgentCore Gateway) | Gateways are commodity; routes and policies are the firm's control and the exit route. Proprietary policy dialects are the main switching cost [VF: A6-S053, A6-S024, A6-S016] |
+| Guardrails (C2) | **Hybrid** | Guardrail policy, deterministic business-invariant checks, attack and benign test sets | Detectors (managed cloud service, NeMo Guardrails, Prompt Guard, a security vendor's detector) | The numeric comparator is domain logic no vendor sells; detectors churn through acquisitions [VF: A6-S028, A7-S012] |
+| Privacy service (C3) | **Hybrid** | The privacy-service API, entity policy, firm recognisers, test corpus, token-map store with keys in the firm's KMS/HSM | Detection engine (Presidio, Sensitive Data Protection); vault only where reversible tokenisation at scale is needed | One API at six enforcement points is cheaper than a detector per layer; a vendor-held token map is a hard exit [VF: A6-S081] |
+| Identity and authorisation (C4) | **Buy the IdP, build the policy** | Agent registration process, sponsor model, OPA or Cedar policies in Git with tests, audit-event schema | Workforce IdP agent features (Entra Agent ID, Okta for AI Agents), SPIRE, AgentCore Identity | Identity is infrastructure; who may call what is the firm's control [VF: V2-S032, A6-S100] |
+| Configuration of record (C5) | **Build** (thin) | Release manifest schema, CI eval gate, pull-request approval rules | Registry features of the L9 platform; feature flags only where already standard | Prompt text and approvals are IP and model-risk evidence [AJ] |
+| AI FinOps (C6) | **Build** (thin) | FOCUS-shaped cost dataset, cost-per-task joins to traces, allocation rules in Git | Gateway metering; existing FinOps tool fed from exports | Allocation rules are finance policy; FOCUS is open [VF: A7-S096] |
+| AI security (C7) | **Buy**, with firm architecture | Capability-separation design, supply-chain gate, canary documents, incident classification | Secrets broker (Vault or cloud service), scanners, runtime detector, model signing | Security tooling is specialist; the architecture that makes any one detector non-critical is the firm's [AJ] |
+| Governance and evidence (C8) | **Build the store, buy the workflow (optional)** | Inventory schema, evidence store (immutable, keyed by trace ID), GenAI model-risk standard, control library | A governance workflow tool (ValidMind, watsonx.governance, Collibra, Credo AI) as a replaceable layer | The evidence is the regulatory record and must outlive any tool; no governance platform reaches Strategic on public evidence [AJ] |
+| Evaluation and observability (L9) | **Hybrid** | OTel Collector configuration and redaction, datasets and scorers in Git, numeric-faithfulness checks, judge calibration | Platform of record (Langfuse, MLflow, LangSmith), metric library (DeepEval), red-team tools | The datasets are the validation evidence; platforms are replaceable if instrumentation is portable [VF: A1-S058, A1-S059] |
+| Ingestion (L8) | **Build the envelope, adopt the parsers** | Approved-source register, acquisition contract, parse manifest, metadata envelope, OpenLineage facets, incremental indexing | Docling, Unstructured connectors, OCR engines, managed parsers as engines | No L8 product emits lineage, so the envelope cannot be bought [VF: A1-S094, A1-S096] |
+| Retrieval optimisation (L7) | **Hybrid** | Thin `embed`/`rerank` service, in-domain evaluation set, dual-index migration runbook | Embedding and reranker models (open or hosted) | The model is replaceable; the pin, the raw text and the evaluation are not [AJ] |
+| Retrieval stores (L6) | **Buy (reuse)** | Thin retrieval interface, chunk metadata contract, entitlement compilation, rebuild pipeline | The database or search engine already operated | Every new store is another copy of confidential content to secure, retain and exit [AJ] |
+| Memory service (L5) | **Build (thin, later)** | Memory API (write via policy gate, recall, forget-by-subject, snapshot) | Storage in L6; hyperscaler memory only inside its own runtime | The governance is unique to the firm; the storage is not [AJ] |
+| Tool servers (L4) | **Build** | Read-only MCP or OpenAPI servers owned by each system's team | Tool gateway (C1 product); sandbox (E2B or cloud runtime); search APIs | Tools encode access to systems of record; they are the firm's integration surface [AJ] |
+| Orchestration (L3) | **Adopt open source, build workflows** | Workflow graphs, approval gates, run records | LangGraph / Microsoft Agent Framework / ADK / Pydantic AI; Temporal or a managed runtime | Frameworks are open and self-hostable; the process is the firm's [VF: A4-S001, A4-S067, A4-S114, A4-S003] |
+| Serving (L2) | **Buy access; adopt an open engine for the exit route** | Capacity plan, exit drill | Hyperscaler model service; vLLM (supported distribution if needed) | Self-hosting is a capacity and operating-model decision, not a cost saving [AJ] |
+| Foundation models (L1) | **Buy** (and adopt open weights) | The portfolio policy, qualification suite, retirement calendar | Hosted models through the primary cloud; Gemma 4 or Mistral weights | Training a foundation model is out of scope for an asset manager [AJ] |
+| Fine-tuning | **Do not build yet** | — | — | Fine-tuning can turn a deployer into a provider under Article 25 and adds a model to validate [VF: R-EUAIA, A8-S011] [AJ] |
+
+---
+
+# Part IX: Abstraction strategy and vendor lock-in by layer
+
+## IX.1 What to abstract
+
+The plan asks for abstraction of model routing, observability, evaluation, credentials, policy and retrieval interfaces (plan §12.4). The sections support all six and add four more [AJ]:
+
+| Abstract | The firm-owned interface | Evidence that it pays [AJ] |
+|---|---|---|
+| Model routing | An OpenAI-compatible contract to the gateway; no provider SDKs in application code | Every gateway here exposes or accepts the format [VF: A6-S015, A6-S049, A6-S053, A6-S061, A6-S063] |
+| Observability | A firm-owned OTel Collector with redaction; pinned semantic-convention version | Every L9 product ingests OTel or OpenInference [VF: A1-S032, A1-S037, A1-S042, A1-S049] |
+| Evaluation | Git-versioned datasets and scorers; results as `gen_ai.evaluation.result` events | Datasets are the regression baseline and validation evidence [VF: A1-S059] |
+| Credentials | Workload identity and a vault; OBO tokens; no standing secrets in agents | Credentials are re-issuable; integration is the cost [VF: A7-S033] |
+| Policy | OPA (Rego) or Cedar in Git with tests | Both are open source [VF: A6-S088, A6-S045] |
+| Retrieval | A thin `retrieve(query, filters, tenant, top_k)` interface returning IDs and scores; entitlement policy compiled per store | Proprietary query APIs differ [VF: A2-S051, A2-S056, A2-S092] |
+| Privacy | The privacy-service API (detect, transform, re-identify) | Detectors are replaceable if recognisers and tests are the firm's [AJ] |
+| Embedding and reranking | `embed` and `rerank` behind one service with `model_version` on every vector | Switching the model forces re-embedding [AJ] |
+| Memory | `write`, `recall`, `forget_by_subject`, `snapshot` | Memory semantics differ by product (ADD-only, invalidate, consolidate) [VF: A3-S081, A3-S003, A3-S109] |
+| Configuration | `get_config(system, env)` with a file-based fallback | Each registry has its own SDK [VF: A7-S072, A7-S004, A7-S089] |
+
+## IX.2 What not to over-abstract
+
+- **Agent frameworks.** Do not wrap LangGraph, Microsoft Agent Framework or ADK in a firm abstraction; rewriting a well-specified workflow is bounded work, and keeping prompts, tools, evaluations and the workflow specification outside the framework is the real portability (L3 §3.10) [Rec].
+- **Simple API calls and application-specific orchestration.** A single deterministic workflow with one model step does not need a plug-in architecture [AJ].
+- **Straightforward database access.** pgvector is reached through SQL joined to entitlement tables; the thin retrieval interface sits above it for agents, not between every query and the database [AJ].
+- **Store-bundled features.** Use store-hosted embedding or reranking only if the model is pinned and raw text is kept outside the store; do not build an abstraction to hide an unpinned model [AJ].
+- **Vendor-specific model features.** Prompt-caching formats and vendor tool-use extensions are used only behind adapters with a feature-free fallback path (L1 §1.10) [Rec].
+
+## IX.3 Where multi-vendor is truly necessary, and where it only adds complexity
+
+| Multi-vendor is necessary [Rec] | Why [AJ] |
+|---|---|
+| Two unrelated mid-tier model vendors, qualified on the same suite | A single vendor's suspension, retirement or legal event stops the service; the Fable 5 suspension and short Flash lifetimes show the risk [VF: V2-S004, B-L1-S003] |
+| An open-weight model qualified on vLLM | The credible stressed exit for SS2/21 [VF: R-PRA-SS221, A8-S048] |
+| Two red-team tools, one independent of the model vendor under test | Effective challenge; Promptfoo's announced owner is a model vendor [VF: A1-S024] |
+| Two guardrail detectors from different owners on untrusted input | Detectors are being absorbed by security vendors; one detector is a single point of failure [VF: A7-S012, A7-S014, A6-S028] |
+| Two independent gateway deployments (same product) | The gateway is a single point of failure by design |
+
+| Multi-vendor only adds complexity [Rec] | Why [AJ] |
+|---|---|
+| Two orchestration frameworks in one language estate | Two sets of skills and checkpoint formats with no resilience gain |
+| Two vector stores for one corpus | Two copies to secure, retain and erase |
+| Two observability platforms of record | Evidence split across tools; one platform plus a portable Collector suffices |
+| Two IdPs for agents | Agents follow the humans' IdP |
+| A second cloud's agent stack for the same use case | Doubles the control plane; a second model route is enough for exit |
+
+## IX.4 Lock-in by layer and control
+
+The table consolidates the sections' x.10 classifications. "Unacceptable" means the arrangement should not be adopted for a regulated workload without the stated abstraction; "manageable" means acceptable with the abstraction; "acceptable" means the switching cost is low [AJ].
+
+| Layer / control | Acceptable | Manageable | Unacceptable | Rationale and abstraction [AJ] |
+|---|---|---|---|---|
+| L1 models | Apache-2.0 or MIT open weights held by the firm | A proprietary frontier API behind the gateway with a qualified second vendor; hyperscaler routes; custom-licence open weights after legal review | A single proprietary frontier vendor for an important business service; a Chinese-origin vendor's own API for client data; training-on-data tiers [VF: V2-S019] | Switching cost is re-qualification, not re-engineering, if prompts and schemas are neutral |
+| L2 inference | vLLM and SGLang (Apache-2.0, OpenAI-compatible) [VF: A4-S009, A4-S010]; desktop runtimes off the production path | Optimisation layers; managed inference clouds; hyperscaler model services (concentration noted) | A router in the client-data path without contractual ZDR and residency; billing intermediation; proprietary hardware as the only route | The engine API is the contract; the gateway exit drill proves it |
+| L3 orchestration | Open frameworks (LangGraph, Agent Framework, ADK, Pydantic AI) | Checkpoint formats; durable-execution engines; managed runtimes; model-locked harnesses as one sub-step | Vendor-hosted agent state for regulated workflows; visual builders (Agent Builder shuts 30 November 2026) [VF: A4-S054] | Keep workflow specification, prompts, tools and evals outside the framework |
+| L4 tools | MCP and A2A as open specifications under AAIF [VF: A3-S018, A3-S116]; search APIs; Skills format | Tool gateway and policy; browser services; sandboxes | Credential custody in a third party's multi-tenant cloud [VF: B-L4-S007]; dependence on the public MCP Registry (preview, v0.1) [VF: A3-S019] | Tool contracts in the firm's repository; private registry; vault in the estate |
+| L5 memory | Hyperscaler memory inside its own runtime | Memory API semantics; extraction model; graph engine | Canonical memory records only in a vendor store; organisational memory outside version control | Canonical record in the firm's L6 store, or regular export |
+| L6 stores | The vector index, if rebuildable from source | Query API; licence; object-store format; hyperscaler-native stores; store-bundled embedding (if pinned) | Entitlement logic only in a store's proprietary syntax; a knowledge engine as the only home of curated knowledge [VF: A2-S073] | Rebuild-from-source is the backup and the exit |
+| L7 retrieval optimisation | Reranker choice (stateless) | Hosted embedding models; shared-space families; GPU-vendor runtimes | Self-hosted non-commercial weights without a licence [VF: A2-S024]; store-bundled models left unpinned | Raw text kept; `model_version` on every vector; dual-index migration |
+| L8 ingestion | Docling; Unstructured OSS; OCR engines used purely as OCR | Proprietary parsing APIs (LlamaParse, Reducto, Firecrawl Cloud, Unstructured Transform) | A vendor-managed index as the system of record for entitled content; MinerU above thresholds without a commercial licence; a modified AGPL server exposed without compliance [VF: A1-S054, A1-S053] | Canonical document model and engine adapter; own copy of every parse |
+| L9 evaluation | Production APM module | Platform of record; red-team tooling; judge model | Proprietary instrumentation; evaluation datasets only in a vendor UI | Firm Collector; datasets in Git |
+| C1 gateway | OpenAI-compatible application interface; model provider behind it (with a qualified alternative) | Gateway product; proprietary policy dialects | Billing through the gateway vendor; a SaaS gateway in the client-data path without verified log residency | Routing config in Git; thin policy logic |
+| C2 guardrails | Detector products | Managed guardrail APIs; open weights under community licences | Policy or test sets held only in a vendor console | Policy as code; per-detector adapters |
+| C3 privacy | Detection engine; posture tooling | Policy model; managed DLP API | A vendor-held token map and keys without a tested bulk-detokenisation exit | Keys in the firm's KMS/HSM |
+| C4 identity | Rego or Cedar; MCP authorisation profile | Workforce IdP; agent licence bundles; gateway-bound enforcement; vendor token vaults | (none, if policies are kept portable) | Tool servers depend only on standard token claims |
+| C5 configuration | Model and embedding pins in a manifest | Template syntax; runtime fetch API; rollout rules | Prompt text or change history only in a vendor registry | Canonical files in Git; registry as cache |
+| C6 FinOps | FOCUS-shaped dataset; provider usage APIs | Gateway metering; FinOps SaaS reporting | Allocation rules or cost schema only in a proprietary engine | Rules in Git; firm-owned dataset |
+| C7 security | Model signing (OMS); scanners | Runtime detector; secrets broker; red-team tooling | A security platform bundled with the gateway without an exit plan [VF: A7-S016, A7-S028] | One detector interface at the gateway; gateway choice kept separate |
+| C8 governance | Policy packs and control mappings; OpenLineage | Inventory data; validation documentation; runtime enforcement coupling | An evidence store held only by a vendor | Firm-owned immutable archive; nightly export |
