@@ -120,8 +120,9 @@ for pid, head in SYN_VIS:
     if fig and head in rest_md:
         rest_md = rest_md.replace("\n" + head, "\n" + fig + head, 1)
 doc.append(rest_md)
-# Stage E further views (Parts XIII-XV): technology service provider, software product company, start-up
-for vid in ("TS", "SW", "SU"):
+# Stage E further views (Parts XIII-XVIII): technology service provider, software product company, start-up,
+# and three vendor start-ups that sell into the enterprise stack (AI tools, agentic SDLC, agents)
+for vid in ("TS", "SW", "SU", "AT", "DV", "AG"):
     doc.append(read("work/stageE/views/%s/view.md" % vid))
 doc.append("# Annex: Sources, data and companion documents\n\nEach item below has one home; this document does not repeat it [AJ].\n\n"
            "| Item | Where it lives |\n|---|---|\n"

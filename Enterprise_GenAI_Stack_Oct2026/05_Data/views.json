@@ -70,6 +70,60 @@
    "profile": "An early-stage technology company (pre-seed to Series B) building an AI-native product with a small team. Speed to a working product, cash runway and developer productivity come first; the first enterprise customers will soon ask for security assurance, and the architecture must not trap the company when it scales.",
    "why_weights": "Technical capability, developer ecosystem and cost carry the most weight; enterprise readiness and deployment flexibility matter little until the first enterprise deal; a modest lock-in weight keeps exits open at low cost.",
    "worked_example": "A five-person start-up builds an AI assistant for small accounting firms that drafts client emails and summarises bookkeeping anomalies. It must ship in weeks, keep model spend below a set share of revenue, and pass its first customer's security questionnaire within a year."
+  },
+  {
+   "id": "AT",
+   "name": "Start-up selling AI tools into the enterprise stack",
+   "short": "AI-tools start-up",
+   "weights": {
+    "technical": 20,
+    "enterprise_readiness": 10,
+    "security_compliance": 15,
+    "deployment_flexibility": 15,
+    "ecosystem": 15,
+    "reliability_maturity": 5,
+    "cost_tco": 10,
+    "lockin_portability": 10
+   },
+   "profile": "An early-stage company whose product is itself a component of the Enterprise GenAI Stack: a gateway, guardrail, privacy, evaluation, observability, retrieval, ingestion, memory or governance tool sold to enterprises. Its buyers are the platform, security and model-risk teams the FS view describes; to be adopted it must slot into their control plane, run where their data is, and survive their due diligence.",
+   "why_weights": "For the components the start-up builds on: technical depth, open-standard ecosystem fit (OTel, OpenAI-compatible APIs, MCP) and deployment flexibility (BYOC and self-hosted editions for customers) carry the most weight; security matters because the vendor inherits its customers' expectations; cost matters for a young company; reliability matters less because the start-up can choose fast-moving open components it controls.",
+   "worked_example": "A four-person start-up sells a PII-redaction and policy service that enterprises call from their AI gateway. It ships as SaaS in an EU region and as a container customers run in their own account, emits OpenTelemetry spans, and is preparing SOC 2 Type II."
+  },
+  {
+   "id": "DV",
+   "name": "Start-up selling agentic SDLC tools to developers",
+   "short": "Agentic-SDLC start-up",
+   "weights": {
+    "technical": 25,
+    "enterprise_readiness": 10,
+    "security_compliance": 15,
+    "deployment_flexibility": 10,
+    "ecosystem": 15,
+    "reliability_maturity": 5,
+    "cost_tco": 15,
+    "lockin_portability": 5
+   },
+   "profile": "An early-stage company selling coding agents, AI code review, test generation, migration or other agentic software-development tools to engineering teams in enterprises. It competes with, or plugs into, the large coding-agent platforms; its buyers care about source-code confidentiality, model choice, auditability of agent changes, cost per task and fit with their repositories, CI and identity.",
+   "why_weights": "Model and tool capability dominate (the product is only as good as its agent loop); ecosystem fit with developer tooling and protocols, and the cost of token-heavy workloads, come next; security is high because customers hand over source code; lock-in weighs less because developer tools are replaced often.",
+   "worked_example": "A start-up offers an agent that upgrades a customer's Java services to a new framework version: it opens pull requests in the customer's repository, runs the customer's tests in an isolated sandbox, and never merges without human review. Enterprise customers require their own model endpoint, no retention of code, and an audit trail of every agent action."
+  },
+  {
+   "id": "AG",
+   "name": "Start-up selling agents to enterprises",
+   "short": "Agent-provider start-up",
+   "weights": {
+    "technical": 20,
+    "enterprise_readiness": 15,
+    "security_compliance": 15,
+    "deployment_flexibility": 15,
+    "ecosystem": 15,
+    "reliability_maturity": 5,
+    "cost_tco": 5,
+    "lockin_portability": 10
+   },
+   "profile": "An early-stage company whose product is an agent (or a set of agents) that does work inside a customer's business: a finance-operations agent, a support agent, a research agent. To be bought by enterprises it must run under the customer's identity and policy, call tools through the customer's gateway, emit evidence the customer can audit, and be deployable in the customer's cloud or through its agent marketplace.",
+   "why_weights": "Enterprise readiness, security, deployment flexibility and ecosystem (agent identity, MCP, A2A, OpenTelemetry) carry equal weight with technical capability, because an agent that cannot be governed by the customer is not bought; cost matters less as customers usually fund inference; lock-in matters because customers expect to choose the model.",
+   "worked_example": "A start-up sells an accounts-payable agent that matches invoices to purchase orders and drafts payment proposals. It runs in the customer's cloud account, acts on behalf of a named finance user with read-only access to the ERP through the customer's tool gateway, never releases payments itself, and writes an evidence record for every proposal."
   }
  ],
  "fit_rules": {
@@ -97,19 +151,28 @@
     "FS": 3.0,
     "TS": 3.05,
     "SW": 3.2,
-    "SU": 3.3
+    "SU": 3.3,
+    "AT": 3.25,
+    "DV": 3.25,
+    "AG": 3.2
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 10,
     "TS": 9,
     "SW": 7,
-    "SU": 7
+    "SU": 7,
+    "AT": 8,
+    "DV": 8,
+    "AG": 10
    }
   },
   {
@@ -132,19 +195,28 @@
     "FS": 3.8,
     "TS": 3.85,
     "SW": 3.7,
-    "SU": 3.85
+    "SU": 3.85,
+    "AT": 3.85,
+    "DV": 3.95,
+    "AG": 3.85
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 3,
     "TS": 2,
     "SW": 4,
-    "SU": 2
+    "SU": 2,
+    "AT": 3,
+    "DV": 2,
+    "AG": 3
    }
   },
   {
@@ -169,19 +241,28 @@
     "FS": 3.15,
     "TS": 3.1,
     "SW": 3.3,
-    "SU": 3.3
+    "SU": 3.3,
+    "AT": 3.35,
+    "DV": 3.3,
+    "AG": 3.4
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 7,
     "TS": 7,
     "SW": 5,
-    "SU": 8
+    "SU": 8,
+    "AT": 7,
+    "DV": 7,
+    "AG": 7
    }
   },
   {
@@ -204,19 +285,28 @@
     "FS": 3.35,
     "TS": 3.45,
     "SW": 3.2,
-    "SU": 3.5
+    "SU": 3.5,
+    "AT": 3.4,
+    "DV": 3.6,
+    "AG": 3.45
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Core candidate",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 6,
     "SW": 8,
-    "SU": 6
+    "SU": 6,
+    "AT": 6,
+    "DV": 5,
+    "AG": 5
    }
   },
   {
@@ -239,19 +329,28 @@
     "FS": 3.8,
     "TS": 3.8,
     "SW": 3.9,
-    "SU": 3.7
+    "SU": 3.7,
+    "AT": 3.8,
+    "DV": 3.7,
+    "AG": 3.8
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 4,
     "TS": 3,
     "SW": 3,
-    "SU": 4
+    "SU": 4,
+    "AT": 4,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -276,19 +375,28 @@
     "FS": 3.05,
     "TS": 3.05,
     "SW": 3.15,
-    "SU": 3.05
+    "SU": 3.05,
+    "AT": 3.2,
+    "DV": 3.15,
+    "AG": 3.25
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 9,
     "TS": 10,
     "SW": 10,
-    "SU": 10
+    "SU": 10,
+    "AT": 10,
+    "DV": 10,
+    "AG": 9
    }
   },
   {
@@ -313,19 +421,28 @@
     "FS": 3.85,
     "TS": 3.8,
     "SW": 3.95,
-    "SU": 3.85
+    "SU": 3.85,
+    "AT": 3.95,
+    "DV": 3.9,
+    "AG": 3.95
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 4,
     "SW": 2,
-    "SU": 3
+    "SU": 3,
+    "AT": 2,
+    "DV": 3,
+    "AG": 2
    }
   },
   {
@@ -348,19 +465,28 @@
     "FS": 2.8,
     "TS": 2.7,
     "SW": 2.8,
-    "SU": 2.65
+    "SU": 2.65,
+    "AT": 2.8,
+    "DV": 2.75,
+    "AG": 2.9
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 11,
     "TS": 11,
     "SW": 11,
-    "SU": 11
+    "SU": 11,
+    "AT": 11,
+    "DV": 11,
+    "AG": 11
    }
   },
   {
@@ -383,19 +509,28 @@
     "FS": 4.05,
     "TS": 4.2,
     "SW": 4.1,
-    "SU": 4.3
+    "SU": 4.3,
+    "AT": 4.25,
+    "DV": 4.35,
+    "AG": 4.25
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -420,19 +555,28 @@
     "FS": 3.25,
     "TS": 3.5,
     "SW": 3.25,
-    "SU": 3.55
+    "SU": 3.55,
+    "AT": 3.45,
+    "DV": 3.6,
+    "AG": 3.45
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Core candidate",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 5,
     "SW": 6,
-    "SU": 5
+    "SU": 5,
+    "AT": 5,
+    "DV": 6,
+    "AG": 6
    }
   },
   {
@@ -455,19 +599,28 @@
     "FS": 3.15,
     "TS": 3.1,
     "SW": 3.2,
-    "SU": 3.15
+    "SU": 3.15,
+    "AT": 3.25,
+    "DV": 3.25,
+    "AG": 3.3
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 8,
     "TS": 8,
     "SW": 9,
-    "SU": 9
+    "SU": 9,
+    "AT": 9,
+    "DV": 9,
+    "AG": 8
    }
   },
   {
@@ -490,19 +643,28 @@
     "FS": 2.8,
     "TS": 2.85,
     "SW": 2.85,
-    "SU": 2.9
+    "SU": 2.9,
+    "AT": 2.85,
+    "DV": 2.85,
+    "AG": 2.85
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 10,
     "TS": 10,
     "SW": 10,
-    "SU": 10
+    "SU": 10,
+    "AT": 10,
+    "DV": 10,
+    "AG": 10
    }
   },
   {
@@ -525,19 +687,28 @@
     "FS": 3.65,
     "TS": 3.55,
     "SW": 3.7,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.7,
+    "DV": 3.65,
+    "AG": 3.75
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Situational",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 4,
     "SW": 3,
-    "SU": 4
+    "SU": 4,
+    "AT": 4,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -563,19 +734,28 @@
     "FS": 3.6,
     "TS": 3.7,
     "SW": 3.65,
-    "SU": 3.9
+    "SU": 3.9,
+    "AT": 3.8,
+    "DV": 3.85,
+    "AG": 3.8
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 4,
     "TS": 2,
     "SW": 4,
-    "SU": 3
+    "SU": 3,
+    "AT": 3,
+    "DV": 3,
+    "AG": 3
    }
   },
   {
@@ -598,19 +778,28 @@
     "FS": 3.35,
     "TS": 3.15,
     "SW": 3.5,
-    "SU": 3.45
+    "SU": 3.45,
+    "AT": 3.5,
+    "DV": 3.4,
+    "AG": 3.5
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 7,
     "SW": 6,
-    "SU": 6
+    "SU": 6,
+    "AT": 6,
+    "DV": 6,
+    "AG": 6
    }
   },
   {
@@ -633,19 +822,28 @@
     "FS": 2.25,
     "TS": 2.35,
     "SW": 2.25,
-    "SU": 2.5
+    "SU": 2.5,
+    "AT": 2.3,
+    "DV": 2.35,
+    "AG": 2.2
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 11,
     "TS": 11,
     "SW": 11,
-    "SU": 11
+    "SU": 11,
+    "AT": 11,
+    "DV": 11,
+    "AG": 11
    }
   },
   {
@@ -668,19 +866,28 @@
     "FS": 3.0,
     "TS": 2.95,
     "SW": 3.1,
-    "SU": 3.1
+    "SU": 3.1,
+    "AT": 3.15,
+    "DV": 3.15,
+    "AG": 3.15
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 8,
     "TS": 8,
     "SW": 8,
-    "SU": 9
+    "SU": 9,
+    "AT": 9,
+    "DV": 8,
+    "AG": 8
    }
   },
   {
@@ -703,19 +910,28 @@
     "FS": 2.95,
     "TS": 2.95,
     "SW": 3.15,
-    "SU": 3.25
+    "SU": 3.25,
+    "AT": 3.2,
+    "DV": 3.15,
+    "AG": 3.1
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 9,
     "TS": 9,
     "SW": 7,
-    "SU": 8
+    "SU": 8,
+    "AT": 7,
+    "DV": 9,
+    "AG": 9
    }
   },
   {
@@ -740,19 +956,28 @@
     "FS": 3.05,
     "TS": 3.25,
     "SW": 3.0,
-    "SU": 3.3
+    "SU": 3.3,
+    "AT": 3.2,
+    "DV": 3.35,
+    "AG": 3.25
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 7,
     "TS": 6,
     "SW": 9,
-    "SU": 7
+    "SU": 7,
+    "AT": 8,
+    "DV": 7,
+    "AG": 7
    }
   },
   {
@@ -775,19 +1000,28 @@
     "FS": 3.65,
     "TS": 3.65,
     "SW": 3.85,
-    "SU": 3.95
+    "SU": 3.95,
+    "AT": 3.9,
+    "DV": 3.9,
+    "AG": 3.85
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 3,
     "TS": 3,
     "SW": 2,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 2,
+    "AG": 2
    }
   },
   {
@@ -810,19 +1044,28 @@
     "FS": 3.5,
     "TS": 3.45,
     "SW": 3.55,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.55,
+    "DV": 3.55,
+    "AG": 3.5
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 5,
     "SW": 5,
-    "SU": 5
+    "SU": 5,
+    "AT": 5,
+    "DV": 5,
+    "AG": 5
    }
   },
   {
@@ -845,19 +1088,28 @@
     "FS": 4.3,
     "TS": 4.25,
     "SW": 4.45,
-    "SU": 4.45
+    "SU": 4.45,
+    "AT": 4.45,
+    "DV": 4.4,
+    "AG": 4.45
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -880,19 +1132,28 @@
     "FS": 3.25,
     "TS": 3.4,
     "SW": 3.15,
-    "SU": 3.4
+    "SU": 3.4,
+    "AT": 3.35,
+    "DV": 3.5,
+    "AG": 3.4
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 7,
     "TS": 6,
     "SW": 10,
-    "SU": 7
+    "SU": 7,
+    "AT": 9,
+    "DV": 7,
+    "AG": 7
    }
   },
   {
@@ -917,19 +1178,28 @@
     "FS": 2.75,
     "TS": 2.8,
     "SW": 2.75,
-    "SU": 2.8
+    "SU": 2.8,
+    "AT": 2.85,
+    "DV": 2.9,
+    "AG": 2.85
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 11,
     "TS": 11,
     "SW": 11,
-    "SU": 11
+    "SU": 11,
+    "AT": 11,
+    "DV": 11,
+    "AG": 11
    }
   },
   {
@@ -952,19 +1222,28 @@
     "FS": 3.2,
     "TS": 3.2,
     "SW": 3.3,
-    "SU": 3.2
+    "SU": 3.2,
+    "AT": 3.3,
+    "DV": 3.25,
+    "AG": 3.3
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 8,
     "TS": 9,
     "SW": 7,
-    "SU": 10
+    "SU": 10,
+    "AT": 10,
+    "DV": 10,
+    "AG": 9
    }
   },
   {
@@ -987,19 +1266,28 @@
     "FS": 3.35,
     "TS": 3.4,
     "SW": 3.4,
-    "SU": 3.5
+    "SU": 3.5,
+    "AT": 3.45,
+    "DV": 3.5,
+    "AG": 3.4
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 5,
     "SW": 5,
-    "SU": 6
+    "SU": 6,
+    "AT": 6,
+    "DV": 6,
+    "AG": 6
    }
   },
   {
@@ -1024,19 +1312,28 @@
     "FS": 4.2,
     "TS": 4.3,
     "SW": 4.3,
-    "SU": 4.35
+    "SU": 4.35,
+    "AT": 4.4,
+    "DV": 4.45,
+    "AG": 4.4
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -1061,19 +1358,28 @@
     "FS": 3.15,
     "TS": 3.2,
     "SW": 3.25,
-    "SU": 3.3
+    "SU": 3.3,
+    "AT": 3.35,
+    "DV": 3.35,
+    "AG": 3.3
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 10,
     "TS": 10,
     "SW": 9,
-    "SU": 9
+    "SU": 9,
+    "AT": 8,
+    "DV": 9,
+    "AG": 10
    }
   },
   {
@@ -1096,19 +1402,28 @@
     "FS": 3.65,
     "TS": 3.8,
     "SW": 3.7,
-    "SU": 3.8
+    "SU": 3.8,
+    "AT": 3.75,
+    "DV": 3.8,
+    "AG": 3.75
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 3,
     "TS": 2,
     "SW": 3,
-    "SU": 2
+    "SU": 2,
+    "AT": 3,
+    "DV": 2,
+    "AG": 3
    }
   },
   {
@@ -1131,19 +1446,28 @@
     "FS": 2.55,
     "TS": 2.5,
     "SW": 2.6,
-    "SU": 2.55
+    "SU": 2.55,
+    "AT": 2.65,
+    "DV": 2.65,
+    "AG": 2.65
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 12,
     "TS": 12,
     "SW": 12,
-    "SU": 12
+    "SU": 12,
+    "AT": 12,
+    "DV": 12,
+    "AG": 12
    }
   },
   {
@@ -1166,19 +1490,28 @@
     "FS": 3.3,
     "TS": 3.35,
     "SW": 3.4,
-    "SU": 3.55
+    "SU": 3.55,
+    "AT": 3.55,
+    "DV": 3.6,
+    "AG": 3.5
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Core candidate",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 7,
     "SW": 6,
-    "SU": 5
+    "SU": 5,
+    "AT": 5,
+    "DV": 5,
+    "AG": 5
    }
   },
   {
@@ -1201,19 +1534,28 @@
     "FS": 3.55,
     "TS": 3.55,
     "SW": 3.65,
-    "SU": 3.75
+    "SU": 3.75,
+    "AT": 3.7,
+    "DV": 3.7,
+    "AG": 3.65
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 4,
     "TS": 4,
     "SW": 4,
-    "SU": 3
+    "SU": 3,
+    "AT": 4,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -1236,19 +1578,28 @@
     "FS": 3.9,
     "TS": 3.8,
     "SW": 4.0,
-    "SU": 3.75
+    "SU": 3.75,
+    "AT": 3.9,
+    "DV": 3.8,
+    "AG": 3.95
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 3,
     "SW": 2,
-    "SU": 4
+    "SU": 4,
+    "AT": 2,
+    "DV": 3,
+    "AG": 2
    }
   },
   {
@@ -1271,19 +1622,28 @@
     "FS": 3.15,
     "TS": 3.2,
     "SW": 3.25,
-    "SU": 3.3
+    "SU": 3.3,
+    "AT": 3.35,
+    "DV": 3.35,
+    "AG": 3.3
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 9,
     "TS": 8,
     "SW": 8,
-    "SU": 8
+    "SU": 8,
+    "AT": 7,
+    "DV": 8,
+    "AG": 8
    }
   },
   {
@@ -1306,19 +1666,28 @@
     "FS": 3.7,
     "TS": 3.55,
     "SW": 3.85,
-    "SU": 3.65
+    "SU": 3.65,
+    "AT": 3.75,
+    "DV": 3.6,
+    "AG": 3.7
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Situational",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 3,
     "SW": 1,
-    "SU": 3
+    "SU": 3,
+    "AT": 2,
+    "DV": 3,
+    "AG": 2
    }
   },
   {
@@ -1341,19 +1710,28 @@
     "FS": 3.0,
     "TS": 3.15,
     "SW": 3.25,
-    "SU": 3.4
+    "SU": 3.4,
+    "AT": 3.35,
+    "DV": 3.35,
+    "AG": 3.2
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 6,
     "SW": 6,
-    "SU": 6
+    "SU": 6,
+    "AT": 6,
+    "DV": 6,
+    "AG": 6
    }
   },
   {
@@ -1376,19 +1754,28 @@
     "FS": 3.45,
     "TS": 3.6,
     "SW": 3.35,
-    "SU": 3.7
+    "SU": 3.7,
+    "AT": 3.55,
+    "DV": 3.7,
+    "AG": 3.55
    },
    "fit": {
     "FS": "Situational",
     "TS": "Core candidate",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Situational",
+    "DV": "Core candidate",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 3,
     "TS": 1,
     "SW": 5,
-    "SU": 2
+    "SU": 2,
+    "AT": 3,
+    "DV": 2,
+    "AG": 3
    }
   },
   {
@@ -1411,19 +1798,28 @@
     "FS": 3.35,
     "TS": 3.3,
     "SW": 3.4,
-    "SU": 3.5
+    "SU": 3.5,
+    "AT": 3.45,
+    "DV": 3.45,
+    "AG": 3.45
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 4,
     "TS": 4,
     "SW": 4,
-    "SU": 4
+    "SU": 4,
+    "AT": 5,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -1446,19 +1842,28 @@
     "FS": 2.9,
     "TS": 3.0,
     "SW": 3.05,
-    "SU": 3.15
+    "SU": 3.15,
+    "AT": 3.2,
+    "DV": 3.25,
+    "AG": 3.2
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 7,
     "TS": 7,
     "SW": 7,
-    "SU": 7
+    "SU": 7,
+    "AT": 7,
+    "DV": 7,
+    "AG": 7
    }
   },
   {
@@ -1481,19 +1886,28 @@
     "FS": 3.35,
     "TS": 3.25,
     "SW": 3.5,
-    "SU": 3.5
+    "SU": 3.5,
+    "AT": 3.5,
+    "DV": 3.45,
+    "AG": 3.45
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 5,
     "SW": 3,
-    "SU": 5
+    "SU": 5,
+    "AT": 4,
+    "DV": 5,
+    "AG": 5
    }
   },
   {
@@ -1516,19 +1930,28 @@
     "FS": 2.7,
     "TS": 2.8,
     "SW": 2.6,
-    "SU": 2.9
+    "SU": 2.9,
+    "AT": 2.7,
+    "DV": 2.8,
+    "AG": 2.7
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 8,
     "TS": 8,
     "SW": 8,
-    "SU": 8
+    "SU": 8,
+    "AT": 8,
+    "DV": 8,
+    "AG": 8
    }
   },
   {
@@ -1551,19 +1974,28 @@
     "FS": 3.55,
     "TS": 3.6,
     "SW": 3.8,
-    "SU": 3.85
+    "SU": 3.85,
+    "AT": 3.85,
+    "DV": 3.8,
+    "AG": 3.8
    },
    "fit": {
     "FS": "Situational",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 2,
     "SW": 2,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -1588,19 +2020,28 @@
     "FS": 2.55,
     "TS": 2.75,
     "SW": 2.45,
-    "SU": 2.8
+    "SU": 2.8,
+    "AT": 2.6,
+    "DV": 2.75,
+    "AG": 2.6
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 9,
     "TS": 9,
     "SW": 9,
-    "SU": 9
+    "SU": 9,
+    "AT": 9,
+    "DV": 9,
+    "AG": 9
    }
   },
   {
@@ -1623,19 +2064,28 @@
     "FS": 3.2,
     "TS": 3.3,
     "SW": 3.05,
-    "SU": 3.25
+    "SU": 3.25,
+    "AT": 3.2,
+    "DV": 3.35,
+    "AG": 3.25
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 4,
     "TS": 3,
     "SW": 5,
-    "SU": 3
+    "SU": 3,
+    "AT": 5,
+    "DV": 3,
+    "AG": 5
    }
   },
   {
@@ -1658,19 +2108,28 @@
     "FS": 3.25,
     "TS": 3.2,
     "SW": 3.4,
-    "SU": 3.25
+    "SU": 3.25,
+    "AT": 3.35,
+    "DV": 3.3,
+    "AG": 3.35
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 3,
     "TS": 5,
     "SW": 3,
-    "SU": 4
+    "SU": 4,
+    "AT": 3,
+    "DV": 6,
+    "AG": 3
    }
   },
   {
@@ -1695,19 +2154,28 @@
     "FS": 3.2,
     "TS": 3.3,
     "SW": 3.05,
-    "SU": 3.25
+    "SU": 3.25,
+    "AT": 3.2,
+    "DV": 3.35,
+    "AG": 3.25
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 4,
     "SW": 6,
-    "SU": 5
+    "SU": 5,
+    "AT": 6,
+    "DV": 5,
+    "AG": 6
    }
   },
   {
@@ -1732,19 +2200,28 @@
     "FS": 2.65,
     "TS": 2.65,
     "SW": 2.8,
-    "SU": 2.9
+    "SU": 2.9,
+    "AT": 2.9,
+    "DV": 2.9,
+    "AG": 2.8
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 8,
     "TS": 8,
     "SW": 7,
-    "SU": 8
+    "SU": 8,
+    "AT": 7,
+    "DV": 8,
+    "AG": 8
    }
   },
   {
@@ -1769,19 +2246,28 @@
     "FS": 2.75,
     "TS": 2.85,
     "SW": 2.8,
-    "SU": 3.0
+    "SU": 3.0,
+    "AT": 2.9,
+    "DV": 2.95,
+    "AG": 2.85
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 7,
     "TS": 7,
     "SW": 8,
-    "SU": 7
+    "SU": 7,
+    "AT": 8,
+    "DV": 7,
+    "AG": 7
    }
   },
   {
@@ -1804,19 +2290,28 @@
     "FS": 3.35,
     "TS": 3.5,
     "SW": 3.45,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.55,
+    "DV": 3.6,
+    "AG": 3.55
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Situational",
+    "DV": "Core candidate",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 2,
     "TS": 2,
     "SW": 2,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 2,
+    "AG": 2
    }
   },
   {
@@ -1839,19 +2334,28 @@
     "FS": 3.05,
     "TS": 3.1,
     "SW": 3.25,
-    "SU": 3.2
+    "SU": 3.2,
+    "AT": 3.35,
+    "DV": 3.35,
+    "AG": 3.35
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 6,
     "SW": 4,
-    "SU": 6
+    "SU": 6,
+    "AT": 4,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -1876,19 +2380,28 @@
     "FS": 3.5,
     "TS": 3.6,
     "SW": 3.55,
-    "SU": 3.65
+    "SU": 3.65,
+    "AT": 3.7,
+    "DV": 3.8,
+    "AG": 3.75
    },
    "fit": {
     "FS": "Situational",
     "TS": "Core candidate",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -1911,19 +2424,28 @@
     "FS": 3.1,
     "TS": 3.0,
     "SW": 3.2,
-    "SU": 3.2
+    "SU": 3.2,
+    "AT": 3.2,
+    "DV": 3.15,
+    "AG": 3.1
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 10,
     "TS": 10,
     "SW": 8,
-    "SU": 9
+    "SU": 9,
+    "AT": 10,
+    "DV": 10,
+    "AG": 10
    }
   },
   {
@@ -1946,19 +2468,28 @@
     "FS": 4.25,
     "TS": 4.2,
     "SW": 4.25,
-    "SU": 4.1
+    "SU": 4.1,
+    "AT": 4.25,
+    "DV": 4.25,
+    "AG": 4.35
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 2,
     "SW": 3,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 2,
+    "AG": 1
    }
   },
   {
@@ -1981,19 +2512,28 @@
     "FS": 4.25,
     "TS": 4.0,
     "SW": 4.3,
-    "SU": 3.95
+    "SU": 3.95,
+    "AT": 4.15,
+    "DV": 4.0,
+    "AG": 4.2
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 3,
     "SW": 2,
-    "SU": 3
+    "SU": 3,
+    "AT": 3,
+    "DV": 3,
+    "AG": 3
    }
   },
   {
@@ -2016,19 +2556,28 @@
     "FS": 3.65,
     "TS": 3.75,
     "SW": 3.65,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.7,
+    "DV": 3.75,
+    "AG": 3.75
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 7,
     "TS": 6,
     "SW": 7,
-    "SU": 5
+    "SU": 5,
+    "AT": 6,
+    "DV": 5,
+    "AG": 6
    }
   },
   {
@@ -2051,19 +2600,28 @@
     "FS": 4.2,
     "TS": 4.25,
     "SW": 4.35,
-    "SU": 4.4
+    "SU": 4.4,
+    "AT": 4.35,
+    "DV": 4.3,
+    "AG": 4.3
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 3,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 2
    }
   },
   {
@@ -2086,19 +2644,28 @@
     "FS": 3.8,
     "TS": 3.8,
     "SW": 3.7,
-    "SU": 3.55
+    "SU": 3.55,
+    "AT": 3.7,
+    "DV": 3.75,
+    "AG": 3.75
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 5,
     "TS": 4,
     "SW": 6,
-    "SU": 7
+    "SU": 7,
+    "AT": 7,
+    "DV": 6,
+    "AG": 7
    }
   },
   {
@@ -2121,19 +2688,28 @@
     "FS": 3.85,
     "TS": 3.8,
     "SW": 3.95,
-    "SU": 3.85
+    "SU": 3.85,
+    "AT": 3.95,
+    "DV": 3.9,
+    "AG": 3.95
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 4,
     "TS": 5,
     "SW": 4,
-    "SU": 4
+    "SU": 4,
+    "AT": 4,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -2156,19 +2732,28 @@
     "FS": 3.15,
     "TS": 3.45,
     "SW": 3.0,
-    "SU": 3.4
+    "SU": 3.4,
+    "AT": 3.2,
+    "DV": 3.4,
+    "AG": 3.15
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 8,
     "TS": 8,
     "SW": 10,
-    "SU": 8
+    "SU": 8,
+    "AT": 9,
+    "DV": 8,
+    "AG": 9
    }
   },
   {
@@ -2191,19 +2776,28 @@
     "FS": 3.15,
     "TS": 3.2,
     "SW": 3.2,
-    "SU": 3.2
+    "SU": 3.2,
+    "AT": 3.25,
+    "DV": 3.3,
+    "AG": 3.25
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 9,
     "TS": 9,
     "SW": 9,
-    "SU": 10
+    "SU": 10,
+    "AT": 8,
+    "DV": 9,
+    "AG": 8
    }
   },
   {
@@ -2226,19 +2820,28 @@
     "FS": 3.7,
     "TS": 3.6,
     "SW": 3.8,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.8,
+    "DV": 3.75,
+    "AG": 3.8
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 6,
     "TS": 7,
     "SW": 5,
-    "SU": 6
+    "SU": 6,
+    "AT": 5,
+    "DV": 7,
+    "AG": 5
    }
   },
   {
@@ -2261,19 +2864,28 @@
     "FS": 3.7,
     "TS": 3.65,
     "SW": 3.7,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.75,
+    "DV": 3.75,
+    "AG": 3.8
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 2,
     "SW": 2,
-    "SU": 3
+    "SU": 3,
+    "AT": 2,
+    "DV": 2,
+    "AG": 2
    }
   },
   {
@@ -2296,19 +2908,28 @@
     "FS": 3.2,
     "TS": 3.3,
     "SW": 3.05,
-    "SU": 3.25
+    "SU": 3.25,
+    "AT": 3.2,
+    "DV": 3.35,
+    "AG": 3.25
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 3,
     "TS": 5,
     "SW": 6,
-    "SU": 6
+    "SU": 6,
+    "AT": 6,
+    "DV": 4,
+    "AG": 5
    }
   },
   {
@@ -2333,19 +2954,28 @@
     "FS": 3.15,
     "TS": 3.15,
     "SW": 3.25,
-    "SU": 3.15
+    "SU": 3.15,
+    "AT": 3.3,
+    "DV": 3.3,
+    "AG": 3.35
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 6,
     "SW": 4,
-    "SU": 7
+    "SU": 7,
+    "AT": 4,
+    "DV": 5,
+    "AG": 3
    }
   },
   {
@@ -2370,19 +3000,28 @@
     "FS": 2.95,
     "TS": 2.9,
     "SW": 3.0,
-    "SU": 2.75
+    "SU": 2.75,
+    "AT": 2.95,
+    "DV": 2.9,
+    "AG": 3.0
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 8,
     "TS": 8,
     "SW": 8,
-    "SU": 8
+    "SU": 8,
+    "AT": 8,
+    "DV": 8,
+    "AG": 8
    }
   },
   {
@@ -2405,19 +3044,28 @@
     "FS": 3.2,
     "TS": 3.45,
     "SW": 3.05,
-    "SU": 3.3
+    "SU": 3.3,
+    "AT": 3.15,
+    "DV": 3.3,
+    "AG": 3.15
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 4,
     "TS": 3,
     "SW": 7,
-    "SU": 5
+    "SU": 5,
+    "AT": 7,
+    "DV": 6,
+    "AG": 7
    }
   },
   {
@@ -2440,19 +3088,28 @@
     "FS": 3.15,
     "TS": 3.15,
     "SW": 3.3,
-    "SU": 3.45
+    "SU": 3.45,
+    "AT": 3.3,
+    "DV": 3.3,
+    "AG": 3.2
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 7,
     "SW": 3,
-    "SU": 4
+    "SU": 4,
+    "AT": 5,
+    "DV": 7,
+    "AG": 6
    }
   },
   {
@@ -2475,19 +3132,28 @@
     "FS": 3.7,
     "TS": 3.8,
     "SW": 3.85,
-    "SU": 4.0
+    "SU": 4.0,
+    "AT": 3.9,
+    "DV": 3.9,
+    "AG": 3.85
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -2512,19 +3178,28 @@
     "FS": 3.05,
     "TS": 3.35,
     "SW": 3.15,
-    "SU": 3.65
+    "SU": 3.65,
+    "AT": 3.4,
+    "DV": 3.6,
+    "AG": 3.35
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Situational",
+    "DV": "Core candidate",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 7,
     "TS": 4,
     "SW": 5,
-    "SU": 2
+    "SU": 2,
+    "AT": 3,
+    "DV": 3,
+    "AG": 4
    }
   },
   {
@@ -2547,19 +3222,28 @@
     "FS": 2.55,
     "TS": 2.75,
     "SW": 2.45,
-    "SU": 2.8
+    "SU": 2.8,
+    "AT": 2.6,
+    "DV": 2.75,
+    "AG": 2.6
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 10,
     "TS": 9,
     "SW": 10,
-    "SU": 9
+    "SU": 9,
+    "AT": 10,
+    "DV": 9,
+    "AG": 10
    }
   },
   {
@@ -2582,19 +3266,28 @@
     "FS": 2.9,
     "TS": 2.85,
     "SW": 3.05,
-    "SU": 3.1
+    "SU": 3.1,
+    "AT": 3.05,
+    "DV": 3.0,
+    "AG": 2.95
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 7,
     "TS": 8,
     "SW": 6,
-    "SU": 7
+    "SU": 7,
+    "AT": 7,
+    "DV": 7,
+    "AG": 7
    }
   },
   {
@@ -2617,19 +3310,28 @@
     "FS": 4.05,
     "TS": 4.05,
     "SW": 4.1,
-    "SU": 4.25
+    "SU": 4.25,
+    "AT": 4.1,
+    "DV": 4.1,
+    "AG": 4.0
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -2652,19 +3354,28 @@
     "FS": 3.0,
     "TS": 3.2,
     "SW": 3.05,
-    "SU": 3.25
+    "SU": 3.25,
+    "AT": 3.2,
+    "DV": 3.3,
+    "AG": 3.25
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 6,
     "SW": 7,
-    "SU": 5
+    "SU": 5,
+    "AT": 6,
+    "DV": 5,
+    "AG": 6
    }
   },
   {
@@ -2687,19 +3398,28 @@
     "FS": 3.25,
     "TS": 3.45,
     "SW": 3.1,
-    "SU": 3.45
+    "SU": 3.45,
+    "AT": 3.3,
+    "DV": 3.5,
+    "AG": 3.3
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 3,
     "TS": 3,
     "SW": 5,
-    "SU": 3
+    "SU": 3,
+    "AT": 4,
+    "DV": 3,
+    "AG": 4
    }
   },
   {
@@ -2724,19 +3444,28 @@
     "FS": 3.2,
     "TS": 3.3,
     "SW": 3.3,
-    "SU": 3.35
+    "SU": 3.35,
+    "AT": 3.4,
+    "DV": 3.45,
+    "AG": 3.4
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 4,
     "SW": 3,
-    "SU": 4
+    "SU": 4,
+    "AT": 3,
+    "DV": 4,
+    "AG": 3
    }
   },
   {
@@ -2759,19 +3488,28 @@
     "FS": 2.7,
     "TS": 2.65,
     "SW": 2.8,
-    "SU": 2.7
+    "SU": 2.7,
+    "AT": 2.75,
+    "DV": 2.75,
+    "AG": 2.75
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 9,
     "TS": 10,
     "SW": 9,
-    "SU": 10
+    "SU": 10,
+    "AT": 9,
+    "DV": 10,
+    "AG": 9
    }
   },
   {
@@ -2794,19 +3532,28 @@
     "FS": 3.25,
     "TS": 3.25,
     "SW": 3.25,
-    "SU": 3.2
+    "SU": 3.2,
+    "AT": 3.3,
+    "DV": 3.3,
+    "AG": 3.3
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 4,
     "TS": 5,
     "SW": 4,
-    "SU": 6
+    "SU": 6,
+    "AT": 5,
+    "DV": 6,
+    "AG": 5
    }
   },
   {
@@ -2829,19 +3576,28 @@
     "FS": 2.9,
     "TS": 2.95,
     "SW": 2.95,
-    "SU": 2.95
+    "SU": 2.95,
+    "AT": 2.95,
+    "DV": 3.0,
+    "AG": 2.95
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 8,
     "TS": 7,
     "SW": 8,
-    "SU": 8
+    "SU": 8,
+    "AT": 8,
+    "DV": 8,
+    "AG": 8
    }
   },
   {
@@ -2866,19 +3622,28 @@
     "FS": 3.85,
     "TS": 3.65,
     "SW": 3.95,
-    "SU": 3.7
+    "SU": 3.7,
+    "AT": 3.9,
+    "DV": 3.8,
+    "AG": 3.9
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 2,
     "SW": 2,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 2,
+    "AG": 2
    }
   },
   {
@@ -2904,19 +3669,28 @@
     "FS": 3.7,
     "TS": 3.7,
     "SW": 3.75,
-    "SU": 3.55
+    "SU": 3.55,
+    "AT": 3.8,
+    "DV": 3.8,
+    "AG": 3.85
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 5,
     "TS": 5,
     "SW": 5,
-    "SU": 8
+    "SU": 8,
+    "AT": 5,
+    "DV": 5,
+    "AG": 4
    }
   },
   {
@@ -2941,19 +3715,28 @@
     "FS": 3.5,
     "TS": 3.65,
     "SW": 3.6,
-    "SU": 3.75
+    "SU": 3.75,
+    "AT": 3.65,
+    "DV": 3.7,
+    "AG": 3.6
    },
    "fit": {
     "FS": "Situational",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 8,
     "TS": 6,
     "SW": 8,
-    "SU": 5
+    "SU": 5,
+    "AT": 8,
+    "DV": 8,
+    "AG": 8
    }
   },
   {
@@ -2976,19 +3759,28 @@
     "FS": 3.2,
     "TS": 3.3,
     "SW": 3.3,
-    "SU": 3.35
+    "SU": 3.35,
+    "AT": 3.4,
+    "DV": 3.45,
+    "AG": 3.4
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 10,
     "TS": 10,
     "SW": 9,
-    "SU": 9
+    "SU": 9,
+    "AT": 9,
+    "DV": 9,
+    "AG": 9
    }
   },
   {
@@ -3013,19 +3805,28 @@
     "FS": 3.2,
     "TS": 3.15,
     "SW": 3.1,
-    "SU": 3.05
+    "SU": 3.05,
+    "AT": 3.15,
+    "DV": 3.15,
+    "AG": 3.25
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 11,
     "TS": 11,
     "SW": 11,
-    "SU": 11
+    "SU": 11,
+    "AT": 11,
+    "DV": 11,
+    "AG": 11
    }
   },
   {
@@ -3048,19 +3849,28 @@
     "FS": 3.7,
     "TS": 3.65,
     "SW": 3.85,
-    "SU": 3.8
+    "SU": 3.8,
+    "AT": 3.85,
+    "DV": 3.8,
+    "AG": 3.8
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 6,
     "TS": 7,
     "SW": 2,
-    "SU": 4
+    "SU": 4,
+    "AT": 3,
+    "DV": 6,
+    "AG": 5
    }
   },
   {
@@ -3085,19 +3895,28 @@
     "FS": 3.85,
     "TS": 3.95,
     "SW": 3.85,
-    "SU": 3.9
+    "SU": 3.9,
+    "AT": 3.9,
+    "DV": 3.95,
+    "AG": 3.9
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 2,
     "SW": 4,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 2,
+    "AG": 3
    }
   },
   {
@@ -3120,19 +3939,28 @@
     "FS": 3.8,
     "TS": 3.85,
     "SW": 3.85,
-    "SU": 3.65
+    "SU": 3.65,
+    "AT": 3.85,
+    "DV": 3.85,
+    "AG": 3.9
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 3,
     "TS": 3,
     "SW": 3,
-    "SU": 7
+    "SU": 7,
+    "AT": 4,
+    "DV": 3,
+    "AG": 2
    }
   },
   {
@@ -3155,19 +3983,28 @@
     "FS": 4.25,
     "TS": 4.25,
     "SW": 4.4,
-    "SU": 4.3
+    "SU": 4.3,
+    "AT": 4.3,
+    "DV": 4.2,
+    "AG": 4.3
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -3190,19 +4027,28 @@
     "FS": 3.75,
     "TS": 3.75,
     "SW": 3.75,
-    "SU": 3.9
+    "SU": 3.9,
+    "AT": 3.8,
+    "DV": 3.85,
+    "AG": 3.7
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 4,
     "TS": 4,
     "SW": 6,
-    "SU": 3
+    "SU": 3,
+    "AT": 6,
+    "DV": 4,
+    "AG": 6
    }
   },
   {
@@ -3227,19 +4073,28 @@
     "FS": 3.55,
     "TS": 3.6,
     "SW": 3.7,
-    "SU": 3.7
+    "SU": 3.7,
+    "AT": 3.75,
+    "DV": 3.75,
+    "AG": 3.7
    },
    "fit": {
     "FS": "Situational",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 7,
     "TS": 8,
     "SW": 7,
-    "SU": 6
+    "SU": 6,
+    "AT": 7,
+    "DV": 7,
+    "AG": 7
    }
   },
   {
@@ -3264,19 +4119,28 @@
     "FS": 3.35,
     "TS": 3.35,
     "SW": 3.3,
-    "SU": 3.1
+    "SU": 3.1,
+    "AT": 3.3,
+    "DV": 3.3,
+    "AG": 3.35
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 9,
     "TS": 9,
     "SW": 10,
-    "SU": 10
+    "SU": 10,
+    "AT": 10,
+    "DV": 10,
+    "AG": 10
    }
   },
   {
@@ -3299,19 +4163,28 @@
     "FS": 3.45,
     "TS": 3.35,
     "SW": 3.55,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.5,
+    "DV": 3.45,
+    "AG": 3.45
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 6,
     "SW": 5,
-    "SU": 4
+    "SU": 4,
+    "AT": 5,
+    "DV": 6,
+    "AG": 5
    }
   },
   {
@@ -3334,19 +4207,28 @@
     "FS": 3.0,
     "TS": 3.15,
     "SW": 2.85,
-    "SU": 3.1
+    "SU": 3.1,
+    "AT": 3.05,
+    "DV": 3.2,
+    "AG": 3.05
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 8,
     "TS": 7,
     "SW": 8,
-    "SU": 9
+    "SU": 9,
+    "AT": 8,
+    "DV": 7,
+    "AG": 7
    }
   },
   {
@@ -3369,19 +4251,28 @@
     "FS": 3.25,
     "TS": 3.4,
     "SW": 3.15,
-    "SU": 3.4
+    "SU": 3.4,
+    "AT": 3.35,
+    "DV": 3.5,
+    "AG": 3.4
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 5,
     "SW": 6,
-    "SU": 6
+    "SU": 6,
+    "AT": 6,
+    "DV": 5,
+    "AG": 6
    }
   },
   {
@@ -3404,19 +4295,28 @@
     "FS": 2.8,
     "TS": 3.1,
     "SW": 2.8,
-    "SU": 3.2
+    "SU": 3.2,
+    "AT": 3.0,
+    "DV": 3.15,
+    "AG": 2.95
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 9,
     "TS": 8,
     "SW": 9,
-    "SU": 8
+    "SU": 8,
+    "AT": 9,
+    "DV": 8,
+    "AG": 9
    }
   },
   {
@@ -3441,19 +4341,28 @@
     "FS": 3.0,
     "TS": 2.95,
     "SW": 3.1,
-    "SU": 3.25
+    "SU": 3.25,
+    "AT": 3.05,
+    "DV": 3.0,
+    "AG": 2.95
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 7,
     "TS": 9,
     "SW": 7,
-    "SU": 7
+    "SU": 7,
+    "AT": 7,
+    "DV": 9,
+    "AG": 8
    }
   },
   {
@@ -3476,19 +4385,28 @@
     "FS": 3.65,
     "TS": 3.75,
     "SW": 3.65,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.7,
+    "DV": 3.75,
+    "AG": 3.75
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 3,
     "TS": 2,
     "SW": 3,
-    "SU": 3
+    "SU": 3,
+    "AT": 3,
+    "DV": 3,
+    "AG": 3
    }
   },
   {
@@ -3511,19 +4429,28 @@
     "FS": 3.8,
     "TS": 3.65,
     "SW": 3.8,
-    "SU": 3.65
+    "SU": 3.65,
+    "AT": 3.85,
+    "DV": 3.85,
+    "AG": 3.95
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 3,
     "SW": 2,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 2,
+    "AG": 2
    }
   },
   {
@@ -3546,19 +4473,28 @@
     "FS": 3.9,
     "TS": 3.95,
     "SW": 4.0,
-    "SU": 4.2
+    "SU": 4.2,
+    "AT": 4.15,
+    "DV": 4.2,
+    "AG": 4.15
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -3584,19 +4520,28 @@
     "FS": 3.5,
     "TS": 3.5,
     "SW": 3.55,
-    "SU": 3.5
+    "SU": 3.5,
+    "AT": 3.6,
+    "DV": 3.6,
+    "AG": 3.65
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 4,
     "TS": 4,
     "SW": 4,
-    "SU": 5
+    "SU": 5,
+    "AT": 4,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -3619,19 +4564,28 @@
     "FS": 3.2,
     "TS": 3.25,
     "SW": 3.1,
-    "SU": 3.2
+    "SU": 3.2,
+    "AT": 3.25,
+    "DV": 3.35,
+    "AG": 3.35
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 4,
     "TS": 4,
     "SW": 5,
-    "SU": 4
+    "SU": 4,
+    "AT": 4,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -3654,19 +4608,28 @@
     "FS": 3.35,
     "TS": 3.45,
     "SW": 3.2,
-    "SU": 3.5
+    "SU": 3.5,
+    "AT": 3.4,
+    "DV": 3.6,
+    "AG": 3.45
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Core candidate",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 2,
     "TS": 2,
     "SW": 3,
-    "SU": 3
+    "SU": 3,
+    "AT": 3,
+    "DV": 3,
+    "AG": 3
    }
   },
   {
@@ -3689,19 +4652,28 @@
     "FS": 3.35,
     "TS": 3.7,
     "SW": 3.25,
-    "SU": 3.8
+    "SU": 3.8,
+    "AT": 3.55,
+    "DV": 3.8,
+    "AG": 3.5
    },
    "fit": {
     "FS": "Situational",
     "TS": "Core candidate",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Situational",
+    "DV": "Core candidate",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 3,
     "TS": 1,
     "SW": 2,
-    "SU": 1
+    "SU": 1,
+    "AT": 2,
+    "DV": 1,
+    "AG": 2
    }
   },
   {
@@ -3726,19 +4698,28 @@
     "FS": 2.6,
     "TS": 2.7,
     "SW": 2.7,
-    "SU": 2.95
+    "SU": 2.95,
+    "AT": 2.8,
+    "DV": 2.85,
+    "AG": 2.7
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 6,
     "SW": 6,
-    "SU": 6
+    "SU": 6,
+    "AT": 6,
+    "DV": 6,
+    "AG": 6
    }
   },
   {
@@ -3761,19 +4742,28 @@
     "FS": 2.95,
     "TS": 3.0,
     "SW": 3.2,
-    "SU": 3.2
+    "SU": 3.2,
+    "AT": 3.25,
+    "DV": 3.2,
+    "AG": 3.15
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 5,
     "SW": 4,
-    "SU": 5
+    "SU": 5,
+    "AT": 5,
+    "DV": 5,
+    "AG": 5
    }
   },
   {
@@ -3796,19 +4786,28 @@
     "FS": 3.45,
     "TS": 3.4,
     "SW": 3.55,
-    "SU": 3.65
+    "SU": 3.65,
+    "AT": 3.65,
+    "DV": 3.65,
+    "AG": 3.6
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 3,
     "SW": 1,
-    "SU": 2
+    "SU": 2,
+    "AT": 1,
+    "DV": 2,
+    "AG": 1
    }
   },
   {
@@ -3831,19 +4830,28 @@
     "FS": 3.6,
     "TS": 3.85,
     "SW": 3.5,
-    "SU": 3.85
+    "SU": 3.85,
+    "AT": 3.65,
+    "DV": 3.85,
+    "AG": 3.7
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 1,
     "SW": 2,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -3868,19 +4876,28 @@
     "FS": 3.05,
     "TS": 3.1,
     "SW": 2.95,
-    "SU": 2.95
+    "SU": 2.95,
+    "AT": 3.05,
+    "DV": 3.1,
+    "AG": 3.15
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 3,
     "TS": 3,
     "SW": 3,
-    "SU": 4
+    "SU": 4,
+    "AT": 3,
+    "DV": 3,
+    "AG": 3
    }
   },
   {
@@ -3905,19 +4922,28 @@
     "FS": 3.65,
     "TS": 3.45,
     "SW": 3.75,
-    "SU": 3.5
+    "SU": 3.5,
+    "AT": 3.6,
+    "DV": 3.45,
+    "AG": 3.55
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Situational",
     "SW": "Core candidate",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Core candidate",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 1,
     "TS": 2,
     "SW": 1,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 2,
+    "AG": 2
    }
   },
   {
@@ -3940,19 +4966,28 @@
     "FS": 2.75,
     "TS": 2.8,
     "SW": 2.8,
-    "SU": 2.85
+    "SU": 2.85,
+    "AT": 2.85,
+    "DV": 2.9,
+    "AG": 2.9
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 5,
     "SW": 5,
-    "SU": 5
+    "SU": 5,
+    "AT": 5,
+    "DV": 5,
+    "AG": 5
    }
   },
   {
@@ -3975,19 +5010,28 @@
     "FS": 3.0,
     "TS": 3.0,
     "SW": 2.9,
-    "SU": 3.0
+    "SU": 3.0,
+    "AT": 3.0,
+    "DV": 3.1,
+    "AG": 3.05
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 4,
     "TS": 4,
     "SW": 4,
-    "SU": 3
+    "SU": 3,
+    "AT": 4,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -4010,19 +5054,28 @@
     "FS": 3.7,
     "TS": 3.7,
     "SW": 3.65,
-    "SU": 3.65
+    "SU": 3.65,
+    "AT": 3.7,
+    "DV": 3.75,
+    "AG": 3.7
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 3,
     "TS": 3,
     "SW": 3,
-    "SU": 4
+    "SU": 4,
+    "AT": 3,
+    "DV": 3,
+    "AG": 4
    }
   },
   {
@@ -4045,19 +5098,28 @@
     "FS": 3.5,
     "TS": 3.45,
     "SW": 3.4,
-    "SU": 3.55
+    "SU": 3.55,
+    "AT": 3.55,
+    "DV": 3.65,
+    "AG": 3.65
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 5,
     "TS": 5,
     "SW": 6,
-    "SU": 6
+    "SU": 6,
+    "AT": 6,
+    "DV": 6,
+    "AG": 5
    }
   },
   {
@@ -4080,19 +5142,28 @@
     "FS": 3.45,
     "TS": 3.4,
     "SW": 3.55,
-    "SU": 3.65
+    "SU": 3.65,
+    "AT": 3.65,
+    "DV": 3.65,
+    "AG": 3.6
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 6,
     "TS": 6,
     "SW": 4,
-    "SU": 5
+    "SU": 5,
+    "AT": 5,
+    "DV": 5,
+    "AG": 6
    }
   },
   {
@@ -4115,19 +5186,28 @@
     "FS": 3.55,
     "TS": 3.6,
     "SW": 3.45,
-    "SU": 3.75
+    "SU": 3.75,
+    "AT": 3.65,
+    "DV": 3.8,
+    "AG": 3.7
    },
    "fit": {
     "FS": "Situational",
     "TS": "Core candidate",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 4,
     "TS": 4,
     "SW": 5,
-    "SU": 2
+    "SU": 2,
+    "AT": 4,
+    "DV": 2,
+    "AG": 3
    }
   },
   {
@@ -4150,19 +5230,28 @@
     "FS": 4.2,
     "TS": 4.1,
     "SW": 4.35,
-    "SU": 4.25
+    "SU": 4.25,
+    "AT": 4.3,
+    "DV": 4.2,
+    "AG": 4.25
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -4185,19 +5274,28 @@
     "FS": 4.05,
     "TS": 3.85,
     "SW": 4.15,
-    "SU": 3.75
+    "SU": 3.75,
+    "AT": 3.9,
+    "DV": 3.7,
+    "AG": 3.9
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 2,
     "SW": 2,
-    "SU": 3
+    "SU": 3,
+    "AT": 2,
+    "DV": 4,
+    "AG": 2
    }
   },
   {
@@ -4222,19 +5320,28 @@
     "FS": 3.85,
     "TS": 3.95,
     "SW": 3.85,
-    "SU": 3.9
+    "SU": 3.9,
+    "AT": 3.9,
+    "DV": 3.95,
+    "AG": 3.9
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 1,
     "SW": 2,
-    "SU": 1
+    "SU": 1,
+    "AT": 2,
+    "DV": 1,
+    "AG": 2
    }
   },
   {
@@ -4257,19 +5364,28 @@
     "FS": 3.95,
     "TS": 3.9,
     "SW": 4.0,
-    "SU": 3.75
+    "SU": 3.75,
+    "AT": 3.95,
+    "DV": 3.9,
+    "AG": 4.0
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 2,
     "SW": 1,
-    "SU": 2
+    "SU": 2,
+    "AT": 1,
+    "DV": 2,
+    "AG": 1
    }
   },
   {
@@ -4294,19 +5410,28 @@
     "FS": 3.2,
     "TS": 3.3,
     "SW": 3.05,
-    "SU": 3.25
+    "SU": 3.25,
+    "AT": 3.2,
+    "DV": 3.35,
+    "AG": 3.25
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 4,
     "SW": 5,
-    "SU": 4
+    "SU": 4,
+    "AT": 5,
+    "DV": 4,
+    "AG": 5
    }
   },
   {
@@ -4329,19 +5454,28 @@
     "FS": 3.4,
     "TS": 3.25,
     "SW": 3.4,
-    "SU": 3.15
+    "SU": 3.15,
+    "AT": 3.35,
+    "DV": 3.3,
+    "AG": 3.45
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 4,
     "TS": 5,
     "SW": 4,
-    "SU": 5
+    "SU": 5,
+    "AT": 4,
+    "DV": 5,
+    "AG": 4
    }
   },
   {
@@ -4366,19 +5500,28 @@
     "FS": 3.65,
     "TS": 3.55,
     "SW": 3.7,
-    "SU": 3.45
+    "SU": 3.45,
+    "AT": 3.6,
+    "DV": 3.5,
+    "AG": 3.6
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Situational",
     "SW": "Core candidate",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Core candidate",
+    "DV": "Situational",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 3,
     "TS": 3,
     "SW": 3,
-    "SU": 3
+    "SU": 3,
+    "AT": 3,
+    "DV": 3,
+    "AG": 3
    }
   },
   {
@@ -4401,19 +5544,28 @@
     "FS": 2.65,
     "TS": 2.7,
     "SW": 2.6,
-    "SU": 2.65
+    "SU": 2.65,
+    "AT": 2.65,
+    "DV": 2.7,
+    "AG": 2.7
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 4,
     "TS": 4,
     "SW": 4,
-    "SU": 5
+    "SU": 5,
+    "AT": 5,
+    "DV": 5,
+    "AG": 4
    }
   },
   {
@@ -4436,19 +5588,28 @@
     "FS": 3.85,
     "TS": 3.85,
     "SW": 4.0,
-    "SU": 3.95
+    "SU": 3.95,
+    "AT": 3.9,
+    "DV": 3.8,
+    "AG": 3.8
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 2,
+    "AG": 2
    }
   },
   {
@@ -4473,19 +5634,28 @@
     "FS": 3.7,
     "TS": 3.75,
     "SW": 3.8,
-    "SU": 3.75
+    "SU": 3.75,
+    "AT": 3.85,
+    "DV": 3.85,
+    "AG": 3.85
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 2,
     "SW": 2,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -4511,19 +5681,28 @@
     "FS": 2.5,
     "TS": 2.55,
     "SW": 2.6,
-    "SU": 2.85
+    "SU": 2.85,
+    "AT": 2.75,
+    "DV": 2.8,
+    "AG": 2.65
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 5,
     "SW": 5,
-    "SU": 4
+    "SU": 4,
+    "AT": 4,
+    "DV": 4,
+    "AG": 5
    }
   },
   {
@@ -4546,19 +5725,28 @@
     "FS": 2.9,
     "TS": 3.0,
     "SW": 2.9,
-    "SU": 3.1
+    "SU": 3.1,
+    "AT": 3.0,
+    "DV": 3.05,
+    "AG": 3.0
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 3,
     "TS": 3,
     "SW": 3,
-    "SU": 3
+    "SU": 3,
+    "AT": 3,
+    "DV": 3,
+    "AG": 3
    }
   },
   {
@@ -4583,19 +5771,28 @@
     "FS": 3.65,
     "TS": 3.75,
     "SW": 3.65,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.7,
+    "DV": 3.75,
+    "AG": 3.75
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 2,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -4618,19 +5815,28 @@
     "FS": 3.1,
     "TS": 3.0,
     "SW": 3.1,
-    "SU": 3.05
+    "SU": 3.05,
+    "AT": 3.1,
+    "DV": 3.1,
+    "AG": 3.15
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 6,
     "SW": 5,
-    "SU": 5
+    "SU": 5,
+    "AT": 5,
+    "DV": 5,
+    "AG": 5
    }
   },
   {
@@ -4656,19 +5862,28 @@
     "FS": 3.0,
     "TS": 3.05,
     "SW": 3.05,
-    "SU": 2.95
+    "SU": 2.95,
+    "AT": 3.05,
+    "DV": 3.05,
+    "AG": 3.05
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 5,
     "SW": 6,
-    "SU": 6
+    "SU": 6,
+    "AT": 6,
+    "DV": 6,
+    "AG": 6
    }
   },
   {
@@ -4693,19 +5908,28 @@
     "FS": 3.6,
     "TS": 3.65,
     "SW": 3.75,
-    "SU": 3.75
+    "SU": 3.75,
+    "AT": 3.75,
+    "DV": 3.7,
+    "AG": 3.65
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 2,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 2,
+    "AG": 2
    }
   },
   {
@@ -4728,19 +5952,28 @@
     "FS": 3.5,
     "TS": 3.4,
     "SW": 3.5,
-    "SU": 3.5
+    "SU": 3.5,
+    "AT": 3.4,
+    "DV": 3.35,
+    "AG": 3.3
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 3,
     "TS": 4,
     "SW": 3,
-    "SU": 4
+    "SU": 4,
+    "AT": 4,
+    "DV": 4,
+    "AG": 4
    }
   },
   {
@@ -4763,19 +5996,28 @@
     "FS": 3.35,
     "TS": 3.45,
     "SW": 3.45,
-    "SU": 3.6
+    "SU": 3.6,
+    "AT": 3.6,
+    "DV": 3.7,
+    "AG": 3.6
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 4,
     "TS": 3,
     "SW": 4,
-    "SU": 3
+    "SU": 3,
+    "AT": 3,
+    "DV": 3,
+    "AG": 3
    }
   },
   {
@@ -4798,19 +6040,28 @@
     "FS": 3.2,
     "TS": 3.15,
     "SW": 3.15,
-    "SU": 3.25
+    "SU": 3.25,
+    "AT": 3.25,
+    "DV": 3.3,
+    "AG": 3.3
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 4,
     "TS": 3,
     "SW": 4,
-    "SU": 3
+    "SU": 3,
+    "AT": 4,
+    "DV": 3,
+    "AG": 4
    }
   },
   {
@@ -4833,19 +6084,28 @@
     "FS": 3.25,
     "TS": 3.15,
     "SW": 3.4,
-    "SU": 3.0
+    "SU": 3.0,
+    "AT": 3.3,
+    "DV": 3.15,
+    "AG": 3.4
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 3,
     "TS": 4,
     "SW": 3,
-    "SU": 4
+    "SU": 4,
+    "AT": 3,
+    "DV": 4,
+    "AG": 3
    }
   },
   {
@@ -4868,19 +6128,28 @@
     "FS": 2.95,
     "TS": 2.8,
     "SW": 3.05,
-    "SU": 2.9
+    "SU": 2.9,
+    "AT": 3.05,
+    "DV": 3.0,
+    "AG": 3.1
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 5,
     "TS": 6,
     "SW": 5,
-    "SU": 6
+    "SU": 6,
+    "AT": 5,
+    "DV": 5,
+    "AG": 5
    }
   },
   {
@@ -4903,19 +6172,28 @@
     "FS": 3.85,
     "TS": 3.8,
     "SW": 4.05,
-    "SU": 3.9
+    "SU": 3.9,
+    "AT": 3.95,
+    "DV": 3.8,
+    "AG": 3.9
    },
    "fit": {
     "FS": "Core candidate",
     "TS": "Core candidate",
     "SW": "Core candidate",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 1,
     "TS": 1,
     "SW": 1,
-    "SU": 1
+    "SU": 1,
+    "AT": 1,
+    "DV": 1,
+    "AG": 1
    }
   },
   {
@@ -4938,19 +6216,28 @@
     "FS": 2.9,
     "TS": 2.85,
     "SW": 2.95,
-    "SU": 2.95
+    "SU": 2.95,
+    "AT": 2.95,
+    "DV": 2.95,
+    "AG": 3.0
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Situational"
+    "SU": "Situational",
+    "AT": "Situational",
+    "DV": "Situational",
+    "AG": "Situational"
    },
    "rank": {
     "FS": 6,
     "TS": 5,
     "SW": 6,
-    "SU": 5
+    "SU": 5,
+    "AT": 6,
+    "DV": 6,
+    "AG": 6
    }
   },
   {
@@ -4973,19 +6260,28 @@
     "FS": 3.4,
     "TS": 3.5,
     "SW": 3.55,
-    "SU": 3.7
+    "SU": 3.7,
+    "AT": 3.6,
+    "DV": 3.65,
+    "AG": 3.6
    },
    "fit": {
     "FS": "Situational",
     "TS": "Situational",
     "SW": "Situational",
-    "SU": "Core candidate"
+    "SU": "Core candidate",
+    "AT": "Core candidate",
+    "DV": "Core candidate",
+    "AG": "Core candidate"
    },
    "rank": {
     "FS": 2,
     "TS": 2,
     "SW": 2,
-    "SU": 2
+    "SU": 2,
+    "AT": 2,
+    "DV": 2,
+    "AG": 2
    }
   }
  ]

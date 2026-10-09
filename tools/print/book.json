@@ -1,7 +1,7 @@
 {
   "_comment": "Book metadata for the print and ebook editions (tools/build_print_edition.py). Fill in the ISBNs once assigned; confirm author and price before publishing. See 01_Report/Print/Publishing_Kit.md. Update the counts in blurb, back_points and cover_facts at each quarterly refresh.",
   "title": "The Enterprise GenAI Stack",
-  "subtitle": "The View at End of Q3 2026: Reference Architecture, Product Assessment and the Regulated Financial-Services View",
+  "subtitle": "The View at End of Q3 2026: Reference Architecture and Product Assessment for Regulated Financial Services, Technology Companies, Start-ups and the Vendors Who Sell to Them",
   "short_subtitle": "The view at end of Q3 2026",
   "author": "Bing Zhang",
   "publisher": "Veyan",
@@ -32,7 +32,7 @@
   "bleed_in": 0.125,
   "blurb": [
     "Most enterprise GenAI diagrams are shelves of product logos. By the end of Q3 2026, almost half of the tiles on the most widely shared stack diagram needed a correction: acquired, renamed, mispositioned or superseded.",
-    "This book takes a different route. It asks what a regulated asset manager actually needs to run GenAI safely in production, and answers with a reference architecture: nine layers, from foundation models to evaluation, under a firm-owned control plane of eight components (gateway, guardrails, privacy, identity, configuration, FinOps, security and model risk).",
+    "This book takes a different route. It asks what a regulated asset manager needs to run GenAI safely in production, and answers with a reference architecture: nine layers, from foundation models to evaluation, under a firm-owned control plane of eight components (gateway, guardrails, privacy, identity, configuration, FinOps, security and model risk). It then re-reads the same stack through six further views: technology service providers, software product companies and start-ups that use GenAI, and start-ups that sell AI tools, agentic software-development tools and agents into enterprises.",
     "Every layer and control gets its own chapter: how it works, design principles, selection criteria, product deep dives, a decision tree, lock-in classification, the regulated financial-services lens and a worked example. 140 products are assessed on one rubric, every claim is labelled and every fact traces to a dated source."
   ],
   "back_points": [
@@ -40,6 +40,7 @@
     "140 products assessed on one rubric, with Strategic, Tactical and Experimental tiers and their conditions",
     "Four reference stacks, a build-versus-buy view, lock-in by layer and an 18-month roadmap",
     "EU AI Act, DORA, the UK critical third-party regime and model-risk rules applied to GenAI",
+    "Six further views: technology service providers, software companies, start-ups, and vendors of AI tools, coding agents and enterprise agents",
     "One worked example throughout: an agent drafting a fund's monthly attribution commentary"
   ],
   "kdp_checks": {
@@ -82,6 +83,7 @@
   "cover_facts": [
     "9 layers",
     "8 controls",
-    "140 products assessed"
+    "140 products assessed",
+    "7 views"
   ]
 }
