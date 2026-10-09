@@ -1,254 +1,157 @@
 #!/usr/bin/env python3
-"""Build the enterprise GenAI stack graphic from the dataset (one tile per assessed product).
+"""Build the enterprise GenAI stack graphic from its editable Markdown source.
 
-Usage: python3 -I tools/build_stack_graphic.py <repo_root>
-Writes work/stageD/stack_graphic.html; then render with
-  NODE_PATH=$(npm root -g) node tools/render_graphic.js work/stageD/stack_graphic.html <out_dir>/Enterprise_GenAI_Stack_Oct2026
-which writes .png (3200 px wide) and .pdf.
+Source:  Enterprise_GenAI_Stack_Oct2026/08_Graphic/Enterprise_GenAI_Stack_Oct2026.md   (edit this)
+Output:  the .html next to it (also hand-editable), then render PNG and PDF with
+         NODE_PATH=$(npm root -g) node tools/render_graphic.js <html> <out_basename>
 
-Tiles come from 05_Data/products.json (scored records, by final tier). Short labels and one-line notes are
-curated below from the synthesis (Parts I, IV and XI); every product in the dataset must have a label.
+Usage:   python3 -I tools/build_stack_graphic.py <repo_root> [--sync] [--md PATH]
+  --sync  first update every Tier in the Markdown from 05_Data/products.json, and append any scored product that
+          is missing to its layer table (label taken from the dataset, note left blank). Rows whose ID is not in
+          the dataset are reported. Then build the HTML as usual.
+
+Markdown format (see the file itself):
+  # Title
+  - key: value              header settings (subtitle, stats, legend-*); {N} {S} {T} {E} are counted from the tables
+  ## <Plane name>           - style: control | eval | plane     - subtitle: ...
+  ### <CODE> · <Name>       - duty: ...   - design: ...   then a table | ID | Product | Note | Cloud | Tier |
+  ## Footer: <Box title>    free text and bullets; **bold** allowed
+  ## Source                 one line under the graphic
 """
-import html, json, os, sys
+import html, json, os, re, sys
 
 root = sys.argv[1]; os.chdir(root)
 PKG = "Enterprise_GenAI_Stack_Oct2026"
-prods = {p["id"]: p for p in json.load(open(PKG + "/05_Data/products.json", encoding="utf-8"))}
+MD = sys.argv[sys.argv.index("--md") + 1] if "--md" in sys.argv else os.path.join(PKG, "08_Graphic", PKG + ".md")
+OUT = os.path.splitext(MD)[0] + ".html"
+TIERS = {"Strategic": "s", "Tactical": "t", "Experimental": "e", "Pattern": "p"}
 
-# id: (label, note, cloud)  cloud = AWS / Azure / Google Cloud where the Strategic tier is conditional on that cloud
-L = {
- # C1 gateway
- "C1-litellm": ("LiteLLM", "Enterprise licence · pin and sign builds", ""),
- "C1-kong-ai-gateway": ("Kong AI Gateway", "where Kong is the API standard", ""),
- "C1-aws-agentcore-gateway": ("AgentCore Gateway", "MCP gateway", "AWS"),
- "C1-azure-apim-ai-gateway": ("Azure APIM AI gateway", "GA policies only", "Azure"),
- "C1-google-apigee-ai-gateway": ("Apigee AI gateway", "MCP support GA", "Google Cloud"),
- "C1-agentgateway": ("agentgateway", "MCP / A2A on Kubernetes", ""),
- "C1-envoy-ai-gateway": ("Envoy AI Gateway", "Agent Router · in-cluster", ""),
- "C1-cloudflare-ai-gateway": ("Cloudflare AI Gateway", "non-confidential work, BYOK", ""),
- "C1-portkey": ("Portkey", "Palo Alto Networks · Prisma AIRS", ""),
- # C2 guardrails
- "C2-bedrock-guardrails": ("Bedrock Guardrails", "standalone API from the gateway", "AWS"),
- "C2-azure-ai-content-safety": ("Azure AI Content Safety", "Prompt Shields on documents", "Azure"),
- "C2-google-model-armor": ("Model Armor", "strict residency", "Google Cloud"),
- "C2-nemo-guardrails": ("NeMo Guardrails", "orchestrator · still 0.x", ""),
- "C2-meta-llama-protections": ("Llama Guard / Prompt Guard", "one detector among several", ""),
- "C2-guardrails-ai": ("Guardrails AI", "Harvey-owned · plan migration", ""),
- # C3 privacy
- "C3-presidio": ("Presidio", "behind a firm privacy-service API", ""),
- "C3-google-sdp": ("Sensitive Data Protection", "Google's DLP service", "Google Cloud"),
- "C3-microsoft-purview-dspm-ai": ("Purview DSPM for AI", "posture, not prompt-path DLP", "Azure"),
- "C3-protegrity": ("Protegrity", "existing customers", ""),
- "C3-skyflow": ("Skyflow", "vault tokenisation", ""),
- # C4 identity
- "C4-opa": ("OPA", "policy decision point · CNCF", ""),
- "C4-spiffe-spire": ("SPIFFE / SPIRE", "workload identity · CNCF", ""),
- "C4-cedar": ("Cedar", "policy language · AgentCore Policy", ""),
- "C4-mcp-authorization": ("MCP Authorization", "Anthropic-originated · alt: OAuth on OpenAPI", ""),
- "C4-entra-agent-id": ("Entra Agent ID", "where Entra holds the workforce", ""),
- "C4-okta-auth0-ai-agents": ("Okta / Auth0 for AI Agents", "where Okta holds the workforce", ""),
- # C5 configuration
- "C5-prompts-as-code": ("Prompts as code (Git)", "the configuration of record", ""),
- "C5-langfuse-prompts": ("Langfuse Prompts", "with Langfuse as L9 platform", ""),
- "C5-langsmith-prompts": ("LangSmith Prompts", "with LangSmith as L9 platform", ""),
- "C5-promptlayer": ("PromptLayer", "framework-neutral registry", ""),
- "C5-launchdarkly-ai-configs": ("LaunchDarkly AgentControl", "rollout between approved variants", ""),
- # C6 FinOps
- "C6-gateway-cost-attribution": ("Gateway cost attribution", "budgets that fail closed", ""),
- "C6-finops-focus": ("FinOps FOCUS", "open billing data standard", ""),
- "C6-vantage": ("Vantage", "reporting layer only", ""),
- "C6-cloudzero": ("CloudZero", "reporting layer only", ""),
- "C6-helicone": ("Helicone", "maintenance mode · migrate", ""),
- # C7 security
- "C7-hashicorp-vault": ("HashiCorp Vault", "IBM · agentic IAM · BUSL", ""),
- "C7-model-supply-chain-scanning": ("Model & package scanning", "safetensors by default", ""),
- "C7-lakera": ("Check Point AI Guardrails", "runtime detector · self-host for client data", ""),
- "C7-prisma-airs": ("Prisma AIRS", "Palo Alto estates", ""),
- "C7-hiddenlayer": ("HiddenLayer", "independent specialist", ""),
- "C7-openssf-model-signing": ("OpenSSF Model Signing", "sign weights you produce", ""),
- # C8 governance
- "C8-openlineage": ("OpenLineage", "+ firm GenAI facets", ""),
- "C8-validmind": ("ValidMind", "model-risk-led firms", ""),
- "C8-watsonx-governance": ("IBM watsonx.governance", "IBM estates", ""),
- "C8-credo-ai": ("Credo AI", "policy-led programmes", ""),
- "C8-collibra-ai-governance": ("Collibra AI Governance", "where Collibra is the catalogue", ""),
- "C8-modelop": ("ModelOp", "after full due diligence", ""),
- # L9
- "L9-langfuse": ("Langfuse", "ClickHouse-owned · self-host", ""),
- "L9-langsmith": ("LangSmith", "LangGraph estates · BYOC, EU", ""),
- "L9-mlflow-genai": ("MLflow GenAI", "where an ML platform exists", ""),
- "L9-braintrust": ("Braintrust", "eval-led teams", ""),
- "L9-deepeval": ("DeepEval", "CI metric library", ""),
- "L9-promptfoo": ("Promptfoo", "red-teaming · OpenAI deal announced", ""),
- "L9-opik": ("Opik", "Comet · Apache-2.0", ""),
- "L9-arize-phoenix": ("Arize Phoenix", "Dynatrace-owned · ELv2", ""),
- "L9-arize-ax": ("Arize AX", "Dynatrace-owned", ""),
- "L9-datadog-agent-observability": ("Datadog Agent Observability", "Datadog APM estates", ""),
- "L9-wandb-weave": ("W&B Weave", "CoreWeave-owned", ""),
- # L8
- "L8-docling": ("Docling", "default engine · LF AI & Data", ""),
- "L8-unstructured": ("Unstructured", "ACL-aware connectors", ""),
- "L8-google-document-ai": ("Google Document AI", "processor region confirmed", "Google Cloud"),
- "L8-llamaparse": ("LlamaParse", "parse and extract only", ""),
- "L8-reducto": ("Reducto", "hard documents", ""),
- "L8-mistral-ocr": ("Mistral OCR 4.1", "pin the model ID", ""),
- "L8-firecrawl": ("Firecrawl", "AGPL server · cloud with ZDR", ""),
- "L8-apify": ("Apify", "public data only", ""),
- "L8-crawl4ai": ("Crawl4AI", "pre-1.0 · pilots", ""),
- "L8-mineru": ("MinerU", "licence thresholds apply", ""),
- # L7
- "L7-sentence-transformers": ("Sentence Transformers", "self-hosting and fine-tuning toolkit", ""),
- "L7-gemini-embedding": ("Gemini Embedding 2", "EU endpoint excludes the UK", "Google Cloud"),
- "L7-cohere": ("Cohere Embed 5 + Rerank", "private deployment", ""),
- "L7-openai": ("OpenAI text-embedding-3", "text baseline", ""),
- "L7-voyage": ("Voyage AI", "MongoDB-owned", ""),
- "L7-jina": ("Jina AI", "Elastic-owned · CC-BY-NC weights", ""),
- "L7-qwen3-embedding": ("Qwen3 Embedding", "self-host after review", ""),
- "L7-nvidia-nemo-retriever": ("NVIDIA NeMo Retriever", "NVIDIA estates", ""),
- "L7-ethicalagents": ("EthicalAgents", "removed · could not be verified", ""),
- "L7-ragoos": ("Ragoos", "removed · could not be verified", ""),
- # L6
- "L6-pgvector": ("PostgreSQL + pgvector", "where Postgres is standard", ""),
- "L6-elasticsearch": ("Elasticsearch", "hybrid + document-level security", ""),
- "L6-mongodb-atlas-vector-search": ("MongoDB Vector Search", "GA self-managed too", ""),
- "L6-qdrant": ("Qdrant", "dedicated engine after a load test", ""),
- "L6-milvus-zilliz": ("Milvus / Zilliz", "very large corpora", ""),
- "L6-pinecone": ("Pinecone", "managed · BYOC", ""),
- "L6-weaviate": ("Weaviate", "licence in transition", ""),
- "L6-turbopuffer": ("turbopuffer", "many tenants · BYOC only", ""),
- "L6-chroma": ("Chroma", "prototypes and harnesses", ""),
- "L6-s3-vectors": ("S3 Vectors", "AWS cost tier · no BM25", ""),
- # L5
- "L5-aws-agentcore-memory": ("AgentCore Memory", "inside its own runtime", "AWS"),
- "L5-gcp-vertex-memory-bank": ("Memory Bank", "Agent Engine", "Google Cloud"),
- "L5-mem0": ("Mem0", "OSS behind a firm memory API", ""),
- "L5-zep": ("Zep / Graphiti", "Graphiti self-hosted", ""),
- "L5-cognee": ("Cognee", "in-estate only", ""),
- "L5-letta": ("Letta", "agent harness", ""),
- "L5-supermemory": ("Supermemory", "proprietary memory + knowledge API", ""),
- "L5-langmem": ("LangMem", "no release since Oct 2025", ""),
- # L4
- "L4-mcp": ("MCP", "behind a governed gateway · alt: OpenAPI", ""),
- "L4-a2a": ("A2A 1.0", "cross-team delegation · signed cards", ""),
- "L4-aws-agentcore-gateway-identity": ("AgentCore Gateway + Identity", "managed tool governance", "AWS"),
- "L4-agent-skills": ("Agent Skills", "script-free, internal · alt: AGENTS.md", ""),
- "L4-e2b": ("E2B", "microVM sandbox", ""),
- "L4-exa": ("Exa", "via egress proxy + DLP", ""),
- "L4-tavily": ("Tavily", "Nebius-owned", ""),
- "L4-browserbase": ("Browserbase", "only where no API exists", ""),
- "L4-composio": ("Composio", "May 2026 token incident · self-host", ""),
- # L3
- "L3-langgraph": ("LangGraph", "default · workflows + agents", ""),
- "L3-temporal": ("Temporal", "durable execution", ""),
- "L3-pydantic-ai": ("Pydantic AI", "typed agent steps", ""),
- "L3-microsoft-agent-framework": ("Microsoft Agent Framework", "GA · Microsoft and .NET estates", ""),
- "L3-aws-strands-agentcore": ("Strands + AgentCore Runtime", "framework + managed runtime", "AWS"),
- "L3-google-adk": ("Google ADK", "on Agent Engine", "Google Cloud"),
- "L3-crewai": ("CrewAI", "use Flows for regulated work", ""),
- "L3-llamaindex": ("LlamaIndex", "retrieval toolkit", ""),
- "L3-openai-agents-sdk": ("OpenAI Agents SDK", "sandboxed sub-step · pre-1.0", ""),
- "L3-vercel-ai-sdk": ("Vercel AI SDK", "TypeScript app tier", ""),
- "L3-claude-agent-sdk": ("Claude Agent SDK", "Alpha · sandboxed only · alt: LangGraph", ""),
- "L3-mistral-agents": ("Mistral Agents API", "Workflows in beta", ""),
- # L2
- "L2-vllm": ("vLLM", "default engine · the exit route", ""),
- "L2-sglang": ("SGLang", "backup engine once CVE is fixed", ""),
- "L2-hugging-face": ("Hugging Face Hub", "governed open-weight supply", ""),
- "L2-fireworks-ai": ("Fireworks AI", "once ISO certificates confirmed", ""),
- "L2-together-ai": ("Together AI", "EU dedicated, ZDR on", ""),
- "L2-openrouter": ("OpenRouter", "behind the gateway · Stripe deal", ""),
- "L2-cerebras": ("Cerebras", "low latency, non-confidential", ""),
- "L2-ollama": ("Ollama", "developer tier", ""),
- "L2-lm-studio": ("LM Studio", "desktops only · no service use", ""),
- "L2-llm-d": ("llm-d", "CNCF sandbox · pilot", ""),
- "L2-nvidia-dynamo": ("NVIDIA Dynamo", "beta · pilot", ""),
- # L1
- "L1-openai": ("OpenAI GPT-6", "Astra · Sol · Luna · 6.1 Sol", ""),
- "L1-anthropic": ("Anthropic Claude", "hyperscaler EU route · tier set by reader", ""),
- "L1-mistral": ("Mistral", "Medium 3.5 · Large 3 · EU-hosted", ""),
- "L1-google-gemma": ("Gemma 4", "small open-weight tier · Apache 2.0", ""),
- "L1-google-gemini": ("Google Gemini 3.x", "pin versions · short lifetimes", "Google Cloud"),
- "L1-alibaba-qwen": ("Qwen 3.8", "self-host by policy", ""),
- "L1-deepseek": ("DeepSeek V4", "weights or in-tenant only", ""),
- "L1-zai-glm": ("Z.ai GLM-5.3", "MIT Flash weights · after sanctions review", ""),
- "L1-xai-grok": ("Grok 4.7 (SpaceXAI)", "via a hyperscaler only", ""),
- "L1-meta": ("Meta Muse / Llama", "block the contributor tier", ""),
- "L1-moonshot-kimi": ("Kimi K3", "custom licence", ""),
-}
-missing = sorted(set(prods) - set(L)); extra = sorted(set(L) - set(prods))
-if missing or extra:
-    sys.exit("label map out of step with products.json: missing %s, unknown %s" % (missing, extra))
+def row_cells(line):
+    return [c.strip() for c in line.strip().strip("|").split("|")]
 
-CONTROLS = [("C1", "AI traffic gateway", "model, tool (MCP) and agent (A2A) calls"),
-            ("C2", "Guardrails", "policy and tests owned by the firm"),
-            ("C3", "Privacy service (DLP / PII)", "one API, six enforcement points"),
-            ("C4", "Identity and authorisation", "every agent a registered identity"),
-            ("C5", "Configuration of record", "prompts, pins and manifests in Git"),
-            ("C6", "AI FinOps", "cost per task, budgets fail closed"),
-            ("C7", "AI security", "secrets, supply chain, sandboxing"),
-            ("C8", "Model risk and governance", "inventory, validation, evidence store")]
-LAYERS = {  # name, one-line duty, the key design choice for the layer
- "L9": ("Evaluation & observability plane", "evidence for every layer, from day one",
-        "One firm-owned OpenTelemetry spine, Git-versioned evaluation sets, one platform of record, and two red-team tools, one independent of the model vendor."),
- "L8": ("Ingestion & data preparation", "approved sources, ACLs and lineage on every chunk",
-        "A built control envelope (source register, classification, parse manifest, lineage, incremental indexing) around replaceable parsers."),
- "L7": ("Retrieval optimisation", "pinned embed + rerank, hybrid fusion, eval gate",
-        "Choose models by in-domain evaluation; pin every version; keep raw text so a model switch is a re-embed, not a rebuild."),
- "L6": ("Retrieval & knowledge stores", "derived, entitlement-filtered, rebuildable index",
-        "Hybrid search inside a platform you already run; a dedicated vector engine only when a load test proves the need."),
- "L5": ("Memory service (part of L6)", "policy-gated writes, erasure by person",
-        "A governed record class stored in L6: write gate, subject index, erasure and a snapshot per run. Built last."),
- "L4": ("Tools & connectivity", "nothing reachable except through the governed gateway",
-        "Read-only tools for authoritative data behind a tool-governance sub-layer: private registry, pinned definitions, policy, audit."),
- "L3": ("Orchestration: workflows & agents", "deterministic by default, durable, approval gates",
-        "Workflows by default with one bounded model step, durable execution, and approval interrupts only a named human can resume."),
- "L2": ("Inference & model access", "in-region access; vLLM as the private exit route",
-        "The primary cloud's model service in an approved UK/EU region; one open-weight model on vLLM as the tested exit route."),
- "L1": ("Foundation-model portfolio", "two unrelated vendors + small + open-weight, all pinned",
-        "A two-vendor mid tier qualified on one suite, a small tier and a self-hosted open-weight tier; every version pinned."),
-}
-PLANES = [("Agent plane", ["L3", "L4"]), ("Knowledge plane", ["L8", "L7", "L6", "L5"]), ("Model plane", ["L2", "L1"])]
-PATTERNS = {"C5-prompts-as-code", "C6-gateway-cost-attribution", "C7-model-supply-chain-scanning"}
-RANK = {"Strategic": 0, "Tactical": 1, "Experimental": 2, None: 3}
+def sync(path):
+    prods = {p["id"]: p for p in json.load(open(PKG + "/05_Data/products.json", encoding="utf-8"))}
+    lines = open(path, encoding="utf-8").read().split("\n")
+    seen, changed, unknown, layer_end, cur = set(), 0, [], {}, None
+    for i, ln in enumerate(lines):
+        m = re.match(r"^###\s+([A-Z]\d)\b", ln)
+        if m: cur = m.group(1)
+        if ln.startswith("|") and not ln.startswith("| ID") and not ln.startswith("|---"):
+            c = row_cells(ln)
+            if len(c) < 5: continue
+            layer_end[cur] = i
+            pid = c[0]
+            if pid == "-": continue
+            p = prods.get(pid)
+            if p is None: unknown.append(pid); continue
+            seen.add(pid)
+            t = (p.get("classification") or {}).get("tier") if p.get("scores") else "Not scored"
+            if c[4] != t:
+                c[4] = t; lines[i] = "| " + " | ".join(c) + " |"; changed += 1
+    added = []
+    for pid, p in sorted(prods.items(), key=lambda kv: kv[0], reverse=True):
+        if pid in seen or not p.get("scores"): continue
+        L = p.get("layer")
+        if L not in layer_end:
+            print("no table for layer", L, "- add a '### %s · ...' section for" % L, pid); continue
+        nm = p.get("current_name"); nm = nm["v"] if isinstance(nm, dict) else pid
+        nm = re.split(r"\s*[(;:,]\s*|\s+-\s+", str(nm))[0][:40]
+        t = (p.get("classification") or {}).get("tier")
+        lines.insert(layer_end[L] + 1, "| %s | %s |  |  | %s |" % (pid, nm, t))
+        for k in layer_end:
+            if layer_end[k] > layer_end[L]: layer_end[k] += 1
+        layer_end[L] += 1; added.append(pid)
+    open(path, "w", encoding="utf-8").write("\n".join(lines))
+    print("sync: %d tiers updated, %d products added %s, unknown IDs %s" % (changed, len(added), added, unknown))
 
-def tile(pid):
-    p = prods[pid]; label, note, cloud = L[pid]
-    cl = p.get("classification") or {}; tier = cl.get("tier") if p.get("scores") else None
-    flags = cl.get("flags") or []
-    cls = {"Strategic": "s", "Tactical": "t", "Experimental": "e"}.get(tier, "x")
-    tags = []
-    if cloud: tags.append(("cloud", cloud))
-    t = "".join('<span class="tag %s">%s</span>' % (c, html.escape(x)) for c, x in tags)
-    return ('<div class="tile %s"><div class="tags">%s</div><div class="nm">%s</div><div class="nt">%s</div></div>'
-            % (cls, t, html.escape(label), html.escape(note)))
+def inline(t):
+    t = html.escape(t)
+    return re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
 
-def tiles(layer):
-    ids = [i for i, p in prods.items() if p["layer"] == layer and p.get("scores")]  # unscored = unverifiable, not shown
-    ids.sort(key=lambda i: (RANK.get(((prods[i].get("classification") or {}).get("tier") if prods[i].get("scores") else None), 3),
-                            -((prods[i].get("scores") or {}).get("fs_total") or 0), L[i][0].lower()))
-    return "".join(tile(i) for i in ids)
+def parse(path):
+    doc = {"title": "", "meta": {}, "sections": []}
+    sec = sub = None
+    for raw in open(path, encoding="utf-8").read().split("\n"):
+        ln = raw.rstrip()
+        if ln.startswith("<!--") or not ln.strip():
+            if ln.strip() and sec is not None and sec.get("kind") == "box": pass
+            continue
+        if ln.startswith("# "): doc["title"] = ln[2:].strip(); continue
+        if ln.startswith("## "):
+            name = ln[3:].strip()
+            if name.startswith("Footer:"): sec = {"kind": "box", "title": name[7:].strip(), "body": []}
+            elif name == "Source": sec = {"kind": "source", "body": []}
+            else: sec = {"kind": "plane", "title": name, "meta": {}, "subs": []}
+            doc["sections"].append(sec); sub = None; continue
+        if ln.startswith("### "):
+            m = re.match(r"^###\s+(\S+)\s*[·\-:]\s*(.+)$", ln)
+            sub = {"code": m.group(1), "name": m.group(2).strip(), "meta": {}, "rows": []} if m else {"code": "", "name": ln[4:], "meta": {}, "rows": []}
+            sec["subs"].append(sub); continue
+        if sec is None:
+            m = re.match(r"^-\s+([\w-]+):\s*(.*)$", ln)
+            if m: doc["meta"][m.group(1)] = m.group(2)
+            continue
+        if sec["kind"] in ("box", "source"): sec["body"].append(ln); continue
+        m = re.match(r"^-\s+([\w-]+):\s*(.*)$", ln)
+        if m and (sub is None or not sub["rows"]):
+            (sub["meta"] if sub else sec["meta"])[m.group(1)] = m.group(2); continue
+        if ln.startswith("|") and sub is not None:
+            c = row_cells(ln)
+            if c[0] == "ID" or all(x and set(x) <= set("-: ") for x in c): continue  # header / separator row
+            c += [""] * (5 - len(c)); sub["rows"].append(dict(id=c[0], label=c[1], note=c[2], cloud=c[3], tier=c[4]))
+    return doc
 
-counts = {"Strategic": 0, "Tactical": 0, "Experimental": 0}
-for p in prods.values():
-    t = (p.get("classification") or {}).get("tier")
-    if p.get("scores") and t in counts: counts[t] += 1
+def tile(r):
+    cls = TIERS.get(r["tier"], "x")
+    tags = ""
+    if r["tier"] == "Pattern": tags = '<span class="tag pat">PATTERN · NOT SCORED</span>'
+    if r["cloud"]: tags += '<span class="tag cloud">%s</span>' % html.escape(r["cloud"])
+    return ('<div class="tile %s" title="%s"><div class="tags">%s</div><div class="nm">%s</div><div class="nt">%s</div></div>'
+            % (cls, html.escape(r["id"]), tags, inline(r["label"]), inline(r["note"])))
 
-def layer_row(code):
-    name, duty, fix = LAYERS[code]
-    extra = ""
-    if code == "L2":
-        extra = ('<div class="tile p"><div class="tags"><span class="tag pat">PATTERN · NOT SCORED</span></div>'
-                 '<div class="nm">Primary cloud’s model service</div><div class="nt">Bedrock · Foundry · Gemini Enterprise Agent Platform, in region</div></div>')
-    return ('<div class="row"><div class="lab"><div class="code">%s</div><div class="ln">%s</div>'
-            '<div class="duty">%s</div><div class="fix">%s</div></div><div class="grid">%s%s</div></div>'
-            % (code, html.escape(name), html.escape(duty), html.escape(fix), extra, tiles(code)))
+def build(doc):
+    rows = [r for s in doc["sections"] if s["kind"] == "plane" for sub in s["subs"] for r in sub["rows"]]
+    cnt = {k: sum(1 for r in rows if r["tier"] == k) for k in ("Strategic", "Tactical", "Experimental")}
+    fill = {"{N}": str(sum(cnt.values())), "{S}": str(cnt["Strategic"]), "{T}": str(cnt["Tactical"]), "{E}": str(cnt["Experimental"])}
+    def f(t):
+        for k, v in fill.items(): t = t.replace(k, v)
+        return t
+    M = doc["meta"]
+    stats = "".join('<span class="stat">%s</span>' % inline(f(x.strip())) for x in M.get("stats", "").split(";") if x.strip())
+    legend = ('<span><span class="sw s"></span>%s</span><span><span class="sw t"></span>%s</span><span><span class="sw e"></span>%s</span>'
+              '<span><span class="tag cloud">AWS</span> %s</span>') % tuple(inline(M.get(k, "")) for k in
+              ("legend-strategic", "legend-tactical", "legend-experimental", "legend-cloud"))
+    body, foot, source = [], [], ""
+    for s in doc["sections"]:
+        if s["kind"] == "plane":
+            style = s["meta"].get("style", "plane"); st = inline(s["meta"].get("subtitle", ""))
+            if style == "control":
+                cards = "".join('<div class="card"><div class="ch"><span class="code">%s</span> %s<span class="cs">%s</span></div><div class="grid g3">%s</div></div>'
+                                % (html.escape(u["code"]), inline(u["name"]), inline(u["meta"].get("duty", "")), "".join(tile(r) for r in u["rows"])) for u in s["subs"])
+                body.append('<div class="sec ctrl"><div class="sh"><span class="t1">%s</span><span class="t2">%s</span></div><div class="cards">%s</div></div>' % (inline(s["title"]), st, cards))
+            else:
+                lrows = "".join('<div class="row"><div class="lab"><div class="code">%s</div><div class="ln">%s</div><div class="duty">%s</div><div class="fix">%s</div></div><div class="grid">%s</div></div>'
+                                % (html.escape(u["code"]), inline(u["name"]), inline(u["meta"].get("duty", "")), inline(u["meta"].get("design", "")), "".join(tile(r) for r in u["rows"])) for u in s["subs"])
+                if style == "eval":
+                    body.append('<div class="sec eval"><div class="sh"><span class="t1">%s</span><span class="t2">%s</span></div>%s</div>' % (inline(s["title"]), st, lrows))
+                else:
+                    body.append('<div class="plane"><div class="ph">%s</div>%s</div>' % (inline(s["title"]), lrows))
+        elif s["kind"] == "box":
+            paras, items = [], []
+            for ln in s["body"]:
+                (items if ln.startswith("- ") else paras).append(inline(ln[2:] if ln.startswith("- ") else ln))
+            foot.append('<div class="box"><h3>%s</h3>%s%s</div>' % (inline(s["title"]), "".join('<p style="margin:0 0 8px">%s</p>' % p for p in paras),
+                        "<ul>%s</ul>" % "".join("<li>%s</li>" % i for i in items) if items else ""))
+        elif s["kind"] == "source":
+            source = " ".join(inline(x) for x in s["body"])
+    title = inline(doc["title"])
+    return ('<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>%s</title>\n<!-- Generated from %s by tools/build_stack_graphic.py. '
+            'You can edit this file directly, but the Markdown is the source: re-running the builder overwrites it. -->\n<style>%s</style></head>'
+            '<body><div class="wrap">\n<h1>%s</h1>\n<div class="sub">%s</div>\n<div class="stats">%s</div>\n<div class="legend">%s</div>\n%s\n'
+            '<div class="foot">%s</div>\n<div class="small">%s</div>\n</div></body></html>\n'
+            % (title, os.path.basename(MD), CSS, title, inline(M.get("subtitle", "")), stats, legend, "\n".join(body), "".join(foot), source)), cnt
 
-cards = "".join('<div class="card"><div class="ch"><span class="code">%s</span> %s<span class="cs">%s</span></div><div class="grid g3">%s</div></div>'
-                % (c, html.escape(n), html.escape(s), tiles(c)) for c, n, s in CONTROLS)
-planes = "".join('<div class="plane"><div class="ph">%s</div>%s</div>' % (n, "".join(layer_row(c) for c in codes)) for n, codes in PLANES)
-
-page = """<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>The Enterprise GenAI Stack (October 2026)</title>
-<style>
+CSS = """
 :root{--navy:#1B2A41;--teal:#0E7C7B;--teal2:#E6F3F2;--amber:#C9822B;--ink:#1F2933;--mute:#5B6B7A;--line:#D5DEE6;--bg:#F6F8FA}
 *{box-sizing:border-box}body{margin:0;background:#fff;font-family:Inter,Arial,sans-serif;color:var(--ink);width:1600px}
 .wrap{padding:36px 40px 28px}
@@ -302,38 +205,9 @@ h1{font-size:46px;letter-spacing:-.5px;margin:0;color:var(--navy);font-weight:80
 .box{border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:13.5px;line-height:1.45;background:#fff}
 .box h3{margin:0 0 6px;font-size:16px;color:var(--navy)}
 .box ul{margin:0;padding-left:18px}
-.small{font-size:12px;color:var(--mute);margin-top:12px}
-</style></head><body><div class="wrap">
-<h1>The Enterprise GenAI Stack</h1>
-<div class="sub">Reference architecture and product landscape for a regulated UK/EU asset manager \u00b7 as of 9 October 2026</div>
-<div class="stats"><span class="stat"><b>9</b> layers in three planes</span><span class="stat"><b>8</b> enterprise controls</span>
-<span class="stat"><b>%(N)d</b> products assessed</span><span class="stat"><b>1,255</b> sources</span>
-<span class="stat"><b>%(S)d</b> Strategic \u00b7 <b>%(T)d</b> Tactical \u00b7 <b>%(E)d</b> Experimental</span></div>
-<div class="legend"><span><span class="sw s"></span>Strategic \u2014 platform default (most carry a condition)</span><span><span class="sw t"></span>Tactical \u2014 a stated niche or estate</span>
-<span><span class="sw e"></span>Experimental \u2014 pilot only, outside regulated paths</span><span><span class="tag cloud">AWS</span> Strategic only where that cloud is primary</span></div>
+.small{font-size:12px;color:var(--mute);margin-top:12px}"""
 
-<div class="sec ctrl"><div class="sh"><span class="t1">Control plane</span><span class="t2">firm-owned policy and one evidence store, around every call</span></div>
-<div class="cards">%(CARDS)s</div></div>
-
-<div class="sec eval"><div class="sh"><span class="t1">Evaluation &amp; observability plane</span><span class="t2">L9 joins C8 as one evidence plane with two owners</span></div>%(L9)s</div>
-
-%(PLANES)s
-
-<div class="foot"><div class="box"><h3>The architecture in one sentence</h3>
-<p style="margin:0 0 8px">Build a firm-owned control and evidence plane first; run regulated work as deterministic workflows with one bounded model step and a named human approver; consume models as a two-vendor portfolio through the primary cloud; treat every product beneath that plane as replaceable.</p>
-<ul><li><b>One gateway of record</b> for all model, tool and agent traffic: in region, deployed twice, failing closed.</li>
-<li><b>Every agent a registered identity</b>, acting for a named person through short-lived tokens; deny by default.</li>
-<li><b>One privacy service</b> at six points: ingestion, prompt, tool results, output, memory writes and trace export.</li>
-<li><b>Git as the configuration of record</b>: prompts, model pins and tool lists released as one approved manifest.</li>
-<li><b>Build order:</b> governance and evaluation, then models through the gateway, retrieval, workflows, tools \u2014 memory last.</li></ul></div>
-<div class="box"><h3>How to read it</h3><ul>
-<li>Tiers are for a regulated asset manager, scored on one eight-criterion rubric with regulated-FS weights. A Strategic tier carries its condition; the condition is the decision.</li>
-<li>Cloud-tagged items are alternatives chosen by primary cloud, not a shopping list.</li>
-<li>Disclosure: researched and drafted with an Anthropic model. Anthropic items were scored on the same rubric; their tiers were set by the reader, and an independent alternative is named for each.</li>
-<li>Personal research, not any firm\u2019s platform. Every tile is backed by sourced facts in the dataset and the product appendix.</li></ul></div></div>
-<div class="small">Source: Enterprise GenAI Full-Stack Architecture review, October 2026 \u2014 05_Data/products.json (tiers), 06_References/bibliography.xlsx (sources). Product names are trademarks of their owners; no logos used.</div>
-</div></body></html>""" % {"N": sum(counts.values()), "S": counts["Strategic"], "T": counts["Tactical"], "E": counts["Experimental"], "CARDS": cards,
-                           "L9": layer_row("L9"), "PLANES": planes}
-os.makedirs("work/stageD", exist_ok=True)
-open("work/stageD/stack_graphic.html", "w", encoding="utf-8").write(page)
-print("tiles", sum(counts.values()), "counts", counts)
+if "--sync" in sys.argv: sync(MD)
+page, cnt = build(parse(MD))
+open(OUT, "w", encoding="utf-8").write(page)
+print("wrote", OUT, "tiles", sum(cnt.values()), cnt)

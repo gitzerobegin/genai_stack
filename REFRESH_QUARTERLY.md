@@ -81,6 +81,9 @@ python3 -I tools/build_appendix.py .
 python3 -I tools/build_linkedin_calendar.py .
 # Deck: first update tools/deck/tiers.json and any slide text that names tiers, counts or dates, then
 NODE_PATH=$PWD/tools/deck/node_modules node tools/deck/build_deck.js .
+# Stack graphic: --sync refreshes tiers from the dataset and adds new products to the Markdown; edit labels/notes, then
+python3 -I tools/build_stack_graphic.py . --sync
+NODE_PATH=$(npm root -g) node tools/render_graphic.js <PKG>/08_Graphic/<PKG>.html <PKG>/08_Graphic/<PKG>
 ```
 
 Then:
