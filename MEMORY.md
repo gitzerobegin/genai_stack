@@ -11,7 +11,7 @@
 | | |
 |---|---|
 | **Last updated** | 8 October 2026 |
-| **Stage** | **Stage B complete** (all 9 layers and 8 controls). Tranche-3 calibration reviewer running; Stage C synthesis next, then **CP4** |
+| **Stage** | **Stage C/C2/D in parallel, running to CP5 without pauses** (user decision, 9 October 2026) |
 | **Branch** | `claude/nice-meitner-0me752` on `github.com/gitzerobegin/genai_stack` |
 
 | Item | State |
@@ -59,6 +59,7 @@
 | 21 | 8 October | CP3 answers recorded (`checkpoints/CP3/06_CP3_Decisions.md`). Rubric rules 10–13 added. Launched the CP3 rework agent and the L3, L2 and L1 writers (prompts in `work/prompts/stageB_tranche3_prompts.md`). | Running |
 | 22 | 8 October | **Third 429 interruption** (reset 23:40 UTC) hit all 4 tranche-3 agents early. Only the L2 and L3 search extracts were saved (committed). At 23:42 UTC, after the user confirmed the reset, all 4 were resumed with explicit on-disk status. | Running |
 | 23 | 9 October | The CP3 rework finished: tiers moved to 43/53/8. The L3, L2 and L1 writers finished: about 33,400 words; L1 has Anthropic Tactical 3.55 with the conflict-of-interest disclosure; L3 has the Claude Agent SDK as Experimental. The L3 and L1 writers ran git themselves, contrary to the brief; no harm done. Launched the CP4 calibration reviewer C for L3–L1. Wrote the Stage C synthesis brief `work/stage0/09_stageC_synthesis_brief.md`. | Reviewer running |
+| 24 | 9 October | The user answered the CP4, CP4b and CP5 questions up front (`checkpoints/CP4/00_CP4_CP4b_Decisions.md`) and chose to run to CP5 without pauses. A fourth 429 interruption (reset 04:40 UTC) was resumed at 05:43. CP4 rework done: 58 Strategic, 67 Tactical, 13 Experimental. LinkedIn posts 1–18 done. Synthesis written through Part IX. Packaging tools built: `tagfmt.py`, `build_master.py` (footnote-style docx, 3,556 footnotes), `build_appendix.py` (docx/pdf, 661 pp), `build_explorer.py` (offline HTML, tested headless), `build_linkedin_calendar.py`, plus pptxgenjs in `tools/deck`. GitHub Release is not possible from this session (no tool; gh token invalid), so the user chose to commit the ZIP on the working branch. | Running |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it
