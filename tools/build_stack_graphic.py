@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Build the corrected "full stack" graphic from the dataset (one tile per assessed product).
+"""Build the enterprise GenAI stack graphic from the dataset (one tile per assessed product).
 
 Usage: python3 -I tools/build_stack_graphic.py <repo_root>
 Writes work/stageD/stack_graphic.html; then render with
   NODE_PATH=$(npm root -g) node tools/render_graphic.js work/stageD/stack_graphic.html <out_dir>/Enterprise_GenAI_Stack_Oct2026
 which writes .png (3200 px wide) and .pdf.
 
-Tiles come from 05_Data/products.json (tier, flags, original label). Short labels and one-line notes are
+Tiles come from 05_Data/products.json (scored records, by final tier). Short labels and one-line notes are
 curated below from the synthesis (Parts I, IV and XI); every product in the dataset must have a label.
 """
 import html, json, os, sys
@@ -33,7 +33,7 @@ L = {
  "C2-google-model-armor": ("Model Armor", "strict residency", "Google Cloud"),
  "C2-nemo-guardrails": ("NeMo Guardrails", "orchestrator · still 0.x", ""),
  "C2-meta-llama-protections": ("Llama Guard / Prompt Guard", "one detector among several", ""),
- "C2-guardrails-ai": ("Guardrails AI", "Harvey-owned · hosted hub retired", ""),
+ "C2-guardrails-ai": ("Guardrails AI", "Harvey-owned · plan migration", ""),
  # C3 privacy
  "C3-presidio": ("Presidio", "behind a firm privacy-service API", ""),
  "C3-google-sdp": ("Sensitive Data Protection", "Google's DLP service", "Google Cloud"),
@@ -62,7 +62,7 @@ L = {
  # C7 security
  "C7-hashicorp-vault": ("HashiCorp Vault", "IBM · agentic IAM · BUSL", ""),
  "C7-model-supply-chain-scanning": ("Model & package scanning", "safetensors by default", ""),
- "C7-lakera": ("Check Point AI Guardrails", "formerly Lakera Guard", ""),
+ "C7-lakera": ("Check Point AI Guardrails", "runtime detector · self-host for client data", ""),
  "C7-prisma-airs": ("Prisma AIRS", "Palo Alto estates", ""),
  "C7-hiddenlayer": ("HiddenLayer", "independent specialist", ""),
  "C7-openssf-model-signing": ("OpenSSF Model Signing", "sign weights you produce", ""),
@@ -97,7 +97,7 @@ L = {
  "L8-crawl4ai": ("Crawl4AI", "pre-1.0 · pilots", ""),
  "L8-mineru": ("MinerU", "licence thresholds apply", ""),
  # L7
- "L7-sentence-transformers": ("Sentence Transformers", "graphic said “SBERT” · self-host", ""),
+ "L7-sentence-transformers": ("Sentence Transformers", "self-hosting and fine-tuning toolkit", ""),
  "L7-gemini-embedding": ("Gemini Embedding 2", "EU endpoint excludes the UK", "Google Cloud"),
  "L7-cohere": ("Cohere Embed 5 + Rerank", "private deployment", ""),
  "L7-openai": ("OpenAI text-embedding-3", "text baseline", ""),
@@ -122,10 +122,10 @@ L = {
  "L5-aws-agentcore-memory": ("AgentCore Memory", "inside its own runtime", "AWS"),
  "L5-gcp-vertex-memory-bank": ("Memory Bank", "Agent Engine", "Google Cloud"),
  "L5-mem0": ("Mem0", "OSS behind a firm memory API", ""),
- "L5-zep": ("Zep / Graphiti", "Community Edition deprecated", ""),
+ "L5-zep": ("Zep / Graphiti", "Graphiti self-hosted", ""),
  "L5-cognee": ("Cognee", "in-estate only", ""),
- "L5-letta": ("Letta", "now an agent harness", ""),
- "L5-supermemory": ("Supermemory", "v5 breaking change", ""),
+ "L5-letta": ("Letta", "agent harness", ""),
+ "L5-supermemory": ("Supermemory", "proprietary memory + knowledge API", ""),
  "L5-langmem": ("LangMem", "no release since Oct 2025", ""),
  # L4
  "L4-mcp": ("MCP", "behind a governed gateway · alt: OpenAPI", ""),
@@ -141,7 +141,7 @@ L = {
  "L3-langgraph": ("LangGraph", "default · workflows + agents", ""),
  "L3-temporal": ("Temporal", "durable execution", ""),
  "L3-pydantic-ai": ("Pydantic AI", "typed agent steps", ""),
- "L3-microsoft-agent-framework": ("Microsoft Agent Framework", "GA · replaces AutoGen", ""),
+ "L3-microsoft-agent-framework": ("Microsoft Agent Framework", "GA · Microsoft and .NET estates", ""),
  "L3-aws-strands-agentcore": ("Strands + AgentCore Runtime", "framework + managed runtime", "AWS"),
  "L3-google-adk": ("Google ADK", "on Agent Engine", "Google Cloud"),
  "L3-crewai": ("CrewAI", "use Flows for regulated work", ""),
@@ -153,7 +153,7 @@ L = {
  # L2
  "L2-vllm": ("vLLM", "default engine · the exit route", ""),
  "L2-sglang": ("SGLang", "backup engine once CVE is fixed", ""),
- "L2-hugging-face": ("Hugging Face Hub", "governed weights · TGI archived", ""),
+ "L2-hugging-face": ("Hugging Face Hub", "governed open-weight supply", ""),
  "L2-fireworks-ai": ("Fireworks AI", "once ISO certificates confirmed", ""),
  "L2-together-ai": ("Together AI", "EU dedicated, ZDR on", ""),
  "L2-openrouter": ("OpenRouter", "behind the gateway · Stripe deal", ""),
@@ -165,12 +165,12 @@ L = {
  # L1
  "L1-openai": ("OpenAI GPT-6", "Astra · Sol · Luna · 6.1 Sol", ""),
  "L1-anthropic": ("Anthropic Claude", "hyperscaler EU route · tier set by reader", ""),
- "L1-mistral": ("Mistral", "Medium 3.5 · Large 3 · 3.1 retired", ""),
- "L1-google-gemma": ("Gemma 4", "graphic said “Gemma 2.9”", ""),
+ "L1-mistral": ("Mistral", "Medium 3.5 · Large 3 · EU-hosted", ""),
+ "L1-google-gemma": ("Gemma 4", "small open-weight tier · Apache 2.0", ""),
  "L1-google-gemini": ("Google Gemini 3.x", "pin versions · short lifetimes", "Google Cloud"),
  "L1-alibaba-qwen": ("Qwen 3.8", "self-host by policy", ""),
  "L1-deepseek": ("DeepSeek V4", "weights or in-tenant only", ""),
- "L1-zai-glm": ("Z.ai GLM-5.3", "graphic said “Q4”", ""),
+ "L1-zai-glm": ("Z.ai GLM-5.3", "MIT Flash weights · after sanctions review", ""),
  "L1-xai-grok": ("Grok 4.7 (SpaceXAI)", "via a hyperscaler only", ""),
  "L1-meta": ("Meta Muse / Llama", "block the contributor tier", ""),
  "L1-moonshot-kimi": ("Kimi K3", "custom licence", ""),
@@ -187,25 +187,25 @@ CONTROLS = [("C1", "AI traffic gateway", "model, tool (MCP) and agent (A2A) call
             ("C6", "AI FinOps", "cost per task, budgets fail closed"),
             ("C7", "AI security", "secrets, supply chain, sandboxing"),
             ("C8", "Model risk and governance", "inventory, validation, evidence store")]
-LAYERS = {  # revised name, original graphic name, one-line duty, fixes to the original
- "L9": ("Evaluation & observability plane", "9 · Evals & Observability", "evidence for every layer, from day one",
-        "Repositioned from the bottom of the stack to a plane beside the controls. Phoenix and Arize are one owner now (Dynatrace)."),
- "L8": ("Ingestion & data preparation", "8 · Data Extraction", "approved sources, ACLs and lineage on every chunk",
-        "Lineage, classification, DLP and ACL capture are built around replaceable parsers; runtime web access moves to L4."),
- "L7": ("Retrieval optimisation", "7 · Embeddings & Rerankers", "pinned embed + rerank, hybrid fusion, eval gate",
-        "Embeddings and rerankers merged. EthicalAgents and Ragoos removed: they could not be verified."),
- "L6": ("Retrieval & knowledge stores", "6 · Vector Databases", "derived, entitlement-filtered, rebuildable index",
-        "“Vector database” is now a feature: hybrid search ships almost everywhere. Prefer the platform you already run."),
- "L5": ("Memory service (part of L6)", "5 · Memory", "policy-gated writes, erasure by person",
-        "No longer a separate infrastructure layer. Built last. Zep CE deprecated, Letta pivoted, LangMem stalled."),
- "L4": ("Tools & connectivity", "4 · Tools & Protocols", "nothing reachable except through the governed gateway",
-        "Adds a mandatory tool-governance sub-layer. MCP and A2A moved to the Linux Foundation's AAIF."),
- "L3": ("Orchestration: workflows & agents", "3 · Agent Frameworks", "deterministic by default, durable, approval gates",
-        "Workflow vs agent is the key decision. Adds durable execution. AutoGen superseded; Agent Builder shuts 30 Nov 2026."),
- "L2": ("Inference & model access", "2 · Inference & Access", "in-region access; vLLM as the private exit route",
-        "Routing moves to the C1 gateway. TGI archived. Ollama and LM Studio are developer tools, not production."),
- "L1": ("Foundation-model portfolio", "1 · LLMs", "two unrelated vendors + small + open-weight, all pinned",
-        "“Gemma 2.9” does not exist (Gemma 4). “Q4” is Z.ai GLM. Mistral Medium 3.1 retired. xAI is now SpaceXAI."),
+LAYERS = {  # name, one-line duty, the key design choice for the layer
+ "L9": ("Evaluation & observability plane", "evidence for every layer, from day one",
+        "One firm-owned OpenTelemetry spine, Git-versioned evaluation sets, one platform of record, and two red-team tools, one independent of the model vendor."),
+ "L8": ("Ingestion & data preparation", "approved sources, ACLs and lineage on every chunk",
+        "A built control envelope (source register, classification, parse manifest, lineage, incremental indexing) around replaceable parsers."),
+ "L7": ("Retrieval optimisation", "pinned embed + rerank, hybrid fusion, eval gate",
+        "Choose models by in-domain evaluation; pin every version; keep raw text so a model switch is a re-embed, not a rebuild."),
+ "L6": ("Retrieval & knowledge stores", "derived, entitlement-filtered, rebuildable index",
+        "Hybrid search inside a platform you already run; a dedicated vector engine only when a load test proves the need."),
+ "L5": ("Memory service (part of L6)", "policy-gated writes, erasure by person",
+        "A governed record class stored in L6: write gate, subject index, erasure and a snapshot per run. Built last."),
+ "L4": ("Tools & connectivity", "nothing reachable except through the governed gateway",
+        "Read-only tools for authoritative data behind a tool-governance sub-layer: private registry, pinned definitions, policy, audit."),
+ "L3": ("Orchestration: workflows & agents", "deterministic by default, durable, approval gates",
+        "Workflows by default with one bounded model step, durable execution, and approval interrupts only a named human can resume."),
+ "L2": ("Inference & model access", "in-region access; vLLM as the private exit route",
+        "The primary cloud's model service in an approved UK/EU region; one open-weight model on vLLM as the tested exit route."),
+ "L1": ("Foundation-model portfolio", "two unrelated vendors + small + open-weight, all pinned",
+        "A two-vendor mid tier qualified on one suite, a small tier and a self-hosted open-weight tier; every version pinned."),
 }
 PLANES = [("Agent plane", ["L3", "L4"]), ("Knowledge plane", ["L8", "L7", "L6", "L5"]), ("Model plane", ["L2", "L1"])]
 PATTERNS = {"C5-prompts-as-code", "C6-gateway-cost-attribution", "C7-model-supply-chain-scanning"}
@@ -217,17 +217,13 @@ def tile(pid):
     flags = cl.get("flags") or []
     cls = {"Strategic": "s", "Tactical": "t", "Experimental": "e"}.get(tier, "x")
     tags = []
-    if p["layer"].startswith("L") and not p.get("original_label"): tags.append(("new", "NEW"))
-    # practice/pattern records inherit flags from the products they cover; an ownership tag would mislead
-    if "Acquired" in flags and pid not in PATTERNS: tags.append(("acq", "ACQUIRED"))
-    if "Renamed" in flags: tags.append(("ren", "RENAMED"))
     if cloud: tags.append(("cloud", cloud))
     t = "".join('<span class="tag %s">%s</span>' % (c, html.escape(x)) for c, x in tags)
     return ('<div class="tile %s"><div class="tags">%s</div><div class="nm">%s</div><div class="nt">%s</div></div>'
             % (cls, t, html.escape(label), html.escape(note)))
 
 def tiles(layer):
-    ids = [i for i, p in prods.items() if p["layer"] == layer]
+    ids = [i for i, p in prods.items() if p["layer"] == layer and p.get("scores")]  # unscored = unverifiable, not shown
     ids.sort(key=lambda i: (RANK.get(((prods[i].get("classification") or {}).get("tier") if prods[i].get("scores") else None), 3),
                             -((prods[i].get("scores") or {}).get("fs_total") or 0), L[i][0].lower()))
     return "".join(tile(i) for i in ids)
@@ -238,20 +234,20 @@ for p in prods.values():
     if p.get("scores") and t in counts: counts[t] += 1
 
 def layer_row(code):
-    name, was, duty, fix = LAYERS[code]
+    name, duty, fix = LAYERS[code]
     extra = ""
     if code == "L2":
         extra = ('<div class="tile p"><div class="tags"><span class="tag pat">PATTERN · NOT SCORED</span></div>'
                  '<div class="nm">Primary cloud’s model service</div><div class="nt">Bedrock · Foundry · Gemini Enterprise Agent Platform, in region</div></div>')
-    return ('<div class="row"><div class="lab"><div class="code">%s</div><div class="ln">%s</div><div class="was">was: %s</div>'
+    return ('<div class="row"><div class="lab"><div class="code">%s</div><div class="ln">%s</div>'
             '<div class="duty">%s</div><div class="fix">%s</div></div><div class="grid">%s%s</div></div>'
-            % (code, html.escape(name), html.escape(was), html.escape(duty), html.escape(fix), extra, tiles(code)))
+            % (code, html.escape(name), html.escape(duty), html.escape(fix), extra, tiles(code)))
 
 cards = "".join('<div class="card"><div class="ch"><span class="code">%s</span> %s<span class="cs">%s</span></div><div class="grid g3">%s</div></div>'
                 % (c, html.escape(n), html.escape(s), tiles(c)) for c, n, s in CONTROLS)
 planes = "".join('<div class="plane"><div class="ph">%s</div>%s</div>' % (n, "".join(layer_row(c) for c in codes)) for n, codes in PLANES)
 
-page = """<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>The Enterprise GenAI Stack, corrected (October 2026)</title>
+page = """<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>The Enterprise GenAI Stack (October 2026)</title>
 <style>
 :root{--navy:#1B2A41;--teal:#0E7C7B;--teal2:#E6F3F2;--amber:#C9822B;--ink:#1F2933;--mute:#5B6B7A;--line:#D5DEE6;--bg:#F6F8FA}
 *{box-sizing:border-box}body{margin:0;background:#fff;font-family:Inter,Arial,sans-serif;color:var(--ink);width:1600px}
@@ -308,36 +304,36 @@ h1{font-size:46px;letter-spacing:-.5px;margin:0;color:var(--navy);font-weight:80
 .box ul{margin:0;padding-left:18px}
 .small{font-size:12px;color:var(--mute);margin-top:12px}
 </style></head><body><div class="wrap">
-<h1>The Enterprise GenAI Stack — corrected and extended</h1>
-<div class="sub">The “Full AI Stack Explained” graphic, re-researched for a regulated UK/EU asset manager · as of 9 October 2026</div>
-<div class="stats"><span class="stat"><b>9</b> layers re-drawn</span><span class="stat"><b>+8</b> enterprise controls</span>
-<span class="stat"><b>140</b> products assessed</span><span class="stat"><b>39 of 80</b> original tiles out of date</span>
-<span class="stat"><b>1,255</b> sources</span><span class="stat"><b>%(S)d</b> Strategic · <b>%(T)d</b> Tactical · <b>%(E)d</b> Experimental</span></div>
-<div class="legend"><span><span class="sw s"></span>Strategic (most are conditional)</span><span><span class="sw t"></span>Tactical (a stated niche or estate)</span>
-<span><span class="sw e"></span>Experimental (pilot only)</span><span><span class="sw x"></span>Removed (unverifiable)</span>
-<span><span class="tag new">NEW</span> not in the original</span><span><span class="tag acq">ACQUIRED</span> owner changed 2025–26</span>
-<span><span class="tag ren">RENAMED</span></span><span><span class="tag cloud">AWS</span> Strategic only where that cloud is primary</span></div>
+<h1>The Enterprise GenAI Stack</h1>
+<div class="sub">Reference architecture and product landscape for a regulated UK/EU asset manager \u00b7 as of 9 October 2026</div>
+<div class="stats"><span class="stat"><b>9</b> layers in three planes</span><span class="stat"><b>8</b> enterprise controls</span>
+<span class="stat"><b>%(N)d</b> products assessed</span><span class="stat"><b>1,255</b> sources</span>
+<span class="stat"><b>%(S)d</b> Strategic \u00b7 <b>%(T)d</b> Tactical \u00b7 <b>%(E)d</b> Experimental</span></div>
+<div class="legend"><span><span class="sw s"></span>Strategic \u2014 platform default (most carry a condition)</span><span><span class="sw t"></span>Tactical \u2014 a stated niche or estate</span>
+<span><span class="sw e"></span>Experimental \u2014 pilot only, outside regulated paths</span><span><span class="tag cloud">AWS</span> Strategic only where that cloud is primary</span></div>
 
-<div class="sec ctrl"><div class="sh"><span class="t1">Control plane — missing from the original</span><span class="t2">firm-owned policy and one evidence store, around every call</span></div>
+<div class="sec ctrl"><div class="sh"><span class="t1">Control plane</span><span class="t2">firm-owned policy and one evidence store, around every call</span></div>
 <div class="cards">%(CARDS)s</div></div>
 
 <div class="sec eval"><div class="sh"><span class="t1">Evaluation &amp; observability plane</span><span class="t2">L9 joins C8 as one evidence plane with two owners</span></div>%(L9)s</div>
 
 %(PLANES)s
 
-<div class="foot"><div class="box"><h3>What changed since the original graphic</h3><ul>
-<li><b>39 of 80 tiles</b> were out of date: 9 acquired, 9 mispositioned, 8 renamed, 8 wrong version, 6 not verifiable, 4 duplicated, 3 superseded, 2 deprecated (some tiles carry several).</li>
-<li><b>Missing entirely:</b> the control plane (C1–C8), durable execution, tool governance, and the hyperscaler agent stacks.</li>
-<li><b>Re-drawn:</b> L2 split and routing moved to the gateway; workflows separated from agents; memory merged into the stores; embeddings and reranking merged; evaluation moved from the bottom of the stack to a plane beside the controls.</li>
-<li><b>Ownership moved:</b> Dynatrace–Arize, ClickHouse–Langfuse, OpenAI–Promptfoo (announced), MongoDB–Voyage, Elastic–Jina, Nebius–Tavily, Stripe–OpenRouter (pending), SpaceX–xAI.</li></ul></div>
+<div class="foot"><div class="box"><h3>The architecture in one sentence</h3>
+<p style="margin:0 0 8px">Build a firm-owned control and evidence plane first; run regulated work as deterministic workflows with one bounded model step and a named human approver; consume models as a two-vendor portfolio through the primary cloud; treat every product beneath that plane as replaceable.</p>
+<ul><li><b>One gateway of record</b> for all model, tool and agent traffic: in region, deployed twice, failing closed.</li>
+<li><b>Every agent a registered identity</b>, acting for a named person through short-lived tokens; deny by default.</li>
+<li><b>One privacy service</b> at six points: ingestion, prompt, tool results, output, memory writes and trace export.</li>
+<li><b>Git as the configuration of record</b>: prompts, model pins and tool lists released as one approved manifest.</li>
+<li><b>Build order:</b> governance and evaluation, then models through the gateway, retrieval, workflows, tools \u2014 memory last.</li></ul></div>
 <div class="box"><h3>How to read it</h3><ul>
-<li>Tiers are for a regulated asset manager, scored on one rubric with regulated-FS weights. A Strategic tier carries a condition; the condition is the decision.</li>
-<li>Build order: control and evidence plane first, then models through the gateway, retrieval, workflows, tools — memory last.</li>
+<li>Tiers are for a regulated asset manager, scored on one eight-criterion rubric with regulated-FS weights. A Strategic tier carries its condition; the condition is the decision.</li>
+<li>Cloud-tagged items are alternatives chosen by primary cloud, not a shopping list.</li>
 <li>Disclosure: researched and drafted with an Anthropic model. Anthropic items were scored on the same rubric; their tiers were set by the reader, and an independent alternative is named for each.</li>
-<li>Personal research, not any firm’s platform. Every tile is backed by sourced facts in the dataset and the product appendix.</li></ul></div></div>
-<div class="small">Source: Enterprise GenAI Full-Stack Architecture review, October 2026 — 05_Data/products.json (tiers and flags), bibliography.xlsx (sources). Original graphic: “The Full AI Stack Explained” (October 2026). Product names are trademarks of their owners; no logos used.</div>
-</div></body></html>""" % {"S": counts["Strategic"], "T": counts["Tactical"], "E": counts["Experimental"], "CARDS": cards,
+<li>Personal research, not any firm\u2019s platform. Every tile is backed by sourced facts in the dataset and the product appendix.</li></ul></div></div>
+<div class="small">Source: Enterprise GenAI Full-Stack Architecture review, October 2026 \u2014 05_Data/products.json (tiers), 06_References/bibliography.xlsx (sources). Product names are trademarks of their owners; no logos used.</div>
+</div></body></html>""" % {"N": sum(counts.values()), "S": counts["Strategic"], "T": counts["Tactical"], "E": counts["Experimental"], "CARDS": cards,
                            "L9": layer_row("L9"), "PLANES": planes}
 os.makedirs("work/stageD", exist_ok=True)
 open("work/stageD/stack_graphic.html", "w", encoding="utf-8").write(page)
-print("tiles", len(prods), "counts", counts)
+print("tiles", sum(counts.values()), "counts", counts)
