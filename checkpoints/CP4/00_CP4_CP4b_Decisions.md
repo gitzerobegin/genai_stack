@@ -31,3 +31,12 @@ The questions were asked before the drafts were produced, at the user's request.
 ## Run mode
 
 **Run to CP5 with no pauses at CP4 or CP4b.** Anecdote slots are left with prompts for the user to fill later. Stop earlier only if a genuinely new question appears.
+
+## CP5 packaging decisions (answered up front, 9 October 2026)
+
+| Q | Decision |
+|---|---|
+| CP5-1 Claim tags in Word/PDF | **Footnote-style, subtle.** Inline tags become small superscript markers linked to a sources endnote for each chapter. The label (VF/R/AJ/Rec/NPV) is kept as a small grey prefix. The Markdown keeps the full inline tags. |
+| CP5-2 Claude Doc | **Executive summary and synthesis only** (about 25–30k words), linking to the full Word/PDF on GitHub |
+| CP5-3 Explorer | **Offline single-file HTML only**, in the repo and the ZIP. Not published as a hosted page. |
+| CP5-4 ZIP delivery | **GitHub Release asset.** Attach the ZIP to a tagged release; the branch "Download ZIP" also works. |
