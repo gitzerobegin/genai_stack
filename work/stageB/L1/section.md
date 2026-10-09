@@ -327,7 +327,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - *Ownership change (rule 3).* Grok's lock-in was reduced by 1 and it carries the Acquired flag.
 - *Licence risk (rule 4).* Revenue or usage thresholds in Medium 3.5, Llama 4, Kimi K3, Qwen3.8 flagship and GLM-5.3 are stated in the lock-in rationales.
 - *Hyperscaler lead service (rule 10).* Gemini is Strategic, conditional on Google Cloud being the primary cloud, at FS 3.35. This is why Gemini outranks Anthropic in tier while scoring lower: rule 10 is a platform-commitment rule, not a quality judgement.
-- *Calibration (rule 5).* Criteria at 2 or below appear for eight of the eleven families. Enterprise readiness is flat at 4 for ten families because of rule 6, not because the vendors' own controls are equal.
+- *Calibration (rule 5).* Criteria at 2 or below appear for seven of the eleven families (Gemini, Grok, DeepSeek, Qwen, Kimi, GLM and Meta). Enterprise readiness is flat at 4 for ten families because of rule 6, not because the vendors' own controls are equal.
 - *No vendor benchmark* was used for any score. Independent CAISI evaluations were used only for technical and risk rationale.
 
 **Key facts.**
