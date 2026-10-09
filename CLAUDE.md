@@ -7,6 +7,7 @@ Before doing anything, read these:
 1. `CONTEXT.md`: project briefing, decisions in force, rules, repo map, tools, conventions
 2. `MEMORY.md`: run log, **current position**, blockers, next steps
 3. `RERUN_ON_DESKTOP.md`: how to gap-fill or re-run with open internet access
+4. `REFRESH_QUARTERLY.md`: how to produce the next quarterly edition
 
 Working rules (detail in CONTEXT.md):
 

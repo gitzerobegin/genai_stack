@@ -13,6 +13,7 @@ This repository executes `inputs/Enterprise_GenAI_Stack_Consolidated_Plan_v4.3.m
 
 | `CONTEXT.md` · `MEMORY.md` · `CLAUDE.md` | Project briefing · run log and current position · entry point for Claude Code |
 | `RERUN_ON_DESKTOP.md` | How to gap-fill or re-run on a machine with open internet access |
+| `REFRESH_QUARTERLY.md` | How to produce the next quarterly edition (prompts in `work/prompts/refresh_prompts.md`) |
 | `work/prompts/` | Every agent prompt used, verbatim |
 | `checkpoints/` | Checkpoint review packs and decisions (CP1–CP5; CP5 = final package summary) |
 

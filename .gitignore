@@ -2,3 +2,4 @@ tools/deck/node_modules/
 work/stageD/*.pandoc.md
 .~lock.*#
 *.tmp
+__pycache__/

@@ -20,7 +20,7 @@ ap.add_argument("--stream", default=""); ap.add_argument("--types", default="")
 a = ap.parse_args()
 os.chdir(a.root)
 types = set(t for t in a.types.split(",") if t)
-csvs = sorted(glob.glob("work/stageA/*/sources.csv") + glob.glob("work/stageA_verify/*/sources.csv") + glob.glob("work/stageB/*/sources_added*.csv") + glob.glob("work/gapfill/*/sources*.csv"))
+csvs = sorted(glob.glob("work/stageA/*/sources.csv") + glob.glob("work/stageA_verify/*/sources.csv") + glob.glob("work/stageB/*/sources_added*.csv") + glob.glob("work/gapfill/*/sources*.csv") + glob.glob("work/refresh/*/*/sources*.csv"))
 done, tried, report = 0, 0, []
 for path in csvs:
     with open(path, newline="", encoding="utf-8") as f:

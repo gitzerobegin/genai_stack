@@ -68,15 +68,17 @@ for d in sorted(glob.glob("work/stageA/A*_*/")) + sorted(glob.glob("work/stageA_
             p["_stream"] = stream
             products.append(p)
 
-# Desktop gap-fill sources (G-<stream>-S###, RERUN_ON_DESKTOP.md step 2.3-2.5)
-for sp in sorted(glob.glob("work/gapfill/*/sources*.csv")):
+# Desktop gap-fill sources (G-<stream>-S###, RERUN_ON_DESKTOP.md step 2.3-2.5) and
+# quarterly refresh sources (R<n>-<stream>-S###, REFRESH_QUARTERLY.md)
+for sp in sorted(glob.glob("work/gapfill/*/sources*.csv")) + sorted(glob.glob("work/refresh/*/*/sources*.csv")):
     with open(sp, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             row = {k.strip(): (v or "").strip() for k, v in row.items() if k}
             if row.get("id"):
                 if row["id"] in sources:
                     issues.append("duplicate source id %s" % row["id"])
-                row["stream"] = "G-" + os.path.basename(os.path.dirname(sp))
+                parts = sp.replace(os.sep, "/").split("/")
+                row["stream"] = ("G-" + parts[2]) if parts[1] == "gapfill" else (parts[2] + "-" + parts[3])
                 sources[row["id"]] = row
 
 # integrity: every src id resolves; Verified/Reported cells carry sources

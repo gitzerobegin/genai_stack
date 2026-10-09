@@ -14,7 +14,8 @@ import csv, glob, json, os, re
 def load_index(root):
     src = {}
     pats = ["work/stageA/*/sources.csv", "work/stageA_verify/*/sources.csv", "work/stageB/*/sources_added*.csv",
-            "work/stageC*/sources_added*.csv", "work/gapfill/*/sources*.csv"]
+            "work/stageC*/sources_added*.csv", "work/gapfill/*/sources*.csv",
+            "work/refresh/*/*/sources*.csv"]
     for pat in pats:
         for p in glob.glob(os.path.join(root, pat)):
             with open(p, newline="", encoding="utf-8") as f:
