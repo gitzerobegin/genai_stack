@@ -19,6 +19,7 @@
 | `04_Explorer/` | `explorer.html` | Offline, single-file explorer: filter and compare products, and read the worked example, hypotheses, reference stacks and final stack. Open it in any browser; it needs no network. |
 | `05_Data/` | `products.json` / `.xlsx`, `regulatory_facts.json`, `what_changed.xlsx` | The dataset: 140 records (138 scored), fact cells with label, confidence and sources; 20 regulatory facts |
 | `06_References/` | `bibliography.xlsx`, `snapshots/<stream>/`, `originals/` | 1,255 sources plus a claim → source map; text snapshots and dated search extracts |
+| `08_Graphic/` | `Enterprise_GenAI_Stack_Oct2026.png` / `.pdf` / `.html` | The corrected "full stack" poster: the revised layer model with the control plane, one tile per assessed product coloured by final tier, acquisitions and renames flagged, and each layer's corrections to the original graphic. Built from the dataset by `tools/build_stack_graphic.py`. |
 | `07_LinkedIn/` | `Content_Calendar.xlsx`, `LinkedIn_Series.docx` | 24 posts over 12 weeks, plus 3 reactive templates. Enter the start Tuesday in cell E1 and every date fills in. |
 
 ## Headline numbers
