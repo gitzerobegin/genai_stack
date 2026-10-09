@@ -1,0 +1,21 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L5 reference flow: governed write and scoped read paths for agent memory</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L5 reference flow: governed write and scoped read paths for agent memory</div><div class="r"></div>
+<pre class="mermaid">%%{init: {"flowchart": {"wrappingWidth": 320}}}%%
+flowchart TD
+  EV["Interaction events&lt;br/&gt;(L3 workflow, reviewer edits)"] -- "WRITE PATH (governed)" --&gt; EX["Extraction (LLM)&lt;br/&gt;proposes candidate facts"]
+  EX --&gt; PG["POLICY GATE&lt;br/&gt;• C3 DLP: no client IDs, no special-category&lt;br/&gt;• type allow-list&lt;br/&gt;• 'no numbers as facts'&lt;br/&gt;• human approval for organisational memory"]
+  PG --&gt; MS["Memory store&lt;br/&gt;rows (SQL) · vectors (L6) ·&lt;br/&gt;graph edges · files/Git"]
+  PG --&gt; WL["Write log (C8)&lt;br/&gt;who, what, source, approval"]
+  MS --&gt; WL
+  MS -- "READ PATH" --&gt; SR["Scoped recall&lt;br/&gt;by user/fund/team scope (C4)&lt;br/&gt;+ similarity"]
+  SR --&gt; PR["Prompt"]
+  SR --&gt; TR["Trace: memory IDs +&lt;br/&gt;version hash (L9)"]
+  MS --&gt; LC["LIFECYCLE: retention class per record · TTL/pruner · subject index for erasure · revisions purge · snapshot per release for reproducibility"]
+</pre><div class="c">Candidate memories must pass a policy gate before they reach the memory store and every write is logged, recall is scoped by user, fund or team and traced, and every record carries a retention class and lifecycle controls for erasure and reproducibility.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

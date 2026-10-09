@@ -1,6 +1,6 @@
 ## C5. Prompt and configuration management
 
-> **Executive summary.** This control decides which instructions, model, parameters, tools and retrieval settings a GenAI system runs with, who may change them, and how a change is tested, released and rolled back. The original graphic has no box for it [AJ]. What exists in the market today is mostly a capability inside other products. Langfuse and LangSmith each ship a prompt registry inside their L9 platforms [VF: A7-S071, A7-S076]. LaunchDarkly delivers model and prompt configuration through its feature-flag service and renamed the product from AI Configs to AgentControl in 2026, with the API unchanged [VF: A7-S117, V2-S045]. PromptLayer remains an independent registry [VF: A7-S004]. The "prompts as code" pattern keeps prompt files (Prompty, Dotprompt) in the application repository and tests them in CI [VF: A7-S067, A7-S066, A7-S068]. Two ownership changes touch the control: ClickHouse announced its acquisition of Langfuse on 16 January 2026 [VF: A7-S075, V2-S041], and OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A7-S068, V2-S042]. The central argument of this section is that a prompt, an embedding-model version and a retrieval setting are all production configuration [AJ]. A change to any of them can change the output as much as a model upgrade, so each needs versioning, review, an evaluation gate and rollback [AJ]. **Recommendation:** make Git the system of record for every approved prompt and configuration item, approved by pull request with a second reviewer and an L9 eval gate, and released as one pinned manifest. Use a registry (Langfuse or LangSmith, whichever is the L9 platform) only to deliver approved versions at run time and to link each trace to the version that produced it. Use feature-flag rollout (LaunchDarkly AgentControl, PromptLayer release labels) only to choose between versions that have already been approved [Rec].
+> **Executive summary.** This control decides which instructions, model, parameters, tools and retrieval settings a GenAI system runs with, who may change them, and how a change is tested, released and rolled back. The popular stack diagram has no box for it [AJ]. What exists in the market today is mostly a capability inside other products. Langfuse and LangSmith each ship a prompt registry inside their L9 platforms [VF: A7-S071, A7-S076]. LaunchDarkly delivers model and prompt configuration through its feature-flag service and renamed the product from AI Configs to AgentControl in 2026, with the API unchanged [VF: A7-S117, V2-S045]. PromptLayer remains an independent registry [VF: A7-S004]. The "prompts as code" pattern keeps prompt files (Prompty, Dotprompt) in the application repository and tests them in CI [VF: A7-S067, A7-S066, A7-S068]. Two ownership changes touch the control: ClickHouse announced its acquisition of Langfuse on 16 January 2026 [VF: A7-S075, V2-S041], and OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A7-S068, V2-S042]. The central argument of this section is that a prompt, an embedding-model version and a retrieval setting are all production configuration [AJ]. A change to any of them can change the output as much as a model upgrade, so each needs versioning, review, an evaluation gate and rollback [AJ]. **Recommendation:** make Git the system of record for every approved prompt and configuration item, approved by pull request with a second reviewer and an L9 eval gate, and released as one pinned manifest. Use a registry (Langfuse or LangSmith, whichever is the L9 platform) only to deliver approved versions at run time and to link each trace to the version that produced it. Use feature-flag rollout (LaunchDarkly AgentControl, PromptLayer release labels) only to choose between versions that have already been approved [Rec].
 
 ### C5.1 Responsibility
 
@@ -63,27 +63,9 @@ There are two delivery models, and the recommended design combines them [AJ].
 
 **The recommended hybrid [Rec].** Git is the record. CI evaluates every change against the L9 suite, then publishes the approved version to the registry and moves the environment label using a release-pipeline identity, which is the only identity allowed to move protected production labels. The application fetches by label, with a cached copy and a code-side default. Every trace carries the manifest version.
 
-```text
- author (analyst / engineer)
-     │  edit prompt, model pin, top-k, embedding version, fallback route
-     ▼
- Git repository (system of record) ── pull request ── 2nd approver (risk owner via CODEOWNERS)
-     │                                     │
-     │                                     ▼
-     │                         CI: L9 regression + style + numeric-faithfulness evals
-     │                                     │ pass
-     ▼                                     ▼
- release manifest vN (prompt vX, model id@date, embed model@ver, reranker@ver, k, policy vY)
-     │  signed tag
-     ├──► registry: publish vX, move protected label "production" (release identity only)
-     ├──► gateway C1: routing + fallback config
-     └──► C8 evidence: approval, eval results, diff
-                                   │
- runtime:  L3 workflow ── fetch label (SDK cache, code-side default) ──► L1/L2 via C1
-                                   │
-                                   ▼
-                 trace (L9) carries manifest vN + prompt vX  ──► rollback = move label to vN-1
-```
+![C5 prompt release: from Git change to runtime and rollback](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C5-1.png){width=100%}
+
+*Figure: Every prompt or configuration change goes through Git, a second approver and the L9 eval gate into one signed release manifest, and rollback is simply moving the label back to the previous version. Editable source: `08_Graphic/diagrams/C5-1.md`.* [AJ]
 
 **Progressive delivery.** Feature-flag style rollout is useful for prompts in the same way as for code: release a new version to an internal segment, compare evaluations and reviewer edit rates, then widen [AJ]. AgentControl and PromptLayer release labels provide the targeting mechanics [VF: A7-S089, A7-S088]. For a regulated output, the variants being compared must both have passed the approval and eval gate; rollout is a way to limit exposure, not a substitute for approval [Rec].
 
@@ -229,33 +211,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 Steps 0 and 3 are not product choices; they are applied whatever is selected [Rec].
 
-```text
-STEP 0 [Rec] (not optional): Git is the system of record. One release manifest per system pins
-prompt, model id@date, embedding model@version, reranker@version, retrieval params, tool list,
-fallback route and guardrail policy. PR with second approver; L9 eval gate in CI.
+![C5 decision tree: choosing prompt and configuration management](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C5-2.png){height=8.8in}
 
-STEP 1 [Rec]: Do you need run-time delivery (change without redeploying the application)?
-  ├─ No  → Prompts as code only (Prompty or Dotprompt files, loaded at build or start-up)
-  └─ Yes → Which L9 platform of record did you choose?
-           ├─ Langfuse  → Langfuse prompts, Enterprise licence, protected "production" label
-           ├─ LangSmith → LangSmith prompts, owners-only mode, GitHub sync on
-           └─ Other / none → Must prompt text stay in-estate?
-                    ├─ Yes → PromptLayer in your AWS account (after SOC 2 report review),
-                    │        or self-hosted Langfuse used only as a registry
-                    └─ No  → PromptLayer SaaS or the L9 platform's own registry
-
-STEP 2 [Rec]: Do you need segment rollout, A/B or kill switches for model/prompt variants?
-  ├─ LaunchDarkly is the firm's feature-flag standard → AgentControl, selecting only
-  │                                                    between approved, pinned variants
-  ├─ PromptLayer chosen in step 1                      → release labels / dynamic release labels
-  └─ Otherwise                                         → registry labels per segment, or gateway
-                                                         (C1) weighted routing between pinned models
-
-STEP 3 [Rec]: Checks before go-live
-  Production label movable only by the release identity?  Version ID on every trace?
-  Cached or code-side default is an approved version?  Rollback drilled?
-  Embedding/reranker versions in the manifest, matching the index's model_version tag (L7)?
-```
+*Figure: Git as the system of record and the go-live checks apply whatever is chosen; run-time delivery, the L9 platform of record and the need for segment rollout decide the product. Editable source: `08_Graphic/diagrams/C5-2.md`.* [AJ]
 
 ### C5.10 Lock-in classification
 
@@ -315,9 +273,9 @@ STEP 3 [Rec]: Checks before go-live
 - a commentary whose trace cannot name the manifest that produced it
 - a vendor auto-fix (LangSmith Engine, Braintrust Loop; see L9 §9.12) changing a production prompt outside change control
 
-### C5.13 Original → current → recommended
+### C5.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | (absent) prompt management | A capability inside L9 platforms: Langfuse prompts and LangSmith prompts [VF: A7-S071, A7-S076] | Registry for run-time delivery and trace linkage, fed from Git by CI [Rec] |
 | (absent) configuration management | LaunchDarkly AI Configs, renamed AgentControl in 2026 and repositioned towards agent operations [VF: A7-S117, V2-S045] | Tactical: progressive rollout between approved variants where LaunchDarkly is the standard [Rec] |

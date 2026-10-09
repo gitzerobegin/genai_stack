@@ -1,6 +1,6 @@
 ## 2. Inference, serving and model access
 
-> **Executive summary.** This layer turns a model choice (L1) into a callable, capacity-backed endpoint in a known place, and gives applications a governed way to reach it [AJ]. The graphic shows nine tiles as one undifferentiated "inference" box. The evidence now shows three distinct jobs. **Serving engines** run the model: vLLM (Apache-2.0, PyTorch Foundation-hosted since 7 May 2025) and SGLang (Apache-2.0, LMSYS-hosted, with RadixArk as commercial steward since May 2026) [VF: A4-S009, A4-S146, A4-S010, A4-S147]. **Inference optimisation and orchestration** sits above them: NVIDIA Dynamo calls itself "the orchestration layer above inference engines", and llm-d (a CNCF sandbox project) provides orchestration "above model servers" [VF: A4-S090, A4-S089]. **Model access** is reached through managed inference clouds (Together AI, Fireworks AI, Cerebras, Hugging Face Inference Endpoints), routers (OpenRouter, Hugging Face Inference Providers) and hyperscaler model services (Amazon Bedrock, Microsoft Foundry, Google Cloud) [VF: A4-S131, A4-S135, A4-S139, A4-S081, A4-S111, A4-S075, A5-S010]. Status has moved too: Stripe agreed to acquire OpenRouter on 19 August 2026, with closing pending on 8 October 2026 [VF: V1-S059, V1-S060]; Hugging Face's TGI repository was archived on 21 March 2026 [VF: V1-S054]; Cerebras priced its IPO on 13 May 2026 [VF: A4-S137]; Ollama now runs cloud models and is no longer local-only [VF: A4-S084]. **Recommendation:** for regulated workloads, default to managed model access in an approved region through the hyperscaler estate you already operate, called only through the firm's gateway (C1); add a private open-weight route on vLLM only where capacity, residency or exit planning justify it, and treat self-hosting as a capacity and operating-model decision rather than a cost saving [Rec].
+> **Executive summary.** This layer turns a model choice (L1) into a callable, capacity-backed endpoint in a known place, and gives applications a governed way to reach it [AJ]. The popular stack diagram shows nine tiles as one undifferentiated "inference" box. The evidence now shows three distinct jobs. **Serving engines** run the model: vLLM (Apache-2.0, PyTorch Foundation-hosted since 7 May 2025) and SGLang (Apache-2.0, LMSYS-hosted, with RadixArk as commercial steward since May 2026) [VF: A4-S009, A4-S146, A4-S010, A4-S147]. **Inference optimisation and orchestration** sits above them: NVIDIA Dynamo calls itself "the orchestration layer above inference engines", and llm-d (a CNCF sandbox project) provides orchestration "above model servers" [VF: A4-S090, A4-S089]. **Model access** is reached through managed inference clouds (Together AI, Fireworks AI, Cerebras, Hugging Face Inference Endpoints), routers (OpenRouter, Hugging Face Inference Providers) and hyperscaler model services (Amazon Bedrock, Microsoft Foundry, Google Cloud) [VF: A4-S131, A4-S135, A4-S139, A4-S081, A4-S111, A4-S075, A5-S010]. Status has moved too: Stripe agreed to acquire OpenRouter on 19 August 2026, with closing pending on 8 October 2026 [VF: V1-S059, V1-S060]; Hugging Face's TGI repository was archived on 21 March 2026 [VF: V1-S054]; Cerebras priced its IPO on 13 May 2026 [VF: A4-S137]; Ollama now runs cloud models and is no longer local-only [VF: A4-S084]. **Recommendation:** for regulated workloads, default to managed model access in an approved region through the hyperscaler estate you already operate, called only through the firm's gateway (C1); add a private open-weight route on vLLM only where capacity, residency or exit planning justify it, and treat self-hosting as a capacity and operating-model decision rather than a cost saving [Rec].
 
 ### 2.1 Responsibility
 
@@ -57,27 +57,9 @@ When this layer is badly designed, three things fail, usually at once [AJ].
 - *Reserved or provisioned throughput*: Together AI PTU with an uptime SLA; Microsoft Foundry provisioned throughput units (PTUs); Vertex AI Provisioned Throughput [VF: A4-S131, B-L2-S006, B-L2-S008].
 - *Routers*: one API across many providers, with provider prices passed through (OpenRouter adds a fee on credit purchases; Hugging Face Inference Providers adds no markup) [VF: A4-S113, V1-S062, A4-S076].
 
-```text
-                    Applications / L3 workflows
-                               │  one endpoint, workload identity (C4)
-                               ▼
-     ┌──────────────── C1 AI traffic gateway (control plane) ────────────────┐
-     │ route policy · region pin · fallback list · budgets · guards · logs   │
-     └───────┬──────────────────────┬───────────────────────┬────────────────┘
-             │ (A) managed access   │ (B) router (non-     │ (C) private route
-             ▼                      ▼     confidential)    ▼
-   Hyperscaler model service   OpenRouter / HF        ┌─ Optimisation / orchestration ─┐
-   (Bedrock geo profile,       Inference Providers    │ llm-d or Dynamo: KV-aware      │
-    Foundry Data Zone,              │                 │ routing, PD split, KV tiering, │
-    Vertex regional) or             ▼                 │ SLO autoscaling (optional)     │
-   inference cloud dedicated   many providers        └───────────────┬────────────────┘
-   endpoint (Fireworks BYOC,   (processing location                  ▼
-   Together EU dedicated)       per provider)            Serving engine: vLLM / SGLang
-             │                                                       │
-             ▼                                                       ▼
-        Provider GPUs in approved region                    Own / private-cloud GPUs
-                        (L1 model weights below every route)
-```
+![L2 reference architecture: three serving routes behind one gateway](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L2-1.png){width=100%}
+
+*Figure: Applications reach models through one gateway that governs three routes: managed access, a router for non-confidential traffic, and a private route through an optional optimisation layer and a serving engine to own or private-cloud GPUs, with L1 model weights beneath every route. Editable source: `08_Graphic/diagrams/L2-1.md`.* [AJ]
 
 The three sub-layers of H1 are visible in the diagram: route (C) has all three (engine, optimisation, access through the gateway); routes (A) and (B) buy serving and optimisation as a service and keep only access [AJ]. The gateway is drawn above L2 because it governs every route, including routes that bypass L2 products entirely [AJ].
 
@@ -190,7 +172,7 @@ The eleven records are grouped by H1 sub-layer: serving engines, optimisation an
 #### Sub-layer 2b: local runtimes (developer tier, not production serving)
 
 **Ollama (Ollama).**
-- *What it is now:* an MIT-licensed local runtime and model packager [VF: A4-S086], plus **Ollama Cloud**, which runs larger models in Ollama's cloud through apps, CLI or API with an API key, and exposes OpenAI- and Anthropic-compatible APIs [VF: A4-S084]. The graphic's "run locally" is therefore incomplete [AJ]. Cloud features can be disabled (`OLLAMA_NO_CLOUD=1`) [VF: A4-S085]. Usage-based cloud plans started on 31 August 2026: Free, Pro US$20/month, Max US$100/month and Team US$500/month [VF: V1-S066]. A US$65M round was reported in July 2026 [R: V1-S071].
+- *What it is now:* an MIT-licensed local runtime and model packager [VF: A4-S086], plus **Ollama Cloud**, which runs larger models in Ollama's cloud through apps, CLI or API with an API key, and exposes OpenAI- and Anthropic-compatible APIs [VF: A4-S084]. The popular stack diagram's "run locally" is therefore incomplete [AJ]. Cloud features can be disabled (`OLLAMA_NO_CLOUD=1`) [VF: A4-S085]. Usage-based cloud plans started on 31 August 2026: Free, Pro US$20/month, Max US$100/month and Team US$500/month [VF: V1-S066]. A US$65M round was reported in July 2026 [R: V1-S071].
 - *Data handling:* locally, Ollama does not see prompts; in the cloud, prompts and responses are processed but, per the vendor, not stored or logged and never used for training [VF: A4-S085, A4-S084]. The vendor states cloud compute runs in the US and Europe, plus Singapore for some Qwen models [VF: V1-S066].
 - *Network exposure:* the server binds to 127.0.0.1:11434 by default; remote access means changing `OLLAMA_HOST` and fronting it with a proxy such as Nginx [VF: B-L2-S007]. Built-in authentication was not documented in the sources read [NPV].
 - *Strengths:* the lowest-friction way to run open models on a laptop or a disconnected workstation [AJ].
@@ -254,7 +236,7 @@ The eleven records are grouped by H1 sub-layer: serving engines, optimisation an
 - **Tier: Strategic, conditional: for managed open-model inference, once its ISO certificates are confirmed. Flag: none.** Upgraded from Tactical ("candidate for Strategic after due diligence") by the reader at Checkpoint 4 (CP4-4); scores are unchanged (FS 3.65). For client data, use EU dedicated or BYOC deployments, because the self-serve residency setting is US-only [VF: A4-S134] [AJ].
 
 **Cerebras (Cerebras Systems Inc.).**
-- *What it is now:* a chip and system vendor (WSE-3, CS-3) that also runs an inference cloud with an OpenAI-compatible API, and sells CS-3 systems for on-premise deployment [VF: A4-S095, A4-S139]. The graphic's "ultra-scale cloud" omits the hardware business [AJ]. Its IPO priced on 13 May 2026 at US$185 per share (Nasdaq: CBRS) [VF: A4-S137, V1-S053]. It has a 750MW inference agreement with OpenAI from December 2025 [VF: A4-S154].
+- *What it is now:* a chip and system vendor (WSE-3, CS-3) that also runs an inference cloud with an OpenAI-compatible API, and sells CS-3 systems for on-premise deployment [VF: A4-S095, A4-S139]. The popular stack diagram's "ultra-scale cloud" omits the hardware business [AJ]. Its IPO priced on 13 May 2026 at US$185 per share (Nasdaq: CBRS) [VF: A4-S137, V1-S053]. It has a 750MW inference agreement with OpenAI from December 2025 [VF: A4-S154].
 - *Certifications and data handling:* the trust centre lists SOC 2 Type 2, GDPR and CCPA; HIPAA is not listed [VF: A4-S138, V1-S095]. The privacy policy says inference inputs and outputs are not retained and that data may be processed outside the US unless otherwise agreed [VF: A4-S153]. EU capacity is announced for end-2026, with 200MW targeted by end-2027 [VF: A4-S140].
 - *Controls:* console roles (Organization Admin, Project Admin, Project Member) and API keys; no SSO documentation was found [VF: A4-S153].
 - *Strengths:* speed as a design point, and an on-premise system option [AJ].
@@ -338,58 +320,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 Plan §9 gives the starting example (managed API vs private-VPC managed inference vs own GPUs). The tree below extends it with the questions that decide it in a regulated firm: data classification, residency, capacity, and operating model [Rec].
 
-```text
-STEP 0 [Rec] (not optional): every route is called through the gateway (C1); the
-OpenAI-compatible API is the contract; each route records model, version, endpoint,
-processing region and retention setting; a fallback is qualified (L9) and in region.
+![L2 decision tree: choosing a serving route and capacity model](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L2-2.png){height=8.8in}
 
-STEP 1 [Rec]: What data will the route carry?
-  ├─ Public / non-confidential only
-  │     → Any approved managed API or router (OpenRouter, HF Inference Providers)
-  │       with ZDR on; still through C1.  Go to STEP 3 for capacity.
-  └─ Client, personal or confidential data → STEP 2
-
-STEP 2 [Rec]: Is the model you need available, processed in your approved region,
-              on your primary cloud's model service?
-  ├─ Yes → MANAGED ACCESS (default): Bedrock geographic/in-Region profile,
-  │        Foundry Data Zone or Regional deployment, or Vertex regional/multi-region
-  │        endpoint. Confirm who operates the model (hyperscaler vs partner).
-  │        Go to STEP 3.
-  └─ No (model not in region, open-weight model needed, or exit route required)
-        → Is the requirement an open-weight model?
-           ├─ No  → Use the model vendor's own regional API only if contracted
-           │        (DPA, ZDR, region) and registered as a material third party;
-           │        otherwise choose a different model (L1).
-           └─ Yes → Do you have, or will you fund, GPU capacity AND an SRE team that
-                    can patch engines monthly and run on-call?
-                    ├─ No  → PRIVATE-VPC MANAGED INFERENCE: Fireworks BYOC or EU
-                    │        dedicated deployment (Strategic, conditional: once its ISO
-                    │        certificates are confirmed); Together EU dedicated endpoint
-                    │        (Scale/Enterprise, ZDR on); HF Inference Endpoints in an
-                    │        approved region with PrivateLink.
-                    └─ Yes → OWN GPUs: vLLM (supported distribution if your operating
-                             model needs a vendor), weights from an internal mirror;
-                             SGLang qualified as the backup engine (Strategic, conditional:
-                             once CVE-2026-3059 is confirmed fixed in the deployed version).
-                             Multi-node, high volume, Kubernetes standard?
-                             ├─ Yes → pilot llm-d (CNCF) or Dynamo (NVIDIA estates)
-                             │        as the optimisation layer; non-production first
-                             └─ No  → vLLM alone
-
-STEP 3 [Rec]: Capacity
-  Is demand bursty but time-critical (month-end, quarter-end)?
-  ├─ Yes → reserved / provisioned capacity sized for the peak (Foundry PTU,
-  │        Vertex Provisioned Throughput with overflow pinned in region,
-  │        Together PTU, Fireworks reserved), plus a qualified in-region fallback
-  └─ No  → standard / serverless in-region; batch APIs for non-interactive jobs
-
-STEP 4 [Rec]: Checks before go-live
-  Processing region evidenced per call?  ZDR / retention confirmed in the contract,
-  not just the console?  Fallback in the same region and qualified?
-  Engine version pinned and on the advisory watch list (self-hosted)?
-  Exit drill: route moved to the alternative by gateway configuration only?
-  Developer runtimes (Ollama, LM Studio): cloud disabled, no client data?
-```
+*Figure: Data class decides whether a router may be used, model availability in region decides between managed access and the other routes, GPU and SRE capacity decide between private-VPC managed inference and own GPUs, and demand shape decides reserved versus standard capacity before the go-live checks. Editable source: `08_Graphic/diagrams/L2-2.md`.* [AJ]
 
 ### 2.10 Lock-in classification
 
@@ -455,9 +388,9 @@ STEP 4 [Rec]: Checks before go-live
 - load weights from an unscanned public source onto the private route
 - generate or alter authoritative numbers; figures come only from the attribution engine through the read-only L4 tool, and the model only drafts narrative
 
-### 2.13 Original → current → recommended
+### 2.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | One "inference" layer with nine tiles | Three jobs: serving engines, optimisation/orchestration (Dynamo, llm-d), and model access (inference clouds, routers, hyperscaler services) [VF: A4-S090, A4-S089, A4-S131, A4-S111] | Split into serving → optimisation → access; gateway moves to the control plane as C1 [AJ] |
 | Hugging Face "models & APIs" | Four products: Hub, Inference Providers, Inference Endpoints, TGI (repository archived 21 Mar 2026) [VF: A4-S075, A4-S081, V1-S054] | Strategic, conditional: Hub as governed open-weight supply; Endpoints Tactical [Rec] |

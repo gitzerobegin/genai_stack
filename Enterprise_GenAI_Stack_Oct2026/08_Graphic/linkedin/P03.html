@@ -1,0 +1,104 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>Self-hosting is a capacity decision, not just cost</title>
+<!-- Generated from P03.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 3 · L2 Inference, serving and model access</div>
+  <div class="title">Self-hosting is a capacity decision, not just cost</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.l2{display:grid;grid-template-columns:400px 1fr;gap:22px;align-items:stretch}
+.l2 .sl{border-radius:14px;padding:12px 16px;border:2px solid var(--blue);background:var(--bluebg)}
+.l2 .sl .n{font-size:14px;letter-spacing:2px;font-weight:800;color:var(--blue);text-transform:uppercase}
+.l2 .sl .t{font-weight:800;font-size:20px;margin-top:2px}
+.l2 .sl .d{font-size:16px;color:var(--mute);margin-top:2px;line-height:1.3}
+.l2 .sl.opt{border-style:dashed;background:#fff}
+.l2 .sl.acc{border-color:var(--green);background:var(--greenbg)}
+.l2 .sl.acc .n{color:var(--green)}
+.l2 .lift{display:flex;align-items:center;gap:10px;color:var(--blue);font-weight:700;font-size:16px;justify-content:center}
+.l2 .lift .arrow{font-size:28px}
+.l2 .chart{background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px 16px 10px;display:flex;flex-direction:column}
+.l2 svg text{font-family:Inter,Arial,sans-serif}
+</style>
+<div class="col" style="gap:18px">
+ <div class="l2">
+  <div class="col" style="gap:10px">
+   <div class="box navy" style="padding:14px 16px"><div class="lab" style="color:var(--gold)">Control plane</div>
+    <div class="h" style="margin-top:2px">The gateway (C1)</div>
+    <div class="sub" style="font-size:16px">routing · fallback · budgets · policy · request log</div></div>
+   <div class="lift"><span class="arrow u"></span>lifted out of L2: every call goes through it</div>
+   <div class="lab" style="margin-top:2px">L2 is three jobs</div>
+   <div class="sl acc"><div class="n">3 · Model access</div><div class="t">Managed services, in an approved region</div><div class="d">the default for regulated workloads, through the cloud estate you already run</div></div>
+   <div class="sl opt"><div class="n">2 · Optimisation</div><div class="t">Fleet orchestration</div><div style="margin-top:6px"><span class="chip amber">only if you run GPU fleets</span></div></div>
+   <div class="sl"><div class="n">1 · Serving engines</div><div class="t">Run the model</div><div class="d">patched monthly, on-call, re-qualified on every engine or quantisation change</div></div>
+  </div>
+  <div class="chart">
+   <div class="lab">Month-end demand · illustrative</div>
+   <svg viewBox="0 0 520 470" width="100%" style="flex:1;margin-top:6px">
+    <line x1="44" y1="400" x2="510" y2="400" stroke="#9AA6B2" stroke-width="2"/>
+    <line x1="44" y1="40" x2="44" y2="400" stroke="#9AA6B2" stroke-width="2"/>
+    <text x="276" y="432" font-size="17" fill="#5B6B7A" text-anchor="middle">days of the month</text>
+    <text x="22" y="220" font-size="17" fill="#5B6B7A" text-anchor="middle" transform="rotate(-90 22 220)">demand</text>
+    <rect x="352" y="44" width="128" height="356" fill="#FBF4E4"/>
+    <text x="416" y="68" font-size="16" fill="#8A6418" text-anchor="middle" font-weight="700">month-end window</text>
+    <path d="M44 352 C120 348 200 356 280 344 C320 338 340 326 362 270 C380 222 392 196 412 192 C432 190 446 230 462 300 C474 336 490 346 510 348" fill="none" stroke="#2E6DA4" stroke-width="4"/>
+    <line x1="44" y1="132" x2="510" y2="132" stroke="#0B1B33" stroke-width="3" stroke-dasharray="10 7"/>
+    <text x="56" y="120" font-size="19" fill="#0B1B33" font-weight="800">reserved capacity</text>
+    <line x1="412" y1="138" x2="412" y2="186" stroke="#2F7D5B" stroke-width="3"/>
+    <path d="M405 146 L412 136 L419 146 M405 178 L412 188 L419 178" fill="none" stroke="#2F7D5B" stroke-width="3"/>
+    <text x="300" y="168" font-size="18" fill="#2F7D5B" font-weight="800">headroom</text>
+    <text x="300" y="188" font-size="16" fill="#2F7D5B">at the peak</text>
+    <text x="150" y="330" font-size="18" fill="#2E6DA4" font-weight="700">observed demand</text>
+   </svg>
+   <div class="box green" style="padding:10px 14px;margin-top:4px;display:flex;align-items:center;gap:12px"><span class="arrow r" style="color:var(--green)"></span><div><b style="font-size:18px">Overflow stays in region</b><div class="small" style="color:var(--mute)">pinned in region, never spilling silently to a global endpoint</div></div></div>
+  </div>
+ </div>
+ <div class="row">
+  <div class="box gold grow"><div class="lab" style="color:#8A6418">The signal</div><div class="h" style="margin-top:4px">Capacity headroom at peak</div><div class="small">reserved throughput minus observed demand in the month-end window; positive, with a margin, before <span style="white-space:nowrap">go-live</span></div></div>
+  <div class="box blue grow"><div class="lab">One capacity plan</div><div class="h" style="margin-top:4px">Write four things down</div><div style="margin-top:6px"><span class="chip navy">the peak</span><span class="chip navy">reserved amount</span><span class="chip navy">overflow behaviour</span><span class="chip navy">degraded mode</span></div></div>
+ </div>
+</div>
+</div>
+ <div class="ft"><div class="cap">Inference is three jobs, with the gateway lifted out into the control plane. Size reserved capacity for the month-end peak and keep overflow in region. The demand curve is illustrative, not real volumes.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: L2 §2.3, §2.9 step 3 and §2.13 H1 view</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

@@ -1,0 +1,23 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>C6 cost metering: from workflow call to cost per task</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">C6 cost metering: from workflow call to cost per task</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  L3["L3 workflow&lt;br/&gt;(run_id, step ceiling,&lt;br/&gt;token ceiling per run)"]
+  L3 -- "every model / judge call,&lt;br/&gt;metadata: use_case, fund, run_id" --&gt; GW["C1 gateway&lt;br/&gt;virtual key per use case&lt;br/&gt;budget + RPM/TPM limit&lt;br/&gt;(must fail CLOSED)"]
+  GW --&gt; AL["Alert"]
+  GW -- "per-request tokens,&lt;br/&gt;model, cost estimate" --&gt; TR["L9 traces&lt;br/&gt;(task grouping, outcome:&lt;br/&gt;approved / edited / rejected)"]
+  GW -- "per-request tokens,&lt;br/&gt;model, cost estimate" --&gt; DS["AI cost dataset&lt;br/&gt;(FOCUS-shaped, firm-owned)&lt;br/&gt;cost per task · per approved&lt;br/&gt;output · per fund"]
+  TR -- "join on run_id" --&gt; DS
+  PV["Provider usage APIs&lt;br/&gt;cloud billing (Bedrock tags,&lt;br/&gt;Foundry project tags)"] -- "reconcile monthly" --&gt; DS
+  DS --&gt; SB["Showback / chargeback&lt;br/&gt;to owners"]
+  SB -.- OPT["Optional: Vantage /&lt;br/&gt;CloudZero reporting"]:::note
+  DS --&gt; CO["Concentration by provider"] --&gt; REG["C8 / outsourcing register"]
+  DS --&gt; OB["Optimisation backlog"] --&gt; CH["C5 change +&lt;br/&gt;L9 eval gate"] --&gt; RL["Release"]
+</pre><div class="c">Every model call is metered at the gateway, joined to L9 traces on run_id and reconciled monthly to provider data, so the firm-owned dataset can report cost per task, per approved output and per fund.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

@@ -1,12 +1,12 @@
 ## 8. Data extraction, ingestion and web
 
-> L8 turns source material (enterprise documents, scans, spreadsheets, slides, e-mails and web pages) into clean, structured, permission-tagged content that retrieval (L7/L6) and agents can trust. The graphic treats it as a shelf of parsers and scrapers. Since then the products have moved: LlamaParse is now the name of LlamaIndex's whole document platform [VF: A1-S080, V1-S008]; Mistral OCR is at version 4.1, with 4.0 retired on 30 September 2026 [VF: A1-S130, V1-S014]; Docling graduated within LF AI & Data in August 2026 [VF: V1-S091]; and Firecrawl's server is AGPL-3.0, with its enterprise controls offered only in the Cloud [VF: A1-S053, A1-S079]. Of the ten products assessed, only Unstructured's open-source connectors carry access-control metadata into the pipeline [VF: A1-S094], and none emits lineage [VF: A1-S094, A1-S096]. The parsers are commodity components; the enterprise value is in the control plane that wraps them [AJ]. **Recommendation:** standardise on a self-hosted, open document model (Docling as default, Unstructured ingest where connectors with ACLs are needed), put managed parsers and OCR engines behind that model as replaceable engines, and build the lineage, classification, entitlement and incremental-indexing envelope yourself [Rec].
+> L8 turns source material (enterprise documents, scans, spreadsheets, slides, e-mails and web pages) into clean, structured, permission-tagged content that retrieval (L7/L6) and agents can trust. The popular stack diagram treats it as a shelf of parsers and scrapers. Since then the products have moved: LlamaParse is now the name of LlamaIndex's whole document platform [VF: A1-S080, V1-S008]; Mistral OCR is at version 4.1, with 4.0 retired on 30 September 2026 [VF: A1-S130, V1-S014]; Docling graduated within LF AI & Data in August 2026 [VF: V1-S091]; and Firecrawl's server is AGPL-3.0, with its enterprise controls offered only in the Cloud [VF: A1-S053, A1-S079]. Of the ten products assessed, only Unstructured's open-source connectors carry access-control metadata into the pipeline [VF: A1-S094], and none emits lineage [VF: A1-S094, A1-S096]. The parsers are commodity components; the enterprise value is in the control plane that wraps them [AJ]. **Recommendation:** standardise on a self-hosted, open document model (Docling as default, Unstructured ingest where connectors with ACLs are needed), put managed parsers and OCR engines behind that model as replaceable engines, and build the lineage, classification, entitlement and incremental-indexing envelope yourself [Rec].
 
 ### 8.1 Responsibility
 
 L8 owns the path from an approved source to an indexed, governed unit of content: source → acquisition → parsing → OCR → structure extraction → cleaning → chunking → metadata → indexing (plan §5), across PDFs and scans, tables, PowerPoint and Excel, websites, e-mails, enterprise documents, structured data and multimodal documents [AJ].
 
-The layer has two distinct jobs, and the graphic blurs them [AJ]:
+The layer has two distinct jobs, and the popular stack diagram blurs them [AJ]:
 
 1. **Acquisition:** getting bytes from a source the firm is entitled to use. Web acquisition (Firecrawl, Crawl4AI, Apify) raises questions of law, terms of service, robots.txt and provenance. Enterprise acquisition (connectors into SharePoint, OneDrive, Confluence, S3) raises questions of entitlements and change detection [AJ].
 2. **Document understanding:** turning bytes into faithful structure: text, reading order, tables, figures and their coordinates. Docling, LlamaParse, MinerU, Reducto, Unstructured, Mistral OCR and Google Document AI compete here [AJ].
@@ -41,32 +41,9 @@ L8 failures surface as model failures [AJ]. A merged table cell becomes a "hallu
 
 ### 8.4 How it works
 
-```text
- Approved-source register (owner, licence/ToS, legal basis, default classification, residency)
-        |
-        v
- [A] ACQUISITION -------------------------------------------------------------+
-     web: crawler (robots/ToS checked)     enterprise: connector (+ACL digest) |
-        |  raw object + content hash + source version + ACL snapshot         |
-        v                                                                     |
- [B] PRE-PARSE CONTROLS: malware/type check -> classification -> PII/DLP (C3) |
-        |                                                   (quarantine) <----+
-        v
- [C] DOCUMENT UNDERSTANDING (replaceable engines behind one interface)
-     layout/parse (Docling | Unstructured | LlamaParse | Reducto | MinerU)
-     OCR engine (built-in | Mistral OCR | Document AI)
-        |  canonical document model + parse manifest (engine, version, model ID, config hash)
-        v
- [D] VALIDATION: table reconciliation, confidence thresholds, injection scan
-        |
-        v
- [E] CLEAN + CHUNK + METADATA ENVELOPE (source, version, ACL, class, PII, manifest)
-        |
-        v
- [F] INCREMENTAL INDEX (hash + ACL-digest diff; tombstones) --> L7 embed --> L6 store
-        |
-        +--> lineage events (OpenLineage run/job/dataset + custom facets) --> C8
-```
+![L8 ingestion: controls before and after replaceable parsing engines](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L8-1.png){width=100%}
+
+*Figure: Every source starts on the approved-source register, passes acquisition and pre-parse controls (with a quarantine exit) before swappable parsing and OCR engines run, and leaves validated, enveloped chunks for incremental indexing with lineage sent to C8. Editable source: `08_Graphic/diagrams/L8-1.md`.* [AJ]
 
 **Content-type coverage.** Docling covers PDF, DOCX/XLSX/PPTX, legacy Office, HTML, CSV, images, audio and video [VF: A1-S111]. MinerU covers PDF, Office, EPUB, OFD, HTML and CSV [VF: A1-S055]. LlamaParse claims 130+ formats [VF: A1-S080]. E-mail (with attachments and thread structure) is not documented as a first-class format for any L8 product in the fact base [NPV]. Structured data should bypass document parsing and enter through governed data pipelines or L4 tools [AJ].
 
@@ -300,37 +277,9 @@ Scores are integers from 1 to 5. Totals are weighted averages from `tools/score.
 
 ### 8.9 Decision tree
 
-```text
-START: Is the source on the approved-source register (owner, licence/ToS, legal basis, classification)?
-  ├─ No  → STOP. Register it first. Never ingest from an unregistered source.
-  └─ Yes → What kind of source?
-      │
-      ├─ PUBLIC WEB
-      │   ├─ Is this an agent fetching pages at run time?  → Not L8. Govern as an L4 tool call.
-      │   ├─ Does robots.txt / ToS permit it, and is the content licensed for this use? No → STOP.
-      │   └─ Batch ingestion into a corpus:
-      │       ├─ Must processing stay in the EU/UK or in your estate?
-      │       │   ├─ Yes → Self-host: Crawl4AI (pilot) or Firecrawl server (after AGPL review)
-      │       │   └─ No  → Firecrawl Cloud with ZDR (+ PII redaction if any personal data may appear)
-      │       └─ Long-tail site with an existing maintained scraper, public data only → Apify
-      │
-      └─ ENTERPRISE DOCUMENTS
-          ├─ Does the source carry permissions (SharePoint, OneDrive, Confluence)?
-          │   └─ Yes → Unstructured ingest connectors (ACL digest, reprocess on change),
-          │            or build a connector that meets the same contract. Fail closed.
-          ├─ May the content leave your estate (classification, client contract, residency)?
-          │   ├─ No  → Self-hosted engine: Docling (default); MinerU only after licence review;
-          │   │        Mistral OCR self-managed or Reducto on-prem if a commercial engine is needed
-          │   └─ Yes, region-bound →
-          │        ├─ EU/UK required → Mistral OCR (EU API), LlamaParse EU, Reducto EU endpoint,
-          │        │                   Unstructured in-VPC
-          │        └─ GCP is the approved cloud → Google Document AI (confirm processor region)
-          ├─ Mostly scans or handwriting? → put an OCR engine behind the parser interface;
-          │                                 route by confidence score
-          └─ Do tables feed numbers anyone will quote?
-              └─ Yes → dual-parse + reconciliation; quarantine on mismatch; numbers stay
-                       non-authoritative (authoritative figures come from L4 data tools)
-```
+![L8 decision tree: ingesting public web and enterprise documents](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L8-2.png){width=100%}
+
+*Figure: Nothing is ingested from an unregistered source; public-web ingestion turns on permission, licence and processing location, while enterprise documents are routed by permissions, where content may be processed, scans and quotable tables. Editable source: `08_Graphic/diagrams/L8-2.md`.* [AJ]
 
 ### 8.10 Lock-in classification
 
@@ -404,9 +353,9 @@ The performance-attribution commentary agent drafts monthly Brinson-style commen
 - **Send client-identifying content to a parser outside the approved residency.**
 - **Lose the parse manifest.** Without it, last month's draft cannot be reproduced.
 
-### 8.13 Original → current → recommended
+### 8.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | One "data extraction" tile row mixing scrapers and parsers | Two distinct jobs, web acquisition and document understanding, plus agent-facing web tools that overlap L4 [VF: A1-S077, A1-S089] | Keep one L8 layer with two sub-layers (acquisition; document understanding) under a shared ingestion control plane; move runtime web access to L4 [Rec] |
 | Firecrawl – web to LLM-ready | AGPL server, Cloud-only enterprise controls, US data [VF: A1-S053, A1-S079, A1-S134] | Tactical for public sources [Rec] |

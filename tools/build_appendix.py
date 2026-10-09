@@ -13,7 +13,7 @@ from tagfmt import load_index, convert_markdown
 root = sys.argv[1]; os.chdir(root)
 OUT = "Enterprise_GenAI_Stack_Oct2026/02_Appendix"; os.makedirs(OUT, exist_ok=True)
 prods = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/products.json", encoding="utf-8"))
-ORDER = ["L9", "L8", "L7", "L6", "L5", "L4", "L3", "L2", "L1", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]
+ORDER = ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]  # layer order L1 -> L9 (user decision, 9 Oct 2026)
 NAMES = {"L9": "Evaluation and observability", "L8": "Data extraction, ingestion and web", "L7": "Embeddings and reranking",
          "L6": "Retrieval and knowledge stores", "L5": "Memory", "L4": "Tools, protocols and connectivity",
          "L3": "Agent frameworks and orchestration", "L2": "Inference, serving and model access", "L1": "Foundation models",
@@ -38,7 +38,7 @@ def cell(c):
 def name(p):
     c = p.get("current_name"); return c["v"] if isinstance(c, dict) else p["id"]
 
-md = ["---\ntitle: \"Product Technical Appendix\"\nsubtitle: \"Enterprise GenAI Full-Stack Architecture, October 2026\"\n---\n",
+md = ["---\ntitle: \"Product Technical Appendix\"\nsubtitle: \"The Enterprise GenAI Stack: the view at end of Q3 2026\"\n---\n",
       "This appendix holds the full record for every product assessed: current facts with their claim labels and source IDs (resolve in `06_References/bibliography.xlsx`), the assessment, the classification and the scorecard (generic and regulated-FS weights). Fact cells marked *Not publicly verified* could not be confirmed from a public source and were never guessed. Disclosure: researched and drafted by an Anthropic model; Anthropic-related items were scored on the same rubric, and tiers set by the reader at checkpoints are noted in the relevant chapter.\n"]
 for L in ORDER:
     group = [p for p in prods if p.get("layer") == L]
@@ -49,7 +49,7 @@ for L in ORDER:
         md.append("## %s (`%s`)\n" % (name(p), p["id"]))
         tier = cl.get("tier") or "Not scored"
         flags = ", ".join(cl.get("flags") or []) or "none"
-        md.append("**Tier:** %s · **Flags:** %s · **Original graphic label:** %s\n" % (tier, flags, p.get("original_label") or "not in graphic"))
+        md.append("**Tier:** %s · **Flags:** %s · **Label in the popular stack diagram:** %s\n" % (tier, flags, p.get("original_label") or "not in the diagram"))
         if cl.get("rationale"): md.append("*Rationale:* %s\n" % cl["rationale"])
         if sc.get("criteria"):
             md.append("| Criterion | Score | Rationale |\n|--------|--:|------------------------------|")

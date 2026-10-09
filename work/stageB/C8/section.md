@@ -1,6 +1,6 @@
 ## C8. Model risk, governance and auditability
 
-> **Executive summary.** This control answers the questions a regulator, auditor or board will ask about any GenAI system. What is it, and who owns it? Was it independently validated for this use? Is it still performing? Who approved this output, on what evidence? Can we reproduce what happened? The original graphic had no governance control [AJ]. The regulatory ground moved sharply in 2026. In the US, SR 26-2 superseded SR 11-7 on 17 April 2026 and expressly places generative and agentic AI **outside** its scope, leaving their governance to each firm's own risk practices [VF: R-US-MRM, A8-S001, A8-S002, V2-S049]. US firms therefore have to write their own GenAI standard. In the UK, PRA SS1/23 (effective 17 May 2024) is technology-agnostic and covers vendor models [VF: R-PRA-SS123, A8-S008]. In the EU, the AI Act's GPAI obligations became enforceable on 2 August 2026, and the Annex III high-risk duties moved to 2 December 2027 [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011, A8-S019]. SS1/23 and the AI Act are therefore the operative anchors [AJ]. The vendor market is consolidating around "AI control plane" positioning: Collibra announced its acquisition of trail ML on 5 October 2026 [VF: A7-S101, A7-S105, V2-S044], and IBM added agent Enforcement Tracking to watsonx.governance on 11 August 2026 [VF: A7-S111]. Two findings shape the recommendation. First, the evidence that matters is produced elsewhere: by evaluation (L9), gateway logs (C1), prompt versions (C5) and security testing (C7). The eval suite *is* most of the validation evidence, provided it is independent, versioned and retained [AJ]. Second, no governance platform reaches Strategic on public evidence today; only one vendor, ValidMind, claims to map to SS1/23 [VF: A7-S052], and certification evidence is thin for most [AJ]. **Recommendation:** own the inventory schema and the evidence store (immutable, firm-controlled, joined by trace and version IDs); use OpenLineage for data lineage; then choose a governance workflow tool to fit the estate (ValidMind for MRM-led banks, watsonx.governance for IBM estates, Collibra where it is already the data catalogue, Credo AI for policy-led programmes) as a replaceable layer over that evidence [Rec].
+> **Executive summary.** This control answers the questions a regulator, auditor or board will ask about any GenAI system. What is it, and who owns it? Was it independently validated for this use? Is it still performing? Who approved this output, on what evidence? Can we reproduce what happened? The popular stack diagram had no governance control [AJ]. The regulatory ground moved sharply in 2026. In the US, SR 26-2 superseded SR 11-7 on 17 April 2026 and expressly places generative and agentic AI **outside** its scope, leaving their governance to each firm's own risk practices [VF: R-US-MRM, A8-S001, A8-S002, V2-S049]. US firms therefore have to write their own GenAI standard. In the UK, PRA SS1/23 (effective 17 May 2024) is technology-agnostic and covers vendor models [VF: R-PRA-SS123, A8-S008]. In the EU, the AI Act's GPAI obligations became enforceable on 2 August 2026, and the Annex III high-risk duties moved to 2 December 2027 [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011, A8-S019]. SS1/23 and the AI Act are therefore the operative anchors [AJ]. The vendor market is consolidating around "AI control plane" positioning: Collibra announced its acquisition of trail ML on 5 October 2026 [VF: A7-S101, A7-S105, V2-S044], and IBM added agent Enforcement Tracking to watsonx.governance on 11 August 2026 [VF: A7-S111]. Two findings shape the recommendation. First, the evidence that matters is produced elsewhere: by evaluation (L9), gateway logs (C1), prompt versions (C5) and security testing (C7). The eval suite *is* most of the validation evidence, provided it is independent, versioned and retained [AJ]. Second, no governance platform reaches Strategic on public evidence today; only one vendor, ValidMind, claims to map to SS1/23 [VF: A7-S052], and certification evidence is thin for most [AJ]. **Recommendation:** own the inventory schema and the evidence store (immutable, firm-controlled, joined by trace and version IDs); use OpenLineage for data lineage; then choose a governance workflow tool to fit the estate (ValidMind for MRM-led banks, watsonx.governance for IBM estates, Collibra where it is already the data catalogue, Credo AI for policy-led programmes) as a replaceable layer over that evidence [Rec].
 
 ### C8.1 Responsibility
 
@@ -89,20 +89,9 @@ The control is a lifecycle wrapped around a firm-owned evidence store.
 8. **Periodic review and attestation.** Each use case is reviewed on a cycle set by its tier. ValidMind's attestation feature lets owners or validators formally certify key details about a model at a point in time [VF: B-C8-S005].
 9. **Retirement.** Evidence is retained after decommissioning for the records period [AJ].
 
-```text
-            ┌──────────────────────── C8 governance workflow (replaceable tool) ─────────────────────────┐
- intake ─► classify/tier ─► develop+evals ─► independent validation ─► approve ─► release ─► monitor ─► review/retire
-              │  (MRM, AI Act,      │ (L9)          │ (L9 re-run, C7 red-team)   │ (SMF/owner)   ▲   │ thresholds
-              │   outsourcing)      │               │                            │               │   ▼
-              ▼                     ▼               ▼                            ▼          change triggers:
- ┌─────────────────────────────────────────────────────────────────────────────────────┐  model/prompt/index/
- │  FIRM-OWNED EVIDENCE STORE (immutable, records-policy retention)                     │  tool/vendor/breach
- │  inventory entry ─ version bundle (model, prompt, index, tools, guardrails, evals)    │
- │  validation reports ─ approvals ─ monitoring results ─ incidents ─ attestations       │
- │  per-output evidence packs  ◄── trace ID ── L9 traces / C1 gateway logs / C5 versions │
- │  data lineage  ◄── OpenLineage events from L8 pipelines (custom GenAI facets)        │
- └─────────────────────────────────────────────────────────────────────────────────────┘
-```
+![C8 governance workflow writing to a firm-owned evidence store](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C8-1.png){width=100%}
+
+*Figure: The governance tool runs the lifecycle and is replaceable, while its stages write their evidence to an immutable, firm-owned store that also links per-output evidence packs to traces and data lineage. Editable source: `08_Graphic/diagrams/C8-1.md`.* [AJ]
 
 The key design choice is that the **evidence store is firm-owned and the governance tool reads and writes to it** [AJ]. Governance platforms change hands and positioning quickly; evidence has to outlive them [AJ].
 
@@ -297,39 +286,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 ### C8.9 Decision tree
 
-```text
-STEP 0 [Rec] (not optional, no product decision):
-  - Write the firm's GenAI model-risk standard (scope, tiers, validation depth, triggers,
-    evidence pack, retention), to SS1/23 quality, whatever your jurisdiction.
-  - Build the firm-owned evidence store and inventory schema (use case = governed unit,
-    pinned version bundle, per-output evidence packs keyed by trace ID).
-  - Emit OpenLineage from ingestion and index-build pipelines, with firm GenAI facets.
+![C8 decision tree: choosing the governance workflow tool](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C8-2.png){height=8.8in}
 
-STEP 1 [Rec]: Which governance workflow tool?
-  Is there a formal second-line MRM function that already validates models?
-  ├─ Yes → Do you want GenAI in the same validation workflow as other models?
-  │        ├─ Yes → ValidMind (obtain SOC 2 Type II first)
-  │        │        (alt: watsonx.governance if IBM is already in the estate)
-  │        └─ No  → keep the MRM tool; add a policy/registry tool below
-  └─ No  → What is the programme led by?
-           ├─ Policy and compliance (AI Act classification, third-party AI) → Credo AI
-           │      (EU SaaS or self-hosted)
-           ├─ Data governance (Collibra is the catalogue of record)          → Collibra AI Governance
-           ├─ Agent runtime on IBM (watsonx Orchestrate, OpenPages)          → watsonx.governance
-           └─ Need enforcement in the lifecycle, self-hosted                 → ModelOp (full due diligence)
-
-STEP 2 [Rec]: Residency and hosting of governance records
-  Must risk records stay in-estate or in UK/EU?
-  ├─ Yes → self-hosted (Credo AI, ModelOp, watsonx.governance software), or ValidMind VPV,
-  │        or Credo AI on Azure EU
-  └─ No  → SaaS acceptable; confirm regions in contract
-
-STEP 3 [Rec]: Checks before any tool goes live
-  SOC 2 Type II and ISO 27001 scope letters naming the product?
-  Export of inventory, documentation and evidence in an open format, tested?
-  Inventory reconciled against gateway (C1) traffic?
-  Evidence packs written to the firm's archive, not only to the vendor?
-```
+*Figure: The model-risk standard, evidence store and lineage come first whatever is chosen; the existence of a second-line MRM function and who leads the programme decide the tool, and residency decides its hosting. Editable source: `08_Graphic/diagrams/C8-2.md`.* [AJ]
 
 ### C8.10 Lock-in classification
 
@@ -452,7 +411,7 @@ The architect's answer [AJ]:
 - *Quarterly review.* Monitoring trends, the human-intervention rate and edit types, incidents, provider change notices and a re-performance sample, followed by an attestation [VF: B-C8-S005].
 - *Re-validation.* Any change to the version bundle triggers it. A new model version gets the full regression suite and the validator's challenge set before approval.
 
-**This is LinkedIn pair 1 in practice [AJ].** The eval suite is the validation evidence: the same versioned datasets and checks that gate releases in L9 are what the validator re-performs and what the archive retains. The suite becomes validation evidence only under three conditions. Someone independent of the developers must challenge it and extend it. It must be versioned with the results it produced. And it must be retained beyond any vendor tier. A developer's test suite on its own is development testing, not validation.
+**The eval suite is the validation evidence [AJ].** The eval suite is the validation evidence: the same versioned datasets and checks that gate releases in L9 are what the validator re-performs and what the archive retains. The suite becomes validation evidence only under three conditions. Someone independent of the developers must challenge it and extend it. It must be versioned with the results it produced. And it must be retained beyond any vendor tier. A developer's test suite on its own is development testing, not validation.
 
 **Reproducibility [AJ].** An LLM call may not reproduce the same text twice. For this use case, reproducibility therefore means **re-performance of the evidence**, not bit-identical regeneration:
 - the original inputs are retained: the prompt, the data snapshot and the retrieved documents;
@@ -472,9 +431,9 @@ Pinning versions and keeping a fallback model qualified on the same suite is als
 - a vendor's policy pack presented to the board as proof of compliance
 - the developers acting as the only validators of their own eval suite
 
-### C8.13 Original → current → recommended
+### C8.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | (absent) No governance control | SR 11-7 superseded by SR 26-2, which excludes GenAI and agentic AI [VF: R-US-MRM, A8-S001]; SS1/23 in force [VF: R-PRA-SS123, A8-S008]; AI Act GPAI enforceable 2 Aug 2026, Annex III 2 Dec 2027 [VF: R-EUAIA, A8-S011] | A firm GenAI model-risk standard to SS1/23 quality; use case as governed unit; firm-owned evidence store [Rec] |
 | (absent) ValidMind | MRM platform with GenAI tests; only SS1/23 claimant; AGPL library [VF: A7-S003, A7-S052] | Tactical: MRM-led firms, after SOC 2 Type II evidence [Rec] |

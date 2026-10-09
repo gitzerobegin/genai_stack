@@ -11,7 +11,7 @@ A desktop with ordinary internet access removes both. Use it to:
 - **resume the pipeline** from the latest checkpoint
 - **re-run any stage from scratch**
 
-`MEMORY.md` records every step taken and `CONTEXT.md` is the project briefing. All agent prompts are in `work/prompts/`.
+`MEMORY.md` records every step taken and `CONTEXT.md` is the project briefing; follow its **House conventions** (layer order L1 → L9, Veyan branding, Mermaid diagrams, the "view at end of Q3 2026" framing). All agent prompts are in `work/prompts/`.
 
 ## 1. Set-up (once)
 

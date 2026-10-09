@@ -1,0 +1,24 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>C6 decision tree: metering, record of cost and chargeback</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">C6 decision tree: metering, record of cost and chargeback</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  S0["STEP 0 (not optional):&lt;br/&gt;define the unit.&lt;br/&gt;For each use case, name&lt;br/&gt;the task, its outcome states&lt;br/&gt;(approved / edited / rejected)&lt;br/&gt;and its business owner.&lt;br/&gt;Report cost per completed task."]:::note
+  S0 --&gt; Q1{"STEP 1: Metering point&lt;br/&gt;Is all model traffic&lt;br/&gt;routed through a&lt;br/&gt;gateway (C1)?"}
+  Q1 -- "yes" --&gt; M1["Gateway metering:&lt;br/&gt;virtual key per use case&lt;br/&gt;(+ per fund / segment&lt;br/&gt;if chargeback);&lt;br/&gt;run_id in request metadata;&lt;br/&gt;budgets + RPM/TPM limits&lt;br/&gt;per key"]
+  Q1 -- "no" --&gt; M2["Fix that first (C1).&lt;br/&gt;Interim: cloud-native tags&lt;br/&gt;(Bedrock application inference&lt;br/&gt;profiles; Foundry project tags)&lt;br/&gt;+ provider usage APIs"]
+  M1 &amp; M2 --&gt; S2["STEP 2: Record of cost&lt;br/&gt;Build a firm-owned,&lt;br/&gt;FOCUS-shaped AI cost dataset:&lt;br/&gt;tokens → SKU +&lt;br/&gt;ConsumedUnit/ConsumedQuantity&lt;br/&gt;now; add ModelId/ModelVersion&lt;br/&gt;when 1.5 ratifies.&lt;br/&gt;Join gateway rows to L9 traces&lt;br/&gt;on run_id → cost per task /&lt;br/&gt;per approved output."]
+  S2 --&gt; Q3{"STEP 3: Reporting and&lt;br/&gt;chargeback layer&lt;br/&gt;Is Vantage or CloudZero&lt;br/&gt;already the cloud&lt;br/&gt;FinOps tool?"}
+  Q3 -- "Vantage" --&gt; R1["Add AI integrations +&lt;br/&gt;Managed AI Tags;&lt;br/&gt;feed it gateway exports"]
+  Q3 -- "CloudZero" --&gt; R2["Add AI integrations;&lt;br/&gt;document allocation rules&lt;br/&gt;outside the tool"]
+  Q3 -- "Neither" --&gt; R3["BI on the FOCUS dataset&lt;br/&gt;is enough; do not buy&lt;br/&gt;a tool for AI alone"]
+  HE["Helicone → do not adopt;&lt;br/&gt;migrate existing use."]:::note
+  Q3 -.- HE
+  R1 &amp; R2 &amp; R3 --&gt; S4["STEP 4: Checks before go-live&lt;br/&gt;Budget exceeded in test →&lt;br/&gt;requests refused (fail closed)?&lt;br/&gt;Admin key restricted?&lt;br/&gt;Per-run step and token&lt;br/&gt;ceiling in L3?&lt;br/&gt;Anomaly alert on retries /&lt;br/&gt;tool calls per task?&lt;br/&gt;Monthly reconciliation to invoice&lt;br/&gt;within tolerance?&lt;br/&gt;Optimisations routed via C5 + L9?"]:::note
+</pre><div class="c">Defining the unit and the go-live checks apply whatever is chosen; gateway metering and a firm-owned FOCUS-shaped dataset come before any reporting tool.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

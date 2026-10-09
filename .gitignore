@@ -3,3 +3,5 @@ work/stageD/*.pandoc.md
 .~lock.*#
 *.tmp
 __pycache__/
+tools/diagrams/node_modules/
+*.render.tmp.html

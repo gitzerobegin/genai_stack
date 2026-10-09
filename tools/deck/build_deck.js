@@ -1,4 +1,4 @@
-// Executive deck for the Enterprise GenAI Full-Stack Architecture review (October 2026).
+// Executive deck: The Enterprise GenAI Stack — the view at end of Q3 2026 (Veyan theme).
 // Usage: node tools/deck/build_deck.js <repo_root>
 // Writes Enterprise_GenAI_Stack_Oct2026/03_Slides/Executive_Deck.pptx (PDF via LibreOffice afterwards).
 const path = require("path");
@@ -8,42 +8,61 @@ const tiers = require("./tiers.json");
 const SKILL = "/root/.claude/skills/synced/4b999aaf-5960-40d2-8a19-a0619a4258dd_572bbe3b-9ae9-4d89-903d-a663b77e2e61/pptx/scripts/apply_theme.js";
 
 const THEME = {
-  name: "Regulated GenAI",
-  headFontFace: "Cambria",
+  name: "Veyan",
+  headFontFace: "Arial",
   bodyFontFace: "Calibri",
   colors: {
-    dk1: "16202E", lt1: "FFFFFF", dk2: "1B2A41", lt2: "EEF2F5",
-    accent1: "0E7C7B", accent2: "1B2A41", accent3: "C9822B", accent4: "6B7A8F", accent5: "8FB9B8", accent6: "B3474B",
-    hlink: "0E7C7B", folHlink: "6B7A8F",
+    dk1: "0B1B33", lt1: "FFFFFF", dk2: "0B1B33", lt2: "F5F1E8",
+    accent1: "2E6DA4", accent2: "0B1B33", accent3: "D4A13A", accent4: "6B7A8F", accent5: "9DBBDB", accent6: "B3474B",
+    hlink: "2E6DA4", folHlink: "6B7A8F",
   },
 };
-const HEX = { navy: "1B2A41", teal: "0E7C7B", amber: "C9822B", slate: "6B7A8F", ice: "EEF2F5", red: "B3474B", mint: "8FB9B8", ink: "16202E", white: "FFFFFF", line: "D5DCE3" };
+const HEX = { navy: "0B1B33", teal: "2E6DA4", amber: "D4A13A", slate: "6B7A8F", ice: "EEF3F8", red: "B3474B", mint: "9DBBDB", ink: "0B1B33", white: "FFFFFF", line: "D5DCE3", gold: "D4A13A", warm: "F5F1E8" };
+const BRAND = path.join(root, "brand");
+const LOGO = path.join(BRAND, "veyan_logo.png"), LOGO_W = path.join(BRAND, "veyan_logo_white.png"), ICON = path.join(BRAND, "veyan_icon.png");
+const HERO = path.join(BRAND, "veyan_hero.png"), CARD = path.join(BRAND, "veyan_brand_card.jpg");
+const MARK = path.join(BRAND, "veyan_mark.png"), LOCK = path.join(BRAND, "veyan_lockup.png"), LOCK_W = path.join(BRAND, "veyan_lockup_white.png");
+const LOCK_AR = 2074 / 600;
+const LOGO_AR = 1778 / 484;
+const KICK = { fontSize: 12, charSpacing: 6, color: HEX.gold, bold: false };
 
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE"; // 13.33 x 7.5
-pres.title = "Enterprise GenAI Stack, October 2026";
-pres.author = "Prepared for Bing Zhang (personal research)";
-pres.company = "Personal research";
+pres.title = "The Enterprise GenAI Stack: the view at end of Q3 2026";
+pres.author = "Veyan";
+pres.company = "Veyan";
 pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
 const C = pres.SchemeColor;
-const FOOT = "Enterprise GenAI stack review · October 2026 · Personal research, not a description of any firm's platform";
+const FOOT = "Veyan · The Enterprise GenAI Stack · The view at end of Q3 2026 · Not a description of any firm's platform";
 
 pres.defineSlideMaster({
-  title: "TITLE", background: { color: C.text2 },
-  objects: [{ placeholder: { options: { name: "title", type: "title", x: 0.8, y: 2.1, w: 11.7, h: 1.6, fontSize: 40, bold: true, color: C.background1, fontFace: THEME.headFontFace, valign: "bottom" }, text: "" } },
-            { placeholder: { options: { name: "body", type: "body", x: 0.8, y: 3.9, w: 11.7, h: 1.6, fontSize: 18, color: C.background2, valign: "top" }, text: "" } }],
+  title: "TITLE", background: { color: HEX.navy },
+  objects: [{ image: { x: 0, y: 0, w: 5.14, h: 7.5, path: HERO } },
+            { image: { x: 5.75, y: 0.6, w: 3.6, h: 3.6 / LOCK_AR, path: LOCK_W } },
+            { text: { text: "THE VIEW AT END OF Q3 2026", options: Object.assign({ x: 5.75, y: 1.75, w: 7.0, h: 0.35 }, KICK) } },
+            { line: { x: 5.8, y: 2.2, w: 0.7, h: 0, line: { color: HEX.gold, width: 2 } } },
+            { placeholder: { options: { name: "title", type: "title", x: 5.75, y: 2.45, w: 7.0, h: 2.0, fontSize: 36, bold: true, color: C.background1, fontFace: THEME.headFontFace, valign: "top", align: "left" }, text: "" } },
+            { placeholder: { options: { name: "body", type: "body", x: 5.75, y: 4.5, w: 7.0, h: 1.6, fontSize: 16, color: C.accent5, valign: "top" }, text: "" } },
+            { text: { text: "PEOPLE  |  INSIGHTS  |  DECISIONS  |  A BRIGHTER TOMORROW", options: { x: 5.75, y: 6.75, w: 7.0, h: 0.3, fontSize: 9, charSpacing: 3, color: HEX.mint } } }],
 });
 pres.defineSlideMaster({
-  title: "SECTION", background: { color: C.text2 },
-  objects: [{ placeholder: { options: { name: "title", type: "title", x: 0.8, y: 2.6, w: 11.7, h: 1.2, fontSize: 36, bold: true, color: C.background1, fontFace: THEME.headFontFace }, text: "" } },
-            { placeholder: { options: { name: "body", type: "body", x: 0.8, y: 3.9, w: 11.7, h: 1.0, fontSize: 18, color: C.accent5 }, text: "" } }],
+  title: "SECTION", background: { color: HEX.navy },
+  objects: [{ image: { x: 9.2, y: 0, w: 4.13, h: 7.5, path: path.join(BRAND, "veyan_hero_strip.png") } },
+            { image: { x: 0.8, y: 1.3, w: 1.0, h: 1.0, path: MARK } },
+            { line: { x: 0.85, y: 3.85, w: 0.7, h: 0, line: { color: HEX.gold, width: 2 } } },
+            { placeholder: { options: { name: "title", type: "title", x: 0.8, y: 2.55, w: 8.0, h: 1.2, fontSize: 34, bold: true, color: C.background1, fontFace: THEME.headFontFace, valign: "bottom", align: "left" }, text: "" } },
+            { placeholder: { options: { name: "body", type: "body", x: 0.8, y: 4.05, w: 8.0, h: 1.2, fontSize: 17, color: C.accent5 }, text: "" } }],
 });
 pres.defineSlideMaster({
   title: "CONTENT", background: { color: C.background1 },
-  objects: [{ placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.35, w: 12.1, h: 0.9, fontSize: 28, bold: true, color: C.text2, fontFace: THEME.headFontFace, valign: "middle" }, text: "" } },
-            { text: { text: FOOT, options: { x: 0.6, y: 7.0, w: 10.5, h: 0.3, fontSize: 9, color: C.accent4 } } }],
+  objects: [{ placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.35, w: 10.4, h: 0.9, fontSize: 26, bold: true, color: C.text2, fontFace: THEME.headFontFace, valign: "middle", align: "left" }, text: "" } },
+            { image: { x: 11.15, y: 0.45, w: 1.6, h: 1.6 / LOCK_AR, path: LOCK } },
+            { line: { x: 0.62, y: 1.25, w: 0.6, h: 0, line: { color: HEX.gold, width: 2 } } },
+            { image: { x: 0.6, y: 7.02, w: 0.26, h: 0.26, path: MARK } },
+            { text: { text: FOOT, options: { x: 0.92, y: 7.0, w: 10.2, h: 0.3, fontSize: 9, color: C.accent4 } } }],
   slideNumber: { x: 12.3, y: 7.0, w: 0.5, h: 0.3, fontSize: 9, color: C.accent4 },
 });
+pres.defineSlideMaster({ title: "BRAND", background: { color: HEX.navy }, objects: [{ image: { x: 0, y: 0, w: 13.33, h: 7.5, path: CARD } }] });
 
 let sec = "";
 function slide(master, title, sectionTitle) {
@@ -69,9 +88,9 @@ function table(s, rows, o) {
 }
 
 // 1 Title
-let s = slide("TITLE", "The enterprise GenAI stack, October 2026", "Opening");
-s.addText("What changed since the popular stack diagram, what a regulated asset manager should select, and what to deliberately not build yet", { placeholder: "body" });
-T(s, "Reference architecture review · 9 layers · 8 enterprise controls · 140 products · Personal research", { x: 0.8, y: 6.3, w: 11.7, h: 0.4, fontSize: 12, color: C.accent5 });
+let s = slide("TITLE", "The Enterprise GenAI Stack", "Opening");
+s.addText("The reference architecture, what a regulated asset manager should select, and what to deliberately not build yet.", { placeholder: "body" });
+T(s, "Reference architecture · 9 layers · 8 enterprise controls · 140 products · 1,255 sources", { x: 5.75, y: 6.2, w: 7.0, h: 0.4, fontSize: 11, color: C.accent5 });
 s.addNotes("Purpose: give the leadership team one decision-ready view of the 2026 GenAI stack. The full evidence (about 230,000 words, 1,255 sources) sits in the master document and appendix. Disclosure: researched and drafted with an Anthropic model; Anthropic items were scored on the same rubric, borderline calls resolved against them, and tiers set by the reader are marked.");
 
 // 2 The answer
@@ -86,8 +105,8 @@ ans.forEach((a, i) => card(s, 0.6 + i * 4.1, 3.7, 3.9, 2.9, a[0], a[1], { bodySi
 s.addNotes("Source: synthesis Part I.2. Rationale for each point: Part I.1 findings 1, 2 and 4.");
 
 // 3 What we reviewed
-s = slide("CONTENT", "What we reviewed, and how much had moved", "Opening");
-const stats = [["80", "tiles in the original graphic", C.text2], ["39", "of 80 tiles out of date: acquired, renamed, mislabelled or unverifiable", C.accent6], ["140", "products profiled (80 tiles, 48 controls, 12 additions)", C.accent1], ["1,255", "sources logged with URL and access date", C.accent3]];
+s = slide("CONTENT", "What we reviewed: from the popular stack diagram to the view at end of Q3 2026", "Opening");
+const stats = [["80", "tiles in the popular stack diagram", C.text2], ["39", "of 80 tiles out of date: acquired, renamed, mislabelled or unverifiable", C.accent6], ["140", "products profiled (80 tiles, 48 controls, 12 additions)", C.accent1], ["1,255", "sources logged with URL and access date", C.accent3]];
 stats.forEach((st, i) => {
   const x = 0.6 + i * 3.08;
   T(s, st[0], { x, y: 1.7, w: 2.9, h: 1.3, fontSize: 60, bold: true, color: st[2], fontFace: THEME.headFontFace });
@@ -101,8 +120,8 @@ T(s, [{ text: "Eight parallel research streams, primary sources first; two adver
 s.addNotes("Numbers from the dataset build (05_Data/products.json, bibliography.xlsx). Limitation: no vendor audit report was read; many facts come from dated search extracts because the research environment blocked direct fetching of most vendor sites.");
 
 // 4 Ten findings
-s = slide("CONTENT", "Ten findings that change the picture", "What changed");
-const f = [["Catalogue → control system", "None of the eight enterprise controls appears in the graphic."], ["Neutral tools were bought", "Arize, Langfuse, Promptfoo, Portkey, Lakera, Voyage, Jina and others changed hands."],
+s = slide("CONTENT", "Ten findings that shape the stack", "The view at end of Q3 2026");
+const f = [["Catalogue → control system", "The eight enterprise controls are where GenAI risk is managed."], ["Neutral tools were bought", "Arize, Langfuse, Promptfoo, Portkey, Lakera, Voyage, Jina and others changed hands."],
            ["Models are tiered families", "Gated top tiers and short lives: model choice is a lifecycle discipline."], ["Workflows vs agents", "Every serious framework now ships both; this is the key design choice."],
            ["Protocols under foundations", "MCP and A2A now sit in a Linux Foundation project; agent identity is a product category."], ["Vector DB is a feature", "Hybrid search ships in most stores; retrieval is a governed index."],
            ["Memory layer is thinning", "Open editions narrowed; hyperscalers ship memory in their runtimes."], ["Supply chain is attack surface", "A gateway package was compromised; a tool broker leaked tokens."],
@@ -114,7 +133,7 @@ f.forEach((x, i) => { const col = i % 2, row = Math.floor(i / 2); const xx = 0.6
 s.addNotes("Synthesis Part I.1, findings 1–10, each tagged to sources in the master document.");
 
 // 5 Ownership
-s = slide("CONTENT", "Independence can no longer be assumed from a product's origins", "What changed");
+s = slide("CONTENT", "Independence can no longer be assumed from a product's origins", "The view at end of Q3 2026");
 table(s, [["Product (layer)", "New owner", "Status (as of 8 October 2026)"],
   ["Arize Phoenix and AX (evaluation)", "Dynatrace", "Completed 1 October 2026"], ["Langfuse (evaluation)", "ClickHouse", "Announced 16 January 2026"],
   ["Promptfoo (red-teaming)", "OpenAI", "Announced 9 March 2026; closing not published"], ["Voyage AI (embeddings)", "MongoDB", "Closed February 2025"],
@@ -127,7 +146,7 @@ card(s, 8.6, 4.0, 4.1, 2.6, "What we do about it", "Keep evaluation datasets, ro
 s.addNotes("Synthesis Part I.1 finding 2; filing figures only for deal values (press values are deliberately not used). Source IDs in the master document.");
 
 // 6 Regulation timeline
-s = slide("CONTENT", "The regulatory anchors moved in 2026", "What changed");
+s = slide("CONTENT", "The regulatory anchors moved in 2026", "The view at end of Q3 2026");
 const ev = [["17 Apr 2026", "SR 26-2 replaces SR 11-7", "Generative and agentic AI are out of scope: firms must write their own GenAI standard"],
             ["2 Aug 2026", "EU AI Act GPAI enforcement", "Commission powers over general-purpose model providers start"],
             ["18 Mar 2027", "PRA PS7/26 · FCA PS26/2", "Material third-party notifications and registers begin"],
@@ -149,10 +168,10 @@ s.addText("Eight hypotheses tested; nine layers renamed, split or merged; one co
 // 8 Revised model
 s = slide("CONTENT", "Four planes under one firm-owned control plane", "The architecture");
 const planes = [["CONTROL PLANE (firm-owned)", "C1 AI traffic gateway · C2 guardrails · C3 privacy service · C4 identity · C5 configuration of record · C6 FinOps · C7 AI security · C8 governance and evidence store", C.text2, C.background1],
-                ["EVALUATION AND OBSERVABILITY PLANE (L9)", "Firm OpenTelemetry collector · platform of record · CI and online evaluations · two red-team tools", C.accent1, C.background1],
+                ["MODEL PLANE (L1, L2)", "Two-vendor portfolio + small + open-weight · in-region model access · vLLM exit route", C.background2, C.text2],
                 ["AGENT PLANE (L3, L4)", "Workflows by default · bounded agent steps · durable execution · tools behind a governance sub-layer", C.background2, C.text2],
-                ["KNOWLEDGE PLANE (L8, L7, L6 + L5)", "Ingestion envelope · retrieval optimisation (embed + rerank) · derived, entitlement-filtered stores · memory service last", C.background2, C.text2],
-                ["MODEL PLANE (L2, L1)", "In-region model access · vLLM exit route · two-vendor portfolio + small + open-weight", C.background2, C.text2]];
+                ["KNOWLEDGE PLANE (L5, L6, L7, L8)", "Memory service (built last) · derived, entitlement-filtered stores · retrieval optimisation · ingestion envelope", C.background2, C.text2],
+                ["EVALUATION AND OBSERVABILITY PLANE (L9)", "Firm OpenTelemetry collector · platform of record · CI and online evaluations · two red-team tools", C.accent1, C.background1]];
 planes.forEach((p, i) => { const y = 1.4 + i * 1.08;
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.6, y, w: 8.4, h: 0.95, rectRadius: 0.06, fill: { color: p[2] }, line: { color: p[2] } });
   T(s, p[0], { x: 0.8, y: y + 0.07, w: 8.0, h: 0.35, fontSize: 13, bold: true, color: p[3] });
@@ -202,7 +221,7 @@ s.addChart(pres.charts.BAR, [{ name: "Strategic", labels: tiers.labels, values: 
   { x: 0.6, y: 1.35, w: 8.2, h: 5.45, barDir: "col", barGrouping: "stacked", chartColors: [HEX.teal, HEX.slate, HEX.amber], showLegend: true, legendPos: "b", legendFontSize: 12, legendFontFace: "+mn-lt",
     catAxisLabelColor: HEX.ink, valAxisLabelColor: HEX.ink, catAxisLabelFontSize: 11, valAxisLabelFontSize: 11, catAxisLabelFontFace: "+mn-lt", valAxisLabelFontFace: "+mn-lt",
     valGridLine: { color: HEX.line, size: 0.5 }, catGridLine: { style: "none" }, showValue: true, dataLabelPosition: "ctr", dataLabelColor: HEX.white, dataLabelFontSize: 10, dataLabelFormatCode: "0;;;",
-    showTitle: true, title: "Products by tier, layer (L9→L1) and control (C1→C8)", titleFontSize: 13, titleColor: HEX.navy, titleFontFace: "+mn-lt" });
+    showTitle: true, title: "Products by tier, layer (L1→L9) and control (C1→C8)", titleFontSize: 13, titleColor: HEX.navy, titleFontFace: "+mn-lt" });
 card(s, 9.1, 1.35, 3.6, 2.5, "A Strategic tier carries a condition", "18 of the 58 apply only where a given cloud is primary, or where a platform is already operated. The condition is the decision.", { bodySize: 13 });
 card(s, 9.1, 4.05, 3.6, 2.75, "What drives the tiers", "Regulated-FS weights favour deployment flexibility and low lock-in, so open, self-hostable components take most Strategic slots. No commercial governance tool reached Strategic on public evidence.", { bodySize: 13 });
 s.addNotes("Data: 05_Data/products.json after CP4. Strategic counts by area from the scorecard; tiers are judgements under rules 9–13, not thresholds.");
@@ -210,16 +229,16 @@ s.addNotes("Data: 05_Data/products.json after CP4. Strategic counts by area from
 // 13 Cloud-neutral core
 s = slide("CONTENT", "The cloud-neutral core we would select today", "What to select");
 table(s, [["Layer / control", "Selection", "Independent alternative or note"],
-  ["C1 gateway", "LiteLLM Enterprise (hardened, pinned) or Kong AI Gateway", "Cloud gateway where that cloud is primary"],
-  ["L9 evaluation", "Langfuse or MLflow + firm OpenTelemetry collector", "Two red-team tools, one vendor-independent"],
-  ["C3 privacy / C4 identity", "Presidio behind a privacy API · workforce IdP + OPA + SPIFFE", "Cloud DLP / Entra Agent ID per cloud"],
-  ["C5 configuration", "Git as configuration of record; prompts as code", "Vendor registries are caches only"],
-  ["L8 ingestion", "Docling + Unstructured inside a built envelope", "Specialist parsers for hard documents"],
-  ["L7 / L6 retrieval", "Sentence Transformers + pgvector (or Elasticsearch where run)", "Qdrant or Milvus after a failed load test"],
-  ["L4 tools", "Read-only MCP tools behind a governed gateway", "OpenAPI tools (MCP originated at Anthropic)"],
-  ["L3 orchestration", "LangGraph on Temporal", "Microsoft Agent Framework, ADK, Pydantic AI"],
+  ["L1 models", "Two vendors from OpenAI, Anthropic, Mistral, Gemini; Gemma 4 or Mistral self-hosted", "For Claude: GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5"],
   ["L2 inference", "Primary cloud's in-region model service + vLLM exit route", "SGLang as backup engine once its CVE fix is confirmed"],
-  ["L1 models", "Two vendors from OpenAI, Anthropic, Mistral, Gemini; Gemma 4 or Mistral self-hosted", "For Claude: GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5"]],
+  ["L3 orchestration", "LangGraph on Temporal", "Microsoft Agent Framework, ADK, Pydantic AI"],
+  ["L4 tools", "Read-only MCP tools behind a governed gateway", "OpenAPI tools (MCP originated at Anthropic)"],
+  ["L6 / L7 retrieval", "pgvector (or Elasticsearch where run) + Sentence Transformers", "Qdrant or Milvus after a failed load test"],
+  ["L8 ingestion", "Docling + Unstructured inside a built envelope", "Specialist parsers for hard documents"],
+  ["L9 evaluation", "Langfuse or MLflow + firm OpenTelemetry collector", "Two red-team tools, one vendor-independent"],
+  ["C1 gateway", "LiteLLM Enterprise (hardened, pinned) or Kong AI Gateway", "Cloud gateway where that cloud is primary"],
+  ["C3 privacy / C4 identity", "Presidio behind a privacy API · workforce IdP + OPA + SPIFFE", "Cloud DLP / Entra Agent ID per cloud"],
+  ["C5 configuration", "Git as configuration of record; prompts as code", "Vendor registries are caches only"]],
   { x: 0.6, y: 1.4, w: 12.1, colW: [2.3, 5.4, 4.4], fs: 14 });
 s.addNotes("Synthesis Part XI.7 and Part I.2. Anthropic's tier (Strategic, conditional) was set by the reader at Checkpoint 4 on neutral-rubric scores; an independent alternative is always named.");
 
@@ -235,18 +254,18 @@ T(s, [{ text: "Top tiers are gated and lifetimes are short: one Gemini Flash ver
       { text: "Chinese-origin families: decide the route, not the brand. Self-hosted weights by explicit policy or in-tenant hosting; never the vendor's own API for client data.", options: { bullet: true, breakLine: true } },
       { text: "Numbers are never generated by the model; they come from the attribution engine through read-only tools.", options: { bullet: true } }],
   { x: 0.6, y: 4.2, w: 12.1, h: 2.5, fontSize: 14, paraSpaceAfter: 8 });
-s.addNotes("Chapter 1 (foundation models) and synthesis Part I.4. Disclosure: the drafting model is Anthropic's; Anthropic was scored on the same rubric and its tier was set by the reader.");
+s.addNotes("Chapter 1 (foundation models) and synthesis Part I.3. Disclosure: the drafting model is Anthropic's; Anthropic was scored on the same rubric and its tier was set by the reader.");
 
 // 15 Keep/remove/missing
-s = slide("CONTENT", "Keep, remove, add", "What to select");
-const krm = [["Keep", "The nine-layer spine as a teaching device · vLLM · LangGraph · Docling · pgvector, Qdrant, Milvus, Elasticsearch · Langfuse, LangSmith · MCP and A2A behind a governed gateway · the portfolio model vendors", C.accent1],
-             ["Remove or demote", "Labels that do not exist (Gemma 2.9, QI4) · unverifiable tiles (EthicalAgents, Ragoos) · archived TGI · a router as 'the' access layer · memory as its own infrastructure layer · desktop runtimes in production", C.accent6],
-             ["Add", "AI traffic gateway · guardrails as policy · privacy service · agent identity and tool governance · configuration of record · FinOps · AI security · governance and evidence store · durable execution · ingestion envelope", C.accent3]];
+s = slide("CONTENT", "What changed since the popular stack diagram", "What to select");
+const krm = [["Still sound", "The nine-layer spine as a teaching device · vLLM · LangGraph · Docling · pgvector, Qdrant, Milvus, Elasticsearch · Langfuse, LangSmith · MCP and A2A behind a governed gateway · the portfolio model vendors", C.accent1],
+             ["Removed or demoted", "Labels that do not exist (Gemma 2.9, QI4) · unverifiable tiles (EthicalAgents, Ragoos) · archived TGI · a router as 'the' access layer · memory as its own infrastructure layer · desktop runtimes in production", C.accent6],
+             ["Added", "AI traffic gateway · guardrails as policy · privacy service · agent identity and tool governance · configuration of record · FinOps · AI security · governance and evidence store · durable execution · ingestion envelope", C.accent3]];
 krm.forEach((k, i) => { const x = 0.6 + i * 4.1;
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.4, w: 3.9, h: 0.6, rectRadius: 0.06, fill: { color: k[2] }, line: { color: k[2] } });
   T(s, k[0], { x: x + 0.2, y: 1.45, w: 3.5, h: 0.5, fontSize: 17, bold: true, color: C.background1, valign: "middle" });
   T(s, k[1], { x: x + 0.1, y: 2.15, w: 3.7, h: 4.5, fontSize: 14 }); });
-s.addNotes("Synthesis Part I.3.");
+s.addNotes("Synthesis Part XII (what changed since the popular stack diagram); tile-by-tile table in 05_Data/what_changed.xlsx.");
 
 // 16 Avoid
 s = slide("CONTENT", "Deliberately not selected, on evidence", "What to select");
@@ -278,7 +297,7 @@ s.addNotes("Synthesis Part V and V.8 (consolidated evidence register).");
 // 19 Worked example trace
 s = slide("CONTENT", "Worked example: the attribution-commentary agent", "Regulated view");
 const steps = [["1", "Analyst request", "Identity and policy check (C4)"], ["2", "Workflow graph", "Deterministic; one drafting step (L3)"], ["3", "Read-only data", "Attribution engine via governed tools (L4)"],
-               ["4", "House style", "Retrieval of prior commentary (L8–L6)"], ["5", "Draft", "Model via the gateway, in region (C1, L2, L1)"], ["6", "Evaluate", "Every figure matches the engine (L9, C2)"],
+               ["4", "House style", "Retrieval of prior commentary (L6–L8)"], ["5", "Draft", "Model via the gateway, in region (C1, L2, L1)"], ["6", "Evaluate", "Every figure matches the engine (L9, C2)"],
                ["7", "Approve", "Named portfolio manager (C4)"], ["8", "Evidence pack", "Stored, immutable, reproducible (C8)"]];
 steps.forEach((st, i) => { const col = i % 4, row = Math.floor(i / 4); const x = 0.6 + col * 3.08, y = 1.45 + row * 2.0;
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w: 2.85, h: 1.7, rectRadius: 0.08, fill: { color: i === 5 || i === 6 ? C.accent1 : C.background2 }, line: { color: C.background2 } });
@@ -320,14 +339,14 @@ s.addNotes("Synthesis Part VII. Every stack table shows AWS, Azure and Google Cl
 // 23 Build vs buy
 s = slide("CONTENT", "Build the control statement; buy the commodity", "Delivery");
 table(s, [["Component", "Decision", "What the firm owns"],
+  ["Models (L1)", "Buy; adopt open weights", "Portfolio policy, qualification suite, retirement calendar"],
+  ["Stores (L6)", "Reuse what is run", "Retrieval interface and rebuild pipeline"],
+  ["Ingestion (L8)", "Build the envelope", "No product emits lineage; parsers adopted"],
+  ["Evaluation (L9)", "Hybrid", "Datasets and scorers in Git; platform replaceable"],
   ["Gateway (C1), guardrails (C2), privacy (C3)", "Hybrid", "Routes, policies, test sets, keys; the product is replaceable"],
   ["Identity (C4)", "Buy the IdP, build the policy", "Agent registration, policies in Git"],
   ["Configuration (C5), FinOps (C6)", "Build (thin)", "Release manifest, evaluation gate, allocation rules"],
   ["Governance (C8)", "Build the store, buy the workflow", "Evidence store and inventory outlive any tool"],
-  ["Evaluation (L9)", "Hybrid", "Datasets and scorers in Git; platform replaceable"],
-  ["Ingestion (L8)", "Build the envelope", "No product emits lineage; parsers adopted"],
-  ["Stores (L6)", "Reuse what is run", "Retrieval interface and rebuild pipeline"],
-  ["Models (L1)", "Buy; adopt open weights", "Portfolio policy, qualification suite, retirement calendar"],
   ["Fine-tuning", "Do not build yet", "May turn a deployer into a provider under the AI Act"]],
   { x: 0.6, y: 1.4, w: 12.1, colW: [3.8, 3.0, 5.3], fs: 15 });
 s.addNotes("Synthesis Part VIII.");
@@ -380,6 +399,9 @@ s.addNotes("Synthesis Part X Phase 0 scope and Part XI.7.");
 // 28 Close
 s = slide("TITLE", "Own the control plane. Rent the components.", "Close");
 s.addText("Full evidence: master document (Word/PDF), product technical appendix (138 scored products), offline explorer, dataset and source archive. Every claim is labelled and sourced. Researched and drafted with an Anthropic model; Anthropic items scored on the same rubric, with tiers set by the reader marked.", { placeholder: "body" });
+
+s = slide("BRAND", null, "Close");
+s.addNotes("Veyan. Truth, compounded. hello@veyan.ai");
 
 const out = path.join(root, "Enterprise_GenAI_Stack_Oct2026/03_Slides/Executive_Deck.pptx");
 require("fs").mkdirSync(path.dirname(out), { recursive: true });

@@ -9,7 +9,7 @@ You are the **lead architect** writing the synthesis chapters of the master docu
 - `inputs/Enterprise_GenAI_Stack_Consolidated_Plan_v4.3.md`, §1, §4 and §10–§12, and the §16 document structure
 - `work/stage0/03_style_guide.md`
 - `work/stage0/04_hypotheses_and_evidence_plan.md`
-- **All 17 drafted sections:** `work/stageB/{L9..L1,C1..C8}/section.md`. Read each section's x.9 decision tree, x.10 lock-in, x.11 FS lens, x.12 worked-example slice and x.13 (including its provisional hypothesis view).
+- **All 17 drafted sections:** `work/stageB/{L1..L9,C1..C8}/section.md` (present layers L1 → L9; see the House conventions in CONTEXT.md). Read each section's x.9 decision tree, x.10 lock-in, x.11 FS lens, x.12 worked-example slice and x.13 (including its provisional hypothesis view).
 - `work/stageB/_review/all_scores.md` (the final tiers)
 - `Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json`
 - `checkpoints/CP1/02_What_Changed_Since_Original_Diagram.md`

@@ -1,6 +1,6 @@
 ## C4. Identity and access for agents
 
-> **Executive summary.** This control answers the question every incident review and every regulator will ask: who did this, on whose authority, and with what permission [AJ]? For an agent that means five things: the agent has its own identity, it acts on behalf of a named human where a human started the work, its permissions are the least needed for the task, it holds no standing secrets, and every action is attributable to both the agent and the human [AJ]. The original graphic has no such control; it shows MCP and A2A as connectivity in L4 without saying who is allowed to call what [AJ]. Since then the products have reached general availability. Microsoft Entra Agent ID became GA in April 2026, with its security features tied to Microsoft Agent 365 licences [VF: A6-S058, A6-S059, V2-S032]. Auth0 for AI Agents became GA on 19 November 2025, Okta for AI Agents on 30 April 2026, and Okta Agent SSO (Cross App Access) on 24 August 2026; Okta states that Cross App Access is the MCP Enterprise-Managed Authorization extension [VF: A6-S097, A6-S100, A6-S099, V2-S035]. MCP revision 2026-07-28 deprecated Dynamic Client Registration and added issuer validation, but authorisation in MCP is still optional and OAuth 2.1 is still an IETF draft [VF: A6-S032, A6-S033]. Policy in Amazon Bedrock AgentCore, built on Cedar, became GA on 3 March 2026 and now authors policies in Dogwood, a Cedar superset [VF: A6-S026, V2-S033]. SPIFFE/SPIRE and OPA are CNCF graduated [VF: A6-S087, A6-S046]. **Recommendation:** register every agent in the firm's workforce identity provider (Entra or Okta, whichever already holds the humans) with a named sponsor; use on-behalf-of token exchange so tool calls carry short-lived, audience-bound tokens scoped to the user and the task; give runtimes workload identity (SPIFFE/SPIRE or the cloud equivalent) instead of secrets; and put a deny-by-default policy decision point (OPA, or Cedar in an AWS AgentCore estate) at the gateway for every tool call. Record user, agent, tool and policy decision in one audit event [Rec].
+> **Executive summary.** This control answers the question every incident review and every regulator will ask: who did this, on whose authority, and with what permission [AJ]? For an agent that means five things: the agent has its own identity, it acts on behalf of a named human where a human started the work, its permissions are the least needed for the task, it holds no standing secrets, and every action is attributable to both the agent and the human [AJ]. The popular stack diagram has no such control; it shows MCP and A2A as connectivity in L4 without saying who is allowed to call what [AJ]. Since then the products have reached general availability. Microsoft Entra Agent ID became GA in April 2026, with its security features tied to Microsoft Agent 365 licences [VF: A6-S058, A6-S059, V2-S032]. Auth0 for AI Agents became GA on 19 November 2025, Okta for AI Agents on 30 April 2026, and Okta Agent SSO (Cross App Access) on 24 August 2026; Okta states that Cross App Access is the MCP Enterprise-Managed Authorization extension [VF: A6-S097, A6-S100, A6-S099, V2-S035]. MCP revision 2026-07-28 deprecated Dynamic Client Registration and added issuer validation, but authorisation in MCP is still optional and OAuth 2.1 is still an IETF draft [VF: A6-S032, A6-S033]. Policy in Amazon Bedrock AgentCore, built on Cedar, became GA on 3 March 2026 and now authors policies in Dogwood, a Cedar superset [VF: A6-S026, V2-S033]. SPIFFE/SPIRE and OPA are CNCF graduated [VF: A6-S087, A6-S046]. **Recommendation:** register every agent in the firm's workforce identity provider (Entra or Okta, whichever already holds the humans) with a named sponsor; use on-behalf-of token exchange so tool calls carry short-lived, audience-bound tokens scoped to the user and the task; give runtimes workload identity (SPIFFE/SPIRE or the cloud equivalent) instead of secrets; and put a deny-by-default policy decision point (OPA, or Cedar in an AWS AgentCore estate) at the gateway for every tool call. Record user, agent, tool and policy decision in one audit event [Rec].
 
 **Conflict of interest.** The author is an Anthropic model, and MCP originated at Anthropic. MCP authorisation is scored on the same rubric as every other product, and independent alternatives are named in its deep dive [AJ]. At the CP3 calibration review its tier was a borderline call, and the reviewers resolved it against the Anthropic-originated specification (Tactical, mandatory where MCP is used). The reader then set the tier at Checkpoint 3 (CP3 Q1): MCP and its authorisation profile are one decision, Strategic, conditional, only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions [AJ].
 
@@ -67,25 +67,9 @@ Agents turn identity mistakes into actions [AJ]. A human with excessive access u
 
 **Request flow for a delegated tool call.**
 
-```text
- Analyst ──SSO──► Agent app (L3)              Corporate IdP (Entra / Okta)
-                    │  user token (aud=agent app)        ▲   │
-                    │                                     │   │ ID-JAG / OBO token
-                    └── token exchange (RFC 8693 / OBO) ──┘   │ aud = attribution MCP server
-                                                              ▼ scope = attribution.read, 5-min TTL
- Agent runtime (SPIFFE SVID, mTLS) ──► C1 gateway ──────────────────────────────┐
-                                        │ 1 validate token (iss, aud, exp)       │
-                                        │ 2 PDP: OPA / Cedar  input = {user,      │
-                                        │   agent, tool, args, purpose}  → allow  │
-                                        │ 3 filter tools/list to allowed tools    │
-                                        ▼                                         │
-                              MCP server (L4, resource server)                    │
-                                validates aud + scope; no token passthrough;      │
-                                own downstream credential (Vault dynamic secret) │
-                                        ▼                                         │
-                              Attribution engine (read-only)                      │
- Audit event (C8): user · agent · tool · args hash · decision id · trace id ◄─────┘
-```
+![C4 delegated tool call: from analyst sign-in to audited read-only tool access](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C4-1.png){width=100%}
+
+*Figure: The agent exchanges the analyst's token for a short-lived, narrowly scoped token for one MCP server, the gateway validates it, asks the policy decision point and filters the tool list, and every call leaves an audit event. Editable source: `08_Graphic/diagrams/C4-1.md`.* [AJ]
 
 **Mechanics in the standards.**
 - *MCP authorisation.* The MCP server is an OAuth 2.1 resource server that must publish Protected Resource Metadata (RFC 9728); clients must use PKCE and Resource Indicators (RFC 8707) so tokens are audience-bound; servers must reject tokens not issued for them [VF: A6-S033]. Revision 2026-07-28 adds RFC 9207 issuer validation, binds client credentials to the issuer and deprecates Dynamic Client Registration in favour of Client ID Metadata Documents [VF: A6-S032].
@@ -261,39 +245,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 ### C4.9 Decision tree
 
-```text
-STEP 0 [Rec] (not optional): every agent registered with an owner and sponsor; deny-by-default
-tool policy at the gateway; no standing credentials in agents; one audit event per tool call
-(user · agent · tool · args hash · decision · trace id).
+![C4 decision tree: agent identity, delegation, tool protocol and policy](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C4-2.png){height=8.8in}
 
-STEP 1 [Rec]: Where do agent identities live?
-  Which IdP holds the workforce?
-  ├─ Entra → Entra Agent ID (+ Agent 365 for Conditional Access / ID Protection on agents)
-  ├─ Okta  → Okta for AI Agents + Agent SSO (XAA); Auth0 for customer-facing agents
-  └─ Other → keep agents in the workforce IdP via standard OAuth clients; add HashiCorp Vault
-             agentic IAM (C7) for user-and-agent intersection and attribution
-
-STEP 2 [Rec]: How does the agent act?
-  Did a human start the work?
-  ├─ Yes → OBO / token exchange per tool audience; scopes = task, TTL = minutes
-  │        Consequential action? → async human approval (CIBA or workflow gate in L3)
-  └─ No  → autonomous agent credential with a narrow ceiling, reviewed each cycle;
-           never an agent "user account" unless a licence or mailbox requires it
-
-STEP 3 [Rec]: Tool protocol
-  MCP? ├─ Yes → MCP authorisation mandatory by policy; EMA (ID-JAG) via the IdP;
-       │        DCR disabled; pin the spec revision at the gateway
-       └─ No  → OAuth 2.0 resource-server pattern on REST/OpenAPI tools behind the gateway
-
-STEP 4 [Rec]: Policy decision point
-  Agents on AWS AgentCore Gateway? ├─ Yes → AgentCore Policy (Cedar), source in Git
-                                   └─ No  → OPA at the gateway (sidecar or library)
-
-STEP 5 [Rec]: Runtime identity and secrets
-  Multi-cloud or on-prem runtimes? ├─ Yes → SPIFFE/SPIRE SVIDs for mTLS
-                                   └─ No  → the cloud's workload identity federation
-  Downstream systems → dynamic credentials from Vault (C7), never stored in the agent
-```
+*Figure: Register every agent and deny tools by default first, then choose the agent identity home by workforce IdP, the delegation pattern by who started the work, the tool authorisation by protocol, the policy engine by runtime, and the workload identity by estate. Editable source: `08_Graphic/diagrams/C4-2.md`.* [AJ]
 
 ### C4.10 Lock-in classification
 
@@ -348,11 +302,11 @@ STEP 5 [Rec]: Runtime identity and secrets
 - an approval recorded without the approver's identity, or by the requester or the agent
 - the agent continuing to act after the analyst's or the agent's access has been revoked
 
-### C4.13 Original → current → recommended
+### C4.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
-| Absent from the graphic; L4 shows MCP as a "tools standard" and A2A as "agent-to-agent" with no identity or authorisation | MCP authorisation profile with EMA (Stable), authorisation optional; A2A leaves mid-task authorisation semantics undefined [VF: A6-S033, A6-S035, A3-S078] | An explicit identity, delegation and tool-governance control enforced at the gateway [Rec] |
+| Absent from the popular stack diagram; L4 shows MCP as a "tools standard" and A2A as "agent-to-agent" with no identity or authorisation | MCP authorisation profile with EMA (Stable), authorisation optional; A2A leaves mid-task authorisation semantics undefined [VF: A6-S033, A6-S035, A3-S078] | An explicit identity, delegation and tool-governance control enforced at the gateway [Rec] |
 | (absent) agent identity | Entra Agent ID GA April 2026; Okta for AI Agents GA 30 April 2026; Agent SSO GA 24 August 2026 [VF: V2-S032, A6-S100, V2-S035] | Agent identities in the workforce IdP, with sponsors and reviews [Rec] |
 | (absent) delegated authority | OBO and token exchange GA in Entra and Auth0; ID-JAG in MCP EMA [VF: A6-S060, A6-S097, A6-S079] | OBO by default for user-started work [Rec] |
 | (absent) policy engines | OPA graduated; Cedar-based AgentCore Policy GA 3 March 2026 [VF: A6-S046, A6-S026] | Deny-by-default PDP per tool call: OPA, or Cedar on AgentCore [Rec] |

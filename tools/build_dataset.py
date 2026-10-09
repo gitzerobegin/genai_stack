@@ -18,7 +18,7 @@ from openpyxl.utils import get_column_letter
 root = sys.argv[1]
 os.chdir(root)
 PKG = "Enterprise_GenAI_Stack_Oct2026"
-LAYER_ORDER = ["L9", "L8", "L7", "L6", "L5", "L4", "L3", "L2", "L1", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]
+LAYER_ORDER = ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]  # layer order L1 -> L9 (user decision, 9 Oct 2026)
 
 def is_fact(x):
     return isinstance(x, dict) and "v" in x and "label" in x

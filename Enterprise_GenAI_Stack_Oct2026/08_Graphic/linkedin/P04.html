@@ -1,0 +1,109 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>The boring component that makes exit real</title>
+<!-- Generated from P04.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 4 · C1 AI / LLM gateway</div>
+  <div class="title">The boring component that makes exit real</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.hub{display:grid;grid-template-columns:200px 46px 1fr 46px 250px;grid-template-rows:auto repeat(3,1fr);gap:12px 0;align-items:center}
+.hub .hd2{font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--blue)}
+.hub .app{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 14px;font-weight:800;font-size:19px;height:100%;display:flex;flex-direction:column;justify-content:center}
+.hub .app span{display:block;font-weight:500;font-size:15px;color:var(--mute);margin-top:2px}
+.hub .gw{grid-column:3;grid-row:2/5;align-self:stretch;background:var(--navy);color:#fff;border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px}
+.hub .gw .t{font-weight:800;font-size:24px;line-height:1.15}
+.hub .gw .s{font-size:16px;color:var(--sky)}
+.hub .gw .fn{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.hub .gw .fn div{background:rgba(255,255,255,.1);border-radius:8px;padding:5px 10px;font-size:16px;font-weight:600}
+.hub .gw .pl{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.hub .gw .pl div{background:var(--gold);color:var(--navy);border-radius:8px;padding:5px 8px;font-size:15px;font-weight:700;line-height:1.2}
+.hub .gw .pl b{font-weight:900}
+.hub .prov{border-radius:14px;padding:12px 14px;font-weight:800;font-size:19px;height:100%;display:flex;flex-direction:column;justify-content:center;border:2px solid var(--blue);background:var(--bluebg)}
+.hub .prov span{display:block;font-weight:500;font-size:15px;color:var(--mute);margin-top:2px}
+.hub .prov.alt{border:2px dashed var(--gold);background:#FBF4E4}
+.hub .arrow{font-size:28px}
+.hub .dsh{height:0;border-top:3px dashed var(--gold);margin:0 8px 0 4px;position:relative}
+.hub .dsh:after{content:"";position:absolute;right:-8px;top:-9px;border-left:11px solid var(--gold);border-top:7.5px solid transparent;border-bottom:7.5px solid transparent}
+.sw{display:flex;align-items:center;gap:16px}
+.sw .ic{width:62px;height:62px;border:5px solid var(--navy);border-radius:50%;position:relative;flex:none;background:#fff}
+.sw .ic:before{content:"";position:absolute;left:50%;top:-14px;width:14px;height:8px;margin-left:-7px;background:var(--navy);border-radius:3px}
+.sw .ic:after{content:"";position:absolute;left:50%;top:9px;width:4px;height:20px;margin-left:-2px;background:var(--gold);border-radius:2px;transform-origin:50% 100%;transform:rotate(40deg)}
+.dep{display:flex;gap:8px;margin-top:8px}
+.dep div{flex:1;border:2px solid var(--sky);border-radius:10px;padding:6px 8px;text-align:center;font-weight:700;font-size:16px;background:rgba(255,255,255,.1);color:#fff}
+</style>
+<div class="col" style="gap:18px">
+ <div class="hub">
+  <div class="hd2">Applications</div><div></div><div class="hd2" style="text-align:center">Firm-controlled</div><div></div><div class="hd2">Providers</div>
+  <div class="app">Workflows<span>no provider keys in code</span></div>
+  <div class="arrow r"></div>
+  <div class="gw">
+   <div><div class="t">AI traffic gateway</div><div class="s">one point for every model, tool and agent call</div></div>
+   <div class="fn"><div>routing</div><div>fallback</div><div>budgets</div><div>policy</div><div style="grid-column:1/3">request log</div></div>
+   <div class="lab" style="color:var(--gold);font-size:14px;margin-top:2px">Controls invoked here</div>
+   <div class="pl"><div><b>C2</b> guardrails</div><div><b>C3</b> data protection</div><div><b>C4</b> identity</div><div><b>C6</b> cost</div></div>
+   <div class="s" style="margin-top:auto;border-top:1px solid rgba(255,255,255,.2);padding-top:10px">holds every provider key: a prime target, so it routes and records, and never authors</div>
+  </div>
+  <div class="arrow r"></div>
+  <div class="prov">Vendor A model<span>primary route, approved region</span></div>
+  <div class="app">Assistants<span>one client library</span></div>
+  <div class="arrow r"></div>
+  <div class="dsh"></div>
+  <div class="prov alt">Different vendor<span>pre-qualified alternative, same region, same regression suite</span></div>
+  <div class="app">Agents<span>model, tool and agent calls</span></div>
+  <div class="arrow r"></div>
+  <div class="arrow r"></div>
+  <div class="prov" style="border-color:var(--line);background:#fff">Tools and agents<span>exposed per caller</span></div>
+ </div>
+ <div class="row">
+  <div class="box gold grow sw"><div class="ic"></div><div><div class="lab" style="color:#8A6418">The signal</div><div class="h" style="margin-top:2px">Time to switch: hours</div><div class="small">move a route to the pre-qualified alternative by configuration alone; not weeks; drilled at least once a year</div></div></div>
+  <div class="box navy grow"><div class="lab" style="color:var(--gold)">Run it like payments infrastructure</div><div class="h" style="margin-top:4px">Two independent deployments, fail closed</div>
+   <div class="dep"><div>deployment 1</div><div>deployment 2</div></div>
+   <div class="sub" style="font-size:16px;margin-top:8px">pinned, signed builds; budgets, guards and fallbacks fail closed</div></div>
+ </div>
+ <div class="box amber"><div class="lab" style="color:var(--amber)">Leadership move</div><div class="h" style="margin-top:4px">"Add a provider" is a third-party risk event, not a configuration tweak</div><div class="small">UK firms must notify material third-party arrangements before entering them, from 18 March 2027</div></div>
+</div>
+</div>
+ <div class="ft"><div class="cap">Every model, tool and agent call passes through one firm-controlled gateway, so moving to a pre-qualified alternative is a configuration change, not a code programme. Generic: no vendor names.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: C1 §C1.3, §C1.9, §C1.11 and §C1.13 H1 view</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

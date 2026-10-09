@@ -1,0 +1,37 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>C7 security controls: build time, run time and assurance</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">C7 security controls: build time, run time and assurance</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  subgraph AS["ASSURANCE"]
+    direction TB
+    RT["L9 red-team (2 tools,&lt;br/&gt;OWASP LLM + Agentic 2026)"] --&gt; FD["Findings"]
+    FD --&gt; FB["C2 / C7 /&lt;br/&gt;L9 datasets / C8"]
+  end
+  subgraph RTM["RUN-TIME"]
+    direction TB
+    U["User"] --&gt; ID["C4 identity"] --&gt; GW["C1 gateway&lt;br/&gt;virtual keys, logging"]
+    GW --&gt; DET["Runtime detector (C7)&lt;br/&gt;screens prompt,&lt;br/&gt;retrieved chunks,&lt;br/&gt;tool output, response"]
+    C2["C2 rules"] --&gt; DET
+    DET --&gt; WF["L3 workflow&lt;br/&gt;(deterministic)"]
+    WF -- "read-only tools" --&gt; SOR["Systems of record"]
+    WF --&gt; SB["Sandbox (no egress)"]
+    VB["Vault / cloud secrets broker"] --&gt; SB
+    VB -- "short-lived, request-scoped&lt;br/&gt;credential (never in prompt)" --&gt; WF
+    SB --&gt; AE["Detector + gateway + broker&lt;br/&gt;audit events"]
+    AE --&gt; SIEM["SIEM"]
+    AE --&gt; INC["Incident (DORA / FCA)"]
+  end
+  subgraph BT["BUILD-TIME"]
+    direction TB
+    P1["PyPI/npm"] --&gt; P2["Private mirror"] --&gt; P3["Pin + hash&lt;br/&gt;(SBOM)"]
+    W1["HF / vendor weights"] --&gt; W2["Format policy&lt;br/&gt;(safetensors)"] --&gt; W3["Scan (ModelScan/&lt;br/&gt;picklescan/commercial)"] --&gt; W4["Verify signature&lt;br/&gt;(OMS)"] --&gt; W5["Model registry"]
+    T1["MCP servers, skills"] --&gt; T2["Artefact scan"] --&gt; T3["Tool inventory (C4)"]
+  end
+</pre><div class="c">Supply-chain controls at build time, a detector and credential broker around a deterministic workflow at run time, and red-team findings fed back, with detector, gateway and broker audit events going to the SIEM.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

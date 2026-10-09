@@ -1,0 +1,24 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L3 reference flow: a deterministic workflow with durable state and an approval gate</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L3 reference flow: a deterministic workflow with durable state and an approval gate</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  REQ["Request (run_id, user, use case)"] --&gt; ENG["L3 workflow engine&lt;br/&gt;(graph version pinned, C5)"]
+  ENG --&gt; G
+  subgraph G["Deterministic graph (code owns control flow)"]
+    direction LR
+    F["Fetch data&lt;br/&gt;activity:&lt;br/&gt;read-only tool&lt;br/&gt;(L4/C4)"] --&gt; R["Retrieve context&lt;br/&gt;activity:&lt;br/&gt;read-only retrieval&lt;br/&gt;(L6-L8)"]
+    R --&gt; L["LLM step&lt;br/&gt;bounded&lt;br/&gt;judgement&lt;br/&gt;via C1"]
+    L --&gt; E["Eval gate&lt;br/&gt;L9 checks:&lt;br/&gt;deterministic&lt;br/&gt;+ judge"]
+    E --&gt; A["APPROVAL&lt;br/&gt;interrupt;&lt;br/&gt;resume only by&lt;br/&gt;named approver"]
+    A --&gt; RL["Release&lt;br/&gt;activity:&lt;br/&gt;write by&lt;br/&gt;release service"]
+  end
+  G -- "each node" --&gt; DS["Durable store: checkpoints + recorded activity results&lt;br/&gt;(firm-controlled DB / Temporal)"]
+  DS --&gt; OT["OTel spans per node (L9)"]
+  OT --&gt; EV["Evidence pack (C8): graph version, inputs hash,&lt;br/&gt;outputs, approver"]
+</pre><div class="c">Code owns the control flow: the LLM step is one bounded node between read-only activities and an evaluation gate, a named approver must resume the run before release, and every node is checkpointed, traced and written to an evidence pack.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

@@ -1,0 +1,107 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>"Who did this?" needs an answer for agents</title>
+<!-- Generated from P08.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 8 · C4 Identity and access for agents</div>
+  <div class="title">"Who did this?" needs an answer for agents</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.ac{display:grid;grid-template-columns:1fr 300px;column-gap:22px;font-size:18px}
+.ac .st{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 16px;line-height:1.25}
+.ac .st b{font-size:20px}
+.ac .st .d{display:block;font-size:16px;color:var(--mute);margin-top:2px}
+.ac .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.ac .st.k{border-color:var(--blue);background:var(--bluebg)}
+.ac .st.g{border-color:var(--gold);background:#FBF4E4}
+.ac .st.g .n{background:var(--gold);color:var(--navy)}
+.ac .ar{color:var(--blue);font-size:22px;line-height:1;font-weight:700;text-align:center;padding:3px 0}
+.ac .ar:after{content:"\2193"}
+.ac .lane{grid-column:2;grid-row:1 / span 11;border:2px dashed var(--red);background:var(--redbg);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.ac .its{flex:1;display:flex;flex-direction:column;gap:10px}
+.ac .its .it{flex:1;display:flex;flex-direction:column;justify-content:center}
+.ac .lane .it{background:#fff;border-radius:10px;padding:9px 12px;font-size:16px;line-height:1.3}
+.ac .lane .it b{font-size:18px}
+.ac .chips{margin-top:5px}
+.ac .chips .chip{font-size:15px;padding:3px 10px;margin:2px 3px 2px 0}
+.ac .ev{grid-column:1 / span 2;display:flex;align-items:center;gap:14px;background:var(--navy);color:#fff;border-radius:14px;padding:12px 18px}
+.ac .ev .n{background:var(--gold);color:var(--navy)}
+.ac .ev .d{color:var(--sky);font-size:16px;display:block;margin-top:2px}
+.ac .join{grid-column:1 / span 2;display:grid;grid-template-columns:1fr 300px;column-gap:22px}
+</style>
+<div class="col" style="gap:16px">
+ <div class="ac">
+  <div class="st"><span class="n">1</span><span><b>Analyst signs in</b><span class="d">single sign-on starts the run</span></span></div>
+  <div class="ar"></div>
+  <div class="st k"><span class="n">2</span><span><b>Token exchange</b><span class="d">on behalf of the analyst · read-only scope · lifetime of minutes</span></span></div>
+  <div class="ar"></div>
+  <div class="st"><span class="n">3</span><span><b>Agent identity</b><span class="d">registered · sponsor named · no standing secrets</span></span></div>
+  <div class="ar"></div>
+  <div class="st"><span class="n">4</span><span><b>Gateway policy decision</b><span class="d">analyst's entitlements &#8745; agent's ceiling; write tools not in the list at all</span></span></div>
+  <div class="ar"></div>
+  <div class="st"><span class="n">5</span><span><b>Read-only tool</b><span class="d">attribution figures for this fund and period</span></span></div>
+  <div class="ar"></div>
+  <div class="st g"><span class="n">6</span><span><b>Audit event, every call</b>
+   <div class="chips"><span class="chip navy">user</span><span class="chip navy">agent</span><span class="chip navy">tool</span><span class="chip navy">args hash</span><span class="chip navy">decision</span><span class="chip navy">trace ID</span></div></span></div>
+  <div class="lane">
+   <div class="lab" style="color:var(--red)">Separate lane</div>
+   <div class="h" style="font-size:21px;line-height:1.2">Approval by a different person</div>
+   <div class="its">
+   <div class="it"><div><b>Portfolio manager</b><br>named and entitled; must differ from the analyst who started the run</div></div>
+   <div class="it"><div><b>Step-up authentication</b><br>at the moment of approval</div></div>
+   <div class="it"><div><b>Recorded with identity</b><br>approver · draft hash · time</div></div>
+   <div class="it" style="background:var(--red);color:#fff"><div><b>The agent may draft.<br>It may not approve.</b></div></div>
+   </div>
+  </div>
+  <div class="join"><div class="ar"></div><div class="ar" style="color:var(--red)"></div></div>
+  <div class="ev"><span class="n">7</span><span><b style="font-size:21px">Evidence pack</b><span class="d">links requester, agent identity, approver and every policy decision</span></span></div>
+ </div>
+ <div class="row">
+  <div class="box gold grow"><div class="lab" style="color:#8A6418">The signal</div><div class="h" style="margin-top:4px">Attribution completeness &#8805; 99.9%</div><div class="small">share of audit events recording user, agent, tool, argument hash, decision and trace ID</div></div>
+  <div class="box red grow"><div class="lab" style="color:var(--red)">Never</div><div class="small" style="margin-top:6px;line-height:1.45">&#8226; a shared service account or personal token<br>&#8226; a write tool reachable, even if never called<br>&#8226; acting on after access is revoked</div></div>
+ </div>
+</div>
+</div>
+ <div class="ft"><div class="cap">One attribution chain: the agent acts for the analyst on a short-lived, read-only token; a different, entitled person approves. Generic worked example, no vendor names.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: C4 §C4.3 and §C4.12</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

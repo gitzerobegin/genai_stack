@@ -12,13 +12,13 @@ The review followed a staged plan with human checkpoints:
 
 | Stage | What happened | Output |
 |---|---|---|
-| 0 Baseline | Inventory of the original graphic (80 tiles, 9 layers); 19 ambiguities; dataset schema; style guide; hypotheses H1–H8 | `work/stage0/` |
+| 0 Baseline | Inventory of the popular stack diagram, the review's inspiration and baseline (80 tiles, 9 layers); 19 ambiguities; dataset schema; style guide; hypotheses H1–H8 | `work/stage0/` |
 | A Research | Eight parallel research streams, primary sources first, every fact archived with URL and access date | `work/stageA/` |
 | A′ Verify | Two adversarial verifiers re-checked high-risk claims: versions, prices, acquisitions, certifications and regulatory dates | `work/stageA_verify/` |
 | B Write | Seventeen chapters (9 layers and 8 cross-cutting controls) on a 13-part template, each with a scored product assessment | `work/stageB/` |
 | B review | Calibration reviews across all chapters for scoring consistency, accuracy spot-checks and label coverage | `work/stageB/_review/` |
 | C Synthesis | Hypothesis verdicts, reference architecture, four stacks, build vs buy, lock-in, roadmap and final recommendations | `work/stageC/` |
-| C2 | A 24-post LinkedIn series in the reader's voice | `work/stageC2/` |
+| C2 | A LinkedIn series in the reader's voice: an introduction post and 24 posts, each with a visual | `work/stageC2/`, `07_LinkedIn/` |
 | D Package | This document, the technical appendix, slides, the explorer, the dataset and the source archive | `Enterprise_GenAI_Stack_Oct2026/` |
 
 The reader reviewed and decided at each checkpoint (CP1–CP5). Every decision is recorded in `checkpoints/`, and the full run log is in `MEMORY.md`.
@@ -27,7 +27,7 @@ The reader reviewed and decided at each checkpoint (CP1–CP5). Every decision i
 
 | Measure | Value |
 |---|---|
-| Product records | {N_PRODUCTS}: the 80 graphic tiles, 48 control-plane products and 12 material additions |
+| Product records | {N_PRODUCTS}: the 80 tiles of the popular stack diagram, 48 control-plane products and 12 material additions |
 | Products scored | {N_SCORED}. Tiers: {N_STRATEGIC} Strategic · {N_TACTICAL} Tactical · {N_EXPERIMENTAL} Experimental |
 | Regulatory and standards records | {N_REG} |
 | Sources logged | {N_SOURCES} |

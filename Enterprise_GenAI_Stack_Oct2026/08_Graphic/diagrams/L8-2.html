@@ -1,0 +1,37 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L8 decision tree: ingesting public web and enterprise documents</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L8 decision tree: ingesting public web and enterprise documents</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef stop fill:#FBE9E7,stroke:#B23A2B;
+  START{"START: Is the source on the&lt;br/&gt;approved-source register?&lt;br/&gt;(owner, licence/ToS,&lt;br/&gt;legal basis, classification)"}
+  START -- "yes" --&gt; KIND{"What kind&lt;br/&gt;of source?"}
+  START -- "no" ---&gt; STOP0["STOP. Register it first.&lt;br/&gt;Never ingest from an unregistered source."]:::stop
+  KIND --&gt; PW["PUBLIC WEB"]
+  PW --&gt; W1{"Is this an agent fetching&lt;br/&gt;pages at run time?"}
+  W1 -- "yes" --&gt; W1Y["Not L8. Govern as an L4 tool call."]
+  W1 -- "no" --&gt; W2{"Does robots.txt / ToS permit it,&lt;br/&gt;and is the content licensed&lt;br/&gt;for this use?"}
+  W2 -- "no" --&gt; STOP1["STOP."]:::stop
+  W2 -- "yes" --&gt; W3["Batch ingestion into a corpus"]
+  W3 --&gt; W4{"Must processing stay in the&lt;br/&gt;EU/UK or in your estate?"}
+  W4 -- "yes" --&gt; W4Y["Self-host: Crawl4AI (pilot) or&lt;br/&gt;Firecrawl server (after AGPL review)"]
+  W4 -- "no" --&gt; W4N["Firecrawl Cloud with ZDR&lt;br/&gt;(+ PII redaction if any personal&lt;br/&gt;data may appear)"]
+  W3 -- "long-tail site with an existing&lt;br/&gt;maintained scraper, public data only" --&gt; APIFY["Apify"]
+  KIND --&gt; ED["ENTERPRISE DOCUMENTS"]
+  ED --&gt; E1{"Does the source carry permissions&lt;br/&gt;(SharePoint, OneDrive, Confluence)?"}
+  ED --&gt; E2{"May the content leave your estate&lt;br/&gt;(classification, client contract,&lt;br/&gt;residency)?"}
+  ED --&gt; E3{"Mostly scans or&lt;br/&gt;handwriting?"}
+  ED --&gt; E4{"Do tables feed numbers&lt;br/&gt;anyone will quote?"}
+  E1 -- "yes" --&gt; E1Y["Unstructured ingest connectors (ACL digest, reprocess on change), or build a connector that meets the same contract. Fail closed."]
+  E2 -- "no" --&gt; E2N["Self-hosted engine: Docling (default); MinerU only after licence review; Mistral OCR self-managed or Reducto on-prem if a commercial engine is needed"]
+  E2 -- "yes, region-bound" --&gt; E2Y{"Which region&lt;br/&gt;or cloud?"}
+  E2Y -- "EU/UK required" --&gt; E2Y1["Mistral OCR (EU API), LlamaParse EU,&lt;br/&gt;Reducto EU endpoint, Unstructured in-VPC"]
+  E2Y -- "GCP is the approved cloud" --&gt; E2Y2["Google Document AI&lt;br/&gt;(confirm processor region)"]
+  E3 -- "yes" --&gt; E3Y["Put an OCR engine behind the parser&lt;br/&gt;interface; route by confidence score"]
+  E4 -- "yes" --&gt; E4Y["Dual-parse + reconciliation; quarantine on mismatch; numbers stay non-authoritative (authoritative figures come from L4 data tools)"]
+</pre><div class="c">Nothing is ingested from an unregistered source; public-web ingestion turns on permission, licence and processing location, while enterprise documents are routed by permissions, where content may be processed, scans and quotable tables.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

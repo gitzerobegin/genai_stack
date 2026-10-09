@@ -2,7 +2,7 @@
 
 > **Conflict-of-interest disclosure.** The author is an Anthropic model. The Model Context Protocol (MCP) and Agent Skills both originated at Anthropic [VF: A3-S018, A3-S028]. Both were scored on the same rubric as every other product in this section. Independent criticism of both is recorded in their deep dives, and an independent alternative is named wherever either is recommended [AJ].
 
-> **Executive summary.** This layer is where an agent stops talking and starts acting: it calls tools, reads enterprise systems, browses, runs code and talks to other agents. Three things have changed since the original graphic. First, the protocols have moved to neutral homes. Anthropic donated MCP to the Agentic AI Foundation (AAIF) under the Linux Foundation on 9 December 2025 [VF: A3-S018, V1-S038], and A2A 1.0.0 (12 March 2026) joined AAIF in August 2026 [VF: A3-S079, A3-S116, A3-S117]. Agent Skills has no neutral governance body and is not an AAIF project on available evidence [VF: V1-S046, A3-S115]. Second, MCP has grown an enterprise security model. The 2026-07-28 specification is stateless, deprecates Dynamic Client Registration and puts method and tool names in HTTP headers so that gateways can authorise them, and the Enterprise-Managed Authorization extension has been stable since June 2026 [VF: A3-S015, A3-S057, A3-S017]. Authorisation itself is still optional in the specification [VF: A3-S055]. Third, ownership and risk have shifted among the tool vendors. Nebius closed its acquisition of Tavily on 19 February 2026 [VF: A3-S084, V1-S041], and Composio disclosed a May 2026 incident in which connected-account tokens and API keys were exposed [VF: B-L4-S007]. The graphic draws L4 as a row of tools. The real design problem is governing what those tools are allowed to do, on whose behalf [AJ]. **Recommendation:** standardise on MCP for agent-to-tool connectivity, but only behind a firm-owned tool gateway that enforces authorisation, an allow-listed private registry and per-tool policy. Expose authoritative data through read-only tools. Run generated code only in a microVM sandbox with egress control. Treat every SaaS tool (search, browser, integration broker) as an outsourced data flow [Rec]. Independent alternatives to MCP are OpenAPI-described tools exposed through a gateway, and A2A for agent-to-agent delegation [Rec].
+> **Executive summary.** This layer is where an agent stops talking and starts acting: it calls tools, reads enterprise systems, browses, runs code and talks to other agents. Three things have changed since the popular stack diagram. First, the protocols have moved to neutral homes. Anthropic donated MCP to the Agentic AI Foundation (AAIF) under the Linux Foundation on 9 December 2025 [VF: A3-S018, V1-S038], and A2A 1.0.0 (12 March 2026) joined AAIF in August 2026 [VF: A3-S079, A3-S116, A3-S117]. Agent Skills has no neutral governance body and is not an AAIF project on available evidence [VF: V1-S046, A3-S115]. Second, MCP has grown an enterprise security model. The 2026-07-28 specification is stateless, deprecates Dynamic Client Registration and puts method and tool names in HTTP headers so that gateways can authorise them, and the Enterprise-Managed Authorization extension has been stable since June 2026 [VF: A3-S015, A3-S057, A3-S017]. Authorisation itself is still optional in the specification [VF: A3-S055]. Third, ownership and risk have shifted among the tool vendors. Nebius closed its acquisition of Tavily on 19 February 2026 [VF: A3-S084, V1-S041], and Composio disclosed a May 2026 incident in which connected-account tokens and API keys were exposed [VF: B-L4-S007]. The popular stack diagram draws L4 as a row of tools. The real design problem is governing what those tools are allowed to do, on whose behalf [AJ]. **Recommendation:** standardise on MCP for agent-to-tool connectivity, but only behind a firm-owned tool gateway that enforces authorisation, an allow-listed private registry and per-tool policy. Expose authoritative data through read-only tools. Run generated code only in a microVM sandbox with egress control. Treat every SaaS tool (search, browser, integration broker) as an outsourced data flow [Rec]. Independent alternatives to MCP are OpenAPI-described tools exposed through a gateway, and A2A for agent-to-agent delegation [Rec].
 
 ### 4.1 Responsibility
 
@@ -63,22 +63,9 @@ The evidence for this is no longer theoretical:
 
 **Runtimes.** Code runs in sandboxes such as E2B's Firecracker microVMs, one per sandbox, with a per-sandbox egress firewall [VF: A3-S062]. Browsers run as remote sessions that Playwright or Puppeteer drive over the Chrome DevTools Protocol, as in Browserbase [VF: A3-S013].
 
-```text
-  Analyst / service ──SSO──► IdP (C4) ── ID-JAG / token exchange ─┐
-                                                                   ▼
-  L3 agent or workflow ──► MCP client ──► TOOL GATEWAY (L4 governance, often the C1 product)
-                                          │ 1 authenticate caller, check token audience/issuer
-                                          │ 2 allow-list: server + tool name + definition hash
-                                          │ 3 policy (Cedar / OPA): who, which tool, which args
-                                          │ 4 outbound credential from vault (C7), never from the model
-                                          │ 5 audit + OTel span (L9); DLP on outbound args (C3)
-             ┌──────────────┬─────────────┼───────────────┬───────────────────┐
-             ▼              ▼             ▼               ▼                   ▼
-     Internal read-only  Calculation   SaaS apps via   Web search /       Remote agents
-     MCP servers         sandbox       per-user OAuth  browser (egress    (A2A, signed
-     (data, engines)     (microVM,     (broker or      proxy, no client   Agent Cards)
-                         egress deny)  gateway 3LO)    data)
-```
+![L4 reference flow: agents reach every tool through one governed tool gateway](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L4-1.png){width=100%}
+
+*Figure: The user's identity reaches the tool gateway by token exchange, and the gateway authenticates the caller, checks the allow-list and policy, supplies outbound credentials from the vault rather than the model, and audits each call before it reaches internal servers, sandboxes, SaaS apps, the web or remote agents. Editable source: `08_Graphic/diagrams/L4-1.md`.* [AJ]
 
 The gateway is the design choice that matters most. Without it, every MCP client is its own policy engine, and the firm has as many security models as it has agent hosts [AJ].
 
@@ -301,52 +288,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 ### 4.9 Decision tree
 
-```text
-STEP 0 [Rec] (not optional): one tool gateway (L4 governance; often the C1 product) with
-authorisation mandatory, a private allow-listed registry, hash-pinned tool definitions,
-default-deny policy (Cedar or OPA), vault-issued outbound credentials (C7), OTel spans (L9).
+![L4 decision tree: connecting agents to tools, SaaS, the web, code and other agents](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L4-2.png){width=100%}
 
-STEP 1 [Rec]: How does the agent reach this capability?
-  Internal system of record or calculation engine?
-  ├─ Yes → Build a READ-ONLY MCP server (or OpenAPI tool) owned by the system's team.
-  │        Write needed? → separate tool, separate approval, human confirmation step (L3).
-  └─ No  → SaaS application?
-           ├─ Yes → Does the user's own access matter (per-user data)?
-           │        ├─ Yes → Per-user delegated OAuth via EMA / token exchange (C4);
-           │        │        credential vault in your estate. Broker (Composio) only if
-           │        │        self-hosted and the data are not client data.
-           │        └─ No  → Named agent identity with least-privilege scope.
-           └─ No  → Public web?  → STEP 3.   Code to run? → STEP 4.   Another agent? → STEP 5.
-
-STEP 2 [Rec]: Which gateway?
-  AWS is the agent platform          → AgentCore Gateway + Identity + Policy
-  Azure / Microsoft estate           → APIM AI gateway + Entra Agent ID (see C1, C4)
-  Multi-cloud or self-hosted needed  → agentgateway or Kong AI Gateway (see C1)
-  (Re-assess when MCP agent-identity work, DPoP and WIF, is published.)
-
-STEP 3 [Rec]: Web search or browsing
-  Could the query or page context contain client, holdings or deal data?
-  ├─ Yes → Do not use external search. Use approved internal sources (L6–L8).
-  └─ No  → Search API via egress proxy + DLP, ZDR enabled:
-           EU processing required? → none found for Exa/Tavily; use L8 self-hosted crawl.
-           Otherwise              → Exa (independent) or Tavily (Nebius-owned).
-           Site has no API and must be operated? → Browserbase (domain allow-list,
-           recordings to own bucket) or self-hosted Playwright in a sandbox.
-
-STEP 4 [Rec]: Code execution
-  Generated code at all? → microVM sandbox, default-deny egress, no standing secrets:
-    E2B BYOC (AWS/GCP) or EU region; AgentCore or LangSmith sandboxes if already on them.
-  Result is a figure that will be published? → reconcile to the authoritative engine (L9).
-
-STEP 5 [Rec]: Agent-to-agent
-  Can a deterministic workflow (L3) call tools instead? → Yes: do that.
-  Otherwise → A2A 1.0 with signed Agent Cards verified, scoped and revocable delegation,
-              through a gateway that understands A2A (agentgateway, Kong, APIM).
-
-STEP 6 [Rec]: Packaging procedures
-  House procedures for several agent clients → Agent Skills, internally authored,
-  Git-reviewed, no scripts; alternative: C5 prompt packages or AGENTS.md.
-```
+*Figure: Every capability goes through one default-deny tool gateway; internal systems get read-only tools, SaaS gets delegated or least-privilege identity, and web search, code execution and agent-to-agent calls each have their own guarded route. Editable source: `08_Graphic/diagrams/L4-2.md`.* [AJ]
 
 ### 4.10 Lock-in classification
 
@@ -417,9 +361,9 @@ STEP 6 [Rec]: Packaging procedures
 - use a shared service account or a long-lived key; credentials are issued per call from the vault
 - let a tool description or annotation decide the tool's risk class
 
-### 4.13 Original → current → recommended
+### 4.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | "Tools and protocols" row of eight tiles | Protocols under foundations; gateways in C1 now carry MCP and A2A traffic [VF: A3-S018, A3-S116, A6-S061, A6-S016] | L4 split into connectivity (protocols, tools, runtimes) and a tool-governance sub-layer bound to C1 and C4 [Rec] |
 | MCP "tools standard" | Spec 2026-07-28: stateless, header routing, DCR deprecated, EMA stable; authorisation optional; Registry preview v0.1; AAIF-governed [VF: A3-S015, A3-S057, A3-S017, A3-S055, A3-S036, A3-S018] | Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions (CP3 Q1); alternative: OpenAPI tools via gateway [Rec] |

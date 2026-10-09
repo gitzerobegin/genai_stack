@@ -1,6 +1,6 @@
 ## 5. Memory
 
-> **Executive summary.** This layer decides what an agent carries from one interaction to the next, where that state is stored, and who is allowed to change, inspect or erase it. Four things have changed since the original graphic. First, the independent products have moved apart: Mem0 removed every external graph store from its open-source build on 14 April 2026 and replaced it with entity linking, which is not a queryable graph [VF: A3-S053, A3-S081, V1-S043]; Zep deprecated its Community Edition, so Graphiti is the only open-source path [VF: A3-S059, V1-S044]; Letta pivoted to Letta Code, an agent harness, and retired its V1 server [VF: A3-S060, A3-S073, A3-S093]; and LangMem has had no release since 27 October 2025 [VF: A3-S006]. Second, the hyperscalers now ship memory as a platform feature: Amazon Bedrock AgentCore Memory has been GA since 13 October 2025 and Google's Memory Bank since December 2025 [VF: A3-S047, V1-S087, V1-S088]. Third, every product stores memory in ordinary vector, graph, relational or file stores [VF: A3-S053, A3-S003, A3-S005, A3-S064, A3-S006, A3-S073], so memory is a data-architecture problem as much as an agent feature [AJ]. Fourth, memory is now a named attack surface: OWASP's Agentic Top 10 includes memory and context poisoning (ASI06) [VF: B-L5-S001]. No independent product in this layer reaches Strategic tier; the two hyperscaler memory services are Strategic only on the condition that their cloud is the firm's primary cloud (CP3 Q2) [AJ]. **Recommendation:** treat agent memory as a governed record class held in the firm's own retrieval and data stores (L6), written only through an approved, logged write path with subject-scoped erasure and versioning. Build it last, after evaluation, gateway, retrieval, workflows and tools, as the plan's build order already says. Use the agent platform's native memory (AgentCore Memory or Memory Bank) where the runtime already lives there, and self-hosted Mem0 or Graphiti only behind the firm's own memory API [Rec].
+> **Executive summary.** This layer decides what an agent carries from one interaction to the next, where that state is stored, and who is allowed to change, inspect or erase it. Four things have changed since the popular stack diagram. First, the independent products have moved apart: Mem0 removed every external graph store from its open-source build on 14 April 2026 and replaced it with entity linking, which is not a queryable graph [VF: A3-S053, A3-S081, V1-S043]; Zep deprecated its Community Edition, so Graphiti is the only open-source path [VF: A3-S059, V1-S044]; Letta pivoted to Letta Code, an agent harness, and retired its V1 server [VF: A3-S060, A3-S073, A3-S093]; and LangMem has had no release since 27 October 2025 [VF: A3-S006]. Second, the hyperscalers now ship memory as a platform feature: Amazon Bedrock AgentCore Memory has been GA since 13 October 2025 and Google's Memory Bank since December 2025 [VF: A3-S047, V1-S087, V1-S088]. Third, every product stores memory in ordinary vector, graph, relational or file stores [VF: A3-S053, A3-S003, A3-S005, A3-S064, A3-S006, A3-S073], so memory is a data-architecture problem as much as an agent feature [AJ]. Fourth, memory is now a named attack surface: OWASP's Agentic Top 10 includes memory and context poisoning (ASI06) [VF: B-L5-S001]. No independent product in this layer reaches Strategic tier; the two hyperscaler memory services are Strategic only on the condition that their cloud is the firm's primary cloud (CP3 Q2) [AJ]. **Recommendation:** treat agent memory as a governed record class held in the firm's own retrieval and data stores (L6), written only through an approved, logged write path with subject-scoped erasure and versioning. Build it last, after evaluation, gateway, retrieval, workflows and tools, as the plan's build order already says. Use the agent platform's native memory (AgentCore Memory or Memory Bank) where the runtime already lives there, and self-hosted Mem0 or Graphiti only behind the firm's own memory API [Rec].
 
 ### 5.1 Responsibility
 
@@ -67,22 +67,9 @@ Every memory system has a write path and a read path, and the governance sits al
 
 **Where the governance controls belong [AJ].** The vendor products automate steps 2 to 4. An enterprise design inserts a policy gate between extraction and storage, keeps a write log, and attaches provenance and a retention class to each record:
 
-```text
-                         WRITE PATH (governed)                                    READ PATH
- interaction events ─► extraction (LLM) ─► POLICY GATE ──────────► memory store ─► scoped recall ─► prompt
- (L3 workflow,          proposes            │ C3 DLP: no client IDs,   │ rows (SQL)      │ by user/fund/
-  reviewer edits)       candidate facts     │   no special-category    │ vectors (L6)    │ team scope (C4)
-                                            │ type allow-list          │ graph edges     │ + similarity
-                                            │ "no numbers as facts"    │ files/Git       │
-                                            │ human approval for       │                 ▼
-                                            │   organisational memory  │        trace: memory IDs +
-                                            ▼                          │        version hash (L9)
-                                     write log (C8) ◄──────────────────┤
-                                     who, what, source, approval       │
-                                                                       ▼
-                         LIFECYCLE: retention class per record · TTL/pruner · subject index for erasure
-                                    · revisions purge · snapshot per release for reproducibility
-```
+![L5 reference flow: governed write and scoped read paths for agent memory](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L5-1.png){width=100%}
+
+*Figure: Candidate memories must pass a policy gate before they reach the memory store and every write is logged, recall is scoped by user, fund or team and traced, and every record carries a retention class and lifecycle controls for erasure and reproducibility. Editable source: `08_Graphic/diagrams/L5-1.md`.* [AJ]
 
 The **subject index** is the key design choice [AJ]. Every memory that may contain personal data must be findable by data subject, so that an erasure request can be satisfied by one query across rows, vectors, graph nodes, revisions and caches. AgentCore supports per-user erasure by listing and deleting a user's namespace records [VF: A3-S111]; Memory Bank purges by filter with a dry run [VF: A3-S109]; Mem0 has delete, delete_all and per-memory history in both open source and Platform [VF: A3-S080]. Each of these works only if scoping was designed for it from the first write [AJ].
 
@@ -290,44 +277,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 The tree is applied in four steps. Step 0 and step 4 are not product choices [Rec].
 
-```text
-STEP 0 [Rec]: Do you need long-term memory at all?
-  Can the use case be met by session state (L3) + retrieval of approved knowledge (L6)?
-  ├─ Yes → No L5 product. Keep conversation/working memory in the orchestrator's
-  │        checkpoint store. Revisit after evaluation shows a gap.
-  └─ No  → Write the memory allow-list (types, scopes, retention classes, prohibited
-           content) and get it approved by data protection and the model owner.
+![L5 decision tree: whether to add long-term memory and which product to use](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L5-2.png){width=100%}
 
-STEP 1 [Rec]: Which kind of memory?
-  Organisational / procedural (style, glossary, rules)?
-  ├─ Yes → NOT agent memory. Versioned artefact in Git or the prompt store (C5),
-  │        proposed by the agent, approved by a human, retrieved like knowledge (L6).
-  └─ No  → per-user / per-entity episodic or semantic memory → STEP 2
-
-STEP 2 [Rec]: Where does the agent runtime live?
-  ├─ AWS AgentCore / Strands  → AgentCore Memory (CMK at creation, pruner on day one)
-  ├─ Google ADK / Agent Engine → Memory Bank (regional endpoint + CMEK, TTL set,
-  │                              residency confirmed in writing)
-  └─ Elsewhere / multi-cloud / in-estate required
-        Need temporal validity and provenance (how facts changed over time)?
-        ├─ Yes → Graphiti self-hosted on Neo4j / FalkorDB / Neptune
-        │        (Zep Cloud Enterprise only if managed is acceptable and API audit
-        │         logs are not required from the vendor)
-        └─ No  → Air-gapped or graph-plus-documents in one store?
-                 ├─ Yes → Cognee self-hosted (no vendor certification: you supply controls)
-                 └─ No  → Mem0 open source on your approved vector store (pgvector,
-                          OpenSearch, Elasticsearch, MongoDB), behind your own API
-
-STEP 3 [Rec]: Wrap whatever you chose
-  Firm-owned memory API: write (via policy gate), recall (scoped), forget-by-subject,
-  snapshot. Write log to C8. Every recall and write as a span in L9 traces.
-
-STEP 4 [Rec]: Checks before go-live
-  Erasure test across rows, vectors, graph, revisions, caches, backups ("beyond use")?
-  Retention classes enforced by TTL or pruner?   No client identifiers in memory (C3)?
-  Memory snapshot ID recorded per run?   ASI06 memory-poisoning red-team passed?
-  Numbers never read from memory (L9 contradiction check)?
-```
+*Figure: Add an L5 product only when session state and approved knowledge retrieval are not enough, keep organisational memory as approved versioned artefacts, choose the memory product by where the agent runtime lives, wrap it in a firm-owned API and pass the go-live checks. Editable source: `08_Graphic/diagrams/L5-2.md`.* [AJ]
 
 Letta, Supermemory and LangMem do not appear as defaults. Letta is a harness, not a memory service; Supermemory merges memory and knowledge behind one proprietary API; LangMem is stalled [AJ].
 
@@ -393,9 +345,9 @@ Letta, Supermemory and LangMem do not appear as defaults. Letta is a harness, no
 - let a memory written for one fund be recalled for another; scope is the fund ID, enforced at C4
 - keep memory after its retention class expires, or survive an erasure request in revisions, caches or graph history
 
-### 5.13 Original → current → recommended
+### 5.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | A separate "memory" layer with six tiles | Products sit on vector, graph, relational and file stores [VF: A3-S053, A3-S003, A3-S005, A3-S006, A3-S073]; hyperscalers bundle memory into agent platforms [VF: A3-S047, A3-S108] | A governed memory service (policy gate, subject index, lifecycle) over the firm's L6 stores; organisational memory as versioned artefacts in C5 [Rec] |
 | Mem0 "memory layer" | Open core; OSS graph stores removed for entity linking; Platform-only graph, decay and export [VF: A3-S081, V1-S043, A3-S080] | Tactical: self-hosted OSS behind the firm's API [Rec] |

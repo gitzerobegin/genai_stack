@@ -103,6 +103,8 @@ Then:
 
 ## What stays the same between editions
 
+- The house conventions in `CONTEXT.md`: layer order L1 → L9, "the view at end of Q<n> <year>" framing with diagram-relative content only under "What changed since the popular stack diagram", Veyan branding with the full lockup, and Mermaid diagrams (no ASCII art). Update the quarter wording (for example "The view at end of Q4 2026") in `tools/deck/build_deck.js`, `tools/build_master.py`, `tools/make_reference_docx.py`, the graphics' sources and the synthesis.
+
 - Scoring rubric rules 1–13 and the weights, unless you change them at RCP2.
 - The CP decisions recorded in `checkpoints/`. For example, Stack A is the lead stack, the review is cloud-neutral, and the two routes moved to "monitor" at CP5 stay there.
 - The source-ID scheme. Old IDs never change; each refresh adds `R<N>-…` IDs, so every edition stays traceable.

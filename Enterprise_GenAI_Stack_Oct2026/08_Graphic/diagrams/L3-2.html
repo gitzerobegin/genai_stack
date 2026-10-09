@@ -1,0 +1,64 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L3 decision tree: classifying the use case, then choosing framework, durability and runtime</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L3 decision tree: classifying the use case, then choosing framework, durability and runtime</div><div class="r"></div>
+<pre class="mermaid">%%{init: {"flowchart": {"wrappingWidth": 340, "rankSpacing": 20, "nodeSpacing": 28}}}%%
+flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  S0["STEP 0 [Rec]: Classify the use case BEFORE choosing a framework"] --&gt; Q0{"Sequence of steps known&lt;br/&gt;in advance (even&lt;br/&gt;with branches)?"}
+  Q0 -- yes --&gt; DET["DETERMINISTIC WORKFLOW (most FS use cases)&lt;br/&gt;LLM steps are bounded nodes (draft,&lt;br/&gt;classify, extract, judge). Autonomy&lt;br/&gt;budget = 0 or 1 model-chosen step."]
+  Q0 -- no --&gt; Q0b{"Open-ended part isolable&lt;br/&gt;as one sub-step with&lt;br/&gt;read-only tools?"}
+  Q0b -- yes --&gt; ONE["Workflow with ONE sandboxed agent sub-step&lt;br/&gt;(autonomy budget declared)"]
+  Q0b -- no --&gt; AUT["Autonomous agent. Requires:&lt;br/&gt;sandbox, tool allow-list,&lt;br/&gt;per-run budget, approval before&lt;br/&gt;any write, and a named risk owner"]
+  AUT -. "re-check STEP 0" .-&gt; Q0
+
+  DET --&gt; S1
+  ONE --&gt; S1
+  AUT --&gt; S1
+  S1["STEP 1 [Rec]: Framework&lt;br/&gt;(one per language estate; do not wrap frameworks in a firm abstraction)"]
+  S1 --&gt; Q1{"Microsoft / .NET estate, or&lt;br/&gt;Semantic Kernel / AutoGen&lt;br/&gt;to migrate?"}
+  Q1 -- yes --&gt; MAF["Microsoft Agent Framework&lt;br/&gt;(Workflows for the process;&lt;br/&gt;Agents for bounded steps)"]
+  Q1 -- no --&gt; Q1b{"Python or TypeScript&lt;br/&gt;back end?"}
+  Q1b -- yes --&gt; LG["LangGraph (default)&lt;br/&gt;alt: Pydantic AI + Temporal/DBOS where typed&lt;br/&gt;I/O matters most (Strategic, conditional:&lt;br/&gt;Python teams wanting type-safe agents)&lt;br/&gt;alt: Google ADK where Google Cloud /&lt;br/&gt;Agent Engine is the platform"]
+  Q1b -- "TypeScript application tier&lt;br/&gt;streaming to a browser" --&gt; VER["Vercel AI SDK&lt;br/&gt;(+ Workflow SDK, or call a&lt;br/&gt;back-end LangGraph/Temporal&lt;br/&gt;workflow)"]
+  S1 --&gt; Q1c{"Existing CrewAI or&lt;br/&gt;LlamaIndex code?"}
+  Q1c -- yes --&gt; CRW["Keep, but put the process in&lt;br/&gt;Flows / Workflows and the&lt;br/&gt;regulated steps behind the&lt;br/&gt;firm's approval gate"]
+
+  MAF --&gt; S2
+  LG --&gt; S2
+  VER --&gt; S2
+  CRW --&gt; S2
+  S2["STEP 2 [Rec]: Durability"] --&gt; Q2{"Run lasts longer than one&lt;br/&gt;request, waits for a human, or&lt;br/&gt;calls side-effecting tools?"}
+  Q2 -- no --&gt; D0["Framework checkpointing&lt;br/&gt;is enough (or none)"]
+  Q2 -- "yes: LangGraph only" --&gt; D1["Postgres checkpointer&lt;br/&gt;(firm-controlled, write-restricted)"]
+  Q2 -- "yes: multi-framework / long" --&gt; D2["Temporal (self-host in-region,&lt;br/&gt;or Cloud with client-side&lt;br/&gt;encryption); alt: DBOS, Restate"]
+  Q2 -- "yes: Microsoft estate" --&gt; D3["Durable Task (when GA)&lt;br/&gt;or Temporal meanwhile"]
+
+  D0 --&gt; S3
+  D1 --&gt; S3
+  D2 --&gt; S3
+  D3 --&gt; S3
+  S3["STEP 3 [Rec]: Runtime"] --&gt; Q3{"Primary cloud?"}
+  Q3 -- AWS --&gt; R1["AgentCore Runtime&lt;br/&gt;(microVM per session) for&lt;br/&gt;framework-built agents"]
+  Q3 -- Azure --&gt; R2["Foundry Hosted Agents"]
+  Q3 -- GCP --&gt; R3["Vertex AI Agent Engine"]
+  Q3 -- "otherwise / in-estate" --&gt; R4["Containers on the firm's Kubernetes&lt;br/&gt;(LangSmith Deployment self-hosted&lt;br/&gt;if LangGraph and Enterprise licence)"]
+  NR["In every case: platform controls presumed (CP2 Q1); confirm per service"]:::note
+  R1 --&gt; NR
+  R2 --&gt; NR
+  R3 --&gt; NR
+  R4 --&gt; NR
+
+  NR --&gt; TAIL
+  subgraph TAIL[" "]
+    direction LR
+    S4["STEP 4 [Rec]: Autonomous harnesses (OpenAI Agents SDK, Claude Agent SDK, Mistral Agents API)&lt;br/&gt;Only as a sandboxed sub-step, model already approved, traces to the firm's collector, no hosted state outside approved residency (no US-only/non-ZDR beta for UK/EU client data)"]
+    S4 --&gt; S5["STEP 5 [Rec]: Checks before go-live&lt;br/&gt;• Path conformance tested?&lt;br/&gt;• Kill-and-resume test passes without duplicate tool calls?&lt;br/&gt;• Approval gate cannot be bypassed in code?&lt;br/&gt;• Graph version recorded on each run?"]
+  end
+  style TAIL fill:none,stroke:none
+</pre><div class="c">Decide first whether the use case is a deterministic workflow, then pick one framework per language estate, add durable state when runs outlive a request, run agents on the primary cloud's runtime, confine autonomous harnesses to sandboxed sub-steps, and pass the go-live checks.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

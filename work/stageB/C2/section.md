@@ -1,6 +1,6 @@
 ## C2. Guardrails
 
-> **Executive summary.** Guardrails are the run-time checks that sit on either side of a model or agent call: they inspect what goes in (user input, retrieved documents, tool results) and what comes out (text, tool calls), and they block, transform or flag it against policy [AJ]. The original graphic has no guardrail control; its only safety-adjacent tiles are the L9 evaluation and red-teaming tools, which test before release but block nothing at run time [VF: A1-S062, A1-S068] [AJ]. Three things define the market in October 2026. First, the hyperscalers now ship broad managed services: Bedrock Guardrails covers content and prompt-attack filters, denied topics, PII, contextual grounding and Automated Reasoning [VF: A6-S072]; Azure Prompt Shields has been GA since August 2024, with Task Adherence for agent tool use in preview [VF: A6-S055]; and Google's Model Armor enforces data residency by default [VF: A6-S067, B-C2-S003]. Second, the open-source options are fragile: NeMo Guardrails is still 0.x Beta [VF: A6-S003], Meta has released no new Llama Guard, Prompt Guard or LlamaFirewall since May 2025 [VF: A6-S006, A6-S107], and Harvey announced its acquisition of Guardrails AI on 9 September 2026, after the project had retired hosted remote inference [VF: A6-S028, V2-S026, V2-S071]. Third, guardrails are moving towards agent behaviour, checking tool use and goal hijacking [VF: A6-S055, A6-S039]. **Recommendation:** own the guardrail policy and its test set; invoke guardrails from the gateway (C1) as a layered set of deterministic rules, small classifiers and, only where needed, model-based checks; and remember that a guardrail cannot make an autonomous workflow safe that should have been a deterministic one (L3) [Rec].
+> **Executive summary.** Guardrails are the run-time checks that sit on either side of a model or agent call: they inspect what goes in (user input, retrieved documents, tool results) and what comes out (text, tool calls), and they block, transform or flag it against policy [AJ]. The popular stack diagram has no guardrail control; its only safety-adjacent tiles are the L9 evaluation and red-teaming tools, which test before release but block nothing at run time [VF: A1-S062, A1-S068] [AJ]. Three things define the market in October 2026. First, the hyperscalers now ship broad managed services: Bedrock Guardrails covers content and prompt-attack filters, denied topics, PII, contextual grounding and Automated Reasoning [VF: A6-S072]; Azure Prompt Shields has been GA since August 2024, with Task Adherence for agent tool use in preview [VF: A6-S055]; and Google's Model Armor enforces data residency by default [VF: A6-S067, B-C2-S003]. Second, the open-source options are fragile: NeMo Guardrails is still 0.x Beta [VF: A6-S003], Meta has released no new Llama Guard, Prompt Guard or LlamaFirewall since May 2025 [VF: A6-S006, A6-S107], and Harvey announced its acquisition of Guardrails AI on 9 September 2026, after the project had retired hosted remote inference [VF: A6-S028, V2-S026, V2-S071]. Third, guardrails are moving towards agent behaviour, checking tool use and goal hijacking [VF: A6-S055, A6-S039]. **Recommendation:** own the guardrail policy and its test set; invoke guardrails from the gateway (C1) as a layered set of deterministic rules, small classifiers and, only where needed, model-based checks; and remember that a guardrail cannot make an autonomous workflow safe that should have been a deterministic one (L3) [Rec].
 
 ### C2.1 Responsibility
 
@@ -66,19 +66,9 @@ Each check returns allow, block or transform. NeMo Guardrails' IORails engine fo
 
 **Where the checks run.** Guardrails can run inside the application (library), as a sidecar or server, or as a managed service invoked by the gateway. The gateways all expose hooks: LiteLLM runs guardrails pre-call, during the call or post-call across chat, embeddings, MCP and A2A routes [VF: A6-S015]; Kong integrates AWS, Azure and GCP guardrail services and NeMo Guardrails [VF: A6-S017]; APIM applies Content Safety to MCP tool-call arguments and A2A payloads [VF: A6-S020]; Apigee calls Model Armor inline [VF: A6-S024]. Bedrock's `ApplyGuardrail` API applies Bedrock policies to content from any model [VF: A6-S073].
 
-```text
- user request ─► [input rules + jailbreak classifier] ─┐
-                                                       ▼
- retrieved docs / tool results ─► [chunk ─► prompt-attack classifier] ─► prompt assembly (L3)
-                                                                              │
-                                                       gateway (C1) ─► model (L1/L2)
-                                                                              │
- output ◄─ [deterministic business checks: numbers, signs, terms] ◄─ [harm / PII / topic / grounding] ◄┘
-   │            (rules: block on any mismatch)              (classifiers; judge only where needed)
-   ▼
- human review (L3 gate) ──► release        every outcome ─► trace (L9) ─► evidence (C8)
- proposed tool call ─► [task-alignment check] ─► C4 authorisation ─► tool (L4)
-```
+![C2 guardrail placement: checks on input, retrieved content, output and tool calls](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C2-1.png){width=100%}
+
+*Figure: Classifiers screen user input and every retrieved chunk before prompt assembly, classifiers and deterministic business rules screen the output before human review, tool calls pass a task-alignment check and C4 authorisation, and every outcome is traced to evidence. Editable source: `08_Graphic/diagrams/C2-1.md`.* [AJ]
 
 **Latency and cost.** Every guard adds both, and they stack [AJ]. The unit economics differ by mechanism:
 
@@ -251,38 +241,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 ### C2.9 Decision tree
 
-```text
-STEP 0 [Rec] (not optional): decide the workflow's autonomy FIRST (L3).
-  Can the task be a deterministic workflow with read-only tools and a human gate?
-  ├─ Yes → build it that way; guardrails are the second line
-  └─ No  → document why; tool authorisation (C4) and approval gates come before guardrails
+![C2 decision tree: layering guardrails after autonomy and authorisation](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C2-2.png){height=8.8in}
 
-STEP 1 [Rec]: Deterministic checks (always, in-house)
-  Business invariants (numbers, signs, terms, forbidden phrases, identifiers) → rules/comparators
-  coded by the firm, run inline as blocking output guards and in L9 CI
-
-STEP 2 [Rec]: Managed or self-hosted detectors for injection, harm and PII?
-  Where does the model run?
-  ├─ AWS          → Bedrock Guardrails (Classic tier / region-pinned for client data) via ApplyGuardrail
-  ├─ Azure        → Azure AI Content Safety (Prompt Shields on user input AND documents) via APIM
-  ├─ Google Cloud → Model Armor (strict residency on, EU template) via Apigee
-  └─ Multi-cloud or in-estate required →
-        NeMo Guardrails server (pinned) orchestrating:
-          Prompt Guard 2 (22M) on every retrieved chunk  +  a second, independent detector
-          (a managed service above, or Check Point AI Guardrails, C7)
-
-STEP 3 [Rec]: Model-based judges?
-  Only where no rule or classifier can decide (e.g. tone, policy nuance); never as the sole
-  check on numbers; calibrated against human labels (L9) before it blocks anything
-
-STEP 4 [Rec]: Agent tool use
-  Tool calls → C4 authorisation (deny by default) first;
-  task-alignment checks (Azure Task Adherence, LlamaFirewall AlignmentCheck) only as extra signal
-
-STEP 5 [Rec]: Checks before go-live
-  Attack set (OWASP LLM and Agentic 2026, multilingual) and benign set both passed?
-  Guards fail closed on timeout? Guard inference in the approved region? Override path governed?
-```
+*Figure: Decide autonomy first, always code deterministic business checks in-house, choose detectors by where the model runs, use model judges only where nothing else can decide, put C4 authorisation ahead of tool-use signals, and pass the go-live checks. Editable source: `08_Graphic/diagrams/C2-2.md`.* [AJ]
 
 ### C2.10 Lock-in classification
 
@@ -334,9 +295,9 @@ STEP 5 [Rec]: Checks before go-live
 - silently sanitise an injected document and continue as if it were trusted
 - be used to justify giving the workflow more autonomy or write access than the deterministic design needs
 
-### C2.13 Original → current → recommended
+### C2.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | **(absent).** No guardrail control; safety appears only as pre-release evaluation and red-teaming in L9 (Promptfoo, DeepEval) | Managed and open-source guardrails for input, output, grounding and agent tool use [VF: A6-S072, A6-S054, A6-S067, A6-S036] | A control-plane service invoked from the gateway: firm-owned policy and test sets, layered rules → classifiers → judges [Rec] |
 | (absent) NeMo Guardrails | 0.24.1, still 0.x Beta; IORails engine; supported microservice [VF: A6-S003, A6-S036, A6-S111] | Tactical: in-estate orchestration, pinned [Rec] |

@@ -147,15 +147,15 @@ def build(doc):
     title = inline(doc["title"])
     return ('<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>%s</title>\n<!-- Generated from %s by tools/build_stack_graphic.py. '
             'You can edit this file directly, but the Markdown is the source: re-running the builder overwrites it. -->\n<style>%s</style></head>'
-            '<body><div class="wrap">\n<h1>%s</h1>\n<div class="sub">%s</div>\n<div class="stats">%s</div>\n<div class="legend">%s</div>\n%s\n'
-            '<div class="foot">%s</div>\n<div class="small">%s</div>\n</div></body></html>\n'
+            '<body><div class="wrap">\n<div class="hdr"><div><div class="kick">The view at end of Q3 2026</div><h1>%s</h1><div class="grule"></div></div><img class="lock" src="veyan_lockup.png" alt="Veyan"></div>\n<div class="sub">%s</div>\n<div class="stats">%s</div>\n<div class="legend">%s</div>\n%s\n'
+            '<div class="foot">%s</div>\n<div class="small"><img src="veyan_mark.png" alt="">%s</div>\n</div></body></html>\n'
             % (title, os.path.basename(MD), CSS, title, inline(M.get("subtitle", "")), stats, legend, "\n".join(body), "".join(foot), source)), cnt
 
 CSS = """
-:root{--navy:#1B2A41;--teal:#0E7C7B;--teal2:#E6F3F2;--amber:#C9822B;--ink:#1F2933;--mute:#5B6B7A;--line:#D5DEE6;--bg:#F6F8FA}
+:root{--navy:#0B1B33;--teal:#2E6DA4;--teal2:#E8F0F8;--amber:#D4A13A;--ink:#1F2933;--mute:#5B6B7A;--line:#D5DEE6;--bg:#F6F8FA}
 *{box-sizing:border-box}body{margin:0;background:#fff;font-family:Inter,Arial,sans-serif;color:var(--ink);width:1600px}
 .wrap{padding:36px 40px 28px}
-h1{font-size:46px;letter-spacing:-.5px;margin:0;color:var(--navy);font-weight:800}
+h1{font-size:46px;margin-top:6px!important;letter-spacing:-.5px;margin:0;color:var(--navy);font-weight:800}
 .sub{font-size:19px;color:var(--mute);margin-top:6px}
 .stats{display:flex;gap:10px;margin:16px 0 12px;flex-wrap:wrap}
 .stat{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px}
@@ -178,7 +178,7 @@ h1{font-size:46px;letter-spacing:-.5px;margin:0;color:var(--navy);font-weight:80
 .tile{border-radius:9px;padding:7px 9px 8px;min-height:62px;position:relative}
 .tile .nm{font-weight:700;font-size:15px;line-height:1.15}
 .tile .nt{font-size:12px;line-height:1.25;margin-top:2px}
-.tile.s{background:var(--teal);color:#fff}.tile.s .nt{color:#DDF1EF}
+.tile.s{background:var(--teal);color:#fff}.tile.s .nt{color:#DCE8F5}
 .tile.t{background:#fff;border:2px solid var(--teal);color:var(--ink)}.tile.t .nt{color:var(--mute)}
 .tile.e{background:#FFFBF4;border:2px dashed var(--amber);color:var(--ink)}.tile.e .nt{color:#8A5A1E}
 .tile.x{background:#EEF1F4;border:1px solid #C3CCD5;color:#7D8B98}.tile.x .nm{text-decoration:line-through}
@@ -205,7 +205,8 @@ h1{font-size:46px;letter-spacing:-.5px;margin:0;color:var(--navy);font-weight:80
 .box{border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:13.5px;line-height:1.45;background:#fff}
 .box h3{margin:0 0 6px;font-size:16px;color:var(--navy)}
 .box ul{margin:0;padding-left:18px}
-.small{font-size:12px;color:var(--mute);margin-top:12px}"""
+.small{font-size:12px;color:var(--mute);margin-top:12px}.hdr{display:flex;justify-content:space-between;align-items:flex-start}.lock{height:70px}.kick{font-size:14px;letter-spacing:5px;color:#D4A13A;text-transform:uppercase}.grule{width:64px;height:3px;background:#D4A13A;margin:12px 0 4px}.small img{height:20px;vertical-align:middle;margin-right:8px}
+"""
 
 if "--sync" in sys.argv: sync(MD)
 page, cnt = build(parse(MD))

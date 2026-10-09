@@ -1,0 +1,26 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>C8 decision tree: choosing the governance workflow tool</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">C8 decision tree: choosing the governance workflow tool</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  S0["STEP 0 (not optional,&lt;br/&gt;no product decision):&lt;br/&gt;Write the firm's GenAI model-risk&lt;br/&gt;standard (scope, tiers, validation&lt;br/&gt;depth, triggers, evidence pack,&lt;br/&gt;retention), to SS1/23 quality,&lt;br/&gt;whatever your jurisdiction.&lt;br/&gt;Build the firm-owned evidence&lt;br/&gt;store and inventory schema&lt;br/&gt;(use case = governed unit,&lt;br/&gt;pinned version bundle,&lt;br/&gt;per-output evidence packs&lt;br/&gt;keyed by trace ID).&lt;br/&gt;Emit OpenLineage from ingestion&lt;br/&gt;and index-build pipelines,&lt;br/&gt;with firm GenAI facets."]:::note
+  S0 --&gt; Q1{"STEP 1: Which governance&lt;br/&gt;workflow tool?&lt;br/&gt;Is there a formal second-line&lt;br/&gt;MRM function that already&lt;br/&gt;validates models?"}
+  Q1 -- "yes" --&gt; Q1a{"Do you want GenAI&lt;br/&gt;in the same validation&lt;br/&gt;workflow as other models?"}
+  Q1a -- "yes" --&gt; T1["ValidMind&lt;br/&gt;(obtain SOC 2 Type II first)&lt;br/&gt;(alt: watsonx.governance if&lt;br/&gt;IBM is already in the estate)"]
+  Q1a -- "no" --&gt; T2["Keep the MRM tool;&lt;br/&gt;add a policy/registry&lt;br/&gt;tool below"]
+  Q1 -- "no" --&gt; Q1b{"What is the&lt;br/&gt;programme led by?"}
+  Q1b -- "Policy and compliance&lt;br/&gt;(AI Act classification,&lt;br/&gt;third-party AI)" --&gt; T3["Credo AI&lt;br/&gt;(EU SaaS or self-hosted)"]
+  Q1b -- "Data governance&lt;br/&gt;(Collibra is the&lt;br/&gt;catalogue of record)" --&gt; T4["Collibra AI Governance"]
+  Q1b -- "Agent runtime on IBM&lt;br/&gt;(watsonx Orchestrate,&lt;br/&gt;OpenPages)" --&gt; T5["watsonx.governance"]
+  Q1b -- "Need enforcement in&lt;br/&gt;the lifecycle, self-hosted" --&gt; T6["ModelOp&lt;br/&gt;(full due diligence)"]
+  T1 &amp; T2 &amp; T3 &amp; T4 &amp; T5 &amp; T6 --&gt; Q2{"STEP 2: Residency and&lt;br/&gt;hosting of governance&lt;br/&gt;records&lt;br/&gt;Must risk records stay&lt;br/&gt;in-estate or in UK/EU?"}
+  Q2 -- "yes" --&gt; H1["Self-hosted (Credo AI, ModelOp,&lt;br/&gt;watsonx.governance software),&lt;br/&gt;or ValidMind VPV,&lt;br/&gt;or Credo AI on Azure EU"]
+  Q2 -- "no" --&gt; H2["SaaS acceptable;&lt;br/&gt;confirm regions in contract"]
+  H1 &amp; H2 --&gt; S3["STEP 3: Checks before&lt;br/&gt;any tool goes live&lt;br/&gt;SOC 2 Type II and ISO 27001&lt;br/&gt;scope letters naming&lt;br/&gt;the product?&lt;br/&gt;Export of inventory,&lt;br/&gt;documentation and evidence&lt;br/&gt;in an open format, tested?&lt;br/&gt;Inventory reconciled against&lt;br/&gt;gateway (C1) traffic?&lt;br/&gt;Evidence packs written to&lt;br/&gt;the firm's archive, not only&lt;br/&gt;to the vendor?"]:::note
+</pre><div class="c">The model-risk standard, evidence store and lineage come first whatever is chosen; the existence of a second-line MRM function and who leads the programme decide the tool, and residency decides its hosting.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

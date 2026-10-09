@@ -4,8 +4,10 @@
 Usage: python3 -I tools/build_master.py <repo_root> [--no-pdf]
 
 Order (plan §16): title & disclosure · Executive summary (synthesis Part I) · Method & quality rules ·
-Nine layers 9→1 · Controls C1–C8 · remaining synthesis Parts (hypotheses … final stack) ·
-LinkedIn series · Annex: What changed since the original diagram.
+Nine layers L1→L9 · Controls C1–C8 · remaining synthesis Parts (hypotheses … what changed since the popular stack diagram) ·
+Annex: sources, data and companion documents. The LinkedIn series and the tile-by-tile what-changed table each have
+one home elsewhere (07_LinkedIn, 05_Data/what_changed.xlsx) and are not repeated here. Each LinkedIn post visual
+(08_Graphic/linkedin/P<NN>.png) is placed in the chapter or Part it illustrates (VISUALS below).
 Writes:
   Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.md   (full inline tags)
   Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.docx (footnote-style tags, CP5-1)
@@ -18,7 +20,7 @@ from tagfmt import load_index, convert_markdown
 root = sys.argv[1]; os.chdir(root)
 OUT = "Enterprise_GenAI_Stack_Oct2026/01_Report"
 os.makedirs(OUT, exist_ok=True)
-LAYERS = ["L9", "L8", "L7", "L6", "L5", "L4", "L3", "L2", "L1"]
+LAYERS = ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9"]  # L1 -> L9 (user decision, 9 Oct 2026)
 CTRLS = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]
 
 def read(p):
@@ -33,6 +35,34 @@ def demote(md, levels=1):
             line = "#" * levels + line
         out.append(line)
     return "\n".join(out)
+
+# --- LinkedIn post visuals, placed where they illustrate the text (P00, the series map, stays in the LinkedIn document)
+VDIR = "Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin"
+CHAPTER_VIS = {"L1": "P01", "C6": "P02", "L2": "P03", "C1": "P04", "L3": "P05", "C2": "P06", "L4": "P07", "C4": "P08", "L5": "P09",
+               "L6": "P11", "C7": "P12", "L7": "P13", "C5": "P14", "L8": "P15", "C3": "P16", "C8": "P18"}
+# synthesis: (visual, heading the figure goes immediately before)
+SYN_VIS = [("P10", "## V.1 "), ("P19", "## VI.3 "), ("P20", "# Part VIII"), ("P21", "# Part IX"), ("P22", "## IX.4 "),
+           ("P23", "# Part X:"), ("P24", "# Part XII")]
+
+def visual(pid, width="4.8in"):
+    src = os.path.join(VDIR, pid + ".md")
+    if not os.path.exists(src) or not os.path.exists(os.path.join(VDIR, pid + ".png")):
+        return ""
+    s = open(src, encoding="utf-8").read()
+    title = re.search(r"(?m)^#\s+(.+)$", s).group(1).strip()
+    cap = (re.search(r"(?m)^Caption:\s*(.+)$", s) or [None, ""])[1].strip()
+    return ("![%s](%s/%s.png){width=%s}\n\n*Figure: %s. %s Editable source: `08_Graphic/linkedin/%s.md`.* [AJ]\n\n"
+            % (title, VDIR, pid, width, title.rstrip("."), cap, pid))
+
+def place_chapter_visual(code, md):
+    pid = CHAPTER_VIS.get(code)
+    fig = visual(pid) if pid else ""
+    if code == "L9":  # the L9 card contrasts with the popular stack diagram, so it lives under 9.13 (house convention)
+        fig = visual("P17")
+        return re.sub(r"(?m)^(### 9\.13 [^\n]*\n)", lambda m: m.group(1) + "\n" + fig, md, count=1) if fig else md
+    if not fig:
+        return md
+    return re.sub(r"(?m)^(?=### %s\.1 )" % re.escape(code[1:] if code.startswith("L") else code), fig, md, count=1)
 
 # --- stats for the method chapter
 prods = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/products.json", encoding="utf-8"))
@@ -62,36 +92,44 @@ parts = [p for p in parts if p.strip().startswith("# ")]
 exec_part = next((p for p in parts if re.match(r"# .*(Executive summary)", p, re.I)), "")
 # synthesis preamble (disclosure + CP4 tier-change table) goes up front, before the executive summary
 pre_part = next((p for p in parts if not re.match(r"# Part ", p)), "")
+pre_orig = pre_part
 if pre_part:
     pre_part = re.sub(r"^# .*\n", "# About this document: disclosure and final tiers\n", pre_part, count=1)
     pre_part = re.sub(r"\n---\s*$", "\n", pre_part)
     pre_part = re.sub(r"(?ms)^\| \| \|\n.*?\n\n", "", pre_part, count=1)  # drop the internal metadata table (work/ paths)
-rest = [p for p in parts if p is not exec_part and p is not pre_part and not (pre_part and p.startswith("# Enterprise GenAI"))]
+rest = [p for p in parts if p is not exec_part and p is not pre_orig]
 
 doc = []
-doc.append("---\ntitle: \"Enterprise GenAI Full-Stack Architecture\"\nsubtitle: \"Reference architecture, product assessment and regulated-FS view, October 2026\"\ndate: \"%s\"\n---\n" % "October 2026")
-doc.append("> **Status:** final package (CP5). Personal research; not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Method.\n")
+doc.append("---\ntitle: \"The Enterprise GenAI Stack\"\nsubtitle: \"The view at end of Q3 2026: reference architecture, product assessment and regulated-FS view\"\ndate: \"%s\"\n---\n" % "Veyan · evidence as of 9 October 2026")
+doc.append("![Veyan](brand/veyan_lockup.png){width=2.6in}\n")
+doc.append("> **The view at end of Q3 2026.** The popular stack diagram was the inspiration and baseline; this document presents the stack as it stands at the end of Q3 2026, and Part XII sets out what changed since the diagram. Not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Part II.\n")
 if pre_part:
     doc.append(pre_part)
 if exec_part:
     doc.append(exec_part)
 doc.append(re.sub(r"^# Method", "# Part II: Method", method, count=1))
-doc.append("# The nine layers (analysed 9 → 1)\n")
+doc.append("# The nine layers (L1 → L9)\n")
 for L in LAYERS:
-    doc.append(read("work/stageB/%s/section.md" % L))
+    doc.append(place_chapter_visual(L, read("work/stageB/%s/section.md" % L)))
 doc.append("# Cross-cutting enterprise controls (C1–C8)\n")
 for C in CTRLS:
-    doc.append(read("work/stageB/%s/section.md" % C))
-doc.extend(rest)
-li = read("work/stageC2/linkedin_series.md")
-if li:
-    if not li.lstrip().startswith("# "):
-        doc.append("# LinkedIn thought-leadership series\n")
-    doc.append(li)
-wc = read("checkpoints/CP1/02_What_Changed_Since_Original_Diagram.md")
-if wc:
-    doc.append("# Annex A: What changed since the original diagram\n" + demote(re.sub(r"(?m)^# .*\n", "", wc, count=1), 1))
-doc.append("# Annex B: Sources and data\n\nAll sources: `06_References/bibliography.xlsx` (sources and claim map). Product dataset: `05_Data/products.xlsx` / `products.json`. Product deep dives for every record: `02_Appendix/Product_Technical_Appendix`. Scores: `05_Data/products.xlsx` (sheet *products*).\n")
+    doc.append(place_chapter_visual(C, read("work/stageB/%s/section.md" % C)))
+rest_md = "\n\n".join(rest)
+for pid, head in SYN_VIS:
+    fig = visual(pid)
+    if fig and head in rest_md:
+        rest_md = rest_md.replace("\n" + head, "\n" + fig + head, 1)
+doc.append(rest_md)
+doc.append("# Annex: Sources, data and companion documents\n\nEach item below has one home; this document does not repeat it [AJ].\n\n"
+           "| Item | Where it lives |\n|---|---|\n"
+           "| All sources, with access dates and the claim map | `06_References/bibliography.xlsx` |\n"
+           "| Product dataset (140 records, fact cells and scores) | `05_Data/products.xlsx` and `products.json` |\n"
+           "| Product fact sheets for every record | `02_Appendix/Product_Technical_Appendix` |\n"
+           "| Tile-by-tile table: what changed since the popular stack diagram | `05_Data/what_changed.xlsx` (summary in Part XII) |\n"
+           "| Regulatory and standards records | `05_Data/regulatory_facts.json` |\n"
+           "| LinkedIn series (introduction and 24 posts, with visuals) | `07_LinkedIn/LinkedIn_Series.docx` and `Content_Calendar.xlsx` |\n"
+           "| Editable sources of every figure | `08_Graphic/` (stack graphic, one-page architecture, `diagrams/`, `linkedin/`) |\n"
+           "| Executive deck | `03_Slides/Executive_Deck.pptx` |\n")
 full = "\n\n".join(d for d in doc if d)
 open(os.path.join(OUT, "Master_Architecture.md"), "w", encoding="utf-8").write(full)
 

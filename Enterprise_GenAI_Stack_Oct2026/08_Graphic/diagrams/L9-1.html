@@ -1,0 +1,27 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L9 observability: one firm-owned telemetry pipeline and a closed evaluation loop</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L9 observability: one firm-owned telemetry pipeline and a closed evaluation loop</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  C1["C1 gateway"] --&gt; SP
+  L57["L5-L7 retrieval"] --&gt; SP
+  L4["L4 tools"] --&gt; SP
+  L3["L3 agent"] --&gt; SP
+  L12["L1/L2 model"] --&gt; SP
+  SP["OTel GenAI / OpenInference spans"] --&gt; COL["OTel Collector (firm-owned)&lt;br/&gt;redact (C3) · route · sample"]
+  COL --&gt; POR["Platform of record&lt;br/&gt;traces, datasets, evals,&lt;br/&gt;prompts, annotations"]
+  COL --&gt; APM["APM (ops alerting)&lt;br/&gt;latency, errors,&lt;br/&gt;cost dashboards"]
+  COL --&gt; ARC["Evidence archive&lt;br/&gt;WORM / records policy, C8"]
+  FB["Reviewer edits,&lt;br/&gt;user feedback"] --&gt; POR
+  POR --&gt; OE["Online evaluators (sampled)"]
+  OE --&gt; FL["Failures"]
+  FL --&gt; CID["CI datasets"]
+  CID --&gt; OFF["Offline evals + red-team"]
+  OFF --&gt; RG["Release gate"]
+</pre><div class="c">The model, agent, tool and retrieval layers and the C1 gateway emit OTel GenAI or OpenInference spans into a firm-owned OTel Collector that redacts, routes and samples them to a platform of record, APM and an evidence archive, while sampled online evaluation turns failures into CI datasets for offline evals and red-teaming ahead of the release gate.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

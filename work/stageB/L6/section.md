@@ -1,6 +1,6 @@
 ## 6. Retrieval and knowledge stores (vector databases)
 
-> **Executive summary.** This layer stores the vectors, text and metadata that an agent searches, and returns a small, permitted, relevant set of passages. It must do so fast, under filters, for many tenants, and with the same security and records discipline as any other store of client data [AJ]. Four things have changed since the original graphic. First, hybrid retrieval is now standard. turbopuffer ranks by vectors and BM25 [VF: A2-S056], Chroma Cloud offers vector, hybrid and full-text search [VF: A2-S060], Milvus ships BM25 [VF: A2-S054, A2-S117], and Elasticsearch, MongoDB, Qdrant and Pinecone all fuse sparse and dense results [VF: A2-S133, A2-S141, A2-S103, A2-S101]. Second, general-purpose databases have absorbed vector search: pgvector reached 0.8.7 on 1 October 2026 [VF: V1-S020, V1-S022], and MongoDB Vector Search is GA on self-managed Community and Enterprise Advanced as well as Atlas [VF: A2-S137, V1-S035]. Third, vectors are moving onto object storage: Amazon S3 Vectors has been GA since December 2025 [VF: A2-S081, V1-S030], Milvus 3.0 is "lake-native" [VF: A2-S118], and turbopuffer keeps all durable state in object storage [VF: A2-S124]. Fourth, vendors are repositioning above the store: Pinecone now sells Nexus, a "knowledge engine for agents" (GA 6 August 2026) [VF: A2-S073, V1-S029]. The term "vector database" now describes a feature more than a product category [AJ]. **Recommendation:** treat this layer as a retrieval and knowledge store that is always a *derived index*, never the system of record. Start with vectors inside the database or search engine you already run (PostgreSQL with pgvector, Elasticsearch or MongoDB). Move to a dedicated engine (Qdrant or Milvus, self-hosted or in your own cloud account) only when scale, filtered latency or tenant isolation demand it. Enforce entitlements as filters applied before ranking, in every case [Rec].
+> **Executive summary.** This layer stores the vectors, text and metadata that an agent searches, and returns a small, permitted, relevant set of passages. It must do so fast, under filters, for many tenants, and with the same security and records discipline as any other store of client data [AJ]. Four things have changed since the popular stack diagram. First, hybrid retrieval is now standard. turbopuffer ranks by vectors and BM25 [VF: A2-S056], Chroma Cloud offers vector, hybrid and full-text search [VF: A2-S060], Milvus ships BM25 [VF: A2-S054, A2-S117], and Elasticsearch, MongoDB, Qdrant and Pinecone all fuse sparse and dense results [VF: A2-S133, A2-S141, A2-S103, A2-S101]. Second, general-purpose databases have absorbed vector search: pgvector reached 0.8.7 on 1 October 2026 [VF: V1-S020, V1-S022], and MongoDB Vector Search is GA on self-managed Community and Enterprise Advanced as well as Atlas [VF: A2-S137, V1-S035]. Third, vectors are moving onto object storage: Amazon S3 Vectors has been GA since December 2025 [VF: A2-S081, V1-S030], Milvus 3.0 is "lake-native" [VF: A2-S118], and turbopuffer keeps all durable state in object storage [VF: A2-S124]. Fourth, vendors are repositioning above the store: Pinecone now sells Nexus, a "knowledge engine for agents" (GA 6 August 2026) [VF: A2-S073, V1-S029]. The term "vector database" now describes a feature more than a product category [AJ]. **Recommendation:** treat this layer as a retrieval and knowledge store that is always a *derived index*, never the system of record. Start with vectors inside the database or search engine you already run (PostgreSQL with pgvector, Elasticsearch or MongoDB). Move to a dedicated engine (Qdrant or Milvus, self-hosted or in your own cloud account) only when scale, filtered latency or tenant isolation demand it. Enforce entitlements as filters applied before ranking, in every case [Rec].
 
 ### 6.1 Responsibility
 
@@ -65,28 +65,9 @@ The layer also holds a copy of the firm's most sensitive unstructured content in
 - *Pre-filtering or filter-aware traversal* restricts the search to permitted candidates as it runs. Qdrant added ACORN-based filtered search in 1.16 [VF: A2-S103]. pgvector 0.8.0 added iterative index scans and better cost estimation for index selection when filtering [VF: V1-S020]. Elastic reports DiskBBQ at least three times faster with restrictive filters in 9.4 [R: A2-S133].
 - *Partitioning* gives each tenant its own namespace, collection or index, so the filter becomes an address. Pinecone and turbopuffer route every query to a namespace [VF: A2-S051, A2-S056], turbopuffer isolates namespaces as prefixes in object storage [VF: A2-S124], Qdrant has tiered multitenancy with tenant promotion [VF: A2-S103], and Chroma scopes access control to the tenant, with databases beneath it [VF: B-L6-S008].
 
-```text
-WRITE (L8 -> L7 -> L6) [AJ]
-  approved doc --> chunk + metadata {doc_id, version, fund_id, client_id,
-                   classification, region, retention_until, embed_model_version}
-            --> dense vector (+ sparse terms)
-            --> STORE: partition = tenant (namespace / collection / schema)
-                       index    = ANN (HNSW / IVF / centroid / DiskANN-type) + BM25
-                       payload  = text or pointer to source of truth (L8)
+![L6 vector store: write path, query path and lifecycle](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L6-1.png){width=100%}
 
-QUERY (L3 -> C4 -> L6 -> L7 -> L3) [AJ]
-  caller identity --> C4 entitlements {fund_ids, client_ids, max_classification}
-            --> L6: select partition(s) the caller may use
-                    filter INSIDE the search (never after ranking)
-                    ANN + BM25 --> fusion (RRF / linear) --> top-N candidates + IDs
-            --> L7 reranker --> top-k passages + provenance
-            --> L3 prompt assembly;  retrieval log (IDs, versions, scores) --> C8 / L9
-
-LIFECYCLE [Rec]
-  source delete / retraction / erasure --> delete by ID --> compaction / vacuum
-  embedding model change --> shadow index --> evaluate (L9) --> cut over --> drop old
-  backup = rebuild-from-source (primary) + store snapshot (secondary)
-```
+*Figure: Content enters the store tagged with tenant and version metadata, every query is filtered by C4 entitlements inside the search rather than after ranking, and deletion, embedding model change and backup each follow a set lifecycle path. Editable source: `08_Graphic/diagrams/L6-1.md`.* [AJ]
 
 **Storage economics.** Memory-resident graph indexes give low latency at a high RAM cost [AJ]. Quantisation and disk-based indexes trade some recall for cost: Elastic's BBQ has been the default since 9.1 [VF: A2-S133], Qdrant added TurboQuant quantisation and a low-memory mode in 1.18 [VF: A2-S102], and Weaviate previews 4-bit rotational quantisation [VF: A2-S110]. Object-storage-first designs push the trade further. turbopuffer reports a cold-query p50 of 874 ms against 14 ms cached on 1M documents [R: A2-S124]. S3 Vectors has no provisioned compute and is priced per GB stored, per PUT and per query [VF: A2-S087]. Vendor latency figures are context, not decision inputs [AJ].
 
@@ -327,66 +308,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 The central question is whether a dedicated vector database is needed at all [AJ]. Most regulated asset-management corpora (commentaries, research notes, policies, style guides) are in the range that an existing database or search engine handles, and every additional store is another copy of confidential content to secure, retain, back up and exit [AJ].
 
-```text
-STEP 0 [Rec]: Non-negotiables, whatever the store
-  - Source of truth for approved content lives in L8/C3, not in the store.
-  - Entitlements from C4 are applied as filters INSIDE the search; no unfiltered fallback.
-  - Every chunk carries doc_id, version, tenant ids, classification, region,
-    retention_until and embed_model_version; raw text (or pointer) kept.
-  - Rebuild-from-source is tested twice a year; it is the primary backup and exit route.
+![L6 decision tree: whether a dedicated vector database is needed, and which](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L6-2.png){height=8.8in}
 
-STEP 1 [Rec]: Do you need a dedicated vector database at all?
-  Is the content already in, or naturally owned by, an operated database or search platform?
-  ├─ PostgreSQL is a firm standard
-  │     → pgvector on the managed PostgreSQL service (UK/EU region),
-  │       entitlement tables joined in SQL; track host pgvector version vs CVEs
-  ├─ Elastic (or OpenSearch) is an operated platform, or the corpus is lexical-heavy
-  │     (ISINs, tickers, fund codes, share-class names)
-  │     → Elasticsearch hybrid (BM25 + vectors, RRF) with document-level security
-  │       (OpenSearch if licence policy requires Apache-2.0)
-  ├─ MongoDB is the system of record for these documents
-  │     → MongoDB Vector Search on dedicated Search Nodes (CMK), Voyage features off
-  │       until GA and Geography-scoped
-  ├─ AWS-centred, Bedrock Knowledge Bases, large or rarely queried corpus
-  │     → S3 Vectors as the cost tier; OpenSearch in front if hybrid or low
-  │       latency is needed; CloudTrail data events on
-  └─ None of these → go to STEP 2
-
-STEP 2 [Rec]: Which trigger makes a dedicated engine necessary?
-  Proceed only if at least one is evidenced in a load test on your own data:
-  (a) filtered p95 latency or filtered recall fails the budget in the existing platform
-  (b) tenants must be isolated at scale (hundreds or more clients/funds with separate
-      keys, quotas or deletion), beyond what schemas or indexes can manage cleanly
-  (c) corpus size or write rate makes the existing platform's RAM or ops cost
-      disproportionate
-  No trigger → stay in STEP 1.
-
-STEP 3 [Rec]: Dedicated engine, by where it must run
-  Must run in your own estate or air-gapped?
-  ├─ Yes → Qdrant (self-host or Private Cloud; collection-scoped JWT keys)
-  │        or Milvus (Standalone/Distributed; LF AI & Data governance) for very large corpora
-  └─ No, but data plane must be in your cloud account (BYOC)?
-       ├─ Open-source engine preferred (exit by self-hosting)
-       │     → Qdrant Hybrid Cloud, or Zilliz Cloud BYOC (Milvus)
-       ├─ Managed, proprietary, strongest control set → Pinecone Enterprise BYOC
-       │     (Dedicated Read Nodes only; Nexus is a separate decision)
-       └─ Very many tenants, object-storage economics, per-tenant keys
-             → turbopuffer BYOC (author conflict disclosed; alternative: Zilliz BYOC)
-  Vendor-hosted SaaS acceptable (non-confidential corpora)?
-       → any of the above in a UK/EU region; Weaviate if hybrid plus ISO 27001
-         managed service matters and the licence position is settled
-
-STEP 4 [Rec]: Prototypes and harnesses
-  Notebook, evaluation harness, single-user tool, non-confidential data
-       → Chroma (embedded) or pgvector in a local container. Never promoted to
-         production without returning to STEP 1.
-
-STEP 5 [Rec]: Checks before go-live
-  Leak test per tenant passes (zero)?  Filtered recall within tolerance?
-  Deletion canary within SLA?  Rebuild time inside exit-plan tolerance?
-  All copies (vectors, text, backups, caches) in approved regions?
-  Store recorded in the outsourcing / ICT register with an exit plan?
-```
+*Figure: Start from the database or search platform you already operate, move to a dedicated engine only when a load test on your own data evidences a trigger, then choose that engine by where it must run and check it before go-live. Editable source: `08_Graphic/diagrams/L6-2.md`.* [AJ]
 
 ### 6.10 Lock-in classification
 
@@ -455,9 +379,9 @@ STEP 5 [Rec]: Checks before go-live
 - hold the only copy of an approved commentary or style guide
 - run an unauthenticated store, or hold client content in a region the residency policy does not allow
 
-### 6.13 Original → current → recommended
+### 6.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | "Vector DBs" layer with ten tiles | Vectors are a feature of databases, search engines and object storage, and some vendors sell knowledge engines above the store [VF: A2-S137, A2-S133, A2-S081, A2-S073] | "Retrieval and knowledge stores": a derived-index layer with entitlement filtering, tenant isolation and rebuild-from-source as defining duties [Rec] |
 | Postgres + pgvector | pgvector 0.8.7 (1 October 2026), two 2026 CVE fixes, managed on all three hyperscalers [VF: V1-S020, V1-S022, B-L6-S004, B-L6-S005] | Strategic default where PostgreSQL is standard [Rec] |

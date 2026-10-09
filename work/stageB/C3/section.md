@@ -1,6 +1,6 @@
 ## C3. DLP and PII protection
 
-> **Executive summary.** This control finds, classifies and transforms sensitive data wherever it can enter or leave a GenAI system: at ingestion, in prompts, in tool results, in model outputs, in memory and in traces [AJ]. The original graphic has no such control; it shows ingestion, memory, retrieval and evaluation boxes that each copy data, and none of them says what happens to client identifiers [AJ]. Four things have changed in the candidate products. Presidio is no longer a Microsoft project: it is community-governed under the "Data Privacy Stack" organisation, MIT-licensed, and states that it is "not owned or operated by a commercial entity" [VF: A6-S040, V2-S030]. Microsoft folded "DSPM for AI" into a unified Purview Data Security Posture Management, generally available in May 2026, which needs Microsoft 365 E5 or the Purview Suite [VF: A6-S090, A6-S091, V2-S036]. Google's Sensitive Data Protection (formerly Cloud DLP) is positioned for GenAI prompts and responses and underpins Model Armor's sensitive-data screening [VF: A6-S066, A6-S067]. Protegrity's AI Team Edition is still documented as Tech Preview and deploys on AWS only, and Skyflow sells an "LLM Privacy Vault" with EU vaults, with no funding round verified after March 2024 [VF: A6-S093, A6-S095, A6-S096]. Meanwhile, DLP has started to appear inside gateways and guardrails: Cloudflare AI Gateway, Kong AI Gateway, Bedrock Guardrails and Model Armor all inspect prompts or responses for sensitive data [VF: A6-S052, A6-S016, A6-S072, A6-S067]. **Recommendation:** build one firm-owned privacy service (detect, transform and, under policy, re-identify) and call it from every enforcement point, rather than buying a different detector per layer. Use Presidio as the in-estate detection engine, with Google Sensitive Data Protection as the managed engine in a Google Cloud estate. Add a vault or tokenisation platform (Protegrity, Skyflow) only where reversible pseudonymisation at scale is required, and use Purview DSPM for posture over Microsoft 365 Copilot and SaaS AI apps in a Microsoft estate [Rec].
+> **Executive summary.** This control finds, classifies and transforms sensitive data wherever it can enter or leave a GenAI system: at ingestion, in prompts, in tool results, in model outputs, in memory and in traces [AJ]. The popular stack diagram has no such control; it shows ingestion, memory, retrieval and evaluation boxes that each copy data, and none of them says what happens to client identifiers [AJ]. Four things have changed in the candidate products. Presidio is no longer a Microsoft project: it is community-governed under the "Data Privacy Stack" organisation, MIT-licensed, and states that it is "not owned or operated by a commercial entity" [VF: A6-S040, V2-S030]. Microsoft folded "DSPM for AI" into a unified Purview Data Security Posture Management, generally available in May 2026, which needs Microsoft 365 E5 or the Purview Suite [VF: A6-S090, A6-S091, V2-S036]. Google's Sensitive Data Protection (formerly Cloud DLP) is positioned for GenAI prompts and responses and underpins Model Armor's sensitive-data screening [VF: A6-S066, A6-S067]. Protegrity's AI Team Edition is still documented as Tech Preview and deploys on AWS only, and Skyflow sells an "LLM Privacy Vault" with EU vaults, with no funding round verified after March 2024 [VF: A6-S093, A6-S095, A6-S096]. Meanwhile, DLP has started to appear inside gateways and guardrails: Cloudflare AI Gateway, Kong AI Gateway, Bedrock Guardrails and Model Armor all inspect prompts or responses for sensitive data [VF: A6-S052, A6-S016, A6-S072, A6-S067]. **Recommendation:** build one firm-owned privacy service (detect, transform and, under policy, re-identify) and call it from every enforcement point, rather than buying a different detector per layer. Use Presidio as the in-estate detection engine, with Google Sensitive Data Protection as the managed engine in a Google Cloud estate. Add a vault or tokenisation platform (Protegrity, Skyflow) only where reversible pseudonymisation at scale is required, and use Purview DSPM for posture over Microsoft 365 Copilot and SaaS AI apps in a Microsoft estate [Rec].
 
 ### C3.1 Responsibility
 
@@ -70,20 +70,9 @@ GenAI multiplies copies of data [AJ]. One analyst question can place the same cl
 
 4. **Re-identify under policy.** After the model returns, placeholders are checked (none altered, none invented) and restored only for a principal entitled to see them, with the decision logged [AJ].
 
-```text
-                    ┌──────────────── Privacy service (firm-owned API) ────────────────┐
-                    │ policy (classes → action per destination) · detectors · token keys │
-                    │ (KMS/HSM, C7) · audit log (C8) · metrics (L9)                       │
-                    └───▲──────────▲───────────▲───────────▲───────────▲──────────▲───────┘
-                        │E1        │E2         │E3         │E4         │E5        │E6
-  sources ─► L8 ingest ─┘   prompt ─┘  L4 tool ─┘  model   ─┘  L5 memory ─┘  OTel   ─┘
-             classify,      at C1      results     output       writes        Collector
-             tag chunks     gateway    in context  check +      (no raw IDs)  redaction
-                            tokenise               re-identify                 (L9)
-                                │
-                                ▼
-                     external model (L1/L2): sees CLIENT_A, ACCT_7, never the values
-```
+![C3 enforcement points: one firm-owned privacy service called at six points](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C3-1.png){width=100%}
+
+*Figure: Ingestion, prompt, tool results, model output, memory writes and trace export all call the same firm-owned privacy service, so the external model sees only placeholders such as CLIENT_A and ACCT_7, never the values. Editable source: `08_Graphic/diagrams/C3-1.md`.* [AJ]
 
 **Engine options behind the service.** An in-estate library (Presidio) keeps text inside the firm's boundary [VF: A6-S068]. A managed DLP API (Sensitive Data Protection) sends text to the cloud provider's service and is billed per GiB inspected [VF: A6-S065]. A vault (Skyflow) stores the sensitive values with the vendor and returns tokens [VF: A6-S081]. These are three different trust models, and the choice is a residency decision before it is a feature decision [AJ].
 
@@ -239,41 +228,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 ### C3.9 Decision tree
 
-```text
-STEP 0 [Rec] (not optional): one firm-owned privacy-service API (detect / transform /
-re-identify), one policy (entity classes → action per destination), keys in the firm's
-KMS/HSM or Vault (C7), called at E1 ingestion, E2 prompt, E3 tool results, E4 output,
-E5 memory writes, E6 trace export.
+![C3 decision tree: choosing detection and transformation behind one privacy API](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C3-2.png){height=8.8in}
 
-STEP 1 [Rec]: Detection engine behind the API
-  May raw client text leave the estate for inspection?
-  ├─ No  → Presidio in-estate + firm recognisers (client codes, account numbers);
-  │        second detector on samples for residual-leakage KPI
-  └─ Yes → Is Google Cloud the data platform?
-           ├─ Yes → Sensitive Data Protection (pinned region, KMS-wrapped keys);
-           │        Presidio as the in-estate pre-filter for "must not leave" classes
-           └─ No  → Presidio; or the cloud guardrail's PII filter where already in the
-                    gateway path (e.g. Bedrock Guardrails on AWS), behind the same API
-
-STEP 2 [Rec]: Transformation
-  Does anyone need the original value back after the model call?
-  ├─ No  → redact / mask / bucket in the privacy service
-  └─ Yes → Volume and number of applications?
-           ├─ One or few apps   → consistent per-conversation placeholders; map held
-           │                      in the firm's store, keys in KMS; deterministic check
-           │                      before re-identification
-           ├─ Already a Protegrity customer → Protegrity policies and tokens (core
-           │                      platform; AI Team Edition only after GA)
-           └─ Many apps, per-region vaults acceptable as a processor → Skyflow (EU vault)
-
-STEP 3 [Rec]: Posture over SaaS AI (Copilot, ChatGPT Enterprise)
-  Microsoft 365 E5 / Purview Suite already licensed? → Purview DSPM
-  Otherwise → CASB/SSE tooling (outside this control's scope) plus usage policy
-
-STEP 4 [Rec]: Checks before go-live
-  Recall per class ≥ target on the firm's test set?  Output inspection on?
-  Collector redaction on?  Erasure runbook covers memory, traces, eval sets, caches?
-```
+*Figure: Build one firm-owned privacy-service API first, then choose the detection engine by whether raw text may leave the estate, the transformation by whether values must come back, the posture tool by existing licences, and pass the go-live checks. Editable source: `08_Graphic/diagrams/C3-2.md`.* [AJ]
 
 ### C3.10 Lock-in classification
 
@@ -327,11 +284,11 @@ STEP 4 [Rec]: Checks before go-live
 - raw identifiers in traces, memory or the regression dataset
 - the privacy service failing open on an external call
 
-### C3.13 Original → current → recommended
+### C3.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
-| Absent from the graphic; ingestion (L8), memory (L5), vector stores (L6) and evals (L9) each copy data with no stated protection | DLP appears piecemeal inside gateways and guardrails (Cloudflare, Kong, Bedrock Guardrails, Model Armor) [VF: A6-S052, A6-S016, A6-S072, A6-S067] | A cross-cutting privacy service with one policy, called at six enforcement points [Rec] |
+| Absent from the popular stack diagram; ingestion (L8), memory (L5), vector stores (L6) and evals (L9) each copy data with no stated protection | DLP appears piecemeal inside gateways and guardrails (Cloudflare, Kong, Bedrock Guardrails, Model Armor) [VF: A6-S052, A6-S016, A6-S072, A6-S067] | A cross-cutting privacy service with one policy, called at six enforcement points [Rec] |
 | "Microsoft Presidio" (plan candidate) | Community-governed Presidio under Data Privacy Stack, MIT [VF: A6-S040, V2-S030] | Strategic, conditional: in-estate detection engine [Rec] |
 | Google Sensitive Data Protection (candidate) | Managed DLP positioned for GenAI; underpins Model Armor [VF: A6-S066, A6-S067] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
 | Microsoft Purview (candidate) | DSPM for AI folded into unified DSPM, GA May 2026; E5 or Purview Suite [VF: A6-S090, A6-S091] | Strategic, conditional: where Azure and Microsoft 365 are your primary cloud (CP3 Q2); AI posture, not prompt-path DLP [Rec] |

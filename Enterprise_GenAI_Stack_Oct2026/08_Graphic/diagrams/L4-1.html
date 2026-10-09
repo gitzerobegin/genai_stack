@@ -1,0 +1,22 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L4 reference flow: agents reach every tool through one governed tool gateway</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L4 reference flow: agents reach every tool through one governed tool gateway</div><div class="r"></div>
+<pre class="mermaid">%%{init: {"flowchart": {"wrappingWidth": 460}}}%%
+flowchart TD
+  U["Analyst / service"] -- SSO --&gt; IDP["IdP (C4)"]
+  AG["L3 agent or workflow"] --&gt; MC["MCP client"]
+  IDP -- "ID-JAG / token exchange" --&gt; GW
+  MC --&gt; GW
+  GW["TOOL GATEWAY&lt;br/&gt;(L4 governance, often the C1 product)&lt;br/&gt;1 Authenticate caller, check token audience/issuer&lt;br/&gt;2 Allow-list: server + tool name + definition hash&lt;br/&gt;3 Policy (Cedar / OPA): who, which tool, which args&lt;br/&gt;4 Outbound credential from vault (C7), never from the model&lt;br/&gt;5 Audit + OTel span (L9); DLP on outbound args (C3)"]
+  GW --&gt; T1["Internal read-only&lt;br/&gt;MCP servers&lt;br/&gt;(data, engines)"]
+  GW --&gt; T2["Calculation sandbox&lt;br/&gt;(microVM,&lt;br/&gt;egress deny)"]
+  GW --&gt; T3["SaaS apps via&lt;br/&gt;per-user OAuth&lt;br/&gt;(broker or&lt;br/&gt;gateway 3LO)"]
+  GW --&gt; T4["Web search / browser&lt;br/&gt;(egress proxy,&lt;br/&gt;no client data)"]
+  GW --&gt; T5["Remote agents&lt;br/&gt;(A2A, signed&lt;br/&gt;Agent Cards)"]
+</pre><div class="c">The user's identity reaches the tool gateway by token exchange, and the gateway authenticates the caller, checks the allow-list and policy, supplies outbound credentials from the vault rather than the model, and audits each call before it reaches internal servers, sandboxes, SaaS apps, the web or remote agents.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

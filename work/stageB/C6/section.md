@@ -1,6 +1,6 @@
 ## C6. AI FinOps
 
-> **Executive summary.** This control makes the cost of GenAI visible, attributable, bounded and improvable: what each task costs, who pays for it, when spending must stop, and which design choices would make it cheaper without making it worse. The original graphic has no box for it [AJ]. Four things have changed in the market. First, the measurement point has settled on the gateway: every model call passes through it, and gateways now ship budgets, rate limits and spend tracking per key, team and user [VF: A6-S015, A6-S019, A6-S053]. Second, the independent tooling is consolidating. Helicone was acquired by Mintlify on 3 March 2026 and is in maintenance mode [VF: A7-S112, V2-S043], and Portkey was acquired by Palo Alto Networks on 29 May 2026 [VF: A6-S011, V2-S025]. Third, the cloud-cost vendors Vantage and CloudZero have added AI-provider integrations, described mainly in their own blog posts [VF: A7-S113, A7-S114]. Fourth, the open billing standard is catching up but is not there yet. FOCUS 1.4 was ratified on 4 June 2026. FOCUS 1.5, which has no ratification date, adds AI model-identity properties, and a first-class input/output token-type column has been deferred [VF: V2-S046, A7-S116]. The central argument is that the metric that matters is cost per task, not cost per token [AJ]. A cheaper token that needs three retries and a longer human review is not cheaper [AJ]. **Recommendation:** meter and enforce at the gateway (C1), with virtual keys per use case and fund; join gateway records to L9 traces to report cost per completed task; reconcile monthly against provider usage APIs and cloud bills; land everything in a FOCUS-shaped dataset the firm owns; and pair every budget with an enforcement point that fails closed. Treat a FinOps SaaS tool (Vantage, CloudZero) as an optional reporting layer, not the system of record [Rec].
+> **Executive summary.** This control makes the cost of GenAI visible, attributable, bounded and improvable: what each task costs, who pays for it, when spending must stop, and which design choices would make it cheaper without making it worse. The popular stack diagram has no box for it [AJ]. Four things have changed in the market. First, the measurement point has settled on the gateway: every model call passes through it, and gateways now ship budgets, rate limits and spend tracking per key, team and user [VF: A6-S015, A6-S019, A6-S053]. Second, the independent tooling is consolidating. Helicone was acquired by Mintlify on 3 March 2026 and is in maintenance mode [VF: A7-S112, V2-S043], and Portkey was acquired by Palo Alto Networks on 29 May 2026 [VF: A6-S011, V2-S025]. Third, the cloud-cost vendors Vantage and CloudZero have added AI-provider integrations, described mainly in their own blog posts [VF: A7-S113, A7-S114]. Fourth, the open billing standard is catching up but is not there yet. FOCUS 1.4 was ratified on 4 June 2026. FOCUS 1.5, which has no ratification date, adds AI model-identity properties, and a first-class input/output token-type column has been deferred [VF: V2-S046, A7-S116]. The central argument is that the metric that matters is cost per task, not cost per token [AJ]. A cheaper token that needs three retries and a longer human review is not cheaper [AJ]. **Recommendation:** meter and enforce at the gateway (C1), with virtual keys per use case and fund; join gateway records to L9 traces to report cost per completed task; reconcile monthly against provider usage APIs and cloud bills; land everything in a FOCUS-shaped dataset the firm owns; and pair every budget with an enforcement point that fails closed. Treat a FinOps SaaS tool (Vantage, CloudZero) as an optional reporting layer, not the system of record [Rec].
 
 ### C6.1 Responsibility
 
@@ -67,22 +67,9 @@ The mechanics have five stages: meter, attribute, reconcile, enforce and optimis
 4. **Normalise to a FOCUS-shaped dataset.** FOCUS has no AI-specific columns today; tokens are carried by SKU IDs indicating token charges, ConsumedUnit and ConsumedQuantity, and FOCUS 1.2 added columns for virtual currencies such as credits and tokens [VF: A7-S116]. FOCUS 1.5 is scoped to add AI pricing dimensions (cached versus fresh tokens, global versus regional serving) on SkuPriceDetails and four model properties, ModelDeveloper, ModelFamily, ModelId and ModelVersion, with no new columns; a token-type column is deferred and no ratification date has been published [VF: V2-S046]. Map tokens to SKU and ConsumedQuantity now, and add the model properties when 1.5 is ratified [Rec].
 5. **Enforce and optimise.** Budgets act at three levels: per run (step and token ceilings in the L3 workflow), per key (gateway budgets and rate limits) and per month (financial budget and alerts) [AJ]. Optimisation proposals go through C5 change control and the L9 eval gate before release [Rec].
 
-```text
- L3 workflow (run_id, step ceiling, token ceiling per run)
-      │ every model / judge call, metadata: use_case, fund, run_id
-      ▼
- C1 gateway ── virtual key per use case ── budget + RPM/TPM limit (must fail CLOSED) ── alert
-      │ per-request tokens, model, cost estimate
-      ├──────────────► L9 traces (task grouping, outcome: approved / edited / rejected)
-      │                         │ join on run_id
-      ▼                         ▼
- AI cost dataset (FOCUS-shaped, firm-owned) ◄── reconcile monthly ── provider usage APIs
-      │   cost per task · per approved output · per fund      cloud billing (Bedrock tags,
-      │                                                       Foundry project tags)
-      ├──► showback / chargeback to owners          (optional: Vantage / CloudZero reporting)
-      ├──► concentration by provider → C8 / outsourcing register
-      └──► optimisation backlog → C5 change + L9 eval gate → release
-```
+![C6 cost metering: from workflow call to cost per task](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C6-1.png){width=100%}
+
+*Figure: Every model call is metered at the gateway, joined to L9 traces on run_id and reconciled monthly to provider data, so the firm-owned dataset can report cost per task, per approved output and per fund. Editable source: `08_Graphic/diagrams/C6-1.md`.* [AJ]
 
 **Where the money goes in an agent.** For a multi-step agent, the cost of one task is the sum of every planning call, tool-result summarisation call, retry, evaluation-judge call and regeneration after a reviewer rejection [AJ]. That is why the unit has to be the task, and why the trace is the only record that can assemble it [AJ].
 
@@ -229,34 +216,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 Steps 0 and 4 are not product choices; they apply whatever is selected [Rec].
 
-```text
-STEP 0 [Rec] (not optional): define the unit. For each use case, name the task, its outcome
-states (approved / edited / rejected) and its business owner. Report cost per completed task.
+![C6 decision tree: metering, record of cost and chargeback](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C6-2.png){height=8.8in}
 
-STEP 1 [Rec]: Metering point
-  Is all model traffic routed through a gateway (C1)?
-  ├─ Yes → Gateway metering: virtual key per use case (+ per fund / segment if chargeback);
-  │        run_id in request metadata; budgets + RPM/TPM limits per key
-  └─ No  → Fix that first (C1). Interim: cloud-native tags
-           (Bedrock application inference profiles; Foundry project tags) + provider usage APIs
-
-STEP 2 [Rec]: Record of cost
-  Build a firm-owned, FOCUS-shaped AI cost dataset:
-  tokens → SKU + ConsumedUnit/ConsumedQuantity now; add ModelId/ModelVersion when 1.5 ratifies.
-  Join gateway rows to L9 traces on run_id → cost per task / per approved output.
-
-STEP 3 [Rec]: Reporting and chargeback layer
-  Is Vantage or CloudZero already the cloud FinOps tool?
-  ├─ Vantage   → add AI integrations + Managed AI Tags; feed it gateway exports
-  ├─ CloudZero → add AI integrations; document allocation rules outside the tool
-  └─ Neither   → BI on the FOCUS dataset is enough; do not buy a tool for AI alone
-  Helicone → do not adopt; migrate existing use.
-
-STEP 4 [Rec]: Checks before go-live
-  Budget exceeded in test → requests refused (fail closed)?  Admin key restricted?
-  Per-run step and token ceiling in L3?  Anomaly alert on retries / tool calls per task?
-  Monthly reconciliation to invoice within tolerance?  Optimisations routed via C5 + L9?
-```
+*Figure: Defining the unit and the go-live checks apply whatever is chosen; gateway metering and a firm-owned FOCUS-shaped dataset come before any reporting tool. Editable source: `08_Graphic/diagrams/C6-2.md`.* [AJ]
 
 ### C6.10 Lock-in classification
 
@@ -314,9 +276,9 @@ STEP 4 [Rec]: Checks before go-live
 - chargeback of AI costs to fund expenses without compliance and fund-governance approval
 - cost exports that contain client data or draft text
 
-### C6.13 Original → current → recommended
+### C6.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | (absent) gateway cost tracking | Gateways ship budgets, limits and spend tracking; Portkey acquired by Palo Alto Networks [VF: A6-S015, A6-S019, V2-S025] | Strategic: gateway as the metering and enforcement point, tested to fail closed [Rec] |
 | (absent) provider and cloud billing | Provider usage APIs with token-type breakdown; Bedrock and Foundry cost tags [VF: A7-S070, B-C6-S004, B-C6-S005] | Reconciliation source, monthly [Rec] |

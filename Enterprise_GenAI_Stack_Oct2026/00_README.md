@@ -1,4 +1,6 @@
-# Enterprise GenAI Stack: October 2026 (package README)
+# The Enterprise GenAI Stack: the view at end of Q3 2026 (package README)
+
+![Veyan](08_Graphic/veyan_lockup.png)
 
 | | |
 |---|---|
@@ -19,7 +21,7 @@
 | `04_Explorer/` | `explorer.html` | Offline, single-file explorer: filter and compare products, and read the worked example, hypotheses, reference stacks and final stack. Open it in any browser; it needs no network. |
 | `05_Data/` | `products.json` / `.xlsx`, `regulatory_facts.json`, `what_changed.xlsx` | The dataset: 140 records (138 scored), fact cells with label, confidence and sources; 20 regulatory facts |
 | `06_References/` | `bibliography.xlsx`, `snapshots/<stream>/`, `originals/` | 1,255 sources plus a claim → source map; text snapshots and dated search extracts |
-| `08_Graphic/` | `Enterprise_GenAI_Stack_Oct2026.png` / `.pdf`, plus editable `.md` and `.html` | The enterprise GenAI stack on one page: control plane (C1–C8), evaluation plane and the agent, knowledge and model planes, with one tile per assessed product (138) coloured by final tier, cloud conditions, and each layer's key design choice. **To edit:** change the `.md` (labels, notes, tiers, text), run `python3 -I tools/build_stack_graphic.py .` to rebuild the `.html`, then `NODE_PATH=$(npm root -g) node tools/render_graphic.js <the .html> <basename>` for the PNG and PDF. Small fixes can also be made directly in the `.html`, which opens in any browser. |
+| `08_Graphic/` | `Enterprise_GenAI_Stack_Oct2026.png` / `.pdf` (stack poster), `Architecture_One_Page.png` / `.pdf`, `diagrams/*.png`, each with an editable source (`.md` or `.html`) | The stack poster: control plane, then layers **L1 → L9**, one tile per assessed product (138) coloured by final tier. The one-page architecture. Every flow and decision tree in the report, as a Mermaid diagram. **To edit:** change the `.md` or `.html` source, then run `python3 -I tools/build_stack_graphic.py .` (poster) and/or `NODE_PATH=$(npm root -g) node tools/render_graphic.js <html> <basename>` (poster, architecture) or `NODE_PATH=$(npm root -g) node tools/render_diagrams.js` (diagrams). |
 | `07_LinkedIn/` | `Content_Calendar.xlsx`, `LinkedIn_Series.docx` | 24 posts over 12 weeks, plus 3 reactive templates. Enter the start Tuesday in cell E1 and every date fills in. |
 
 ## Headline numbers
@@ -56,5 +58,5 @@ Source IDs resolve in `06_References/bibliography.xlsx` (sources) and `05_Data/r
 
 - Many primary sources (trust centres, regulators) could be read only through search extracts. Those cells carry `conf: medium`.
 - Certification scope, pricing and residency details are often not public. Where a vendor did not publish them, the cell says *Not publicly verified*, and scores are capped under the rubric's evidence rules.
-- Everything is as of October 2026. The LinkedIn posts each list what to re-verify before posting.
+- Everything is as of the end of Q3 2026 (evidence dated up to 9 October 2026). The LinkedIn posts each list what to re-verify before posting.
 - To fill the gaps from a machine with open internet access, follow `RERUN_ON_DESKTOP.md` in the GitHub repository (branch `claude/nice-meitner-0me752`).

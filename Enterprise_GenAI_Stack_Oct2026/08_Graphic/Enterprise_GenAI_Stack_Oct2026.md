@@ -5,11 +5,12 @@
        NODE_PATH=$(npm root -g) node tools/render_graphic.js Enterprise_GenAI_Stack_Oct2026/08_Graphic/Enterprise_GenAI_Stack_Oct2026.html Enterprise_GenAI_Stack_Oct2026/08_Graphic/Enterprise_GenAI_Stack_Oct2026
      After a dataset refresh, add --sync to the first command: it updates every Tier from 05_Data/products.json and
      appends any new scored product to its layer table (edit its label and note afterwards).
+     Layer order: L1 -> L9 under the control plane (user decision, 9 Oct 2026); keep sections in this order.
      Tiers: Strategic | Tactical | Experimental | Pattern (drawn dotted, not scored). Cloud: AWS | Azure | Google Cloud or blank.
      {N} {S} {T} {E} in the stats line are filled in from the tables. -->
 
-- subtitle: Reference architecture and product landscape for a regulated UK/EU asset manager · as of 9 October 2026
-- stats: **9** layers in three planes; **8** enterprise controls; **{N}** products assessed; **1,255** sources; **{S}** Strategic · **{T}** Tactical · **{E}** Experimental
+- subtitle: The view at end of Q3 2026 · reference architecture and product landscape for a regulated UK/EU asset manager · evidence as of 9 October 2026
+- stats: **9** layers, L1 → L9; **8** enterprise controls; **{N}** products assessed; **1,255** sources; **{S}** Strategic · **{T}** Tactical · **{E}** Experimental
 - legend-strategic: Strategic — platform default (most carry a condition)
 - legend-tactical: Tactical — a stated niche or estate
 - legend-experimental: Experimental — pilot only, outside regulated paths
@@ -124,29 +125,48 @@
 | C8-modelop | ModelOp | after full due diligence |  | Tactical |
 | C8-validmind | ValidMind | model-risk-led firms |  | Tactical |
 
-## Evaluation & observability plane
+## Model plane
 
-- style: eval
-- subtitle: L9 joins C8 as one evidence plane with two owners
+- style: plane
 
-### L9 · Evaluation & observability plane
+### L1 · Foundation-model portfolio
 
-- duty: evidence for every layer, from day one
-- design: One firm-owned OpenTelemetry spine, Git-versioned evaluation sets, one platform of record, and two red-team tools, one independent of the model vendor.
+- duty: two unrelated vendors + small + open-weight, all pinned
+- design: A two-vendor mid tier qualified on one suite, a small tier and a self-hosted open-weight tier; every version pinned.
 
 | ID | Product | Note | Cloud | Tier |
 |---|---|---|---|---|
-| L9-mlflow-genai | MLflow GenAI | where an ML platform exists |  | Strategic |
-| L9-langfuse | Langfuse | ClickHouse-owned · self-host |  | Strategic |
-| L9-langsmith | LangSmith | LangGraph estates · BYOC, EU |  | Strategic |
-| L9-opik | Opik | Comet · Apache-2.0 |  | Tactical |
-| L9-arize-ax | Arize AX | Dynatrace-owned |  | Tactical |
-| L9-deepeval | DeepEval | CI metric library |  | Tactical |
-| L9-promptfoo | Promptfoo | red-teaming · OpenAI deal announced |  | Tactical |
-| L9-arize-phoenix | Arize Phoenix | Dynatrace-owned · ELv2 |  | Tactical |
-| L9-wandb-weave | W&B Weave | CoreWeave-owned |  | Tactical |
-| L9-braintrust | Braintrust | eval-led teams |  | Tactical |
-| L9-datadog-agent-observability | Datadog Agent Observability | Datadog APM estates |  | Tactical |
+| L1-openai | OpenAI GPT-6 | Astra · Sol · Luna · 6.1 Sol |  | Strategic |
+| L1-mistral | Mistral | Medium 3.5 · Large 3 · EU-hosted |  | Strategic |
+| L1-anthropic | Anthropic Claude | hyperscaler EU route · tier set by reader |  | Strategic |
+| L1-google-gemma | Gemma 4 | small open-weight tier · Apache 2.0 |  | Strategic |
+| L1-google-gemini | Google Gemini 3.x | pin versions · short lifetimes | Google Cloud | Strategic |
+| L1-xai-grok | Grok 4.7 (SpaceXAI) | via a hyperscaler only |  | Tactical |
+| L1-deepseek | DeepSeek V4 | weights or in-tenant only |  | Tactical |
+| L1-zai-glm | Z.ai GLM-5.3 | MIT Flash weights · after sanctions review |  | Tactical |
+| L1-meta | Meta Muse / Llama | block the contributor tier |  | Tactical |
+| L1-alibaba-qwen | Qwen 3.8 | self-host by policy |  | Tactical |
+| L1-moonshot-kimi | Kimi K3 | custom licence |  | Experimental |
+
+### L2 · Inference & model access
+
+- duty: in-region access; vLLM as the private exit route
+- design: The primary cloud's model service in an approved UK/EU region; one open-weight model on vLLM as the tested exit route.
+
+| ID | Product | Note | Cloud | Tier |
+|---|---|---|---|---|
+| - | Primary cloud’s model service | Bedrock · Foundry · Gemini Enterprise Agent Platform, in region |  | Pattern |
+| L2-vllm | vLLM | default engine · the exit route |  | Strategic |
+| L2-fireworks-ai | Fireworks AI | once ISO certificates confirmed |  | Strategic |
+| L2-sglang | SGLang | backup engine once CVE is fixed |  | Strategic |
+| L2-hugging-face | Hugging Face Hub | governed open-weight supply |  | Strategic |
+| L2-together-ai | Together AI | EU dedicated, ZDR on |  | Tactical |
+| L2-openrouter | OpenRouter | behind the gateway · Stripe deal |  | Tactical |
+| L2-ollama | Ollama | developer tier |  | Tactical |
+| L2-cerebras | Cerebras | low latency, non-confidential |  | Tactical |
+| L2-lm-studio | LM Studio | desktops only · no service use |  | Tactical |
+| L2-llm-d | llm-d | CNCF sandbox · pilot |  | Experimental |
+| L2-nvidia-dynamo | NVIDIA Dynamo | beta · pilot |  | Experimental |
 
 ## Agent plane
 
@@ -193,39 +213,21 @@
 
 - style: plane
 
-### L8 · Ingestion & data preparation
+### L5 · Memory service (part of L6)
 
-- duty: approved sources, ACLs and lineage on every chunk
-- design: A built control envelope (source register, classification, parse manifest, lineage, incremental indexing) around replaceable parsers.
-
-| ID | Product | Note | Cloud | Tier |
-|---|---|---|---|---|
-| L8-docling | Docling | default engine · LF AI & Data |  | Strategic |
-| L8-unstructured | Unstructured | ACL-aware connectors |  | Strategic |
-| L8-google-document-ai | Google Document AI | processor region confirmed | Google Cloud | Strategic |
-| L8-mistral-ocr | Mistral OCR 4.1 | pin the model ID |  | Tactical |
-| L8-llamaparse | LlamaParse | parse and extract only |  | Tactical |
-| L8-firecrawl | Firecrawl | AGPL server · cloud with ZDR |  | Tactical |
-| L8-reducto | Reducto | hard documents |  | Tactical |
-| L8-apify | Apify | public data only |  | Tactical |
-| L8-crawl4ai | Crawl4AI | pre-1.0 · pilots |  | Experimental |
-| L8-mineru | MinerU | licence thresholds apply |  | Experimental |
-
-### L7 · Retrieval optimisation
-
-- duty: pinned embed + rerank, hybrid fusion, eval gate
-- design: Choose models by in-domain evaluation; pin every version; keep raw text so a model switch is a re-embed, not a rebuild.
+- duty: policy-gated writes, erasure by person
+- design: A governed record class stored in L6: write gate, subject index, erasure and a snapshot per run. Built last.
 
 | ID | Product | Note | Cloud | Tier |
 |---|---|---|---|---|
-| L7-sentence-transformers | Sentence Transformers | self-hosting and fine-tuning toolkit |  | Strategic |
-| L7-gemini-embedding | Gemini Embedding 2 | EU endpoint excludes the UK | Google Cloud | Strategic |
-| L7-cohere | Cohere Embed 5 + Rerank | private deployment |  | Tactical |
-| L7-openai | OpenAI text-embedding-3 | text baseline |  | Tactical |
-| L7-jina | Jina AI | Elastic-owned · CC-BY-NC weights |  | Tactical |
-| L7-qwen3-embedding | Qwen3 Embedding | self-host after review |  | Tactical |
-| L7-voyage | Voyage AI | MongoDB-owned |  | Tactical |
-| L7-nvidia-nemo-retriever | NVIDIA NeMo Retriever | NVIDIA estates |  | Tactical |
+| L5-aws-agentcore-memory | AgentCore Memory | inside its own runtime | AWS | Strategic |
+| L5-gcp-vertex-memory-bank | Memory Bank | Agent Engine | Google Cloud | Strategic |
+| L5-zep | Zep / Graphiti | Graphiti self-hosted |  | Tactical |
+| L5-mem0 | Mem0 | OSS behind a firm memory API |  | Tactical |
+| L5-cognee | Cognee | in-estate only |  | Tactical |
+| L5-supermemory | Supermemory | proprietary memory + knowledge API |  | Experimental |
+| L5-letta | Letta | agent harness |  | Experimental |
+| L5-langmem | LangMem | no release since Oct 2025 |  | Experimental |
 
 ### L6 · Retrieval & knowledge stores
 
@@ -245,64 +247,63 @@
 | L6-turbopuffer | turbopuffer | many tenants · BYOC only |  | Tactical |
 | L6-chroma | Chroma | prototypes and harnesses |  | Tactical |
 
-### L5 · Memory service (part of L6)
+### L7 · Retrieval optimisation
 
-- duty: policy-gated writes, erasure by person
-- design: A governed record class stored in L6: write gate, subject index, erasure and a snapshot per run. Built last.
-
-| ID | Product | Note | Cloud | Tier |
-|---|---|---|---|---|
-| L5-aws-agentcore-memory | AgentCore Memory | inside its own runtime | AWS | Strategic |
-| L5-gcp-vertex-memory-bank | Memory Bank | Agent Engine | Google Cloud | Strategic |
-| L5-zep | Zep / Graphiti | Graphiti self-hosted |  | Tactical |
-| L5-mem0 | Mem0 | OSS behind a firm memory API |  | Tactical |
-| L5-cognee | Cognee | in-estate only |  | Tactical |
-| L5-supermemory | Supermemory | proprietary memory + knowledge API |  | Experimental |
-| L5-letta | Letta | agent harness |  | Experimental |
-| L5-langmem | LangMem | no release since Oct 2025 |  | Experimental |
-
-## Model plane
-
-- style: plane
-
-### L2 · Inference & model access
-
-- duty: in-region access; vLLM as the private exit route
-- design: The primary cloud's model service in an approved UK/EU region; one open-weight model on vLLM as the tested exit route.
+- duty: pinned embed + rerank, hybrid fusion, eval gate
+- design: Choose models by in-domain evaluation; pin every version; keep raw text so a model switch is a re-embed, not a rebuild.
 
 | ID | Product | Note | Cloud | Tier |
 |---|---|---|---|---|
-| - | Primary cloud’s model service | Bedrock · Foundry · Gemini Enterprise Agent Platform, in region |  | Pattern |
-| L2-vllm | vLLM | default engine · the exit route |  | Strategic |
-| L2-fireworks-ai | Fireworks AI | once ISO certificates confirmed |  | Strategic |
-| L2-sglang | SGLang | backup engine once CVE is fixed |  | Strategic |
-| L2-hugging-face | Hugging Face Hub | governed open-weight supply |  | Strategic |
-| L2-together-ai | Together AI | EU dedicated, ZDR on |  | Tactical |
-| L2-openrouter | OpenRouter | behind the gateway · Stripe deal |  | Tactical |
-| L2-ollama | Ollama | developer tier |  | Tactical |
-| L2-cerebras | Cerebras | low latency, non-confidential |  | Tactical |
-| L2-lm-studio | LM Studio | desktops only · no service use |  | Tactical |
-| L2-llm-d | llm-d | CNCF sandbox · pilot |  | Experimental |
-| L2-nvidia-dynamo | NVIDIA Dynamo | beta · pilot |  | Experimental |
+| L7-sentence-transformers | Sentence Transformers | self-hosting and fine-tuning toolkit |  | Strategic |
+| L7-gemini-embedding | Gemini Embedding 2 | EU endpoint excludes the UK | Google Cloud | Strategic |
+| L7-cohere | Cohere Embed 5 + Rerank | private deployment |  | Tactical |
+| L7-openai | OpenAI text-embedding-3 | text baseline |  | Tactical |
+| L7-jina | Jina AI | Elastic-owned · CC-BY-NC weights |  | Tactical |
+| L7-qwen3-embedding | Qwen3 Embedding | self-host after review |  | Tactical |
+| L7-voyage | Voyage AI | MongoDB-owned |  | Tactical |
+| L7-nvidia-nemo-retriever | NVIDIA NeMo Retriever | NVIDIA estates |  | Tactical |
 
-### L1 · Foundation-model portfolio
+### L8 · Ingestion & data preparation
 
-- duty: two unrelated vendors + small + open-weight, all pinned
-- design: A two-vendor mid tier qualified on one suite, a small tier and a self-hosted open-weight tier; every version pinned.
+- duty: approved sources, ACLs and lineage on every chunk
+- design: A built control envelope (source register, classification, parse manifest, lineage, incremental indexing) around replaceable parsers.
 
 | ID | Product | Note | Cloud | Tier |
 |---|---|---|---|---|
-| L1-openai | OpenAI GPT-6 | Astra · Sol · Luna · 6.1 Sol |  | Strategic |
-| L1-mistral | Mistral | Medium 3.5 · Large 3 · EU-hosted |  | Strategic |
-| L1-anthropic | Anthropic Claude | hyperscaler EU route · tier set by reader |  | Strategic |
-| L1-google-gemma | Gemma 4 | small open-weight tier · Apache 2.0 |  | Strategic |
-| L1-google-gemini | Google Gemini 3.x | pin versions · short lifetimes | Google Cloud | Strategic |
-| L1-xai-grok | Grok 4.7 (SpaceXAI) | via a hyperscaler only |  | Tactical |
-| L1-deepseek | DeepSeek V4 | weights or in-tenant only |  | Tactical |
-| L1-zai-glm | Z.ai GLM-5.3 | MIT Flash weights · after sanctions review |  | Tactical |
-| L1-meta | Meta Muse / Llama | block the contributor tier |  | Tactical |
-| L1-alibaba-qwen | Qwen 3.8 | self-host by policy |  | Tactical |
-| L1-moonshot-kimi | Kimi K3 | custom licence |  | Experimental |
+| L8-docling | Docling | default engine · LF AI & Data |  | Strategic |
+| L8-unstructured | Unstructured | ACL-aware connectors |  | Strategic |
+| L8-google-document-ai | Google Document AI | processor region confirmed | Google Cloud | Strategic |
+| L8-mistral-ocr | Mistral OCR 4.1 | pin the model ID |  | Tactical |
+| L8-llamaparse | LlamaParse | parse and extract only |  | Tactical |
+| L8-firecrawl | Firecrawl | AGPL server · cloud with ZDR |  | Tactical |
+| L8-reducto | Reducto | hard documents |  | Tactical |
+| L8-apify | Apify | public data only |  | Tactical |
+| L8-crawl4ai | Crawl4AI | pre-1.0 · pilots |  | Experimental |
+| L8-mineru | MinerU | licence thresholds apply |  | Experimental |
+
+## Evaluation & observability plane
+
+- style: eval
+- subtitle: L9 joins C8 as one evidence plane with two owners
+
+### L9 · Evaluation & observability plane
+
+- duty: evidence for every layer, from day one
+- design: One firm-owned OpenTelemetry spine, Git-versioned evaluation sets, one platform of record, and two red-team tools, one independent of the model vendor.
+
+| ID | Product | Note | Cloud | Tier |
+|---|---|---|---|---|
+| L9-mlflow-genai | MLflow GenAI | where an ML platform exists |  | Strategic |
+| L9-langfuse | Langfuse | ClickHouse-owned · self-host |  | Strategic |
+| L9-langsmith | LangSmith | LangGraph estates · BYOC, EU |  | Strategic |
+| L9-opik | Opik | Comet · Apache-2.0 |  | Tactical |
+| L9-arize-ax | Arize AX | Dynatrace-owned |  | Tactical |
+| L9-deepeval | DeepEval | CI metric library |  | Tactical |
+| L9-promptfoo | Promptfoo | red-teaming · OpenAI deal announced |  | Tactical |
+| L9-arize-phoenix | Arize Phoenix | Dynatrace-owned · ELv2 |  | Tactical |
+| L9-wandb-weave | W&B Weave | CoreWeave-owned |  | Tactical |
+| L9-braintrust | Braintrust | eval-led teams |  | Tactical |
+| L9-datadog-agent-observability | Datadog Agent Observability | Datadog APM estates |  | Tactical |
 
 ## Footer: The architecture in one sentence
 

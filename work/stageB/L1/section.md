@@ -2,7 +2,7 @@
 
 > **Conflict-of-interest disclosure.** The author is an Anthropic model, writing about Anthropic and its direct competitors. This is the layer where that conflict is most acute. Anthropic's Claude family was scored on exactly the same rubric as every other family. Where a score for Anthropic was borderline, it was resolved against Anthropic, and each such call is named in its rationale. Anthropic's limitations and controversies are recorded in the same detail as everyone else's. Anthropic's allegation against Chinese laboratories is presented only as an allegation. An independent alternative is named wherever a Claude model appears in a recommendation, and no vendor benchmark (including Anthropic's) is used as a decision input [AJ]. Tier and neutral scoring set by the reader at Checkpoint 4 (CP4-1); the author's pipeline had resolved three borderline scores against Anthropic. Security and cost now carry the neutral rubric values identified by the CP4 calibration review [AJ].
 
-> **Executive summary.** This layer supplies the language models that every agent, retrieval pipeline and evaluation judge above it depends on. Four things have changed since the original graphic. First, every major vendor now sells a *tiered family*, not a model: GPT-6 Astra, Sol and Luna plus GPT-6.1 Sol [VF: A5-S002, A5-S004]; Claude Fable 5.1 above Opus, Sonnet and Haiku 5.5 [VF: A5-S010, A5-S019]; Gemini 3.x with a restricted Gemini 4 Argon [VF: A5-S030, A5-S031]. Version labels in the graphic are already stale or wrong (Gemma "2.9" does not exist; Mistral Medium 3.1 retired on 31 August 2026; "QI4" matches no model) [VF: A5-S034, B-L1-S002] [R: A5-S038]. Second, the most capable tiers are now *gated*: OpenAI rates Astra "Critical" for cybersecurity and requires enterprise admins to enable it, Anthropic restricts Mythos 5.1, and Google released Argon first to cyber defenders [VF: A5-S002, A5-S003, A5-S016, A5-S031]. Third, open weights have become a serious option from both US/EU vendors (gpt-oss, Gemma 4, Mistral, Muse Glimmer) and Chinese-origin vendors (DeepSeek, Qwen, Kimi, GLM), which turns *where the model runs* and *who made it* into separate decisions [VF: A5-S005, A5-S034, A5-S074, A5-S063] [AJ]. Fourth, model lifetimes are short: a Gemini Flash version released on 13 August 2026 retires on 28 January 2027 [VF: B-L1-S003]. **Recommendation:** treat models as a portfolio, not a bet. Run a tiered portfolio (frontier, mid, small and a self-hosted open-weight tier) from at least two unrelated vendors, all routed through the firm's gateway (C1), each qualified and re-qualified on the firm's own evaluation suite (L9), with pinned versions and a tested exit to the second vendor [Rec].
+> **Executive summary.** This layer supplies the language models that every agent, retrieval pipeline and evaluation judge above it depends on. Four things have changed since the popular stack diagram. First, every major vendor now sells a *tiered family*, not a model: GPT-6 Astra, Sol and Luna plus GPT-6.1 Sol [VF: A5-S002, A5-S004]; Claude Fable 5.1 above Opus, Sonnet and Haiku 5.5 [VF: A5-S010, A5-S019]; Gemini 3.x with a restricted Gemini 4 Argon [VF: A5-S030, A5-S031]. Version labels in the popular stack diagram are already stale or wrong (Gemma "2.9" does not exist; Mistral Medium 3.1 retired on 31 August 2026; "QI4" matches no model) [VF: A5-S034, B-L1-S002] [R: A5-S038]. Second, the most capable tiers are now *gated*: OpenAI rates Astra "Critical" for cybersecurity and requires enterprise admins to enable it, Anthropic restricts Mythos 5.1, and Google released Argon first to cyber defenders [VF: A5-S002, A5-S003, A5-S016, A5-S031]. Third, open weights have become a serious option from both US/EU vendors (gpt-oss, Gemma 4, Mistral, Muse Glimmer) and Chinese-origin vendors (DeepSeek, Qwen, Kimi, GLM), which turns *where the model runs* and *who made it* into separate decisions [VF: A5-S005, A5-S034, A5-S074, A5-S063] [AJ]. Fourth, model lifetimes are short: a Gemini Flash version released on 13 August 2026 retires on 28 January 2027 [VF: B-L1-S003]. **Recommendation:** treat models as a portfolio, not a bet. Run a tiered portfolio (frontier, mid, small and a self-hosted open-weight tier) from at least two unrelated vendors, all routed through the firm's gateway (C1), each qualified and re-qualified on the firm's own evaluation suite (L9), with pinned versions and a tested exit to the second vendor [Rec].
 
 ### 1.1 Responsibility
 
@@ -52,25 +52,9 @@ A foundation model is reached by one of three routes, and the route matters as m
 2. **Hyperscaler-hosted.** The model runs inside AWS, Azure or Google Cloud under the cloud's IAM, logging and regional controls. Claude is on Bedrock, Google Cloud and Microsoft Foundry [VF: A5-S010]; GPT-6 is on Bedrock and Foundry [VF: A5-S008, A5-S009]; Gemini is on Google Cloud only [VF: A5-S027]. Some hyperscaler listings are pass-throughs: Foundry's Kimi K3 and GLM-5.x run on Fireworks outside the customer's tenant [VF: A5-S087], and Bedrock offers Kimi K3 only through cross-Region profiles [VF: A5-S086].
 3. **Self-hosted open weights.** The firm runs the weights on its own GPUs through an L2 serving engine. Licences differ: Apache 2.0 (Gemma 4, gpt-oss, Mistral Large 3, Qwen3.8-27B), MIT (DeepSeek V4, GLM-5.3-Flash), modified or custom licences with revenue thresholds (Mistral Medium 3.5, Kimi K3, Qwen3.8 flagship, GLM-5.3, Llama 4) [VF: A5-S034, A5-S005, A5-S074, A5-S066, A5-S063, A5-S071, A5-S069, A5-S077] [R: V2-S014].
 
-```text
- Application / agent (L3)
-          │  prompt + approved context (no raw client identifiers: C3)
-          ▼
- Gateway C1 ── policy: data class → allowed routes & regions; task → model tier
-          │            pinned model IDs; fallback order; quotas; logging (L9, C6)
-          ├────────────────────┬──────────────────────────┬─────────────────────────┐
-          ▼                    ▼                          ▼                         ▼
-   Frontier tier         Mid tier (default)         Small tier               Self-hosted open-weight
-   (gated, rare use)     vendor A in-region         classification,          tier (L2 serving)
-   e.g. Astra / Fable    e.g. GPT-6.1 Sol,          routing, extraction      e.g. Gemma 4, Mistral
-                         Sonnet 5.5, Gemini 3.8     e.g. Luna, Haiku 5.5,    Medium 3.5, gpt-oss
-                         Flash, Mistral Medium 3.5  Flash-Lite, Ministral    (sensitive data stays
-                              │                                               in estate)
-                              └─► fallback: vendor B, same tier, same region,
-                                  qualified on the same L9 suite
-          ▼
- Response → guardrails (C2) → evaluation (L9) → inventory & evidence (C8)
-```
+![L1 reference flow: one gateway routing calls across four model tiers](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L1-1.png){width=100%}
+
+*Figure: Every model call passes through the gateway (C1), which picks a tier and an approved route by data class and task, with a qualified same-tier fallback from a second vendor, before the response goes through guardrails, evaluation and evidence. Editable source: `08_Graphic/diagrams/L1-1.md`.* [AJ]
 
 **The portfolio principle.** Tiers trade capability against cost and latency within a family: OpenAI lists Luna for "high-volume summarisation, extraction, classification and routing" [VF: A5-S002], and list prices span two orders of magnitude, from US$0.10 to US$10 per 1M input tokens within both the OpenAI and Anthropic families [VF: A5-S004, A5-S011]. Vendors diversify across families. Self-hosting changes the data question entirely, because no data leaves the estate [AJ]. A portfolio therefore has two axes: *tier* (frontier, mid, small, open-weight) and *vendor* (at least two unrelated vendors at the mid tier) [AJ].
 
@@ -209,17 +193,17 @@ Families are grouped as: US frontier vendors (OpenAI, Anthropic, Google Gemini, 
 - *What it is now:* Mistral Large 4 entered public preview on 6 October 2026: about 1T total parameters (docs say 1.05T / 52B active, the launch post 1T / 49B), multimodal, 1M context, API-only in preview, weights targeted for 27 October 2026, licence and list price not yet published [VF: A5-S076, V2-S017]. Mistral Medium 3.5 (28 April 2026; 128B dense; 256K context; Modified MIT v26.04; US$1.50 / US$7.50 per 1M) is the GA flagship [VF: A5-S074, V2-S018]. Large 3 (December 2025, Apache 2.0), Small 4.0, Ministral 3, Magistral (reasoning), Devstral 2 and Codestral (coding), Mistral OCR and Voxtral (speech) complete the line [VF: A5-S074] [R: A5-S038].
 - *Certifications and residency:* SOC 2 Type II and ISO 27001/27701 per Mistral's help centre, reports via the Trust Center on request; data hosted in the EU by default; EU regional endpoint api.eu.mistral.ai commits inference location (10% surcharge); some features may transfer data outside the EU; no training on API data; default 30-day retention; ZDR only for pay-as-you-go stateless calls at Mistral's discretion [VF: A5-S075].
 - *Deployment:* first-party API; Google Cloud, Bedrock and Microsoft Foundry carry different subsets; Scaleway hosts Medium 3.5; open weights for self-hosting [R: A5-S027, A5-S038] [VF: A5-S074].
-- *Lifecycle:* a published table of deprecated and retired models with replacements: Medium 3.1 (the graphic's label) retired on 31 August 2026; Small 3.2 and Devstral 2 (devstral-2512) on 31 July 2026; Labs models may be removed with 1 month's notice [VF: B-L1-S002].
+- *Lifecycle:* a published table of deprecated and retired models with replacements: Medium 3.1 (the popular stack diagram's label) retired on 31 August 2026; Small 3.2 and Devstral 2 (devstral-2512) on 31 July 2026; Labs models may be removed with 1 month's notice [VF: B-L1-S002].
 - *Strengths:* EU-hosted by default with an EU inference commitment, open weights at several tiers, and presence on all three hyperscalers: the natural EU and open-weight leg of a portfolio [AJ]. Mistral is a GPAI Code of Practice signatory [VF: R-EU-GPAI-COP, A8-S015].
 - *Limitations:* the frontier tier is a days-old preview; Medium 3.5's licence has revenue-based exceptions; certification scope is not stated; ZDR is discretionary [VF: A5-S076, A5-S074, A5-S075]. Mistral also resells Z.ai GLM models on its platform, so contracting with Mistral does not by itself exclude Chinese-origin models [R: A5-S038] [AJ].
 - *Choose when:* you need an EU-domiciled vendor and EU inference, or a non-Chinese open-weight model for a self-hosted tier [AJ].
 - *Avoid when:* you need a GA frontier-class model now, or your licence policy rejects revenue-threshold terms [AJ].
 - *Competitors:* OpenAI GPT, Google Gemma, Meta.
 - *FS note:* use the EU endpoint or self-host; obtain the SOC 2 report and ISO certificate scope; allow-list Mistral's own models at the gateway [Rec].
-- **Tier: Strategic. Flag: Superseded** (the graphic's Medium 3.1). Strategic as the EU and open-weight leg of the portfolio, not as the sole frontier model [AJ].
+- **Tier: Strategic. Flag: Superseded** (the popular stack diagram's Medium 3.1). Strategic as the EU and open-weight leg of the portfolio, not as the sole frontier model [AJ].
 
 **Google Gemma 4 (Google).**
-- *What it is now:* Gemma 4 comprises E2B, E4B, a 26B MoE and a 31B dense model (31 March / 2 April 2026) and a 12B unified multimodal model (3 June 2026). All take image and video input and E2B/E4B also take audio; context is 128K on the small sizes and up to 256K on the larger ones [VF: A5-S034, V2-S020]. The licence is Apache 2.0 [VF: A5-S034, V2-S020]. Gemma "2.9" in the graphic does not exist [VF: A5-S034].
+- *What it is now:* Gemma 4 comprises E2B, E4B, a 26B MoE and a 31B dense model (31 March / 2 April 2026) and a 12B unified multimodal model (3 June 2026). All take image and video input and E2B/E4B also take audio; context is 128K on the small sizes and up to 256K on the larger ones [VF: A5-S034, V2-S020]. The licence is Apache 2.0 [VF: A5-S034, V2-S020]. Gemma "2.9" in the popular stack diagram does not exist [VF: A5-S034].
 - *Deployment:* self-hosted from phones and laptops to a single data-centre GPU; managed on Google Cloud (26B at US$0.15 / US$0.60 per 1M) and offered on Bedrock [VF: A5-S034, A5-S027] [R: A5-S038, A5-S035].
 - *Strengths:* a permissively licensed, multimodal small model family from a major vendor, suitable for in-estate classification, extraction and redaction [AJ]. Google reports 150 million Gemma 4 downloads [VF: A5-S034].
 - *Limitations:* no frontier tier; no vendor support for weights verified; one README links a separate Gemma licence page that was not read [VF: A5-S034] [AJ].
@@ -288,7 +272,7 @@ Families are grouped as: US frontier vendors (OpenAI, Anthropic, Google Gemini, 
 - *FS note:* no client data; sandbox only after licence review [Rec].
 - **Tier: Experimental. Flag: none.** Enterprise readiness 4 rests on Bedrock's cross-Region profiles only; on Azure, Foundry's Kimi K3 runs on Fireworks outside the customer tenant [VF: A5-S086, A5-S087]. The reader kept this credit at CP4-3 [AJ].
 
-**Z.ai GLM family (Zhipu AI; the graphic's "QI4").**
+**Z.ai GLM family (Zhipu AI; the popular stack diagram's "QI4").**
 - *What it is now:* no model named "QI4" or "Q4" exists; the Z logo matches Z.ai's GLM family [R: A5-S038] [VF: A5-S047]. GLM-5.3 (753B) launched on the API in mid-August 2026 (14 August per CAISI, 18 August per press), with weights around 28 August under a bespoke licence (an MIT-style grant with a condition for very large Model-as-a-Service businesses); GLM-5.3-Flash (26 August 2026; 320B / 18B active; natively multimodal) is MIT; GLM-5.2 has open weights; GLM-Image covers images [VF: A5-S071, V2-S021] [R: V2-S016, A5-S042].
 - *Hosted API:* personal data is "generally processed in Singapore" and may move to affiliates overseas; the current DPA says API content is not stored, an older version said temporary storage; the general privacy policy cites model training under legitimate interest [VF: A5-S073]. Certifications not publicly verified [NPV].
 - *Hyperscaler and self-hosted:* GLM 5 runs in-Region in London on Bedrock, GLM 5.3 on Bedrock cross-Region only from 5 October 2026; Google Cloud hosts GLM-4.7/5/5.2; Foundry's GLM runs on Fireworks outside the tenant; Mistral resells GLM 5.x and retires GLM 5.2 on 31 October 2026 [VF: A5-S086, A5-S027, A5-S087, B-L1-S002].
@@ -350,52 +334,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 The tree builds a portfolio in four steps. Step 0 is a precondition, not a product choice [Rec].
 
-```text
-STEP 0 [Rec] (not optional): all model calls go through the firm's gateway (C1) with pinned
-model IDs, data-class → route/region policy, logging to L9, and a model inventory entry (C8).
-Applications never call a vendor API directly.
+![L1 decision tree: building a model portfolio by route, vendor and tier](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L1-2.png){height=8.8in}
 
-STEP 1 [Rec]: Which routes may this data class use?
-  Client / personal / confidential data?
-  ├─ Yes → only (a) hyperscaler-hosted, in an approved UK/EU region, in-tenant, no-training,
-  │        ZDR or short retention; or (b) self-hosted open weights in the estate.
-  │        Never: a vendor's own API without a first-party EU region and ZDR;
-  │               any Chinese-origin vendor's own API; any "trains on data" tier.
-  └─ No (public or internal low-risk) → vendor API also allowed, after due diligence.
-
-STEP 2 [Rec]: Mid-tier primary and fallback (two different vendors, same region)
-  Primary cloud?
-  ├─ Azure  → primary: GPT-6.1 Sol (Foundry EU Data Zone)
-  │           fallback: Mistral Medium 3.5 (Foundry or EU endpoint)
-  │           (EU processing for Claude on Foundry is not verified; its Azure-hosted
-  │            deployment is still "In-Process Q4 2026" for certification)
-  ├─ AWS    → primary: Claude Sonnet 5.5 or GPT-6 tier on Bedrock in an EU region
-  │           (confirm per-model regional availability; Astra is US-only on Bedrock)
-  │           fallback: the other of those two, or Mistral via Bedrock / EU endpoint
-  ├─ Google → primary: Gemini 3.8 Flash (EU region, logging/caching off)
-  │           fallback: Claude Sonnet 5.5 via Google Cloud EU (GPT-6 is not on Google Cloud)
-  │           independent alternative: Mistral on Google Cloud (confirm model and region)
-  └─ Multi-cloud or none → primary: OpenAI EU endpoint (ZDR) or Mistral EU endpoint
-              fallback: the other; add a hyperscaler route when available
-  Independent alternatives to any Claude choice (Anthropic Strategic, conditional, CP4-1):
-  GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5. Never Claude as the only qualified vendor.
-
-STEP 3 [Rec]: Small and open-weight tiers
-  High-volume classification / extraction / routing?
-    → small tier of the primary vendor (Luna, Haiku 5.5, Flash-Lite) or self-hosted Gemma 4
-  Data must never leave the estate, or air-gap required?
-    → self-hosted: Gemma 4 (Apache 2.0), Mistral Medium 3.5 / Large 3, gpt-oss-120b
-    → Chinese-origin weights (DeepSeek MIT, Qwen3.8-27B, GLM-5.3-Flash) only if the
-      firm's sovereignty policy explicitly allows them, never with tool access,
-      and GLM only after sanctions review
-  Frontier tier (Astra, Fable 5.1, Argon)?
-    → only when evaluation shows the mid tier fails a named use case; keep disabled otherwise
-
-STEP 4 [Rec]: Checks before go-live
-  Second vendor qualified on the same L9 suite?  Failover drill passed?
-  Every pinned model's retirement date > re-qualification lead time?
-  Contract, DPA, register-of-information / MTP entry and exit plan done for each vendor?
-```
+*Figure: Route every call through the gateway, let the data class decide which routes are allowed, pair a mid-tier primary with a fallback from a different vendor in the same region, add small, open-weight and frontier tiers only for their stated cases, and run the go-live checks. Editable source: `08_Graphic/diagrams/L1-2.md`.* [AJ]
 
 ### 1.10 Lock-in classification
 
@@ -470,9 +411,9 @@ A Claude model appears as the AWS primary, the Google Cloud fallback and one sma
 
 **Evidence per commentary (to C8).** Model ID and version, route and region, fallback used (yes or no), prompt and template version, token counts and cost, evaluation results, and approver [AJ].
 
-### 1.13 Original → current → recommended
+### 1.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | OpenAI "GPT-6" | Tiered family: Astra (gated), Sol, Luna, 6.1 Sol; GPT-5.6 still offered; gpt-oss open weights [VF: A5-S002, A5-S004, A5-S001, A5-S005] | Strategic: mid-tier primary or fallback on Azure/AWS; Luna for the small tier [Rec] |
 | Claude "Opus 5.5" | Correct but not top tier: Fable 5.1 above Opus/Sonnet/Haiku 5.5; Mythos restricted; Fable 5 suspended 12 June – 1 July 2026; no first-party EU inference [VF: A5-S010, V2-S004, V2-S075] | Strategic, conditional (FS 3.80; tier and neutral scores set by the reader at CP4-1): hyperscaler EU/UK routes only, one of two vendors with a qualified non-Anthropic fallback; independent alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5 [Rec] |
@@ -487,4 +428,4 @@ A Claude model appears as the AWS primary, the Google Cloud fallback and one sma
 | Meta "Llama (new: Muse)" | Muse Spark API GA; Muse Glimmer open; Llama 4 latest Llama [VF: A5-S077, V2-S019] | Tactical: open-weight continuity; block the contributor tier [Rec] |
 | (single "LLM" row) | Every vendor sells tiers; gating, short lifetimes and residency routes now matter as much as capability [VF: A5-S002, A5-S016, B-L1-S003] [AJ] | A governed model portfolio: two-vendor mid tier, small tier, self-hosted open-weight tier, all behind C1 and qualified in L9 [Rec] |
 
-**Hypothesis note.** No hypothesis (H1–H8) is assigned to L1. The layer's findings bear on **H1** (promote the gateway to a control-plane component): a model portfolio with residency routing, version pinning, fallback and deny-lists is unworkable without a firm-owned gateway, which supports H1 [AJ]. They also bear on the LinkedIn pair-8 tension, "treat models as a portfolio, not a bet". The counter-argument is that a portfolio multiplies validation and contract work; the answer is to keep the portfolio small (two mid-tier vendors, one small model, one open-weight model) and make the L9 suite do the re-qualification [AJ]. **Provisional; verdict in synthesis.**
+**Hypothesis note.** No hypothesis (H1–H8) is assigned to L1. The layer's findings bear on **H1** (promote the gateway to a control-plane component): a model portfolio with residency routing, version pinning, fallback and deny-lists is unworkable without a firm-owned gateway, which supports H1 [AJ]. They also bear on a tension worth naming: "treat models as a portfolio, not a bet". The counter-argument is that a portfolio multiplies validation and contract work; the answer is to keep the portfolio small (two mid-tier vendors, one small model, one open-weight model) and make the L9 suite do the re-qualification [AJ]. **Provisional; verdict in synthesis.**

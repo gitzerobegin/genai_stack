@@ -14,6 +14,7 @@ NAMES = {"L9": "Evaluation & observability", "L8": "Data extraction & ingestion"
          "L3": "Agent frameworks & orchestration", "L2": "Inference, serving & model access", "L1": "Foundation models",
          "C1": "AI / LLM gateway", "C2": "Guardrails", "C3": "DLP & PII", "C4": "Identity & access for agents",
          "C5": "Prompt & config management", "C6": "AI FinOps", "C7": "AI security", "C8": "Model risk, governance & audit"}
+NAMES = {k: NAMES[k] for k in ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]}  # L1 -> L9
 TAG = re.compile(r"\s*\[(VF|R)\s*:\s*[^\]\[]+\]|\s*\[(AJ|Rec|NPV)\]")
 def clean(s):
     return TAG.sub(lambda m: " ⟨%s⟩" % (m.group(1) or m.group(2)), str(s or "")).strip()
@@ -53,7 +54,7 @@ extras = {"trace": part("Worked example"), "hyp": part("hypothes"), "stacks": pa
 TEMPLATE = r"""<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GenAI Stack Explorer</title>
 <style>
-:root{--bg:#f7f8fa;--panel:#fff;--ink:#1d2433;--muted:#5b6475;--line:#e3e6ec;--accent:#1f3864;--strat:#1b7a4a;--tact:#9a6a00;--exp:#8a3b8f;--ns:#888;--chip:#eef1f6}
+:root{--bg:#F7F5F0;--panel:#fff;--ink:#0B1B33;--muted:#5B6B7A;--line:#E3E1DA;--accent:#0B1B33;--strat:#2E6DA4;--tact:#5B6B7A;--exp:#B07A1A;--ns:#888;--chip:#EEF3F8;--gold:#D4A13A}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#11151c;--panel:#1a2029;--ink:#e6e9ef;--muted:#9aa3b2;--line:#2a313c;--accent:#8fb3ff;--strat:#4fc98a;--tact:#e0b04a;--exp:#d58bd9;--chip:#232a35}}
 :root[data-theme=dark]{--bg:#11151c;--panel:#1a2029;--ink:#e6e9ef;--muted:#9aa3b2;--line:#2a313c;--accent:#8fb3ff;--strat:#4fc98a;--tact:#e0b04a;--exp:#d58bd9;--chip:#232a35}
 *{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink)}
@@ -83,7 +84,7 @@ label.ck{font-size:12px;color:var(--muted);float:right}.prose{max-width:900px}.p
 .note{color:var(--muted);font-size:12px}
 @media (max-width:760px){main{grid-template-columns:1fr}aside{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line)}section.view{padding:16px}}
 </style></head><body>
-<header><div><h1>Enterprise GenAI Stack Explorer</h1><div class="sub">October 2026 · __N__ products · scores 1–5 (generic / regulated-FS weights) · ⟨VF⟩ verified ⟨R⟩ reported ⟨AJ⟩ judgement ⟨Rec⟩ recommendation ⟨NPV⟩ not publicly verified</div></div>
+<header><picture><source srcset="__LOCKUPW__" media="(prefers-color-scheme: dark)"><img src="__LOCKUP__" alt="Veyan" style="height:40px"></picture><div><h1>The Enterprise GenAI Stack Explorer</h1><div class="sub">The view at end of Q3 2026 · __N__ products · scores 1–5 (generic / regulated-FS weights) · ⟨VF⟩ verified ⟨R⟩ reported ⟨AJ⟩ judgement ⟨Rec⟩ recommendation ⟨NPV⟩ not publicly verified</div></div>
 <nav class="tabs"><button data-t="products" class="on">Products</button><button data-t="compare">Compare</button><button data-t="trace">Worked example</button><button data-t="hyp">Hypotheses</button><button data-t="stacks">Reference stacks</button><button data-t="final">Final stack</button><button id="theme" title="Toggle theme">◐</button></nav></header>
 <main><aside id="nav"></aside><section class="view" id="view"></section></main>
 <div class="cmpbox" id="cmpbox"></div>
@@ -96,7 +97,7 @@ const save=()=>{try{localStorage.setItem("gx",JSON.stringify({cmp:st.cmp}))}catc
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const tierCls=t=>t.replace(" ",".");
 function nav(){const L=Object.keys(N);let h='<button data-l="all" class="'+(st.layer=="all"?"on":"")+'">All layers &amp; controls <small>('+D.length+')</small></button>';
- h+='<div class="grp">Stack layers (9 → 1)</div>';for(const k of L.filter(x=>x[0]=="L")){const n=D.filter(p=>p.layer==k).length;h+=`<button data-l="${k}" class="${st.layer==k?"on":""}">${k} ${esc(N[k])} <small>(${n})</small></button>`}
+ h+='<div class="grp">Stack layers (L1 → L9)</div>';for(const k of L.filter(x=>x[0]=="L")){const n=D.filter(p=>p.layer==k).length;h+=`<button data-l="${k}" class="${st.layer==k?"on":""}">${k} ${esc(N[k])} <small>(${n})</small></button>`}
  h+='<div class="grp">Enterprise controls</div>';for(const k of L.filter(x=>x[0]=="C")){const n=D.filter(p=>p.layer==k).length;h+=`<button data-l="${k}" class="${st.layer==k?"on":""}">${k} ${esc(N[k])} <small>(${n})</small></button>`}
  document.getElementById("nav").innerHTML=h;document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>{st.layer=b.dataset.l;st.sel=null;st.tab="products";render()})}
 function list(){let r=D.filter(p=>(st.layer=="all"||p.layer==st.layer)&&(st.tier=="all"||p.tier==st.tier)&&(st.dep=="all"||/^Yes/i.test((p.deploy||{})[st.dep]||""))&&(!st.q||JSON.stringify(p).toLowerCase().includes(st.q.toLowerCase())));
@@ -108,7 +109,7 @@ function card(p){const ck=st.cmp.includes(p.id)?"checked":"";return `<div class=
 function detail(p){const sc=C.map(([k,l])=>`<tr><td>${l}</td><td class="num">${p.scores[k]??"–"}</td></tr>`).join("");
  const li=(t,a)=>a&&a.length?`<h4>${t}</h4><ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:"";
  const dep=Object.entries(p.deploy||{}).map(([k,v])=>`<span class="chip">${esc(k)}: ${esc(v).slice(0,40)}</span>`).join("");
- return `<div class="detail"><h2 style="margin:0">${esc(p.name)} <span class="tier ${tierCls(p.tier)}">${esc(p.tier)}</span></h2><div class="meta">${p.id} · ${esc(p.company)}${p.orig?" · graphic label: "+esc(p.orig):" · not in the original graphic"}</div>
+ return `<div class="detail"><h2 style="margin:0">${esc(p.name)} <span class="tier ${tierCls(p.tier)}">${esc(p.tier)}</span></h2><div class="meta">${p.id} · ${esc(p.company)}${p.orig?" · label in the popular stack diagram: "+esc(p.orig):" · not in the popular stack diagram"}</div>
  <p>${esc(p.rationale)}</p><div style="display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:16px">
  <div><table><tr><th>Criterion</th><th class="num">Score</th></tr>${sc}<tr><th>FS total</th><th class="num">${p.fs!=null?p.fs.toFixed(2):"–"}</th></tr><tr><th>Generic total</th><th class="num">${p.gen!=null?p.gen.toFixed(2):"–"}</th></tr></table>
  ${p.caps.length?`<p class="note">Evidence rules: ${p.caps.map(esc).join("; ")}</p>`:""}</div>
@@ -140,6 +141,6 @@ document.getElementById("theme").onclick=()=>{const r=document.documentElement;r
 render();
 </script></body></html>"""
 page = TEMPLATE.replace("__DATA__", json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")).replace("__EXTRAS__", json.dumps(extras, ensure_ascii=False).replace("</", "<\\/")) \
-               .replace("__NAMES__", json.dumps(NAMES)).replace("__N__", str(len(rows)))
+               .replace("__NAMES__", json.dumps(NAMES)).replace("__LOCKUPW__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_white_small.png", "rb").read()).decode()).replace("__LOCKUP__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_small.png", "rb").read()).decode()).replace("__N__", str(len(rows)))
 open(os.path.join(OUT, "explorer.html"), "w", encoding="utf-8").write(page)
 print(len(page), "bytes")

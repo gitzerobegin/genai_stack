@@ -2,7 +2,7 @@
 
 > **Conflict-of-interest disclosure.** The author is an Anthropic model, and the Claude Agent SDK assessed in this section is an Anthropic product [VF: A4-S092, A4-S027]. It was scored on the same rubric as every other framework. Its limitations are recorded in full in §3.7, borderline calls on it were resolved against it, and independent alternatives are named wherever it is mentioned [AJ]. At Checkpoint 4 the reader set its maturity score to 2, the same as the OpenAI Agents SDK (CP4-9); its tier stays Experimental [AJ].
 
-> **Executive summary.** This layer decides how an AI application sequences model calls, tool calls, state and human decisions, and what happens when a step fails half-way. Four things have changed since the original graphic. First, every major framework now ships two modes: a deterministic workflow or graph engine, and an autonomous agent loop. LangGraph combines both in one graph [VF: A4-S039]; Microsoft Agent Framework separates Agents from graph-based Workflows [VF: A4-S066]; CrewAI pairs Flows with Crews [VF: A4-S050]; Google ADK 2.0 added a Workflow Runtime [VF: A4-S114]. Second, durable execution has become a separate concern, delegated to engines such as Temporal: Pydantic AI v2 attaches durability through Temporal, DBOS or Prefect, the OpenAI Agents SDK integrates Temporal and DBOS, and Mistral Workflows is built on Temporal [VF: A4-S045, A4-S052, A4-S058]. Third, the vendor estate has been reshaped: Microsoft Agent Framework reached GA on 2 April 2026 as successor to Semantic Kernel and AutoGen, with AutoGen in maintenance mode [VF: A4-S008, A4-S012, A4-S021, V1-S050]; OpenAI's Agent Builder shuts down on 30 November 2026 [VF: A4-S054, V1-S051]; LangGraph Platform is now LangSmith Deployment [VF: A4-S031, V1-S056]; LlamaIndex says its focus has moved to LlamaParse [VF: A4-S117]; and no distinct "Mistral Agents SDK" exists [VF: A4-S057]. Fourth, the hyperscalers now sell framework-agnostic agent runtimes, such as Amazon Bedrock AgentCore, which runs each session in its own microVM [VF: A4-S116, B-L3-S004]. The graphic's single "agent framework" row hides the most important architectural choice in the stack: whether a process is a workflow or an agent [AJ]. **Recommendation:** build regulated use cases as deterministic workflow graphs with bounded LLM steps, run them on a durable-execution substrate, and keep approval gates and state in firm-controlled stores. Standardise on one framework per language estate (LangGraph by default; Microsoft Agent Framework in Microsoft estates; Google ADK or Strands with AgentCore where Google Cloud or AWS is the primary cloud), use Temporal (or DBOS) for durability, and admit autonomous agent loops only as sandboxed sub-steps with read-only tools [Rec].
+> **Executive summary.** This layer decides how an AI application sequences model calls, tool calls, state and human decisions, and what happens when a step fails half-way. Four things have changed since the popular stack diagram. First, every major framework now ships two modes: a deterministic workflow or graph engine, and an autonomous agent loop. LangGraph combines both in one graph [VF: A4-S039]; Microsoft Agent Framework separates Agents from graph-based Workflows [VF: A4-S066]; CrewAI pairs Flows with Crews [VF: A4-S050]; Google ADK 2.0 added a Workflow Runtime [VF: A4-S114]. Second, durable execution has become a separate concern, delegated to engines such as Temporal: Pydantic AI v2 attaches durability through Temporal, DBOS or Prefect, the OpenAI Agents SDK integrates Temporal and DBOS, and Mistral Workflows is built on Temporal [VF: A4-S045, A4-S052, A4-S058]. Third, the vendor estate has been reshaped: Microsoft Agent Framework reached GA on 2 April 2026 as successor to Semantic Kernel and AutoGen, with AutoGen in maintenance mode [VF: A4-S008, A4-S012, A4-S021, V1-S050]; OpenAI's Agent Builder shuts down on 30 November 2026 [VF: A4-S054, V1-S051]; LangGraph Platform is now LangSmith Deployment [VF: A4-S031, V1-S056]; LlamaIndex says its focus has moved to LlamaParse [VF: A4-S117]; and no distinct "Mistral Agents SDK" exists [VF: A4-S057]. Fourth, the hyperscalers now sell framework-agnostic agent runtimes, such as Amazon Bedrock AgentCore, which runs each session in its own microVM [VF: A4-S116, B-L3-S004]. The popular stack diagram's single "agent framework" row hides the most important architectural choice in the stack: whether a process is a workflow or an agent [AJ]. **Recommendation:** build regulated use cases as deterministic workflow graphs with bounded LLM steps, run them on a durable-execution substrate, and keep approval gates and state in firm-controlled stores. Standardise on one framework per language estate (LangGraph by default; Microsoft Agent Framework in Microsoft estates; Google ADK or Strands with AgentCore where Google Cloud or AWS is the primary cloud), use Temporal (or DBOS) for durability, and admit autonomous agent loops only as sandboxed sub-steps with read-only tools [Rec].
 
 ### 3.1 Responsibility
 
@@ -28,7 +28,7 @@
 
 When this layer is badly designed, the system's behaviour stops being a property of its design and becomes a property of each run [AJ]. Three failure modes recur:
 
-- **Autonomy where none was needed.** A task with a known sequence is given to an agent loop. Each run takes a slightly different path, so evaluation results do not transfer between runs and validation cannot cover the space of behaviours [AJ]. The plan's pair-6 tension states the counter-position: most enterprise agents should be deterministic workflows with one judgement step, and guardrails cannot fix a workflow that should never have been autonomous [AJ].
+- **Autonomy where none was needed.** A task with a known sequence is given to an agent loop. Each run takes a slightly different path, so evaluation results do not transfer between runs and validation cannot cover the space of behaviours [AJ]. The counter-position is worth stating: most enterprise agents should be deterministic workflows with one judgement step, and guardrails cannot fix a workflow that should never have been autonomous [AJ].
 - **No durable state.** A crash, deploy or timeout restarts the run from the beginning, so tools are called twice, approvals are lost or, worse, a half-finished run is silently abandoned [AJ]. The Claude Agent SDK, for example, keeps session transcripts on local disk, where they do not survive a container restart unless a session store is configured [VF: A4-S122].
 - **Approval as convention, not control.** A "human review" step that the code can skip, or that does not record who approved what, is not a gate [AJ].
 
@@ -73,20 +73,9 @@ The IOSCO toolkit lists "level and frequency of human intervention in AI-driven 
 
 **Reference flow.**
 
-```text
- request (run_id, user, use case) ──► L3 workflow engine (graph version pinned, C5)
-                                         │
-   ┌─────────────── deterministic graph (code owns control flow) ────────────────┐
-   │ [fetch data]──►[retrieve context]──►[LLM step]──►[eval gate]──►[APPROVAL]──►[release]
-   │  activity:       activity:            bounded      L9 checks    interrupt;      activity:
-   │  read-only tool  read-only retrieval  judgement    deterministic resume only by write by
-   │  (L4/C4)         (L6-L8)              via C1       + judge       named approver  release svc
-   └──────┬───────────────┬──────────────────┬──────────────┬───────────┬─────────────┘
-          ▼               ▼                  ▼              ▼           ▼
-   durable store: checkpoints + recorded activity results (firm-controlled DB / Temporal)
-          ▼
-   OTel spans per node (L9) ──► evidence pack (C8): graph version, inputs hash, outputs, approver
-```
+![L3 reference flow: a deterministic workflow with durable state and an approval gate](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L3-1.png){width=100%}
+
+*Figure: Code owns the control flow: the LLM step is one bounded node between read-only activities and an evaluation gate, a named approver must resume the run before release, and every node is checkpointed, traced and written to an evidence pack. Editable source: `08_Graphic/diagrams/L3-1.md`.* [AJ]
 
 The key design choice is that the graph, not the model, owns the control flow, and that every edge where something irreversible happens is either a recorded activity or a human interrupt [AJ].
 
@@ -219,7 +208,7 @@ The key design choice is that the graph, not the model, owns the control flow, a
 - *Choose when:* an EU-hosted, Mistral-model estate wants managed agents [AJ].
 - *Avoid when:* you need GA components or a portable framework [AJ].
 - *Competitors:* OpenAI Agents SDK, Temporal (directly), LangGraph.
-- *FS note:* relabel the graphic tile "Mistral Agents API (+ Workflows)"; keep the workflow definition in the firm's own code [Rec].
+- *FS note:* relabel the popular stack diagram tile "Mistral Agents API (+ Workflows)"; keep the workflow definition in the firm's own code [Rec].
 - **Tier: Experimental. No flag** (tile relabelled; the products exist under other names).
 
 **Vercel AI SDK (Vercel).**
@@ -328,53 +317,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 ### 3.9 Decision tree
 
-```text
-STEP 0 [Rec]: Classify the use case BEFORE choosing a framework
-  Is the sequence of steps known in advance (even with branches)?
-  ├─ Yes → DETERMINISTIC WORKFLOW. LLM steps are bounded nodes (draft, classify, extract,
-  │        judge). Autonomy budget = 0 or 1 model-chosen step.             (most FS use cases)
-  └─ No  → Can the open-ended part be isolated as one sub-step with read-only tools?
-           ├─ Yes → Workflow with ONE sandboxed agent sub-step (autonomy budget declared)
-           └─ No  → Autonomous agent. Requires: sandbox, tool allow-list, per-run budget,
-                    approval before any write, and a named risk owner. Re-check STEP 0.
+![L3 decision tree: classifying the use case, then choosing framework, durability and runtime](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L3-2.png){height=8.8in}
 
-STEP 1 [Rec]: Framework (one per language estate; do not wrap frameworks in a firm abstraction)
-  Microsoft / .NET estate, or Semantic Kernel / AutoGen to migrate?
-  ├─ Yes → Microsoft Agent Framework (Workflows for the process; Agents for bounded steps)
-  └─ No  → Python or TypeScript back end?
-           ├─ Yes → LangGraph (default)
-           │        alt: Pydantic AI + Temporal/DBOS where typed I/O matters most
-           │             (Strategic, conditional: Python teams wanting type-safe agents)
-           │        alt: Google ADK where Google Cloud / Agent Engine is the platform
-           └─ TypeScript application tier streaming to a browser → Vercel AI SDK
-              (+ Workflow SDK, or call a back-end LangGraph/Temporal workflow)
-  Existing CrewAI or LlamaIndex code → keep, but put the process in Flows / Workflows
-  and the regulated steps behind the firm's approval gate.
-
-STEP 2 [Rec]: Durability
-  Does the run last longer than one request, wait for a human, or call side-effecting tools?
-  ├─ No  → framework checkpointing is enough (or none)
-  └─ Yes → LangGraph only?          → Postgres checkpointer (firm-controlled, write-restricted)
-           Multi-framework / long?  → Temporal (self-host in-region, or Cloud with
-                                       client-side encryption); alt: DBOS, Restate
-           Microsoft estate?        → Durable Task (when GA) or Temporal meanwhile
-
-STEP 3 [Rec]: Runtime
-  Primary cloud = AWS?   → AgentCore Runtime (microVM per session) for framework-built agents
-  Primary cloud = Azure? → Foundry Hosted Agents
-  Primary cloud = GCP?   → Vertex AI Agent Engine
-  Otherwise / in-estate  → containers on the firm's Kubernetes (LangSmith Deployment self-hosted
-                           if LangGraph and Enterprise licence)
-  In every case: platform controls presumed (CP2 Q1); confirm per service.
-
-STEP 4 [Rec]: Autonomous harnesses (OpenAI Agents SDK, Claude Agent SDK, Mistral Agents API)
-  Only as a sandboxed sub-step, model already approved, traces to the firm's collector,
-  no hosted state outside approved residency (no US-only/non-ZDR beta for UK/EU client data).
-
-STEP 5 [Rec]: Checks before go-live
-  Path conformance tested? Kill-and-resume test passes without duplicate tool calls?
-  Approval gate cannot be bypassed in code? Graph version recorded on each run?
-```
+*Figure: Decide first whether the use case is a deterministic workflow, then pick one framework per language estate, add durable state when runs outlive a request, run agents on the primary cloud's runtime, confine autonomous harnesses to sandboxed sub-steps, and pass the go-live checks. Editable source: `08_Graphic/diagrams/L3-2.md`.* [AJ]
 
 ### 3.10 Lock-in classification
 
@@ -438,9 +383,9 @@ STEP 5 [Rec]: Checks before go-live
 - hold run state only in process memory or a container's local disk
 - run the drafting step on a hosted agent service whose residency or retention terms are not approved for client data
 
-### 3.13 Original → current → recommended
+### 3.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | LangGraph "workflow" | Both workflows and agent loops; 1.x GA; LangGraph Platform renamed LangSmith Deployment [VF: A4-S039, A4-S001, A4-S031] | Strategic default framework [Rec] |
 | LlamaIndex "document agents" | Framework 0.x with Workflows; vendor focus moved to LlamaParse (formerly LlamaCloud) [VF: A4-S002, A4-S117, A4-S042] | Tactical: retrieval toolkit; LlamaParse in L8 [Rec] |
@@ -464,4 +409,4 @@ The evidence supports the hypothesis, with one refinement.
 
 The refinement is that the split is not two products but two modes inside one framework, so it should be drawn as two sub-layers of L3 rather than as two layers with separate vendors [AJ]. The counter-evidence is that autonomous harnesses (the OpenAI and Claude agent SDKs, Mistral's Agents API) remain single-mode and are moving fastest [VF: A4-S053, A4-S027, A4-S057].
 
-**Provisional recommendation.** Redraw L3 as three stacked concerns: (1) **deterministic workflow orchestration** (graph, state, approvals) as the default for enterprise processes; (2) **bounded autonomous agent steps**, admitted per use case with a declared autonomy budget; and (3) **durable execution and managed runtime** as a reliability substrate beneath both [AJ]. This also answers the pair-6 tension: most enterprise "agents" should be deterministic workflows with one judgement step, and guardrails cannot rescue a process that should never have been autonomous [AJ]. **Provisional; verdict in synthesis.**
+**Provisional recommendation.** Redraw L3 as three stacked concerns: (1) **deterministic workflow orchestration** (graph, state, approvals) as the default for enterprise processes; (2) **bounded autonomous agent steps**, admitted per use case with a declared autonomy budget; and (3) **durable execution and managed runtime** as a reliability substrate beneath both [AJ]. This also answers the central tension of the layer: most enterprise "agents" should be deterministic workflows with one judgement step, and guardrails cannot rescue a process that should never have been autonomous [AJ]. **Provisional; verdict in synthesis.**

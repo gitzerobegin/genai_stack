@@ -1,0 +1,125 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>Select the control plane first</title>
+<!-- Generated from P24.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 24 · Close: what I'd select, and what I'd deliberately not select</div>
+  <div class="title">Select the control plane first</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.p24{display:grid;grid-template-columns:1fr 236px;gap:14px;align-items:stretch}
+.p24 .ctl{background:var(--navy);color:#fff;border-radius:14px;padding:11px 12px 12px}
+.p24 .ctl .t{font-size:14px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:800}
+.p24 .ctl .s{font-size:14px;color:var(--sky);margin-top:1px}
+.p24 .cg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.p24 .cc{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:9px;padding:6px 8px;font-size:14px;line-height:1.2}
+.p24 .cc b{display:block;font-size:14.5px;margin-bottom:2px}
+.p24 .cc span{color:#C9D6E6}
+.p24 .cc .code{font-size:12.5px;padding:0 5px;margin-right:5px;background:var(--gold);color:var(--navy);border-radius:5px}
+.p24 .cc.ev{border:2px solid var(--gold)}
+.p24 .flowl{display:flex;justify-content:center;gap:28px;font-size:14px;color:var(--blue);font-weight:700;margin:5px 0}
+.p24 .flowl .up{color:#8A6418}
+.p24 .pl{border:1px solid var(--line);border-radius:12px;padding:6px 9px 8px;background:#fff;margin-top:6px}
+.p24 .pl.ev{background:#FBF4E4;border:2px solid var(--gold)}
+.p24 .pl .ph{font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:800;color:var(--blue)}
+.p24 .pl.ev .ph{color:#8A6418}
+.p24 .ly{display:grid;grid-template-columns:34px 160px 1fr;gap:8px;align-items:center;margin-top:6px;font-size:14px;line-height:1.2}
+.p24 .ly .code{font-size:13px;padding:1px 0;margin:0;text-align:center}
+.p24 .ly b{font-size:14.5px}
+.p24 .ly .chip{font-size:14.5px;padding:2px 9px;margin:1px 2px 1px 0;font-weight:500}
+.p24 .nots{background:var(--redbg);border:2px solid var(--red);border-radius:14px;padding:12px 12px;display:flex;flex-direction:column;gap:8px}
+.p24 .nots .why{margin-top:auto;font-size:14px;line-height:1.3;color:var(--red);border-top:1px solid #E3B5B7;padding-top:8px}
+.p24 .nots .t{font-size:14px;letter-spacing:2px;color:var(--red);text-transform:uppercase;font-weight:800;line-height:1.3}
+.p24 .nx{background:#fff;border-radius:9px;padding:8px 10px;font-size:16px;line-height:1.25;border-left:5px solid var(--red)}
+</style>
+<div class="col" style="gap:12px">
+<div class="p24">
+ <div>
+  <div class="ctl"><div class="t">Firm-owned control plane</div><div class="s">policy and one evidence store, around every call</div>
+   <div class="cg">
+    <div class="cc"><b><span class="code">C1</span>Gateway</b><span>model, tool and agent calls; fails closed</span></div>
+    <div class="cc"><b><span class="code">C2</span>Guardrails</b><span>policy and test sets owned by the firm</span></div>
+    <div class="cc"><b><span class="code">C3</span>Privacy</b><span>one service, six enforcement points</span></div>
+    <div class="cc"><b><span class="code">C4</span>Identity</b><span>every agent registered; deny by default</span></div>
+    <div class="cc"><b><span class="code">C5</span>Configuration</b><span>prompts, pins, tools in source control</span></div>
+    <div class="cc"><b><span class="code">C6</span>FinOps</b><span>cost per task; budgets fail closed</span></div>
+    <div class="cc"><b><span class="code">C7</span>Security</b><span>secrets, supply chain, capability separation</span></div>
+    <div class="cc ev"><b><span class="code">C8</span>Evidence store</b><span>immutable, keyed by trace ID</span></div>
+   </div></div>
+  <div class="flowl"><span>&#8595; policy, identity, configuration, guards to every layer</span><span class="up">&#8593; evidence to C8</span></div>
+  <div class="pl"><div class="ph">Model plane</div>
+   <div class="ly"><span class="code">L1</span><b>Model portfolio</b><div><span class="chip">two unrelated vendors</span><span class="chip">small tier</span><span class="chip">open-weight exit</span><span class="chip">all pinned</span></div></div>
+   <div class="ly"><span class="code">L2</span><b>Inference</b><div><span class="chip">cloud model service, in region</span><span class="chip">open engine exit route</span></div></div>
+  </div>
+  <div class="pl"><div class="ph">Agent plane</div>
+   <div class="ly"><span class="code">L3</span><b>Orchestration</b><div><span class="chip">workflows by default</span><span class="chip">bounded agent steps</span><span class="chip">approval gates</span></div></div>
+   <div class="ly"><span class="code">L4</span><b>Tools</b><div><span class="chip">read-only for authoritative data</span><span class="chip">governed tool gateway</span></div></div>
+  </div>
+  <div class="pl"><div class="ph">Knowledge plane</div>
+   <div class="ly"><span class="code">L5</span><b>Memory</b><div><span class="chip">built last</span><span class="chip">write gate</span><span class="chip">erasure by person</span></div></div>
+   <div class="ly"><span class="code">L6</span><b>Retrieval stores</b><div><span class="chip">database you already run</span><span class="chip">rebuildable</span><span class="chip">entitlement-filtered</span></div></div>
+   <div class="ly"><span class="code">L7</span><b>Retrieval optimisation</b><div><span class="chip">embed and rerank</span><span class="chip">versions pinned</span></div></div>
+   <div class="ly"><span class="code">L8</span><b>Ingestion</b><div><span class="chip">open parsers</span><span class="chip">built envelope with lineage</span></div></div>
+  </div>
+  <div class="pl ev"><div class="ph">Evaluation plane · one evidence plane with C8</div>
+   <div class="ly"><span class="code">L9</span><b>Evaluation and observability</b><div><span class="chip">from day one</span><span class="chip">firm telemetry collector</span><span class="chip">two red-team tools</span></div></div>
+  </div>
+ </div>
+ <div class="nots">
+  <div class="t">&#10007; Deliberately not selected</div>
+  <div class="nx">Archived or deprecated products</div>
+  <div class="nx">Unverifiable vendors</div>
+  <div class="nx">Licence-blocked weights</div>
+  <div class="nx">Autonomous agents with write tools</div>
+  <div class="nx">A third-party broker holding client tokens</div>
+  <div class="nx">Memory before it is needed</div>
+  <div class="nx">A vendor-held store as the only copy of the evidence</div>
+  <div class="why">On evidence only: deprecated or archived, unverifiable, an unresolved client-data incident, or a licence or terms blocker</div>
+ </div>
+</div>
+ <div class="row"><div class="box gold grow" style="padding:11px 16px"><div class="lab" style="color:#8A6418">The signal for executives</div><div class="h" style="font-size:20px;margin-top:2px">Human-intervention rate</div><div class="small">how often, and how much, reviewers edit what the system drafts</div></div><div class="box navy grow" style="padding:11px 16px"><div class="lab" style="color:var(--gold)">The leadership move</div><div class="h" style="font-size:20px;margin-top:2px">Fund the plane before any product</div><div class="small" style="color:var(--sky)">what lasts: who owns the evidence, who may approve, what waits</div></div></div>
+</div>
+</div>
+ <div class="ft"><div class="cap">A firm-owned control and evidence plane first, replaceable components beneath it, and a short list of what to leave out. Generic and illustrative: categories only, no vendor names.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: Synthesis I.2, XI.5 and XI.7</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

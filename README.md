@@ -1,4 +1,4 @@
-# genai_stack: Enterprise GenAI Full-Stack Architecture Review (October 2026)
+# genai_stack: The Enterprise GenAI Stack, the view at end of Q3 2026 (Veyan)
 
 This repository executes `inputs/Enterprise_GenAI_Stack_Consolidated_Plan_v4.3.md` according to `inputs/Execution_Prompt_GenAI_Stack.md`. The baseline diagram is `inputs/AI_Full_Stack.jpg`.
 

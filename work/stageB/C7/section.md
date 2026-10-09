@@ -1,6 +1,6 @@
 ## C7. AI security
 
-> **Executive summary.** This control keeps attackers, and the system's own over-eager components, from turning a GenAI platform into a way to steal data, spend money or take actions nobody approved. It covers secrets, the software and model supply chain, sandboxing, prompt injection (direct and indirect), data exfiltration and agent abuse, plus the red-teaming that tests all of these. The original graphic had no security control at all [AJ]. Three things define it in October 2026. First, the threat has moved into the supply chain. On 24 March 2026, malicious LiteLLM releases 1.82.7 and 1.82.8 were published to PyPI using stolen release credentials [VF: A6-S008, A6-S009, A6-S010, V2-S027]. LiteLLM attributes the theft to a compromised Trivy scanner in CI; other reports describe a hijacked maintainer account [VF: A6-S009, V2-S027]. Pickle-based model files can still execute code on load [VF: A7-S082, B-C7-S006]. Second, the specialist vendors have largely been bought: Lakera by Check Point (completed 22 October 2025) [VF: A7-S012, V2-S038], Protect AI by Palo Alto Networks (22 July 2025) [VF: A7-S014, V2-S039], Prompt Security by SentinelOne, CalypsoAI by F5 and Pangea by CrowdStrike (all closed in September 2025) [VF: A7-S018, A7-S019, A7-S020, V2-S040]. HiddenLayer is the main independent left in this set [VF: A7-S017, V2-S047]. Third, the agent is now the attack surface: the OWASP Top 10 for Agentic Applications for 2026 opens with ASI01 Agent Goal Hijack [VF: R-OWASP-AGENTIC, A8-S042]. **Recommendation:** design the security architecture so that no single detector has to be right. Broker secrets outside the model (Vault or the cloud's native service), and give agents short-lived credentials scoped to each request. Treat every retrieved document as untrusted input and remove write and egress capability from any agent that reads it. Gate every model and package on provenance, scanning and signing. Buy a runtime AI-security product as a replaceable detector behind the gateway, not as the foundation [Rec].
+> **Executive summary.** This control keeps attackers, and the system's own over-eager components, from turning a GenAI platform into a way to steal data, spend money or take actions nobody approved. It covers secrets, the software and model supply chain, sandboxing, prompt injection (direct and indirect), data exfiltration and agent abuse, plus the red-teaming that tests all of these. The popular stack diagram had no security control at all [AJ]. Three things define it in October 2026. First, the threat has moved into the supply chain. On 24 March 2026, malicious LiteLLM releases 1.82.7 and 1.82.8 were published to PyPI using stolen release credentials [VF: A6-S008, A6-S009, A6-S010, V2-S027]. LiteLLM attributes the theft to a compromised Trivy scanner in CI; other reports describe a hijacked maintainer account [VF: A6-S009, V2-S027]. Pickle-based model files can still execute code on load [VF: A7-S082, B-C7-S006]. Second, the specialist vendors have largely been bought: Lakera by Check Point (completed 22 October 2025) [VF: A7-S012, V2-S038], Protect AI by Palo Alto Networks (22 July 2025) [VF: A7-S014, V2-S039], Prompt Security by SentinelOne, CalypsoAI by F5 and Pangea by CrowdStrike (all closed in September 2025) [VF: A7-S018, A7-S019, A7-S020, V2-S040]. HiddenLayer is the main independent left in this set [VF: A7-S017, V2-S047]. Third, the agent is now the attack surface: the OWASP Top 10 for Agentic Applications for 2026 opens with ASI01 Agent Goal Hijack [VF: R-OWASP-AGENTIC, A8-S042]. **Recommendation:** design the security architecture so that no single detector has to be right. Broker secrets outside the model (Vault or the cloud's native service), and give agents short-lived credentials scoped to each request. Treat every retrieved document as untrusted input and remove write and egress capability from any agent that reads it. Gate every model and package on provenance, scanning and signing. Buy a runtime AI-security product as a replaceable detector behind the gateway, not as the foundation [Rec].
 
 ### C7.1 Responsibility
 
@@ -29,7 +29,7 @@ Red-teaming is the assurance activity across all six. It is run in CI and before
 
 ### C7.2 Why it matters
 
-GenAI systems break the old separation between code and data [AJ]. A language model follows instructions it finds in any text it reads. An agent with tools turns those instructions into actions. Every retrieved document, web page, email and tool result is therefore input that an attacker may have written [AJ]. LinkedIn pair 4 of the series makes the point: indirect prompt injection is a supply-chain problem, because the attacker's payload arrives through the same pipeline as the firm's own knowledge [AJ].
+GenAI systems break the old separation between code and data [AJ]. A language model follows instructions it finds in any text it reads. An agent with tools turns those instructions into actions. Every retrieved document, web page, email and tool result is therefore input that an attacker may have written [AJ]. The point is worth stating plainly: indirect prompt injection is a supply-chain problem, because the attacker's payload arrives through the same pipeline as the firm's own knowledge [AJ].
 
 The supply chain has its own failure modes, and they are not theoretical:
 
@@ -81,24 +81,9 @@ The control works in three planes: build-time (what enters the estate), run-time
    - Detector and gateway events flow to the SIEM. Lakera supports SIEM export on Enterprise [VF: A7-S023, A7-S024], and Prisma AIRS forwards scan logs through Strata Logging Service [VF: B-C7-S003].
    - Incidents are classified under the firm's DORA or FCA incident process, and findings feed C2 rules, L9 datasets and the C8 evidence pack [AJ].
 
-```text
- BUILD-TIME                                RUN-TIME                                  ASSURANCE
- ───────────                               ────────                                  ─────────
- PyPI/npm ─► private mirror ─► pin+hash    User ─► C4 identity ─► C1 gateway          L9 red-team (2 tools,
-   (SBOM)                                          │  virtual keys, logging            OWASP LLM + Agentic 2026)
- HF / vendor weights                               ▼                                      │
-   ─► format policy (safetensors)          runtime detector (C7) ◄── C2 rules             ▼
-   ─► scan (ModelScan/picklescan/          │ screens prompt, retrieved chunks,        findings ─► C2 / C7 /
-      commercial) ─► verify signature      │ tool output, response                      L9 datasets / C8
-      (OMS) ─► model registry              ▼
- MCP servers, skills ─► artefact scan      L3 workflow (deterministic) ── read-only tools ──► systems of record
-   ─► tool inventory (C4)                       │                 ▲
-                                                │                 │ short-lived, request-scoped
-                                                ▼                 │ credential (never in prompt)
-                                           sandbox (no egress) ◄── Vault / cloud secrets broker
-                                                │
-                                   SIEM ◄── detector + gateway + broker audit events ──► incident (DORA / FCA)
-```
+![C7 security controls: build time, run time and assurance](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C7-1.png){width=100%}
+
+*Figure: Supply-chain controls at build time, a detector and credential broker around a deterministic workflow at run time, and red-team findings fed back, with detector, gateway and broker audit events going to the SIEM. Editable source: `08_Graphic/diagrams/C7-1.md`.* [AJ]
 
 The key design choice is **capability separation**: an agent should not hold untrusted input, sensitive data and an outbound channel at the same time [AJ]. Detectors are the second line, not the first [AJ].
 
@@ -264,41 +249,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 ### C7.9 Decision tree
 
-```text
-STEP 0 [Rec] (not optional, no product decision):
-  - Capability separation: no agent holds untrusted input + sensitive data + an outbound channel.
-  - Secrets never in prompts, context, memory or traces.
-  - Pinned, hashed dependencies from a private mirror; SBOM per image.
+![C7 decision tree: secrets, model artefacts, runtime detection and red-team](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C7-2.png){height=8.8in}
 
-STEP 1 [Rec]: Secrets and agent credentials
-  Multi-cloud or hybrid estate, or agents acting on behalf of users across systems?
-  ├─ Yes → HashiCorp Vault (Enterprise for agentic IAM); accept BUSL and IBM ownership
-  │        (alt: C4 identity platform + per-cloud secrets services)
-  └─ No  → the cloud's native secrets service + C4 workload identity
-
-STEP 2 [Rec]: Model artefacts
-  Do you self-host or fine-tune weights?
-  ├─ No  → skip to Step 3 (hosted APIs: supply-chain risk is the provider's and your SDKs')
-  └─ Yes → Format policy: safetensors only, by default
-           Scan anything executable: ModelScan + picklescan/fickling in CI
-           Large or regulated model estate?  → add Prisma AIRS AI Model Security
-                                               or HiddenLayer Model Scanner
-           Internally produced weights?      → sign with OpenSSF Model Signing
-                                               (firm key or HSM); verify at load
-
-STEP 3 [Rec]: Runtime detection (behind the C1 gateway, swappable)
-  Must prompts and client data stay in-estate?
-  ├─ Yes → self-hosted Check Point AI Guardrails, or Prisma AIRS private-cloud firewall
-  └─ No  → Already a Palo Alto Networks shop?   → Prisma AIRS (map regions per module)
-           Already a Check Point shop?          → Check Point AI Guardrails
-           Want an independent specialist?      → HiddenLayer (confirm certificates)
-  In all cases: switch off or limit the detector's own prompt logging; SIEM export on.
-
-STEP 4 [Rec]: Red-team and response
-  Two red-team tools in CI (L9), one independent of the model vendor under test;
-  map cases to OWASP LLM 2026 and Agentic 2026; canary documents in every index;
-  AI events classified under the DORA / FCA incident scheme.
-```
+*Figure: The Step 0 controls apply whatever is chosen; estate shape drives the secrets choice, self-hosting drives model-artefact controls, and residency and existing vendors drive the runtime detector. Editable source: `08_Graphic/diagrams/C7-2.md`.* [AJ]
 
 ### C7.10 Lock-in classification
 
@@ -372,9 +325,9 @@ The architecture defends in layers, so no single control has to catch it [AJ]:
 - load a model or package that has not passed the supply-chain gate
 - let the detector vendor retain prompts containing holdings beyond the records policy
 
-### C7.13 Original → current → recommended
+### C7.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
 | (absent) No security control | Supply-chain attacks on AI tooling are real (LiteLLM, 24 March 2026) [VF: A6-S008, V2-S027]; agent-specific OWASP list exists [VF: A8-S042] | A cross-cutting control with build-time, run-time and assurance planes; capability separation as the first defence [Rec] |
 | (absent) Lakera | Check Point AI Guardrails, part of the AI Defense Plane; acquisition completed 22 Oct 2025 [VF: A7-S013, A7-S025, V2-S038] | Tactical: swappable runtime detector, self-hosted for client data [Rec] |

@@ -1,0 +1,97 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>Cost per task, not cost per token</title>
+<!-- Generated from P02.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 2 · C6 AI FinOps</div>
+  <div class="title">Cost per task, not cost per token</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.cb{display:grid;grid-template-columns:250px 1fr;gap:20px 18px;align-items:center}
+.cb .nm{font-weight:800;font-size:19px;line-height:1.2}
+.cb .nm span{display:block;font-weight:500;font-size:15px;color:var(--mute);margin-top:2px}
+.cb .tr{display:flex;align-items:center;gap:14px}
+.cb .bar{height:50px;border-radius:8px;flex:none}
+.cb .tok{background:var(--blue)}
+.cb .rev{background:var(--gold);flex:1;position:relative;display:flex;align-items:center;padding-left:16px;font-weight:800;font-size:19px;color:var(--navy)}
+.cb .rev:after{content:"";position:absolute;right:46px;top:-6px;bottom:-6px;width:12px;background:#fff;transform:skewX(-18deg);border-left:2px solid var(--warm);border-right:2px solid var(--warm)}
+.cb .val{font-weight:800;font-size:21px;white-space:nowrap}
+.cb .val span{font-weight:500;font-size:15px;color:var(--mute);margin-left:6px}
+.cf{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr 34px 1fr;align-items:stretch}
+.cf .box{padding:12px 14px;font-size:16px;line-height:1.3}
+.cf .box b{display:block;font-size:18px;margin-bottom:4px}
+.cf .arrow{display:flex;align-items:center;justify-content:center;font-size:26px}
+</style>
+<div class="col" style="gap:20px">
+ <div class="box" style="padding:18px 22px 20px">
+  <div class="lab">One approved commentary · illustrative</div>
+  <div class="cb" style="margin-top:14px">
+   <div class="nm">Token cost<span>one draft at list prices</span></div>
+   <div class="tr"><div class="bar tok" style="width:26px"></div><div class="val">≈ US$0.11</div></div>
+   <div class="nm">With regenerations<span>× 2.5 drafts, plus judge calls</span></div>
+   <div class="tr"><div class="bar tok" style="width:70px"></div><div class="val">≈ US$0.30<span>well under a dollar</span></div></div>
+   <div class="nm">Reviewer time<span>the real cost driver</span></div>
+   <div class="tr"><div class="bar rev">much larger: not to scale</div></div>
+  </div>
+ </div>
+ <div class="box gold"><div class="lab" style="color:#8A6418">The signal to report</div>
+  <div class="h" style="margin-top:4px">Cost per approved output, alongside the regeneration rate</div>
+  <div class="small">counting every failed and regenerated draft; a cheaper token that needs three retries and a longer review is not cheaper</div></div>
+ <div class="lab" style="margin-top:2px">How it is measured</div>
+ <div class="cf">
+  <div class="box navy"><b>Gateway meter</b><span class="sub" style="font-size:15px">every call tagged:</span><div style="margin-top:6px"><span class="chip gold">use case</span><span class="chip gold">fund</span><span class="chip gold">run ID</span></div></div>
+  <div class="arrow r"></div>
+  <div class="box blue"><b>Join to trace</b>so failed and regenerated attempts count</div>
+  <div class="arrow r"></div>
+  <div class="box blue"><b>Monthly reconciliation</b>to provider bills; variance within ±2%</div>
+  <div class="arrow r"></div>
+  <div class="box green"><b>Firm-owned cost dataset</b>shaped to the open billing standard</div>
+ </div>
+ <div class="box red"><div class="lab" style="color:var(--red)">Budgets need teeth</div>
+  <div class="h" style="margin-top:4px">"A budget without a quota is a number, not a control"</div>
+  <div class="small">FinOps Foundation. Pair every cap with an enforcement point that fails closed, so a runaway agent loop stops itself.</div></div>
+</div>
+</div>
+ <div class="ft"><div class="cap">Illustrative arithmetic for one approved monthly fund commentary at list prices: tokens come to well under a dollar, and reviewer time is the real cost. Reviewer bar not to scale. Generic: no vendor names.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: C6 §C6.3, §C6.9 and §C6.12</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

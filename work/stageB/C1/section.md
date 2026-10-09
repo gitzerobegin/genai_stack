@@ -1,6 +1,6 @@
 ## C1. AI / LLM gateway
 
-> **Executive summary.** The gateway is the single point through which every model call, and now every tool and agent call, leaves an application. It owns provider abstraction, routing and fallback, quotas and budgets, caching, policy enforcement and the request log [AJ]. The original graphic has no gateway. Its only nod to one is OpenRouter in L2, a hosted router that now carries budgets, allowlists, zero-data-retention and regional routing [VF: A4-S111, A4-S109]. Four things have changed since then. First, the gateways now carry three kinds of traffic: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. Second, ownership is moving towards security vendors: Palo Alto Networks completed its acquisition of Portkey on 29 May 2026 and sells it as Prisma AIRS AI Gateway [VF: A6-S011, A6-S012, V2-S025]. Third, the gateway has proved to be an attack target in its own right: malicious LiteLLM 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026 [VF: A6-S008, V2-S027]. Fourth, the hyperscaler offerings are real but uneven: the Azure API Management AI Gateway tier is preview with no SLA [VF: A6-S020, V2-S073], and no AWS product called "AI gateway" was found: AWS offers an MCP gateway with new inference targets and a LiteLLM-based reference pattern instead [VF: A6-S021, A6-S022, A6-S105]. **Recommendation:** run one firm-controlled gateway of record for all production LLM and MCP traffic, deployed in-region, failing closed, with pinned and signed builds. Choose LiteLLM (hardened and Enterprise-licensed), Kong, Apigee or the GA AI gateway policies in Azure API Management according to your existing API and cloud estate, and keep the model-switch route tested, because the gateway is what makes an exit plan executable [Rec].
+> **Executive summary.** The gateway is the single point through which every model call, and now every tool and agent call, leaves an application. It owns provider abstraction, routing and fallback, quotas and budgets, caching, policy enforcement and the request log [AJ]. The popular stack diagram has no gateway. Its only nod to one is OpenRouter in L2, a hosted router that now carries budgets, allowlists, zero-data-retention and regional routing [VF: A4-S111, A4-S109]. Four things have changed since then. First, the gateways now carry three kinds of traffic: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. Second, ownership is moving towards security vendors: Palo Alto Networks completed its acquisition of Portkey on 29 May 2026 and sells it as Prisma AIRS AI Gateway [VF: A6-S011, A6-S012, V2-S025]. Third, the gateway has proved to be an attack target in its own right: malicious LiteLLM 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026 [VF: A6-S008, V2-S027]. Fourth, the hyperscaler offerings are real but uneven: the Azure API Management AI Gateway tier is preview with no SLA [VF: A6-S020, V2-S073], and no AWS product called "AI gateway" was found: AWS offers an MCP gateway with new inference targets and a LiteLLM-based reference pattern instead [VF: A6-S021, A6-S022, A6-S105]. **Recommendation:** run one firm-controlled gateway of record for all production LLM and MCP traffic, deployed in-region, failing closed, with pinned and signed builds. Choose LiteLLM (hardened and Enterprise-licensed), Kong, Apigee or the GA AI gateway policies in Azure API Management according to your existing API and cloud estate, and keep the model-switch route tested, because the gateway is what makes an exit plan executable [Rec].
 
 ### C1.1 Responsibility
 
@@ -56,23 +56,9 @@ A request passes through five stages [AJ]:
 
 For MCP the gateway becomes a tool federator. It presents one MCP endpoint to agents and exposes only the tools each caller is allowed. Kong does this with MCP Server Bundling and per-caller tool exposure [VF: A6-S016]; AgentCore Policy removes denied tools from `tools/list` and is deny-by-default for tool calls [VF: A6-S026]. The MCP 2026-07-28 authorisation spec forbids token passthrough and requires audience validation [VF: A6-S033, A6-S034], so a gateway that fronts MCP servers must mint or exchange tokens per upstream server rather than forward the client's token [AJ].
 
-```text
- L3 workflow / agent (workload identity from C4)
-          │  one OpenAI-compatible endpoint  +  one MCP endpoint
-          ▼
- ┌──────────────────────── C1 gateway (firm-controlled, in-region) ─────────────────────────┐
- │ authN/Z ─► limits & budgets ─► pre-call guards (C2, C3) ─► route/fallback ─► post-call guards │
- │   (fail closed)    (fail closed)      (inline, time-boxed)     (residency-   (C2, C3)          │
- │                                                                 constrained)                   │
- │   secrets (C7 vault) · routing config (C5, change-controlled) · cache (off on client routes) │
- └───────────┬───────────────────────────┬──────────────────────────────┬────────────────────┘
-             ▼                           ▼                              ▼
-   model endpoints (L1/L2)      MCP tool servers (L4)            A2A agents
-   primary + qualified          read-only tools, per-caller
-   fallback, same region        token exchange (C4)
-             │
-             └──► request records + OTel spans ──► collector ──► L9 platform, C6 FinOps, C8 evidence
-```
+![C1 request path: every LLM, MCP and A2A call through one firm-controlled gateway](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C1-1.png){width=100%}
+
+*Figure: Workflows and agents reach models, tools and other agents only through one in-region gateway that authenticates, enforces limits, guards, routes and records every call. Editable source: `08_Graphic/diagrams/C1-1.md`.* [AJ]
 
 **Two placements.** A centralised gateway gives one policy point and one log, but is a shared single point of failure and a concentration of credentials [AJ]. A sidecar or per-domain gateway limits blast radius but multiplies configuration [AJ]. For an asset manager the practical answer is one logical gateway with at least two independent deployments (per region or per criticality tier) sharing configuration from C5 [Rec].
 
@@ -284,39 +270,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 ### C1.9 Decision tree
 
-```text
-STEP 0 [Rec] (not optional): one gateway of record for ALL production LLM and MCP traffic;
-provider keys live only in the gateway's vault (C7); routing config in Git under C5;
-budgets and limits fail closed; fallback lists are residency- and qualification-checked.
+![C1 decision tree: choosing the gateway of record](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/C1-2.png){height=8.8in}
 
-STEP 1 [Rec]: Which gateway of record?
-  Does the gateway see client or personal data that must stay in-estate or in UK/EU?
-  ├─ Yes → Do you already run an enterprise API gateway?
-  │        ├─ Kong        → Kong AI Gateway, hybrid mode (customer data plane)
-  │        ├─ Apigee      → Apigee hybrid in a UK/EU region
-  │        ├─ Azure APIM  → APIM AI policies in existing GA tiers (not the preview tier)
-  │        └─ None / mixed→ LiteLLM self-hosted + Enterprise licence, pinned and signed
-  │                         (alt: agentgateway + Solo Enterprise if MCP/A2A-led and Kubernetes-native)
-  └─ No  → Managed is acceptable: Cloudflare AI Gateway (BYOK) or Portkey SaaS,
-           with a documented route back to a self-hosted gateway
-
-STEP 2 [Rec]: Tool and agent traffic
-  Agents on AWS with tools behind AgentCore? → AgentCore Gateway for MCP + AgentCore Policy;
-                                                model traffic stays on the Step 1 gateway
-  Envoy Gateway already your platform?       → Agent Router for in-cluster routing, behind Step 1
-  Otherwise                                  → the Step 1 gateway's MCP endpoint, with
-                                                per-caller tool exposure and token exchange
-
-STEP 3 [Rec]: Security-vendor bundle?
-  Already standardised on Prisma AIRS?  → Portkey/Prisma AIRS AI Gateway is a reasonable choice,
-                                          but keep the open-source gateway config as the exit route
-
-STEP 4 [Rec]: Checks before go-live
-  Two independent deployments? Fail-closed tested (spend store down, guard timeout)?
-  Fallback model qualified (L9) and in the same region? Semantic cache off on client routes?
-  Gateway logs retained per records policy (≥ 6 months where AI Act Art. 26 applies) and in region?
-  Exit drill: route switched to the alternative provider by configuration only?
-```
+*Figure: Fix one gateway of record first, then pick the product by data residency and existing API gateway, add tool and agent routing, and pass the go-live checks. Editable source: `08_Graphic/diagrams/C1-2.md`.* [AJ]
 
 ### C1.10 Lock-in classification
 
@@ -377,11 +333,11 @@ STEP 4 [Rec]: Checks before go-live
 - accept a provider-side model version change without recording it and triggering re-qualification
 - become the place where drafting logic or numbers are generated; it routes and records, it does not author
 
-### C1.13 Original → current → recommended
+### C1.13 What changed since the popular stack diagram
 
-| Original (graphic) | Current (October 2026) | Recommended |
+| Popular stack diagram | End of Q3 2026 | Recommended |
 |---|---|---|
-| **(absent).** The graphic has no gateway control; gateway concerns are implied only by OpenRouter in L2 | Gateways now carry LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061] | A control-plane component: one firm-controlled gateway of record, two deployments, fail-closed [Rec] |
+| **(absent).** The popular stack diagram has no gateway control; gateway concerns are implied only by OpenRouter in L2 | Gateways now carry LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061] | A control-plane component: one firm-controlled gateway of record, two deployments, fail-closed [Rec] |
 | OpenRouter "multi-provider" (L2) as the implied router | Hosted router with gateway-style governance (budgets, allowlists, ZDR, EU/US routing); Stripe acquisition agreed, pending [VF: A4-S111, A4-S109, V1-S059] | A model-access source behind the firm's gateway, not the gateway itself [Rec] |
 | (absent) LiteLLM | Open-core LLM+MCP+A2A gateway; PyPI compromise 24 March 2026, clean 1.83.0 [VF: A6-S015, A6-S008, A6-S009] | Strategic, conditional: hardened, pinned, Enterprise-licensed [Rec] |
 | (absent) Portkey | Acquired by Palo Alto Networks; now Prisma AIRS AI Gateway [VF: A6-S012, A6-S014] | Tactical; for Prisma AIRS estates [Rec] |
