@@ -26,7 +26,7 @@ for p in prods:
     cl = p.get("classification") or {}; sc = p.get("scores") or {}; a = p.get("assessment") or {}
     dep = p.get("deployment") or {}
     rows.append({
-        "id": p["id"], "layer": p["layer"], "name": v(p.get("current_name")) or p["id"], "company": v(p.get("company")),
+        "id": p["id"], "layer": p["layer"], "name": v(p.get("current_name")) or p["id"], "short": re.split(r"\s*[(;:,]\s*|\s+-\s+", v(p.get("current_name")) or p["id"])[0][:48], "company": v(p.get("company")),
         "orig": p.get("original_label") or "", "tier": cl.get("tier") or "Not scored", "flags": cl.get("flags") or [],
         "rationale": clean(cl.get("rationale")), "scores": sc.get("criteria") or {}, "fs": sc.get("fs_total"), "gen": sc.get("generic_total"),
         "caps": [clean(x) for x in (sc.get("evidence_caps_applied") or [])],
@@ -102,7 +102,7 @@ function nav(){const L=Object.keys(N);let h='<button data-l="all" class="'+(st.l
 function list(){let r=D.filter(p=>(st.layer=="all"||p.layer==st.layer)&&(st.tier=="all"||p.tier==st.tier)&&(st.dep=="all"||/^Yes/i.test((p.deploy||{})[st.dep]||""))&&(!st.q||JSON.stringify(p).toLowerCase().includes(st.q.toLowerCase())));
  r.sort((a,b)=>(b.fs||0)-(a.fs||0));return r}
 function card(p){const ck=st.cmp.includes(p.id)?"checked":"";return `<div class="card" data-id="${p.id}"><label class="ck" onclick="event.stopPropagation()"><input type="checkbox" data-c="${p.id}" ${ck}> compare</label>
- <h3>${esc(p.name)}</h3><div class="meta">${p.layer} · ${esc(p.company).slice(0,60)}</div>
+ <h3 title="${esc(p.name)}">${esc(p.short)}</h3><div class="meta">${p.layer} · ${esc(p.company).slice(0,60)}</div>
  <div style="margin-top:6px"><span class="tier ${tierCls(p.tier)}">${esc(p.tier)}</span> ${p.flags.map(f=>`<span class="chip">${esc(f)}</span>`).join("")}</div>
  ${p.fs!=null?`<div class="meta" style="margin-top:6px">FS ${p.fs.toFixed(2)} · generic ${p.gen.toFixed(2)}</div><div class="bar"><i style="width:${(p.fs/5*100).toFixed(0)}%"></i></div>`:'<div class="meta">Not scored</div>'}</div>`}
 function detail(p){const sc=C.map(([k,l])=>`<tr><td>${l}</td><td class="num">${p.scores[k]??"–"}</td></tr>`).join("");
@@ -122,7 +122,7 @@ function products(){const deps=["saas","managed_cloud","vpc_byoc","private_cloud
  if(st.sel){const p=D.find(x=>x.id==st.sel);if(p)h=detail(p)+`<p><button onclick="st.sel=null;render()">← back to list</button></p>`}
  return h}
 function compare(){const ps=st.cmp.map(id=>D.find(p=>p.id==id)).filter(Boolean);if(!ps.length)return '<p>Tick "compare" on up to four product cards, then return here.</p>';
- let h=`<table><tr><th></th>${ps.map(p=>`<th>${esc(p.name)}<br><span class="tier ${tierCls(p.tier)}">${p.tier}</span></th>`).join("")}</tr>`;
+ let h=`<table><tr><th></th>${ps.map(p=>`<th>${esc(p.short)}<br><span class="tier ${tierCls(p.tier)}">${p.tier}</span></th>`).join("")}</tr>`;
  for(const [k,l] of C)h+=`<tr><td>${l}</td>${ps.map(p=>`<td class="num">${p.scores[k]??"–"}</td>`).join("")}</tr>`;
  h+=`<tr><th>FS total</th>${ps.map(p=>`<th class="num">${p.fs!=null?p.fs.toFixed(2):"–"}</th>`).join("")}</tr><tr><th>Generic total</th>${ps.map(p=>`<th class="num">${p.gen!=null?p.gen.toFixed(2):"–"}</th>`).join("")}</tr>`;
  for(const [k,l] of [["licence","Licence"],["certs","Certifications"],["resid","Residency"],["status","Status events"]])h+=`<tr><td>${l}</td>${ps.map(p=>`<td>${esc(p[k]).slice(0,300)}</td>`).join("")}</tr>`;
