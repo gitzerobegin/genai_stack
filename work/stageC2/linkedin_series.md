@@ -231,3 +231,1119 @@ Personal views. Sources: the Enterprise GenAI Stack review, C8 Model risk, gover
 - Vendors named only in the first comment, evenly: yes
 
 ---
+
+## Week 2
+
+### Post 3 · Week 2, Tuesday · L8 Data extraction and ingestion
+
+**Pair:** Post 4 (C3, Week 2 Thursday). **Bridge:** Tuesday shows that quality is decided at ingestion; Thursday shows that residency and privacy are decided there too.
+
+**Theme and source:** Ingestion as a control plane around commodity parsers. `work/stageB/L8/section.md` (executive summary, §8.2, §8.3, §8.9, §8.11–§8.13).
+
+**Tension:** Some of the most convincing "hallucinations" in enterprise retrieval start in a PDF table parser, not in the model.
+
+#### Full post
+
+Some of the most convincing "hallucinations" in enterprise retrieval systems are not the model's fault. They start in a table parser.
+
+A merged header cell shifts a column one place to the left. Parsing succeeds, chunks are indexed, retrieval works, and the model faithfully repeats a figure that was never the figure it claimed to be. Nothing fails, so nobody looks.
+
+Ingestion is usually drawn as a shelf of parsers. The parsers are close to commodity now; the value is in the envelope around them. Every chunk should carry its source, version, access permissions, classification, the parser and version that produced it, and a lineage run ID. No envelope, no index. Of the ten ingestion products assessed in this review, only one carried access-control metadata into the pipeline, and none emitted lineage. The envelope is something you build.
+
+The signal I would watch is table cell exact-match against a golden set of your own documents: value, sign, unit, row and column. A starting target is 99.5%, and 100% for any table that feeds a published number, re-run on every parser or model change.
+
+The leadership move is a boundary. Numbers parsed from documents are context, never the authority. Authoritative figures come from the system of record through a tool, and the evaluation checks the draft against that, not against parsed text.
+
+[Anecdote slot: one or two sentences on a data problem that looked like a downstream failure but started at ingestion, and who traced it back.]
+
+If retrieved answers look wrong, look upstream first. The model is often just the messenger.
+
+#### Short variant
+
+Some of the most convincing "hallucinations" in enterprise retrieval are not the model's fault. They start in a table parser.
+
+A merged header cell shifts a column. Parsing succeeds, retrieval works, and the model repeats the wrong figure fluently. Nothing fails, so nobody looks.
+
+The parsers are close to commodity. The value is the envelope around them: every chunk carries its source, version, permissions, classification, parser version and lineage ID. No envelope, no index. Few products provide it, so it is yours to build.
+
+The signal: table cell exact-match against a golden set of your own documents, re-run on every parser change, with 100% for any table that feeds a published number.
+
+And one boundary: parsed numbers are context, never the authority. Authoritative figures come from the system of record.
+
+If retrieved answers look wrong, look upstream first.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a problem that presented as a reporting, analytics or model error but whose root cause was upstream: a file format change, a parser or feed upgrade, a mapping that drifted. Who found the real cause? Credit them. What did you change so the next one would be caught at the source?
+- **Fits:** data-infrastructure or platform-modernisation experience; it need not involve AI.
+- **Avoid:** naming internal feeds, vendors or affected funds.
+
+#### Fallback version
+
+Some of the most convincing "hallucinations" in enterprise retrieval systems are not the model's fault. They start in a table parser.
+
+A merged header cell shifts a column one place to the left. Parsing succeeds, chunks are indexed, retrieval works, and the model faithfully repeats a figure that was never the figure it claimed to be. Nothing fails, so nobody looks.
+
+Ingestion is usually drawn as a shelf of parsers. The parsers are close to commodity now; the value is in the envelope around them. Every chunk should carry its source, version, access permissions, classification, the parser and version that produced it, and a lineage run ID. No envelope, no index. Of the ten ingestion products assessed in this review, only one carried access-control metadata into the pipeline, and none emitted lineage. The envelope is something you build.
+
+The signal worth watching is table cell exact-match against a golden set of your own documents: value, sign, unit, row and column. A starting target is 99.5%, and 100% for any table that feeds a published number, re-run on every parser or model change.
+
+The leadership move is a boundary. Numbers parsed from documents are context, never the authority. Authoritative figures come from the system of record through a tool, and the evaluation checks the draft against that, not against parsed text.
+
+The honest caveat: dual parsing and reconciliation cost compute and engineering time, and every parser upgrade becomes a tested change. That is the price of being able to say which documents a defect touched.
+
+If retrieved answers look wrong, look upstream first. The model is often just the messenger.
+
+#### Suggested visual
+
+Pipeline diagram: source register → acquisition → classification/DLP → parser (drawn as a swappable cartridge) → "metadata envelope" stamped on each chunk (source, version, ACL, classification, parser manifest, lineage ID) → index gate ("no envelope, no index"). A red side-path shows "parsed numbers = context only"; a green path shows "authoritative figures via read-only tool". Source: L8 §8.9 and the six-component control plane in §8.13.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, L8 Data extraction, ingestion and web (§8.2, §8.3 KPIs, §8.12 worked example, §8.13).
+- Only Unstructured's open-source connectors carry access-control metadata into the pipeline; no L8 product emits lineage [A1-S094, A1-S096]. OpenLineage has no GenAI-specific facets [A7-S042].
+- Market moves: Docling graduated within LF AI & Data in August 2026 [V1-S091]; Mistral OCR 4.0 retired on 30 September 2026 [A1-S130, V1-S014]; LlamaParse now names LlamaIndex's whole document platform [A1-S080]; Firecrawl's server is AGPL-3.0 [A1-S053].
+- Products assessed: Docling, Unstructured, LlamaParse, Reducto, Mistral OCR, Google Document AI, MinerU, Firecrawl, Crawl4AI, Apify.
+- ESMA's expectation of "ex-ante input controls" [R-INTL-AI-ASSETMGMT: A8-S059] is where ingestion sits in a regulated firm.
+
+#### Hashtags
+
+#RAG #DataQuality
+
+#### Re-verify before posting
+
+- "Ten products assessed; only one carries ACL metadata; none emits lineage" (check for new lineage features)
+- Mistral OCR and Docling version status if mentioned in replies
+
+#### Compliance check
+
+- Personal views; no reference to any firm's document estate: yes
+- 99.5% and 100% are review targets, not firm metrics: yes
+- Worked example generic: yes
+- Vendors only in the first comment: yes
+
+---
+
+### Post 4 · Week 2, Thursday · C3 DLP and PII protection
+
+**Pair:** Post 3 (L8, Week 2 Tuesday). **Bridge:** If quality is decided at ingestion, so are residency and privacy; a filter at the prompt arrives too late.
+
+**Theme and source:** One firm-owned privacy service called from every enforcement point. `work/stageB/C3/section.md` (executive summary, §C3.2, §C3.3, §C3.9, §C3.11–§C3.13).
+
+**Tension:** Data residency and PII decisions are made at ingestion, not at the prompt.
+
+#### Full post
+
+One analyst question can place the same client identifier in seven places: a prompt, a retrieved chunk, a tool result, a provider's processing region, a trace store, an evaluation dataset and a memory record.
+
+Each copy has its own retention, location and access model. Each is somewhere an erasure request or a breach investigation has to reach.
+
+The common trap is a single checkpoint: a filter at the prompt. By then the document may already have been parsed by a third party and indexed without its classification, and no prompt-level control can undo that. Tuesday's post argued that ingestion is where data quality is decided. It is also where residency and privacy are decided.
+
+The pattern that holds up is one firm-owned privacy service — detect, transform and, under policy, re-identify — called from every enforcement point: ingestion, prompts, tool results, outputs, memory writes and trace export. One policy, six call sites, rather than a different detector bought for each layer.
+
+The signal is detection recall per entity class, measured on a labelled test set of your own identifiers: client codes, account numbers, mandate references. Report it per class, not averaged. An average hides the identifier that matters.
+
+The leadership move is to fund tokenisation, not blunt redaction. "[REDACTED] outperformed [REDACTED]" gets the control switched off. Consistent placeholders let the model write a useful draft without ever seeing who the client is.
+
+[Anecdote slot: one or two sentences on a time a privacy or data-handling control was bypassed because it got in the way, and what made the fixed version usable.]
+
+Privacy controls fail quietly when they sit in one place. They hold when data cannot move without passing them.
+
+#### Short variant
+
+One analyst question can place the same client identifier in seven places: prompt, retrieved chunk, tool result, provider region, trace store, evaluation set and memory.
+
+Each copy is somewhere an erasure request or breach investigation must reach. A filter at the prompt arrives too late: by then the document may already be parsed and indexed without its classification.
+
+The pattern that holds up is one firm-owned privacy service, called at six points: ingestion, prompts, tool results, outputs, memory writes and trace export. One policy, not a detector per layer.
+
+The signal is detection recall per entity class, on your own identifiers, reported per class rather than averaged.
+
+And fund tokenisation over blunt redaction. "[REDACTED] outperformed [REDACTED]" gets a control switched off. Placeholders let the model draft without seeing the client.
+
+Privacy holds when data cannot move without passing it.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a control (privacy, security, approval) that users routed around because it damaged their work, and what changed when it was redesigned to keep the work useful. Own the original design call if it was yours; credit whoever proposed the better one.
+- **Fits:** "making invisible prevention work visible" and operating-model themes.
+- **Avoid:** describing any actual data incident, client or regulator interaction.
+
+#### Fallback version
+
+One analyst question can place the same client identifier in seven places: a prompt, a retrieved chunk, a tool result, a provider's processing region, a trace store, an evaluation dataset and a memory record.
+
+Each copy has its own retention, location and access model. Each is somewhere an erasure request or a breach investigation has to reach.
+
+The common trap is a single checkpoint: a filter at the prompt. By then the document may already have been parsed by a third party and indexed without its classification, and no prompt-level control can undo that. Ingestion is where data quality is decided. It is also where residency and privacy are decided.
+
+The pattern that holds up is one firm-owned privacy service — detect, transform and, under policy, re-identify — called from every enforcement point: ingestion, prompts, tool results, outputs, memory writes and trace export. One policy, six call sites, rather than a different detector bought for each layer.
+
+The signal is detection recall per entity class, measured on a labelled test set of your own identifiers: client codes, account numbers, mandate references. Report it per class, not averaged. An average hides the identifier that matters.
+
+The leadership move is to fund tokenisation, not blunt redaction. "[REDACTED] outperformed [REDACTED]" gets the control switched off. Consistent placeholders let the model write a useful draft without ever seeing who the client is.
+
+The honest caveat: detectors miss things, and the leading open-source one says so in its own documentation. Design for a second-pass scan and a residual-leakage measure, not a perfect first pass.
+
+Privacy controls fail quietly when they sit in one place. They hold when data cannot move without passing them.
+
+#### Suggested visual
+
+"Seven copies" diagram: one client identifier at the centre with arrows to seven stores (prompt, chunk, tool result, provider region, trace store, eval set, memory). Overlay six numbered enforcement points (E1 ingestion to E6 trace export) all calling one "privacy service" box. Inset: a draft showing CLIENT_A / MANDATE_1 placeholders instead of names. Source: C3 §C3.2, §C3.9 step 0, §C3.12.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, C3 DLP and PII protection (§C3.2, §C3.3 KPIs, §C3.9, §C3.12).
+- Presidio is now community-governed under the Data Privacy Stack organisation, MIT-licensed [A6-S040, V2-S030]; its README warns detection is not guaranteed to find all sensitive data [A6-S068].
+- Microsoft folded DSPM for AI into unified Purview DSPM (GA May 2026) [A6-S090, A6-S091]; Google Sensitive Data Protection underpins Model Armor's screening [A6-S066, A6-S067]; Protegrity AI Team Edition is Tech Preview [A6-S093]; Skyflow offers an LLM Privacy Vault with EU vaults [A6-S095]. DLP also appears inside Cloudflare AI Gateway, Kong AI Gateway, Bedrock Guardrails and Model Armor [A6-S052, A6-S016, A6-S072, A6-S067].
+- Processing location is now a priced contract item at least at one first-party model API (Anthropic's US-only inference option) [A8-S036]; other providers' equivalents are covered in the L1 and L2 chapters.
+- EU–US transfers: the Data Privacy Framework appeal C-703/25 P is pending [R-DATA-TRANSFERS: A8-S053].
+
+#### Hashtags
+
+#DataProtection #PrivacyEngineering
+
+#### Re-verify before posting
+
+- Status of the DPF appeal C-703/25 P
+- Presidio governance and licence
+- Purview DSPM licensing statement
+
+#### Compliance check
+
+- Personal views; no real incident described: yes
+- Placeholder example is generic: yes
+- Vendors only in the first comment, listed evenly (including Anthropic): yes
+
+---
+
+## Week 3
+
+### Post 5 · Week 3, Tuesday · L7 Embeddings and reranking
+
+**Pair:** Post 6 (C5, Week 3 Thursday). **Bridge:** Tuesday ends on "the embedding version is production configuration"; Thursday extends that to prompts and every other setting that changes outputs.
+
+**Theme and source:** Retrieval optimisation as one governed, two-stage service. `work/stageB/L7/section.md` (executive summary, §7.2, §7.3, §7.9, §7.11–§7.13).
+
+**Tension:** Retrieval quality is a two-stage problem, and it is easy to tune only one stage.
+
+#### Full post
+
+Retrieval quality is a two-stage problem, and it is easy to tune only one stage.
+
+The first stage casts a wide net: embed the question and pull back fifty or a hundred candidates. The second stage reorders them, so the handful the model actually reads are the right ones. Teams swap the embedding model to fix answers a reranker should have fixed, or add a reranker to rescue a first stage that never found the right passage.
+
+So measure the stages separately. For the first, the signal is recall@k: the share of questions in an in-domain golden set whose relevant passage appears anywhere in the candidates. A starting target is 0.95. Ranking quality after the reranker is a second number, and only then worth tuning.
+
+There is a quieter point underneath. The embedding model version is production configuration. Change it and the whole corpus must be re-embedded. Mix two versions in one index and the scores stop being comparable, with no error to tell you. Tag every vector with its model version, refuse queries that would mix versions, and migrate by building a second index behind a regression gate.
+
+The leadership move is to choose models by your own evaluation, not by leaderboard or vendor claim. One to three hundred labelled questions, written by the analysts who will use the system, will tell you more than any published benchmark.
+
+[Anecdote slot: one or two sentences on a time a team optimised the wrong stage of a problem, and who spotted it by measuring.]
+
+Most retrieval problems are measurement problems first. Once both stages are visible, the fixes are usually plain.
+
+#### Short variant
+
+Retrieval quality is a two-stage problem, and it is easy to tune only one stage.
+
+The first stage pulls back fifty or a hundred candidates. The second reorders them so the few the model reads are right. Teams swap embedding models to fix ranking problems, or add rerankers to rescue a first stage that never found the passage.
+
+Measure them separately. Stage one: recall@k on an in-domain golden set, with 0.95 as a starting target. Ranking quality comes second.
+
+Underneath sits a quieter rule. The embedding model version is production configuration. Change it and the corpus must be re-embedded; mix versions and scores silently stop being comparable. Tag every vector and migrate by dual index.
+
+Choose models by your own evaluation, written by the analysts who will use the system. Most retrieval problems are measurement problems first.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a performance, search or data problem where effort went into the wrong part of the pipeline until someone measured each stage separately. Credit the person who insisted on measuring; own the time spent tuning the wrong thing if that was your call.
+- **Fits:** any engineering-leadership story about measurement before optimisation.
+- **Avoid:** real recall or latency figures from an internal system.
+
+#### Fallback version
+
+Retrieval quality is a two-stage problem, and it is easy to tune only one stage.
+
+The first stage casts a wide net: embed the question and pull back fifty or a hundred candidates. The second stage reorders them, so the handful the model actually reads are the right ones. Teams swap the embedding model to fix answers a reranker should have fixed, or add a reranker to rescue a first stage that never found the right passage.
+
+So measure the stages separately. For the first, the signal is recall@k: the share of questions in an in-domain golden set whose relevant passage appears anywhere in the candidates. A starting target is 0.95. Ranking quality after the reranker is a second number, and only then worth tuning.
+
+There is a quieter point underneath. The embedding model version is production configuration. Change it and the whole corpus must be re-embedded. Mix two versions in one index and the scores stop being comparable, with no error to tell you. Tag every vector with its model version, refuse queries that would mix versions, and migrate by building a second index behind a regression gate.
+
+The leadership move is to choose models by your own evaluation, not by leaderboard or vendor claim. One to three hundred labelled questions, written by the analysts who will use the system, will tell you more than any published benchmark.
+
+The honest caveat: dual-index migration means running two indexes for a while, at roughly twice the storage. That is small next to an unplanned re-embed under time pressure.
+
+Most retrieval problems are measurement problems first. Once both stages are visible, the fixes are usually plain.
+
+#### Suggested visual
+
+Funnel diagram: "corpus → stage 1 (embed, k = 50–100, measure recall@k) → stage 2 (rerank, measure nDCG@10) → top passages to the model". Below it, a small "version tag" icon on each vector and a two-index migration strip (old index live, new index shadow, regression gate, cut-over). Source: L7 §7.3 and §7.9 step 6.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, L7 Embeddings and reranking (§7.2, §7.3 KPIs, §7.9, §7.12, §7.13).
+- Every model vendor in this layer except OpenAI offers both an embedding model and a reranker; Google's reranker is a separate Vertex ranking API [A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S020, B-REV-S026].
+- Ownership: Voyage AI is part of MongoDB (17 February 2025) [A2-S033, V1-S023]; Jina AI is part of Elastic (9 October 2025) [A2-S023, V1-S025].
+- Options assessed: OpenAI text-embedding-3, Gemini Embedding 2, Voyage 4, Cohere Embed 5 and Rerank 4, Qwen3 Embedding and Reranker, Jina v5, Sentence Transformers, NVIDIA NeMo Retriever.
+- Targets (0.95 recall@k; 100–300 labelled queries for a bake-off) are the review's starting points, not industry benchmarks.
+
+#### Hashtags
+
+#InformationRetrieval #RAG
+
+#### Re-verify before posting
+
+- "Every vendor except OpenAI offers both" (check for a new OpenAI reranker)
+- Current model versions if any are named in replies
+
+#### Compliance check
+
+- Personal views: yes
+- Targets labelled as starting points: yes
+- Vendors only in the first comment: yes
+
+---
+
+### Post 6 · Week 3, Thursday · C5 Prompt and configuration management
+
+**Pair:** Post 5 (L7, Week 3 Tuesday). **Bridge:** If the embedding version is production configuration, so is the prompt, and both need versioning, review and rollback.
+
+**Theme and source:** Git as the system of record for prompts and configuration. `work/stageB/C5/section.md` (executive summary, §C5.2, §C5.3, §C5.9, §C5.11–§C5.13).
+
+**Tension:** Embedding versions and prompts are both production configuration, so they need versioning, review and rollback.
+
+#### Full post
+
+A one-sentence edit to a prompt can change outputs as much as a model upgrade. Few organisations would let a model upgrade ship without review. Many let prompts change in a web console.
+
+Prompt registries are sold on exactly that convenience: update the text, no deployment needed. That is useful while iterating. On a regulated output, it means one person can write, approve and release a change that nobody can later trace.
+
+Tuesday's post argued that the embedding model version is production configuration. So is the prompt. So are the model version, the retrieval settings, the tool list and the guardrail policy. Each can change what a client reads; each needs versioning, review, an evaluation gate and a way back.
+
+The pattern I would defend is plain. Source control is the system of record. Every approved prompt and setting goes into one pinned release manifest, approved by pull request with a second reviewer and gated by the regression suite. A registry may deliver approved versions at run time and stamp each trace with the version that produced it, but only the release pipeline moves the production label.
+
+The signal is rollback time: from the decision to revert to the previous approved version serving all traffic. Minutes, not a release cycle. Drill it twice a year.
+
+The leadership move is to decide which configuration changes are material, and therefore trigger re-validation, before the first one happens.
+
+[Anecdote slot: one or two sentences on a small, unreviewed change that had an outsized effect, and the change-control habit that came out of it.]
+
+If a change can alter what a client reads, it deserves the same discipline as code.
+
+#### Short variant
+
+A one-sentence prompt edit can change outputs as much as a model upgrade. Few firms would ship a model upgrade unreviewed. Many let prompts change in a web console.
+
+Registries sell that convenience: no deployment needed. Useful while iterating; on a regulated output, it means one person can write, approve and release an untraceable change.
+
+The prompt is production configuration. So are the model version, retrieval settings, tool list and guardrail policy.
+
+The pattern: source control as the system of record, one pinned release manifest, a pull request with a second reviewer, and the regression suite as the gate. Only the release pipeline moves the production label.
+
+The signal is rollback time: minutes, not a release cycle, drilled twice a year.
+
+If a change can alter what a client reads, it deserves the same discipline as code.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a configuration, parameter or wording change, made quickly and with good intent, that had an effect nobody expected. What habit or control came out of it: a second reviewer, a manifest, a rollback drill? Own your part; credit whoever designed the fix.
+- **Fits:** release-engineering and change-management experience from any platform.
+- **Avoid:** the specific system, the client impact, or anything that reads as an incident report.
+
+#### Fallback version
+
+A one-sentence edit to a prompt can change outputs as much as a model upgrade. Few organisations would let a model upgrade ship without review. Many let prompts change in a web console.
+
+Prompt registries are sold on exactly that convenience: update the text, no deployment needed. That is useful while iterating. On a regulated output, it means one person can write, approve and release a change that nobody can later trace.
+
+The embedding model version is production configuration. So is the prompt. So are the model version, the retrieval settings, the tool list and the guardrail policy. Each can change what a client reads; each needs versioning, review, an evaluation gate and a way back.
+
+The pattern worth defending is plain. Source control is the system of record. Every approved prompt and setting goes into one pinned release manifest, approved by pull request with a second reviewer and gated by the regression suite. A registry may deliver approved versions at run time and stamp each trace with the version that produced it, but only the release pipeline moves the production label.
+
+The signal is rollback time: from the decision to revert to the previous approved version serving all traffic. Minutes, not a release cycle. Drill it twice a year.
+
+The leadership move is to decide which configuration changes are material, and therefore trigger re-validation, before the first one happens.
+
+The honest caveat: this adds friction to prompt iteration, and teams will feel it. The answer is a fast path for experiments on separate keys, not a weaker path to production.
+
+If a change can alter what a client reads, it deserves the same discipline as code.
+
+#### Suggested visual
+
+A "release manifest" card for the worked example (illustrative values): prompt set version, drafting model pinned to a dated version, fallback model, embedding and reranker versions, top-k, read-only tool list, guardrail policy version, eval threshold set. Arrows show pull request → second approver → eval gate → tagged release → registry label → trace stamped with version. Source: C5 §C5.12.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, C5 Prompt and configuration management (§C5.2, §C5.3 KPIs, §C5.9, §C5.11 on segregation of duties and Article 25, §C5.12).
+- Registries assessed: Langfuse and LangSmith prompt management (inside their L9 platforms) [A7-S071, A7-S076]; LaunchDarkly AI Configs, renamed AgentControl in 2026 [A7-S117, V2-S045]; PromptLayer [A7-S004]. Prompts-as-code formats: Prompty and Dotprompt [A7-S067, A7-S066].
+- Ownership: ClickHouse announced its acquisition of Langfuse (16 January 2026) [A7-S075, V2-S041]; OpenAI announced its acquisition of Promptfoo (9 March 2026) [V2-S042].
+- Under EU AI Act Article 25, changing a system's intended purpose so that it becomes high-risk can make a deployer a provider; a system prompt is the easiest place to do that [R-EUAIA: A8-S011].
+
+#### Hashtags
+
+#LLMOps #ChangeManagement
+
+#### Re-verify before posting
+
+- LaunchDarkly product name (AgentControl)
+- Langfuse and Promptfoo ownership status
+
+#### Compliance check
+
+- Personal views: yes
+- Release-manifest values illustrative and generic: yes
+- Vendors only in the first comment: yes
+
+---
+
+## Week 4
+
+### Post 7 · Week 4, Tuesday · L6 Retrieval and knowledge stores
+
+**Pair:** Post 8 (C7, Week 4 Thursday). **Bridge:** Tuesday is about retrieving the right passages under real permissions; Thursday is about the passages someone else wrote for you.
+
+**Theme and source:** Retrieval stores as derived, entitlement-filtered, rebuildable indexes. `work/stageB/L6/section.md` (executive summary, §6.2, §6.3, §6.9, §6.11–§6.13).
+
+**Tension:** You may not need a vector database, but you do need retrieval you can measure.
+
+#### Full post
+
+You may not need a vector database. You do need retrieval you can measure.
+
+The category has quietly turned into a feature. General-purpose databases, search engines and even object storage now offer vector search, and hybrid retrieval, lexical plus semantic, is standard rather than advanced. For most regulated asset-management corpora, the database or search platform you already run will do the job.
+
+That matters because every extra store is another copy of confidential content to secure, retain, back up and eventually exit. So the first question is not which engine; it is whether a load test on your own data gives you a reason for one. Three reasons hold up: filtered latency or recall fails the budget, tenants must be isolated at a scale schemas cannot manage, or the corpus makes the existing platform's cost disproportionate.
+
+The signal is filtered recall@k: recall measured with production-like entitlement filters applied, not on the open index. A store that looks excellent unfiltered can collapse once a restrictive filter leaves too few candidates. The tempting fix, retrying without the filter, is how another client's material reaches a draft.
+
+The leadership move is to treat the store as a derived index, never the system of record. If you can rebuild it from approved sources, with a pinned embedding model, inside a tested time, it is also your backup and your exit plan.
+
+[Anecdote slot: one or two sentences on a time a "temporary" store or prototype quietly became critical, and what it took to put it under control.]
+
+Retrieval is judged by what it returns under real permissions. An open-index benchmark answers a different question.
+
+#### Short variant
+
+You may not need a vector database. You do need retrieval you can measure.
+
+Vector search is now a feature of the databases, search engines and object stores firms already run, and hybrid retrieval is standard. Every extra store is another copy of confidential content to secure, retain and exit, so adopt a dedicated engine only when a load test on your own data demands it.
+
+The signal is filtered recall@k: recall with production-like entitlement filters applied. A store that shines unfiltered can collapse under a restrictive filter, and retrying without the filter is how another client's material reaches a draft.
+
+Treat the store as a derived index, never the system of record. If you can rebuild it from approved sources in a tested time, it is also your exit plan.
+
+Retrieval is judged by what it returns under real permissions.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a prototype, spreadsheet or "temporary" data store that became business-critical without anyone deciding it should, and what it took to give it an owner, a backup and an exit. Credit the person who raised the flag.
+- **Fits:** platform-modernisation and "talent and systems as the real resilience plan" themes.
+- **Avoid:** naming the system or the business it supported.
+
+#### Fallback version
+
+You may not need a vector database. You do need retrieval you can measure.
+
+The category has quietly turned into a feature. General-purpose databases, search engines and even object storage now offer vector search, and hybrid retrieval, lexical plus semantic, is standard rather than advanced. For most regulated asset-management corpora, the database or search platform already in place will do the job.
+
+That matters because every extra store is another copy of confidential content to secure, retain, back up and eventually exit. So the first question is not which engine; it is whether a load test on your own data gives you a reason for one. Three reasons hold up: filtered latency or recall fails the budget, tenants must be isolated at a scale schemas cannot manage, or the corpus makes the existing platform's cost disproportionate.
+
+The signal is filtered recall@k: recall measured with production-like entitlement filters applied, not on the open index. A store that looks excellent unfiltered can collapse once a restrictive filter leaves too few candidates. The tempting fix, retrying without the filter, is how another client's material reaches a draft.
+
+The leadership move is to treat the store as a derived index, never the system of record. If you can rebuild it from approved sources, with a pinned embedding model, inside a tested time, it is also your backup and your exit plan.
+
+The honest caveat: dedicated engines still earn their place on filtered search, tenant isolation and scale. The point is to arrive at one with evidence, not by default.
+
+Retrieval is judged by what it returns under real permissions. An open-index benchmark answers a different question.
+
+#### Suggested visual
+
+Decision-tree graphic (L6 §6.9): Step 0 non-negotiables (filters inside the search, no unfiltered fallback, rebuild tested) → Step 1 "use what you run" (relational database, search engine, document database, object-store tier) → Step 2 three triggers → Step 3 dedicated engine. A side panel contrasts "filter after ranking + fallback = leakage" with "filter inside search + hard empty result".
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, L6 Retrieval and knowledge stores (§6.2, §6.3 KPIs, §6.9, §6.12, §6.13).
+- Hybrid is standard: turbopuffer, Chroma Cloud, Milvus, Elasticsearch, MongoDB, Qdrant and Pinecone all fuse lexical and vector retrieval [A2-S056, A2-S060, A2-S054, A2-S133, A2-S141, A2-S103, A2-S101].
+- Databases absorbed the feature: pgvector 0.8.7 (1 October 2026) [V1-S020, V1-S022]; MongoDB Vector Search GA on self-managed editions [A2-S137, V1-S035]. Object storage: Amazon S3 Vectors GA since December 2025 [A2-S081, V1-S030]. Pinecone now sells Nexus, a "knowledge engine for agents" [A2-S073, V1-S029].
+- Recommended starting point in the review: vectors in the database or search engine you already operate; Qdrant or Milvus only when a load test justifies a dedicated engine. Weaviate is Tactical while its licence position settles. turbopuffer reports Anthropic as a customer [R: A2-S126]; noted for completeness.
+
+#### Hashtags
+
+#VectorSearch #RAG
+
+#### Re-verify before posting
+
+- pgvector version and any new CVEs
+- Pinecone Nexus and Weaviate licence status
+
+#### Compliance check
+
+- Personal views: yes
+- No reference to any firm's data estate: yes
+- Vendors only in the first comment, evenly: yes
+
+---
+
+### Post 8 · Week 4, Thursday · C7 AI security
+
+**Pair:** Post 7 (L6, Week 4 Tuesday). **Bridge:** Retrieval brings back passages; some were written by someone who wants your agent to act on them.
+
+**Theme and source:** Capability separation and layered defence for agents. `work/stageB/C7/section.md` (executive summary, §C7.2, §C7.3, §C7.9, §C7.11–§C7.13).
+
+**Tension:** Every retrieved document is untrusted input. Indirect prompt injection is a supply-chain problem.
+
+#### Full post
+
+A language model follows instructions it finds in any text it reads. Give it tools, and those instructions become actions.
+
+That is why every retrieved document is untrusted input. Tuesday's post was about retrieving the right passages. This one is about passages someone else wrote for you. A broker note, a web page or an email can carry hidden text, and it arrives through the same pipeline as the firm's own knowledge. Indirect prompt injection is a supply-chain problem, not a chat problem.
+
+The supply chain is literal too. In March 2026, malicious releases of a widely used open-source model gateway were published to a public package index using stolen release credentials. The component that holds every provider key was itself the target.
+
+The first design rule needs no product: no agent should hold untrusted input, sensitive data and an outbound channel at the same time. Remove any one of the three and an injected instruction has nowhere to go.
+
+The signal is simple to count: the number of agents that combine all three. The target is zero, unless there is a documented exception with a named owner.
+
+Then layer the rest so no single detector has to be right: secrets brokered outside the model, short-lived credentials per request, pinned and hashed dependencies, retrieved text marked as data, and a runtime detector behind the gateway as a replaceable part, not the foundation. The leadership move is to buy detection last.
+
+[Anecdote slot: one or two sentences on a security lesson where the design, not a tool, made the difference, and who championed it.]
+
+A design that depends on a filter catching everything is a hope. One that leaves an attacker nothing to call is an architecture.
+
+#### Short variant
+
+A language model follows instructions it finds in any text it reads. Give it tools, and those instructions become actions.
+
+So every retrieved document is untrusted input. A broker note or web page can carry hidden text through the same pipeline as your own knowledge: indirect prompt injection is a supply-chain problem.
+
+The first rule needs no product. No agent should hold untrusted input, sensitive data and an outbound channel at once. Remove one and an injected instruction has nowhere to go.
+
+The signal: the number of agents combining all three. Target zero, unless an exception is documented and owned.
+
+Then layer the rest: brokered secrets, short-lived credentials, pinned dependencies, retrieved text marked as data, and a replaceable detector behind the gateway. Buy detection last.
+
+A design that depends on a filter catching everything is a hope.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a security or resilience improvement that came from removing a capability or a path (a privilege, a connection, a shared credential) rather than adding a tool. Who argued for it? Credit them; own any resistance you had to it at first.
+- **Fits:** "making invisible prevention work visible to executives".
+- **Avoid:** any real vulnerability, incident, threat actor or security control at your firm.
+
+#### Fallback version
+
+A language model follows instructions it finds in any text it reads. Give it tools, and those instructions become actions.
+
+That is why every retrieved document is untrusted input. Retrieval is about finding the right passages; security is about passages someone else wrote for you. A broker note, a web page or an email can carry hidden text, and it arrives through the same pipeline as the firm's own knowledge. Indirect prompt injection is a supply-chain problem, not a chat problem.
+
+The supply chain is literal too. In March 2026, malicious releases of a widely used open-source model gateway were published to a public package index using stolen release credentials. The component that holds every provider key was itself the target.
+
+The first design rule needs no product: no agent should hold untrusted input, sensitive data and an outbound channel at the same time. Remove any one of the three and an injected instruction has nowhere to go.
+
+The signal is simple to count: the number of agents that combine all three. The target is zero, unless there is a documented exception with a named owner.
+
+Then layer the rest so no single detector has to be right: secrets brokered outside the model, short-lived credentials per request, pinned and hashed dependencies, retrieved text marked as data, and a runtime detector behind the gateway as a replaceable part, not the foundation. The leadership move is to buy detection last.
+
+The honest caveat: marking retrieved text as data and screening it reduces the risk; it does not remove it. Capability separation is what turns a successful injection into a non-event.
+
+A design that depends on a filter catching everything is a hope. One that leaves an attacker nothing to call is an architecture.
+
+#### Suggested visual
+
+Venn diagram with three circles: untrusted input, sensitive data, outbound channel. The centre is marked "never in one agent". Around it, a defence-in-depth ring for the worked example: deterministic workflow, numeric check, data marking, chunk screening, canary documents, human approval. Source: C7 §C7.9 step 0 and §C7.12.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, C7 AI security (§C7.2, §C7.3 KPIs, §C7.9, §C7.12, §C7.13).
+- The gateway incident: malicious LiteLLM releases 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026 using stolen release credentials; LiteLLM attributes the theft to a compromised scanner in CI, other reports describe a hijacked maintainer account; the first clean rebuilt release was 1.83.0 [A6-S008, A6-S009, A6-S010, V2-S027, V2-S028].
+- Consolidation: Lakera to Check Point, Protect AI to Palo Alto Networks, Prompt Security to SentinelOne, CalypsoAI to F5, Pangea to CrowdStrike; HiddenLayer is the main independent in this set [A7-S012, A7-S014, A7-S018, A7-S019, A7-S020, A7-S017].
+- OWASP Top 10 for Agentic Applications for 2026 opens with ASI01 Agent Goal Hijack [R-OWASP-AGENTIC: A8-S042].
+- Secrets and agent credentials: HashiCorp Vault (IBM-owned, BUSL) or the cloud's native secrets service.
+
+#### Hashtags
+
+#AISecurity #PromptInjection
+
+#### Re-verify before posting
+
+- Any new findings on the March 2026 package compromise (intrusion vector is reported two ways)
+- Acquisition statuses in the security list
+
+#### Compliance check
+
+- Personal views; no reference to the firm's security posture: yes
+- Incident described from public sources only, without attribution claims: yes
+- Vendors only in the first comment: yes
+
+---
+
+## Week 5
+
+### Post 9 · Week 5, Tuesday · L4 Tools, protocols and agent connectivity
+
+**Pair:** Post 10 (C4, Week 5 Thursday). **Bridge:** Tuesday puts a gateway in front of every tool; Thursday decides who is allowed through it, and on whose behalf.
+
+**Theme and source:** A tool-governance sub-layer between the agent and its tools. `work/stageB/L4/section.md` (executive summary, §4.2, §4.3, §4.9, §4.11–§4.13).
+
+**Tension:** Open tool protocols made connecting tools easy, and that is exactly why tool governance now matters.
+
+#### Full post
+
+Open tool protocols have made it easy to connect an agent to almost anything. That is exactly why tool governance now matters.
+
+A badly governed tool layer turns every weakness of a language model into an action. Prompt injection becomes exfiltration when the agent holds a token that can send email. A hallucinated argument becomes a wrong instruction when a write tool is exposed. A tool description becomes an attack vector when the client trusts whatever a third-party server says about itself.
+
+This is not theoretical. A benchmark published at AAAI 2026 tested tool-poisoning attacks against 45 live tool servers and 20 models. The average attack success rate was 36.5%, and more capable models were often more susceptible.
+
+The protocols have made room for enterprise controls, but authorisation is still optional in the leading specification. So enforcement has to live outside it: one firm-owned tool gateway with mandatory authorisation, a private allow-listed registry, and every reviewed tool definition pinned by hash.
+
+The signal is tool-definition drift: descriptions or schemas that changed since review. Zero unreviewed changes should reach production. A server that quietly updates its own description is a supply-chain change.
+
+The leadership move is to expose authoritative data through read-only tools owned by the system's team, and to make every write a separate tool, a separate approval and a human confirmation.
+
+[Anecdote slot: one or two sentences on an integration that was easy to connect and hard to govern, and what the team put in front of it.]
+
+Connecting tools is now the easy part. Deciding what each one may do, and on whose behalf, is the architecture.
+
+#### Short variant
+
+Open tool protocols have made it easy to connect an agent to almost anything. That is exactly why tool governance matters.
+
+Prompt injection becomes exfiltration when the agent holds a token that can send email. A tool description becomes an attack vector when the client trusts whatever a server says about itself. A benchmark at AAAI 2026 found an average tool-poisoning success rate of 36.5% across 20 models.
+
+Authorisation is still optional in the leading specification, so enforcement lives outside it: a firm-owned tool gateway, a private allow-list, and reviewed tool definitions pinned by hash.
+
+The signal is tool-definition drift. Zero unreviewed changes should reach production.
+
+Expose authoritative data through read-only tools, and make every write a separate tool with its own approval.
+
+Connecting tools is the easy part. Deciding what each may do is the architecture.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** an integration, API or automation that was quick to connect and later needed governance retrofitted (scopes narrowed, a gateway added, a shared account removed). Own the speed-over-control call if it was yours; credit whoever did the retrofit.
+- **Fits:** platform and integration leadership; agentic transformation in a regulated environment.
+- **Avoid:** naming internal systems, tool vendors or affected data.
+
+#### Fallback version
+
+Open tool protocols have made it easy to connect an agent to almost anything. That is exactly why tool governance now matters.
+
+A badly governed tool layer turns every weakness of a language model into an action. Prompt injection becomes exfiltration when the agent holds a token that can send email. A hallucinated argument becomes a wrong instruction when a write tool is exposed. A tool description becomes an attack vector when the client trusts whatever a third-party server says about itself.
+
+This is not theoretical. A benchmark published at AAAI 2026 tested tool-poisoning attacks against 45 live tool servers and 20 models. The average attack success rate was 36.5%, and more capable models were often more susceptible.
+
+The protocols have made room for enterprise controls, but authorisation is still optional in the leading specification. So enforcement has to live outside it: one firm-owned tool gateway with mandatory authorisation, a private allow-listed registry, and every reviewed tool definition pinned by hash.
+
+The signal is tool-definition drift: descriptions or schemas that changed since review. Zero unreviewed changes should reach production. A server that quietly updates its own description is a supply-chain change.
+
+The leadership move is to expose authoritative data through read-only tools owned by the system's team, and to make every write a separate tool, a separate approval and a human confirmation.
+
+The honest caveat: a gateway in front of every tool adds latency and a new critical dependency. It has to be run like one, with the same resilience as anything else on the request path.
+
+Connecting tools is now the easy part. Deciding what each one may do, and on whose behalf, is the architecture.
+
+#### Suggested visual
+
+Layer diagram: agent workflow (L3) → tool-governance sub-layer (gateway, private registry, hash-pinned definitions, policy decision, audit) → tools. Tools are colour-coded read-only (green) versus write (amber, "separate approval"). Callout: "45 servers · 20 models · 36.5% average attack success" with the source. Source: L4 §4.2, §4.9 step 0, §4.13 H3 view.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, L4 Tools, protocols and agent connectivity (§4.2, §4.3 KPIs, §4.9, §4.12, §4.13).
+- MCPTox benchmark (AAAI 2026): 45 live MCP servers, 20 models, 36.5% average and 72.8% peak attack success [A3-S023].
+- The protocols: the Model Context Protocol (MCP), which originated at Anthropic and was donated to the Agentic AI Foundation under the Linux Foundation on 9 December 2025 [A3-S018, V1-S038], and A2A 1.0, which joined AAIF in August 2026 [A3-S079, A3-S116]. MCP's 2026-07-28 specification still leaves authorisation optional [A3-S055]. Both MCP Lead Maintainers are Anthropic staff [A3-S082]. Independent alternatives: OpenAPI-described tools behind a gateway; A2A for agent delegation. Conflict of interest noted: these drafts were prepared with an Anthropic model.
+- Tool vendors assessed: Exa, Tavily (Nebius-owned since 19 February 2026), Browserbase, E2B, Composio (disclosed a token-exposure incident in May 2026 [B-L4-S007]); managed gateway option: AWS AgentCore Gateway.
+
+#### Hashtags
+
+#AgenticAI #APISecurity
+
+#### Re-verify before posting
+
+- Whether a newer MCP specification makes authorisation mandatory
+- AAIF governance status of MCP and A2A
+- MCPTox figures (cite the paper directly if challenged)
+
+#### Compliance check
+
+- Personal views: yes
+- Protocol named only in the first comment, with the conflict of interest stated: yes
+- No reference to internal integrations: yes
+
+---
+
+### Post 10 · Week 5, Thursday · C4 Identity and access for agents
+
+**Pair:** Post 9 (L4, Week 5 Tuesday). **Bridge:** Once every tool sits behind a gateway, the question is who the agent is, and whose authority it carries.
+
+**Theme and source:** Agent identity, delegation and least privilege for non-human actors. `work/stageB/C4/section.md` (executive summary, §C4.2, §C4.3, §C4.9, §C4.11–§C4.13).
+
+**Tension:** "Who did this?" needs an answer when the actor is an agent.
+
+#### Full post
+
+"Who did this?" is the first question in every incident review. When the actor is an agent, many logs can answer only with the name of a shared service account.
+
+Agents turn identity mistakes into actions. A person with excessive access usually does nothing with it. An agent with excessive access can be steered into using it by text it reads, which is why the OWASP list for agentic applications names identity and privilege abuse alongside goal hijack and tool misuse.
+
+Tuesday's post put a gateway in front of every tool. This one decides who is allowed through it. Five properties hold up. The agent has its own registered identity with a named sponsor. Where a person started the work, it acts on that person's behalf. Its permissions are the intersection of that person's and the agent's own ceiling. It holds no standing secrets, only short-lived tokens scoped to the task. And every action is attributable to both.
+
+The signal is attribution completeness: the share of audit events recording user, agent, tool, an argument hash, the policy decision and a trace ID. Aim for 99.9% or better. A gap is a question you cannot answer later.
+
+The leadership move is to carry segregation of duties across unchanged. An agent may draft; it may not approve. The approver is a different, entitled person. And a write tool the agent never calls should still not be reachable.
+
+[Anecdote slot: one or two sentences on a time an access review or audit trail answered, or failed to answer, "who did this?", and what changed.]
+
+Accountability does not disappear when work is automated. It needs a name, and the system has to record it.
+
+#### Short variant
+
+"Who did this?" is the first question in every incident review. For an agent, many logs can only name a shared service account.
+
+Agents turn identity mistakes into actions: an agent with excessive access can be steered into using it by text it reads.
+
+Five properties hold up. The agent has its own identity and a named sponsor. It acts on behalf of the person who started the work. Its permissions are the intersection of theirs and its own ceiling. It holds no standing secrets. Every action is attributable to both.
+
+The signal is attribution completeness: audit events recording user, agent, tool, decision and trace ID, at 99.9% or better.
+
+Carry segregation of duties across unchanged. An agent may draft; it may not approve.
+
+Accountability does not disappear when work is automated. It needs a name.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** an access review, joiner-mover-leaver gap or shared-credential clean-up that taught you something about accountability for automated work (batch jobs, bots, service accounts). Who did the unglamorous work of untangling it? Credit them.
+- **Fits:** "audit outcomes as a symptom of operating-model design".
+- **Avoid:** real findings, account names, or anything implying a current control weakness.
+
+#### Fallback version
+
+"Who did this?" is the first question in every incident review. When the actor is an agent, many logs can answer only with the name of a shared service account.
+
+Agents turn identity mistakes into actions. A person with excessive access usually does nothing with it. An agent with excessive access can be steered into using it by text it reads, which is why the OWASP list for agentic applications names identity and privilege abuse alongside goal hijack and tool misuse.
+
+A tool gateway decides what can be called. Identity decides who is allowed through it. Five properties hold up. The agent has its own registered identity with a named sponsor. Where a person started the work, it acts on that person's behalf. Its permissions are the intersection of that person's and the agent's own ceiling. It holds no standing secrets, only short-lived tokens scoped to the task. And every action is attributable to both.
+
+The signal is attribution completeness: the share of audit events recording user, agent, tool, an argument hash, the policy decision and a trace ID. Aim for 99.9% or better. A gap is a question you cannot answer later.
+
+The leadership move is to carry segregation of duties across unchanged. An agent may draft; it may not approve. The approver is a different, entitled person. And a write tool the agent never calls should still not be reachable.
+
+The honest caveat: no rule yet names an accountable person for an agent. Mapping every agent to a sponsor, and through the business to a senior manager, is a judgement worth making before anyone asks.
+
+Accountability does not disappear when work is automated. It needs a name, and the system has to record it.
+
+#### Suggested visual
+
+"One attribution chain" graphic: analyst signs in → token exchange (on behalf of analyst, read-only scope, minutes TTL) → agent identity (sponsor named) → gateway policy decision → tool → audit event (user · agent · tool · args hash · decision · trace ID) → evidence pack. A separate lane shows the approver (different person, step-up authentication). Source: C4 §C4.12.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, C4 Identity and access for agents (§C4.2, §C4.3 KPIs, §C4.9, §C4.11, §C4.12).
+- OWASP Top 10 for Agentic Applications for 2026: ASI01 Agent Goal Hijack, ASI02 Tool Misuse and Exploitation, ASI03 Identity & Privilege Abuse [B-C4-S005, R-OWASP-AGENTIC: A8-S042].
+- Agent identity products now GA: Microsoft Entra Agent ID (April 2026) [A6-S058, V2-S032]; Okta for AI Agents (30 April 2026) and Okta Agent SSO / Cross App Access (24 August 2026) [A6-S100, V2-S035]; Auth0 for AI Agents (19 November 2025) [A6-S097]. Policy engines: OPA (CNCF graduated) and Cedar-based Amazon Bedrock AgentCore Policy (GA 3 March 2026) [A6-S046, A6-S026]. Workload identity: SPIFFE/SPIRE [A6-S087].
+- MCP authorisation (Enterprise-Managed Authorization) is stable but optional in the specification [A6-S033]; MCP originated at Anthropic (conflict of interest noted).
+- UK: the FCA relies on existing frameworks including SM&CR [R-UK-AI-STATEMENTS: A8-S055].
+
+#### Hashtags
+
+#IAM #AgenticAI
+
+#### Re-verify before posting
+
+- Product names and GA status for Entra Agent ID and Okta Agent SSO
+- Whether any UK or EU rule now names accountability for AI agents
+
+#### Compliance check
+
+- Personal views; no description of the firm's IAM: yes
+- Vendors only in the first comment: yes
+
+---
+
+## Week 6
+
+### Post 11 · Week 6, Tuesday · L3 Agent frameworks and orchestration
+
+**Pair:** Post 12 (C2, Week 6 Thursday). **Bridge:** Tuesday decides how much autonomy a process gets; Thursday explains why guardrails cannot make up for a wrong answer to that question.
+
+**Theme and source:** Deterministic workflows versus autonomous agents, on a durable substrate. `work/stageB/L3/section.md` (executive summary, §3.2, §3.3, §3.9, §3.11–§3.13).
+
+**Tension:** Most enterprise "agents" should be deterministic workflows with one judgement step.
+
+#### Full post
+
+Most of the enterprise "agents" I would approve are not agents at all. They are deterministic workflows with one judgement step.
+
+The trap is handing a task with a known sequence to an autonomous loop. Each run takes a slightly different path, so evaluation results stop transferring between runs and validation can no longer cover the space of behaviours. When something goes wrong, the behaviour turns out to be a property of that run, not of the design.
+
+Every major framework now ships both modes, a workflow graph and an agent loop, so this is a design choice rather than a vendor choice. Make it before choosing a framework. If the steps are known in advance, even with branches, build a graph. Let the model draft, classify or judge inside a bounded step; do not let it choose the next tool.
+
+Two things sit underneath. Durable execution, so a crash resumes from a checkpoint instead of re-running and mixing two versions of the data. And an approval step that only a named, authorised person can release.
+
+The signal is path conformance: the share of runs whose executed steps match the approved graph. For a regulated workflow the target is 100%, and any deviation is a defect.
+
+The leadership move is to treat autonomy as a budget that is declared, approved and owned for each use case. Often the right number is zero or one.
+
+[Anecdote slot: one or two sentences on a process where adding flexibility made it harder to trust, and what restoring structure did for the team.]
+
+Autonomy is a tool, not a maturity level. The best agent design is often the least agentic one that does the job.
+
+#### Short variant
+
+Most of the enterprise "agents" I would approve are not agents at all. They are deterministic workflows with one judgement step.
+
+Hand a known sequence to an autonomous loop and each run takes a different path. Evaluation results stop transferring between runs, and validation cannot cover the behaviour.
+
+Every major framework now ships both modes, so this is a design choice, not a vendor choice. If the steps are known, build a graph. Let the model draft or judge inside a bounded step; do not let it choose the next tool. Add durable execution and an approval step only a named person can release.
+
+The signal is path conformance: runs matching the approved graph, at 100% for regulated workflows.
+
+Treat autonomy as a declared, owned budget. Often the right number is zero or one.
+
+Autonomy is a tool, not a maturity level.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a process (release, reporting, reconciliation, onboarding) where more flexibility or discretion made outcomes harder to predict or audit, and what happened when structure was put back. Own the original choice if it was yours; credit the people who redesigned it.
+- **Fits:** operating-model design and "developing leaders through delivery".
+- **Avoid:** suggesting any current production AI system at your firm.
+
+#### Fallback version
+
+Most enterprise "agents" worth approving are not agents at all. They are deterministic workflows with one judgement step.
+
+The trap is handing a task with a known sequence to an autonomous loop. Each run takes a slightly different path, so evaluation results stop transferring between runs and validation can no longer cover the space of behaviours. When something goes wrong, the behaviour turns out to be a property of that run, not of the design.
+
+Every major framework now ships both modes, a workflow graph and an agent loop, so this is a design choice rather than a vendor choice. Make it before choosing a framework. If the steps are known in advance, even with branches, build a graph. Let the model draft, classify or judge inside a bounded step; do not let it choose the next tool.
+
+Two things sit underneath. Durable execution, so a crash resumes from a checkpoint instead of re-running and mixing two versions of the data. And an approval step that only a named, authorised person can release.
+
+The signal is path conformance: the share of runs whose executed steps match the approved graph. For a regulated workflow the target is 100%, and any deviation is a defect.
+
+The leadership move is to treat autonomy as a budget that is declared, approved and owned for each use case. Often the right number is zero or one.
+
+The honest caveat: autonomous harnesses are moving fastest, and some open-ended tasks genuinely need them. Isolate them as one sandboxed sub-step with read-only tools rather than banning them.
+
+Autonomy is a tool, not a maturity level. The best agent design is often the least agentic one that does the job.
+
+#### Suggested visual
+
+The worked example's L3 graph as a flow: authorise → fetch attribution snapshot (read-only) → retrieve style and prior commentary → one LLM drafting step → evaluation gate → human approval interrupt → release service. Mark "autonomy budget = 1" on the drafting node and show the checkpoint store beneath the graph. Side panel: three stacked concerns (workflow orchestration, bounded agent steps, durable execution). Source: L3 §3.12 and §3.13.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, L3 Agent frameworks and orchestration (§3.2, §3.3 KPIs, §3.9, §3.12, §3.13).
+- Both modes in every major framework: LangGraph, Microsoft Agent Framework (Agents versus Workflows; GA 2 April 2026 as successor to Semantic Kernel and AutoGen), CrewAI (Flows versus Crews), Google ADK 2.0 Workflow Runtime [A4-S039, A4-S066, A4-S008, A4-S050, A4-S114]. Anthropic's own guidance separates workflows from agents in the same terms [A4-S030].
+- Durability is separating out: Pydantic AI v2, the OpenAI Agents SDK and Mistral Workflows delegate to Temporal or DBOS [A4-S045, A4-S052, A4-S058].
+- Autonomous harnesses (OpenAI Agents SDK, Claude Agent SDK, Mistral Agents API) are recommended only as sandboxed sub-steps. The Claude Agent SDK is rated Experimental and the OpenAI Agents SDK Tactical; both pre-1.0 SDKs score maturity 2 (CP4-9). Conflict of interest noted.
+- OpenAI's Agent Builder shuts down on 30 November 2026 [A4-S054, V1-S051].
+
+#### Hashtags
+
+#AgenticAI #WorkflowAutomation
+
+#### Re-verify before posting
+
+- Framework GA and version status; the Agent Builder shutdown date if posting near it
+- CP4-9 tier statements if any SDK reaches 1.0
+
+#### Compliance check
+
+- Personal views ("I would approve" is an opinion, not a claim about any deployment): yes
+- Vendors only in the first comment, including Anthropic on the same terms: yes
+
+---
+
+### Post 12 · Week 6, Thursday · C2 Guardrails
+
+**Pair:** Post 11 (L3, Week 6 Tuesday). **Bridge:** Tuesday's deterministic design does most of the safety work; guardrails are the second line, not a licence for more autonomy.
+
+**Theme and source:** Layered guardrails as a second line of defence. `work/stageB/C2/section.md` (executive summary, §C2.2, §C2.3, §C2.9, §C2.11–§C2.13).
+
+**Tension:** Guardrails cannot fix a workflow that should never have been autonomous.
+
+#### Full post
+
+Guardrails cannot fix a workflow that should never have been autonomous.
+
+A guardrail is a filter on a stream of actions. It lowers the chance that a bad action passes; it does not reduce the number of actions an agent is allowed to attempt. If an agent has write access to a client-facing system, a content filter on its output is not a control over that access.
+
+Tuesday's post argued for deterministic workflows with one judgement step. That design does most of the safety work. Guardrails are the second line, and they fail in predictable ways. They screen only the user's prompt while retrieved documents pass unchecked. A content-safety classifier is asked to catch a business error it was never trained for, such as a reversed sign. Or a guard times out and the request goes through.
+
+So layer them by mechanism. Deterministic rules first, for business invariants such as figures, signs and forbidden phrases. Small classifiers next, including on every retrieved chunk. Model-based judges only where nothing simpler can decide, and never as the only check on numbers. Everything fails closed.
+
+The signal I would watch is the false-positive rate on a labelled set of real, approved finance text, for example below 1% on a drafting route. Over-sensitive filters block legitimate vocabulary, people route around them, and the control quietly disappears.
+
+The leadership move is to own the guardrail policy and its test sets, whichever detectors you buy.
+
+[Anecdote slot: one or two sentences on a control that looked strong on paper but was weakened by false alarms or workarounds, and what fixed it.]
+
+A guardrail is evidence of care. It is not a substitute for deciding what the system may do.
+
+#### Short variant
+
+Guardrails cannot fix a workflow that should never have been autonomous.
+
+A guardrail lowers the chance that a bad action passes. It does not reduce the actions an agent may attempt. If an agent can write to a client-facing system, an output filter is not a control over that access.
+
+Decide autonomy first; guardrails are the second line. Layer them by mechanism: deterministic rules for figures, signs and forbidden phrases; small classifiers, including on every retrieved chunk; model judges only where nothing simpler can decide, never alone on numbers. Everything fails closed.
+
+The signal is the false-positive rate on real, approved finance text. Over-sensitive filters get routed around, and the control disappears.
+
+Own the policy and its test sets, whichever detectors you buy.
+
+A guardrail is evidence of care, not a substitute for deciding what the system may do.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** an alerting, monitoring or approval control that produced so many false positives that people stopped trusting it, and what restored it (tuning against a labelled set, an owner, fewer but sharper checks). Credit whoever did the tuning; own any period where the noise was tolerated.
+- **Fits:** "making invisible prevention work visible".
+- **Avoid:** naming the control, the system or the volume of alerts.
+
+#### Fallback version
+
+Guardrails cannot fix a workflow that should never have been autonomous.
+
+A guardrail is a filter on a stream of actions. It lowers the chance that a bad action passes; it does not reduce the number of actions an agent is allowed to attempt. If an agent has write access to a client-facing system, a content filter on its output is not a control over that access.
+
+Deterministic workflows with one judgement step do most of the safety work. Guardrails are the second line, and they fail in predictable ways. They screen only the user's prompt while retrieved documents pass unchecked. A content-safety classifier is asked to catch a business error it was never trained for, such as a reversed sign. Or a guard times out and the request goes through.
+
+So layer them by mechanism. Deterministic rules first, for business invariants such as figures, signs and forbidden phrases. Small classifiers next, including on every retrieved chunk. Model-based judges only where nothing simpler can decide, and never as the only check on numbers. Everything fails closed.
+
+The signal worth watching is the false-positive rate on a labelled set of real, approved finance text, for example below 1% on a drafting route. Over-sensitive filters block legitimate vocabulary, people route around them, and the control quietly disappears.
+
+The leadership move is to own the guardrail policy and its test sets, whichever detectors you buy.
+
+The honest caveat: several open-source guardrail components have slowed or changed hands. Using two detectors from different owners is a concentration control as well as a security one.
+
+A guardrail is evidence of care. It is not a substitute for deciding what the system may do.
+
+#### Suggested visual
+
+A three-tier pyramid: deterministic rules (base, widest), small classifiers (middle), model-based judges (narrow top), with "fail closed" running down the side. Beside it, "Step 0: decide autonomy first (L3)" as a gate in front of the pyramid. Inset: the worked example's inline numeric-grounding guard. Source: C2 §C2.9 and §C2.12.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, C2 Guardrails (§C2.2, §C2.3 KPIs, §C2.9, §C2.12, §C2.13).
+- Managed services assessed: Amazon Bedrock Guardrails, Azure AI Content Safety (Prompt Shields GA; Task Adherence in preview), Google Model Armor [A6-S072, A6-S055, A6-S067]. Each is Strategic only where that cloud is your primary cloud.
+- Open source: NVIDIA NeMo Guardrails is still 0.x Beta [A6-S003]; Meta has released no new Llama Guard, Prompt Guard or LlamaFirewall since May 2025 [A6-S006, A6-S107]; Harvey announced its acquisition of Guardrails AI on 9 September 2026 [A6-S028, V2-S026]. Check Point (Lakera) is a second-detector option (see C7).
+- ESMA expects "ex-ante input controls and frequent ex-post output controls" [R-INTL-AI-ASSETMGMT: A8-S059].
+- The 1% false-positive figure is an example target from the review, not a benchmark.
+
+#### Hashtags
+
+#AIGuardrails #ResponsibleAI
+
+#### Re-verify before posting
+
+- NeMo Guardrails version; any new Meta guardrail releases
+- Preview or GA status of Azure Task Adherence
+
+#### Compliance check
+
+- Personal views: yes
+- No description of any firm's guardrail configuration: yes
+- Vendors only in the first comment: yes
+
+---
+
+## Week 7
+
+### Post 13 · Week 7, Tuesday · L2 Inference, serving and model access
+
+**Pair:** Post 14 (C1, Week 7 Thursday). **Bridge:** Tuesday makes managed access the default; Thursday shows the gateway is what keeps that choice reversible.
+
+**Theme and source:** Serving, optimisation and access as three distinct jobs. `work/stageB/L2/section.md` (executive summary, §2.2, §2.3, §2.9, §2.11–§2.13).
+
+**Tension:** Self-hosting is a capacity and operating-model decision, not just a cost decision.
+
+#### Full post
+
+Self-hosting a model is a capacity and operating-model decision. It is only partly a cost decision.
+
+The usual case for it is a spreadsheet: GPU hours against per-token prices. What the spreadsheet leaves out is the team that patches inference engines monthly, runs on-call, keeps weights scanned and pinned, and re-qualifies every change of engine version or quantisation, because each of those can change outputs.
+
+Inference is really three jobs: serving engines that run the model, an optional optimisation layer for firms with their own GPU fleets, and model access through managed services. For regulated workloads the sensible default is managed access in an approved region, through the cloud estate you already operate, called only through the firm's gateway. A private open-weight route earns its place where capacity, residency or exit planning justify it.
+
+Two details catch people out. Where a prompt is processed is a property of the endpoint, not the model: the same model can run in one geography or anywhere, depending on the deployment type. And overflow from reserved capacity can silently cross a residency boundary if the default allows it.
+
+The signal is capacity headroom at peak: reserved throughput minus observed demand in the month-end window, when every fund's draft is requested at once. It should be positive, with a margin, before go-live.
+
+The leadership move is to write the peak, the reserved amount, the overflow behaviour and the degraded mode into one capacity plan.
+
+[Anecdote slot: one or two sentences on a time capacity, not cost, turned out to be the real constraint, and who saw it coming.]
+
+The cheapest token is irrelevant if it arrives late, or in the wrong country.
+
+#### Short variant
+
+Self-hosting a model is a capacity and operating-model decision. It is only partly a cost decision.
+
+The spreadsheet compares GPU hours with token prices. It leaves out the team that patches engines monthly, runs on-call and re-qualifies every engine or quantisation change.
+
+For regulated workloads, the sensible default is managed access in an approved region, through the cloud you already run, behind the firm's gateway. Keep a private open-weight route where capacity, residency or exit planning justify it.
+
+Watch two details: processing location belongs to the endpoint, not the model, and reserved-capacity overflow can silently leave the region.
+
+The signal is capacity headroom at peak, measured in the month-end window when every draft is requested at once.
+
+The cheapest token is irrelevant if it arrives late, or in the wrong country.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a platform or infrastructure decision where the business case was made on unit cost but the real constraint was peak capacity, patching or on-call. Credit the engineer or SRE who raised it; own the assumption you made, if you made one.
+- **Fits:** platform modernisation and turning external deadlines (month-end, quarter-end) into design inputs.
+- **Avoid:** real volumes, GPU counts or provider names.
+
+#### Fallback version
+
+Self-hosting a model is a capacity and operating-model decision. It is only partly a cost decision.
+
+The usual case for it is a spreadsheet: GPU hours against per-token prices. What the spreadsheet leaves out is the team that patches inference engines monthly, runs on-call, keeps weights scanned and pinned, and re-qualifies every change of engine version or quantisation, because each of those can change outputs.
+
+Inference is really three jobs: serving engines that run the model, an optional optimisation layer for firms with their own GPU fleets, and model access through managed services. For regulated workloads the sensible default is managed access in an approved region, through the cloud estate already in place, called only through the firm's gateway. A private open-weight route earns its place where capacity, residency or exit planning justify it.
+
+Two details catch people out. Where a prompt is processed is a property of the endpoint, not the model: the same model can run in one geography or anywhere, depending on the deployment type. And overflow from reserved capacity can silently cross a residency boundary if the default allows it.
+
+The signal is capacity headroom at peak: reserved throughput minus observed demand in the month-end window, when every fund's draft is requested at once. It should be positive, with a margin, before go-live.
+
+The leadership move is to write the peak, the reserved amount, the overflow behaviour and the degraded mode into one capacity plan.
+
+The honest caveat: managed access concentrates dependence on one cloud. The answer is a small portfolio, the primary cloud's service plus one qualified second route, not a retreat into running everything yourself.
+
+The cheapest token is irrelevant if it arrives late, or in the wrong country.
+
+#### Suggested visual
+
+L2 split into three stacked sub-layers (serving engines; optimisation, marked "only if you run GPU fleets"; model access), with the gateway lifted out into the control plane. Beside it, a month-end demand curve against a reserved-capacity line, showing headroom and an "overflow stays in region" arrow. Source: L2 §2.3, §2.9 step 3, §2.13 H1 view.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, L2 Inference, serving and model access (§2.2, §2.3 KPIs, §2.9, §2.11 on residency and capacity, §2.12).
+- Processing location by deployment type: Microsoft Foundry Global deployments may process prompts anywhere; Bedrock geographic profiles move prompts within a geography [B-L2-S006, B-L2-S005]. Vertex AI overflow beyond Provisioned Throughput goes to the global endpoint by default unless overridden [B-L2-S008].
+- Engines: vLLM (PyTorch Foundation-hosted) as the default, SGLang as a qualified alternative once its open advisory is confirmed fixed (CP4-4) [A4-S009, A4-S010, B-L2-S009]. Optimisation layers: NVIDIA Dynamo, llm-d (pilot only).
+- Access: Amazon Bedrock, Microsoft Foundry, Google Cloud as defaults; Together AI, Fireworks AI (Strategic, conditional, once ISO certificates are confirmed, CP4-4), Cerebras, Hugging Face Inference Endpoints; routers OpenRouter (Stripe acquisition pending) and Hugging Face Inference Providers.
+
+#### Hashtags
+
+#LLMInference #MLOps
+
+#### Re-verify before posting
+
+- Overflow and residency behaviour statements for each hyperscaler
+- OpenRouter–Stripe closing; SGLang advisory status
+
+#### Compliance check
+
+- Personal views; no statement about any firm's capacity or providers: yes
+- Vendors only in the first comment: yes
+
+---
+
+### Post 14 · Week 7, Thursday · C1 AI / LLM gateway
+
+**Pair:** Post 13 (L2, Week 7 Tuesday). **Bridge:** Managed access is only a safe default if you can leave it; the gateway is what makes leaving a configuration change.
+
+**Theme and source:** The gateway as the control point that makes exit plans executable. `work/stageB/C1/section.md` (executive summary, §C1.2, §C1.3, §C1.9, §C1.11–§C1.13).
+
+**Tension:** The most boring component is the one that makes model switching, and exit plans, possible.
+
+#### Full post
+
+The most boring component in the AI stack is the one that makes an exit plan real.
+
+UK supervisors expect documented and tested exit plans for material outsourcing, including a stressed exit. Without a gateway, provider SDKs and keys spread through application code, and switching model becomes a programme of code changes. The plan exists on paper; it cannot be carried out in the time a stressed exit allows.
+
+Tuesday's post argued for managed model access by default. The gateway keeps that choice reversible. Every model call, and now every tool and agent call, passes through one firm-controlled point that owns routing, fallback, budgets, policy and the request log. Guardrails, data protection, identity checks and cost attribution are all invoked there.
+
+That concentration cuts both ways. In March 2026, malicious releases of a popular open-source gateway were published to a public package index. A component that holds every provider key is a prime target. So run it like payments infrastructure: two independent deployments, pinned and signed builds, and budgets, guards and fallbacks that fail closed.
+
+The signal is time to switch provider: how long it takes to move a route to a pre-qualified alternative by configuration alone. Hours, not weeks, and drilled at least once a year.
+
+The leadership move is to treat "add a provider" as a third-party risk event, not a configuration tweak. From 18 March 2027, UK firms must notify material third-party arrangements before entering them.
+
+[Anecdote slot: one or two sentences on an exit, migration or failover that was only possible because someone had rehearsed it, and who did.]
+
+Neutrality is a design property. It has to be built, and then rehearsed.
+
+#### Short variant
+
+The most boring component in the AI stack is the one that makes an exit plan real.
+
+Without a gateway, provider SDKs and keys spread through application code, and switching model becomes a programme of code changes. A stressed exit cannot wait for that.
+
+The gateway is one firm-controlled point for every model, tool and agent call: routing, fallback, budgets, policy and the log. That concentration cuts both ways. In March 2026, malicious releases of a popular open-source gateway reached a public package index. Run it like payments infrastructure: two deployments, signed builds, everything failing closed.
+
+The signal is time to switch provider by configuration alone: hours, not weeks, drilled at least yearly.
+
+Treat "add a provider" as a third-party risk event.
+
+Neutrality is a design property. It has to be built, and then rehearsed.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a disaster-recovery test, supplier exit, data-centre move or failover drill that worked because it had been rehearsed, or that taught a lesson because it had not. Credit the team that ran the drills; own any drill you once let slip.
+- **Fits:** "talent systems as the real disaster-recovery plan" and resilience leadership.
+- **Avoid:** naming the supplier, the outage or the business service.
+
+#### Fallback version
+
+The most boring component in the AI stack is the one that makes an exit plan real.
+
+UK supervisors expect documented and tested exit plans for material outsourcing, including a stressed exit. Without a gateway, provider SDKs and keys spread through application code, and switching model becomes a programme of code changes. The plan exists on paper; it cannot be carried out in the time a stressed exit allows.
+
+Managed model access is a sensible default only if it stays reversible. Every model call, and now every tool and agent call, passes through one firm-controlled point that owns routing, fallback, budgets, policy and the request log. Guardrails, data protection, identity checks and cost attribution are all invoked there.
+
+That concentration cuts both ways. In March 2026, malicious releases of a popular open-source gateway were published to a public package index. A component that holds every provider key is a prime target. So run it like payments infrastructure: two independent deployments, pinned and signed builds, and budgets, guards and fallbacks that fail closed.
+
+The signal is time to switch provider: how long it takes to move a route to a pre-qualified alternative by configuration alone. Hours, not weeks, and drilled at least once a year.
+
+The leadership move is to treat "add a provider" as a third-party risk event, not a configuration tweak. From 18 March 2027, UK firms must notify material third-party arrangements before entering them.
+
+The honest caveat: ownership matters. Several gateways now belong to security, payments or platform companies, and a gateway that is not neutral weakens the one component meant to keep you neutral.
+
+Neutrality is a design property. It has to be built, and then rehearsed.
+
+#### Suggested visual
+
+Hub diagram: applications on the left, one "AI traffic gateway" in the centre (routing, fallback, budgets, policy, log; C2, C3, C4 and C6 plugged in), providers on the right, with a dashed "pre-qualified alternative" route and a stopwatch labelled "time to switch: hours". Below: "two independent deployments, fail closed". Source: C1 §C1.3, §C1.9, §C1.13 H1 view.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, C1 AI / LLM gateway (§C1.2, §C1.3 KPIs, §C1.9, §C1.11, §C1.12).
+- The March incident: malicious LiteLLM 1.82.7 and 1.82.8 published to PyPI on 24 March 2026; clean 1.83.0 after a rebuilt pipeline [A6-S008, A6-S009, V2-S027].
+- Exit plans: PRA SS2/21 expects documented, tested exit plans including stressed exit [R-PRA-SS221: A8-S048]. PRA PS7/26 and FCA PS26/2: material third-party notifications from 18 March 2027 [R-PRA-SS221, R-FCA-SYSC8: A8-S062, V2-S053].
+- Gateways assessed: LiteLLM (hardened, Enterprise-licensed), Kong AI Gateway, Apigee, Azure API Management AI policies (the AI Gateway tier itself is preview), AWS AgentCore Gateway, Cloudflare AI Gateway, agentgateway. Ownership: Palo Alto Networks completed its acquisition of Portkey on 29 May 2026 [A6-S011, V2-S025]; Stripe agreed to acquire OpenRouter, with closing pending [V1-S059, V1-S060].
+
+#### Hashtags
+
+#AIGateway #OperationalResilience
+
+#### Re-verify before posting
+
+- The PS7/26 / PS26/2 effective date (18 March 2027)
+- Ownership status of Portkey and OpenRouter
+- Azure APIM AI Gateway tier status
+
+#### Compliance check
+
+- Personal views; no reference to any firm's exit plans: yes
+- Regulatory dates stated without legal advice: yes
+- Vendors only in the first comment: yes
+
+---
