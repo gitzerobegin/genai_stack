@@ -1,4 +1,4 @@
-# All scores across layers and controls (generated 2026-10-08)
+# All scores across layers and controls (generated 2026-10-09)
 
 ## L9
 
@@ -101,7 +101,7 @@
 | L3-mistral-agents | 3 | 2 | 3 | 3 | 3 | 2 | 2 | 2 | 2.60 | 2.55 | Experimental |
 | L3-vercel-ai-sdk | 3 | 3 | 3 | 4 | 4 | 2 | 4 | 3 | 3.25 | 3.15 | Tactical |
 | L3-microsoft-agent-framework | 4 | 4 | 3 | 4 | 4 | 4 | 4 | 3 | 3.80 | 3.65 | Strategic |
-| L3-google-adk | 4 | 3 | 3 | 4 | 3 | 3 | 4 | 3 | 3.45 | 3.35 | Tactical |
+| L3-google-adk | 4 | 3 | 3 | 4 | 3 | 3 | 4 | 3 | 3.45 | 3.35 | Strategic |
 | L3-aws-strands-agentcore | 4 | 4 | 4 | 2 | 4 | 3 | 3 | 2 | 3.40 | 3.25 | Strategic |
 | L3-temporal | 4 | 4 | 3 | 5 | 4 | 4 | 3 | 4 | 3.90 | 3.90 | Strategic |
 
