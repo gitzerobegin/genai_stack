@@ -23,7 +23,7 @@
 | L1 Gemini | Strategic, conditional | Unchanged | Google Cloud is the primary cloud |
 | L1 DeepSeek, Kimi, GLM | Tactical, Experimental, Tactical | Unchanged | Hosting caveat: on Azure, Kimi and GLM run on Fireworks outside the tenant |
 
-After these changes the 140 records stand at **58 Strategic, 67 Tactical, 13 Experimental and 2 unscored** [AJ]. Eighteen or more Strategic items sit below FS 3.6 because of rule 10 (hyperscaler lead services) or a reader decision, so a Strategic tier always travels with its condition, and in this synthesis **the condition is the decision, not the total** [AJ].
+After these changes the 140 records stand at **58 Strategic, 67 Tactical, 13 Experimental and 2 unscored** [AJ]. Nineteen Strategic items sit below FS 3.6 because of rule 10 (hyperscaler lead services) or a reader decision, so a Strategic tier always travels with its condition, and in this synthesis **the condition is the decision, not the total** [AJ].
 
 ---
 
@@ -907,3 +907,317 @@ The table consolidates the sections' x.10 classifications. "Unacceptable" means 
 | C6 FinOps | FOCUS-shaped dataset; provider usage APIs | Gateway metering; FinOps SaaS reporting | Allocation rules or cost schema only in a proprietary engine | Rules in Git; firm-owned dataset |
 | C7 security | Model signing (OMS); scanners | Runtime detector; secrets broker; red-team tooling | A security platform bundled with the gateway without an exit plan [VF: A7-S016, A7-S028] | One detector interface at the gateway; gateway choice kept separate |
 | C8 governance | Policy packs and control mappings; OpenLineage | Inventory data; validation documentation; runtime enforcement coupling | An evidence store held only by a vendor | Firm-owned immutable archive; nightly export |
+
+---
+
+# Part X: Implementation roadmap (Phases 0–7, 18 months)
+
+**Horizon and anchors.** By the reader's decision the roadmap runs for 18 months, from October 2026 to March 2028, and is aligned to two regulatory dates: PS7/26 and PS26/2 material third-party notifications from **18 March 2027**, and EU AI Act Annex III high-risk duties from **2 December 2027** (CP4-8) [VF: R-PRA-SS221, R-FCA-SYSC8, A8-S062; R-EU-OMNIBUS-AI, A8-S011]. The phase order follows the plan's day-one build order (plan §12.6): governance, then evaluation, then model access with the gateway first, then retrieval, workflows, tools, memory and optimisation [AJ]. Phases overlap; each starts when its predecessor's exit criteria are in sight, not when it is fully closed [AJ].
+
+## X.1 The calendar the roadmap must respect
+
+| Date | Event | Roadmap consequence [AJ] |
+|---|---|---|
+| 30 November 2026 | OpenAI Agent Builder shuts down [VF: A4-S054] | Any visual-builder prototypes migrate to code in Phase 0 |
+| 2 December 2026 | Article 50(2) marking grace period ends for generative systems already on the market [VF: R-EUAIA, A8-S018, V2-S078] | Article 50 assessment of any published AI content in Phase 0 |
+| 1 January 2027 | Gemini 3.8 Flash introductory price doubles [VF: A5-S027, V2-S010] | Cost model for Google Cloud estates uses the post-January price |
+| 28 January 2027 | Gemini 3.7 Flash retires [VF: B-L1-S003] | The retirement calendar is live from Phase 2 |
+| 18 March 2027 | PS7/26 / PS26/2 material third-party notifications and annual register begin [VF: R-PRA-SS221, R-FCA-SYSC8, A8-S062] | Every material AI provider assessed, and new contracts planned with notification lead time, before this date |
+| 31 March 2027 | Annual DORA register of information reporting (reference date 31 December) [VF: R-DORA, A8-S021] | AI providers recorded in the register by Phase 2 |
+| 1 April 2027 | OpenAI removes GPT-5.1 and GPT-5.4-Nano [VF: B-L1-S001] | Pinned models re-qualified ahead of retirement |
+| 2 August 2027 | GPAI models placed on the market before 2 August 2025 must comply [VF: R-EUAIA, A8-S011] | Vendor Model Documentation Forms requested in Phase 0 and refreshed |
+| September/October 2027 | Earliest published retirement of current Claude models ("not sooner than") [VF: A5-S010] | Re-qualification planned in Phase 6 for Claude routes |
+| 2 December 2027 | EU AI Act Annex III high-risk duties apply [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011] | Any HR, credit or insurance-pricing use must meet Article 26 by then; Article 26-grade logging is already in place from Phase 1 |
+| 27 December 2031 | EU–UK adequacy decisions expire unless renewed [VF: R-DATA-TRANSFERS, A8-S052] | Outside the horizon; noted in transfer risk assessments |
+
+## X.2 The phases
+
+### Phase 0: Governance and architecture (months 0–2; October–December 2026)
+
+- **Scope [Rec].** Write the firm's GenAI model-risk standard to SS1/23 quality (scope, materiality tiers, validation depth, change triggers, evidence pack, retention); define the use case as the governed unit and the version-bundle schema; name the accountable SMF; adopt this reference architecture and the lock-in rules; select the primary cloud and the first use case (the attribution commentary is recommended); start the third-party assessments for every AI provider expected in the first year; classify existing and planned uses under the EU AI Act; request each GPAI vendor's Code of Practice status and Model Documentation Form; start AI literacy measures.
+- **Exit criteria [Rec].** Standard approved by the risk committee; inventory schema and evidence-store design approved; first use case tiered; target stack (A, B, C or D) chosen per environment; provider shortlist with residency and processing-location evidence.
+- **Controls switched on [Rec].** C8 (standard and inventory schema); C5 (Git as the configuration of record, pull-request rules).
+- **Evidence produced [Rec].** The GenAI standard; SMF accountability map; AI use-case register with AI Act classification; AI literacy records; vendor due-diligence files.
+
+### Phase 1: Evaluation and observability (months 1–3; November 2026 – January 2027)
+
+- **Scope [Rec].** Deploy the firm-owned OTel Collector with redaction and a pinned semantic-convention version; stand up the platform of record (Langfuse self-hosted, MLflow or LangSmith per the L9 tree); build the evaluation harness in CI with Git-versioned datasets; build the first use case's regression suite (24–36 months of approved commentaries with their attribution snapshots) and the deterministic numeric-faithfulness scorer; choose two red-team tools, one vendor-independent; build the evidence store (immutable, keyed by trace ID).
+- **Exit criteria [Rec].** A baseline run of the regression suite on at least two candidate models; judge models calibrated against human labels; trace completeness reconcilable with a test gateway; evidence-store write path tested; retention set to the records policy (and at least six months wherever Article 26 could apply).
+- **Controls switched on [Rec].** L9 plane; C8 evidence store; C7 red-team baseline.
+- **Evidence produced [Rec].** Evaluation datasets and scorer code under version control; judge-calibration report; first red-team results mapped to the OWASP 2026 lists.
+
+### Phase 2: Model access, gateway first (months 2–5; December 2026 – March 2027)
+
+- **Scope [Rec].** Deploy the gateway of record twice, in region, failing closed, with pinned and signed builds and provider keys only in its vault; define the first routes with residency constraints, qualified fallbacks, budgets and request logging; contract the primary cloud's model service in an approved region and qualify two unrelated mid-tier vendors; qualify one open-weight model on vLLM as the stressed-exit route; register agents and set up OBO and deny-by-default policy for the first workload; switch on the privacy service (Presidio) at the gateway; switch on the primary cloud's guardrail service plus the firm's deterministic checks; meter cost per key.
+- **Exit criteria [Rec].** Exit drill passed: the route moved to the alternative vendor and to the vLLM route by configuration only; fail-closed tested (spend store down, guard timeout); processing region evidenced per call; every material AI provider assessed and, where material, ready for notification before **18 March 2027**.
+- **Controls switched on [Rec].** C1, C2 (first line), C3 (prompt and output points), C4 (agent identity, OBO, PDP), C6 (gateway metering), C7 (pinned supply chain, secrets in the vault).
+- **Evidence produced [Rec].** Gateway request log; exit-drill record; register-of-information and MTP entries; transfer risk assessments; model inventory entries with pinned versions and a retirement calendar.
+
+### Phase 3: Retrieval and knowledge (months 4–7; February–May 2027)
+
+- **Scope [Rec].** Build the ingestion control envelope (approved-source register, acquisition contract, pre-parse classification through C3, parse manifest, metadata envelope, OpenLineage events with firm GenAI facets, incremental indexing); Docling as the default engine and Unstructured connectors where ACLs are needed; the retrieval-optimisation service with pinned embedding and reranker versions chosen by an in-domain bake-off; pgvector (or Elasticsearch where operated) with entitlement filtering inside the search and a partition per segregated mandate.
+- **Exit criteria [Rec].** Cross-tenant leak test returns zero; filtered recall within tolerance; deletion canary within SLA; rebuild-from-source timed and inside exit-plan tolerance; all copies (vectors, text, backups, caches) in approved regions.
+- **Controls switched on [Rec].** C3 at ingestion; C5 pins for embedding and reranker versions; C7 injection scanning of ingested third-party content.
+- **Evidence produced [Rec].** Source register; parse manifests and lineage events; retrieval regression results; erasure runbook.
+
+### Phase 4: Agent workflows (months 6–9; April–July 2027)
+
+- **Scope [Rec].** Build the first use case as a deterministic workflow graph (LangGraph with a firm-controlled checkpointer, or the primary cloud's framework and runtime) with one bounded drafting step, the evaluation gate as a hard edge, a mandatory approval interrupt, and durable execution that reuses recorded tool results on resume. The first use case's one or two read-only tools are built here as part of the workflow, through the tool-governance sub-layer; Phase 5 generalises tooling.
+- **Exit criteria [Rec].** Independent validation passed, including the validator's own challenge set and the vendor-independent red-team tool; kill-and-resume test without duplicate tool calls; approval cannot be bypassed in code; graph version recorded on every run; first commentary cycle run in parallel with the manual process, then live.
+- **Controls switched on [Rec].** C2 output guards inline; C4 approval identity and segregation of duties; C8 per-output evidence packs; L9 online evaluation and human-edit capture.
+- **Evidence produced [Rec].** Validation report with use limitations; approval conditions; first evidence packs; human-intervention metric (IOSCO indicator).
+
+### Phase 5: Tools and enterprise integration (months 9–12; July–October 2027)
+
+- **Scope [Rec].** Generalise the tool-governance sub-layer: a private allow-listed registry, hash-pinned definitions, per-tool policy and audit; read-only MCP servers owned by system teams (OpenAPI tools as the independent alternative); per-user delegated OAuth through EMA or token exchange for SaaS tools, with the vault in the estate; a microVM sandbox for any generated code; web search only through an egress proxy with DLP for non-confidential queries; A2A only if cross-team delegation is genuinely in scope. Onboard the second and third use cases.
+- **Exit criteria [Rec].** Every tool reachable only through the governed gateway; no shared service accounts; tool additions treated as model changes with re-testing; OWASP agentic red-team cases (ASI01–ASI07) passed.
+- **Controls switched on [Rec].** Full C4 tool policy; C7 sandboxing and egress control; C2 tool-call checks as extra signal.
+- **Evidence produced [Rec].** Tool registry with owners and definition hashes; per-call audit events; sandbox and egress configuration evidence.
+
+### Phase 6: Memory (months 12–15; October 2027 – January 2028)
+
+- **Scope [Rec].** Only if evaluation shows a gap that session state and retrieval cannot close: write the memory allow-list, build the firm memory API (policy-gated write, scoped recall, forget-by-subject, snapshot), store memory in L6 or use the hyperscaler memory service inside its own runtime. In parallel, confirm Annex III readiness for any high-risk use (HR, credit, insurance pricing) before **2 December 2027**, and re-qualify pinned models facing retirement.
+- **Exit criteria [Rec].** Erasure test across rows, vectors, graph, revisions, caches and backups; retention classes enforced; no client identifiers in memory; memory snapshot ID on every run; ASI06 memory-poisoning red-team passed; Article 26 obligations evidenced for any high-risk use.
+- **Controls switched on [Rec].** C3 at memory writes; C8 memory snapshots in evidence packs.
+- **Evidence produced [Rec].** Memory allow-list approval; erasure test results; Article 26 oversight assignments and logs for any high-risk use.
+
+### Phase 7: Advanced optimisation (months 15–18; January–March 2028)
+
+- **Scope [Rec].** Cost and latency optimisation under change control: batch APIs for non-interactive work, prompt caching on stable prefixes, smaller judge models, reserved capacity sized from measured peaks; if, and only if, own-GPU volume justifies it, pilot llm-d or Dynamo in non-production; consider a dedicated vector engine only where a load test fails; review whether any Experimental or "monitor" item has matured (Part XI).
+- **Exit criteria [Rec].** Every optimisation passed the L9 regression suite and C5 approval; cost per approved task reduced without a rise in edit rate; the 18-month architecture review completed and the next horizon set.
+- **Controls switched on [Rec].** C6 optimisation loop; C5 change records for every optimisation.
+- **Evidence produced [Rec].** Optimisation change records; updated exit plans with measured switch and rebuild times; annual register and attestation.
+
+## X.3 The argument for evaluation and observability from day one
+
+The plan asks for an explicit argument why evaluation and observability must exist from day one rather than being added after production (plan §12.6) [AJ]. Seven reasons follow from the evidence.
+
+1. **The evaluation suite is the validation evidence.** SS1/23 requires independent validation and ongoing monitoring, covering vendor models [VF: R-PRA-SS123, A8-S008, A8-S037]. Without a suite there is nothing for a validator to re-perform and nothing to approve, so the first use case cannot go live under the firm's own standard [AJ].
+2. **The suite is what makes exit possible.** SS2/21 expects tested exit plans, including stressed exit [VF: R-PRA-SS221, A8-S048]. A second model vendor or an open-weight route is qualified only by running the same suite; a gateway without a suite can switch models but cannot show the replacement is fit [AJ].
+3. **Every later phase is a model change.** Model versions, prompts, embeddings, tools and cost optimisations all change outputs (Part V.1) [AJ]. Model lifetimes are short: a Gemini Flash version lives about five months, and OpenAI gives previews as little as about two weeks' notice [VF: B-L1-S003, B-L1-S001]. Without a regression baseline each of those changes is unvalidated [AJ].
+4. **Monitoring is what supervisors ask for.** Article 26 requires deployers of high-risk systems to monitor and keep logs; ESMA expects frequent ex-post output controls; IOSCO names the level of human intervention as an indicator [VF: R-EUAIA, A8-S016; R-INTL-AI-ASSETMGMT, A8-S059, A8-S058]. Monitoring retrofitted after go-live cannot show the baseline it is monitoring against [AJ].
+5. **Instrumenting once is cheap; re-instrumenting every layer is the largest switching cost.** Every L9 product ingests OTel or OpenInference, so a firm-owned Collector from day one keeps the platform choice reversible [VF: A1-S032, A1-S037, A1-S042, A1-S049] [AJ].
+6. **Evidence cannot be recreated after the fact.** Free tiers keep data for 15 to 60 days [VF: A1-S047, A1-S031, A1-S123]; a commentary released before the evidence store existed has no reproducible record [AJ].
+7. **The worked example's main risk is only controllable by evaluation.** The one failure that matters, a wrong number in a client commentary, is caught by the deterministic numeric-faithfulness check, which is an L9 scorer reused inline as a C2 guard [AJ].
+
+---
+
+# Part XI: Final recommended enterprise stack
+
+> **"If I were building a serious enterprise GenAI platform today, which products would I actually select, and which would I deliberately NOT select?"** (plan §12)
+
+This part answers the plan's question with every scored product placed in one of five categories. Tiers are the final tiers after the CP4 decisions; scores are not re-argued here [AJ]. A Strategic tier always carries its condition, and the cloud-conditional Strategic items are alternatives chosen by primary cloud, not cumulative recommendations [AJ]. The conflict-of-interest rule applies throughout: each Anthropic product or Anthropic-originated standard is listed with an independent alternative [AJ].
+
+## XI.1 Strategic choices: cloud-neutral core (41)
+
+| Ref | Product | Condition | One-line reason |
+|---|---|---|---|
+| C1 | LiteLLM | Hardened, pinned, Enterprise-licensed | Open-core gateway for LLM, MCP and A2A traffic; clean releases from 1.83.0 after the March 2026 compromise [VF: A6-S015, A6-S009] |
+| C1 | Kong AI Gateway | Where Kong is the API standard | AI Gateway 2.x GA with its own control plane [VF: A6-S016, V2-S034] |
+| C3 | Presidio | Behind a firm privacy-service API, recall tests in CI | Community-governed MIT detection engine that runs in-estate [VF: A6-S040, V2-S030] |
+| C4 | SPIFFE/SPIRE | — | CNCF-graduated workload identity for multi-cloud runtimes [VF: A6-S087] |
+| C4 | OPA | — | CNCF-graduated policy decision point for tool calls [VF: A6-S046] |
+| C4 | Cedar | Policy language; AgentCore Policy on AWS | Open policy language; AgentCore Policy GA 3 March 2026 [VF: A6-S026, A6-S045] |
+| C4 | MCP authorisation | One decision with MCP: behind a gateway with mandatory authorisation (CP3); Anthropic-originated, alternative: OAuth 2.0 resource-server pattern on OpenAPI tools | EMA stable; DCR deprecated; authorisation still optional in the spec [VF: A6-S033, A3-S017, A3-S055] |
+| C4 | Entra Agent ID | Directory-bound: where Entra holds the workforce | Agent identities with sponsors and OBO, GA April 2026 [VF: V2-S032, A6-S060] |
+| C4 | Okta / Auth0 for AI Agents | Directory-bound: where Okta holds the workforce | Okta for AI Agents GA 30 April 2026; Agent SSO GA 24 August 2026 [VF: A6-S100, V2-S035] |
+| C5 | Prompts as code (Git) | — | Git as the configuration of record; open Prompty and Dotprompt formats [VF: A7-S067, A7-S066] |
+| C5 | Langfuse Prompts | Where Langfuse is the L9 platform | Registry for run-time delivery with version-to-trace linkage [VF: A7-S071] |
+| C5 | LangSmith Prompts | Where LangSmith is the L9 platform | Owners-only promotion, commit and rollback history [VF: A7-S076] |
+| C6 | Gateway cost attribution | Tested to fail closed | Budgets, limits and spend tracking ship in the gateways [VF: A6-S015, A6-S019, A6-S053] |
+| C6 | FinOps FOCUS | Firm-owned FOCUS-shaped dataset | Open billing standard; 1.4 ratified, 1.5 adds model identity [VF: V2-S046, A7-S116] |
+| C7 | HashiCorp Vault | Conditional on accepting BUSL and IBM ownership | Agentic IAM GA, with user-and-agent attribution [VF: A7-S034, A7-S060, A7-S032] |
+| C7 | Model and package scanning | Safetensors by default; scanning gate | Pickle-based model files can execute code on load [VF: A7-S082, B-C7-S006] |
+| C8 | OpenLineage | With firm GenAI facets | Neutral lineage standard; no GenAI facets yet [VF: A7-S041, A7-S042] |
+| L9 | Langfuse | Self-hosted with Enterprise licence | MIT core; SCIM, audit logs and RBAC need the Enterprise key; ClickHouse-owned [VF: A1-S033, A1-S021] |
+| L9 | LangSmith | For LangGraph estates; dual-instrumented with OTel | Agent platform with BYOC and EU region [VF: A1-S039] |
+| L9 | MLflow GenAI | Where an ML platform already exists | Apache-2.0, OTel-based tracing and evaluation, managed on SageMaker and Azure ML [VF: A1-S103] |
+| L8 | Docling | Default engine and canonical document model | MIT, LF AI & Data Graduate August 2026 [VF: V1-S091, A1-S057] |
+| L8 | Unstructured | For connectors and entitlement capture | ACL-digest connectors with reprocessing on change [VF: A1-S094] |
+| L7 | Sentence Transformers | Self-hosting, fine-tuning and exit toolkit | Apache-2.0; dense, cross-encoder, sparse and multi-vector [VF: A2-S029] |
+| L6 | pgvector | Where PostgreSQL is standard | 0.8.7; managed on all three hyperscalers [VF: V1-S020, B-L6-S004, B-L6-S005] |
+| L6 | Qdrant | Dedicated in-estate engine after a load test | Apache-2.0 with air-gapped Private Cloud [VF: A2-S108, A2-S106] |
+| L6 | Milvus / Zilliz | Very large corpora; 3.0 after validation | Lake-native 3.0 under LF AI & Data [VF: A2-S118] |
+| L6 | Elasticsearch | Where already operated (OpenSearch as fork alternative) | Hybrid BM25 + vectors with document-level security [VF: A2-S133, A2-S136] |
+| L6 | MongoDB Vector Search | Where MongoDB is the operational store | GA self-managed as well as Atlas [VF: A2-S137, V1-S035] |
+| L4 | MCP | Only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions (CP3); Anthropic-originated, alternative: OpenAPI tools via the gateway | AAIF-governed; 2026-07-28 spec stateless with header routing [VF: A3-S018, A3-S015, A3-S057] |
+| L4 | A2A | Where cross-team or cross-vendor delegation is in scope; signed cards required | 1.0.0 under AAIF [VF: A3-S079, A3-S116] |
+| L3 | LangGraph | Default framework | Workflows and agent loops in one graph; 1.x GA [VF: A4-S039, A4-S001] |
+| L3 | Pydantic AI | Python teams wanting type-safe agent steps (CP4) | Typed, model-agnostic; durability via Temporal, DBOS or Prefect [VF: A4-S119, A4-S045] |
+| L3 | Temporal | Durability substrate | MIT server portable between self-host and Cloud [VF: B-L3-S002] |
+| L2 | vLLM | Default engine for private routes | Apache-2.0, PyTorch Foundation-hosted, supported distribution available [VF: A4-S009, A4-S146, B-L2-S001] |
+| L2 | SGLang | Qualified backup engine once CVE-2026-3059 is confirmed fixed in the deployed version (CP4) | NVD and OSV reference a fix in 0.5.10; GitHub advisory lists none [VF: B-L2-S009, B-REVC-S002] |
+| L2 | Hugging Face (Hub) | Governed open-weight supply on the Enterprise plan; not for client inference data | Hub as the supply source; TGI archived [VF: A4-S075, V1-S054] |
+| L2 | Fireworks AI | Managed open-model inference once ISO certificates are confirmed (CP4) | ZDR by default for open models; BYOC; ISO evidence conflicting [VF: A4-S134, A4-S152, V1-S067] |
+| L1 | OpenAI GPT | Mid-tier primary or fallback; Luna for the small tier | Most complete tier ladder; first-party EU processing [VF: A5-S002, A5-S006] |
+| L1 | Anthropic Claude | Hyperscaler UK/EU route only, with a qualified non-Anthropic fallback; FS ≈ 3.80, tier set by the reader at CP4; independent alternatives: GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5 | Product-scoped SOC 2, ISO 27001 and ISO 42001; in-tenant on all three hyperscalers; no first-party EU/UK inference [VF: A5-S021, A5-S010, V2-S075] |
+| L1 | Mistral | EU and open-weight leg of the portfolio | EU-hosted by default with an EU inference commitment [VF: A5-S075, A5-S074] |
+| L1 | Gemma 4 | Small, self-hosted open-weight tier | Apache 2.0, multimodal small models [VF: A5-S034, V2-S020] |
+
+## XI.2 Strategic choices: cloud-conditional (17; choose the column for your primary cloud)
+
+Each item is Strategic only where its cloud is the firm's primary cloud (CP3 rule 10), with platform controls presumed and to be confirmed per service (CP2 Q1) [AJ].
+
+| Category | AWS | Azure | Google Cloud | Ref |
+|---|---|---|---|---|
+| Gateway | AgentCore Gateway (MCP; model routing elsewhere until inference targets are GA) [VF: A6-S021, A6-S105] | APIM AI gateway, GA policies only (AI Gateway tier is preview, no SLA) [VF: A6-S020, V2-S073] | Apigee AI gateway (MCP GA 31 March 2026) [VF: A6-S024, A6-S023] | C1 |
+| Guardrails | Bedrock Guardrails [VF: A6-S072] | Azure AI Content Safety (GA features) [VF: A6-S055] | Model Armor [VF: A6-S067] | C2 |
+| DLP / posture | (Presidio, cloud-neutral) | Purview DSPM, AI posture not prompt-path DLP [VF: A6-S090, A6-S091] | Sensitive Data Protection [VF: A6-S066] | C3 |
+| Tools and identity | AgentCore Gateway + Identity [VF: A3-S047, A6-S026] | (Entra Agent ID, directory-bound, above) | — | L4 |
+| Agent framework / runtime | Strands + AgentCore [VF: A4-S116, B-L3-S004] | Microsoft Agent Framework (Strategic on score, Microsoft/.NET estates) [VF: A4-S008] | Google ADK on Agent Engine [VF: A4-S114] | L3 |
+| Memory | AgentCore Memory [VF: V1-S087] | — | Memory Bank [VF: V1-S088] | L5 |
+| Embeddings | — | — | Gemini Embedding 2 (if UK-only processing is not mandatory) [VF: A2-S004, A2-S039] | L7 |
+| Document AI | — | — | Google Document AI [VF: A1-S101] | L8 |
+| Models | — | — | Gemini (pin versions against short retirement windows) [VF: A5-S027, B-L1-S003] | L1 |
+| Model access (pattern, not scored) | Bedrock | Microsoft Foundry | Gemini Enterprise Agent Platform | L2 |
+
+## XI.3 Tactical choices (67)
+
+Tactical means a sound choice for a stated niche, a stated estate or a stated condition, not a platform default [AJ].
+
+| Ref | Product | Use it for |
+|---|---|---|
+| L9 | Braintrust | Eval-led teams; hybrid data plane [VF: A1-S043, A1-S041] |
+| L9 | Arize Phoenix | Validation sandboxes (auth on, telemetry off); ELv2 [VF: A1-S048] |
+| L9 | Arize AX | Dynatrace estates; re-assess after the Dynatrace roadmap [VF: A1-S045] |
+| L9 | DeepEval | Default CI metric library [VF: A1-S068] |
+| L9 | Promptfoo | One of two red-team tools; OpenAI acquisition announced [VF: A1-S024] |
+| L9 | Opik | Apache-2.0 alternative with Comet Enterprise [VF: A1-S050] |
+| L9 | Datadog Agent Observability | Where Datadog is the APM standard [VF: A1-S097] |
+| L9 | W&B Weave | CoreWeave estates [VF: A1-S131] |
+| L8 | LlamaParse | Parse/Extract only; indexing kept in-house [VF: A1-S080] |
+| L8 | Reducto | Hard documents, after due diligence [VF: A1-S112] |
+| L8 | Mistral OCR | OCR engine, model ID pinned [VF: A1-S130] |
+| L8 | Firecrawl | Public sources; Cloud with ZDR or AGPL-reviewed server [VF: A1-S053, A1-S076] |
+| L8 | Apify | Public data only; US-only hosting [VF: A1-S086] |
+| L7 | OpenAI text-embedding-3 | Text baseline where OpenAI is approved; separate reranker [VF: A2-S001] |
+| L7 | Voyage | Where MongoDB is the store, after SOC 2 scope is evidenced [VF: A2-S033, A2-S142] |
+| L7 | Cohere | Private or hyperscaler deployment; Strategic candidate after per-service due diligence [VF: A2-S012, A2-S014] |
+| L7 | Qwen3 Embedding | Self-host only, after provenance review [VF: A2-S020] |
+| L7 | Jina | Inside Elastic estates, licensed routes only [VF: A2-S023, A2-S024] |
+| L7 | NVIDIA NeMo Retriever | NVIDIA-standardised estates [VF: A2-S031, A2-S040] |
+| L6 | Pinecone | Managed dedicated store with BYOC; Nexus a separate decision [VF: V1-S034, A2-S073] |
+| L6 | Weaviate | Until the licence position settles [VF: A2-S115, V1-S070] |
+| L6 | turbopuffer | Many-tenant, cost-sensitive corpora, BYOC only; Anthropic reported as a customer (conflict disclosed; alternative: Zilliz BYOC) [VF: A2-S124] [R: A2-S126] |
+| L6 | Chroma | Prototypes and harnesses [VF: A2-S060] |
+| L6 | S3 Vectors | AWS cost tier and Bedrock Knowledge Bases; no BM25 [VF: A2-S081, A2-S083] |
+| L5 | Mem0 | Self-hosted OSS behind the firm's memory API [VF: A3-S081] |
+| L5 | Zep (Graphiti) | Graphiti self-hosted where temporal provenance matters [VF: A3-S003] |
+| L5 | Cognee | In-estate or air-gapped only [VF: A3-S005] |
+| L4 | Agent Skills | Internal, script-free skills only; Anthropic-maintained, alternative: C5 packages or AGENTS.md [VF: A3-S115, V1-S046] |
+| L4 | Exa | Via egress proxy with DLP, non-confidential queries [VF: A3-S010, A3-S121] |
+| L4 | Tavily | Same as Exa; refresh due diligence after the Nebius acquisition [VF: V1-S041] |
+| L4 | Browserbase | Only where no API exists [VF: A3-S013] |
+| L4 | E2B | Reference sandbox for derived calculations [VF: A3-S062, A3-S120] |
+| L3 | LlamaIndex | Retrieval toolkit; vendor focus moved to LlamaParse [VF: A4-S117] |
+| L3 | CrewAI | Flows for any regulated process [VF: A4-S050] |
+| L3 | OpenAI Agents SDK | Sandboxed agent sub-step [VF: A4-S005, A4-S052] |
+| L3 | Vercel AI SDK | TypeScript application tier [VF: A4-S022, A4-S071] |
+| L2 | Ollama | Developer tier, cloud disabled [VF: A4-S084] |
+| L2 | LM Studio | Managed desktops only; no service use [VF: A4-S145] |
+| L2 | OpenRouter | Model-access source behind C1, no client data without contractual ZDR and residency; Stripe acquisition pending [VF: A4-S111, V1-S059] |
+| L2 | Together AI | EU dedicated endpoints with ZDR on [VF: A4-S131, A4-S130] |
+| L2 | Cerebras | Latency-critical, non-confidential workloads [VF: A4-S095, A4-S140] |
+| L1 | Grok (SpaceXAI) | Secondary option via a hyperscaler only [VF: V2-S011, A5-S080] |
+| L1 | DeepSeek | Weights or Foundry in-tenant only; hosted API not recommended [VF: A5-S087, A5-S062] |
+| L1 | Qwen | Apache-2.0 sizes self-hosted, by policy [VF: A5-S066, A5-S086] |
+| L1 | GLM (Z.ai) | MIT Flash weights only, after sanctions review [VF: A5-S071, A5-S072] |
+| L1 | Meta Muse / Llama | Open-weight continuity; block the contributor tier [VF: A5-S077, V2-S019] |
+| C1 | Portkey | Prisma AIRS estates [VF: A6-S012] |
+| C1 | Cloudflare AI Gateway | Non-confidential workloads, BYOK [VF: A6-S052] |
+| C1 | agentgateway | Neutral MCP/A2A gateway for Kubernetes estates [VF: A6-S062] |
+| C1 | Envoy AI Gateway (Agent Router) | In-cluster routing behind the gateway of record [VF: A6-S063] |
+| C2 | NeMo Guardrails | In-estate orchestration, pinned; still 0.x [VF: A6-S003] |
+| C2 | Llama Guard / Prompt Guard | One detector among several; no update since May 2025 [VF: A6-S030, A6-S107] |
+| C3 | Protegrity | Existing customers [VF: A6-S093] |
+| C3 | Skyflow | Reversible tokenisation where a vendor vault is acceptable [VF: A6-S095] |
+| C5 | PromptLayer | Framework-neutral registry where no L9 registry exists [VF: A7-S004] |
+| C5 | LaunchDarkly AgentControl | Rollout between approved variants where LaunchDarkly is standard [VF: A7-S117, V2-S045] |
+| C6 | Vantage | Reporting layer where already used [VF: A7-S113] |
+| C6 | CloudZero | Reporting layer where already used; allocation rules kept outside [VF: A7-S114] |
+| C7 | Lakera (Check Point AI Guardrails) | Swappable runtime detector, self-hosted for client data [VF: A7-S013, A7-S023] |
+| C7 | Prisma AIRS | Palo Alto estates; candidate for Strategic after due diligence [VF: A7-S014, A7-S016] |
+| C7 | HiddenLayer | Independent specialist; confirm certificates [VF: A7-S017, V2-S047] |
+| C7 | OpenSSF Model Signing | Sign internally produced weights [VF: A7-S040] |
+| C8 | ValidMind | MRM-led firms, after SOC 2 Type II evidence [VF: A7-S052] |
+| C8 | Credo AI | Policy- and compliance-led programmes [VF: A7-S102] |
+| C8 | IBM watsonx.governance | IBM estates; candidate for Strategic after due diligence [VF: A7-S111] |
+| C8 | ModelOp | After full due diligence [VF: A7-S098] |
+| C8 | Collibra AI Governance | Where Collibra is the catalogue of record [VF: A7-S122, A7-S101] |
+
+## XI.4 Experimental choices (13)
+
+Experimental means pilot only, outside regulated paths, with an explicit review date [AJ].
+
+| Ref | Product | Why Experimental |
+|---|---|---|
+| L8 | Crawl4AI | Pre-1.0; self-hosted pilots [VF: A1-S009, A1-S056] |
+| L8 | MinerU | Pending licence review (commercial thresholds) [VF: A1-S054] |
+| L5 | Letta | Now an agent harness; V1 server retired [VF: A3-S060, A3-S093] |
+| L5 | Supermemory | Memory and knowledge behind one proprietary API; v5 breaking change [VF: A3-S064, A3-S012] |
+| L5 | LangMem | No release since 27 October 2025; reference patterns only [VF: A3-S006] |
+| L4 | Composio | Self-hosted only, never for client data, after the May 2026 token-exposure incident [VF: B-L4-S007] |
+| L3 | Claude Agent SDK | Alpha classifier, Claude-only, Commercial Terms; maturity 2 (CP4); independent alternatives: LangGraph or Pydantic AI, or the OpenAI Agents SDK as a comparable harness [VF: A4-S006, B-REVC-S001, A4-S092] |
+| L3 | Mistral Agents API (+ Workflows) | No distinct "Agents SDK"; Workflows beta [VF: A4-S057, A4-S058] |
+| L2 | NVIDIA Dynamo | Beta optimisation layer; pilot only [VF: A4-S098] |
+| L2 | llm-d | CNCF sandbox; pilot only [VF: A4-S089] |
+| L1 | Moonshot Kimi | Custom licence; cross-Region or pass-through hyperscaler routes only; on Azure it runs on Fireworks outside the tenant [VF: A5-S069, A5-S086, A5-S087] |
+| C2 | Guardrails AI | Hosted hub retired; acquired by Harvey; freeze and plan migration [VF: V2-S071, A6-S028] |
+| C6 | Helicone | Maintenance mode after the Mintlify acquisition; migrate [VF: A7-S112, V2-S043] |
+
+## XI.5 Products to avoid (evidence-based only)
+
+By the reader's decision, a product or route is listed here only on evidence: deprecated or archived; unverifiable; an unresolved security incident affecting client data; or a licence or terms blocker (CP4-7) [AJ]. Everything else that is not recommended is Tactical, Experimental or "monitor" [AJ].
+
+| Avoid | Ground | Evidence | Ref |
+|---|---|---|---|
+| Hugging Face TGI | Archived | Repository archived 21 March 2026; HF recommends vLLM or SGLang [VF: V1-S054] | L2 |
+| Helicone (new adoption) | Maintenance mode | Acquired by Mintlify 3 March 2026 [VF: A7-S112, V2-S043] | C6 |
+| OpenAI Agent Builder | Deprecated | Shuts down 30 November 2026 [VF: A4-S054, V1-S051] | L3 |
+| AutoGen and Semantic Kernel (new code) | Superseded / maintenance | Microsoft Agent Framework is the GA successor; AutoGen in maintenance mode [VF: A4-S008, A4-S021, V1-S050] | L3 |
+| Guardrails AI hosted hub | Retired | Hosted remote inference retired in August 2026 [VF: V2-S071] | C2 |
+| Zep Community Edition; Letta V1 server; Browserbase standalone MCP server | Deprecated or archived | [VF: A3-S059, A3-S073, A3-S054] | L5, L4 |
+| Retired model versions (Mistral Medium 3.1, Mistral OCR 4.0) | Retired | [VF: B-L1-S002, A1-S130] | L1, L8 |
+| EthicalAgents; Ragoos | Unverifiable | Could not be found; removed at CP1 [VF: A2-S079, A2-S080] | L7 |
+| Composio managed cloud for client data or user tokens | Unresolved security incident for client data | Connected-account tokens and API keys exposed in May 2026; US-hosted cloud [VF: B-L4-S007, A3-S119] | L4 |
+| Any Chinese-origin vendor's own hosted API for client data (DeepSeek's in particular) | Unremediated regulatory finding and PRC storage | DeepSeek's platform stores data in the PRC; Italy's limitation continues [VF: A5-S062, A5-S048] | L1 |
+| Jina weights self-hosted without a commercial licence | Licence blocker | CC-BY-NC-4.0 [VF: A2-S024] | L7 |
+| MinerU above its thresholds without a commercial licence | Licence blocker | Rights terminate on breach [VF: A1-S054] | L8 |
+| A modified Firecrawl server exposed without AGPL compliance | Licence blocker | Server is AGPL-3.0 [VF: A1-S053] | L8 |
+| LM Studio as a service | Terms blocker | Free for internal business use, no service use [VF: A4-S145] | L2 |
+| Meta's contributor (training-on-data) tier | Terms blocker | Data-use condition, not a price [VF: V2-S019] | L1 |
+| Billing intermediation through a gateway or router for regulated workloads | Terms / control blocker | Puts the vendor between the firm and its model contract [VF: A6-S052, A4-S144] | C1, L2 |
+
+## XI.6 Products and events to monitor
+
+| Monitor | Trigger for action [Rec] | Ref |
+|---|---|---|
+| SGLang CVE-2026-3059 | Confirm the fix in the deployed version against the upstream advisory before Strategic use [VF: B-REVC-S002] | L2 |
+| Fireworks AI ISO certificates and EU residency | Obtain certificates from the trust portal; contract EU deployments or BYOC [VF: V1-S067, A4-S134] | L2 |
+| OpenRouter–Stripe closing | Refresh due diligence and notification on completion [VF: V1-S059, V1-S060] | L2, C1 |
+| Promptfoo–OpenAI closing | Keep a vendor-independent second red-team tool [VF: A1-S024, V2-S042] | L9, C7 |
+| Arize under Dynatrace; Langfuse under ClickHouse | Re-assess contracts and roadmaps [VF: A1-S045, A1-S021] | L9 |
+| Collibra–trail ML; Cohere–Aleph Alpha | Change-of-control due diligence [VF: A7-S101, V2-S044, A2-S018] | C8, L7 |
+| Weaviate licence transition | Re-tier once settled [VF: A2-S115, V1-S070] | L6 |
+| Pinecone Nexus | Treat as a derived layer only [VF: A2-S073] | L6 |
+| MongoDB Voyage features (automated embedding, native reranking) | Use once GA and Geography-scoped [VF: A2-S141, A2-S142] | L6, L7 |
+| OTel GenAI semantic conventions | Re-pin when they leave "Development" [VF: A1-S058] | L9 |
+| MCP agent-identity work (DPoP, Workload Identity Federation) | Re-assess the gateway configuration on publication [VF: A3-S016] | L4, C4 |
+| Azure APIM AI Gateway tier; AgentCore inference targets; Durable Task | Adopt only at GA with an SLA [VF: V2-S073, A6-S105, A4-S101] | C1, L3 |
+| watsonx.governance and Prisma AIRS | Candidates for Strategic after certification due diligence (CP3 Q9) [VF: A7-S111, A7-S016] | C8, C7 |
+| Claude Agent SDK and OpenAI Agents SDK reaching 1.0 | Re-score maturity [VF: B-REVC-S001] | L3 |
+| GPT-6 Astra GA status conflict | Resolve before any frontier-tier use [VF: A5-S002, A5-S008] | L1 |
+| Gemini 3.8 Flash price change and Flash retirements | Re-qualify on schedule [VF: V2-S010, B-L1-S003] | L1 |
+| Mistral Large 4 (preview) | Evaluate at GA and licence publication [VF: A5-S076] | L1 |
+| D.C. Circuit rehearing on the Anthropic FASCSA designation | Legal to assess for firms with US defence work; no claim is made here about its scope [VF: A5-S084] | L1 |
+| DPF appeal C-703/25 P | Transfer risk assessments; prefer in-region processing [VF: R-DATA-TRANSFERS, A8-S053] | All |
+| US agencies' RFI on MRM and AI | Re-map the firm's GenAI standard on publication [VF: R-US-MRM, A8-S007] | C8 |
+| NIST AI RMF revision; SP 800-53 agent overlay | Update the control mapping [VF: R-NIST-AIRMF, A8-S043, A8-S006] | C8, C4 |
+| EBA/GL/2026/09 application date | Plan the two-year review of critical arrangements [VF: R-EBA-OUTSOURCING, V2-S054] | C8 |
+| Full OWASP LLM 2026 list | Re-map red-team cases once retrieved [VF: R-OWASP-LLM, A8-S041] | C2, C7 |
+| FOCUS 1.5 ratification | Add model-identity columns [VF: V2-S046] | C6 |
+| Not yet profiled: Azure AI Search, Vertex AI Vector Search, Bedrock embeddings and rerank, ServiceNow AI Control Tower, OneTrust, Daytona, Modal | Profile in a follow-up pass before they are recommended or rejected [NPV] | L6, L7, C8, L4 |
+
+## XI.7 The answer, in one paragraph
+
+Select a firm-owned control and evidence plane first, and buy or adopt replaceable components beneath it [Rec]. On today's evidence, the cloud-neutral core of a regulated asset manager's platform is: a hardened LiteLLM or Kong gateway; Langfuse or MLflow with a firm-owned OTel Collector and Git-versioned evaluation datasets; Presidio behind a privacy-service API; agent identities in the workforce IdP with OPA; Git as the configuration of record; Docling and Unstructured inside a built ingestion envelope; Sentence Transformers and pgvector; read-only MCP tools behind a governed gateway (with OpenAPI tools as the independent alternative); LangGraph on Temporal; the primary cloud's in-region model service with vLLM as the exit route; and a two-vendor model portfolio drawn from OpenAI, Anthropic (with GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as the named alternative), Mistral and, on Google Cloud, Gemini, plus Gemma 4 or Mistral self-hosted [Rec]. Deliberately do not select: archived or deprecated products, unverifiable vendors, a third-party broker holding client tokens, any Chinese-origin vendor's own API for client data, licence-blocked weights, autonomous agents with write tools, memory before it is needed, and any vendor-held store as the only copy of the firm's evidence [Rec].

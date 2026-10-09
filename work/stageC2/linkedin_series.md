@@ -1726,25 +1726,186 @@ Personal views; not legal advice. Sources: the Enterprise GenAI Stack review, C8
 
 ---
 
-## Weeks 10–13 and reactive templates (to be added after the synthesis)
+## Week 10
 
-Placeholder. These will be drafted in a later run from `work/stageC/synthesis.md`, once the synthesis exists:
+### Post 19 · Week 10, Tuesday · The worked example, end to end
 
-- **Week 10:** #19 The worked example (Tuesday) · #20 Start small (Thursday)
-- **Week 11:** #21 Build vs buy (Tuesday) · #22 Where *not* to abstract (Thursday)
-- **Week 12:** #23 Which lock-in is acceptable (Tuesday) · #24 Close: what I'd select, and what I'd deliberately not select (Thursday)
-- **Week 13:** Buffer
-- **Reactive templates (2–3):** model launch · acquisition · regulatory milestone
+**Pair:** Post 20 (Start small, Week 10 Thursday). **Bridge:** Tuesday shows the full worked example and its "never" list; Thursday shows the minimum platform needed to run it, and what to leave out.
+
+**Theme and source:** The performance-attribution commentary agent, end to end, with its boundaries and evidence pack. `work/stageC/synthesis.md` Part VI (VI.1 request trace, VI.3 boundaries, VI.4 evidence pack).
+
+**Tension:** What the attribution-commentary agent must never do matters more than what it can do.
+
+#### Full post
+
+For nine weeks one example has run underneath this series: an agent that drafts the monthly performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft. It is generic and illustrative. Here it is in one place.
+
+What it may do is short. Draft narrative around figures it is given. Explain allocation, selection and currency effects in the house style. Cite approved market context. Propose wording, and propose new style rules for a person to approve.
+
+What it must never do is longer, and matters more. Never generate, round or "correct" a number. Never treat a figure from retrieved text, memory or a parsed document as data. Never present inference as source. Never publish without a recorded human approval. Never call a write, email or web tool. Never send client identifiers outside the approved route. Never run on an unpinned model.
+
+The useful discipline is that every "never" names the component that enforces it. Read-only tools and a deterministic numeric check stop invented figures. A workflow with no outbound tool stops exfiltration. An approval step that only a named person can release stops unreviewed publication. A "never" without an enforcing component is a hope written into a policy.
+
+The signal is evidence-pack completeness: the share of approved commentaries with a complete record of prompt version, model version, data snapshot, tool calls, evaluation results, approver, timestamps and final text. The target is 100%.
+
+The leadership move is to write the "never" list first, and let it shape the design.
+
+[Anecdote slot: one or two sentences on a time defining what a system must not do clarified the whole design, and who insisted on it.]
+
+Capability is what a system can do. Trust comes from what it provably cannot.
+
+#### Short variant
+
+One example has run under this series: an agent drafting the monthly attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
+
+What it may do is short: draft narrative around figures it is given, explain the effects in house style, cite approved context, propose wording.
+
+What it must never do matters more. Never generate or "correct" a number. Never treat retrieved or remembered figures as data. Never publish without recorded approval. Never call a write, email or web tool. Never run on an unpinned model.
+
+Each "never" names the component that enforces it. Without one, it is a hope written into a policy.
+
+The signal is evidence-pack completeness: every approved commentary with its full record. Target 100%.
+
+Write the "never" list first. Trust comes from what a system provably cannot do.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a project where agreeing the boundaries ("this system will never…") early made the design simpler or the approval faster: a risk partner, a control owner or an engineer who pushed for it. Credit them by role. Own it if the boundaries came late and cost rework.
+- **Fits:** agentic transformation in a regulated environment; "developing leaders through delivery".
+- **Avoid:** suggesting that this agent exists at your firm. It is a generic illustration.
+
+#### Fallback version
+
+For nine weeks one example has run underneath this series: an agent that drafts the monthly performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft. It is generic and illustrative. Here it is in one place.
+
+What it may do is short. Draft narrative around figures it is given. Explain allocation, selection and currency effects in the house style. Cite approved market context. Propose wording, and propose new style rules for a person to approve.
+
+What it must never do is longer, and matters more. Never generate, round or "correct" a number. Never treat a figure from retrieved text, memory or a parsed document as data. Never present inference as source. Never publish without a recorded human approval. Never call a write, email or web tool. Never send client identifiers outside the approved route. Never run on an unpinned model.
+
+The useful discipline is that every "never" names the component that enforces it. Read-only tools and a deterministic numeric check stop invented figures. A workflow with no outbound tool stops exfiltration. An approval step that only a named person can release stops unreviewed publication. A "never" without an enforcing component is a hope written into a policy.
+
+The signal is evidence-pack completeness: the share of approved commentaries with a complete record of prompt version, model version, data snapshot, tool calls, evaluation results, approver, timestamps and final text. The target is 100%.
+
+The leadership move is to write the "never" list first, and let it shape the design.
+
+The honest caveat: this design gives up flexibility on purpose. Each new capability should arrive with its own enforcing control, not a broader prompt.
+
+Capability is what a system can do. Trust comes from what it provably cannot.
+
+#### Suggested visual
+
+Two-column "may / must never" table for the worked example. Each "never" row has its enforcing component in a coloured chip (read-only tool, numeric comparator, approval interrupt, allow-list, tokenisation, entitlement filter, version pin). Beneath it, the eight-tile evidence pack keyed to one trace ID. Source: synthesis VI.3 and VI.4. Label: "generic, illustrative".
+
+#### First comment
+
+Personal views. The worked example is generic and illustrative, not a description of any firm's platform. Sources: the Enterprise GenAI Stack review, synthesis Part VI (VI.1 request trace, VI.3 boundaries with enforcing components, VI.4 evidence pack), and C8 §C8.12.
+- The design is cloud-neutral, with AWS, Azure and Google Cloud equivalents shown side by side (CP4-6). Examples by layer: Docling and pgvector for retrieval; LangGraph with a Postgres checkpointer, or Strands on AgentCore, Microsoft Agent Framework or Google ADK, for the workflow; LiteLLM, Kong, APIM or Apigee for the gateway; a two-vendor model portfolio on the primary cloud's model service (Claude, GPT-6.1, Gemini or Mistral, with an independent alternative named wherever Claude appears; conflict of interest noted).
+- The use case is not an EU AI Act Annex III use; Article 50 is assessed and human editorial review applies (synthesis VI.4).
+
+#### Hashtags
+
+#AgenticAI #AIGovernance
+
+#### Re-verify before posting
+
+- No product or regulatory facts in the body. Check that the first comment's per-cloud examples match the final document.
+
+#### Compliance check
+
+- Personal views; worked example explicitly generic and illustrative: yes
+- No internal systems or metrics: yes
+- Vendors only in the first comment, with the conflict of interest noted: yes
 
 ---
 
-## Appendix: automated checks
+### Post 20 · Week 10, Thursday · Start small
 
-The checks are run with `python3 -I` over this file. For every post they confirm that:
-- the full post and the fallback version are each 220–300 words, with the anecdote slot counted as drafted
-- the short variant is 120–150 words
-- the full post contains exactly one anecdote slot, and the short variant and fallback contain none
-- there are at most 2 hashtags
-- there are no emoji characters
+**Pair:** Post 19 (Worked example, Week 10 Tuesday). **Bridge:** Tuesday's agent needs a platform; Thursday argues that the minimum platform, plus a published "not yet" list, is the right first release.
 
-Result on 9 October 2026, posts #1–#18: all passed.
+**Theme and source:** Stack D, minimal start-small, and its "do NOT build yet" list. `work/stageC/synthesis.md` Part VII, Stack D (with the Stack A build-now and not-yet lists).
+
+**Tension:** The most valuable part of a reference architecture is the "do not build yet" list.
+
+#### Full post
+
+The most valuable page in a reference architecture is often the "do not build yet" list.
+
+Reference architectures tend to be read as shopping lists. Every box looks like a work package, and a programme that funds them all spends its first year building platform that nobody is using yet.
+
+The minimum I would start with is not a weaker stack. It is the full regulated design with everything the first use case does not need removed. One gateway, deployed twice, with one route and a budget that fails closed. An agent identity acting on the analyst's behalf with read-only scope. A configuration manifest in source control with a second approver. Deterministic output checks and identifier protection. The evaluation suite. One retrieval store you already run. One workflow with one approval step. Two model vendors qualified from day one, because exit must be real.
+
+Then the list of what waits: long-term memory, autonomous agents, agent-to-agent delegation, web search, code sandboxes, a dedicated vector database, a second cloud, fine-tuning, a governance platform, a FinOps product, semantic caching, and anything still experimental.
+
+The signal is gateway coverage: the share of production model calls that pass through the gateway. The target is 100%; any provider key found in application code is a defect. Without it there is no exit and no log of record.
+
+The leadership move is to publish the "not yet" list with the same authority as the plan, and to revisit it only when evidence shows a real gap.
+
+[Anecdote slot: one or two sentences on a time a deliberately small first release made the second one faster, and who held the line.]
+
+Saying "not yet" clearly is how a platform earns the right to say yes later.
+
+#### Short variant
+
+The most valuable page in a reference architecture is often the "do not build yet" list.
+
+Read as a shopping list, an architecture becomes a year of platform building with no user.
+
+Start with the full regulated design, minus everything the first use case does not need: one gateway deployed twice, an agent identity with read-only scope, a configuration manifest with a second approver, deterministic output checks, the evaluation suite, one existing store, one workflow with one approval step, and two qualified model vendors.
+
+Then publish what waits: memory, autonomous agents, web search, a dedicated vector database, a second cloud, fine-tuning, extra platforms.
+
+The signal is gateway coverage: 100% of production model calls through the gateway.
+
+Saying "not yet" clearly is how a platform earns the right to say yes later.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a programme where scope was deliberately cut to a minimum first release, and the reuse that followed proved the call. Or the opposite: an over-scoped platform that took too long to reach its first user, and what you would cut now. Credit whoever held the line on scope.
+- **Fits:** platform modernisation; making invisible prevention work visible (the controls are the deliverable).
+- **Avoid:** programme names, budgets or timelines.
+
+#### Fallback version
+
+The most valuable page in a reference architecture is often the "do not build yet" list.
+
+Reference architectures tend to be read as shopping lists. Every box looks like a work package, and a programme that funds them all spends its first year building platform that nobody is using yet.
+
+The right minimum is not a weaker stack. It is the full regulated design with everything the first use case does not need removed. One gateway, deployed twice, with one route and a budget that fails closed. An agent identity acting on the analyst's behalf with read-only scope. A configuration manifest in source control with a second approver. Deterministic output checks and identifier protection. The evaluation suite. One retrieval store already in use. One workflow with one approval step. Two model vendors qualified from day one, because exit must be real.
+
+Then the list of what waits: long-term memory, autonomous agents, agent-to-agent delegation, web search, code sandboxes, a dedicated vector database, a second cloud, fine-tuning, a governance platform, a FinOps product, semantic caching, and anything still experimental.
+
+The signal is gateway coverage: the share of production model calls that pass through the gateway. The target is 100%; any provider key found in application code is a defect. Without it there is no exit and no log of record.
+
+The leadership move is to publish the "not yet" list with the same authority as the plan, and to revisit it only when evidence shows a real gap.
+
+The honest caveat: a small first release can look unambitious. Present the controls as the deliverable, because every later use case reuses them.
+
+Saying "not yet" clearly is how a platform earns the right to say yes later.
+
+#### Suggested visual
+
+Two panels. Left, "Build now": the Stack D minimum as a compact stack (gateway ×2, identity, manifest, checks, eval suite, one store, one workflow, two models). Right, "Do NOT build yet": the not-yet items as greyed-out tiles, each with a one-word trigger for revisiting it ("evidence", "load test", "use case"). Source: synthesis Part VII, Stack D.
+
+#### First comment
+
+Personal views. Sources: the Enterprise GenAI Stack review, synthesis Part VII, Stack D "Minimal start-small" (build-now table and "Do NOT build yet" list), with Stack A for comparison.
+- Stack D's per-cloud equivalents: gateway as LiteLLM self-hosted, AgentCore Gateway (tools), APIM GA AI policies or Apigee; identity as AgentCore Identity, Entra Agent ID, or Okta/Entra; workflow on LangGraph, Strands on AgentCore, Microsoft Agent Framework or ADK; retrieval on pgvector (RDS, Azure Database for PostgreSQL or Cloud SQL); evaluation on Langfuse or MLflow with DeepEval, Promptfoo and one independent red-team tool; models on Bedrock, Foundry or Google Cloud with two vendors qualified.
+- Stack D's not-yet list also names MCP beyond the first read-only tool, Agent Skills and a runtime AI-security platform. Agent Skills and MCP originated at Anthropic (conflict of interest noted).
+- The synthesis names the attribution commentary as a good first candidate "because its boundaries are clear and its numbers are checkable".
+
+#### Hashtags
+
+#EnterpriseArchitecture #AgenticAI
+
+#### Re-verify before posting
+
+- The not-yet list against the final Part VII and the Part XI tiers (anything promoted from Experimental)
+
+#### Compliance check
+
+- Personal views; no reference to any firm's programme: yes
+- Vendors only in the first comment: yes
+
+---
