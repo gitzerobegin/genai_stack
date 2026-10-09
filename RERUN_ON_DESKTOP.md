@@ -21,11 +21,15 @@ cd genai_stack
 git checkout claude/nice-meitner-0me752      # working branch
 python3 -m venv .venv && source .venv/bin/activate
 pip install requests beautifulsoup4 openpyxl python-docx python-pptx reportlab pypdf markdownify
-# For rebuilding the deliverables (step 2.8):
-#   pandoc                      (Word exports)
-#   LibreOffice with its Python UNO bridge (PDF exports via tools/docx2pdf.py;
-#     on Debian/Ubuntu: apt install libreoffice python3-uno)
-#   Node.js + pptxgenjs 3.12.0  (deck: cd tools/deck && npm install pptxgenjs@3.12.0)
+# For rebuilding the deliverables (step 2.8, tools/rebuild_all.sh):
+#   pandoc                      (Word and EPUB exports)
+#   LibreOffice with its Python UNO bridge (PDF exports and the print layout: tools/docx2pdf.py,
+#     tools/print/print_pdf.py; on Debian/Ubuntu: apt install libreoffice python3-uno; on macOS run the
+#     scripts with LibreOffice's bundled python: /Applications/LibreOffice.app/Contents/Resources/python)
+#   Node.js 18+ with Playwright (figures and covers): npm install -g playwright && npx playwright install chromium
+#   (cd tools/deck && npm install)       # pptxgenjs 3.12.0 for the deck
+#   (cd tools/diagrams && npm install)   # mermaid 11.17.2 for the chapter diagrams
+#   fonts: Inter (figures, covers); Calibri/Arial or their metric twins Carlito/Liberation (documents)
 # Claude Code: https://code.claude.com  (run `claude` in the repo root)
 ```
 
@@ -42,13 +46,30 @@ When you start Claude Code in the repo root, it reads `CLAUDE.md`, which points 
 | 2.5 Unprofiled products | Prompt **G3** | ServiceNow, OneTrust, Daytona, Modal, Azure AI Search, Vertex Vector Search |
 | 2.6 Rebuild | `python3 -I tools/build_dataset.py .` then `python3 -I tools/build_what_changed.py . && python3 -I tools/build_cp1_what_changed.py .` | `products.json`/`.xlsx`, `bibliography.xlsx`, the "What changed" table, and the integrity report (expect 0 issues) |
 | 2.7 Re-score | Re-run the Stage B writers for any layer whose evidence changed (prompts in `work/prompts/stageA_prime_and_stageB_prompts.md`), then `python3 -I tools/score.py work/stageB/<L>/assessments.json --write` | Scores reflect the new evidence; the NPV cap is lifted where facts are now verified |
-| 2.8 Rebuild the deliverables | `python3 -I tools/build_dataset.py .` · `python3 -I tools/build_explorer.py .` · `python3 -I tools/build_master.py .` · `python3 -I tools/build_appendix.py .` · `python3 -I tools/build_linkedin_calendar.py .` · `NODE_PATH=$PWD/tools/deck/node_modules node tools/deck/build_deck.js .` (update `tools/deck/tiers.json` and slide text first if tiers changed) | Refreshed `01_Report` … `07_LinkedIn`. The master and appendix PDFs take several minutes each. |
+| 2.8 Rebuild the deliverables | `bash tools/rebuild_all.sh` (everything, in order: dataset, tag check, diagrams, LinkedIn visuals, stack graphic, explorer, LinkedIn document, deck, master, print and Kindle edition, appendix, ZIP). `bash tools/rebuild_all.sh --quick` skips the PDFs. Update `tools/deck/tiers.json` and slide text first if tiers changed | Refreshed `01_Report` … `08_Graphic`, `01_Report/Print/` and the ZIP. The three PDF layouts take several minutes each |
 | 2.9 Update the synthesis | If a tier changed, ask Claude Code to update `work/stageC/synthesis.md` (Parts I, VII and XI) to match, run `python3 -I tools/check_tags.py . work/stageC/synthesis.md`, then repeat 2.8 | Report, explorer and deck agree with the new scores |
-| 2.10 Re-zip and commit | Re-create `Enterprise_GenAI_Stack_Oct2026/Enterprise_GenAI_Stack_Oct2026.zip` (Claude Code can do this, or use your OS's "compress" on the folder, excluding the old ZIP), then `git add -A && git commit -m "Desktop gap-fill" && git push origin claude/nice-meitner-0me752` | |
+| 2.10 Commit | `rebuild_all.sh` re-creates the ZIP. Then `git add -A && git commit -m "Desktop gap-fill" && git push origin claude/nice-meitner-0me752` | |
 
 **Rules still apply:**
 - Never work around paywalls or logins.
 - Keep the earlier extract files. `refetch_sources.py` keeps them and records both paths.
+
+## 2b. Edit text, figures or the book
+
+Every deliverable is generated, so edit the source and rebuild (`bash tools/rebuild_all.sh`, or the single command shown):
+
+| To change | Edit | Then run |
+|---|---|---|
+| Report text | `work/stageC/synthesis.md` (Parts I, III–XII), `work/stageB/<L1…C8>/section.md` (chapters), `work/stageD/method.md` (Part II) | `python3 -I tools/check_tags.py . <file>` then `python3 -I tools/build_master.py .` |
+| A chapter diagram | `Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/<L1-1…C8-2>.md` (Mermaid) | `NODE_PATH=$(npm root -g) node tools/render_diagrams.js <file.md>` |
+| A LinkedIn post visual | `08_Graphic/linkedin/P<NN>.md` (HTML fragment or Mermaid; P00 is the series introduction) | `NODE_PATH=$(npm root -g) node tools/render_post_visuals.js <file.md>` |
+| A LinkedIn post | `work/stageC2/linkedin_series.md` | `python3 -I tools/build_linkedin_calendar.py .` |
+| The stack graphic | `08_Graphic/Enterprise_GenAI_Stack_Oct2026.md` | `python3 -I tools/build_stack_graphic.py .` then `node tools/render_graphic.js …` (see `REFRESH_QUARTERLY.md` §6) |
+| The one-page architecture | `08_Graphic/Architecture_One_Page.html` | `node tools/render_graphic.js` on it |
+| Book title, author, ISBNs, blurb, trim, margins | `tools/print/book.json` | `python3 -I tools/build_print_edition.py .` (after `build_master.py`); read `01_Report/Print/Build_Summary.md` and `Publishing_Kit.md` |
+| Word styling and branding | `tools/make_reference_docx.py` (writes `tools/templates/reference.docx`) | rebuild the documents |
+
+Where each section lives (one home each): the LinkedIn series is only in `07_LinkedIn`; the tile-by-tile what-changed table is only in `05_Data/what_changed.xlsx` (summarised in Part XII); product fact sheets are only in `02_Appendix`.
 
 ## 3. Resume the pipeline
 

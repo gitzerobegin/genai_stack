@@ -5,7 +5,7 @@ const path = require("path");
 const pptxgen = require("pptxgenjs");
 const root = process.argv[2] || ".";
 const tiers = require("./tiers.json");
-const SKILL = "/root/.claude/skills/synced/4b999aaf-5960-40d2-8a19-a0619a4258dd_572bbe3b-9ae9-4d89-903d-a663b77e2e61/pptx/scripts/apply_theme.js";
+const SKILL = path.join(__dirname, "apply_theme.js");  // portable theme writer (tools/deck/apply_theme.js)
 
 const THEME = {
   name: "Veyan",

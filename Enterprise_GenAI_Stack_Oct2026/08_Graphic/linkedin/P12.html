@@ -50,29 +50,29 @@ table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
  <div class="body"><style>
 .vz{position:relative;height:580px;font-size:17px}
 .vz .ring{position:absolute;left:190px;top:10px;width:580px;height:560px;border-radius:50%;border:3px dashed var(--gold)}
-.vz .ven{position:absolute;left:278px;top:92px;width:404px;height:390px}
-.vz .c{position:absolute;width:250px;height:250px;border-radius:50%;border:3px solid}
-.vz .c1{left:0;top:0;background:rgba(176,122,26,.22);border-color:var(--amber)}
-.vz .c2{left:154px;top:0;background:rgba(46,109,164,.20);border-color:var(--blue)}
-.vz .c3{left:77px;top:134px;background:rgba(179,71,75,.20);border-color:var(--red)}
-.vz .cl{position:absolute;text-align:center;font-weight:800;font-size:20px;line-height:1.15;width:150px}
+.vz .ven{position:absolute;left:265px;top:22px;width:430px;height:540px}
+.vz .c{position:absolute;width:280px;height:280px;border-radius:50%;border:3px solid}
+.vz .c1{left:0;top:62px;background:rgba(176,122,26,.22);border-color:var(--amber)}
+.vz .c2{left:150px;top:62px;background:rgba(46,109,164,.20);border-color:var(--blue)}
+.vz .c3{left:75px;top:192px;background:rgba(179,71,75,.20);border-color:var(--red)}
+.vz .cl{position:absolute;text-align:center;font-weight:800;font-size:20px;line-height:1.15;width:180px;background:var(--warm);border-radius:10px;padding:2px 4px}
 .vz .cl span{display:block;font-weight:500;font-size:15px;color:var(--mute);margin-top:3px}
-.vz .mid{position:absolute;left:152px;top:150px;width:100px;text-align:center;background:var(--red);color:#fff;font-weight:800;font-size:15px;line-height:1.15;border-radius:10px;padding:6px 4px;box-shadow:0 0 0 3px #fff}
+.vz .mid{position:absolute;left:163px;top:222px;width:104px;text-align:center;background:var(--red);color:#fff;font-weight:800;font-size:15px;line-height:1.15;border-radius:10px;padding:6px 4px;box-shadow:0 0 0 3px #fff}
 .vz .df{position:absolute;width:232px;background:#fff;border:2px solid var(--line);border-radius:12px;padding:9px 12px;line-height:1.25}
 .vz .df b{display:flex;align-items:center;gap:8px;font-size:18px}
 .vz .df b i{font-style:normal;flex:none;width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:15px;display:flex;align-items:center;justify-content:center}
 .vz .df div{font-size:16px;color:var(--mute);margin-top:3px}
 .vz .L{left:0}.vz .R{right:0}
 </style>
-<div class="col" style="gap:14px">
+<div class="col" style="gap:24px">
  <div class="lab" style="text-align:center">Worked example · an injected market note meets six layers</div>
  <div class="vz">
   <div class="ring"></div>
   <div class="ven">
    <div class="c c1"></div><div class="c c2"></div><div class="c c3"></div>
-   <div class="cl" style="left:22px;top:62px">Untrusted input<span>a market note, web page or email</span></div>
-   <div class="cl" style="left:232px;top:62px">Sensitive data<span>holdings, client material</span></div>
-   <div class="cl" style="left:127px;top:290px">Outbound channel<span>email, HTTP, file share</span></div>
+   <div class="cl" style="left:-15px;top:0;color:var(--amber)">Untrusted input<span>a market note, web page or email</span></div>
+   <div class="cl" style="left:265px;top:0;color:var(--blue)">Sensitive data<span>holdings, client material</span></div>
+   <div class="cl" style="left:100px;top:478px;width:230px;color:var(--red)">Outbound channel<span>email, HTTP, file share</span></div>
    <div class="mid">never in one agent</div>
   </div>
   <div class="df L" style="top:20px"><b><i>1</i>Deterministic workflow</b><div>no send tool: an injected "send the draft" has no route</div></div>
@@ -88,5 +88,5 @@ table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
  </div>
 </div>
 </div>
- <div class="ft"><div class="cap">No agent should hold untrusted input, sensitive data and an outbound channel at once. Around that rule, six layers defend the worked example so that no single detector has to be right. Generic: no vendor names.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: C7 §C7.3, §C7.9 and §C7.12</div></div>
+ <div class="ft"><div class="cap">No agent should hold all three at once. Around that rule, six layers defend the worked example, so no single detector has to be right. Generic; the injected note is illustrative.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: C7 §C7.3, §C7.9 and §C7.12</div></div>
 </div><script>document.body.dataset.done="1"</script></body></html>

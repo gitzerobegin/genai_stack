@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert a .docx to PDF through LibreOffice UNO, refreshing the table of contents first
+"""Convert a .docx (or .pptx) to PDF through LibreOffice UNO, refreshing the table of contents first
 (plain `soffice --convert-to pdf` leaves pandoc's TOC field empty).
 
 Usage: python3 -I tools/docx2pdf.py <in.docx> <out.pdf>
@@ -24,14 +24,16 @@ try:
             time.sleep(1)
     desktop = ctx.ServiceManager.createInstanceWithContext("com.sun.star.frame.Desktop", ctx)
     doc = desktop.loadComponentFromURL(uno.systemPathToFileUrl(src), "_blank", 0, (prop("Hidden", True),))
-    idx = doc.getDocumentIndexes()
-    for i in range(idx.getCount()):
-        idx.getByIndex(i).update()
-    doc.refresh()
-    for i in range(idx.getCount()):  # second pass: page numbers settle after the TOC itself takes space
-        idx.getByIndex(i).update()
-    n = idx.getCount()
-    doc.storeToURL(uno.systemPathToFileUrl(dst), (prop("FilterName", "writer_pdf_Export"),))
+    n, flt = 0, "impress_pdf_Export" if src.lower().endswith((".pptx", ".ppt", ".odp")) else "writer_pdf_Export"
+    if flt == "writer_pdf_Export":
+        idx = doc.getDocumentIndexes()
+        for i in range(idx.getCount()):
+            idx.getByIndex(i).update()
+        doc.refresh()
+        for i in range(idx.getCount()):  # second pass: page numbers settle after the TOC itself takes space
+            idx.getByIndex(i).update()
+        n = idx.getCount()
+    doc.storeToURL(uno.systemPathToFileUrl(dst), (prop("FilterName", flt),))
     doc.close(True)
     print("pdf ok, indexes:", n)
 finally:

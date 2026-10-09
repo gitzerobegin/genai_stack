@@ -11,20 +11,21 @@
 | | |
 |---|---|
 | **Last updated** | 9 October 2026 |
-| **Stage** | **CP5 delivered: final package, waiting for the user's sign-off** |
+| **Stage** | **CP5 delivered and reworked to the house conventions; print/Kindle edition added** |
 | **Branch** | `claude/nice-meitner-0me752` on `github.com/gitzerobegin/genai_stack` |
 | **Summary** | `checkpoints/CP5/00_CP5_Summary.md` |
 
 | Item | State |
 |---|---|
 | CP1–CP4b | Delivered; decisions in `checkpoints/CP1/06_*`, `CP2/03_*`, `CP3/06_*`, `CP4/00_*` |
-| Stage B | 17 chapters (L9–L1, C1–C8); three calibration rounds; final tiers 58 Strategic / 67 Tactical / 13 Experimental / 2 unscored |
-| Stage C | `work/stageC/synthesis.md` (Parts I, III–XI, about 28,000 words), reviewed (45 edits, `work/stageC/synthesis_review.md`) |
-| Stage C2 | `work/stageC2/linkedin_series.md`: 24 posts plus 3 reactive templates; calendar in `07_LinkedIn/` |
-| Stage D | Master (docx/pdf/md), appendix, 28-slide deck, offline explorer, dataset, bibliography, calendar, ZIP `Enterprise_GenAI_Stack_Oct2026/Enterprise_GenAI_Stack_Oct2026.zip` |
+| Stage B | 17 chapters (presented L1 → L9, then C1–C8; every flow a Mermaid figure in `08_Graphic/diagrams/`); three calibration rounds; final tiers 58 Strategic / 67 Tactical / 13 Experimental / 2 unscored |
+| Stage C | `work/stageC/synthesis.md` (Parts I, III–XII, about 28,000 words; Part XII = what changed since the popular stack diagram), reviewed (45 edits, `work/stageC/synthesis_review.md`) |
+| Stage C2 | `work/stageC2/linkedin_series.md`: Post 0 (introduction) + 24 posts (weeks run L1 → L9) + 3 reactive templates; a visual per post in `08_Graphic/linkedin/P00–P24`; only home `07_LinkedIn/` |
+| Stage D | Master (docx/pdf/md), print and Kindle edition (`01_Report/Print/`), appendix, 28-slide deck, offline explorer, dataset, bibliography, calendar, graphics, ZIP `Enterprise_GenAI_Stack_Oct2026/Enterprise_GenAI_Stack_Oct2026.zip` |
 | Claude Doc | Executive summary + synthesis (CP5-2): https://claude.ai/code/artifact/74918687-c7fb-43e9-86fb-c729062bf9c6 |
 | CP5 decision | XI.5: the two avoid rows outside the CP4-7 grounds moved to "monitor" (user, 9 October 2026); applied everywhere |
-| Next | User sign-off. Then, optionally, the desktop gap-fill (`RERUN_ON_DESKTOP.md`) and a rebuild. Next edition: `REFRESH_QUARTERLY.md` (baseline commit `79907bd`). After sign-off, enter the series start Tuesday in `Content_Calendar.xlsx` cell E1. |
+| Rebuild | `bash tools/rebuild_all.sh` rebuilds every deliverable in order (`--quick` skips PDFs) |
+| Next | Before selling the book: complete `01_Report/Print/Publishing_Kit.md` §3 (author, ISBNs, AI disclosure, proof copy). User sign-off. Then, optionally, the desktop gap-fill (`RERUN_ON_DESKTOP.md`) and a rebuild. Next edition: `REFRESH_QUARTERLY.md` (baseline commit `79907bd`). After sign-off, enter the series start Tuesday in `Content_Calendar.xlsx` cell E1. |
 
 ## Run log
 
@@ -63,6 +64,11 @@
 | 28 | 9 October | At the user's request: drew the corrected stack graphic, `08_Graphic/Enterprise_GenAI_Stack_Oct2026.png` (3200 px wide), `.pdf` and `.html`, generated from `products.json` by `tools/build_stack_graphic.py` and rendered by `tools/render_graphic.js` (Playwright). It has 140 tiles, the control plane, the Part IV layer names and the per-layer corrections, with no logos. ZIP rebuilt. | Done |
 | 29 | 9 October | At the user's request: regenerated the stack graphic to show the architecture as it stands. It no longer uses the earlier graphic as a baseline: no "was" labels, corrections, NEW/ACQUIRED/RENAMED tags or "what changed" box, and the 2 unverifiable records are left out. Each layer shows its key design choice; the footer gives the architecture in one sentence. 138 tiles. ZIP rebuilt. | Done |
 | 30 | 9 October | At the user's request: the stack graphic is now editable. `08_Graphic/Enterprise_GenAI_Stack_Oct2026.md` is the source (header, planes, layer text, one table row per tile). `tools/build_stack_graphic.py` turns it into the `.html`, which can also be edited directly; `--sync` refreshes tiers from `products.json` and appends new products (tested). PNG and PDF re-rendered with identical text. | Done |
+| 31 | 9 October | House conventions set by the user and recorded in `CONTEXT.md`/`CLAUDE.md`: framing "the view at end of Q3 2026", with diagram-relative content only under "What changed since the popular stack diagram" (synthesis Part XII, chapter x.13, one deck slide); layer order L1 → L9 everywhere (`tools/sort_layer_tables.py`; LinkedIn weeks reordered); Veyan branding with the full lockup (`tools/make_brand_assets.py`, `brand/`, branded `reference.docx`, deck theme, explorer, graphics). | Done |
+| 32 | 9 October | All 34 ASCII flows in the 17 chapters became Mermaid figures (`08_Graphic/diagrams/<L1-1…C8-2>.md` → `.png`/`.html` via `tools/render_diagrams.js`, mermaid 11.17.2) by four agents; one agent was cut off by a usage limit and resumed. The one-page architecture became `08_Graphic/Architecture_One_Page.html`. Densest figures: L3-2 and C7-2. | Done |
+| 33 | 9 October | One home per section: the LinkedIn series and the tile-by-tile what-changed annex were removed from the master (they live in `07_LinkedIn` and `05_Data/what_changed.xlsx`); a duplicated synthesis title block and the IV.1 repeat of the I.2 figure were removed; IV.1 now states the model and XII.5 maps it to the popular stack diagram; stale LinkedIn "pair" references in L1, L3, C7 and C8 rewritten; I.4 references corrected to I.3. | Done |
+| 34 | 9 October | LinkedIn Post 0 (series introduction, Week 0 Thursday; word counts checked) and a visual for every post (P00–P24, 1080 × 1350, `tools/render_post_visuals.js`; P02–P24 by four agents, all vendor-neutral, checked by eye). Visuals are embedded in `LinkedIn_Series.docx` and placed in the master's chapters and Parts (`build_master.py` CHAPTER_VIS/SYN_VIS; P17 under 9.13). | Done |
+| 35 | 9 October | Print/Kindle edition: `tools/build_print_edition.py` + `tools/print/print_pdf.py` (LibreOffice UNO page styles: 8.5 × 11 in, mirrored margins, recto Part openers, running heads, roman front matter), `tools/print/book.json`, full-wrap cover from the page count, EPUB, `Build_Summary.md` (KDP checks) and `Publishing_Kit.md`. KDP figures came from web-search extracts (kdp.amazon.com not reachable) and are marked to verify. Also: `tools/rebuild_all.sh`; deck theme writer made portable (`tools/deck/apply_theme.js`); `docx2pdf.py` handles .pptx; guides updated. Claude Doc brought in line (IV.1, VI–VIII, XI tables re-ordered, Part XII appended). | Done |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it

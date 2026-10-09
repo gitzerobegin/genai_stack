@@ -45,7 +45,7 @@ start_arg = next((sys.argv[i + 1] for i, a in enumerate(sys.argv) if a == "--sta
 if start_arg:
     import datetime; ws["E1"] = datetime.date.fromisoformat(start_arg); ws["E1"].number_format = "dd mmm yyyy"
 cols = ["#", "Week", "Day", "Date", "Time (UK)", "Theme", "Pair", "Tension", "Hook (first line)", "Words", "Hashtags", "Visual brief",
-        "Re-verify before posting", "Status", "Cleared", "Published URL", "Responses / notes", "Full post (master document)"]
+        "Re-verify before posting", "Status", "Cleared", "Published URL", "Responses / notes", "Full post and visual"]
 ws.append([]); ws.append(cols)
 for c in ws[3]:
     c.font = Font(bold=True, color="FFFFFF"); c.fill = PatternFill("solid", fgColor="1F3864"); c.alignment = Alignment(wrap_text=True, vertical="top")
@@ -53,7 +53,8 @@ for r in sorted(rows, key=lambda x: x["n"]):
     i = ws.max_row + 1
     off = (r["week"] - 1) * 7 + (0 if r["day"].lower().startswith("tue") else 2)
     ws.append([r["n"], r["week"], r["day"], '=IF($E$1="","",$E$1+%d)' % off, "08:00", r["theme"], r["pair"], r["tension"], r["hook"], r["words"],
-               r["tags"], r["visual"], r["reverify"], "Draft", "Not required (CP4b)", "", "", "Master_Architecture: LinkedIn series, Post %d" % r["n"]])
+               r["tags"], r["visual"], r["reverify"], "Draft", "Not required (CP4b)", "", "",
+               "07_LinkedIn/LinkedIn_Series.docx, Post %d · visual 08_Graphic/linkedin/P%02d.png" % (r["n"], r["n"])])
     ws.cell(i, 4).number_format = "ddd dd mmm yyyy"
 widths = [5, 6, 9, 15, 9, 28, 30, 40, 45, 7, 22, 45, 45, 11, 16, 25, 30, 30]
 for i, w in enumerate(widths, 1): ws.column_dimensions[get_column_letter(i)].width = w
@@ -63,6 +64,18 @@ dv = DataValidation(type="list", formula1='"Draft,Anecdote added,Scheduled,Publi
 ws.add_data_validation(dv); dv.add("N4:N%d" % max(ws.max_row, 4))
 ws.freeze_panes = "F4"
 wb.save(os.path.join(OUT, "Content_Calendar.xlsx"))
-r = subprocess.run(["pandoc", "work/stageC2/linkedin_series.md", "-f", "markdown-tex_math_dollars-raw_tex", "-o", os.path.join(OUT, "LinkedIn_Series.docx"),
+# Word edition: each post's rendered visual sits under its "Suggested visual" brief (08_Graphic/linkedin/P<NN>.png)
+VDIR = "Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin"
+def add_visual(block):
+    m = re.match(r"### Post (\d+)", block)
+    if not m: return block
+    pid = "P%02d" % int(m.group(1)); png = os.path.join(VDIR, pid + ".png")
+    if not os.path.exists(png): return block
+    fig = "\n![Visual for Post %d](%s){width=4.2in}\n\n*Visual: `08_Graphic/linkedin/%s.png` (1080 × 1350, LinkedIn portrait); editable source `%s.md`, also as .html and .pdf.*\n\n" % (int(m.group(1)), png, pid, pid)
+    return re.sub(r"(?ms)(^#### Suggested visual\s*\n.*?)(?=^#### )", lambda x: x.group(1).rstrip("\n") + "\n" + fig, block, count=1)
+pieces = re.split(r"(?m)^(?=### )", text)
+os.makedirs("work/stageD", exist_ok=True)
+open("work/stageD/LinkedIn_Series.pandoc.md", "w", encoding="utf-8").write("".join(add_visual(b) for b in pieces))
+r = subprocess.run(["pandoc", "work/stageD/LinkedIn_Series.pandoc.md", "-f", "markdown-tex_math_dollars-raw_tex-implicit_figures", "-o", os.path.join(OUT, "LinkedIn_Series.docx"),
                     "--toc", "--toc-depth=2", "--reference-doc=tools/templates/reference.docx"], capture_output=True, text=True)
 print(len(rows), "posts; pandoc", r.returncode)

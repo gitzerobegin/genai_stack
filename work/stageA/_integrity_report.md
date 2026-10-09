@@ -4,15 +4,15 @@ Products: 140 · Regulatory records: 20 · Sources: 1255
 
 ## Products per layer
 
-- L9: 11
-- L8: 10
-- L7: 10
-- L6: 10
-- L5: 8
-- L4: 9
-- L3: 12
-- L2: 11
 - L1: 11
+- L2: 11
+- L3: 12
+- L4: 9
+- L5: 8
+- L6: 10
+- L7: 10
+- L8: 10
+- L9: 11
 - C1: 9
 - C2: 6
 - C3: 5

@@ -1,0 +1,87 @@
+{
+  "_comment": "Book metadata for the print and ebook editions (tools/build_print_edition.py). Fill in the ISBNs once assigned; confirm author and price before publishing. See 01_Report/Print/Publishing_Kit.md. Update the counts in blurb, back_points and cover_facts at each quarterly refresh.",
+  "title": "The Enterprise GenAI Stack",
+  "subtitle": "The View at End of Q3 2026: Reference Architecture, Product Assessment and the Regulated Financial-Services View",
+  "short_subtitle": "The view at end of Q3 2026",
+  "author": "Bing Zhang",
+  "publisher": "Veyan",
+  "copyright_holder": "Bing Zhang",
+  "year": 2026,
+  "edition": "First edition, October 2026",
+  "evidence_date": "9 October 2026",
+  "isbn_paperback": "",
+  "isbn_hardcover": "",
+  "isbn_ebook": "",
+  "language": "en-GB",
+  "trim_in": [
+    8.5,
+    11.0
+  ],
+  "margins_in": {
+    "top": 0.75,
+    "bottom": 0.7,
+    "inside": 0.875,
+    "outside": 0.6
+  },
+  "paper_spine_in_per_page": {
+    "white": 0.002252,
+    "cream": 0.0025,
+    "premium_colour": 0.002347
+  },
+  "paper": "white",
+  "bleed_in": 0.125,
+  "blurb": [
+    "Most enterprise GenAI diagrams are shelves of product logos. By the end of Q3 2026, almost half of the tiles on the most widely shared stack diagram needed a correction: acquired, renamed, mispositioned or superseded.",
+    "This book takes a different route. It asks what a regulated asset manager actually needs to run GenAI safely in production, and answers with a reference architecture: nine layers, from foundation models to evaluation, under a firm-owned control plane of eight components (gateway, guardrails, privacy, identity, configuration, FinOps, security and model risk).",
+    "Every layer and control gets its own chapter: how it works, design principles, selection criteria, product deep dives, a decision tree, lock-in classification, the regulated financial-services lens and a worked example. 140 products are assessed on one rubric, every claim is labelled and every fact traces to a dated source."
+  ],
+  "back_points": [
+    "A reference architecture for regulated firms, layer by layer (L1 to L9) and control by control (C1 to C8)",
+    "140 products assessed on one rubric, with Strategic, Tactical and Experimental tiers and their conditions",
+    "Four reference stacks, a build-versus-buy view, lock-in by layer and an 18-month roadmap",
+    "EU AI Act, DORA, the UK critical third-party regime and model-risk rules applied to GenAI",
+    "One worked example throughout: an agent drafting a fund's monthly attribution commentary"
+  ],
+  "kdp_checks": {
+    "_source": "KDP help pages via web-search extracts, 9 Oct 2026 (Trim size G201834560; margins GVBQ3CMEQW3W2VL6; cover G201953020). Verify on kdp.amazon.com before upload.",
+    "gutter_min_in_by_pages": [
+      [
+        24,
+        150,
+        0.375
+      ],
+      [
+        151,
+        300,
+        0.5
+      ],
+      [
+        301,
+        500,
+        0.625
+      ],
+      [
+        501,
+        700,
+        0.75
+      ],
+      [
+        701,
+        828,
+        0.875
+      ]
+    ],
+    "outside_min_in_no_bleed": 0.25,
+    "max_pages_8.5x11": {
+      "black_white": 828,
+      "standard_colour": 600,
+      "premium_colour": 590
+    },
+    "spine_text_min_pages": 80
+  },
+  "cover_facts": [
+    "9 layers",
+    "8 controls",
+    "140 products assessed"
+  ]
+}

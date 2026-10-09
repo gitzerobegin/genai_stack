@@ -37,7 +37,8 @@ OLD=Enterprise_GenAI_Stack_Oct2026; NEW=Enterprise_GenAI_Stack_Jan2027
 git mv $OLD $NEW
 grep -rl "$OLD" tools CLAUDE.md CONTEXT.md README.md RERUN_ON_DESKTOP.md work/stage0 work/prompts \
   | xargs sed -i "s/$OLD/$NEW/g"          # on macOS: sed -i '' "s/.../.../g"
-grep -rn "October 2026" tools               # titles, subtitles and the deck: change to the new edition
+grep -rn "October 2026\|Q3 2026" tools $NEW/08_Graphic   # titles, subtitles, deck, figures: change to the new edition
+# Book metadata: tools/print/book.json -> edition, evidence_date, short_subtitle, subtitle ("The view at end of Q4 2026")
 # REFRESH_QUARTERLY.md is left out on purpose: step 4 needs the old path for the comparison.
 ```
 
@@ -69,26 +70,22 @@ Keep the old ZIP inside the renamed folder only if you want both editions in one
 ## 5. Synthesis and posts (R4, R5)
 
 - **R4.** Update the synthesis in place: the tier table and counts, Part I, the stacks, the Part XI lists, and the calendar. Add a closing "What changed since <previous edition>" part. Then run the independent synthesis reviewer and `python3 -I tools/check_tags.py . work/stageC/synthesis.md`.
-- **R5 (optional).** Write 2–4 LinkedIn posts on the most material changes.
+- **R5 (optional).** Write 2–4 LinkedIn posts on the most material changes. Give each new post a visual: copy a similar `08_Graphic/linkedin/P<NN>.md`, edit it and render it with `node tools/render_post_visuals.js`. If counts changed, update Post 0 (the series introduction) and its visual P00.
 
 ## 6. Package (R6) → checkpoint RCP3
 
+First update `tools/deck/tiers.json` and any slide text that names tiers, counts or dates. Then rebuild everything in one go:
+
 ```bash
-python3 -I tools/build_dataset.py .
-python3 -I tools/build_explorer.py .
-python3 -I tools/build_master.py .            # PDF takes several minutes
-python3 -I tools/build_appendix.py .
-python3 -I tools/build_linkedin_calendar.py .
-# Deck: first update tools/deck/tiers.json and any slide text that names tiers, counts or dates, then
-NODE_PATH=$PWD/tools/deck/node_modules node tools/deck/build_deck.js .
-# Stack graphic: --sync refreshes tiers from the dataset and adds new products to the Markdown; edit labels/notes, then
-python3 -I tools/build_stack_graphic.py . --sync
-NODE_PATH=$(npm root -g) node tools/render_graphic.js <PKG>/08_Graphic/<PKG>.html <PKG>/08_Graphic/<PKG>
+bash tools/rebuild_all.sh        # dataset, tag check, diagrams, post visuals, stack graphic (--sync), explorer,
+                                 # LinkedIn document, deck, master, print and Kindle edition, appendix, ZIP
 ```
+
+`build_stack_graphic.py --sync` (inside the script) refreshes tiers in the stack graphic from the dataset and adds new products to its Markdown; check the labels afterwards. To run steps one at a time, see the commands inside `tools/rebuild_all.sh` and `RERUN_ON_DESKTOP.md` §2b.
 
 Then:
 - update `<PKG>/00_README.md` (as-of date and counts);
-- re-create the ZIP;
+- read `01_Report/Print/Build_Summary.md`. Every KDP check should say OK; the spine width follows the new page count automatically. If you sell the book, upload the new `Interior.pdf`, `Cover_Paperback.pdf` and `Ebook.epub` as a new edition (see `Publishing_Kit.md` §6);
 - update or copy the Claude Doc;
 - add a run-log row and a new "Current position" to `MEMORY.md`;
 - commit and push the refresh branch.
@@ -105,6 +102,8 @@ Then:
 
 - The house conventions in `CONTEXT.md`: layer order L1 → L9, "the view at end of Q<n> <year>" framing with diagram-relative content only under "What changed since the popular stack diagram", Veyan branding with the full lockup, and Mermaid diagrams (no ASCII art). Update the quarter wording (for example "The view at end of Q4 2026") in `tools/deck/build_deck.js`, `tools/build_master.py`, `tools/make_reference_docx.py`, the graphics' sources and the synthesis.
 
+- **One home per section.** The LinkedIn series lives only in `07_LinkedIn`. The tile-by-tile what-changed table lives only in `05_Data/what_changed.xlsx`, summarised in synthesis Part XII. The master links to both and repeats neither.
+- **The book.** `tools/build_print_edition.py` turns the master into the print and Kindle editions. Its settings are in `tools/print/book.json`.
 - Scoring rubric rules 1–13 and the weights, unless you change them at RCP2.
 - The CP decisions recorded in `checkpoints/`. For example, Stack A is the lead stack, the review is cloud-neutral, and the two routes moved to "monitor" at CP5 stay there.
 - The source-ID scheme. Old IDs never change; each refresh adds `R<N>-…` IDs, so every edition stays traceable.

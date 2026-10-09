@@ -139,7 +139,7 @@ The review followed a staged plan with human checkpoints:
 | B Write | Seventeen chapters (9 layers and 8 cross-cutting controls) on a 13-part template, each with a scored product assessment | `work/stageB/` |
 | B review | Calibration reviews across all chapters for scoring consistency, accuracy spot-checks and label coverage | `work/stageB/_review/` |
 | C Synthesis | Hypothesis verdicts, reference architecture, four stacks, build vs buy, lock-in, roadmap and final recommendations | `work/stageC/` |
-| C2 | A 24-post LinkedIn series in the reader's voice | `work/stageC2/` |
+| C2 | A LinkedIn series in the reader's voice: an introduction post and 24 posts, each with a visual | `work/stageC2/`, `07_LinkedIn/` |
 | D Package | This document, the technical appendix, slides, the explorer, the dataset and the source archive | `Enterprise_GenAI_Stack_Oct2026/` |
 
 The reader reviewed and decided at each checkpoint (CP1–CP5). Every decision is recorded in `checkpoints/`, and the full run log is in `MEMORY.md`.
@@ -1500,6 +1500,10 @@ The refinement is that the split is not two products but two modes inside one fr
 
 > **Executive summary.** This layer is where an agent stops talking and starts acting: it calls tools, reads enterprise systems, browses, runs code and talks to other agents. Three things have changed since the popular stack diagram. First, the protocols have moved to neutral homes. Anthropic donated MCP to the Agentic AI Foundation (AAIF) under the Linux Foundation on 9 December 2025 [VF: A3-S018, V1-S038], and A2A 1.0.0 (12 March 2026) joined AAIF in August 2026 [VF: A3-S079, A3-S116, A3-S117]. Agent Skills has no neutral governance body and is not an AAIF project on available evidence [VF: V1-S046, A3-S115]. Second, MCP has grown an enterprise security model. The 2026-07-28 specification is stateless, deprecates Dynamic Client Registration and puts method and tool names in HTTP headers so that gateways can authorise them, and the Enterprise-Managed Authorization extension has been stable since June 2026 [VF: A3-S015, A3-S057, A3-S017]. Authorisation itself is still optional in the specification [VF: A3-S055]. Third, ownership and risk have shifted among the tool vendors. Nebius closed its acquisition of Tavily on 19 February 2026 [VF: A3-S084, V1-S041], and Composio disclosed a May 2026 incident in which connected-account tokens and API keys were exposed [VF: B-L4-S007]. The popular stack diagram draws L4 as a row of tools. The real design problem is governing what those tools are allowed to do, on whose behalf [AJ]. **Recommendation:** standardise on MCP for agent-to-tool connectivity, but only behind a firm-owned tool gateway that enforces authorisation, an allow-listed private registry and per-tool policy. Expose authoritative data through read-only tools. Run generated code only in a microVM sandbox with egress control. Treat every SaaS tool (search, browser, integration broker) as an outsourced data flow [Rec]. Independent alternatives to MCP are OpenAPI-described tools exposed through a gateway, and A2A for agent-to-agent delegation [Rec].
 
+![Easy tool connections make governance the architecture](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P07.png){width=4.8in}
+
+*Figure: Easy tool connections make governance the architecture. No tool is reachable except through a firm-owned governance sub-layer between the agent workflow and its tools; read-only tools by default, every write separate. Generic: no vendor or protocol names. Editable source: `08_Graphic/linkedin/P07.md`.* [AJ]
+
 ### 4.1 Responsibility
 
 **The problem this layer owns.** L4 turns an agent's intent into a controlled action on a system outside the model [AJ]. It has five jobs:
@@ -2686,6 +2690,10 @@ The counter-evidence is that dedicated engines still differentiate on filtered s
 ## 7. Embeddings and reranking
 
 > **Executive summary.** This layer turns text, and now images, audio and PDF pages, into vectors that a retrieval store can search. It then reorders the candidates so that the few passages handed to the model are the right ones. Three things have changed since the popular stack diagram. First, every model vendor in this layer except OpenAI now offers both an embedding model and a reranker: Cohere, Voyage, Jina, NVIDIA and Qwen ship them together, and Google offers a separate Vertex ranking API [VF: A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S026, A2-S030, A2-S031, A2-S020, B-REV-S026]. Second, two of the popular stack diagram's vendors now belong to database companies: Voyage AI to MongoDB since 17 February 2025 [VF: A2-S033, V1-S023], and Jina AI to Elastic since 9 October 2025 [VF: A2-S023, V1-S025]. Third, the stores themselves now host embedding and reranking [VF: A2-S101, A2-S141, A2-S133]. The architectural point that matters most is this: the embedding model version is production configuration, because changing it forces the whole corpus to be re-embedded [AJ]. **Recommendation:** build one governed retrieval-optimisation service that pins the embedding and reranker versions, keeps raw text and model-version metadata, and migrates by dual index. Choose the models by in-domain evaluation. For regulated data, prefer options that run in your own estate or in a verified region [Rec].
+
+![Retrieval quality is a two-stage problem](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P13.png){width=4.8in}
+
+*Figure: Retrieval quality is a two-stage problem. Measure each stage on its own number, and change embedding models by dual index behind a regression gate. Targets are starting points, not benchmarks; version labels are illustrative. Editable source: `08_Graphic/linkedin/P13.md`.* [AJ]
 
 ### 7.1 Responsibility
 
@@ -5802,6 +5810,10 @@ The counter-evidence is that cost per task needs the trace (L9), not only the ga
 
 > **Executive summary.** This control keeps attackers, and the system's own over-eager components, from turning a GenAI platform into a way to steal data, spend money or take actions nobody approved. It covers secrets, the software and model supply chain, sandboxing, prompt injection (direct and indirect), data exfiltration and agent abuse, plus the red-teaming that tests all of these. The popular stack diagram had no security control at all [AJ]. Three things define it in October 2026. First, the threat has moved into the supply chain. On 24 March 2026, malicious LiteLLM releases 1.82.7 and 1.82.8 were published to PyPI using stolen release credentials [VF: A6-S008, A6-S009, A6-S010, V2-S027]. LiteLLM attributes the theft to a compromised Trivy scanner in CI; other reports describe a hijacked maintainer account [VF: A6-S009, V2-S027]. Pickle-based model files can still execute code on load [VF: A7-S082, B-C7-S006]. Second, the specialist vendors have largely been bought: Lakera by Check Point (completed 22 October 2025) [VF: A7-S012, V2-S038], Protect AI by Palo Alto Networks (22 July 2025) [VF: A7-S014, V2-S039], Prompt Security by SentinelOne, CalypsoAI by F5 and Pangea by CrowdStrike (all closed in September 2025) [VF: A7-S018, A7-S019, A7-S020, V2-S040]. HiddenLayer is the main independent left in this set [VF: A7-S017, V2-S047]. Third, the agent is now the attack surface: the OWASP Top 10 for Agentic Applications for 2026 opens with ASI01 Agent Goal Hijack [VF: R-OWASP-AGENTIC, A8-S042]. **Recommendation:** design the security architecture so that no single detector has to be right. Broker secrets outside the model (Vault or the cloud's native service), and give agents short-lived credentials scoped to each request. Treat every retrieved document as untrusted input and remove write and egress capability from any agent that reads it. Gate every model and package on provenance, scanning and signing. Buy a runtime AI-security product as a replaceable detector behind the gateway, not as the foundation [Rec].
 
+![Every retrieved document is untrusted input](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P12.png){width=4.8in}
+
+*Figure: Every retrieved document is untrusted input. No agent should hold all three at once. Around that rule, six layers defend the worked example, so no single detector has to be right. Generic; the injected note is illustrative. Editable source: `08_Graphic/linkedin/P12.md`.* [AJ]
+
 ### C7.1 Responsibility
 
 **The problem this control owns.** It owns the confidentiality, integrity and availability of the GenAI platform against deliberate misuse and compromise [AJ]. That breaks down into six jobs:
@@ -6147,6 +6159,10 @@ The architecture defends in layers, so no single control has to catch it [AJ]:
 ## C8. Model risk, governance and auditability
 
 > **Executive summary.** This control answers the questions a regulator, auditor or board will ask about any GenAI system. What is it, and who owns it? Was it independently validated for this use? Is it still performing? Who approved this output, on what evidence? Can we reproduce what happened? The popular stack diagram had no governance control [AJ]. The regulatory ground moved sharply in 2026. In the US, SR 26-2 superseded SR 11-7 on 17 April 2026 and expressly places generative and agentic AI **outside** its scope, leaving their governance to each firm's own risk practices [VF: R-US-MRM, A8-S001, A8-S002, V2-S049]. US firms therefore have to write their own GenAI standard. In the UK, PRA SS1/23 (effective 17 May 2024) is technology-agnostic and covers vendor models [VF: R-PRA-SS123, A8-S008]. In the EU, the AI Act's GPAI obligations became enforceable on 2 August 2026, and the Annex III high-risk duties moved to 2 December 2027 [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011, A8-S019]. SS1/23 and the AI Act are therefore the operative anchors [AJ]. The vendor market is consolidating around "AI control plane" positioning: Collibra announced its acquisition of trail ML on 5 October 2026 [VF: A7-S101, A7-S105, V2-S044], and IBM added agent Enforcement Tracking to watsonx.governance on 11 August 2026 [VF: A7-S111]. Two findings shape the recommendation. First, the evidence that matters is produced elsewhere: by evaluation (L9), gateway logs (C1), prompt versions (C5) and security testing (C7). The eval suite *is* most of the validation evidence, provided it is independent, versioned and retained [AJ]. Second, no governance platform reaches Strategic on public evidence today; only one vendor, ValidMind, claims to map to SS1/23 [VF: A7-S052], and certification evidence is thin for most [AJ]. **Recommendation:** own the inventory schema and the evidence store (immutable, firm-controlled, joined by trace and version IDs); use OpenLineage for data lineage; then choose a governance workflow tool to fit the estate (ValidMind for MRM-led banks, watsonx.governance for IBM estates, Collibra where it is already the data catalogue, Credo AI for policy-led programmes) as a replaceable layer over that evidence [Rec].
+
+![Your eval suite is your validation evidence](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P18.png){width=4.8in}
+
+*Figure: Your eval suite is your validation evidence. One evidence pack per approved commentary, keyed to one trace ID and kept in the firm's own archive. Generic, illustrative worked example. Editable source: `08_Graphic/linkedin/P18.md`.* [AJ]
 
 ### C8.1 Responsibility
 
@@ -7058,6 +7074,10 @@ The table maps each evidence artefact to the component that produces it and the 
 
 **The threat it is built to survive [AJ].** C7's scenario is a third-party market note containing hidden text telling the model to state that currency hedging added 40 basis points and to send the draft elsewhere. The defence is layered so that no single control has to catch it: there is no outbound tool to hijack; the numeric comparator fails any figure not in the engine snapshot; retrieved text is wrapped as data; a detector screens retrieved chunks and quarantines the source; canary documents in staging fail the release gate; and the PM approves before release.
 
+![What the agent must never do matters more](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P19.png){width=4.8in}
+
+*Figure: What the agent must never do matters more. Every "never" names the component that enforces it, and every approved draft leaves a complete evidence pack. Generic, illustrative: the attribution-commentary agent. Editable source: `08_Graphic/linkedin/P19.md`.* [AJ]
+
 ## VI.3 Boundaries
 
 **What the agent may do [Rec]:**
@@ -7654,6 +7674,10 @@ By the reader's decision, a product or route is listed here only on evidence: de
 Select a firm-owned control and evidence plane first, and buy or adopt replaceable components beneath it [Rec]. On today's evidence, the cloud-neutral core of a regulated asset manager's platform is: a hardened LiteLLM or Kong gateway; Langfuse or MLflow with a firm-owned OTel Collector and Git-versioned evaluation datasets; Presidio behind a privacy-service API; agent identities in the workforce IdP with OPA; Git as the configuration of record; Docling and Unstructured inside a built ingestion envelope; Sentence Transformers and pgvector; read-only MCP tools behind a governed gateway (with OpenAPI tools as the independent alternative); LangGraph on Temporal; the primary cloud's in-region model service with vLLM as the exit route; and a two-vendor model portfolio drawn from OpenAI, Anthropic (with GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as the named alternative), Mistral and, on Google Cloud, Gemini, plus Gemma 4 or Mistral self-hosted [Rec]. Deliberately do not select: archived or deprecated products, unverifiable vendors, a third-party broker holding client tokens, licence-blocked weights, autonomous agents with write tools, memory before it is needed, and any vendor-held store as the only copy of the firm's evidence [Rec]. Two routes are on the monitor list by the reader's decision rather than the avoid list: Chinese-origin vendors' own APIs for client data, which the route rule in I.4 still keeps out of client-data paths, and billing intermediation [AJ].
 
 
+
+![Select the control plane first](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P24.png){width=4.8in}
+
+*Figure: Select the control plane first. A firm-owned control and evidence plane first, replaceable components beneath it, and a short list of what to leave out. Illustrative: categories, no vendor names. Editable source: `08_Graphic/linkedin/P24.md`.* [AJ]
 
 # Part XII: What changed since the popular stack diagram
 
