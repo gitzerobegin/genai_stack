@@ -60,14 +60,21 @@ syn = read("work/stageC/synthesis.md")
 parts = re.split(r"(?m)^(?=# )", syn) if syn else []
 parts = [p for p in parts if p.strip().startswith("# ")]
 exec_part = next((p for p in parts if re.match(r"# .*(Executive summary)", p, re.I)), "")
-rest = [p for p in parts if p is not exec_part]
+# synthesis preamble (disclosure + CP4 tier-change table) goes up front, before the executive summary
+pre_part = next((p for p in parts if not re.match(r"# Part ", p)), "")
+if pre_part:
+    pre_part = re.sub(r"^# .*\n", "# About this document: disclosure and final tiers\n", pre_part, count=1)
+    pre_part = re.sub(r"\n---\s*$", "\n", pre_part)
+rest = [p for p in parts if p is not exec_part and p is not pre_part and not (pre_part and p.startswith("# Enterprise GenAI"))]
 
 doc = []
 doc.append("---\ntitle: \"Enterprise GenAI Full-Stack Architecture\"\nsubtitle: \"Reference architecture, product assessment and regulated-FS view, October 2026\"\ndate: \"%s\"\n---\n" % "October 2026")
 doc.append("> **Status:** final package (CP5). Personal research; not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Method.\n")
+if pre_part:
+    doc.append(pre_part)
 if exec_part:
     doc.append(exec_part)
-doc.append(method)
+doc.append(re.sub(r"^# Method", "# Part II: Method", method, count=1))
 doc.append("# The nine layers (analysed 9 → 1)\n")
 for L in LAYERS:
     doc.append(read("work/stageB/%s/section.md" % L))
@@ -77,9 +84,9 @@ for C in CTRLS:
 doc.extend(rest)
 li = read("work/stageC2/linkedin_series.md")
 if li:
-    doc.append(demote(re.sub(r"(?m)^# .*\n", "", li, count=1), 0) if li.startswith("# ") else li)
     if not li.lstrip().startswith("# "):
-        doc.insert(len(doc) - 1, "# LinkedIn thought-leadership series\n")
+        doc.append("# LinkedIn thought-leadership series\n")
+    doc.append(li)
 wc = read("checkpoints/CP1/02_What_Changed_Since_Original_Diagram.md")
 if wc:
     doc.append("# Annex A: What changed since the original diagram\n" + demote(re.sub(r"(?m)^# .*\n", "", wc, count=1), 1))
