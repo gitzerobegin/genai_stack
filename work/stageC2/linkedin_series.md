@@ -1,6 +1,6 @@
 # LinkedIn thought-leadership series: the enterprise GenAI stack, layer by layer
 
-**Author:** Bing Zhang · **Drafted:** 9 October 2026 · **Status:** weeks 1–9 drafted (posts #1–#18); weeks 10–13 and reactive templates to follow after the synthesis
+**Author:** Bing Zhang · **Drafted:** 9 October 2026 · **Status:** complete draft. 24 posts (weeks 1–12), a week-13 buffer note and 3 reactive templates. Posts #19–#24 are drawn from the Stage C synthesis.
 
 ## Series introduction
 
@@ -24,13 +24,13 @@
 
 **Conflict of interest.** The drafts were prepared with help from an AI model made by Anthropic. Post bodies name no vendor. In first comments, Anthropic products (Claude, the Claude Agent SDK, MCP's origin, Agent Skills) are listed in the same way as every other vendor's. Whether to say in the first comment of post #1 that you used AI drafting assistance is your choice. A suggested line is given there.
 
-**Sourcing.** Every fact in a post traces to a chapter of the review (`work/stageB/<layer>/section.md`) or to `Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json`. The section and source IDs are in each first comment. Numbers marked as targets are starting points from the review's KPI tables, not industry benchmarks. Illustrative scenarios from the chapters are not used as if they were real incidents.
+**Sourcing.** Every fact in a post traces to a chapter of the review (`work/stageB/<layer>/section.md`), to the synthesis (`work/stageC/synthesis.md`, posts #19–#24), or to `Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json`. The section and source IDs are in each first comment. Numbers marked as targets are starting points from the review's KPI tables, not industry benchmarks. Illustrative scenarios from the chapters are not used as if they were real incidents.
 
 **Re-verify before posting.** Over three months, versions, ownership, prices and regulatory dates move. Check each post's "Re-verify" list in the week before it goes out.
 
-**Word counts.** Each full post and fallback version is 220–300 words, including the anecdote slot as drafted. Each short variant is 120–150 words. These were checked with a script (see the end of this file).
+**Word counts.** Each full post and fallback version is 220–300 words, including the anecdote slot as drafted. Each short variant is 120–150 words. Reactive templates are 220–300 words (short variants 120–150), with their bracketed fields counted as drafted. These were checked with a script (see the end of this file).
 
-### Calendar, weeks 1–9
+### Calendar, weeks 1–13
 
 | Week | Tuesday (stack) | Thursday (control) |
 |---|---|---|
@@ -43,6 +43,12 @@
 | 7 | #13 L2 Inference and access | #14 C1 AI gateway |
 | 8 | #15 L1 Foundation models | #16 C6 AI FinOps |
 | 9 | #17 L5 Memory (deliberately last) | #18 Regulated reality: EU AI Act and DORA |
+| 10 | #19 The worked example, end to end | #20 Start small |
+| 11 | #21 Build vs buy | #22 Where not to abstract |
+| 12 | #23 Which lock-in is acceptable | #24 Close: what I'd select, and what I'd deliberately not select |
+| 13 | Buffer (slipped post or reactive template) | Buffer |
+
+Reactive templates R1 (model launch), R2 (acquisition) and R3 (regulatory milestone) can go into week 13 or replace a Thursday slot when timing matters.
 
 ---
 
@@ -1909,3 +1915,549 @@ Personal views. Sources: the Enterprise GenAI Stack review, synthesis Part VII, 
 - Vendors only in the first comment: yes
 
 ---
+
+## Week 11
+
+### Post 21 · Week 11, Tuesday · Build vs buy
+
+**Pair:** Post 22 (Where not to abstract, Week 11 Thursday). **Bridge:** Tuesday says to own a thin interface in front of what you buy; Thursday warns against owning too many interfaces.
+
+**Theme and source:** Build, buy or hybrid per component. `work/stageC/synthesis.md` Part VIII.
+
+**Tension:** Build where you differentiate, buy where you would only be maintaining.
+
+#### Full post
+
+Build where you differentiate. Buy where you would only be maintaining.
+
+For an asset manager adopting GenAI, very little of the stack differentiates. Training a foundation model is out of scope. Gateways, parsers, vector search, identity providers and secrets brokers are commodity infrastructure with a heavy security and maintenance burden. Buy them, or adopt open source.
+
+What the firm should build is smaller and more important: whatever is its control statement, its evidence or its domain logic. Route definitions and fallback lists. The guardrail policy and its test sets. The numeric check against the attribution engine, which no vendor sells. The evaluation datasets. The release manifest. The evidence store. Read-only tools onto its own systems. The workflows.
+
+Most of the rest lands in a third column: hybrid, meaning a bought or open-source engine behind a firm-owned interface and policy. That column has grown, because so many "neutral" products have changed owner. When a product may be replaced within the planning horizon, the interface and the data around it must already be yours.
+
+The signal is configuration coverage: the share of production calls whose prompt, model, tool and retrieval settings resolve to an approved version the firm holds. The target is 100% for regulated outputs.
+
+The leadership move is one build, buy or hybrid decision per component, plus one explicit "do not build yet": fine-tuning, which adds a model to validate and can, in some cases, turn a deployer into a provider under the EU AI Act.
+
+[Anecdote slot: one or two sentences on a build-or-buy call you would make differently today, or one that aged well, and who argued for it.]
+
+Owning the right small things is what makes everything else replaceable.
+
+#### Short variant
+
+Build where you differentiate. Buy where you would only be maintaining.
+
+For an asset manager, little of the GenAI stack differentiates. Gateways, parsers, vector search, identity and secrets are commodity: buy them, or adopt open source.
+
+Build what is your control statement, evidence or domain logic: route definitions, guardrail policy and test sets, the numeric check no vendor sells, evaluation datasets, the release manifest, the evidence store, read-only tools, the workflows.
+
+Much of the rest is hybrid: a bought engine behind a firm-owned interface. That column grows as "neutral" products change owner.
+
+The signal is configuration coverage: every production call resolving to an approved version the firm holds.
+
+And one explicit "not yet": fine-tuning.
+
+Owning the right small things makes everything else replaceable.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a build-or-buy decision from your career: a platform built in-house that became a maintenance burden, or a bought product whose exit was harder than expected because the firm's own data or configuration lived inside it. Own the call if it was yours; credit the person who argued the other side.
+- **Fits:** platform modernisation and data-infrastructure migration.
+- **Avoid:** naming the vendor or the internal platform.
+
+#### Fallback version
+
+Build where you differentiate. Buy where you would only be maintaining.
+
+For an asset manager adopting GenAI, very little of the stack differentiates. Training a foundation model is out of scope. Gateways, parsers, vector search, identity providers and secrets brokers are commodity infrastructure with a heavy security and maintenance burden. Buy them, or adopt open source.
+
+What the firm should build is smaller and more important: whatever is its control statement, its evidence or its domain logic. Route definitions and fallback lists. The guardrail policy and its test sets. The numeric check against the attribution engine, which no vendor sells. The evaluation datasets. The release manifest. The evidence store. Read-only tools onto its own systems. The workflows.
+
+Most of the rest lands in a third column: hybrid, meaning a bought or open-source engine behind a firm-owned interface and policy. That column has grown, because so many "neutral" products have changed owner. When a product may be replaced within the planning horizon, the interface and the data around it must already be yours.
+
+The signal is configuration coverage: the share of production calls whose prompt, model, tool and retrieval settings resolve to an approved version the firm holds. The target is 100% for regulated outputs.
+
+The leadership move is one build, buy or hybrid decision per component, plus one explicit "do not build yet": fine-tuning, which adds a model to validate and can, in some cases, turn a deployer into a provider under the EU AI Act.
+
+The honest caveat: hybrid is the most demanding column. It only pays if the interface stays thin and nobody starts rebuilding the product behind it.
+
+Owning the right small things is what makes everything else replaceable.
+
+#### Suggested visual
+
+Three-column board, "Build · Hybrid · Buy", with the 17 layers and controls placed as cards (for example, Build: tool servers, configuration of record, evidence store; Hybrid: gateway, guardrails, privacy, evaluation, retrieval optimisation; Buy: security tooling, foundation models, serving access). A separate red card reads "Do not build yet: fine-tuning". Source: synthesis Part VIII table.
+
+#### First comment
+
+Personal views. Source: the Enterprise GenAI Stack review, synthesis Part VIII (Build vs buy), the rule and the 18-row component table.
+- Products named in the "buy" and "hybrid" columns include LiteLLM Enterprise, Kong, APIM, Apigee and AgentCore Gateway (gateway); Presidio and Sensitive Data Protection (privacy); Entra Agent ID and Okta for AI Agents (identity); Langfuse, MLflow and LangSmith (evaluation); Docling and Unstructured (ingestion); LangGraph, Microsoft Agent Framework, ADK and Pydantic AI (orchestration); vLLM (serving); and hosted models from several vendors, including Anthropic, plus Gemma 4 or Mistral open weights.
+- The ownership changes behind "neutral products changed owner" are listed in synthesis Part I, finding 2.
+- Fine-tuning and EU AI Act Article 25 (deployer becoming provider): [R-EUAIA: A8-S011]; the synthesis lists fine-tuning as "do not build yet".
+
+#### Hashtags
+
+#EnterpriseArchitecture #BuildVsBuy
+
+#### Re-verify before posting
+
+- No dated facts in the body. Check the Article 25 wording if challenged ("can, in some cases").
+
+#### Compliance check
+
+- Personal views: yes
+- No statement about any firm's sourcing decisions: yes
+- Vendors only in the first comment: yes
+
+---
+
+### Post 22 · Week 11, Thursday · Where not to abstract
+
+**Pair:** Post 21 (Build vs buy, Week 11 Tuesday). **Bridge:** Tuesday's thin firm-owned interfaces are the right default; Thursday names where adding one is the mistake.
+
+**Theme and source:** What to abstract and what not to over-abstract. `work/stageC/synthesis.md` Part IX (IX.1, IX.2, IX.3).
+
+**Tension:** Frameworks on top of frameworks.
+
+#### Full post
+
+Abstraction is how an architecture stays reversible. Too much of it is how an architecture stops moving.
+
+Tuesday's post argued for a firm-owned interface in front of anything you may replace. The trap is applying that everywhere. The classic case is a firm-wide wrapper around agent frameworks: frameworks on top of frameworks. It falls behind every upstream release, hides the features teams chose the framework for, and becomes a second product to maintain.
+
+Abstract where switching is likely and the interface is small. Model routing through one API contract at the gateway. Observability through an open telemetry collector. Evaluation datasets in source control. Credentials through workload identity. Policy as code. Retrieval behind a thin interface. Embeddings with a version on every vector.
+
+Do not abstract the framework. Keep the workflow specification, prompts, tools and evaluations outside it, and rewriting a well-specified workflow becomes bounded work. That is the real portability. Do not build a plug-in architecture for one workflow with one model step. Do not put a layer between every query and the database. And do not build an abstraction to hide a model you never pinned.
+
+The signal is framework currency: days behind the pinned framework's latest security fix, held inside the patch window, for example 30 days. Wrappers make that number drift.
+
+The leadership move is to ask, of every proposed abstraction, what switching would cost without it. If the answer is a bounded rewrite, skip the abstraction.
+
+[Anecdote slot: one or two sentences on an internal abstraction layer that cost more than it saved, or one that paid off, and what made the difference.]
+
+Portability lives in the artefacts you own, not in the layers you add.
+
+#### Short variant
+
+Abstraction keeps an architecture reversible. Too much of it stops the architecture moving.
+
+The classic mistake is a firm-wide wrapper around agent frameworks: frameworks on top of frameworks. It lags every release and becomes a second product to maintain.
+
+Abstract where switching is likely and the interface is small: model routing at the gateway, an open telemetry collector, datasets in source control, workload identity, policy as code, a thin retrieval interface.
+
+Do not abstract the framework. Keep workflow specifications, prompts, tools and evaluations outside it, and a rewrite becomes bounded work.
+
+The signal is framework currency: days behind the latest security fix, held inside the patch window. Wrappers make it drift.
+
+Ask what switching would cost without the abstraction. Portability lives in the artefacts you own, not the layers you add.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** an internal "common layer" or wrapper (over a database, messaging system, cloud SDK or framework) that became a maintenance drag, or a thin interface that made a later migration easy. Credit the engineers who maintained or retired it; own the original sponsorship if it was yours.
+- **Fits:** platform modernisation; developing leaders through delivery.
+- **Avoid:** naming internal libraries or teams.
+
+#### Fallback version
+
+Abstraction is how an architecture stays reversible. Too much of it is how an architecture stops moving.
+
+A firm-owned interface in front of anything replaceable is the right default. The trap is applying it everywhere. The classic case is a firm-wide wrapper around agent frameworks: frameworks on top of frameworks. It falls behind every upstream release, hides the features teams chose the framework for, and becomes a second product to maintain.
+
+Abstract where switching is likely and the interface is small. Model routing through one API contract at the gateway. Observability through an open telemetry collector. Evaluation datasets in source control. Credentials through workload identity. Policy as code. Retrieval behind a thin interface. Embeddings with a version on every vector.
+
+Do not abstract the framework. Keep the workflow specification, prompts, tools and evaluations outside it, and rewriting a well-specified workflow becomes bounded work. That is the real portability. Do not build a plug-in architecture for one workflow with one model step. Do not put a layer between every query and the database. And do not build an abstraction to hide a model you never pinned.
+
+The signal is framework currency: days behind the pinned framework's latest security fix, held inside the patch window, for example 30 days. Wrappers make that number drift.
+
+The leadership move is to ask, of every proposed abstraction, what switching would cost without it. If the answer is a bounded rewrite, skip the abstraction.
+
+The honest caveat: this is a judgement, and reasonable architects draw the line differently. A timed switch of one component settles most arguments.
+
+Portability lives in the artefacts you own, not in the layers you add.
+
+#### Suggested visual
+
+Two lists side by side. "Abstract (thin, firm-owned)": routing contract, telemetry collector, datasets, credentials, policy, retrieval interface, embed/rerank, privacy API, memory API, config fetch. "Do not over-abstract": agent frameworks, single-workflow plug-ins, plain database access, store-bundled features, vendor model extras. A small strip beneath shows "multi-vendor necessary" versus "multi-vendor only adds complexity". Source: synthesis IX.1–IX.3.
+
+#### First comment
+
+Personal views. Source: the Enterprise GenAI Stack review, synthesis Part IX (IX.1 what to abstract, IX.2 what not to over-abstract, IX.3 where multi-vendor is necessary) and L3 §3.3 (framework currency KPI).
+- Frameworks named in the synthesis's "do not wrap" guidance: LangGraph, Microsoft Agent Framework and Google ADK.
+- Open interfaces cited: an OpenAI-compatible routing contract accepted by every gateway assessed; OpenTelemetry or OpenInference for traces; OPA (Rego) or Cedar for policy.
+- IX.3 also lists where multi-vendor only adds complexity: two orchestration frameworks in one language estate, two vector stores for one corpus, two observability platforms of record, two IdPs for agents, a second cloud's agent stack.
+- The 30-day patch window is an example target from the review, not a benchmark.
+
+#### Hashtags
+
+#SoftwareArchitecture #AgenticAI
+
+#### Re-verify before posting
+
+- No dated facts in the body.
+
+#### Compliance check
+
+- Personal views: yes
+- No internal libraries or teams referenced: yes
+- Vendors only in the first comment: yes
+
+---
+
+## Week 12
+
+### Post 23 · Week 12, Tuesday · Which lock-in is acceptable
+
+**Pair:** Post 24 (Close, Week 12 Thursday). **Bridge:** Tuesday classifies which dependencies are worth accepting; Thursday applies that to the final stack: what I would select, and what I would deliberately leave out.
+
+**Theme and source:** Lock-in by layer and control: acceptable, manageable, unacceptable. `work/stageC/synthesis.md` Part IX.4 (lock-in table), with L6 §6.3 (rebuild-time KPI).
+
+**Tension:** Some lock-in is a good trade, and the skill is knowing which.
+
+#### Full post
+
+Some lock-in is a good trade. The skill is knowing which.
+
+Total avoidance is not a strategy. It produces the lowest common denominator everywhere, and the firm pays for portability it will never use. The better question, layer by layer, is what it would cost to leave, and whether that cost is acceptable, manageable with an abstraction, or unacceptable for a regulated workload.
+
+Acceptable: open-weight models the firm holds, open serving engines, open orchestration frameworks, a stateless reranker, a vector index that can be rebuilt from source. Leaving costs little.
+
+Manageable: a proprietary model behind the gateway with a qualified second vendor, a gateway product, the workforce identity provider, a managed agent runtime. Each is fine with the right interface and a rehearsed exit.
+
+Unacceptable: a single proprietary model vendor behind an important business service; evaluation datasets that exist only in a vendor console; prompts and change history held only in a vendor registry; credentials held in a third party's multi-tenant cloud; an evidence store held only by a vendor. Each turns an exit into a reconstruction.
+
+The pattern is consistent. Lock-in to a product is usually tolerable. Lock-in of the firm's own records, meaning its evidence, configuration, datasets and credentials, is not.
+
+The retrieval layer shows the signal: rebuild time from approved sources with a pinned embedding model, inside the exit-plan tolerance and tested twice a year.
+
+The leadership move is to classify each layer once, record it in the exit plan, and review it whenever ownership changes.
+
+[Anecdote slot: one or two sentences on a dependency you accepted deliberately and never regretted, or one that crept in unnoticed.]
+
+Choose dependencies deliberately. The accidental ones are expensive.
+
+#### Short variant
+
+Some lock-in is a good trade. The skill is knowing which.
+
+Avoiding all of it buys the lowest common denominator everywhere. Ask instead, layer by layer: is the cost of leaving acceptable, manageable with an abstraction, or unacceptable?
+
+Acceptable: open weights you hold, open engines and frameworks, an index you can rebuild.
+
+Manageable: a proprietary model with a qualified second vendor, a gateway product, the identity provider.
+
+Unacceptable: one model vendor behind an important service, or datasets, prompts, credentials and evidence held only by a vendor.
+
+Lock-in to a product is usually tolerable. Lock-in of your own records is not.
+
+One signal: index rebuild time from approved sources, tested twice a year.
+
+Classify each layer once, and review it when ownership changes. The accidental dependencies are the expensive ones.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a technology dependency you accepted with open eyes and that served the firm well, or one that crept in through a convenience feature and became hard to leave. The lesson is the decision process, not the vendor. Credit the person who documented the exit, or own the dependency you did not see coming.
+- **Fits:** platform modernisation; "audit outcomes as a symptom of operating-model design".
+- **Avoid:** naming the vendor or the platform.
+
+#### Fallback version
+
+Some lock-in is a good trade. The skill is knowing which.
+
+Total avoidance is not a strategy. It produces the lowest common denominator everywhere, and the firm pays for portability it will never use. The better question, layer by layer, is what it would cost to leave, and whether that cost is acceptable, manageable with an abstraction, or unacceptable for a regulated workload.
+
+Acceptable: open-weight models the firm holds, open serving engines, open orchestration frameworks, a stateless reranker, a vector index that can be rebuilt from source. Leaving costs little.
+
+Manageable: a proprietary model behind the gateway with a qualified second vendor, a gateway product, the workforce identity provider, a managed agent runtime. Each is fine with the right interface and a rehearsed exit.
+
+Unacceptable: a single proprietary model vendor behind an important business service; evaluation datasets that exist only in a vendor console; prompts and change history held only in a vendor registry; credentials held in a third party's multi-tenant cloud; an evidence store held only by a vendor. Each turns an exit into a reconstruction.
+
+The pattern is consistent. Lock-in to a product is usually tolerable. Lock-in of the firm's own records, meaning its evidence, configuration, datasets and credentials, is not.
+
+The retrieval layer shows the signal: rebuild time from approved sources with a pinned embedding model, inside the exit-plan tolerance and tested twice a year.
+
+The leadership move is to classify each layer once, record it in the exit plan, and review it whenever ownership changes.
+
+The honest caveat: the classification moves. A tolerable dependency becomes a concern when its owner changes.
+
+Choose dependencies deliberately. The accidental ones are expensive.
+
+#### Suggested visual
+
+Heat-map table: the 17 layers and controls as rows; columns "acceptable", "manageable", "unacceptable"; each cell a short phrase from the synthesis table (vendor names removed). A highlighted band across the "unacceptable" column reads "the firm's own records: evidence, configuration, datasets, credentials". Source: synthesis IX.4.
+
+#### First comment
+
+Personal views. Source: the Enterprise GenAI Stack review, synthesis Part IX.4 (lock-in by layer and control) and L6 §6.3 (rebuild-time KPI).
+- Examples behind the categories: vLLM and SGLang (Apache-2.0, OpenAI-compatible) as acceptable [A4-S009, A4-S010]; MCP and A2A as open specifications under AAIF [A3-S018, A3-S116] (MCP originated at Anthropic; conflict of interest noted); credential custody in a third party's multi-tenant cloud as unacceptable, following Composio's May 2026 incident [B-L4-S007]; OpenAI's Agent Builder shutting on 30 November 2026 as an example of vendor-hosted state [A4-S054].
+- Each cell of the table has its rationale and abstraction in the synthesis; this post compresses it.
+
+#### Hashtags
+
+#VendorRisk #EnterpriseArchitecture
+
+#### Re-verify before posting
+
+- Lock-in categories against the final Part IX.4 table
+- Any new ownership change in a "manageable" category
+
+#### Compliance check
+
+- Personal views; no statement about any firm's dependencies: yes
+- Vendors only in the first comment: yes
+
+---
+
+### Post 24 · Week 12, Thursday · Close: what I'd select, and what I'd deliberately not select
+
+**Pair:** Post 23 (Which lock-in is acceptable, Week 12 Tuesday). **Bridge:** Tuesday's lock-in classification is the filter; Thursday shows what passes through it, what does not, and what leading the change actually requires.
+
+**Theme and source:** The final recommended stack on one page, and a lesson about leading the transformation. `work/stageC/synthesis.md` Part XI (XI.4 Experimental, XI.5 Products to avoid, XI.7 The answer in one paragraph), with Part I.1 (39 of 80 tiles) and I.2 (twelve decisions).
+
+**Tension:** The full stack on one page, plus a lesson about leading the transformation.
+
+#### Full post
+
+Twelve weeks ago this series started from a popular diagram of the AI stack. On this review, 39 of its 80 product tiles were out of date. The diagram was a catalogue. The enterprise problem is a control system.
+
+So here is what I would select, on one page.
+
+First, a firm-owned control and evidence plane: one gateway of record for every model, tool and agent call; evaluation and observability from day one; an evidence store the firm owns; one privacy service; agent identities in the workforce directory; source control as the configuration of record. Beneath it, replaceable components: open document parsing inside a built envelope, vectors in a database the firm already runs, read-only tools behind a governed gateway, deterministic workflows on a durable engine, the primary cloud's in-region model service with an open-weight exit route, and a two-vendor model portfolio.
+
+And what I would deliberately not select: archived or deprecated products, unverifiable vendors, a third-party broker holding client tokens, licence-blocked weights, autonomous agents with write tools, memory before it is needed, and any vendor-held store as the only copy of the firm's evidence.
+
+The lesson about leading this is quieter than the architecture. The products will change again within months. What lasts is the operating model: who owns the evidence, who may approve, and what waits. The leadership move is to fund that plane before any product.
+
+The signal I would keep in front of executives is the human-intervention rate: how often, and how much, reviewers edit what the system drafts. Supervisors already ask for it.
+
+[Anecdote slot: one or two sentences crediting the people whose questions or work shaped your thinking on a transformation like this.]
+
+Select the plane first. Everything beneath it is allowed to change.
+
+#### Short variant
+
+Twelve weeks ago this series started from a popular AI-stack diagram. On this review, 39 of its 80 tiles were out of date. It was a catalogue; the enterprise problem is a control system.
+
+What I would select: a firm-owned control and evidence plane first, meaning one gateway of record, evaluation from day one, a firm-owned evidence store, one privacy service, agent identities and configuration in source control. Beneath it, replaceable components and a two-vendor model portfolio.
+
+What I would deliberately not select: deprecated or unverifiable products, brokers holding client tokens, licence-blocked weights, autonomous agents with write tools, premature memory, and any vendor-held only copy of the evidence.
+
+The signal for executives is the human-intervention rate.
+
+Select the plane first. Everything beneath it is allowed to change.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** as a close to the series, credit the people (by role, or by name with their permission) whose questions, pushback or delivery work shaped how you think about this transformation: a validator, an engineer, a risk partner, a portfolio manager. Alternatively, name the one belief you held at the start that the work changed.
+- **Fits:** "share the lesson, credit the team"; developing leaders through delivery.
+- **Avoid:** implying that any firm has adopted this stack, or naming colleagues without consent.
+
+#### Fallback version
+
+Twelve weeks ago this series started from a popular diagram of the AI stack. On this review, 39 of its 80 product tiles were out of date. The diagram was a catalogue. The enterprise problem is a control system.
+
+So here is the selection, on one page.
+
+First, a firm-owned control and evidence plane: one gateway of record for every model, tool and agent call; evaluation and observability from day one; an evidence store the firm owns; one privacy service; agent identities in the workforce directory; source control as the configuration of record. Beneath it, replaceable components: open document parsing inside a built envelope, vectors in a database the firm already runs, read-only tools behind a governed gateway, deterministic workflows on a durable engine, the primary cloud's in-region model service with an open-weight exit route, and a two-vendor model portfolio.
+
+And what to deliberately not select: archived or deprecated products, unverifiable vendors, a third-party broker holding client tokens, licence-blocked weights, autonomous agents with write tools, memory before it is needed, and any vendor-held store as the only copy of the firm's evidence.
+
+The lesson about leading this is quieter than the architecture. The products will change again within months. What lasts is the operating model: who owns the evidence, who may approve, and what waits. The leadership move is to fund that plane before any product.
+
+The signal to keep in front of executives is the human-intervention rate: how often, and how much, reviewers edit what the system drafts. Supervisors already ask for it.
+
+The honest caveat: this is a view as of autumn 2026, drawn from public evidence, and much of it will need re-checking within months.
+
+Select the plane first. Everything beneath it is allowed to change.
+
+#### Suggested visual
+
+The one-page architecture from synthesis I.2, with vendor names removed: control plane (C1–C8 with the L9 evidence plane) across the top; agent, knowledge and model planes beneath. To the right, a short "Deliberately not selected" column with the categories from XI.5 and XI.7. Optional carousel: slide 1 the original diagram with 39 tiles flagged; slide 2 the one-page architecture; slide 3 the twelve decisions; slide 4 "not selected".
+
+#### First comment
+
+Personal views; not a description of any firm's platform or vendor choices. Sources: the Enterprise GenAI Stack review, synthesis Part I.1 (39 of 80 tiles out of date: 9 acquired, 9 mispositioned, 8 renamed, 8 with a wrong version label, 6 not publicly verifiable, 4 duplicated, 3 superseded, 2 deprecated, with some tiles carrying several flags), I.2 (twelve decisions), XI.5 (products to avoid, evidence-based only) and XI.7 (the answer in one paragraph).
+- The cloud-neutral core in the review: a hardened LiteLLM or Kong gateway; Langfuse or MLflow with a firm-owned OpenTelemetry Collector; Presidio; workforce IdP with OPA; Git; Docling and Unstructured; Sentence Transformers and pgvector; read-only MCP tools (OpenAPI tools as the independent alternative); LangGraph on Temporal; the primary cloud's model service with vLLM as the exit route; a two-vendor portfolio drawn from OpenAI, Anthropic (with GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as the named alternative), Mistral and, on Google Cloud, Gemini; Gemma 4 or Mistral self-hosted.
+- Conflict of interest: these drafts were prepared with an Anthropic model; Anthropic's tier in the review was set by me, on neutral-rubric scores, not by the drafting tool, and an independent alternative is named wherever a Claude model, MCP or Agent Skills appears.
+- IOSCO's supervisory toolkit names the level and frequency of human intervention as an indicator for asset managers [R-INTL-AI-ASSETMGMT: A8-S058].
+- [Link to the published review, if released.]
+
+#### Hashtags
+
+#EnterpriseArchitecture #AIGovernance
+
+#### Re-verify before posting
+
+- The final Part XI lists (avoid and monitor), especially any item that has changed tier since October 2026
+- Ownership and status changes across the products in the first comment
+
+#### Compliance check
+
+- Personal views; "what I would select" is a personal architectural view, not a firm decision: yes
+- Anecdote prompt asks for consent before naming colleagues: yes
+- Vendors only in the first comment, with the conflict of interest stated: yes
+
+---
+
+## Week 13: buffer
+
+No post is scheduled. Use the week for one of the following:
+- **A slipped post.** If any week 1–12 post was delayed (clearance, travel, a news week), move it here and keep the pair together where possible.
+- **A reactive post.** Use one of the templates below if a model launch, an acquisition or a regulatory milestone lands during the series. A reactive post can also replace a Thursday slot if timing matters; move the displaced post to week 13.
+- **A rest week.** If the series ran to plan, skipping week 13 is fine. A short "thank you and where to find the full review" note is optional, and needs no template.
+
+Before using week 13, re-run the "Re-verify" lists for any post moved into it.
+
+---
+
+## Reactive templates
+
+Each template is a full post with bracketed fields for the event details. Fill each field with one factual sentence from a primary source (the vendor's or regulator's own announcement), log that source, and keep vendor names out of the body and in the first comment. The bracketed fields are sized so that the filled post stays within 220–300 words. Each template links back to a layer post so the reactive piece reads as part of the series.
+
+### Template R1 · Model launch
+
+**Links back to:** Post 15 (L1 Foundation models) and Post 1 (L9 Evaluation). **Schedule:** week 13 buffer, or in place of a Thursday post within a week of the launch.
+
+**Tension:** A new model is a portfolio decision, not a migration.
+
+#### Full template
+
+[One sentence: a major vendor released a new model or tier this week, described by category, for example "a new frontier tier" or "a smaller, cheaper mid-tier model".] [One sentence on what is new, from the vendor's own announcement: capability, tier, price or availability.]
+
+The question for a regulated firm is not whether it is better. It is what it would take to use it safely, and how quickly.
+
+In the architecture this series has described, a new model is a portfolio decision, not a migration. It arrives through the gateway as a candidate route. It is pinned to an exact version. It runs against the same evaluation suite as the models already in production, including the deterministic checks on numbers. If it passes, it can replace a mid-tier model or become the qualified fallback. If it wins only on the vendor's own benchmark, it waits.
+
+Three things to check first: where prompts are processed on the route you would actually use, not where data is stored; the retention and training terms for that route; and the retirement runway of the version you would pin.
+
+The signal is how long your own evaluation suite takes to qualify or reject a new candidate. If the answer is months, the bottleneck is the harness, not the model.
+
+The leadership move is to keep the frontier tier switched off by default, and switch it on only when evaluation shows the current tier fails a named use case.
+
+New models will keep arriving. A firm that can evaluate one quickly, and switch by configuration, does not need to chase any of them.
+
+#### Short variant
+
+[One sentence: a major vendor released a new model or tier this week, described by category.]
+
+For a regulated firm, the question is not whether it is better. It is what it would take to use it safely.
+
+A new model is a portfolio decision, not a migration: a candidate route through the gateway, pinned to an exact version, run against the same evaluation suite as production. If it passes, it can become the primary or the qualified fallback. If it wins only on the vendor's benchmark, it waits.
+
+Check processing location on your actual route, retention and training terms, and the retirement runway.
+
+The signal is how long your evaluation suite takes to qualify a candidate.
+
+A firm that can evaluate quickly, and switch by configuration, does not need to chase any model.
+
+#### Notes for use
+
+- **First comment:** name the vendor and model and link the announcement; add sources from L1 §1.3 (qualified-alternative coverage, retirement runway) and §1.9 (portfolio steps). Name at least one comparable model from a different vendor, so the comment does not read as promotion. If the vendor is Anthropic, say that the series was drafted with an Anthropic model.
+- **Hashtags:** #FoundationModels #LLMOps
+- **Re-verify:** route-specific processing region and data terms on the hyperscaler service you would use; the GA versus preview status.
+- **Compliance:** no statement about whether your firm will use the model; no benchmark figures in the body.
+- **Optional anecdote:** one sentence on how your team evaluates new tools before adopting them. Replace the "leadership move" paragraph to stay within the word count.
+
+### Template R2 · Acquisition or change of ownership
+
+**Links back to:** Post 1 (L9, ownership of evaluation tools), Post 14 (C1 gateway) and Post 23 (lock-in). **Schedule:** week 13 buffer, or in place of a Thursday post within a week of the announcement.
+
+**Tension:** Independence can no longer be assumed from a product's origins; it has to be designed in.
+
+#### Full template
+
+[One sentence: a larger company agreed to acquire, or completed its acquisition of, a widely used tool in a named layer of the GenAI stack, described by category, for example "an evaluation platform" or "an AI gateway".] [One sentence on status and stated plans, from the announcement.]
+
+It is the latest in a long line. Over the past year much of the "neutral" tooling in the GenAI stack has moved under platform, security, database or model vendors. Independence can no longer be assumed from a product's origins; it has to be designed in.
+
+What changes for a firm that uses the product? Possibly nothing in the short term. But three questions are worth asking now rather than at renewal. Does the new owner sell something else in our stack, and does that weaken an independence we relied on, such as a test tool now owned by the vendor whose model it tests? Do our contracts, data terms and residency commitments survive the change of control? And for UK-regulated firms, from 18 March 2027 a significant change to a material third-party arrangement must be notified.
+
+The architecture answer is the same as always: keep the product behind a firm-owned interface, keep the data it holds (traces, datasets, prompts, policies) exported, and know how long a switch would take.
+
+The signal is time to switch the affected component to its alternative, by configuration or a bounded migration.
+
+Ownership changes are a normal part of a maturing market. Being surprised by one is optional.
+
+#### Short variant
+
+[One sentence: a larger company agreed to acquire, or completed its acquisition of, a widely used tool in a named layer of the stack, described by category.]
+
+Much of the "neutral" GenAI tooling has now moved under platform, security, database or model vendors. Independence has to be designed in.
+
+Three questions to ask now, not at renewal. Does the new owner sell something else in our stack, weakening an independence we relied on? Do our contracts, data terms and residency survive the change of control? Is this a significant change to a material arrangement that must be notified?
+
+Keep the product behind a firm-owned interface, keep its data exported, and know how long a switch would take.
+
+The signal is time to switch the affected component.
+
+Being surprised by an ownership change is optional.
+
+#### Notes for use
+
+- **First comment:** name both companies, link the announcement and state whether the deal has closed; point to synthesis Part I, finding 2 (ownership changes) and Part XI.6 (monitor list). Avoid any view on the deal's merits.
+- **Hashtags:** #VendorRisk #ThirdPartyRisk
+- **Re-verify:** closing status; whether the acquirer has announced product or licence changes; the PS7/26 / PS26/2 date.
+- **Compliance:** no statement about your firm's contracts with either company; facts only from the announcement.
+- **Optional anecdote:** one sentence on a supplier change of control you have managed. Replace the paragraph beginning "The architecture answer" to stay within the word count.
+
+### Template R3 · Regulatory milestone
+
+**Links back to:** Post 2 (C8 model risk) and Post 18 (Regulated reality). **Schedule:** the week of the milestone, in place of a Thursday post, or in the week 13 buffer.
+
+**Tension:** A regulatory date is most useful as a refresh mandate for the architecture.
+
+#### Full template
+
+[One sentence: the date, and the instrument that took effect or was published, for example a supervisory statement, an application date or a designation list.] [One sentence on what it requires and of whom, from the official text: providers or deployers, which firms, which uses.]
+
+It is easy to treat a regulatory date as a compliance project with an end. The better use is as a refresh mandate for the architecture.
+
+For GenAI systems, most regulatory milestones ask for some combination of the same evidence: an inventory of what is running; validation that matches the versions in production; logs showing what the system saw and did; human oversight that is recorded; and exit plans that have been tested. A firm that has built a gateway of record, an evaluation suite, a configuration manifest and an evidence store keyed by trace ID already holds most of it.
+
+So the question this week is not "what do we need to build?" It is "what can we already show, and where are the gaps?"
+
+The signal is evidence-pack completeness for the use cases in scope: the share of outputs with a complete record. The gaps are the work plan.
+
+The leadership move is to use the date to fund the evidence once, properly, rather than a separate response for each regime.
+
+Each new date is easier for the firm that built the evidence once.
+
+#### Short variant
+
+[One sentence: the date, and the instrument that took effect or was published.]
+
+A regulatory date is easy to treat as a compliance project with an end. It is more useful as a refresh mandate.
+
+Most GenAI milestones ask for the same evidence: an inventory of what runs, validation matching production versions, logs of what the system saw and did, recorded human oversight, and tested exit plans. A gateway of record, an evaluation suite, a configuration manifest and an evidence store keyed by trace ID already hold most of it.
+
+So ask what you can already show, and where the gaps are.
+
+The signal is evidence-pack completeness for the use cases in scope.
+
+Each new date is easier for the firm that built the evidence once.
+
+#### Notes for use
+
+- **First comment:** "Personal views; not legal advice." Cite the official text, then the matching entry in `regulatory_facts.json` and synthesis Part V. Likely triggers during the series: the US agencies' AI request for information, an updated DORA CTPP list or new UK CTP designations, the EU AI Act Article 50(2) date for systems already on the market (2 December 2026), PS7/26 / PS26/2 (18 March 2027), EU AI Act Annex III (2 December 2027).
+- **Hashtags:** #EUAIAct #DORA by default. For a model-risk milestone, swap them for the pair used on Post 2 (model risk and AI governance).
+- **Re-verify:** the date and scope against the official source on the day.
+- **Compliance:** no statement about your firm's readiness or engagement with any regulator.
+- **Optional anecdote:** one sentence on an earlier deadline you turned into a broader refresh. Replace the "leadership move" paragraph to stay within the word count.
+
+---
+
+## Appendix: automated checks
+
+The checks are run with `python3 -I` over this file. For each of the 24 posts they confirm that:
+- the full post and the fallback version are each 220–300 words, with the anecdote slot counted as drafted
+- the short variant is 120–150 words
+- the full post contains exactly one anecdote slot, and the short variant and fallback contain none
+- there are at most 2 hashtags
+- there are no emoji characters
+
+The three reactive templates get the same length, hashtag and emoji checks. Word counts were taken two ways, a word-token count and a plain whitespace split; both had to fall in range.
+
+Result on 9 October 2026: all 24 posts and 3 templates passed. Full posts are 261–290 words, short variants 123–142, fallback versions 269–297, and templates 231–268 (short variants 126–134).
