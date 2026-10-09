@@ -38,9 +38,9 @@
 - **Not yet profiled:** Azure AI Search, Vertex AI Vector Search, Bedrock embeddings and rerank, ServiceNow AI Control Tower, OneTrust, Daytona, Modal.
 - **Open date conflicts:** GPT-6 Astra GA status; GLM-5.3 release date; Guardrails AI cutoff; OWASP LLM 2026 publication month. The full OWASP LLM 2026 list was not retrieved.
 
-## One open item for you
+## Decision at CP5
 
-The reviewer kept two rows on the Part XI.5 avoid list that sit just outside your four CP4-7 grounds: Chinese-origin vendors' own APIs for client data (an unremediated regulatory finding and PRC storage) and billing intermediation (treated as a terms blocker). The text says so. You can keep them, or move them to "monitor" without changing any tier. A comment on this is open in the Claude Doc.
+**XI.5 avoid list (user, 9 October 2026): move to "monitor".** The two rows that sat outside the four CP4-7 grounds (Chinese-origin vendors' own hosted APIs for client data; billing intermediation through a gateway or router) moved from XI.5 to the XI.6 monitor list. No tier changed. The I.4 route rule (never a Chinese-origin vendor's own API for client data) stays as a recommendation. Applied to the synthesis, the Claude Doc, the master document, the explorer, deck slide 16 and the ZIP.
 
 ## How to close the gaps
 

@@ -254,13 +254,11 @@ table(s, [["Avoid", "Why"],
   ["Archived or deprecated: TGI, OpenAI Agent Builder, AutoGen for new code, Helicone, Zep Community Edition", "Archived, shut down, superseded or in maintenance mode"],
   ["EthicalAgents, Ragoos", "Could not be verified as real products"],
   ["A third-party broker holding client tokens (Composio managed cloud)", "Unresolved token-exposure incident, May 2026"],
-  ["Any Chinese-origin vendor's own API for client data", "PRC storage and unremediated regulatory findings"],
   ["Jina weights, MinerU above thresholds, a modified AGPL Firecrawl server", "Licence blockers without a commercial licence"],
-  ["LM Studio as a service; training-on-data model tiers", "Terms blockers"],
-  ["Billing intermediation through a gateway or router", "Puts a vendor between the firm and its model contract"]],
+  ["LM Studio as a service; training-on-data model tiers", "Terms blockers"]],
   { x: 0.6, y: 1.4, w: 12.1, colW: [7.2, 4.9], fs: 15 });
-T(s, "Not avoided but not yet: memory, autonomous agents with write tools, multi-agent delegation, fine-tuning, own-GPU fleets, dedicated vector databases without a failed load test.", { x: 0.6, y: 5.9, w: 12.1, h: 0.8, fontSize: 14, italic: true, color: C.text2 });
-s.addNotes("Synthesis Part XI.5 (evidence-based avoid list, CP4-7) and Stack A 'do not build yet'.");
+T(s, "Moved to monitor by the reader (CP5): Chinese-origin vendors' own APIs for client data (the route rule still applies) and billing intermediation. Not avoided but not yet: memory, autonomous agents with write tools, multi-agent delegation, fine-tuning, own-GPU fleets, dedicated vector databases without a failed load test.", { x: 0.6, y: 5.3, w: 12.1, h: 1.3, fontSize: 13, italic: true, color: C.text2 });
+s.addNotes("Synthesis Part XI.5 (evidence-based avoid list, CP4-7; two routes moved to monitor at CP5) and Stack A 'do not build yet'.");
 
 // 17 Section
 s = slide("SECTION", "The regulated firm's view", "Regulated view");

@@ -1177,7 +1177,7 @@ Experimental means pilot only, outside regulated paths, with an explicit review 
 
 ## XI.5 Products to avoid (evidence-based only)
 
-By the reader's decision, a product or route is listed here only on evidence: deprecated or archived; unverifiable; an unresolved security incident affecting client data; or a licence or terms blocker (CP4-7) [AJ]. Everything else that is not recommended is Tactical, Experimental or "monitor" [AJ]. Two rows rest on grounds next to, rather than inside, the four the reader named: Chinese-origin vendors' own APIs (an unremediated regulatory finding and PRC data storage) and billing intermediation (a contractual-control blocker, treated like a terms blocker). Both are kept because the evidence is primary; the reader may move them to "monitor" without changing any tier [AJ].
+By the reader's decision, a product or route is listed here only on evidence: deprecated or archived; unverifiable; an unresolved security incident affecting client data; or a licence or terms blocker (CP4-7) [AJ]. Everything else that is not recommended is Tactical, Experimental or "monitor" [AJ]. Two rows rest on grounds next to, rather than inside, the four the reader named: Chinese-origin vendors' own hosted APIs for client data, and billing intermediation. By the reader's decision at CP5 both were moved to the monitor list in XI.6; no tier changed [AJ].
 
 | Avoid | Ground | Evidence | Ref |
 |---|---|---|---|
@@ -1190,18 +1190,18 @@ By the reader's decision, a product or route is listed here only on evidence: de
 | Retired model versions (Mistral Medium 3.1, Mistral OCR 4.0) | Retired | [VF: B-L1-S002, A1-S130] | L1, L8 |
 | EthicalAgents; Ragoos | Unverifiable | Could not be found; removed at CP1 [VF: A2-S079, A2-S080] | L7 |
 | Composio managed cloud for client data or user tokens | Unresolved security incident for client data | Connected-account tokens and API keys exposed in May 2026; US-hosted cloud [VF: B-L4-S007, A3-S119] | L4 |
-| Any Chinese-origin vendor's own hosted API for client data (DeepSeek's in particular) | Unremediated regulatory finding and PRC storage | DeepSeek's platform stores data in the PRC; Italy's limitation continues [VF: A5-S062, A5-S048] | L1 |
 | Jina weights self-hosted without a commercial licence | Licence blocker | CC-BY-NC-4.0 [VF: A2-S024] | L7 |
 | MinerU above its thresholds without a commercial licence | Licence blocker | Rights terminate on breach [VF: A1-S054] | L8 |
 | A modified Firecrawl server exposed without AGPL compliance | Licence blocker | Server is AGPL-3.0 [VF: A1-S053] | L8 |
 | LM Studio as a service | Terms blocker | Free for internal business use, no service use [VF: A4-S145] | L2 |
 | Meta's contributor (training-on-data) tier | Terms blocker | Data-use condition, not a price [VF: V2-S019] | L1 |
-| Billing intermediation through a gateway or router for regulated workloads | Terms / control blocker | Puts the vendor between the firm and its model contract [VF: A6-S052, A4-S144] | C1, L2 |
 
 ## XI.6 Products and events to monitor
 
 | Monitor | Trigger for action [Rec] | Ref |
 |---|---|---|
+| Chinese-origin vendors' own hosted APIs for client data (DeepSeek's in particular) | Moved from the avoid list by the reader (CP5). Keep the route rule: self-hosted weights by explicit policy or in-tenant hosting, never the vendor's own API for client data; re-assess if data storage moves out of the PRC or Italy's limitation is lifted [VF: A5-S062, A5-S048] | L1 |
+| Billing intermediation through a gateway or router | Moved from the avoid list by the reader (CP5). For regulated workloads, keep the model contract direct with the provider or hyperscaler; review if a vendor offers terms that keep the firm's direct rights [VF: A6-S052, A4-S144] | C1, L2 |
 | SGLang CVE-2026-3059 | Confirm the fix in the deployed version against the upstream advisory before Strategic use [VF: B-REVC-S002] | L2 |
 | Fireworks AI ISO certificates and EU residency | Obtain certificates from the trust portal; contract EU deployments or BYOC [VF: V1-S067, A4-S134] | L2 |
 | OpenRouter–Stripe closing | Refresh due diligence and notification on completion [VF: V1-S059, V1-S060] | L2, C1 |
@@ -1230,4 +1230,4 @@ By the reader's decision, a product or route is listed here only on evidence: de
 
 ## XI.7 The answer, in one paragraph
 
-Select a firm-owned control and evidence plane first, and buy or adopt replaceable components beneath it [Rec]. On today's evidence, the cloud-neutral core of a regulated asset manager's platform is: a hardened LiteLLM or Kong gateway; Langfuse or MLflow with a firm-owned OTel Collector and Git-versioned evaluation datasets; Presidio behind a privacy-service API; agent identities in the workforce IdP with OPA; Git as the configuration of record; Docling and Unstructured inside a built ingestion envelope; Sentence Transformers and pgvector; read-only MCP tools behind a governed gateway (with OpenAPI tools as the independent alternative); LangGraph on Temporal; the primary cloud's in-region model service with vLLM as the exit route; and a two-vendor model portfolio drawn from OpenAI, Anthropic (with GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as the named alternative), Mistral and, on Google Cloud, Gemini, plus Gemma 4 or Mistral self-hosted [Rec]. Deliberately do not select: archived or deprecated products, unverifiable vendors, a third-party broker holding client tokens, any Chinese-origin vendor's own API for client data, licence-blocked weights, autonomous agents with write tools, memory before it is needed, and any vendor-held store as the only copy of the firm's evidence [Rec].
+Select a firm-owned control and evidence plane first, and buy or adopt replaceable components beneath it [Rec]. On today's evidence, the cloud-neutral core of a regulated asset manager's platform is: a hardened LiteLLM or Kong gateway; Langfuse or MLflow with a firm-owned OTel Collector and Git-versioned evaluation datasets; Presidio behind a privacy-service API; agent identities in the workforce IdP with OPA; Git as the configuration of record; Docling and Unstructured inside a built ingestion envelope; Sentence Transformers and pgvector; read-only MCP tools behind a governed gateway (with OpenAPI tools as the independent alternative); LangGraph on Temporal; the primary cloud's in-region model service with vLLM as the exit route; and a two-vendor model portfolio drawn from OpenAI, Anthropic (with GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as the named alternative), Mistral and, on Google Cloud, Gemini, plus Gemma 4 or Mistral self-hosted [Rec]. Deliberately do not select: archived or deprecated products, unverifiable vendors, a third-party broker holding client tokens, licence-blocked weights, autonomous agents with write tools, memory before it is needed, and any vendor-held store as the only copy of the firm's evidence [Rec]. Two routes are on the monitor list by the reader's decision rather than the avoid list: Chinese-origin vendors' own APIs for client data, which the route rule in I.4 still keeps out of client-data paths, and billing intermediation [AJ].

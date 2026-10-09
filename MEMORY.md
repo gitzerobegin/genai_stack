@@ -23,7 +23,7 @@
 | Stage C2 | `work/stageC2/linkedin_series.md`: 24 posts plus 3 reactive templates; calendar in `07_LinkedIn/` |
 | Stage D | Master (docx/pdf/md), appendix, 28-slide deck, offline explorer, dataset, bibliography, calendar, ZIP `Enterprise_GenAI_Stack_Oct2026/Enterprise_GenAI_Stack_Oct2026.zip` |
 | Claude Doc | Executive summary + synthesis (CP5-2): https://claude.ai/code/artifact/74918687-c7fb-43e9-86fb-c729062bf9c6 |
-| Open for the user | Part XI.5: keep the two avoid rows that sit outside the CP4-7 grounds, or move them to "monitor" (comment open in the Claude Doc) |
+| CP5 decision | XI.5: the two avoid rows outside the CP4-7 grounds moved to "monitor" (user, 9 October 2026); applied everywhere |
 | Next | User sign-off. Then, optionally, the desktop gap-fill (`RERUN_ON_DESKTOP.md`) and a rebuild. After sign-off, enter the series start Tuesday in `Content_Calendar.xlsx` cell E1. |
 
 ## Run log
@@ -58,6 +58,7 @@
 | 23 | 9 October | The CP3 rework finished: tiers moved to 43/53/8. The L3, L2 and L1 writers finished: about 33,400 words; L1 has Anthropic Tactical 3.55 with the conflict-of-interest disclosure; L3 has the Claude Agent SDK as Experimental. The L3 and L1 writers ran git themselves, contrary to the brief; no harm done. Launched the CP4 calibration reviewer C for L3–L1. Wrote the Stage C synthesis brief `work/stage0/09_stageC_synthesis_brief.md`. | Reviewer running |
 | 24 | 9 October | The user answered the CP4, CP4b and CP5 questions up front (`checkpoints/CP4/00_CP4_CP4b_Decisions.md`) and chose to run to CP5 without pauses. A fourth 429 interruption (reset 04:40 UTC) was resumed at 05:43. CP4 rework done: 58 Strategic, 67 Tactical, 13 Experimental. LinkedIn posts 1–18 done. Synthesis written through Part IX. Packaging tools built: `tagfmt.py`, `build_master.py` (footnote-style docx, 3,556 footnotes), `build_appendix.py` (docx/pdf, 661 pp), `build_explorer.py` (offline HTML, tested headless), `build_linkedin_calendar.py`, plus pptxgenjs in `tools/deck`. GitHub Release is not possible from this session (no tool; gh token invalid), so the user chose to commit the ZIP on the working branch. | Running |
 | 25 | 9 October | Synthesis reviewer finished (45 edits). `build_master.py` now puts the disclosure and final-tier table before the executive summary, numbers the method as Part II and keeps the LinkedIn H1. `tagfmt.py` no longer converts tags inside inline code. New `tools/docx2pdf.py` converts through LibreOffice UNO and refreshes the table of contents (plain `soffice --convert-to` left it empty); master and appendix use it. Claude Doc created with the executive summary and synthesis. Package README, `06_References/originals/README.txt`, CP5 summary and ZIP done. **Stopped at CP5.** | Delivered |
+| 26 | 9 October | User decision at CP5: move the two XI.5 rows (Chinese-origin vendors' own APIs for client data; billing intermediation) to the XI.6 monitor list. Applied to the synthesis, the Claude Doc (thread answered), deck slide 16, then rebuilt explorer, master and ZIP. | Delivered |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it
