@@ -17,6 +17,8 @@ The aim is to update the "Full AI Stack Explained" graphic (`inputs/AI_Full_Stac
 
 **Three points of view:** generic enterprise; regulated FS; regulated FS plus the worked example. The worked example is a performance-attribution commentary agent for a multi-asset fund using Brinson-style attribution. It is generic and illustrative.
 
+**Status (9 October 2026): CP5 delivered; waiting for the user's sign-off.** See `checkpoints/CP5/00_CP5_Summary.md` and `MEMORY.md`.
+
 ## 2. Decisions in force
 
 ### Execution prompt (resolves plan §18)
@@ -41,7 +43,7 @@ The aim is to update the "Full AI Stack Explained" graphic (`inputs/AI_Full_Stac
 | Q4 | EthicalAgents and Ragoos are removed (could not be verified) |
 | Q5 | Proceed on the current fact base |
 | Q6 | Keep all 140 records |
-| Q7 | **Stop at every checkpoint:** CP2, CP3, CP4, CP4b, CP5 |
+| Q7 | **Stop at every checkpoint:** CP2, CP3, CP4, CP4b, CP5 (amended 9 October 2026: CP4/CP4b answered up front, run to CP5 without pausing; `checkpoints/CP4/00_CP4_CP4b_Decisions.md`) |
 | Q8 | GitHub only |
 
 ## 3. Non-negotiable rules (plan §2 and the execution prompt)

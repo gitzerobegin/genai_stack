@@ -85,6 +85,7 @@ r = subprocess.run(["pandoc", "work/stageD/appendix.pandoc.md", "-f", "markdown+
                    capture_output=True, text=True)
 print("pandoc", r.returncode, r.stderr[-300:])
 if "--no-pdf" not in sys.argv and r.returncode == 0:
-    r2 = subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", OUT, os.path.join(OUT, "Product_Technical_Appendix.docx")], capture_output=True, text=True, timeout=3000)
-    print("soffice", r2.returncode)
+    r2 = subprocess.run([sys.executable, "-I", "tools/docx2pdf.py", os.path.join(OUT, "Product_Technical_Appendix.docx"), os.path.join(OUT, "Product_Technical_Appendix.pdf")],
+                        capture_output=True, text=True, timeout=3600)
+    print("pdf", r2.returncode, (r2.stdout + r2.stderr)[-300:])
 print(len(full.split()), "words")

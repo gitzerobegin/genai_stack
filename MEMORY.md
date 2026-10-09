@@ -10,24 +10,21 @@
 
 | | |
 |---|---|
-| **Last updated** | 8 October 2026 |
-| **Stage** | **Stage C/C2/D in parallel, running to CP5 without pauses** (user decision, 9 October 2026) |
+| **Last updated** | 9 October 2026 |
+| **Stage** | **CP5 delivered: final package, waiting for the user's sign-off** |
 | **Branch** | `claude/nice-meitner-0me752` on `github.com/gitzerobegin/genai_stack` |
+| **Summary** | `checkpoints/CP5/00_CP5_Summary.md` |
 
 | Item | State |
 |---|---|
-| CP1 | Delivered. User replied "approved, proceed" (option (a) on Q1–Q8) |
-| L8 writer | **Done**: `work/stageB/L8/section.md`, `assessments.json`. Tiers: 2 Strategic, 6 Tactical, 2 Experimental. |
-| L9 writer | **Done**: 11 scored (3 Strategic, 8 Tactical); 5 new sources (B-L9-S001…S005) |
-| L7 writer | **Done**: 8 scored (1 Strategic, 7 Tactical); EthicalAgents and Ragoos unscored |
-| Calibration review | **Done**: 40 changes, 8 caps lifted, 5 kept, 1 added, no tier changes, 27 sources (B-REV-S001…S027). `work/stageB/_review/CP2_review.md` |
-| CP2 pack | `checkpoints/CP2/00_CP2_Summary.md`, `01_Draft_Layers_9-7.md`/`.docx`, `02_Calibration_Review.md` |
-| CP2 decisions | Q1 hyperscaler presumption; Q2 lenient (any one control lifts the cap to 3); Q3 judgement; Q4 one point below anchor; Q5 no length cap; Q6 L9 deep-dive format, one illustrative scenario per layer. `checkpoints/CP2/03_CP2_Decisions.md`; rubric rules 6–9 |
-| Tranche 2 (running) | Rework of L9–L7 **done** (14 score changes, no tier changes; `work/stageB/_review/CP2_rework_log.md`); writers for L6, L5, L4, C1+C2, C3+C4, C5+C6, C7+C8 (prompts in `work/prompts/stageB_tranche2_prompts.md`) |
-| Tranche 2 calibration | **Done**: reviewers A and B made 16 score changes and 3 tier changes (Strategic → Tactical: L4 AgentCore, C4 MCP authorisation, C4 Cedar); 181 claims checked |
-| CP3 pack | `checkpoints/CP3/00_CP3_Summary.md` (Q1–Q9), drafts as `.md`/`.docx`, reviews A and B, all scores |
-| Next | Apply the user's CP3 answers. Then **tranche 3**: L3, L2, L1 writers (same brief and rubric) and a reviewer, then **Stage C synthesis** (H1–H8 verdicts, reference architecture, 4 stacks, build vs buy, abstraction, lock-in, Phase 0–7 roadmap, select / don't-select / monitor), then **CP4** |
-| After CP2 | Stage B tranche 2: L6, L5, L4 and C1–C8, then **CP3**. Tranche 3: L3, L2, L1 and Stage C synthesis, then **CP4**. Then C2 LinkedIn pair 1–2 (**CP4b**), the rest of C2, and Stage D packaging (**CP5**). |
+| CP1–CP4b | Delivered; decisions in `checkpoints/CP1/06_*`, `CP2/03_*`, `CP3/06_*`, `CP4/00_*` |
+| Stage B | 17 chapters (L9–L1, C1–C8); three calibration rounds; final tiers 58 Strategic / 67 Tactical / 13 Experimental / 2 unscored |
+| Stage C | `work/stageC/synthesis.md` (Parts I, III–XI, about 28,000 words), reviewed (45 edits, `work/stageC/synthesis_review.md`) |
+| Stage C2 | `work/stageC2/linkedin_series.md`: 24 posts plus 3 reactive templates; calendar in `07_LinkedIn/` |
+| Stage D | Master (docx/pdf/md), appendix, 28-slide deck, offline explorer, dataset, bibliography, calendar, ZIP `Enterprise_GenAI_Stack_Oct2026/Enterprise_GenAI_Stack_Oct2026.zip` |
+| Claude Doc | Executive summary + synthesis (CP5-2): https://claude.ai/code/artifact/74918687-c7fb-43e9-86fb-c729062bf9c6 |
+| Open for the user | Part XI.5: keep the two avoid rows that sit outside the CP4-7 grounds, or move them to "monitor" (comment open in the Claude Doc) |
+| Next | User sign-off. Then, optionally, the desktop gap-fill (`RERUN_ON_DESKTOP.md`) and a rebuild. After sign-off, enter the series start Tuesday in `Content_Calendar.xlsx` cell E1. |
 
 ## Run log
 
@@ -60,6 +57,7 @@
 | 22 | 8 October | **Third 429 interruption** (reset 23:40 UTC) hit all 4 tranche-3 agents early. Only the L2 and L3 search extracts were saved (committed). At 23:42 UTC, after the user confirmed the reset, all 4 were resumed with explicit on-disk status. | Running |
 | 23 | 9 October | The CP3 rework finished: tiers moved to 43/53/8. The L3, L2 and L1 writers finished: about 33,400 words; L1 has Anthropic Tactical 3.55 with the conflict-of-interest disclosure; L3 has the Claude Agent SDK as Experimental. The L3 and L1 writers ran git themselves, contrary to the brief; no harm done. Launched the CP4 calibration reviewer C for L3–L1. Wrote the Stage C synthesis brief `work/stage0/09_stageC_synthesis_brief.md`. | Reviewer running |
 | 24 | 9 October | The user answered the CP4, CP4b and CP5 questions up front (`checkpoints/CP4/00_CP4_CP4b_Decisions.md`) and chose to run to CP5 without pauses. A fourth 429 interruption (reset 04:40 UTC) was resumed at 05:43. CP4 rework done: 58 Strategic, 67 Tactical, 13 Experimental. LinkedIn posts 1–18 done. Synthesis written through Part IX. Packaging tools built: `tagfmt.py`, `build_master.py` (footnote-style docx, 3,556 footnotes), `build_appendix.py` (docx/pdf, 661 pp), `build_explorer.py` (offline HTML, tested headless), `build_linkedin_calendar.py`, plus pptxgenjs in `tools/deck`. GitHub Release is not possible from this session (no tool; gh token invalid), so the user chose to commit the ZIP on the working branch. | Running |
+| 25 | 9 October | Synthesis reviewer finished (45 edits). `build_master.py` now puts the disclosure and final-tier table before the executive summary, numbers the method as Part II and keeps the LinkedIn H1. `tagfmt.py` no longer converts tags inside inline code. New `tools/docx2pdf.py` converts through LibreOffice UNO and refreshes the table of contents (plain `soffice --convert-to` left it empty); master and appendix use it. Claude Doc created with the executive summary and synthesis. Package README, `06_References/originals/README.txt`, CP5 summary and ZIP done. **Stopped at CP5.** | Delivered |
 | 15 | 8 October | At the user's request: wrote `MEMORY.md`, `CONTEXT.md`, `CLAUDE.md`, `RERUN_ON_DESKTOP.md`, `work/prompts/*`, `tools/npv_report.py` and `tools/refetch_sources.py` | The user asked for GitHub (not Bitbucket) as the destination |
 
 ## Blocked or degraded, and how to fix it
@@ -104,4 +102,9 @@ python3 -I tools/build_what_changed.py .       # raw "What changed" rows from no
 python3 -I tools/build_cp1_what_changed.py .   # applies the verifier corrections → checkpoints/CP1/02_*, 05_Data/what_changed.xlsx
 python3 -I tools/score.py work/stageB/<L>/assessments.json --write
 python3 -I tools/npv_report.py .               # gap list
+python3 -I tools/build_explorer.py .           # 04_Explorer/explorer.html (needs the synthesis)
+python3 -I tools/build_master.py .             # 01_Report (add --no-pdf to skip the slow PDF step)
+python3 -I tools/build_appendix.py .           # 02_Appendix
+python3 -I tools/build_linkedin_calendar.py .  # 07_LinkedIn (add --start YYYY-MM-DD to fix dates)
+NODE_PATH=$PWD/tools/deck/node_modules node tools/deck/build_deck.js .   # 03_Slides (npm install pptxgenjs@3.12.0 in tools/deck first)
 ```

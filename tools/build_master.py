@@ -65,6 +65,7 @@ pre_part = next((p for p in parts if not re.match(r"# Part ", p)), "")
 if pre_part:
     pre_part = re.sub(r"^# .*\n", "# About this document: disclosure and final tiers\n", pre_part, count=1)
     pre_part = re.sub(r"\n---\s*$", "\n", pre_part)
+    pre_part = re.sub(r"(?ms)^\| \| \|\n.*?\n\n", "", pre_part, count=1)  # drop the internal metadata table (work/ paths)
 rest = [p for p in parts if p is not exec_part and p is not pre_part and not (pre_part and p.startswith("# Enterprise GenAI"))]
 
 doc = []
@@ -103,7 +104,7 @@ cmd = ["pandoc", "work/stageD/Master_Architecture.pandoc.md", "-f", "markdown+pi
 r = subprocess.run(cmd, capture_output=True, text=True)
 print("pandoc:", r.returncode, r.stderr[-500:])
 if "--no-pdf" not in sys.argv and r.returncode == 0:
-    r2 = subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", OUT, os.path.join(OUT, "Master_Architecture.docx")],
-                        capture_output=True, text=True, timeout=3000)
-    print("soffice:", r2.returncode, (r2.stdout + r2.stderr)[-300:])
+    r2 = subprocess.run([sys.executable, "-I", "tools/docx2pdf.py", os.path.join(OUT, "Master_Architecture.docx"), os.path.join(OUT, "Master_Architecture.pdf")],
+                        capture_output=True, text=True, timeout=3600)
+    print("pdf:", r2.returncode, (r2.stdout + r2.stderr)[-300:])
 print(json.dumps({"words": len(full.split()), **{k: str(v) for k, v in stats.items()}}))

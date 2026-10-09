@@ -69,9 +69,11 @@ def convert_line(line, src, regs, prods):
         toks = [t for t in re.split(r"[,;]\s*", body) if t.strip()]
         note = "; ".join(describe(t, src, regs, prods) for t in toks)
         return '[%s]{custom-style="Claim Label"}^[%s — %s]' % (LABEL[kind], "Verified fact" if kind == "VF" else "Reported", note)
-    line = TAG.sub(tag, line)
-    line = SIMPLE.sub(lambda m: '[%s]{custom-style="Claim Label"}' % m.group(1), line)
-    return line
+    parts = re.split(r"(`[^`]*`)", line)  # never convert tags quoted inside inline code
+    for i in range(0, len(parts), 2):
+        parts[i] = TAG.sub(tag, parts[i])
+        parts[i] = SIMPLE.sub(lambda m: '[%s]{custom-style="Claim Label"}' % m.group(1), parts[i])
+    return "".join(parts)
 
 def convert_markdown(text, src, regs, prods):
     out, in_code = [], False
