@@ -20458,7 +20458,7 @@
       "flags": [
         "Renamed"
       ],
-      "rationale": "Alpha, single-model and subprocess-bound; borderline calls resolved against it (conflict of interest)."
+      "rationale": "Alpha (the vendor's own PyPI classifier), single-model and subprocess-bound; stays Experimental. Maturity set to 2 by the reader at Checkpoint 4 (CP4-9), in line with the OpenAI Agents SDK; technical 3 and deployment 3 are the peer-consistent values (CP4 review C). Conflict of interest disclosed."
     },
     "scores": {
       "criteria": {
@@ -20467,7 +20467,7 @@
         "security_compliance": 3,
         "deployment_flexibility": 3,
         "ecosystem": 3,
-        "reliability_maturity": 1,
+        "reliability_maturity": 2,
         "cost_tco": 3,
         "lockin_portability": 2
       },
@@ -20477,13 +20477,13 @@
         "security_compliance": "Library (rule 2); inherits Claude API terms where ZDR is available, but Managed Agents excluded from ZDR [VF: A4-S123]",
         "deployment_flexibility": "Self-hosted in containers/Kubernetes; model inference remains a cloud API; subprocess-per-session hosting [VF: A4-S122]; borderline 3/4 resolved down",
         "ecosystem": "MCP, plugins and skills; Claude models only [VF: A4-S027]",
-        "reliability_maturity": "Alpha development status, pre-1.0, renamed September 2025 [VF: A4-S006, A4-S029]; pre-1.0/beta anchor applied strictly",
+        "reliability_maturity": "Alpha development status (PyPI 'Development Status: 3 - Alpha'), pre-1.0, renamed September 2025 [VF: A4-S006, A4-S029, B-REVC-S001]. Scored 2, the same as the pre-1.0 OpenAI Agents SDK, by the reader at Checkpoint 4 (CP4-9; previously 1 under a strict reading of the anchor). The Alpha label is recorded as a limitation and reflected in the Experimental tier.",
         "cost_tco": "No SDK charge; compute scales with concurrent sessions [VF: A4-S122] [AJ]",
         "lockin_portability": "Claude-only, bundled CLI binary, Commercial Terms [VF: A4-S027, A4-S092]"
       },
       "evidence_caps_applied": [],
-      "generic_total": 2.75,
-      "fs_total": 2.65
+      "generic_total": 2.85,
+      "fs_total": 2.75
     },
     "sources": [
       "A4-S006",
@@ -21132,9 +21132,9 @@
       "fs_note": "Treat Agent Engine as a hyperscaler service under CP2 Q1 and confirm its controls per service [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Default framework in a Google Cloud estate; younger and less stable than MAF or LangGraph."
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (rule 10: ADK on Agent Engine is Google's lead agent framework and runtime, matching Strands/AgentCore on AWS and Microsoft Agent Framework on Azure); no criterion at 1; scored as a library under rule 2, so enterprise readiness and security stay at 3. Tier changed from Tactical by CP4 reviewer C for rule-10 parity. Confirmed by the reader at Checkpoint 4 (CP4-4)."
     },
     "scores": {
       "criteria": {
@@ -23246,9 +23246,9 @@
       "fs_note": "Pin the major version; v1 receives security fixes for at least six months after v2 [VF: V1-S074] [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Strong typed agent step, but young major versions and no verified support offer."
+      "rationale": "Strategic, conditional: for Python teams wanting type-safe agents, typically as the typed agent step inside a Temporal or DBOS workflow; pin the major version (breaking v2 ten months after v1) and note that commercial support is not verified. Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.55) [AJ]."
     },
     "scores": {
       "criteria": {
@@ -24571,9 +24571,9 @@
       "fs_note": "Request ISO certificates and BAA terms from the trust centre; prefer BYOC or EU dedicated deployments; disable Response API storage [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Strongest controls among the independent inference clouds; candidate for Strategic after due diligence on ISO certificates and EU residency"
+      "rationale": "Strategic, conditional: for managed open-model inference, once its ISO 27001, 27701 and 42001 certificates are confirmed (trust-centre and docs pages conflict); the strongest controls among the independent inference clouds. For client data use EU dedicated or BYOC deployments, because the self-serve residency setting is US-only. Upgraded from Tactical ('candidate for Strategic after due diligence') by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.65) [AJ]."
     },
     "scores": {
       "criteria": {
@@ -26887,7 +26887,7 @@
         "Apache-2.0, OpenAI-compatible [VF: A4-S128, A4-S010]"
       ],
       "limitations_risks": [
-        "CVE-2026-3059 (critical, unauthenticated RCE via ZMQ broker, <=0.5.9) lists no patched version; an earlier fix (CVE-2025-10164) has an unanswered bypass report [VF: B-L2-S009]",
+        "CVE-2026-3059 (critical, unauthenticated RCE via ZMQ broker, <=0.5.9): the GitHub advisory lists no patched version, while NVD references a fix in v0.5.10 and OSV a fixed commit; an earlier fix (CVE-2025-10164) has an unanswered bypass report [VF: B-L2-S009, B-REVC-S002]",
         "Pre-1.0; governance with a non-profit plus a VC-backed steward, no formal transfer found [VF: A4-S010, A4-S147]",
         "No verified commercial support offer [NPV]"
       ],
@@ -26907,9 +26907,9 @@
       "fs_note": "Qualify as the alternative engine in the exit plan; isolate internal ports and confirm CVE-2026-3059 status for the deployed version before use [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "Strong engine but weaker security hygiene evidence and no verified commercial support; the alternative engine, not the default"
+      "rationale": "Strategic, conditional: as the qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed in the deployed version (NVD and OSV reference a fix in 0.5.10; the GitHub advisory lists none), with internal ports isolated; not the default engine. Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.65), with security 2 carried as the tier condition [AJ]."
     },
     "scores": {
       "criteria": {
@@ -26925,7 +26925,7 @@
       "rationale": {
         "technical": "Leading depth: RadixAttention, PD disaggregation, speculative decoding, quantisation [VF: A4-S010]",
         "enterprise_readiness": "Rule 2: inherits host controls; no verified commercial support, so the 4 cap applies; scored 3 [AJ]",
-        "security_compliance": "Rule 2 hygiene: critical unauthenticated RCE with no patched version listed; disclosure-response concerns [VF: B-L2-S009]",
+        "security_compliance": "Rule 2 hygiene: critical unauthenticated RCE (fix evidenced only by NVD/OSV references to v0.5.10; GitHub advisory lists none), disclosure-response concerns and a reported bypass of an earlier fix [VF: B-L2-S009, B-REVC-S002]; kept at 2 at Checkpoint 4 (CP4-4 changed the tier only; a confirmed fix is the tier condition)",
         "deployment_flexibility": "Self-host, VPC, on-prem; managed via Hugging Face Endpoints [VF: A4-S065, A4-S081]",
         "ecosystem": "OpenAI-compatible; Dynamo backend; RL frameworks [VF: A4-S010, A4-S090, A4-S065]",
         "reliability_maturity": "0.x since January 2024; new commercial steward in May 2026 [VF: A4-S010, A4-S147]",
@@ -28383,34 +28383,34 @@
       "fs_note": "Consume only through a hyperscaler EU region (Bedrock regional endpoint or Google Cloud EU), with a non-Anthropic fallback qualified on the same evaluation suite; independent alternatives are OpenAI GPT-6.1 Sol and Gemini 3.8 Flash [Rec]."
     },
     "classification": {
-      "tier": "Tactical",
+      "tier": "Strategic",
       "flags": [],
-      "rationale": "FS total 3.55 falls just below the normal Strategic line after three borderline calls resolved against Anthropic under the conflict rule (technical, ecosystem, cost); the first-party residency gap and the June 2026 Fable 5 suspension are factual weaknesses; reviewer may re-examine [AJ]."
+      "rationale": "Strategic, conditional: consumed only through a hyperscaler EU or UK region (Bedrock regional endpoint or Google Cloud EU), as one of two frontier and mid-tier vendors with a non-Anthropic fallback qualified on the same evaluation suite, not as the sole frontier model; independent alternatives are OpenAI GPT-6.1 Sol, Gemini 3.8 Flash and Mistral Medium 3.5. FS 3.80 with no criterion below 3. Tier and neutral scoring set by the reader at Checkpoint 4 (CP4-1); the author's pipeline had resolved three borderline scores against Anthropic. Security 5 and cost 4 are the neutral rubric values identified in CP4 review C (previously 4 and 3). The first-party residency gap and the June 2026 Fable 5 suspension remain factual weaknesses and are stated as conditions. Conflict of interest: the author is an Anthropic model [AJ]."
     },
     "scores": {
       "criteria": {
         "technical": 4,
         "enterprise_readiness": 4,
-        "security_compliance": 4,
+        "security_compliance": 5,
         "deployment_flexibility": 3,
         "ecosystem": 4,
         "reliability_maturity": 3,
-        "cost_tco": 3,
+        "cost_tco": 4,
         "lockin_portability": 3
       },
       "rationale": {
-        "technical": "Four GA tiers with 1M context, reasoning, image input and coding (A5-S010); no open-weight, audio or image-output models and no GA specialist line, so fewer plan §5 questions covered than OpenAI or Google; borderline 4/5 resolved against Anthropic (conflict rule).",
+        "technical": "Four GA tiers with 1M context, reasoning, image input and coding (A5-S010); no open-weight, audio or image-output models and no GA specialist line, so fewer plan §5 questions covered than OpenAI or Google; borderline 4/5 resolved against Anthropic (conflict rule). CP4 review C found 4 is also the neutral value on peers; unchanged at CP4.",
         "enterprise_readiness": "Workspaces, Admin API, Compliance API / Activity Feed and WIF verified (A5-S013, A5-S018) plus in-tenant hyperscaler routes (rule 6); not 5 because SSO/SCIM detail and SLA are NPV. Platform controls presumed (CP2 Q1); confirm per service.",
-        "security_compliance": "Product-scoped SOC 2 Type II, ISO 27001 and ISO 42001 would meet the rule-8 threshold for 5, but there is no first-party EU/UK inference geography (V2-S075) and the top tier's ZDR position conflicts between Anthropic pages (A5-S023, A5-S016); borderline resolved against Anthropic.",
+        "security_compliance": "Product-scoped SOC 2 Type II, ISO 27001 and ISO 42001 covering the API and Claude in Bedrock and Google Cloud, plus CMEK in the admin console (A5-S021, V2-S063, A5-S013), meet the rule-8 test for 5. Set to 5, the neutral rubric value, by the reader at Checkpoint 4 (CP4-1; previously held at 4 against Anthropic). Residency and ZDR are optional extras under the anchor, so the absence of a first-party EU/UK inference geography (V2-S075) and the top tier's conflicting ZDR position (A5-S023, A5-S016) are carried as tier conditions, not score deductions; the Azure-hosted Foundry deployment is still 'In-Process Q4 2026' for certification (V2-S063).",
         "deployment_flexibility": "First-party SaaS plus Bedrock, Google Cloud, Foundry and Claude Platform on AWS; no self-hosting or on-premises (A5-S010).",
-        "ecosystem": "Three hyperscalers and an OpenAI SDK compatibility endpoint (A5-S010); the API itself is not the de facto standard; borderline 4/5 resolved against Anthropic.",
+        "ecosystem": "Three hyperscalers and an OpenAI SDK compatibility endpoint (A5-S010); the API itself is not the de facto standard; borderline 4/5 resolved against Anthropic. CP4 review C found 4 is also the neutral value on peers; unchanged at CP4.",
         "reliability_maturity": "Published retirement commitments (A5-S010) are positive, but top-tier access was suspended 12 June to 1 July 2026 (V2-S004), four models shipped in five weeks, and the D.C. Circuit upheld a federal supply-chain-risk designation (A5-S084).",
-        "cost_tco": "Transparent; Sonnet 5.5 and Haiku 5.5 match OpenAI's equivalent tiers (A5-S011), but EU processing carries a 10% regional premium and the recommended default (Opus 5.5, US$4/US$20) costs twice the mid tier; borderline 3/4 resolved against Anthropic.",
+        "cost_tco": "Transparent; list prices equal OpenAI's at every tier (Fable 5.1 = Astra US$10/US$50; Sonnet 5.5 = GPT-6.1 Sol US$2/US$10; Haiku 5.5 = Luna US$0.10/US$0.50 per 1M) with a 50% batch discount (A5-S011, A5-S004), and OpenAI scores 4. The 10% regional premium does not hold peers at 3 (Mistral and Grok score 4), and the dearer recommended default (Opus 5.5, US$4/US$20) is a deployment choice, not a vendor price. Set to 4, the neutral rubric value, by the reader at Checkpoint 4 (CP4-1; previously 3).",
         "lockin_portability": "Proprietary API with no open weights, but on three clouds and with an OpenAI-compatible endpoint, so a gateway can switch it out."
       },
       "evidence_caps_applied": [],
-      "generic_total": 3.6,
-      "fs_total": 3.55
+      "generic_total": 3.85,
+      "fs_total": 3.8
     },
     "sources": [
       "A5-S010",
@@ -28800,7 +28800,7 @@
       },
       "rationale": {
         "technical": "Large MoE reasoning models with 1M context and vision in Flash (A5-S063, A5-S064); no capability claim taken from vendor benchmarks.",
-        "enterprise_readiness": "4 only for the Microsoft Foundry in-tenant route (rule 6; A5-S087); DeepSeek's own API has no verified SSO/RBAC/audit and would be capped at 2. Platform controls presumed (CP2 Q1); confirm per service.",
+        "enterprise_readiness": "4 only for the Microsoft Foundry route, where Azure sells DeepSeek V4 directly and processes it in-tenant in the customer's geography (rule 6; A5-S087); DeepSeek's own API has no verified SSO/RBAC/audit and would be capped at 2. Hosting caveat (CP4-3): on Azure, Microsoft Foundry's Kimi K3 and GLM-5.x run on Fireworks outside the customer tenant, while DeepSeek V4 is sold directly and processed in-tenant (A5-S087). Kept at 4 by the reader at Checkpoint 4 (CP4-3). Platform controls presumed (CP2 Q1); confirm per service.",
         "security_compliance": "Hosted API meets anchor 1: no verified certification, PRC storage (A5-S062) and an unremediated Garante limitation (A5-S048, V2-S023). Self-hosted weights would score about 3 under rule 2 (inherits host controls), with CAISI's hijacking findings (A5-S049) as a model-behaviour risk.",
         "deployment_flexibility": "Self-host and air-gap possible (MIT), Foundry in-tenant, own SaaS; 4 not 5 because the vendor SaaS is PRC-only and V4 is not on Bedrock or Google Cloud (A5-S086, A5-S027).",
         "ecosystem": "Broad open-serving support and third-party hosts (A5-S039, A5-S044, A5-S087).",
@@ -30576,7 +30576,7 @@
         "Bedrock offers K3 only through cross-Region profiles (US, India, global); Foundry's K3 is Fireworks-operated with inference outside the customer's tenant [VF: A5-S086, A5-S087]",
         "Custom Kimi K3 License with revenue and MAU thresholds, not MIT [VF: A5-S069] [R: V2-S015]",
         "CAISI with UK AISI (July 2026): below frontier cyber capability; safeguards did not stop attempted exploit development; K2 Thinking heavily censored in Chinese [VF: A5-S051, V2-S021]",
-        "Anthropic alleges that Moonshot distilled Claude; unadjudicated competitor allegation [VF: A5-S046, V2-S022]",
+        "Context only, not a scored limitation: Anthropic alleges that Moonshot distilled Claude; this is an unadjudicated competitor allegation and the author is an Anthropic model, so it is not used in any score [VF: A5-S046, V2-S022]",
         "Certifications, access controls and support not publicly verified [NPV]"
       ],
       "choose_when": [
@@ -30610,7 +30610,7 @@
       },
       "rationale": {
         "technical": "One flagship plus a coding variant; CAISI places K3 below frontier cyber capability (A5-S051); narrower lineup than peers.",
-        "enterprise_readiness": "Bedrock (AWS-operated, cross-Region) route gives the hyperscaler presumption (rule 6); the Foundry route is a third-party pass-through and the Kimi API's controls are NPV (would be 2). Platform controls presumed (CP2 Q1); confirm per service.",
+        "enterprise_readiness": "The Bedrock (AWS-operated) route, through US, India and global cross-Region profiles only (A5-S086), gives the hyperscaler presumption (rule 6). Hosting caveat (CP4-3): on Azure, Microsoft Foundry's Kimi K3 and GLM-5.x run on Fireworks outside the customer tenant, while DeepSeek V4 is sold directly and processed in-tenant (A5-S087). The Azure route therefore does not support this score, and the Kimi API's controls are NPV (would be 2). Kept at 4 by the reader at Checkpoint 4 (CP4-3). Platform controls presumed (CP2 Q1); confirm per service.",
         "security_compliance": "Certifications NPV (cap 2); Singapore storage; training-policy conflict (A5-S070).",
         "deployment_flexibility": "Own API, Bedrock cross-Region only, Foundry outside tenant, self-host of 2.8T weights; no in-region managed route.",
         "ecosystem": "SGLang, Xinference and two hyperscalers, but the current model reaches them only through cross-Region or pass-through routes.",
@@ -31754,7 +31754,7 @@
       },
       "rationale": {
         "technical": "Large agentic/coding model, a multimodal MIT Flash tier and an image model; CAISI's independent assessment places GLM-5.3 near the frontier on cyber tasks (A5-S052).",
-        "enterprise_readiness": "Bedrock (AWS-operated) route gives the hyperscaler presumption (rule 6); Z.ai API controls NPV (would be 2). Platform controls presumed (CP2 Q1); confirm per service.",
+        "enterprise_readiness": "The Bedrock (AWS-operated) route gives the hyperscaler presumption (rule 6): GLM 5.3 cross-Region only from 5 October 2026, GLM 5 in-Region in London (A5-S086). Hosting caveat (CP4-3): on Azure, Microsoft Foundry's Kimi K3 and GLM-5.x run on Fireworks outside the customer tenant, while DeepSeek V4 is sold directly and processed in-tenant (A5-S087). The Azure route therefore does not support this score, and Z.ai API controls are NPV (would be 2). Kept at 4 by the reader at Checkpoint 4 (CP4-3). Platform controls presumed (CP2 Q1); confirm per service.",
         "security_compliance": "Certifications NPV (cap 2); Singapore processing and DPA conflict (A5-S073).",
         "deployment_flexibility": "Own API, three hyperscalers (London in-Region for GLM 5), Mistral platform, self-host and on-premises.",
         "ecosystem": "Present on many platforms, but the current GLM-5.3 reaches them via cross-Region or pass-through routes; Mistral retires GLM 5.2 on its platform on 31 October 2026 (B-L1-S002).",

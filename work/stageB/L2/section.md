@@ -363,8 +363,8 @@ STEP 2 [Rec]: Is the model you need available, processed in your approved region
            └─ Yes → Do you have, or will you fund, GPU capacity AND an SRE team that
                     can patch engines monthly and run on-call?
                     ├─ No  → PRIVATE-VPC MANAGED INFERENCE: Fireworks BYOC or EU
-                    │        (Strategic, conditional: once its ISO certificates are confirmed)
-                    │        dedicated deployment; Together EU dedicated endpoint
+                    │        dedicated deployment (Strategic, conditional: once its ISO
+                    │        certificates are confirmed); Together EU dedicated endpoint
                     │        (Scale/Enterprise, ZDR on); HF Inference Endpoints in an
                     │        approved region with PrivateLink.
                     └─ Yes → OWN GPUs: vLLM (supported distribution if your operating

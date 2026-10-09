@@ -1,6 +1,6 @@
 ## 3. Agent frameworks and orchestration
 
-> **Conflict-of-interest disclosure.** The author is an Anthropic model, and the Claude Agent SDK assessed in this section is an Anthropic product [VF: A4-S092, A4-S027]. It was scored on the same rubric as every other framework. Its limitations are recorded in full in §3.7, borderline calls on it were resolved against it, and independent alternatives are named wherever it is mentioned [AJ].
+> **Conflict-of-interest disclosure.** The author is an Anthropic model, and the Claude Agent SDK assessed in this section is an Anthropic product [VF: A4-S092, A4-S027]. It was scored on the same rubric as every other framework. Its limitations are recorded in full in §3.7, borderline calls on it were resolved against it, and independent alternatives are named wherever it is mentioned [AJ]. At Checkpoint 4 the reader set its maturity score to 2, the same as the OpenAI Agents SDK (CP4-9); its tier stays Experimental [AJ].
 
 > **Executive summary.** This layer decides how an AI application sequences model calls, tool calls, state and human decisions, and what happens when a step fails half-way. Four things have changed since the original graphic. First, every major framework now ships two modes: a deterministic workflow or graph engine, and an autonomous agent loop. LangGraph combines both in one graph [VF: A4-S039]; Microsoft Agent Framework separates Agents from graph-based Workflows [VF: A4-S066]; CrewAI pairs Flows with Crews [VF: A4-S050]; Google ADK 2.0 added a Workflow Runtime [VF: A4-S114]. Second, durable execution has become a separate concern, delegated to engines such as Temporal: Pydantic AI v2 attaches durability through Temporal, DBOS or Prefect, the OpenAI Agents SDK integrates Temporal and DBOS, and Mistral Workflows is built on Temporal [VF: A4-S045, A4-S052, A4-S058]. Third, the vendor estate has been reshaped: Microsoft Agent Framework reached GA on 2 April 2026 as successor to Semantic Kernel and AutoGen, with AutoGen in maintenance mode [VF: A4-S008, A4-S012, A4-S021, V1-S050]; OpenAI's Agent Builder shuts down on 30 November 2026 [VF: A4-S054, V1-S051]; LangGraph Platform is now LangSmith Deployment [VF: A4-S031, V1-S056]; LlamaIndex says its focus has moved to LlamaParse [VF: A4-S117]; and no distinct "Mistral Agents SDK" exists [VF: A4-S057]. Fourth, the hyperscalers now sell framework-agnostic agent runtimes, such as Amazon Bedrock AgentCore, which runs each session in its own microVM [VF: A4-S116, B-L3-S004]. The graphic's single "agent framework" row hides the most important architectural choice in the stack: whether a process is a workflow or an agent [AJ]. **Recommendation:** build regulated use cases as deterministic workflow graphs with bounded LLM steps, run them on a durable-execution substrate, and keep approval gates and state in firm-controlled stores. Standardise on one framework per language estate (LangGraph by default; Microsoft Agent Framework in Microsoft estates; Google ADK or Strands with AgentCore where Google Cloud or AWS is the primary cloud), use Temporal (or DBOS) for durability, and admit autonomous agent loops only as sandboxed sub-steps with read-only tools [Rec].
 
@@ -170,7 +170,7 @@ The key design choice is that the graph, not the model, owns the control flow, a
 - *Avoid when:* you need a vendor platform with SLAs [AJ].
 - *Competitors:* LangGraph, OpenAI Agents SDK, Temporal with a thin SDK.
 - *FS note:* pin the major version and plan migrations against the v1 support window [Rec].
-- **Tier: Tactical. No flag.** At 3.55 FS it is close to Strategic; the major-version churn and absence of verified support keep it Tactical [AJ].
+- **Tier: Strategic, conditional: for Python teams wanting type-safe agents. No flag.** Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores are unchanged (FS 3.55). The major-version churn and the absence of verified support are carried as conditions: pin the major version and run it inside a Temporal or DBOS workflow [AJ].
 
 **CrewAI (crewAI, Inc.).**
 - *What it is now:* an MIT framework with two modes. Crews are teams of role-playing agents that collaborate autonomously; Flows are event-driven, stateful process definitions (@start, @listen, @router) that can trigger Crews [VF: A4-S004, A4-S050]. The vendor recommends Flows as the outer "process definition" with Crews invoked inside for autonomous steps [VF: A4-S050]. crewai 1.15.24 was released on 7 October 2026 (1.15.25 followed hours later), and 1.0.0 on 20 October 2025 [VF: A4-S004, V1-S075].
@@ -197,7 +197,7 @@ The key design choice is that the graph, not the model, owns the control flow, a
 - **Tier: Tactical. No flag.**
 
 **Claude Agent SDK (Anthropic).**
-- *Conflict of interest:* this is an Anthropic product, assessed by an Anthropic model. It was scored on the same rubric, borderline calls (technical, deployment, maturity) were resolved against it, and independent alternatives are named below [AJ].
+- *Conflict of interest:* this is an Anthropic product, assessed by an Anthropic model. It was scored on the same rubric, borderline calls (technical, deployment, maturity) were resolved against it in the draft, and independent alternatives are named below [AJ]. The reader set maturity to 2 at Checkpoint 4 (CP4-9), the same as the OpenAI Agents SDK; technical 3 and deployment 3 are the peer-consistent values (CP4 review C) [AJ].
 - *What it is now:* an agent harness SDK, formerly the Claude Code SDK (renamed 29 September 2025; the old package is deprecated) [VF: A4-S028, A4-S011, V1-S049]. It gives developers the agent loop, built-in file, shell and web tools, hooks, subagents, MCP, permissions, resumable and forkable sessions, skills and plugins that power Claude Code [VF: A4-S027]. claude-agent-sdk 0.2.164 (6 October 2026) carries the PyPI classifier "Development Status: 3 - Alpha"; the TypeScript package is 0.3.293 [VF: A4-S006, A4-S023].
 - *Architecture:* the SDK spawns and supervises one Claude Code CLI subprocess per session over stdio; that subprocess owns a shell, a working directory and session transcripts on local disk, which do not survive a container restart unless a session store is configured [VF: A4-S122]. It is not a deterministic workflow engine [VF: A4-S027, A4-S122].
 - *Licence and terms:* the Python repository licence is MIT, the npm licence field reads "SEE LICENSE IN README.md", and Anthropic's docs state that use of the SDK is governed by Anthropic's Commercial Terms of Service [VF: A4-S092, A4-S006, A4-S023, V1-S048]. Third-party products may not present themselves as Claude Code [VF: A4-S027].
@@ -208,7 +208,7 @@ The key design choice is that the graph, not the model, owns the control flow, a
 - *Avoid when:* you need model portability, a workflow engine, or a non-Alpha dependency for a regulated process [AJ].
 - *Independent alternatives:* LangGraph or Pydantic AI for the workflow and agent step (both model-agnostic, MIT); the OpenAI Agents SDK as a comparable harness from another model vendor [AJ].
 - *FS note:* run only in sandboxed containers with network control, under a workflow engine that owns state and approvals; record the Commercial Terms in the third-party file [Rec].
-- **Tier: Experimental. Flag: Renamed** (Claude Code SDK → Claude Agent SDK).
+- **Tier: Experimental. Flag: Renamed** (Claude Code SDK → Claude Agent SDK). Maturity scores 2 (CP4-9), FS 2.75; the vendor's own Alpha label ("Development Status: 3 - Alpha" on PyPI) is noted as a limitation and is one reason the tier stays Experimental [VF: A4-S006, B-REVC-S001] [AJ].
 
 **Mistral Agents API and Mistral Workflows (Mistral AI).**
 - *What it is now:* there is no separately branded "Mistral Agents SDK" [VF: A4-S057]. The **Agents API** creates persistent agents with built-in connectors (code execution, web search, image generation, document library, MCP), branchable stateful conversations and handoffs executed server- or client-side, reached through the general `mistralai` SDKs (Python 3.1.0, 6 October 2026) [VF: A4-S057, A4-S007]. **Mistral Workflows** (`mistralai-workflows` 3.15.0, Beta) is a Python SDK with decorators for retries, timeouts, tracing, rate limiting and HITL, built on Temporal with a Mistral-hosted control plane and customer-run workers on Kubernetes [VF: A4-S058, A4-S061].
@@ -253,7 +253,7 @@ The key design choice is that the graph, not the model, owns the control flow, a
 - *Avoid when:* runtime parity across clouds is required [AJ].
 - *Competitors:* Microsoft Agent Framework, LangGraph, Strands with AgentCore.
 - *FS note:* treat Agent Engine as a hyperscaler service under CP2 Q1 (platform controls presumed; confirm per service) [Rec].
-- **Tier: Strategic, conditional: where Google Cloud is your primary cloud (CP3 rule 10: ADK on Agent Engine is Google's lead agent framework and runtime, the counterpart of Strands with AgentCore on AWS and Microsoft Agent Framework on Azure). No flag.** Changed from Tactical at the CP4 calibration review for rule-10 parity; the scores are unchanged and still treat ADK as a library under rule 2 [AJ].
+- **Tier: Strategic, conditional: where Google Cloud is your primary cloud (CP3 rule 10: ADK on Agent Engine is Google's lead agent framework and runtime, the counterpart of Strands with AgentCore on AWS and Microsoft Agent Framework on Azure). No flag.** Changed from Tactical at the CP4 calibration review for rule-10 parity and confirmed by the reader at Checkpoint 4 (CP4-4); the scores are unchanged and still treat ADK as a library under rule 2 [AJ].
 
 **Strands Agents and Amazon Bedrock AgentCore (AWS).**
 - *What it is now:* Strands is an Apache-2.0, model-driven agent SDK (1.58.1; 1.0 on 15 July 2025) [VF: A4-S018, A4-S115]. AgentCore deploys and operates agents "using any framework and model" (Strands, LangGraph, CrewAI, AutoGen or custom), with Runtime, Memory, Gateway, Identity, Code Interpreter, Browser and OTel observability, and supports the AG-UI protocol [VF: A4-S116]. AgentCore has been GA since 13 October 2025 [VF: V1-S087]. The AgentCore Python SDK is still classified Alpha [VF: A4-S121].
@@ -289,10 +289,10 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | L3-langgraph | 5 | 4 | 4 | 5 | 5 | 4 | 4 | 3 | 4.40 | 4.20 | Strategic |
 | L3-llamaindex | 3 | 3 | 3 | 4 | 4 | 2 | 4 | 3 | 3.25 | 3.15 | Tactical |
-| L3-pydantic-ai | 4 | 3 | 3 | 4 | 4 | 3 | 4 | 4 | 3.60 | 3.55 | Tactical |
+| L3-pydantic-ai | 4 | 3 | 3 | 4 | 4 | 3 | 4 | 4 | 3.60 | 3.55 | Strategic |
 | L3-crewai | 3 | 3 | 3 | 4 | 4 | 3 | 3 | 3 | 3.25 | 3.20 | Tactical |
 | L3-openai-agents-sdk | 4 | 3 | 3 | 4 | 4 | 2 | 4 | 3 | 3.45 | 3.30 | Tactical |
-| L3-claude-agent-sdk | 3 | 3 | 3 | 3 | 3 | 1 | 3 | 2 | 2.75 | 2.65 | Experimental |
+| L3-claude-agent-sdk | 3 | 3 | 3 | 3 | 3 | 2 | 3 | 2 | 2.85 | 2.75 | Experimental |
 | L3-mistral-agents | 3 | 2 | 3 | 3 | 3 | 2 | 2 | 2 | 2.60 | 2.55 | Experimental |
 | L3-vercel-ai-sdk | 3 | 3 | 3 | 4 | 4 | 2 | 4 | 3 | 3.25 | 3.15 | Tactical |
 | L3-microsoft-agent-framework | 4 | 4 | 3 | 4 | 4 | 4 | 4 | 3 | 3.80 | 3.65 | Strategic |
@@ -305,9 +305,9 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - **Bundled commercial platforms.** LangGraph is scored with LangSmith Deployment, and CrewAI with AMP, because their records include the managed runtime. LangGraph security is 4, not 5: ISO 27001 scope is unconfirmed (rule 8), and its patched checkpoint advisories show working CVE handling rather than a clean record [VF: A4-S149, B-L3-S007].
 - **NPV cap.** Mistral enterprise readiness is capped at 2: no SSO, RBAC or audit evidence [NPV]. CrewAI has SSO and RBAC verified but no SCIM, SLA or audit, so rule 7 gives 3.
 - **Hyperscaler rules.** AgentCore takes enterprise readiness 4 under rule 6 (platform controls presumed (CP2 Q1); confirm per service) and security 4 under rule 8 (service in scope, SOC 2 type not stated) [VF: B-L5-S003]. It is Strategic, conditional under rule 10 as AWS's lead agent runtime, with deployment and lock-in at 2 allowed by rule 11 because the condition is an existing AWS commitment. This matches AgentCore Memory (L5) and AgentCore Gateway (C1) on security and deployment.
-- **Conflict-of-interest calls on the Claude Agent SDK.** Technical (3, not 4), deployment (3, not 4) and maturity (1, not 2) were each borderline and were resolved against it. Maturity 1 applies the "pre-1.0 or beta" anchor strictly because the package is explicitly classified Alpha [VF: A4-S006]; the OpenAI Agents SDK is also pre-1.0 but declares no Development Status classifier on PyPI, and scores 2 [VF: B-REVC-S001]. A reviewer may reasonably score both at 1 or both at 2; neither change alters a tier. The CP4 calibration review left the Claude Agent SDK score unchanged and put the question to the reader (CP4 review C) [AJ].
+- **Conflict-of-interest calls on the Claude Agent SDK.** The draft resolved technical (3, not 4), deployment (3, not 4) and maturity (1, not 2) against it. The CP4 calibration review found technical 3 and deployment 3 to be peer-consistent: the OpenAI Agents SDK has Temporal and DBOS durability integrations and provider-agnostic models, and the Claude Agent SDK has neither [VF: A4-S052, A4-S027, A4-S122]. On maturity, the package is explicitly classified Alpha [VF: A4-S006, B-REVC-S001], while the OpenAI Agents SDK is also pre-1.0 but declares no Development Status classifier on PyPI [VF: B-REVC-S001]. The reader decided at Checkpoint 4 that both pre-1.0 SDKs score 2 (CP4-9): the Claude Agent SDK moves from 1 to 2 (FS 2.65 to 2.75), the Alpha label is recorded as a limitation, and the tier stays Experimental [AJ].
 - **Calibration.** Six products have a criterion at 2 or below. LangGraph is the only 5 on technical; Temporal and LangGraph are the only 5s on deployment.
-- **Tiers versus totals.** AgentCore (3.25) and Google ADK (3.35) are Strategic below 3.6 by rule 10, each conditional on its cloud being the primary cloud; Microsoft Agent Framework (3.65) is Strategic on score, conditional on a Microsoft estate. Each hyperscaler therefore has one conditional Strategic agent framework or runtime (CP4 calibration change for ADK). Pydantic AI (3.55) is Tactical despite being close to the threshold, because of major-version churn.
+- **Tiers versus totals.** AgentCore (3.25) and Google ADK (3.35) are Strategic below 3.6 by rule 10, each conditional on its cloud being the primary cloud; Microsoft Agent Framework (3.65) is Strategic on score, conditional on a Microsoft estate. Each hyperscaler therefore has one conditional Strategic agent framework or runtime (CP4 calibration change for ADK, confirmed by the reader at CP4-4). Pydantic AI (3.55) was drafted as Tactical because of major-version churn; the reader upgraded it to Strategic, conditional, for Python teams wanting type-safe agents (CP4-4), with no score change.
 
 **Key facts.**
 
@@ -344,6 +344,7 @@ STEP 1 [Rec]: Framework (one per language estate; do not wrap frameworks in a fi
   └─ No  → Python or TypeScript back end?
            ├─ Yes → LangGraph (default)
            │        alt: Pydantic AI + Temporal/DBOS where typed I/O matters most
+           │             (Strategic, conditional: Python teams wanting type-safe agents)
            │        alt: Google ADK where Google Cloud / Agent Engine is the platform
            └─ TypeScript application tier streaming to a browser → Vercel AI SDK
               (+ Workflow SDK, or call a back-end LangGraph/Temporal workflow)
@@ -443,7 +444,7 @@ STEP 5 [Rec]: Checks before go-live
 |---|---|---|
 | LangGraph "workflow" | Both workflows and agent loops; 1.x GA; LangGraph Platform renamed LangSmith Deployment [VF: A4-S039, A4-S001, A4-S031] | Strategic default framework [Rec] |
 | LlamaIndex "document agents" | Framework 0.x with Workflows; vendor focus moved to LlamaParse (formerly LlamaCloud) [VF: A4-S002, A4-S117, A4-S042] | Tactical: retrieval toolkit; LlamaParse in L8 [Rec] |
-| Pydantic AI "type-safe" | v2; durability via Temporal, DBOS or Prefect [VF: A4-S003, A4-S045] | Tactical: typed agent step [Rec] |
+| Pydantic AI "type-safe" | v2; durability via Temporal, DBOS or Prefect [VF: A4-S003, A4-S045] | Strategic, conditional: Python teams wanting type-safe agents; typed agent step inside a durable workflow (CP4-4) [Rec] |
 | CrewAI "multi-agent" | Crews plus Flows; AMP platform (earlier materials: CrewAI Enterprise) [VF: A4-S050, V1-S075] | Tactical: Flows for any regulated process [Rec] |
 | Agent SDK (OpenAI logo) | OpenAI Agents SDK (0.x); hosted Agents API beta; Agent Builder shuts 30 Nov 2026 [VF: A4-S005, A4-S055, A4-S054] | Tactical: sandboxed agent sub-step [Rec] |
 | Agent SDK (Anthropic logo) | Claude Agent SDK, renamed from Claude Code SDK; Alpha; Commercial Terms [VF: A4-S028, A4-S006, A4-S092] | Experimental: sandboxed sub-step only (conflict of interest disclosed) [Rec] |

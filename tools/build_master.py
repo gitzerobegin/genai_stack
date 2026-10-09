@@ -90,7 +90,7 @@ open(os.path.join(OUT, "Master_Architecture.md"), "w", encoding="utf-8").write(f
 # --- Word edition with footnote-style tags
 conv = convert_markdown(full, src, regidx, prodidx)
 open("work/stageD/Master_Architecture.pandoc.md", "w", encoding="utf-8").write(conv)
-cmd = ["pandoc", "work/stageD/Master_Architecture.pandoc.md", "-f", "markdown+pipe_tables+bracketed_spans+footnotes-implicit_figures",
+cmd = ["pandoc", "work/stageD/Master_Architecture.pandoc.md", "-f", "markdown+pipe_tables+bracketed_spans+footnotes-implicit_figures-tex_math_dollars-raw_tex-tex_math_single_backslash",
        "-o", os.path.join(OUT, "Master_Architecture.docx"), "--toc", "--toc-depth=2",
        "--reference-doc=tools/templates/reference.docx"]
 r = subprocess.run(cmd, capture_output=True, text=True)

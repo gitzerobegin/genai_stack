@@ -94,10 +94,10 @@
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | L3-langgraph | 5 | 4 | 4 | 5 | 5 | 4 | 4 | 3 | 4.40 | 4.20 | Strategic |
 | L3-llamaindex | 3 | 3 | 3 | 4 | 4 | 2 | 4 | 3 | 3.25 | 3.15 | Tactical |
-| L3-pydantic-ai | 4 | 3 | 3 | 4 | 4 | 3 | 4 | 4 | 3.60 | 3.55 | Tactical |
+| L3-pydantic-ai | 4 | 3 | 3 | 4 | 4 | 3 | 4 | 4 | 3.60 | 3.55 | Strategic |
 | L3-crewai | 3 | 3 | 3 | 4 | 4 | 3 | 3 | 3 | 3.25 | 3.20 | Tactical |
 | L3-openai-agents-sdk | 4 | 3 | 3 | 4 | 4 | 2 | 4 | 3 | 3.45 | 3.30 | Tactical |
-| L3-claude-agent-sdk | 3 | 3 | 3 | 3 | 3 | 1 | 3 | 2 | 2.75 | 2.65 | Experimental |
+| L3-claude-agent-sdk | 3 | 3 | 3 | 3 | 3 | 2 | 3 | 2 | 2.85 | 2.75 | Experimental |
 | L3-mistral-agents | 3 | 2 | 3 | 3 | 3 | 2 | 2 | 2 | 2.60 | 2.55 | Experimental |
 | L3-vercel-ai-sdk | 3 | 3 | 3 | 4 | 4 | 2 | 4 | 3 | 3.25 | 3.15 | Tactical |
 | L3-microsoft-agent-framework | 4 | 4 | 3 | 4 | 4 | 4 | 4 | 3 | 3.80 | 3.65 | Strategic |
@@ -110,7 +110,7 @@
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | L2-vllm | 5 | 4 | 3 | 5 | 5 | 4 | 4 | 5 | 4.35 | 4.30 | Strategic |
-| L2-sglang | 5 | 3 | 2 | 5 | 4 | 3 | 4 | 4 | 3.80 | 3.65 | Tactical |
+| L2-sglang | 5 | 3 | 2 | 5 | 4 | 3 | 4 | 4 | 3.80 | 3.65 | Strategic |
 | L2-nvidia-dynamo | 4 | 3 | 2 | 4 | 3 | 2 | 3 | 3 | 3.10 | 3.00 | Experimental |
 | L2-llm-d | 4 | 3 | 2 | 4 | 4 | 2 | 3 | 5 | 3.30 | 3.35 | Experimental |
 | L2-ollama | 3 | 2 | 2 | 4 | 4 | 2 | 4 | 4 | 3.00 | 2.95 | Tactical |
@@ -118,7 +118,7 @@
 | L2-hugging-face | 4 | 4 | 3 | 3 | 5 | 3 | 4 | 4 | 3.70 | 3.60 | Strategic |
 | L2-openrouter | 4 | 4 | 3 | 2 | 4 | 3 | 3 | 2 | 3.25 | 3.05 | Tactical |
 | L2-together-ai | 4 | 3 | 3 | 4 | 3 | 3 | 4 | 4 | 3.50 | 3.50 | Tactical |
-| L2-fireworks-ai | 4 | 4 | 3 | 4 | 4 | 3 | 3 | 4 | 3.65 | 3.65 | Tactical |
+| L2-fireworks-ai | 4 | 4 | 3 | 4 | 4 | 3 | 3 | 4 | 3.65 | 3.65 | Strategic |
 | L2-cerebras | 3 | 3 | 2 | 3 | 3 | 3 | 3 | 3 | 2.85 | 2.80 | Tactical |
 
 ## L1
@@ -126,7 +126,7 @@
 | Product | Tech | Ent | Sec | Deploy | Eco | Mature | Cost | Lock-in | Generic | FS | Tier |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | L1-openai | 5 | 4 | 4 | 4 | 5 | 4 | 4 | 3 | 4.25 | 4.05 | Strategic |
-| L1-anthropic | 4 | 4 | 4 | 3 | 4 | 3 | 3 | 3 | 3.60 | 3.55 | Tactical |
+| L1-anthropic | 4 | 4 | 5 | 3 | 4 | 3 | 4 | 3 | 3.85 | 3.80 | Strategic |
 | L1-google-gemini | 5 | 4 | 4 | 2 | 3 | 3 | 3 | 2 | 3.50 | 3.35 | Strategic |
 | L1-xai-grok | 4 | 4 | 3 | 3 | 4 | 3 | 4 | 2 | 3.50 | 3.25 | Tactical |
 | L1-deepseek | 4 | 4 | 1 | 4 | 4 | 2 | 3 | 4 | 3.25 | 3.15 | Tactical |
@@ -224,4 +224,3 @@
 | C8-modelop | 4 | 3 | 2 | 4 | 3 | 2 | 2 | 3 | 3.00 | 2.95 | Tactical |
 | C8-collibra-ai-governance | 4 | 3 | 4 | 2 | 4 | 3 | 2 | 3 | 3.20 | 3.20 | Tactical |
 | C8-openlineage | 3 | 3 | 3 | 5 | 5 | 4 | 4 | 5 | 3.80 | 3.85 | Strategic |
-
