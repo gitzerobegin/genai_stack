@@ -30,9 +30,10 @@ try:
     doc.refresh()
     for i in range(idx.getCount()):  # second pass: page numbers settle after the TOC itself takes space
         idx.getByIndex(i).update()
+    n = idx.getCount()
     doc.storeToURL(uno.systemPathToFileUrl(dst), (prop("FilterName", "writer_pdf_Export"),))
     doc.close(True)
-    print("pdf ok, indexes:", idx.getCount())
+    print("pdf ok, indexes:", n)
 finally:
     office.terminate()
     try: office.wait(30)

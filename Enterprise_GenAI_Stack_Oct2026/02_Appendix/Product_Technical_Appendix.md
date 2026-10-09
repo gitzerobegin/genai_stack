@@ -60,7 +60,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | MLflow open-source project; code copyright Databricks, Inc. | Verified fact | A1-S019, A1-S103 |
 | Category | Open-source AI engineering platform for agents, LLMs and ML models | Verified fact | A1-S103 |
 | Version / lineup | mlflow 3.17.0, released 7 October 2026 | Verified fact | A1-S019 |
@@ -136,7 +136,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Langfuse, acquired by ClickHouse, Inc. (announced January 2026); repository copyright now 'ClickHouse, Inc.' | Verified fact | A1-S021, A1-S022, A1-S023, A1-S073, V1-S007 |
 | Category | Open-core LLM engineering platform: tracing/observability, prompt management, evaluations, datasets and playground | Verified fact | A1-S073 |
 | Version / lineup | Python SDK langfuse 4.17.0, released 5 October 2026 (server release number not verified) | Verified fact | A1-S001 |
@@ -211,7 +211,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | LangChain, Inc. (independent; US$125M Series B at US$1.25B valuation, 20 October 2025) | Verified fact | A1-S038 |
 | Category | Proprietary agent and LLM observability, evaluation and deployment platform (now also hosting LangSmith Fleet, Engine, Sandboxes and an LLM Gateway) | Verified fact | A1-S034, A1-S039 |
 | Version / lineup | SaaS (continuously released); Python SDK langsmith 0.14.4, released 2 October 2026 | Verified fact | A1-S002 |
@@ -288,7 +288,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Comet ML, Inc. (Comet) | Verified fact | A1-S050, A1-S071, A1-S006 |
 | Category | Open-source LLM observability, evaluation, prompt/agent optimisation and guardrails platform | Verified fact | A1-S067 |
 | Version / lineup | opik 2.2.94 (Python SDK), released 7 October 2026 | Verified fact | A1-S006 |
@@ -361,7 +361,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Arize AI, a Dynatrace company (acquisition completed 1 October 2026) | Verified fact | A1-S044, A1-S045, V1-S005 |
 | Category | Commercial AI agent observability and evaluation platform (SaaS or licensed private deployment) | Verified fact | A1-S046, A1-S047 |
 | Version / lineup | SaaS; Python SDK arize 8.58.0, released 7 October 2026; tiers AX Free, AX Pro, AX Enterprise | Verified fact | A1-S007, A1-S047 |
@@ -438,7 +438,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Confident AI (maintainer; also sells the Confident AI evals and observability platform) | Verified fact | A1-S068, A1-S051 |
 | Category | Open-source LLM evaluation framework ('similar to Pytest but specialised for unit testing LLM apps') | Verified fact | A1-S068 |
 | Version / lineup | deepeval 4.2.8, released 2 October 2026 | Verified fact | A1-S005 |
@@ -513,7 +513,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Promptfoo, now part of OpenAI (acquisition agreement announced 9 March 2026; README states 'Promptfoo is now part of OpenAI') | Verified fact | A1-S024, A1-S025, A1-S062 |
 | Category | Open-source CLI and library for LLM evals and red teaming, plus Promptfoo Enterprise (SaaS and On-Prem) | Verified fact | A1-S062, A1-S063 |
 | Version / lineup | promptfoo 0.124.0 (npm), published 6 October 2026 | Verified fact | A1-S020 |
@@ -590,7 +590,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Arize AI, a Dynatrace company (Dynatrace completed the acquisition on 1 October 2026) | Verified fact | A1-S044, A1-S045, V1-S005 |
 | Category | Source-available (ELv2), self-hosted AI observability and evaluation platform | Verified fact | A1-S048, A1-S066, A1-S107 |
 | Version / lineup | arize-phoenix 20.19.0, released 1 October 2026 | Verified fact | A1-S004 |
@@ -667,7 +667,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Weights & Biases, part of CoreWeave, Inc. (acquisition completed 5 May 2025); now a named product within CoreWeave Forge | Verified fact | A1-S131, A1-S138 |
 | Category | Tracing and evaluation toolkit for AI agents and LLM applications | Verified fact | A1-S104 |
 | Version / lineup | weave 0.53.11 (Python), released 25 September 2026 | Verified fact | A1-S018 |
@@ -742,7 +742,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Braintrust (independent, venture-backed; no acquisition found) | Verified fact | A1-S028 |
 | Category | Proprietary AI evaluation and observability platform, marketed as 'the active observability platform for agents' | Verified fact | A1-S043 |
 | Version / lineup | SaaS; Python SDK braintrust 0.45.0, released 7 October 2026 | Verified fact | A1-S003 |
@@ -818,7 +818,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Datadog, Inc. | Verified fact | A1-S097 |
 | Category | APM-vendor LLM/agent observability and evaluation module | Verified fact | A1-S097 |
 | Version / lineup | SaaS module of the Datadog platform (continuous release) | Verified fact | A1-S097 |
@@ -896,7 +896,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Docling Project, hosted by the LF AI & Data Foundation; started by IBM Research Zurich | Verified fact | A1-S057, V1-S091 |
 | Category | Open-source document conversion and parsing toolkit (PDF, Office, HTML, images, audio) with VLM pipelines and chunking | Verified fact | A1-S057, A1-S111 |
 | Version / lineup | docling 2.135.0, released 7 October 2026; docling-serve has a stable v1 API | Verified fact | A1-S008, A1-S082 |
@@ -973,7 +973,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Unstructured (Unstructured-IO) | Verified fact | A1-S075, A1-S012 |
 | Category | Document partitioning and ETL for LLMs: open-source library plus commercial hosted API | Verified fact | A1-S075 |
 | Version / lineup | unstructured 0.27.16 (5 October 2026); unstructured-ingest 1.11.19 on PyPI (23 September 2026; changelog lists 1.11.21); unstructured-client SDK 0.46.2 | Verified fact | A1-S011, A1-S095, A1-S094, A1-S012 |
@@ -1048,7 +1048,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Google Cloud (Alphabet) | Verified fact | A1-S101 |
 | Category | Managed document OCR, parsing, extraction and classification service | Verified fact | A1-S101 |
 | Version / lineup | Processors incl. Enterprise Document OCR, Form Parser, Layout Parser (with initial chunking), Custom Extractor, classifier/splitter, Summarizer | Verified fact | A1-S101 |
@@ -1124,7 +1124,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Mistral AI | Verified fact | A1-S083, A1-S084 |
 | Category | Hosted OCR / document understanding model API | Verified fact | A1-S083 |
 | Version / lineup | OCR 4.1 (mistral-ocr-4-1; aliases mistral-ocr-latest and mistral-ocr-4): released July 2026 (model page 16 July; changelog 26 July) and marked Generally Available in the changelog on 26 August 2026 (governance page gives a 13 August 2026 release date); OCR 4.0 deprecated late September and retired 30 September 2026; OCR 3 (25.12) still available for existing integrations; original Mistral OCR no longer maintained | Verified fact | A1-S130, V1-S014, V1-S010 |
@@ -1201,7 +1201,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | LlamaIndex, Inc. | Verified fact | A1-S080 |
 | Category | Proprietary 'enterprise platform for agentic OCR, parsing, extraction, indexing' | Verified fact | A1-S080, A1-S081 |
 | Version / lineup | SaaS; current Python SDK llama-cloud 2.17.0 (7 October 2026); legacy llama-cloud-services / llama-parse packages deprecated, maintained until 1 May 2026 | Verified fact | A1-S014, A1-S013, A1-S081 |
@@ -1277,7 +1277,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Firecrawl (PyPI author listed as Mendable.ai); venture-backed (Series B US$75M, September 2026) | Verified fact | A1-S015, A1-S053, A1-S129 |
 | Category | Web data API for AI: scrape, crawl, map, search, extract, parse, browser interaction and an autonomous research agent | Verified fact | A1-S077, A1-S079 |
 | Version / lineup | Self-host guide pins server release v2.11.162; Python SDK firecrawl-py 4.49.3 released 7 October 2026; API v2 | Verified fact | A1-S078, A1-S015 |
@@ -1351,7 +1351,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Open-source project by UncleCode, now also offering hosted Crawl4AI Cloud | Verified fact | A1-S009, A1-S056, A1-S074 |
 | Category | Open-source web crawler/scraper producing LLM-ready Markdown, plus a hosted API | Verified fact | A1-S074 |
 | Version / lineup | v0.9.4, 23 September 2026 | Verified fact | A1-S009, A1-S074 |
@@ -1427,7 +1427,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Reducto (private; US$108M total funding after US$75M Series B led by a16z, October 2025) | Verified fact | A1-S114, V1-S018 |
 | Category | Proprietary document ingestion API: parse, extract, split, edit, classify and pipelines | Verified fact | A1-S093 |
 | Version / lineup | SaaS API; Python SDK reductoai 0.24.0, released 8 September 2026 | Verified fact | A1-S090 |
@@ -1501,7 +1501,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | OpenDataLab MinerU Team | Verified fact | A1-S054, A1-S055 |
 | Category | Open-source document parsing tool and local document library with VLM-based parsing tiers | Verified fact | A1-S055, A1-S010 |
 | Version / lineup | MinerU 4.0 line; mineru 4.0.10 released 29 September 2026 | Verified fact | A1-S010, A1-S055, V1-S004 |
@@ -1576,7 +1576,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Apify Technologies s.r.o. | Verified fact | A1-S016 |
 | Category | Web scraping and automation platform with an Actor marketplace (Apify Store), managed proxy and storage | Verified fact | A1-S087, A1-S089 |
 | Version / lineup | SaaS platform; apify-client (Python) 3.2.1, released 25 September 2026 | Verified fact | A1-S016 |
@@ -1654,7 +1654,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Cohere Inc. (pending business combination with Aleph Alpha, signed 16 September 2026) | Verified fact | A2-S018 |
 | Category | Embedding and reranking models (hosted API, cloud marketplaces, private deployment) | Verified fact | A2-S011, A2-S015 |
 | Version / lineup | Embed 5 (30 September 2026): Pro and Fast tiers in a shared embedding space; embed-v4.0 still listed. Rerank 4 (11 December 2025): Pro and Fast; Rerank 3.5 still available on Azure. | Verified fact | A2-S012, A2-S010, A2-S011, V1-S027, V1-S033 |
@@ -1729,7 +1729,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Hugging Face (maintainer Tom Aarsen); originally developed by UKP Lab, TU Darmstadt (author Nils Reimers) | Verified fact | A2-S029, A2-S028, V1-S092 |
 | Category | Open-source Python library for embedding, reranker (cross-encoder), sparse-encoder and multi-vector models | Verified fact | A2-S029 |
 | Version / lineup | 6.1.0, released 18 September 2026 (6.0.0 on 18 August 2026) | Verified fact | A2-S029, A2-S032 |
@@ -1805,7 +1805,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Google (Google DeepMind / Google Cloud) | Verified fact | A2-S004 |
 | Category | Hosted multimodal embedding model API | Verified fact | A2-S004, A2-S005 |
 | Version / lineup | gemini-embedding-2: preview 10 March 2026 (gemini-embedding-2-preview), GA 22 April 2026; text-only gemini-embedding-001 remains available | Verified fact | A2-S004, A2-S005, A2-S039, V1-S073 |
@@ -1882,7 +1882,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | OpenAI | Verified fact | A2-S002 |
 | Category | Hosted text-embedding model API | Verified fact | A2-S003 |
 | Version / lineup | text-embedding-3-large (most capable; 3,072 dims default) and text-embedding-3-small, both released 25 January 2024; text-embedding-ada-002 still listed. No newer OpenAI embedding model found as of 7 October 2026. | Verified fact | A2-S001, A2-S002 |
@@ -1958,7 +1958,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Jina AI GmbH, acquired by Elastic N.V. (completed October 2025) | Verified fact | A2-S023, A2-S024 |
 | Category | Embedding and reranking models (hosted API, Elastic Inference Service, on-prem licence, open weights for non-commercial use) | Verified fact | A2-S042, A2-S024 |
 | Version / lineup | jina-embeddings-v5-text small (677M params, 32,768-token context, 1,024 dims) and nano (239M) - February 2026; jina-embeddings-v5-omni small and nano - May 2026 (default API embedding model); jina-reranker-v3.5 (0.6B listwise) - July 2026; jina-reranker-m0 (multimodal) also listed | Verified fact | A2-S025, A2-S026, V1-S026 |
@@ -2034,7 +2034,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Alibaba Group (Qwen team; Alibaba Cloud) | Verified fact | A2-S020, A2-S022 |
 | Category | Open-weight embedding and reranking models, also offered as hosted API | Verified fact | A2-S020, A2-S022 |
 | Version / lineup | Qwen3-Embedding and Qwen3-Reranker in 0.6B, 4B and 8B (June 2025; 32K context; 119 languages); Qwen3-VL-Embedding and Qwen3-VL-Reranker (January 2026); hosted text-embedding-v4, qwen3.7-text-embedding, qwen3-rerank, qwen3-vl-rerank | Verified fact | A2-S020, A2-S021, A2-S022 |
@@ -2113,7 +2113,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Voyage AI, acquired by MongoDB, Inc. (closed 17 February 2025) | Verified fact | A2-S033 |
 | Category | Embedding and reranking models (hosted API, marketplace model packages, one open-weight model) | Verified fact | A2-S007, A2-S044 |
 | Version / lineup | Voyage 4 (launched 15 January 2026): voyage-4-large, voyage-4, voyage-4-lite, voyage-4-nano (open weights); plus voyage-code-4, voyage-context-4 (contextualised chunk embeddings), voyage-multimodal-3.5 (text, image, video); domain models voyage-finance-2 and voyage-law-2. Rerankers: rerank-3 and rerank-3-lite (announced 30 September 2026; MongoDB model-lifecycle page lists them as Preview), rerank-2.5 series retained for existing users. | Verified fact | A2-S006, A2-S007, A2-S034, A2-S071, V1-S024 |
@@ -2189,7 +2189,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | NVIDIA | Verified fact | A2-S030 |
 | Category | Containerised embedding and reranking inference microservices (NIM) with NVIDIA models | Verified fact | A2-S031, A2-S040 |
 | Version / lineup | Embedding NIM 2.3: nemotron-3-embed-1b, llama-nemotron-embed-1b-v2, llama-nemotron-embed-vl-1b-v2 (multimodal). Reranking NIM 2.0.0: llama-nemotron-rerank-vl-1b-v2 (multimodal, NGC update 3 August 2026), llama-nemotron-rerank-1b-v2, llama-nemotron-rerank-500m-v2 (8,192-token max). | Verified fact | A2-S031, A2-S030 |
@@ -2233,7 +2233,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Not publicly verified | Not publicly verified |  |
 | Category | Not publicly verified | Not publicly verified |  |
 | Version / lineup | Not publicly verified | Not publicly verified |  |
@@ -2276,7 +2276,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Not publicly verified | Not publicly verified |  |
 | Category | Not publicly verified | Not publicly verified |  |
 | Version / lineup | Not publicly verified | Not publicly verified |  |
@@ -2349,7 +2349,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Elastic N.V. (NYSE: ESTC) | Verified fact | A2-S023 |
 | Category | Search engine with full-text (BM25), vector and hybrid retrieval; general-purpose search platform | Verified fact | A2-S023, A2-S042 |
 | Version / lineup | Elastic Stack 9.5 (GA 4 August 2026; patch 9.5.4); Python client 9.5.1 (9 September 2026) | Verified fact | A2-S133, A2-S057, V1-S085 |
@@ -2423,7 +2423,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Milvus: open-source project, graduated LF AI & Data project; Zilliz (creator and main maintainer) offers Zilliz Cloud | Verified fact | A2-S118, A2-S053 |
 | Category | Distributed open-source vector database ('lake-native' from 3.0) plus managed 'Vector Lakebase' (Zilliz Cloud) | Verified fact | A2-S118 |
 | Version / lineup | Milvus 3.0.2 (20 September 2026); 3.0.0 GA 29 July 2026; 2.6.24 (16 September 2026) still maintained; PyMilvus 3.0.2; Milvus Lite 3.2.1. Zilliz Cloud: Milvus 3.0.x in Private Review for on-demand compute | Verified fact | A2-S117, A2-S118, A2-S053, A2-S054, V1-S031 |
@@ -2499,7 +2499,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | pgvector open-source project (lead author Andrew Kane per Python client) on PostgreSQL | Verified fact | A2-S050, A2-S061 |
 | Category | Vector search extension for a general-purpose relational database | Verified fact | A2-S061 |
 | Version / lineup | pgvector 0.8.7 (released 1 October 2026 per CHANGELOG; announced on postgresql.org 5 October 2026); earlier 2026 releases 0.8.2 (Feb), 0.8.3 (17 Jun), 0.8.4 (30 Jun), 0.8.5 (8 Jul), 0.8.6 (29 Jul). Python client pgvector 0.5.0 (6 July 2026). | Verified fact | A2-S061, A2-S062, A2-S063, A2-S050, V1-S020, V1-S022 |
@@ -2573,7 +2573,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Qdrant (Qdrant Solutions GmbH, Berlin-headquartered) | Verified fact | A2-S105, A2-S107 |
 | Category | Open-source vector search engine with managed, hybrid and private cloud offerings | Verified fact | A2-S107, A2-S106 |
 | Version / lineup | Server v1.19.2 (5 October 2026; 1.19.0 on 5 August 2026); Private Cloud validated 1.19.0 (4 September 2026); Python client 1.19.1 (16 September 2026) | Verified fact | A2-S102, A2-S104, A2-S052 |
@@ -2647,7 +2647,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Pinecone Systems, Inc. (New York); CEO Ash Ashutosh since September 2025, founder Edo Liberty Chief Scientist | Verified fact | A2-S051, A2-S072, A2-S068 |
 | Category | Managed vector database / knowledge infrastructure for AI | Verified fact | A2-S051, A2-S073 |
 | Version / lineup | Managed service (serverless on-demand and Dedicated Read Nodes; BYOC); Python SDK 10.0.0 (3 September 2026) introduces schema-based document indexes and a deployment parameter; Nexus GA 6 August 2026 | Verified fact | A2-S051, A2-S072, A2-S069, A2-S073 |
@@ -2718,7 +2718,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Weaviate B.V. | Verified fact | A2-S115, A2-S116 |
 | Category | Vector database with hybrid search, open core | Verified fact | A2-S110, A2-S115 |
 | Version / lineup | v1.39.7 (25 September 2026); v1.40.0-rc.1 (19 September 2026); supported minors 1.37-1.39; Python client 4.23.1 | Verified fact | A2-S109, A2-S055 |
@@ -2791,7 +2791,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | MongoDB, Inc. (owner of Voyage AI since February 2025) | Verified fact | A2-S033 |
 | Category | Vector search built into a general-purpose document database | Verified fact | A2-S078 |
 | Version / lineup | Atlas Vector Search; self-managed Search/Vector Search GA on MongoDB 8.2+ (mongot); hybrid search GA; $rerank native reranking (public preview, 8.3+); Automated Embedding (public preview); PyMongo 4.18.2 (24 September 2026) | Verified fact | A2-S137, A2-S141, A2-S078, A2-S059, V1-S035 |
@@ -2865,7 +2865,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Amazon Web Services | Verified fact | A2-S081 |
 | Category | Object storage with native vector storage and similarity query (vector buckets and indexes) | Verified fact | A2-S094, A2-S092 |
 | Version / lineup | Generally available since December 2025 (preview July 2025); up to 2 billion vectors per index, 10,000 indexes per bucket; 10,000 top-K per query since June 2026 | Verified fact | A2-S081, A2-S094, A2-S086, V1-S030 |
@@ -2938,7 +2938,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | turbopuffer (Ottawa; CEO Simon Eskildsen per press) | Verified fact | A2-S056, A2-S126 |
 | Category | Serverless vector and full-text search on object storage | Verified fact | A2-S124, A2-S056 |
 | Version / lineup | Managed service; Python SDK 2.11.0 (7 October 2026) | Verified fact | A2-S056 |
@@ -3012,7 +3012,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Chroma (Jeff Huber, Anton Troynikov listed as authors) | Verified fact | A2-S060 |
 | Category | Open-source embedding/vector database with serverless cloud service | Verified fact | A2-S060 |
 | Version / lineup | chromadb 1.5.9 (5 May 2026) | Verified fact | A2-S060 |
@@ -3088,7 +3088,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Zep (getzep) | Verified fact | A3-S059 |
 | Category | Managed agent memory / context-graph infrastructure; Graphiti is the open-source temporal knowledge-graph library underneath | Verified fact | A3-S003 |
 | Version / lineup | zep-cloud Python SDK 3.30.0 (24 September 2026), 4.0.0b1 pre-release (6 October 2026); graphiti-core 0.30.2 (8 September 2026) | Verified fact | A3-S002, A3-S003 |
@@ -3164,7 +3164,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Mem0 (start-up; Y Combinator S24 per project README) | Verified fact | A3-S001 |
 | Category | Agent memory layer: open-source memory library/server plus managed memory platform | Verified fact | A3-S001, A3-S080 |
 | Version / lineup | mem0ai 2.2.1 on PyPI (25 September 2026). New memory algorithm announced April 2026; open-source v2.0.0 (14 April 2026) introduced breaking changes | Verified fact | A3-S001, A3-S053, A3-S081 |
@@ -3238,7 +3238,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Cognee (Berlin-based; GitHub org topoteretes) | Verified fact | A3-S005, A3-S095 |
 | Category | Open-source AI memory platform building knowledge graphs plus vectors from documents, code and conversations | Verified fact | A3-S005 |
 | Version / lineup | cognee 1.6.3 (7 October 2026) | Verified fact | A3-S005 |
@@ -3309,7 +3309,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Amazon Web Services | Verified fact | A3-S047 |
 | Category | Cloud-platform managed agent memory service | Verified fact | A3-S047 |
 | Version / lineup | Generally available since October 2025 as part of Amazon Bedrock AgentCore; AgentCore harness GA auto-provisions managed memory | Verified fact | A3-S047, A3-S048 |
@@ -3381,7 +3381,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Google Cloud | Verified fact | A3-S108 |
 | Category | Cloud-platform managed agent long-term memory service | Verified fact | A3-S108 |
 | Version / lineup | Public preview 8 July 2025; release notes state Sessions and Memory Bank generally available (date not captured); usage charging from 28 January 2026 | Verified fact | A3-S108, A3-S109 |
@@ -3456,7 +3456,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Supermemory | Verified fact | A3-S064 |
 | Category | Memory and context engine API: memory extraction, user profiles, hybrid RAG search, connectors and file processing | Verified fact | A3-S064 |
 | Version / lineup | Python SDK 5.0.0 (6 October 2026) for the namespace-first v5 API (breaking change from 3.x) | Verified fact | A3-S012 |
@@ -3532,7 +3532,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Letta (letta-ai) | Verified fact | A3-S060 |
 | Category | Stateful agent harness/runtime with self-editing memory; not a standalone memory library | Verified fact | A3-S073 |
 | Version / lineup | Letta Code 0.34.4 (4 October 2026; PyPI 'letta' and npm '@letta-ai/letta-code'); letta-client Python SDK 1.12.1 (2 June 2026) | Verified fact | A3-S004, A3-S077, A3-S014 |
@@ -3604,7 +3604,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | LangChain | Verified fact | A3-S006 |
 | Category | Open-source memory utilities library for LangGraph agents | Verified fact | A3-S006 |
 | Version / lineup | langmem 0.0.30 (27 October 2025); no newer PyPI release as of 7 October 2026 | Verified fact | A3-S006 |
@@ -3675,7 +3675,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | A2A Project: contributed by Google to the Linux Foundation (2025); accepted as a Growth Stage project of the Agentic AI Foundation (AAIF announcement 17 August 2026; A2A blog 27 August 2026); TSC seats: Google, Microsoft, Cisco, AWS, Salesforce, ServiceNow, SAP, IBM | Verified fact | A3-S065, A3-S116, A3-S117, A3-S025, V1-S039 |
 | Category | Open protocol for communication and interoperability between opaque agent applications | Verified fact | A3-S078 |
 | Version / lineup | Specification 1.0.0 (12 March 2026), patch 1.0.1 (26 May 2026); A2A Python SDK a2a-sdk 1.2.2 (5 October 2026) | Verified fact | A3-S079, A3-S078, A3-S075, V1-S039 |
@@ -3751,7 +3751,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Open-source project hosted by the Agentic AI Foundation (AAIF), a directed fund under the Linux Foundation; originated at Anthropic (created by David Soria Parra and Justin Spahr-Summers) and donated on 9 December 2025 | Verified fact | A3-S018, A3-S058, V1-S038 |
 | Category | Open protocol specification for connecting agents/LLM applications to tools, resources and prompts | Verified fact | A3-S058, A3-S015 |
 | Version / lineup | Specification 2026-07-28 (released 28 July 2026; previous 2025-11-25). Tier 1 SDKs: TypeScript, Python, Go, C#; Python 'mcp' 2.3.0 (2 October 2026); TypeScript '@modelcontextprotocol/sdk' 1.32.1 (5 October 2026) | Verified fact | A3-S015, A3-S057, A3-S011, A3-S074, V1-S037 |
@@ -3822,7 +3822,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Amazon Web Services | Verified fact | A3-S047 |
 | Category | Managed MCP tool gateway and agent identity/credential service | Verified fact | A3-S047 |
 | Version / lineup | GA October 2025; Gateway three-legged OAuth for MCP targets GA and VPC egress (April 2026); supports MCP 2026-07-28 stateless core | Verified fact | A3-S047, A3-S048, A3-S015 |
@@ -3892,7 +3892,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Browserbase Inc. | Verified fact | A3-S068 |
 | Category | Managed headless-browser infrastructure for agents | Verified fact | A3-S013 |
 | Version / lineup | browserbase Python SDK 1.20.0 (24 September 2026); Stagehand 4.1.0 (9 September 2026) | Verified fact | A3-S013, A3-S076 |
@@ -3965,7 +3965,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | E2B | Verified fact | A3-S062 |
 | Category | Secure cloud sandboxes (Firecracker microVMs) for running AI-generated code | Verified fact | A3-S062 |
 | Version / lineup | e2b SDK 2.53.1 and e2b-code-interpreter 2.10.3 (6 October 2026) | Verified fact | A3-S007 |
@@ -4033,7 +4033,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Originated at Anthropic (launched 16 October 2025; published as an open standard 18 December 2025); specification maintained in the agentskills/agentskills repository and agentskills.io; no published governance body or charter, and no evidence that it is an AAIF-hosted project (AAIF material treats the format as owned by the Agent Skills specification; secondary claims that Anthropic stewards it through AAIF are unsupported) | Verified fact | A3-S028, A3-S029, A3-S061, V1-S046 |
 | Category | Open packaging format for procedural knowledge: folders with SKILL.md (name and description required) plus optional scripts, references and assets | Verified fact | A3-S061, A3-S037 |
 | Version / lineup | No versioned releases: specification is a 'living document'; tagged releases with changelog are planned (AAIF proposal); no CHANGELOG.md in repository root on 7 October 2026 | Verified fact | A3-S115, A3-S112 |
@@ -4106,7 +4106,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Composio (SDK copyright Sampark Inc.; San Francisco) | Verified fact | A3-S063, A3-S067, A3-S099 |
 | Category | Managed tool-integration platform for agents: 1000+ pre-authenticated toolkits, per-user sessions, authentication, triggers and a sandbox | Verified fact | A3-S063 |
 | Version / lineup | Python SDK composio 0.25.0 (29 September 2026); 2.0.0b0 pre-release (31 August 2026) | Verified fact | A3-S008, V1-S098 |
@@ -4174,7 +4174,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Exa (Exa Labs, Inc.) | Verified fact | A3-S010, A3-S121 |
 | Category | Web search API for AI (search, contents, answer, streaming) | Verified fact | A3-S010 |
 | Version / lineup | exa-py 2.25.0 (1 October 2026) | Verified fact | A3-S010 |
@@ -4241,7 +4241,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Tavily, a wholly owned subsidiary of Nebius Group N.V. (acquisition announced 10 February 2026; closed 19 February 2026) | Verified fact | A3-S084, A3-S085, A3-S086, V1-S041 |
 | Category | Search, extract, crawl, map and research API for agents | Verified fact | A3-S009 |
 | Version / lineup | tavily-python 0.8.5 (6 October 2026); @tavily/core 0.7.14 (6 October 2026) | Verified fact | A3-S009, A3-S083 |
@@ -4315,7 +4315,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | LangChain, Inc. | Verified fact | A4-S001, A4-S032 |
 | Category | Low-level stateful agent and workflow orchestration framework (graph runtime) with a commercial managed deployment service | Verified fact | A4-S118, A4-S037 |
 | Version / lineup | langgraph 1.2.14 on PyPI (released 6 October 2026); @langchain/langgraph 1.4.21 on npm (7 October 2026); 1.0.0 released 17 October 2025 (Python) / 18 October 2025 (JS) | Verified fact | A4-S001, A4-S026 |
@@ -4387,7 +4387,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Temporal Technologies Inc. | Verified fact | A4-S019 |
 | Category | Durable execution / workflow orchestration engine used as the reliability layer under agent frameworks | Verified fact | A4-S019, A4-S045, A4-S058 |
 | Version / lineup | temporalio (Python SDK) 1.34.0 (30 September 2026) | Verified fact | A4-S019 |
@@ -4458,7 +4458,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Microsoft Corporation | Verified fact | A4-S067 |
 | Category | Multi-language agent and multi-agent workflow framework (Python, .NET, Go) | Verified fact | A4-S066 |
 | Version / lineup | agent-framework (Python) 1.20.0 (2 October 2026); 1.0.0 GA 2 April 2026 (Development Status: Production/Stable); durable extensions agent-framework-durabletask and agent-framework-azurefunctions still beta (1.0.0b260922) | Verified fact | A4-S008, A4-S101, A4-S102 |
@@ -4527,7 +4527,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Pydantic Services Inc. | Verified fact | A4-S003, A4-S046 |
 | Category | Typed Python agent framework (agent loop) with optional graph library (pydantic_graph) and durable-execution integrations | Verified fact | A4-S119, A4-S044 |
 | Version / lineup | pydantic-ai 2.54.0 (3 October 2026); v2.0.0 released 23 June 2026; v1 line still patched (1.107.7 on 30 September 2026) | Verified fact | A4-S003 |
@@ -4596,7 +4596,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Google | Verified fact | A4-S114 |
 | Category | Open-source, code-first agent framework with a graph-based deterministic Workflow Runtime | Verified fact | A4-S114 |
 | Version / lineup | google-adk 2.11.0 (2 October 2026); 2.0.0 on 19 May 2026; 1.0.0 on 20 May 2025; also Java, Kotlin, Go and TypeScript ports | Verified fact | A4-S017, A4-S114 |
@@ -4666,7 +4666,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | OpenAI | Verified fact | A4-S005 |
 | Category | Open-source, provider-agnostic multi-agent SDK (agent loop, handoffs, guardrails, sessions, tracing, sandbox harness) | Verified fact | A4-S120, A4-S052 |
 | Version / lineup | openai-agents 0.23.1 (2 October 2026); @openai/agents 0.19.0 (5 October 2026) | Verified fact | A4-S005, A4-S024 |
@@ -4737,7 +4737,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Amazon Web Services | Verified fact | A4-S116 |
 | Category | Model-driven agent SDK plus framework-agnostic managed agent platform (Runtime, Memory, Gateway, Identity) | Verified fact | A4-S115, A4-S116 |
 | Version / lineup | strands-agents 1.58.1 (6 October 2026; 1.0.0 15 July 2025); bedrock-agentcore SDK 1.24.1 (7 October 2026; classifier Alpha) | Verified fact | A4-S018, A4-S121 |
@@ -4807,7 +4807,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | crewAI, Inc. | Verified fact | A4-S126 |
 | Category | Multi-agent orchestration framework (role-based Crews) with event-driven Flows, plus a commercial agent management platform | Verified fact | A4-S004, A4-S050 |
 | Version / lineup | crewai 1.15.24 (7 October 2026); 1.0.0 released 20 October 2025 | Verified fact | A4-S004 |
@@ -4877,7 +4877,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | LlamaIndex, Inc. (run-llama) | Verified fact | A4-S117 |
 | Category | RAG / agentic application framework with an event-driven workflow engine; vendor's commercial focus is document parsing and document agents | Verified fact | A4-S117, A4-S041 |
 | Version / lineup | llama-index / llama-index-core 0.14.25 (21 September 2026); llama-index-workflows 2.25.0 (25 September 2026) | Verified fact | A4-S002, A4-S013 |
@@ -4946,7 +4946,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Vercel, Inc. | Verified fact | A4-S070, A4-S069 |
 | Category | Provider-agnostic TypeScript toolkit for AI applications and agents (generation, structured output, tool-loop agents, UI hooks) | Verified fact | A4-S069 |
 | Version / lineup | ai 7.0.131 (7 October 2026); 7.0.0 released 25 June 2026 (6.0.0 22 December 2025; 5.0.0 31 July 2025) | Verified fact | A4-S022, V1-S082 |
@@ -5019,7 +5019,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Anthropic, PBC | Verified fact | A4-S092, A4-S027 |
 | Category | Agent harness SDK that embeds Claude Code's agent loop, built-in tools and context management as a library | Verified fact | A4-S027 |
 | Version / lineup | claude-agent-sdk 0.2.164 (6 October 2026; PyPI classifier 'Development Status: 3 - Alpha'); @anthropic-ai/claude-agent-sdk 0.3.293 (7 October 2026) | Verified fact | A4-S006, A4-S023 |
@@ -5091,7 +5091,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Mistral AI | Verified fact | A4-S057, A4-S125 |
 | Category | Hosted agent API (stateful conversations, connectors, handoffs) plus a Temporal-based durable workflow platform | Verified fact | A4-S057, A4-S058 |
 | Version / lineup | mistralai (Python) 3.1.0 (6 October 2026; 3.0.0 on 28 September 2026); @mistralai/mistralai 2.7.0 (9 September 2026); mistralai-workflows 3.15.0 (14 September 2026, Beta) | Verified fact | A4-S007, A4-S025, A4-S061 |
@@ -5165,7 +5165,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | vLLM project, a PyTorch Foundation-hosted project (Linux Foundation) since May 2025; originated at UC Berkeley Sky Computing Lab; lead maintainers include Woosuk Kwon, Zhuohan Li, Simon Mo, Kaichao You and Robert Shaw | Verified fact | A4-S146, A4-S063, A4-S064 |
 | Category | Open-source LLM inference and serving engine | Verified fact | A4-S063 |
 | Version / lineup | vllm 0.31.0 (5 October 2026); 28 releases in 2026 (0.14.0 in January to 0.31.0) | Verified fact | A4-S009 |
@@ -5237,7 +5237,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Fireworks AI, Inc.; privately held | Verified fact | A4-S136, A4-S141 |
 | Category | Managed inference and fine-tuning platform for open models (serverless, on-demand dedicated, reserved, BYOC) | Verified fact | A4-S135, A4-S152 |
 | Version / lineup | Official SDK fireworks-ai 1.2.20 (6 October 2026); serverless, on-demand deployments, batch inference, fine-tuning/RFT, Virtual Cloud (GA), FireRouter | Verified fact | A4-S094, A4-S134, A4-S152 |
@@ -5311,7 +5311,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | SGLang open-source project hosted by LMSYS (non-profit); commercial steward RadixArk (founded by SGLang creators Ying Sheng and Banghua Zhu; US$100M seed, May 2026) | Verified fact | A4-S065, A4-S147 |
 | Category | Open-source inference/serving framework for LLMs, VLMs and diffusion models; RL rollout backend | Verified fact | A4-S065 |
 | Version / lineup | sglang 0.5.21 (1 October 2026); 21 releases in 2026 | Verified fact | A4-S010 |
@@ -5381,7 +5381,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Hugging Face | Verified fact | A4-S074 |
 | Category | Model hub plus inference router and managed dedicated inference service | Verified fact | A4-S075, A4-S081 |
 | Version / lineup | huggingface_hub client 2.1.1 (1 October 2026); Inference Endpoints natively supports vLLM, TGI, SGLang, llama.cpp and TEI engines | Verified fact | A4-S014, A4-S081 |
@@ -5451,7 +5451,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Together Computer, Inc. (trading as Together AI); privately held | Verified fact | A4-S132 |
 | Category | AI-native cloud: serverless and dedicated inference for open-weight models, fine-tuning, GPU clusters, provisioned throughput | Verified fact | A4-S131, A4-S093 |
 | Version / lineup | Official SDK together 2.40.0 (7 October 2026); products: serverless inference, dedicated endpoints, Provisioned Throughput (PTU), fine-tuning, GPU clusters (on-demand, reserved, Instant Clusters), container deployments ('Jig', beta) | Verified fact | A4-S093, A4-S131 |
@@ -5523,7 +5523,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | llm-d project (CNCF sandbox; founded by Red Hat, Google Cloud, IBM Research, CoreWeave and NVIDIA) | Verified fact | A4-S089, A4-S062 |
 | Category | Kubernetes-native distributed inference serving stack above model servers | Verified fact | A4-S089 |
 | Version / lineup | Not publicly verified | Not publicly verified |  |
@@ -5594,7 +5594,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | OpenRouter, Inc.; subject to a pending acquisition by Stripe (agreement announced 19 August 2026; not confirmed closed as of 8 October 2026) | Verified fact | A4-S143, V1-S059 |
 | Category | Hosted multi-provider model router / aggregator with gateway-style governance (budgets, allowlists, ZDR, regional routing) | Verified fact | A4-S111, A4-S109 |
 | Version / lineup | Official Python SDK openrouter 1.3.32 (7 October 2026; first release 13 November 2025) | Verified fact | A4-S096 |
@@ -5664,7 +5664,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | NVIDIA | Verified fact | A4-S098 |
 | Category | Distributed inference orchestration / optimisation layer above inference engines | Verified fact | A4-S090 |
 | Version / lineup | ai-dynamo 1.5.1 (7 October 2026; PyPI classifier Beta); first release March 2025 | Verified fact | A4-S098 |
@@ -5737,7 +5737,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Ollama | Verified fact | A4-S086 |
 | Category | Local LLM runtime and model packager, plus an optional hosted cloud-model service | Verified fact | A4-S084 |
 | Version / lineup | Official Python client ollama 0.6.3 (29 September 2026); server/app version not retrieved | Verified fact | A4-S015 |
@@ -5807,7 +5807,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Cerebras Systems Inc., listed on Nasdaq (CBRS) since 14 May 2026 | Verified fact | A4-S137 |
 | Category | AI chip and system vendor (WSE-3, CS-3) that also operates an inference cloud and sells on-premise systems | Verified fact | A4-S095, A4-S154 |
 | Version / lineup | cerebras-cloud-sdk 1.91.0 (16 July 2026); hardware WSE-3 / CS-3; Inference tiers: free, pay-per-token (Exploration), Enterprise; Cerebras Code subscriptions | Verified fact | A4-S095, A4-S139 |
@@ -5878,7 +5878,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | LM Studio | Verified fact | A4-S088 |
 | Category | Desktop application for running local models, with a local API server | Verified fact | A4-S087 |
 | Version / lineup | lmstudio Python SDK 1.5.0 (22 August 2025); lms CLI ships with LM Studio 0.2.22 and newer; desktop app version not retrieved | Verified fact | A4-S016, A4-S087 |
@@ -5959,7 +5959,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | OpenAI | Verified fact | A5-S047, A5-S002 |
 | Category | Frontier model vendor: proprietary API models (reasoning, multimodal input, coding) plus Apache-2.0 open-weight models | Verified fact | A5-S002, A5-S005 |
 | Version / lineup | flagship: GPT-6 Astra, introduced 3 September 2026 per ChatGPT release notes (limited organisations first; "Path to Astra" post of 1 September explains a several-week hold for cyber safeguards); OpenAI forum post says API and Pro/Enterprise access on 4 September; Bedrock model card lists 8 September (AWS GA date). Gated: enterprise admins must enable; first OpenAI model rated "Critical" for cybersecurity. 1,050,000-token context, 128K output, knowledge cut-off 30 April 2026. [A5-S083, A5-S002, A5-S003, A5-S008]; mid: GPT-6 Sol (22 September 2026) and GPT-6.1 Sol (29 September 2026; now the def | Verified fact | A5-S001, A5-S002, A5-S003, A5-S004, A5-S005, A5-S008, A5-S009, A5-S083, V2-S008, V2-S024 |
@@ -6035,7 +6035,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Mistral AI (official mistralai SDK author "Mistral") | Verified fact | A5-S047 |
 | Category | Model vendor with API and open-weight models (general, reasoning, coding, OCR, speech) | Reported | A5-S038 |
 | Version / lineup | frontier_preview: Mistral Large 4, public preview 6 October 2026; ~1T total / 49-52B active MoE, multimodal, 1M context; open weights promised by end of October 2026 (27 October per VentureBeat); preview API-only in Mistral Studio. [A5-S076]; flagship_mid: Mistral Medium 3.5, 128B dense, 256K context, released 28 April 2026 (changelog lists 26 April), open weights under Modified MIT v26.04; API US$1.5 / US$7.5 per 1M. [A5-S074]; large_open: Mistral Large 3 (December 2025), 675B total / 41B active MoE, Apache 2.0. [A5-S074]; small: Mistral Small 4.0 (26.03); Ministral 3 3B/8B/14B (25.12). [A5-S | Verified fact | A5-S038, A5-S027, A5-S039, A5-S074, A5-S076, V2-S017, V2-S018 |
@@ -6114,7 +6114,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Anthropic, PBC (public benefit corporation; confidentially submitted draft S-1 for proposed IPO on 1 June 2026) | Verified fact | A5-S024 |
 | Category | Frontier model vendor: proprietary API models (reasoning, vision input, coding/agentic) | Verified fact | A5-S010 |
 | Version / lineup | flagship: Claude Fable 5.1, GA 1 September 2026, "for demanding reasoning and long-horizon agentic work"; Claude Mythos 5.1 is the same model with more permissive cyber/biology safeguards, available only via trusted-access programmes (limited US organisations). [A5-S016, A5-S022, A5-S010]; default_recommended: Claude Opus 5.5, 22 September 2026, first model of the Claude 5.5 family; Anthropic docs recommend it as the starting point for most workloads. [A5-S019, A5-S010]; mid: Claude Sonnet 5.5, 28 September 2026. [A5-S012, A5-S010]; small: Claude Haiku 5.5, 7 October 2026 (Haiku 4.5 still list | Verified fact | A5-S010, A5-S012, A5-S016, A5-S019, A5-S020, A5-S022, V2-S001, V2-S003, V2-S004, V2-S066 |
@@ -6185,7 +6185,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Google (Google DeepMind) | Verified fact | A5-S034 |
 | Category | Open-weight model family (small/medium, multimodal, on-device) | Verified fact | A5-S034 |
 | Version / lineup | current: Gemma 4: E2B, E4B, 26B MoE (A4B), 31B Dense released 31 March 2026 (releases page) / 2 April 2026 (blog); Gemma 4 12B unified encoder-free multimodal added 3 June 2026; MTP drafters April 2026. [A5-S034]; context: 128K (E2B/E4B), up to 256K (larger models); LiteLLM lists 262,144 for 26B/31B. [A5-S034, A5-S038]; multimodal: All models take image and video input; E2B/E4B also audio. [A5-S034]; previous: Gemma 3 (1B/4B/12B/27B) still self-deployable on Google Cloud and on Bedrock. [A5-S027, A5-S038]; graphic_label_check: "2.9" is WRONG: no Gemma 2.9 exists in any source found; current ge | Verified fact | A5-S034, A5-S035, A5-S027, A5-S038, V2-S020 |
@@ -6262,7 +6262,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Google (Google DeepMind / Google LLC) | Verified fact | A5-S047, A5-S031 |
 | Category | Frontier model vendor: proprietary API models (reasoning, native multimodal input, live audio, TTS, image) | Verified fact | A5-S030, A5-S027 |
 | Version / lineup | frontier_restricted: Gemini 4 Argon, announced 30 September 2026; rolling out first to trusted cyber defenders (Fairwind Program); paid API and AI Ultra "next", no date; 1M-token output limit claimed. Not on Vertex AI at launch. [A5-S031, A5-S036]; pro: Gemini 3.1 Pro, preview since 19 February 2026, still labelled preview (gemini-3.1-pro-preview); 1,048,576 input / 65,536 output tokens. Gemini 3 Pro retired 9 March 2026. Gemini 3.5 Pro never released (reported cancelled). [A5-S030, A5-S032, A5-S036]; mid_flash: Gemini 3.8 Flash GA 2 September 2026 ("most intelligent Flash", long-horizon codin | Verified fact | A5-S027, A5-S030, A5-S031, A5-S032, A5-S036, V2-S009, V2-S010 |
@@ -6336,7 +6336,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | xAI, acquired by SpaceX in an all-stock deal announced and closed 2 February 2026 (wholly owned subsidiary); the AI unit was rebranded SpaceXAI in mid-2026 (July per Wikipedia, 7 May per another reference; no primary source for the date); on 4 October 2026 Elon Musk said SpaceXAI will be renamed SpaceXSI, which had not taken effect as of 5 October 2026 reports | Reported | A5-S081, A5-S079, V2-S011 |
 | Category | Frontier model vendor: proprietary API models (reasoning and non-reasoning variants, vision, coding, image/video generation) | Reported | A5-S038 |
 | Version / lineup | flagship: Grok 4.7, launched 21 September 2026; 500K context; configurable reasoning effort (low to xhigh). [A5-S079]; previous_flagships: Grok 4.6 (Bedrock incl. US GovCloud, Azure, Google Cloud; xAI SDK README example), Grok 4.5. [A5-S038, A5-S027, A5-S047]; mid_reasoning: Grok 4.20 Reasoning / Non-Reasoning / Multi-agent (model ID suffix 0309), Grok 4.3; 1M context. [A5-S038, A5-S027]; small_fast: Grok 4.1 Fast Reasoning / Non-Reasoning. [A5-S027]; coding: grok-code-fast-1; grok-build. [A5-S038]; multimodal: Grok Imagine image 2.0 and video 1.5; voice transcription. [A5-S038]; open_weight:  | Verified fact | A5-S038, A5-S027, A5-S047, A5-S079, V2-S012 |
@@ -6414,7 +6414,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | DeepSeek (Hangzhou DeepSeek AI; PRC). Open Platform terms governed by laws of mainland PRC; US bills name High Flyer as owner. | Reported | A5-S062, A5-S055, A5-S049 |
 | Category | Open-weight model vendor with hosted API (reasoning, coding; Flash vision experimental) | Reported | A5-S038, A5-S041 |
 | Version / lineup | flagship: DeepSeek-V4-Pro: preview 24 April 2026 (1.6T total / 49B active); GA 13 August 2026 (V4-Pro-0813); 1M context, 384K output. The planned phase-out (routing V4-Pro calls to V4.1-Flash from 14 September 2026) was reversed: the pricing-page footnote updated 17 September 2026 says the V4-Pro API continues with billing unchanged (the 10 September news post still carries the phase-out wording). [A5-S063, A5-S064, A5-S065]; small_fast: DeepSeek-V4.1-Flash: released 10 September 2026; 552B MoE, 8B/16B active; native vision; API name deepseek-flash; replaces V4-Flash (preview 24 April; officia | Verified fact | A5-S063, A5-S064, A5-S065, A5-S027, A5-S086, V2-S013 |
@@ -6489,7 +6489,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Z.ai (Zhipu AI; listed in US Entity List as Beijing Zhipu Huazhang Technology Co., Ltd. a.k.a. Zhipu AI). International services provided by Jingsheng Hengxing Technology Pte. Ltd. (Singapore). | Verified fact | A5-S072, A5-S073 |
 | Category | Open-weight and API model vendor (agentic/coding LLMs, multimodal, image) | Reported | A5-S038, A5-S041 |
 | Version / lineup | flagship: GLM-5.3 (753B; same base as GLM-5.2, post-trained; API launch mid-August 2026 (14 August per NIST CAISI, 18 August per press); weights about 28 August 2026 under a bespoke glm-5.3 licence; on Bedrock from 5 October 2026), GLM-5.2 (open weights, 1M context, June 2026). [A5-S071, A5-S086, A5-S042]; small_fast: GLM-5.3-Flash (320B total / 18B active, first natively multimodal GLM-5, MIT); GLM-5.3-FlashX. [A5-S071]; previous: GLM-5 (day-0 support 12 February 2026), GLM-5.1, GLM-5-Code, GLM-4.7 / 4.7-Flash. [A5-S042, A5-S038]; multimodal: GLM-Image. [A5-S041]; graphic_label_check: "QI4" / | Reported | A5-S038, A5-S041, A5-S042, A5-S043, A5-S044, A5-S071, A5-S086, V2-S016, V2-S021 |
@@ -6563,7 +6563,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Meta (models built by Meta Superintelligence Labs) | Verified fact | A5-S077, A5-S078 |
 | Category | Model vendor: hosted API models (Muse Spark) and open-weight models (Muse Glimmer, Llama 4) | Reported | A5-S038, A5-S040 |
 | Version / lineup | flagship_api: Muse Spark announced April 2026 (Meta Superintelligence Labs); Muse Spark 1.1 with public Meta Model API preview 9 July 2026; 1.2 on 5 August 2026; 1.3 on 2 September 2026; Meta Model API GA globally (announced at Meta Connect, 23-24 September 2026; pre-Connect developer page still said public preview); 1,048,576 context; OpenAI/Anthropic-SDK compatible; on Oracle Cloud, Microsoft Foundry, Google Cloud private preview. [A5-S077, A5-S038]; open_weight: Muse Glimmer 30B, released August 2026 under Apache 2.0 (distilled from Muse Spark, agentic, consumer hardware). [A5-S078, A5-S040 | Verified fact | A5-S038, A5-S040, A5-S027, A5-S047, A5-S077, A5-S078, V2-S019 |
@@ -6638,7 +6638,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Alibaba Cloud (Qwen team); official dashscope SDK published by Alibaba Cloud | Verified fact | A5-S047 |
 | Category | Open-weight and API model vendor (general, reasoning, coding, omni-modal, embeddings) | Reported | A5-S038, A5-S040 |
 | Version / lineup | flagship_api: qwen3.8-max (snapshot qwen3.8-max-0902), 1M context, 128K output; US$2 / US$6 per 1M (International scope). [A5-S068, A5-S038]; small_api: qwen3.8-flash and qwen3.8-omni-flash, ~992K context. [A5-S038]; open_weight: Qwen3.8-2.4T-A95B flagship weights (hosted Qwen3.8-Max launched 3 August 2026; weights 12 August 2026; ~95B active; open weights reportedly text-only and without the full 1M context; custom Qwen3.8-Max License), Qwen3.8-27B (Apache 2.0, 262K native context), Qwen3.8-Flash (open-weight multimodal MoE, ~late August 2026), Qwen3.8-Flash-Next. [A5-S066, A5-S068, A5-S040,  | Verified fact | A5-S038, A5-S040, A5-S041, A5-S044, A5-S027, A5-S066, A5-S068, V2-S014 |
@@ -6712,7 +6712,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Moonshot AI: international API operated by Moonshot AI PTE. LTD. (Singapore); mainland platform by Beijing Moonshot Technology (PRC) | Verified fact | A5-S070 |
 | Category | Open-weight and API model vendor (agentic, reasoning, multimodal) | Reported | A5-S038, A5-S040 |
 | Version / lineup | flagship: Kimi K3, launched 16 July 2026; weights released by 27 July 2026 on Hugging Face; 2.8T-parameter MoE (about 104B active, reported); native multimodal; 1M context. [A5-S069, A5-S039, A5-S040]; coding: Kimi K2.7-Code (262K context). [A5-S038]; previous: Kimi K2.6, K2.5 (January 2026 per KTransformers), K2-Thinking (on Google Cloud and Bedrock). [A5-S038, A5-S042, A5-S027]; graphic_label_check: "K3" is CORRECT (16 July 2026), verified from Moonshot pages. | Verified fact | A5-S038, A5-S039, A5-S040, A5-S041, A5-S042, A5-S027, A5-S069, V2-S015, V2-S021 |
@@ -6789,7 +6789,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | BerriAI (PyPI author of litellm); no acquisition found in sources consulted | Verified fact | A6-S001 |
 | Category | AI/LLM gateway (open-source proxy) that also acts as MCP gateway and A2A agent gateway | Verified fact | A6-S015, A6-S051 |
 | Version / lineup | litellm 1.104.1 (PyPI, 7 October 2026; 1.105.0rc2 pre-release the same day); proprietary litellm-enterprise 0.1.74 (7 October 2026) | Verified fact | A6-S001, A6-S002, V2-S028 |
@@ -6862,7 +6862,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Kong Inc. | Verified fact | A6-S016 |
 | Category | AI gateway (LLM, MCP and A2A traffic) built on an API gateway vendor's platform | Verified fact | A6-S016, A6-S017 |
 | Version / lineup | AI Gateway 2.0 GA on 1 September 2026; 2.1.0 (22 September 2026) and 2.2.0 (30 September 2026); AI plugins supported on Kong Gateway 3.14 LTS (3.14.0.0, 7 April 2026) | Verified fact | A6-S016, A6-S017, V2-S034 |
@@ -6935,7 +6935,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Google Cloud | Verified fact | A6-S024 |
 | Category | Cloud API management platform with AI gateway policies (LLM, MCP, A2A) | Verified fact | A6-S024 |
 | Version / lineup | Apigee X (SaaS) and Apigee hybrid 1.17 (1.17.1 on 30 September 2026); Apigee MCP support GA 31 March 2026; API hub MCP server GA 24 July 2026 | Verified fact | A6-S023, A6-S025 |
@@ -7009,7 +7009,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Palo Alto Networks (acquired Portkey, Inc.; completed 29 May 2026) | Verified fact | A6-S011, A6-S012, V2-S025 |
 | Category | AI gateway (LLM gateway plus MCP gateway) with guardrails, observability and governance | Verified fact | A6-S049, A6-S014 |
 | Version / lineup | Open-source gateway on GitHub with 'Gateway 2.0 (Pre-Release)' that merges Portkey's core enterprise gateway into open source; Prisma AIRS AI Gateway described by PANW as generally available | Verified fact | A6-S049, A6-S011 |
@@ -7081,7 +7081,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | agentgateway project, a Linux Foundation project | Verified fact | A6-S061 |
 | Category | Open-source AI-native proxy: LLM gateway, MCP gateway and A2A gateway | Verified fact | A6-S061 |
 | Version / lineup | v1.6.0 (2 October 2026) | Verified fact | A6-S062, V2-S061 |
@@ -7154,7 +7154,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Microsoft | Verified fact | A6-S053 |
 | Category | Cloud-native API management platform with AI gateway policies (LLM, MCP and A2A) | Verified fact | A6-S053 |
 | Version / lineup | Policy-based AI gateway available across APIM tiers (doc dated 29 May 2026); AI Gateway tier in public preview since about late July 2026; unified model API (preview) | Verified fact | A6-S053, A6-S020, V2-S073 |
@@ -7225,7 +7225,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Amazon Web Services | Verified fact | A6-S021 |
 | Category | Managed agent/MCP gateway with emerging LLM inference routing; plus a LiteLLM-based reference pattern | Verified fact | A6-S021, A6-S074, A6-S022 |
 | Version / lineup | AgentCore GA October 2025; Gateway supports MCP versions 2026-07-28, 2025-11-25, 2025-06-18, 2025-03-26; inference targets documented (connectors for bedrock-mantle, openai, anthropic; provider configs for OpenAI-compatible endpoints); token-based rate limiting announced 6 August 2026 | Verified fact | A6-S021, A6-S105, A6-S106, A6-S074 |
@@ -7296,7 +7296,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Agentic AI Foundation project (formerly under the Envoy project) | Verified fact | A6-S063 |
 | Category | Open-source AI gateway on Envoy Proxy / Envoy Gateway (Kubernetes) | Verified fact | A6-S063 |
 | Version / lineup | v1.2.0 (6 October 2026) | Verified fact | A6-S064, V2-S061 |
@@ -7370,7 +7370,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Cloudflare, Inc. | Verified fact | A6-S052 |
 | Category | Managed SaaS AI gateway at the network edge | Verified fact | A6-S019, A6-S052 |
 | Version / lineup | Continuously delivered SaaS (no version numbers); 2026 additions include spend limits (June), identity-based controls (August), Unified Billing invoice changes (1 September) and new log pricing (24 September) | Verified fact | A6-S019, A6-S052 |
@@ -7444,7 +7444,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | NVIDIA (repository NVIDIA-NeMo/Guardrails) | Verified fact | A6-S003 |
 | Category | Open-source programmable guardrails toolkit (input, output, dialogue, retrieval and tool rails) | Verified fact | A6-S003, A6-S027 |
 | Version / lineup | 0.24.1 (16 September 2026); 0.24.0 (25 August 2026) | Verified fact | A6-S003, A6-S036, V2-S028 |
@@ -7516,7 +7516,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Amazon Web Services | Verified fact | A6-S072 |
 | Category | Managed guardrail service for generative AI inputs and outputs | Verified fact | A6-S072 |
 | Version / lineup | Managed service; API model includes content filters with CLASSIC and STANDARD tiers, denied topics, word filters, sensitive-information (PII) filters, contextual grounding, Automated Reasoning policies and cross-region guardrail profiles (botocore 1.43.109, 7 October 2026); Standard/Classic safeguard tiers for content filters and denied topics introduced June 2025 (Standard uses cross-region inference) | Verified fact | A6-S072, A6-S075, A6-S101 |
@@ -7587,7 +7587,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Google Cloud | Verified fact | A6-S067 |
 | Category | Managed runtime security/guardrail service for prompts, responses and agent interactions | Verified fact | A6-S067 |
 | Version / lineup | Not publicly verified | Not publicly verified |  |
@@ -7658,7 +7658,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Microsoft | Verified fact | A6-S054 |
 | Category | Managed content-safety and prompt-attack detection APIs | Verified fact | A6-S054 |
 | Version / lineup | Prompt Shields and Protected Material (text) GA August 2024; Task Adherence public preview November 2025; groundedness detection and custom categories in preview; Python SDK azure-ai-contentsafety 1.0.0 (12 December 2023) | Verified fact | A6-S055, A6-S054, A6-S084 |
@@ -7729,7 +7729,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Meta | Verified fact | A6-S006, A6-S031 |
 | Category | Open-weight safety classifiers plus an open-source agent guardrail framework | Verified fact | A6-S030, A6-S039 |
 | Version / lineup | Llama Guard 4 12B and Prompt Guard 2 86M/22M (checkpoints 29 April 2025); llamafirewall 1.0.3 (PyPI, 29 May 2025) | Verified fact | A6-S030, A6-S006, V2-S028 |
@@ -7799,7 +7799,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Harvey (acquired Guardrails AI, announced 9 September 2026) | Verified fact | A6-S028 |
 | Category | Open-source input/output validation framework for LLM applications | Verified fact | A6-S037 |
 | Version / lineup | guardrails-ai 0.11.0 (14 August 2026) | Verified fact | A6-S004, V2-S028 |
@@ -7878,7 +7878,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Community-governed open-source project under the Data Privacy Stack organisation (formerly Microsoft); Technical Steering Committee | Verified fact | A6-S040, V2-S030 |
 | Category | Open-source PII detection and de-identification SDK (text, images, structured data) | Verified fact | A6-S068 |
 | Version / lineup | presidio-analyzer and presidio-anonymizer 2.2.364 (22 July 2026) | Verified fact | A6-S005, V2-S028 |
@@ -7952,7 +7952,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Google Cloud | Verified fact | A6-S066 |
 | Category | Managed sensitive-data discovery, classification and de-identification service | Verified fact | A6-S066 |
 | Version / lineup | Managed service; Python client google-cloud-dlp 3.40.0 (1 October 2026) | Verified fact | A6-S083 |
@@ -8022,7 +8022,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Microsoft | Verified fact | A6-S056 |
 | Category | Data security posture management for AI and data estates within the Microsoft Purview suite | Verified fact | A6-S090, A6-S091 |
 | Version / lineup | New DSPM generally available May 2026; classic DSPM and DSPM for AI remained until June 2026; partner (non-Microsoft) data sources and the Data Security Posture Agent still preview | Verified fact | A6-S090, V2-S036 |
@@ -8097,7 +8097,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Skyflow | Verified fact | A6-S081 |
 | Category | Data privacy vault with tokenisation and de-identification (Detect) APIs | Verified fact | A6-S081 |
 | Version / lineup | Python SDK skyflow 2.1.3 (4 August 2026); SDK v1 in maintenance, end of life 31 October 2026 | Verified fact | A6-S081 |
@@ -8169,7 +8169,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Protegrity | Verified fact | A6-S082 |
 | Category | Enterprise data protection: discovery, tokenisation, masking, plus semantic guardrails for GenAI | Verified fact | A6-S082 |
 | Version / lineup | Protegrity AI Team Edition launched 17 November 2025 (docs still say Tech Preview, not GA; April 2026 release says 'available now'); AI Enterprise Edition; protegrity-developer-python 1.1.1 (16 December 2025) | Verified fact | A6-S093, A6-S082 |
@@ -8243,7 +8243,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Open Policy Agent project, CNCF graduated (graduated February 2021) | Verified fact | A6-S046 |
 | Category | Open-source general-purpose policy engine (policy-as-code, Rego) | Verified fact | A6-S046 |
 | Version / lineup | v1.21.1 (29 September 2026) | Verified fact | A6-S048, A6-S047, V2-S061 |
@@ -8314,7 +8314,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | SPIFFE project, CNCF graduated | Verified fact | A6-S087 |
 | Category | Open specification and open-source implementation for workload identity | Verified fact | A6-S087 |
 | Version / lineup | SPIRE v1.15.3 (21 August 2026); 1.16.0 unreleased | Verified fact | A6-S043, A6-S042, V2-S061 |
@@ -8390,7 +8390,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Cedar project (cedar-policy GitHub organisation; created by AWS); AgentCore Policy by Amazon Web Services | Verified fact | A6-S045, A6-S026 |
 | Category | Open-source authorisation policy language and engine; managed agent tool-call policy service (AgentCore Policy) | Verified fact | A6-S045, A6-S026 |
 | Version / lineup | cedar-policy 4.13.0 (15 September 2026; Cedar language version 4.5); Policy in Amazon Bedrock AgentCore GA 3 March 2026 in 13 Regions (preview December 2025) | Verified fact | A6-S044, A6-S085, A6-S026, V2-S033 |
@@ -8466,7 +8466,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Okta, Inc. (Auth0 is an Okta product) | Verified fact | A6-S078, A6-S080 |
 | Category | Identity and authorisation for AI agents (delegated access, async approval, fine-grained authorisation, enterprise-managed app-to-app access) | Verified fact | A6-S078, A6-S080 |
 | Version / lineup | Auth0 for AI Agents GA 19 November 2025 (User Authentication, Token Vault, Asynchronous Authorization, FGA for RAG); May 2026 additions Auth for MCP and On-Behalf-Of Token Exchange GA; Okta for AI Agents GA 30 April 2026; Agent SSO / XAA GA 24 August 2026; SDKs auth0-ai 1.0.2 and @auth0/ai 6.0.2 | Verified fact | A6-S097, A6-S100, A6-S099, A6-S076, A6-S077, V2-S035 |
@@ -8539,7 +8539,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Microsoft | Verified fact | A6-S057 |
 | Category | Agent identity platform within Microsoft Entra (identity provider for AI agents) | Verified fact | A6-S057 |
 | Version / lineup | Generally available (Entra release log lists GA under April 2026; What's new page dated 1 May 2026); some admin-centre creation wizards still preview | Verified fact | A6-S058, V2-S032 |
@@ -8614,7 +8614,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Model Context Protocol project (specification and extensions published in modelcontextprotocol GitHub organisation) | Verified fact | A6-S032, A6-S079 |
 | Category | Open specification (authorisation profile of OAuth 2.1 for agent-to-tool access) | Verified fact | A6-S033 |
 | Version / lineup | Specification revision 2026-07-28 (previous 2025-11-25); Enterprise-Managed Authorization extension status 'Stable'; Python SDK mcp 2.3.0 (2 October 2026) | Verified fact | A6-S032, A6-S079, A6-S086, V2-S031 |
@@ -8690,7 +8690,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | LangChain, Inc. | Verified fact | A7-S076, A7-S011 |
 | Category | Prompt management within an LLM observability, evaluation and deployment platform | Verified fact | A7-S076, A7-S078 |
 | Version / lineup | langsmith Python SDK 0.14.4 released 2 October 2026 (platform is a continuously deployed SaaS) | Verified fact | A7-S011 |
@@ -8765,7 +8765,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Langfuse (part of ClickHouse, Inc. since January 2026, per the Langfuse README; LICENSE copyright 'ClickHouse, Inc.') | Verified fact | A7-S075, V2-S041 |
 | Category | Prompt management / prompt registry (feature of an open-source LLM engineering platform) | Verified fact | A7-S071 |
 | Version / lineup | Docs labelled 'Version: v4'; Python SDK langfuse 4.17.0 released 5 October 2026 | Verified fact | A7-S009, A7-S074 |
@@ -8839,7 +8839,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Pattern; formats from Microsoft (Prompty), Google (Dotprompt); Promptfoo is now part of OpenAI | Verified fact | A7-S067, A7-S066, A7-S068, V2-S042 |
 | Category | Named pattern and open file formats | Verified fact | A7-S067, A7-S066 |
 | Version / lineup | Prompty v2 (Python prompty 2.0.2, 16 September 2026; runtimes for Python, TypeScript, Rust, C#); Dotprompt (Python dotpromptz 0.2.0, 5 October 2026; JS/TS, Python, Go, Rust, Java); promptfoo 0.124.0 on npm (6 October 2026) | Verified fact | A7-S008, A7-S067, A7-S065, A7-S066, A7-S069 |
@@ -8912,7 +8912,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | PromptLayer (GitHub organisation 'MagnivOrg'); independent - no acquisition found | Verified fact | A7-S004 |
 | Category | Prompt registry and LLM engineering workbench (versioning, evals, tracing) | Verified fact | A7-S004 |
 | Version / lineup | promptlayer Python SDK 1.5.16 released 19 August 2026 | Verified fact | A7-S004, V2-S028 |
@@ -8984,7 +8984,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | LaunchDarkly | Verified fact | A7-S059 |
 | Category | Runtime configuration for model, parameters and prompt messages, delivered through a feature-management platform | Verified fact | A7-S089 |
 | Version / lineup | AI Configs GA 28 May 2025; online evals GA 11 March 2026; renamed AgentControl (launch post 12 May 2026; rebrand noted by 1 April 2026); Python AI SDK launchdarkly-server-sdk-ai 1.2.0 (17 July 2026) | Verified fact | A7-S117, A7-S059 |
@@ -9059,7 +9059,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | FinOps Foundation FOCUS Working Group (copyright Joint Development Foundation Projects, LLC, FOCUS Series) | Verified fact | A7-S048, A7-S096 |
 | Category | Open specification (billing/cost and usage data schema) | Verified fact | A7-S048 |
 | Version / lineup | v1.4 ratified by the FOCUS Steering Committee on 4 June 2026 (adds BillingPeriod and InvoiceDetail datasets, 47 columns); v1.3 December 2025; v1.2 June 2025; v1.1 November 2024; v1.0 20 June 2024 | Verified fact | A7-S049, V2-S046 |
@@ -9134,7 +9134,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Pattern; implementations include LiteLLM (BerriAI), Portkey (acquired by Palo Alto Networks), Helicone, and model-provider admin APIs such as Anthropic's Usage & Cost Admin API | Verified fact | A7-S010, A7-S016, A7-S046, A7-S070 |
 | Category | Named pattern (AI FinOps: metering, attribution, budgets, showback/chargeback) | Verified fact | A7-S010, A7-S070 |
 | Version / lineup | Examples as of 7 October 2026: LiteLLM 1.104.1 (7 October 2026); portkey-ai SDK 2.3.4 (23 July 2026); Anthropic Usage & Cost Admin API (current docs) | Verified fact | A7-S010, A7-S081, A7-S070 |
@@ -9207,7 +9207,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Vantage (vantage.sh) | Verified fact | A7-S090 |
 | Category | Cloud cost management / FinOps platform | Verified fact | A7-S090 |
 | Version / lineup | Not publicly verified | Not publicly verified |  |
@@ -9278,7 +9278,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | CloudZero | Verified fact | A7-S091 |
 | Category | Cloud cost intelligence / allocation platform | Verified fact | A7-S091 |
 | Version / lineup | Not publicly verified | Not publicly verified |  |
@@ -9349,7 +9349,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Helicone, acquired by Mintlify (announced and completed 3 March 2026) | Verified fact | A7-S112, V2-S043 |
 | Category | AI gateway plus LLM observability with cost and latency tracking | Verified fact | A7-S046 |
 | Version / lineup | No versioned platform release found; @helicone/helpers npm package last published 1.8.3 on 7 November 2025; legacy Python package 'helicone' last released 1.0.14 on 3 November 2023 | Verified fact | A7-S047, A7-S005 |
@@ -9423,7 +9423,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | HashiCorp, an IBM company (IBM acquisition closed 27 February 2025) | Verified fact | A7-S032 |
 | Category | Secrets management, identity-based access and encryption; agentic IAM for AI agents | Verified fact | A7-S034 |
 | Version / lineup | Vault 2.1.1 (16 September 2026); 2.1.0 (1 September 2026) made agentic IAM GA in Vault Enterprise; Vault 2.0 GA 14 April 2026 (first major version since 1.0, aligned to IBM lifecycle) | Verified fact | A7-S061, A7-S033, A7-S034, V2-S061 |
@@ -9494,7 +9494,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Pattern; ModelScan by Protect AI (now Palo Alto Networks); picklescan (community, used by Hugging Face); fickling by Trail of Bits; safetensors by Hugging Face | Verified fact | A7-S082, A7-S014, A7-S037, A7-S064, A7-S007 |
 | Category | Named pattern plus open-source scanners (e.g. picklescan: 'Security scanner detecting Python Pickle files performing suspicious actions') and a safe serialisation format | Verified fact | A7-S082, A7-S083, A7-S007 |
 | Version / lineup | modelscan 0.8.8 (18 February 2026); picklescan 1.0.5 (1 July 2026); fickling 0.1.12 (26 June 2026); safetensors 0.8.0 (9 June 2026) | Verified fact | A7-S002, A7-S006, A7-S064, A7-S007, V2-S028 |
@@ -9564,7 +9564,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | OpenSSF AI/ML Working Group (Linux Foundation); reference implementation in Sigstore model-transparency; contributors include Google, NVIDIA and HiddenLayer | Verified fact | A7-S040, A7-S038 |
 | Category | Open specification and library for signing and verifying ML models | Verified fact | A7-S040 |
 | Version / lineup | v1.0 launched 4 April 2025; model-signing 1.1.1 on PyPI (10 October 2025); OpenSSF podcast (July 2026) refers to v1.1 and v1.2 iterations | Verified fact | A7-S040, A7-S038, V2-S028 |
@@ -9638,7 +9638,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Palo Alto Networks (acquired Protect AI, July 2025; Koi, April 2026; Portkey, May 2026) | Verified fact | A7-S014, A7-S016 |
 | Category | AI security platform: model scanning, posture, AI red teaming, runtime protection, agent security, AI gateway | Verified fact | A7-S014, A7-S027, A7-S028 |
 | Version / lineup | Prisma AIRS 3.0 launched 23 March 2026 (2.0 on 28 October 2025); monthly feature releases through August 2026; modules: AI Model Security, AI Red Teaming, AI Runtime (API and network intercept), Agent Artifact Scanning, AI Skill Security, AI Gateway (GA 16 July 2026) | Verified fact | A7-S027, A7-S015, A7-S028, A7-S031 |
@@ -9710,7 +9710,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | HiddenLayer (independent; US$100 million Series B in September 2026, total raised over US$155 million) | Verified fact | A7-S017 |
 | Category | AI security platform: model supply-chain scanning, AI runtime security for agents, AI threat detection and response | Verified fact | A7-S017, A7-S029 |
 | Version / lineup | Modules: AI Supply Chain Security (Model Scanner), AI Runtime Security (agentic capabilities, March 2026), Agent Harness Security for coding agents (3 August 2026); hiddenlayer-sdk 3.10.0 (10 September 2026) | Verified fact | A7-S017, A7-S029, A7-S062 |
@@ -9784,7 +9784,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Check Point Software Technologies (acquired Lakera AI AG, Zurich) | Verified fact | A7-S012, A7-S013 |
 | Category | AI runtime security: prompt-attack, data-leakage and policy guardrails for LLM apps and agents | Verified fact | A7-S025 |
 | Version / lineup | AI Guardrails (runtime, Guard API; standalone tier available); AI Agent Security (early access from 10 April 2026); umbrella 'Check Point AI Defense Plane' launched 23 March 2026 | Verified fact | A7-S025, A7-S026 |
@@ -9856,7 +9856,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | LF AI & Data Foundation Graduate project (OpenLineage); Marquez is a separate LF AI & Data Graduated project | Verified fact | A7-S041, A7-S043 |
 | Category | Open specification for runtime data-lineage metadata, with client libraries and integrations | Verified fact | A7-S041 |
 | Version / lineup | openlineage-python 1.53.0 (1 September 2026); spec version 2-0-2 (Marquez compatibility table); Marquez latest image 0.51.1 (27 March 2025) | Verified fact | A7-S001, A7-S043, A7-S044, V2-S028 |
@@ -9929,7 +9929,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | IBM | Verified fact | A7-S058 |
 | Category | AI governance, evaluation and model risk platform | Verified fact | A7-S058 |
 | Version / lineup | Continuous SaaS updates (IBM Cloud catalog updated 20 July 2026); v2.2.0 introduced policy packs; 2026 features: AI Asset Discovery (9 July 2026), Enforcement Tracking (11 August 2026), Guardium security metrics; SDK ibm-watsonx-gov 1.5.2 (18 September 2026) | Verified fact | A7-S103, A7-S111, A7-S058 |
@@ -10001,7 +10001,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Credo AI | Verified fact | A7-S092, A7-S093 |
 | Category | AI governance platform (registry, policy packs, evidence, third-party AI risk) | Verified fact | A7-S102, A7-S110 |
 | Version / lineup | Not publicly verified | Not publicly verified |  |
@@ -10073,7 +10073,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | Collibra (acquired trail ML, Munich, announced 5 October 2026) | Verified fact | A7-S105, A7-S101 |
 | Category | AI governance on a data intelligence/governance platform (AI use-case registry, assessments, controls) | Verified fact | A7-S099, A7-S122 |
 | Version / lineup | Not publicly verified | Not publicly verified |  |
@@ -10146,7 +10146,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-07)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | ModelOp (privately held, Chicago; raised US$10m led by Baird Capital - date not confirmed) | Verified fact | A7-S104 |
 | Category | AI governance and AI lifecycle automation software | Verified fact | A7-S098 |
 | Version / lineup | Not publicly verified | Not publicly verified |  |
@@ -10219,7 +10219,7 @@ This appendix holds the full record for every product assessed: current facts wi
 **Facts (as of 2026-10-08)**
 
 | Field | Value | Label | Sources |
-|-------|------------------------------|----|-----|
+|---------|--------------------------|--------|-----|
 | Company | ValidMind Inc. | Verified fact | A7-S051 |
 | Category | Model risk management and AI governance platform (inventory, documentation, validation, monitoring) | Verified fact | A7-S003, A7-S054 |
 | Version / lineup | ValidMind Library 2.13.14 released 3 September 2026; Platform is cloud-hosted | Verified fact | A7-S003, V2-S028 |

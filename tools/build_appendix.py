@@ -66,7 +66,7 @@ for L in ORDER:
                     md.append("**%s**\n\n" % lab + "\n".join("- " + str(i) for i in items) + "\n")
             if a.get("competitors"): md.append("**Nearest competitors:** " + ", ".join(map(str, a["competitors"])) + "\n")
             if a.get("fs_note"): md.append("**Regulated-FS note.** " + a["fs_note"] + "\n")
-        md.append("**Facts (as of %s)**\n\n| Field | Value | Label | Sources |\n|-------|------------------------------|----|-----|" % (p.get("last_verified") or "October 2026"))
+        md.append("**Facts (as of %s)**\n\n| Field | Value | Label | Sources |\n|---------|--------------------------|--------|-----|" % (p.get("last_verified") or "October 2026"))
         for k, lab in FIELDS:
             v, l, s = cell(p.get(k))
             if v: md.append("| %s | %s | %s | %s |" % (lab, v[:600], l, s))
