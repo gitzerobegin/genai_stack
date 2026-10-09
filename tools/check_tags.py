@@ -6,7 +6,7 @@ Usage: python3 -I tools/check_tags.py <repo_root> work/stageB/L9/section.md [...
 import csv, glob, json, os, re, sys
 root = sys.argv[1]; os.chdir(root)
 ids = set()
-for p in glob.glob("work/stageA/*/sources.csv") + glob.glob("work/stageA_verify/*/sources.csv") + glob.glob("work/stageB/*/sources_added*.csv"):
+for p in glob.glob("work/stageA/*/sources.csv") + glob.glob("work/stageA_verify/*/sources.csv") + glob.glob("work/stageB/*/sources_added*.csv") + glob.glob("work/gapfill/*/sources*.csv"):
     for r in csv.DictReader(open(p, encoding="utf-8")):
         if r.get("id"): ids.add(r["id"].strip())
 regs = {r["id"] for r in json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json"))}
