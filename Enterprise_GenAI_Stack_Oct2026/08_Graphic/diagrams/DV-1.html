@@ -1,0 +1,48 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>The agentic-SDLC product inside the customer's stack: the customer's identity, models, tools and evidence; the vendor's agent loop</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">The agentic-SDLC product inside the customer's stack: the customer's identity, models, tools and evidence; the vendor's agent loop</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef vendor fill:#FBF4E4,stroke:#D4A13A,stroke-width:2px;
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  ENG["Customer engineer assigns a task&lt;br/&gt;SSO through the customer's IdP"]
+  subgraph SDLC["Customer software-delivery chain"]
+    direction LR
+    REPO["Repository&lt;br/&gt;branch protection&lt;br/&gt;AGENTS.md"]
+    CI["Customer CI&lt;br/&gt;tests, SAST,&lt;br/&gt;secret scanning"]
+    REV["Review&lt;br/&gt;named human merges"]
+    REPO --&gt; CI --&gt; REV
+  end
+  subgraph RUN["Vendor agent runner in the customer's account or CI runners"]
+    direction LR
+    LOOP["L3 agent loop&lt;br/&gt;plan, edit, test"]
+    SBX["L4 sandbox&lt;br/&gt;microVM, default-deny egress"]
+    LOOP --&gt; SBX
+  end
+  VCP["Vendor control plane (SaaS)&lt;br/&gt;licences, job metadata, no code"]:::note
+  subgraph CP["Customer GenAI control plane"]
+    direction LR
+    ID["C4 agent identity&lt;br/&gt;on behalf of the engineer"]
+    GW["C1 gateway&lt;br/&gt;to customer model endpoint&lt;br/&gt;L1, L2: no retention"]
+    TG["L4 tool gateway&lt;br/&gt;MCP allow-list"]
+    VLT["C7 vault&lt;br/&gt;short-lived tokens"]
+  end
+  subgraph EV["Customer evidence plane"]
+    direction LR
+    OT["L9 OTel spans&lt;br/&gt;to customer collector"]
+    COST["C6 cost&lt;br/&gt;per task"]
+    EVD["C8 evidence record&lt;br/&gt;per agent action"]
+  end
+  ENG --&gt; RUN
+  VCP -.-&gt; RUN
+  RUN --&gt; CP
+  RUN --&gt;|"pull request only"| SDLC
+  RUN --&gt; EV
+  CP --&gt; EV
+  class LOOP,SBX vendor;
+</pre><div class="c">The start-up ships an agent runner that executes in the customer's account or on the customer's CI runners, with a thin vendor control plane that never holds source code. Every model call goes through the customer's gateway to the customer's model endpoint, every tool call through the customer's tool gateway, every credential comes from the customer's vault, and the only way the agent changes code is a pull request that the customer's CI checks and a named human merges. Spans, cost per task and an evidence record go to the customer's collector and evidence store.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

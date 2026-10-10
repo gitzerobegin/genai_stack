@@ -1,0 +1,53 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>The agent inside the customer's stack: the integration contract</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">The agent inside the customer's stack: the integration contract</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef vendor fill:#E8F0F8,stroke:#2E6DA4,stroke-width:2px;
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  subgraph OUT["Outside the customer's account"]
+    direction LR
+    V["Agent start-up&lt;br/&gt;signed release: container, manifest,&lt;br/&gt;Agent Card, evaluation suite, SBOM"]:::vendor
+    U["Named business user&lt;br/&gt;signs in through the customer's IdP"]
+  end
+  subgraph CS["Customer's cloud account: the agent runs here"]
+    direction TB
+    AG["Agent runtime (L3)&lt;br/&gt;deterministic workflow + one bounded agent step&lt;br/&gt;registered agent identity, no standing secrets"]
+    CFG["C5 customer overlay in Git&lt;br/&gt;thresholds, model pins, tool list"]:::note
+    subgraph CP["Customer control plane: the integration contract"]
+      direction LR
+      ID["C4 identity&lt;br/&gt;agent ID + sponsor&lt;br/&gt;OBO token per tool"]
+      GW["C1 AI gateway&lt;br/&gt;customer's model route,&lt;br/&gt;region and budget"]
+      TG["L4 tool gateway&lt;br/&gt;MCP or OpenAPI tools&lt;br/&gt;allow-list + policy"]
+      PR["C3 privacy service&lt;br/&gt;redact before&lt;br/&gt;any model call"]
+    end
+    subgraph EV["Customer evidence plane"]
+      direction LR
+      OT["L9 OTel collector&lt;br/&gt;gen_ai.* spans"]
+      ES["C8 evidence store&lt;br/&gt;one record per output"]
+      FN["C6 cost per task&lt;br/&gt;FOCUS-shaped"]
+    end
+  end
+  subgraph DS["Behind the customer's gateways"]
+    direction LR
+    M["Customer's model portfolio (L1, L2)&lt;br/&gt;two vendors, in region"]
+    SOR["Systems of record&lt;br/&gt;read-only tools"]
+  end
+  OUT --&gt; CS
+  V -- "marketplace or private offer" --&gt; AG
+  U --&gt; ID
+  CFG -.-&gt; AG
+  ID --&gt; AG
+  AG --&gt; CP
+  GW --&gt; M
+  TG --&gt; SOR
+  AG --&gt; EV
+  OT --&gt; ES
+  OT --&gt; FN
+  AG -. "opt-in health metadata only" .-&gt; V
+</pre><div class="c">The start-up ships a signed release (container, manifest, Agent Card, evaluation suite, SBOM) that runs in the customer's cloud account. Every dependency the agent has is a customer-owned interface: the customer's IdP registers the agent and issues a short-lived on-behalf-of token per tool; model calls go through the customer's AI gateway to the customer's chosen models; tool calls go through the customer's tool gateway under deny-by-default policy; telemetry, evidence and cost land in the customer's stores. The vendor receives only opt-in health metadata.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

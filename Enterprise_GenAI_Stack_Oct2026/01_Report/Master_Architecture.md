@@ -1,6 +1,6 @@
 ---
 title: "The Enterprise GenAI Stack"
-subtitle: "The view at end of Q3 2026: reference architecture, product assessment and regulated-FS view"
+subtitle: "The view at end of Q3 2026: reference architecture and product assessment for regulated financial services, technology service providers, software companies and start-ups"
 date: "Veyan · evidence as of 9 October 2026"
 ---
 
@@ -150,10 +150,10 @@ The reader reviewed and decided at each checkpoint (CP1–CP5). Every decision i
 |---|---|
 | Product records | 140: the 80 tiles of the popular stack diagram, 48 control-plane products and 12 material additions |
 | Products scored | 138. Tiers: 58 Strategic · 67 Tactical · 13 Experimental |
-| Regulatory and standards records | 20 |
-| Sources logged | 1,255 |
-| Direct page snapshots | 455 |
-| Search-tool extracts | 798 |
+| Regulatory and standards records | 27 |
+| Sources logged | 1,449 |
+| Direct page snapshots | 513 |
+| Search-tool extracts | 934 |
 | Link-only sources | 2 |
 | Fact cells marked "Not publicly verified" | 1,557 of 4,620 |
 
@@ -7752,6 +7752,868 @@ Part IV.1 sets out the nine layers as they stand. This table maps each one back 
 | L8 | Data extraction | Ingestion and data preparation | Scope extended (H7); runtime web access moved to L4 |
 | L9 | Evals and observability | Evaluation and observability plane | Repositioned (H8) |
 | C1–C8 | (absent) | Control plane | Added |
+
+
+# Part XIII: The view for technology service providers
+
+**In brief.**
+- **Who it is for.** A technology company that runs GenAI inside services it operates for its customers: multi-tenant SaaS, managed or hosted services, digital platforms. It processes customer data, owes uptime and security commitments, and earns a margin on every model call [AJ].
+- **What changes.** The FS view (Parts I–XII) builds a control and evidence plane for one regulated firm. A service provider builds the same plane, but every element of it must be tenant-aware, metered and sold: tenant isolation, cost per call and service levels replace model-risk validation as the hardest problems [AJ].
+- **What stays.** Part I.2's gateway of record, day-one evaluation, deterministic workflows with human approval, and Git as the configuration of record [Rec].
+- **The view at end of Q3 2026.** Evidence read on 9–10 October 2026; prices and capacity tiers are volatile and re-verified each quarter [AJ].
+
+> **Conflict-of-interest disclosure.** The author is an Anthropic model. Anthropic's Claude family rises from third to second in its layer under this view's weights; that movement comes from the same criterion scores as every other product, re-weighted by `tools/build_views.py`. Wherever a Claude model, MCP or Agent Skills is mentioned as a choice, an independent alternative is named beside it [AJ].
+
+## XIII.1 Who this view is for
+
+**Profile.** The organisation runs one estate it controls and sells a service from it. Its tenants bring their data, their end users and often their regulators' expectations; it processes that data, answers security questionnaires, commits to uptime, and carries the model bill unless a tenant brings its own model account (views.json) [AJ].
+
+**Assumptions.** The provider is medium-sized or larger, serves EU and UK customers including regulated financial firms, already runs a SaaS platform with tenant isolation and SSO, has a platform team rather than a model-risk function, and ships mostly a hosted service, perhaps with an installable SDK or connector [AJ].
+
+**The five biggest differences from the FS view [AJ]:**
+
+| # | FS view (Parts I–XII) | Technology service provider view | Consequence for the architecture |
+|---:|---|---|---|
+| 1 | Cost is a minor criterion (5%); tokens are not the cost driver, reviewer time is (Part VI) | Cost per call is gross margin (15%); every call is a cost of goods sold | C6 becomes a product control: per-tenant metering, unit economics and cost levers designed in from the first release [AJ] |
+| 2 | Isolation means a partition per segregated mandate inside one firm | Isolation between customers is the product's core promise | Tenant identity is carried in every token, key, cache, index, trace and evidence record; cross-tenant leakage is the top risk [AJ] |
+| 3 | Two model vendors exist mainly for regulatory exit (SS2/21) | Two vendors exist for service levels, capacity and suspension risk | The fallback is sized and drilled as a live capacity route, not only as an exit route [AJ] |
+| 4 | The firm is a deployer under model-risk, outsourcing and resilience rules | The provider is an AI-system provider, a likely NIS2 entity, liable for its software as a product under the PLD, and a third party in its FS customers' registers | Customer assurance and contract flow-down replace model-risk validation as the governing discipline [AJ] |
+| 5 | Lock-in weighs 15%; cloud-native services are conditional | Lock-in weighs 5%; the provider runs one estate it chooses | Managed cloud services rise (guardrails, DLP, cheap vector tiers); the provider's own exit duty is to its customers, under the Data Act [AJ] |
+
+## XIII.2 Findings that change for this view
+
+**1. The three US model vendors allow a provider to build a service on their APIs, with limits that must flow down.** Anthropic's Commercial Terms expressly permit using the services "to power products and services Customer makes available to its own customers and end users" [VF: E2-S004]. OpenAI and Google let the customer keep inputs and own outputs, and Google treats generated output as Customer Data [VF: E2-S026, E2-S007]. All three restrict using their services or outputs to build competing models; Anthropic also bars reselling raw access without approval, and OpenAI bars transferring API keys [VF: E2-S004, E2-S026, E2-S007]. A provider must therefore sell a service with its own logic, not a pass-through model API, and carry the vendors' usage policies down to end users [AJ].
+
+**2. A tenant's misuse can suspend the whole service.** Anthropic may suspend access if it believes a customer or any of its users breaches the Usage Policy, and the policy applies to "the end users of products or services integrating Claude" [VF: E2-S004, E2-S005]. Google's generative AI terms bar any service "likely to be accessed by individuals under the age of 18", and clinical use [VF: E2-S007, E2-S030]. On a multi-tenant platform one tenant's breach can put every tenant's feature at risk, so per-tenant abuse monitoring, a per-tenant kill switch and a qualified second vendor are availability controls [AJ].
+
+**3. Capacity, not regulation, is why the second vendor matters.** OpenAI's Priority processing (renamed Fast mode on 30 July 2026) carries a 99.9% uptime SLA, while Flex is billed at Batch rates and may return 429 under load [VF: E2-S031]. Anthropic no longer sells Priority Tier commitments; guaranteed capacity is a sales conversation [VF: E2-S006]. Azure PTU quota does not guarantee capacity [VF: E2-S017], and Anthropic's top tier, Claude Fable 5, was unavailable from 12 June to 1 July 2026 [VF: V2-S004]. The fallback vendor must be qualified, warm and sized for real traffic [AJ].
+
+**4. Cost levers are large and must be designed in.** Batch processing is 50% below standard on OpenAI, Anthropic, the Gemini API, Bedrock (select models) and Azure OpenAI Global and Data Zone Batch [VF: A5-S004, A5-S011, A5-S032, E2-S032, E2-S018]. Cached input is about 90–95% cheaper on OpenAI, and an Anthropic cache read costs 0.1x the base input price (0.05x on Opus 5.5 and Sonnet 5.5) [VF: A5-S004, V2-S002]. Regional processing costs about 10% more on Bedrock regional endpoints for Claude, non-global Google Cloud endpoints and Mistral's EU endpoint [VF: A5-S011, A5-S027, A5-S075]. Stable prompt prefixes, an asynchronous path and a small model tier are architecture decisions that set the margin [AJ].
+
+**5. Multi-tenant isolation has primary guidance, but no single standard.** Microsoft's guidance sets out four isolation models for Azure OpenAI, warns that a shared resource gives no security segmentation per deployment, and says not to share an instance when using fine-tuned models [VF: E2-S016]; tenants must agree before their data trains a shared model [VF: E2-S015]. AWS describes silo, pool and bridge patterns for multi-tenant retrieval, with per-tenant KMS keys in the silo and automatic tenant-filter injection in the pool [VF: E2-S050]. OWASP's LLM08:2025 names cross-context leakage in multi-tenant vector stores [VF: E2-S051], but no OWASP item on tenant isolation was found [NPV]. Shared prefix caches and tiered KV stores can carry one request's context into another's [VF: A4-S091, A4-S090, A4-S089], and Apigee fixed an SSRF in its semantic-cache lookup on 30 September 2026 [VF: A6-S025]. The provider must write its own tenancy standard, with a tenant key in the address of every cache, memory and checkpoint [AJ].
+
+**6. The provider sits in two regulatory positions at once.** It is regulated in its own right under NIS2, the Product Liability Directive and AI Act Article 50 (XIII.6) [VF: E1-S017, E1-S010, E1-S035]. It is also a third party in its regulated customers' books: DORA Article 30 clauses and subcontracting rules reach it and, through it, its model API vendors [VF: E1-S055, E1-S057]. The FS view is, in effect, the provider's most demanding customer [AJ].
+
+**7. Customer assurance has an AI-specific format.** CSA's AI Controls Matrix maps control by control to ISO/IEC 42001, and STAR for AI Level 1 is a published AI-CAIQ self-assessment, Level 2 an ISO/IEC 42001 certificate plus a scored AI-CAIQ [VF: E2-S047]. Certification against ISO/IEC 27001 is now to the 2022 edition only [R: E2-S046], and SOC 2 is still assessed against the 2017 Trust Services Criteria [R: E2-S048]. Publishing an AI-CAIQ answers most AI questionnaires once [AJ].
+
+**8. The provider's customers will be able to switch away from it for free.** From 12 January 2027 cloud and SaaS providers may not charge for switching, including egress, and must export customer data in a machine-readable format [VF: E1-S025, E1-S026]. Whether tenant prompts, fine-tuned weights, embeddings or agent configurations are exportable data under the Act is not settled [NPV]. The provider's own portability engineering therefore faces outwards, towards its tenants [AJ].
+
+## XIII.3 Scoring for this view
+
+**The weights.** The view re-weights the same eight criterion scores that the FS view uses; no product fact or criterion score changes [AJ]. The weights are architectural judgement (views.json) [AJ]:
+
+| Criterion | FS weight | TS weight | Why it moves [AJ] |
+|---|---:|---:|---|
+| Technical | 15 | 15 | Unchanged |
+| Enterprise readiness | 15 | 15 | Unchanged: tenants still need SSO, audit and support |
+| Security and compliance | 20 | 15 | Still high, but no model-risk regime applies directly |
+| Deployment flexibility | 15 | 10 | The provider chooses where its own service runs |
+| Ecosystem | 5 | 10 | Developer productivity and integrations matter to a product team |
+| Reliability and maturity | 10 | 15 | Service levels are what customers buy |
+| Cost and TCO | 5 | 15 | Every call is cost of goods sold |
+| Lock-in and portability | 15 | 5 | One estate the provider controls; exit is a lesser risk |
+
+**What moves, and why.** The largest gains go to low-cost managed services whose weakness was lock-in: Model Armor (C2) rises from 3.35 to 3.70 on cost 5, and Amazon S3 Vectors (L6), Voyage AI (L7) and Cloudflare AI Gateway (C1) each gain 0.30 on cost 4 or 5 (`TS_scores.md`) [AJ]. Sensitive Data Protection rises 0.25 on reliability 5 [AJ]. The largest falls go to portable products whose advantage was lock-in or deployment: Milvus/Zilliz drops 0.25, and llm-d, Unstructured and Presidio fall because their 5s on lock-in and deployment now weigh less [AJ].
+
+**Fit changes against FS.** Core candidates number 48 under these weights, against 45 under FS, of 138 scored products (`TS_scores.md`) [AJ]. Eleven products change fit [AJ]:
+
+| Becomes a core candidate under TS | Master tier | FS → TS | Becomes situational under TS | Master tier | FS → TS |
+|---|---|---|---|---|---|
+| MCP (L4); Anthropic-originated, alternative OpenAPI tools | Strategic, conditional | 3.55 → 3.60 | A2A (L4) | Strategic, conditional | 3.70 → 3.55 |
+| AgentCore Gateway and Identity (L4) | Strategic, conditional (AWS) | 3.45 → 3.60 | Fireworks AI (L2) | Strategic, conditional | 3.65 → 3.55 |
+| Zep and Graphiti (L5) | Tactical | 3.50 → 3.60 | Presidio (C3) | Strategic, conditional | 3.65 → 3.45 |
+| Arize Phoenix (L9) | Tactical | 3.50 → 3.65 | Prompts-as-code pattern (C5) | Strategic | 3.65 → 3.55 |
+| Promptfoo (L9) | Tactical | 3.55 → 3.60 | | | |
+| Model Armor (C2) | Strategic, conditional (Google Cloud) | 3.35 → 3.70 | | | |
+| Okta and Auth0 for AI Agents (C4) | Strategic, conditional | 3.55 → 3.60 | | | |
+
+**How to read the fit.** The fit is computed and indicative; the master tiers and their conditions still stand, and the condition is the decision, not the total (Part I.3) [AJ]. This view keeps two products the computed fit demotes. Presidio stays the cloud-neutral privacy engine because a processor needs in-estate detection it controls, and its drop comes only from lower weights on its strengths [AJ]. Prompts-as-code stays the configuration of record because per-tenant overlays need Git history more than a single firm does [AJ]. Conversely, Zep, Phoenix and Promptfoo becoming core candidates does not change their Tactical master tier: Phoenix remains under ELv2 [VF: A1-S048], and Promptfoo's announced owner is a model vendor [VF: A1-S024].
+
+**Anthropic.** The Claude family moves from third to second in L1 (3.80 → 3.85), behind OpenAI (4.20), mainly because Mistral's strengths in deployment and lock-in now weigh less (3.85 → 3.80); its lowest criteria remain deployment flexibility 3 and reliability 3 (`TS_scores.md`) [AJ]. Its master tier is Strategic, conditional (hyperscaler UK/EU route, non-Anthropic fallback; independent alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) [AJ].
+
+**Where to find the full table.** Every product's FS and TS score, rank and fit is in `05_Data/views.xlsx`; the per-layer listing is `work/stageE/views/TS_scores.md` [AJ].
+
+## XIII.4 The architecture for this view
+
+The FS architecture (Part IV.1) is kept layer for layer; what changes is that tenant identity becomes a dimension of every component, and cost and customer evidence become outputs of the same telemetry spine [AJ]. The control plane is still one estate, but it is one estate serving many customers, so every decision point (identity, gateway, policy, configuration) resolves a tenant before it resolves anything else [AJ].
+
+![The technology service provider's GenAI architecture: one estate, every call tenant-aware](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/TS-1.png){width=100%}
+
+*Figure: The provider runs one control plane for all tenants: tenant identity travels in every token, the gateway meters, limits and routes per tenant, the knowledge plane is partitioned by tenant (pooled by default, siloed for tenants who pay for it), and every span carries the tenant ID so cost, margin and customer evidence can be reported per tenant. Editable source: `08_Graphic/diagrams/TS-1.md`.* [AJ]
+
+**Three tenancy tiers, one code path.** The architecture offers three isolation tiers built from the same components, following the pool, bridge and silo patterns [VF: E2-S050, E2-S053] [AJ]:
+
+| Tier | Model plane | Knowledge plane | Who buys it [AJ] |
+|---|---|---|---|
+| Pooled (default) | Shared deployments; per-tenant virtual key, quota and budget | Shared index; tenant filter injected server-side from the token, never from the prompt | Most tenants |
+| Bridged | Shared deployments; dedicated provisioned capacity or region for the tenant | Partition or namespace per tenant; per-tenant encryption key | Regulated tenants, tenants with residency clauses |
+| Siloed | Dedicated deployment, or the tenant's own model account | Own index and key; deployment stamp per tenant | Tenants that pay for single-tenancy or bring fine-tuned models |
+
+Fine-tuned models always sit in the siloed tier, because Microsoft's guidance warns that a shared resource gives no security segmentation per deployment [VF: E2-S016]. The tenant-provided model account is a recognised pattern for customers with their own quota, content-filter policy or provisioned throughput [VF: E2-S016].
+
+**Four properties the design must prove [AJ].** A tenant can never retrieve, cache-hit or trace-read another tenant's content; every model call is attributable to a tenant, a feature and a price; a tenant's AI setting (on, off, region, model route) is configuration, changed without a release; and a vendor outage or suspension degrades the service to the fallback route rather than stopping it.
+
+## XIII.5 Layer by layer, then control by control
+
+Each row gives the provider's default and how it departs from the FS defaults (Part I.2, Part VII Stack A). Master tiers are quoted unchanged [AJ].
+
+| Layer / control | Default choice for this view | Change from the FS view | Why |
+|---|---|---|---|
+| L1 models | Two unrelated mid-tier vendors plus a small tier: OpenAI GPT (Strategic) with Claude (Strategic, conditional) or Mistral (Strategic); Claude's independent alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5 | First-party APIs acceptable for tenants without residency needs; EU/UK tenant data stays on an in-region route; heavy small-tier use | OpenAI has first-party EU processing [VF: A5-S006]; Claude has no first-party EU/UK inference [VF: V2-S075]; prices span US$0.10–10 per 1M input within a family [VF: A5-S004, A5-S011] |
+| L2 inference | Primary cloud's model service with reserved capacity for peaks, Batch or Flex for asynchronous work; vLLM (Strategic) only for one high-volume open model | Capacity tiers are a service-level design, not an exit drill; Fireworks becomes situational | Bedrock, Foundry and OpenAI capacity tiers [VF: E2-S032, E2-S017, E2-S033] |
+| L3 orchestration | LangGraph (Strategic) + Temporal (Strategic); Microsoft Agent Framework (Strategic) in .NET estates | Same choice; tenant ID and overlay become workflow inputs | Deterministic workflows remain the default [VF: A4-S039, B-L3-S002] |
+| L4 tools | Tenant tools through the tool gateway with per-tenant delegated tokens; MCP (Strategic, conditional; alternative OpenAPI tools) | The provider is itself the multi-tenant token holder the FS view rejects in a third party, so it must engineer per-tenant vaulting | A broker holding every user's tokens is a concentrated target [VF: B-L4-S007] [AJ] |
+| L5 memory | None at first; later per-tenant memory on L6 | Zep (Tactical) is a core candidate on score, but memory stays last | Memory poisoning is ASI06 [VF: B-L5-S001] |
+| L6 stores | pgvector (Strategic) partitioned by tenant; Qdrant (Strategic) for many-tenant filtered search; S3 Vectors (Tactical) as AWS cost tier | Tenant isolation replaces intra-firm entitlement as the defining duty | Qdrant tiered multitenancy [VF: A2-S103]; S3 Vectors US$0.06 per GB-month [VF: A2-S087] |
+| L7 retrieval optimisation | OpenAI text-embedding-3 (Tactical) or Cohere (Tactical); Sentence Transformers (Strategic) as exit | Hosted embeddings rise on cost; per-tenant re-embedding planned | A model change re-embeds every tenant's index [AJ] |
+| L8 ingestion | Docling (Strategic) and Unstructured (Strategic) connectors with per-tenant credentials | Per-tenant deletion on exit is contractual | Data Act switching [VF: E1-S025] |
+| L9 evaluation | OTel Collector with tenant ID on every span; Langfuse (Strategic) or MLflow (Strategic); DeepEval (Tactical); Promptfoo (Tactical) plus an independent red-team tool | Suites run globally and per tenant; tenant data in evaluation needs consent | OTel GenAI conventions still Development [VF: A1-S058]; consent for shared training [VF: E2-S015] |
+| C1 gateway | LiteLLM (Strategic, conditional), pinned and signed, a virtual key per tenant and feature | Per-tenant keys, quotas, budgets and caches | Per-tenant spend reports [VF: A7-S070, A6-S015]; PyPI compromise [VF: A6-S008] |
+| C2 guardrails | Primary cloud's managed detector (Model Armor, Bedrock Guardrails, Azure AI Content Safety; Strategic, conditional) plus per-tenant deterministic policy | Managed detectors rise on cost | Model Armor free to 2 million tokens a month, then US$0.10 per 1M [VF: A6-S067] |
+| C3 privacy | Presidio (Strategic, conditional) behind a privacy-service API; Sensitive Data Protection on Google Cloud | Per-tenant entity policy; redaction before models and in traces | Kept despite a situational computed fit [AJ] |
+| C4 identity | Provider CIAM or Okta/Auth0 for AI Agents (Strategic, conditional), with OPA (Strategic) | Customer identity replaces the workforce IdP; tenant is a mandatory claim | Auth0 Token Vault brokers API tokens for agents [VF: A6-S099] |
+| C5 configuration | Git manifest with tenant overlays; Langfuse Prompts (Strategic) labels for variants | AI on/off, region, route and tone are configuration | Labels can assign versions to tenants [VF: A7-S072] |
+| C6 FinOps | Gateway attribution (Strategic) to tenant, feature and plan in a FOCUS (Strategic)-shaped dataset joined to billing | From reporting to gross-margin control | Batch and caching halve unit cost or better [VF: A5-S004, V2-S002] |
+| C7 security | Vault (Strategic, conditional) with per-tenant paths; scanning (Strategic); tenant content as untrusted input | Cross-tenant injection; NIS2 incident duties | NIS2 24-hour early warning [VF: E1-S016] |
+| C8 governance | Evidence store keyed by trace and tenant; OpenLineage (Strategic); customer assurance pack | Customer assurance replaces model-risk validation | STAR for AI [VF: E2-S047]; ISO/IEC 42001 [VF: A8-S045] |
+
+## XIII.6 Regulation, contracts and customer assurance
+
+**The FS anchors apply only indirectly.** SR 26-2 and PRA SS1/23 govern the regulated firm, not its suppliers, and SR 26-2 places generative and agentic AI outside its scope [VF: R-US-MRM, A8-S001]. The provider meets them as evidence its FS customers request; its own duties are below [AJ].
+
+| Regime | What applies to a provider | Date | Consequence [AJ] |
+|---|---|---|---|
+| AI Act Article 50 | Supplying an AI system under its own name makes the provider its provider [VF: A8-S016]; chat features disclose AI; generated content is marked; pre-August 2026 systems have until 2 December 2026 for marking [VF: E1-S035, E1-S036] | 2 Dec 2026 | Disclosure and marking as tenant settings with a provider floor |
+| AI Act roles | Fine-tuning makes an integrator a GPAI provider only above one third of original training compute [VF: E1-S034] | In force | Per-tenant tuning does not normally make the provider a GPAI provider |
+| NIS2 | Cloud, MSP and MSSP providers, medium and large, in scope [VF: E1-S017, E1-S018]; 24-hour, 72-hour, one-month reporting [VF: E1-S016]; supply-chain policy reaching model vendors [VF: E1-S019]; management liability [VF: E1-S016] | Per transposition [NPV] | Model vendor incidents feed the provider's incident process |
+| Product Liability Directive | Software, including SaaS, is a product from 9 December 2026 [VF: E1-S010, E1-S011, E1-S012]; the AI Liability Directive was withdrawn [VF: E1-S014] | 9 Dec 2026 | Agents that can delete a person's data need approval gates |
+| Cyber Resilience Act | A hosted service is in scope only as the remote processing of a product supplied, such as an SDK [VF: E1-S001] [R: E1-S007]; main obligations from 11 December 2027 [VF: E1-S002] | 11 Dec 2027 | Keep installable components few, with SBOMs |
+| Data Act | No switching charges from 12 January 2027; export in machine-readable form [VF: E1-S025, E1-S026] | 12 Jan 2027 | Tenant export of prompts, overlays, content and evidence |
+| UK Cyber Security and Resilience Bill | Would bring medium and large MSPs into the NIS Regulations; before the Lords on 9 October 2026 [VF: E1-S021, E1-S022, E1-S023] | Not law | Plan ICO registration |
+| US state laws | Colorado's replacement law is stayed [VF: E1-S038, E1-S040]; California ADMT rules from 1 January 2027 [VF: E1-S047] | 1 Jan 2027 | Only features assisting consequential decisions are caught |
+
+**What FS customers will impose.** DORA Article 30 clauses cover service description, subcontracting, data locations, return of data on exit, service levels, incident assistance, termination and resilience training [VF: A8-S021, E1-S055]; critical functions add exit strategies and on-site audit [VF: E1-S056]. The provider must name its subcontractors, including model API vendors, pass audit rights down and let the customer object to material changes [VF: E1-S057]. UK customers notify material third parties from 18 March 2027 [VF: R-PRA-SS221, A8-S062]. Expect FS customers to ask for the parts of Part V.8's evidence register that touch the service [AJ].
+
+**Flow-down and subprocessors [Rec].** The provider's terms should carry each model vendor's usage policy to end users [VF: E2-S005], the AI-disclosure and high-risk human-review duties [VF: E2-S005], Google's under-18 and clinical-use bars [VF: E2-S007], and Anthropic's requirement that users be told not to rely on factual outputs unchecked [VF: E2-S004]. Model vendors are subprocessors: Anthropic's DPA gives prior notice of new subprocessors with a right to object [VF: E2-S012], and every route, fallbacks included, belongs on the provider's own list before it carries tenant data. Anthropic's Usage Policy effective 12 November 2026 has not been compared with the current text [NPV].
+
+**The customer assurance pack [Rec].** SOC 2 Type II [R: E2-S048]; ISO/IEC 27001:2022 [R: E2-S046]; an AI-CAIQ at STAR for AI Level 1, then Level 2 with ISO/IEC 42001 [VF: E2-S047, A8-S045]; the model vendors' own assurance [VF: A5-S021, A5-S007, V2-S062, A5-S028, A5-S075]; the subprocessor list; the tenancy standard; and a register of AI features with their routes, data use and opt-out controls.
+
+## XIII.7 Reference stack
+
+Stack A's control plane (Part VII), made tenant-aware, with managed services accepted where cost and reliability win. S, T and E abbreviate the master tiers; hyperscaler model services are access patterns, not scored (Part I.3) [AJ].
+
+| Layer / control | Cloud-neutral | AWS primary | Azure primary | Google Cloud primary |
+|---|---|---|---|---|
+| L1 models | OpenAI GPT (S) + Claude (S, cond.; alternative GPT-6.1 Sol or Mistral Medium 3.5) or Mistral (S) | Claude Sonnet 5.5 or a GPT-6 tier on Bedrock (confirm EU availability [VF: A5-S008, V2-S079]) | GPT-6.1 Sol in a Foundry Data Zone; Mistral fallback | Gemini (S, cond.), not for tenants serving under-18s [VF: E2-S007]; Claude or Mistral fallback |
+| L2 capacity | Standard + reserved + Batch/Flex; vLLM (S) for one open model | Bedrock Reserved / Priority / Flex [VF: E2-S032] | Foundry Provisioned with spillover [VF: E2-S017] | Provisioned Throughput [VF: A5-S027] |
+| L3 orchestration | LangGraph (S) + Temporal (S) | Strands on AgentCore (S, cond.) | Microsoft Agent Framework (S) | ADK on Agent Engine (S, cond.) |
+| L4 tools | Tool gateway; MCP (S, cond.; alternative OpenAPI tools) | AgentCore Gateway + Identity (S, cond.) | APIM AI gateway (S, cond.) | Apigee MCP (S, cond.) |
+| L6 stores | pgvector (S); Qdrant (S) | + S3 Vectors (T) cost tier | pgvector on Azure Database for PostgreSQL | pgvector on Cloud SQL |
+| L7 embeddings | text-embedding-3 (T) or Cohere (T); Sentence Transformers (S) | Cohere or Voyage on SageMaker (T) | Cohere on Foundry (T) | Gemini Embedding 2 (S, cond.) |
+| L8 ingestion | Docling (S) + Unstructured (S) | Same | Same | Document AI (S, cond.) |
+| L9 evaluation | Langfuse (S) or MLflow (S); DeepEval (T); Promptfoo (T) + independent tool | MLflow on SageMaker | MLflow on Azure ML | Langfuse self-hosted |
+| C1 gateway | LiteLLM (S, cond.) | + AgentCore Gateway for tools | APIM GA policies (S, cond.) | Apigee (S, cond.) |
+| C2 guardrails | Per-tenant policy + NeMo Guardrails (T) | Bedrock Guardrails (S, cond.) | Azure AI Content Safety (S, cond.) | Model Armor (S, cond.) |
+| C3 privacy | Presidio (S, cond.) | Presidio | Presidio; Purview DSPM (S, cond.) for posture | Sensitive Data Protection (S, cond.) |
+| C4 identity | Provider CIAM or Okta/Auth0 (S, cond.) + OPA (S) | AgentCore Identity + Cedar policy (S) | Entra Agent ID (S, cond.) for staff | Okta/Auth0 + OPA |
+| C5–C8 | Git with tenant overlays; gateway cost + FOCUS (S); Vault (S, cond.); evidence store + OpenLineage (S) | + application inference profiles [VF: B-C6-S004] | + Foundry project tags [VF: B-C6-S005] | Gateway metering |
+
+**Do not build yet [Rec].** Per-tenant fine-tuning; long-term memory; autonomous agents with write tools; A2A; a GPU fleet beyond one open model; a dedicated vector engine without a failed load test; a governance platform; any Experimental product, including the Claude Agent SDK (alternatives LangGraph, Pydantic AI or the OpenAI Agents SDK) [VF: A4-S006, B-REVC-S001].
+
+## XIII.8 Build vs buy, and lock-in
+
+**The rule changes in one place.** Part VIII's rule stands; for a provider, the tenancy model and unit economics are part of the control statement, so they move into the build column [AJ]:
+
+| Component | FS decision (Part VIII) | TS decision | Why [AJ] |
+|---|---|---|---|
+| Tenancy enforcement (tenant claim, filter injection, cache and key partitioning) | Not a separate component | **Build** | No profiled product enforces tenancy end to end |
+| Cost per tenant and pricing data (C6) | Build (thin) | **Build, product grade** | Margin depends on it |
+| Identity for agents (C4) | Buy the workforce IdP | **Buy CIAM, build the tenant model** | Agents act for tenants' users |
+| Detectors (C2, C3) | Hybrid, swappable | **Buy managed, keep the policy** | Cost and reliability favour managed detectors |
+| Evaluation (L9) | Hybrid | **Hybrid, per-tenant suites** | Large tenants' acceptance tests become regression sets |
+
+**Lock-in, reread.** Lock-in weighs 5% because the provider can migrate on its own schedule [AJ]. Three lock-ins still matter. A single model vendor is a service-level risk, given suspension for tenants' misuse [VF: E2-S004] and the Fable 5 outage [VF: V2-S004]. Billing intermediation puts a third party in the margin, and OpenRouter's sale to Stripe is pending [VF: V1-S059]. Ownership churn (Portkey to Palo Alto Networks, Langfuse to ClickHouse, Arize to Dynatrace, Promptfoo to OpenAI, announced) turns each embedded tool's change of control into a subprocessor notice [VF: A6-S011, A1-S021, A1-S045, A1-S024] [AJ].
+
+**The inverse lock-in [Rec].** Make the service easy to leave, because the Data Act removes switching charges from 12 January 2027 [VF: E1-S025]: keep each tenant's prompts, overlays, content, evaluation sets and evidence exportable in open formats (Git, OTel, OpenLineage, FOCUS). Embeddings can be regenerated if raw text is kept [AJ].
+
+## XIII.9 Roadmap
+
+**Size.** Twelve months, October 2026 to September 2027, for a platform team of six to ten engineers shipping one feature first. The order follows Part X, without a model-validation phase and with tenancy and assurance added [AJ].
+
+| Date | Event | Consequence [AJ] |
+|---|---|---|
+| 2 December 2026 | Article 50 marking deadline for systems already on the market [VF: E1-S036] | Disclosure and marking live before GA |
+| 9 December 2026 | PLD applies [VF: E1-S011] | Write-capable agents behind approval gates |
+| 1 January 2027 | Gemini 3.8 Flash price doubles [VF: A5-S027, V2-S010] | Re-price Google routes |
+| 12 January 2027 | Data Act: no switching charges [VF: E1-S025] | Tenant export ready |
+| 18 March 2027 | UK FS customers' third-party notifications [VF: R-PRA-SS221, A8-S062] | Assurance pack and DORA clauses ready |
+| 11 December 2027 | CRA main obligations [VF: E1-S002] | SDKs and connectors inventoried from Phase 4 |
+
+**Phases [Rec]:**
+
+| Phase (months) | Scope | Exit criterion |
+|---|---|---|
+| 0 Terms, tenancy, assurance (0–2) | Tenancy standard; vendor terms flowed down; two vendors and primary cloud chosen; subprocessor list; AI-CAIQ started; Article 50 features identified | Standard approved; vendor due diligence filed as NIS2 supply-chain evidence [VF: E1-S019] |
+| 1 Telemetry and evaluation (1–3) | Collector with tenant ID and redaction; Langfuse or MLflow; CI harness; cross-tenant leak test and canary tenant | Every span carries tenant and feature; leak test blocking |
+| 2 Gateway, metering, capacity (2–5) | Gateway twice, per-tenant keys, quotas, budgets, kill switch; two routes qualified; Batch route; cost dataset joined to billing | Fallback drill under load; cost per call reported per tenant |
+| 3 First feature, pooled (4–7) | The worked example with tenant settings, opt-out, approval and evidence | Tenants live; edit rate and cost per accepted draft reported |
+| 4 Premium tenancy, FS customers (6–9) | Bridged and siloed tiers; region-pinned routes; tenant model accounts; DORA clause set; tenant export; CRA inventory | FS due diligence passed; export tested |
+| 5 Tools and optimisation (9–12) | Read-only tenant tools with delegated tokens; caching; small-tier routing; memory and tuning review | Optimisations pass regression; margin on plan; ISO/IEC 42001 decision |
+
+## XIII.10 Worked example: drafting replies on a multi-tenant support platform
+
+**The use case.** A multi-tenant customer-support platform adds an agent that drafts replies to its customers' end users from each tenant's own knowledge base, with a human support agent approving each reply; tenant isolation, per-tenant cost and the customer's right to opt out of AI are the hard parts (views.json) [AJ]. Like Part VI, this is a deterministic workflow with one bounded drafting step and a named approver; unlike Part VI, every step resolves a tenant first: whose content, policy, region, budget and evidence [AJ].
+
+| Step | What happens | Components |
+|---:|---|---|
+| 0 | Release manifest pinned (prompt, models, embedding, guard policy, thresholds) with tenant T's overlay: AI on, EU region, tone, disclosure | C5 |
+| 1 | T's support agent signs in through T's IdP federated to the provider's CIAM; token carries tenant, user and role | C4 |
+| 2 | Opt-out check (tenant setting and end-user flag); if off, manual path, decision logged | L3, C5 |
+| 3 | Workflow starts; T's quota and budget checked | L3, C1, C6 |
+| 4 | Ticket redacted (payment cards, secrets, T's entities) and screened as untrusted input | C3, C2, C7 |
+| 5 | `retrieve(query, tenant=T)`: filter injected server-side from the token; hybrid search in T's partition; rerank; chunks carry article ID and version | L7, L6, L8 |
+| 6 | Optional read-only `get_order_status` in T's system, with a delegated token from T's vault path | L4, C4, C7 |
+| 7 | Drafting call on route `support-draft` with T's key, EU route, T-scoped prefix cache, qualified fallback | C1, L2, L1 |
+| 8 | Output guards: other tenants' canaries absent; PII re-check; T's policy (no promises beyond its rules); every claim cites a T article | C2, C3 |
+| 9 | Draft shown labelled as AI-drafted; the support agent edits, approves or discards, and sends under their own identity | L3, C4 |
+| 10 | Spans tagged with tenant and feature; sampled evaluation within T's consent; edit distance captured | L9 |
+| 11 | Usage (tokens, cache hits, route, cost) to the cost dataset and T's bill; evidence record to T's partition, deleted on T's exit | C6, C8 |
+
+**What it costs [AJ].** At US$2 input and US$10 output per 1M tokens (GPT-6.1 Sol and Claude Sonnet 5.5 list prices, as in Part VI [VF: A5-S011, A5-S004]), an assumed draft of 6,000 input and 400 output tokens costs about US$0.016; caching a 3,000-token stable prefix at OpenAI's US$0.10 cached rate [VF: A5-S004] brings it to about US$0.010. The token counts are the author's assumptions. Across millions of tickets a month this is cost of goods sold, so caching, the small tier and the discard rate are the levers [AJ].
+
+**Is disclosure required?** The end user receives a reply sent by a human reviewer, not a conversation with the AI [AJ]. Anthropic's disclosure rule targets chatbots or agents that talk directly to external users [VF: E2-S005], and Article 50 covers systems that interact with people [VF: E1-S035]. Whether a reviewed draft triggers disclosure is a legal question; the architecture makes it a tenant setting defaulting to on [Rec].
+
+**May [Rec]:** draft from T's knowledge base and ticket history; look up status through T's read-only tools; cite articles by version; flag knowledge-base gaps to T's administrators.
+
+**Must never, and what enforces it [Rec]:**
+
+| Never | Enforced by |
+|---|---|
+| Retrieve, cite or cache another tenant's content | Server-side tenant filter (L6); tenant-scoped caches (C1, L2); canary tests (L9, C2) |
+| Run where AI is opted out | Overlay and end-user flag checked first (C5, L3) |
+| Send without human approval | Approval step; send uses the human's identity (L3, C4) |
+| Promise beyond T's policy, or call a write tool | Tenant-policy guard (C2); read-only scopes (L4, C4) |
+| Send card numbers or secrets to a model | Privacy service before the gateway (C3) |
+| Exceed T's budget or slow other tenants | Per-tenant key, quota and budget, fail closed (C1, C6) |
+| Train a shared model on T's tickets | No training route; consent for evaluation use [VF: E2-S015] |
+| Route an EU tenant outside the EU | Region-pinned route in T's overlay (C1, C5) |
+
+**Evidence kept [Rec]:** manifest and overlay versions with the AI setting at run time; model ID, version, region, fallback and cache flags; tenant partition, article versions and index versions; tool-call hashes, delegated identity and policy decision; guard and evaluation verdicts; the support agent's decision and edit diff; tokens, price version and cost charged; and whether disclosure was shown. Release history, evaluation records and logs are the provider's main defence under the PLD [VF: E1-S010] [R: E1-S013].
+
+## XIII.11 Checklist, what to avoid, what to monitor
+
+**Checklist [Rec]:**
+- A tenancy standard with pooled, bridged and siloed tiers, and a blocking cross-tenant leak test.
+- Tenant, user and agent in every token; filters injected server-side; every cache, memory and store addressed by tenant.
+- One gateway with per-tenant keys, quotas, budgets and kill switch; two vendors, the fallback sized for real load, with a non-Anthropic fallback for any Claude route (GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5).
+- Batch, caching and a small tier in every feature; cost per tenant and feature reported against price.
+- Vendor terms flowed down; every route on the subprocessor list before it carries tenant data.
+- Tenant AI settings as configuration; tenant export in open formats.
+- The assurance pack, and NIS2 and CRA runbooks that include model vendor incidents.
+
+**Avoid [Rec]:** a resold pass-through model API [VF: E2-S004, E2-S026]; a shared Azure OpenAI resource for fine-tuned models [VF: E2-S016]; tenant filters applied after ranking or taken from model output; shared caches across tenants [VF: A6-S025]; Google generative AI routes for tenants likely to serve under-18s [VF: E2-S007]; shared-model training on tenant data without agreement [VF: E2-S015]; Helicone for new adoption, and Composio's managed cloud for tenant tokens [VF: A7-S112, B-L4-S007]; SLAs the model routes cannot meet, since Flex can return 429 [VF: E2-S031].
+
+**Monitor [Rec]:**
+
+| Monitor | Trigger |
+|---|---|
+| Vendor capacity terms (Anthropic Priority Tier withdrawn; OpenAI Reserved; Bedrock and Foundry tiers) [VF: E2-S006, E2-S033, E2-S032, E2-S017] | Re-plan capacity and SLAs quarterly |
+| Anthropic Usage Policy effective 12 November 2026 [VF: E2-S005] | Update tenant flow-down |
+| Gemini prices and Flash retirements [VF: V2-S010, B-L1-S003] | Re-price and re-qualify |
+| OpenRouter–Stripe and Promptfoo–OpenAI closings [VF: V1-S059, A1-S024] | Refresh due diligence and subprocessor notices |
+| NIS2 transposition in the main-establishment state [NPV]; UK Bill [VF: E1-S021]; COM(2026) 13 on MSP outsourcing [R: E1-S020] | Confirm status and duties |
+| Data Act SME carve-out [VF: E1-S027]; exportability of embeddings and configurations [NPV] | Adjust export and terms |
+| OWASP tenant-isolation guidance beyond LLM08 [VF: E2-S051]; OTel GenAI conventions [VF: A1-S058] | Re-map the tenancy standard; re-pin attributes |
+
+
+# Part XIV: The view for software product companies
+
+**In brief.**
+- **Who it is for.** A software vendor that ships products with GenAI features built in, which its customers install and run: self-managed and on-premises editions, private-cloud and air-gapped editions, cloud-marketplace images and SDKs [AJ].
+- **The shift from the FS view.** The asset manager of Parts I–XII is a *deployer* that owns its control plane; a software product company is a *manufacturer and provider* shipping into control planes it does not own. It owns a release plane, and its product plugs into each customer's gateway, identity, telemetry and evidence tools [AJ].
+- **The recommendation.** Qualify a support matrix, not a two-vendor portfolio; let customers bring their own model account or endpoint; bundle one redistributable open-weight model for air-gapped sites; gate every shipped component on licence and supply chain; and ship auditable evidence, before the Cyber Resilience Act's main obligations apply on 11 December 2027 [Rec] [VF: E1-S001, E1-S002].
+- **The caveat.** The author is an Anthropic model. Wherever an Anthropic model, SDK or Anthropic-originated standard appears below, an independent alternative is named beside it (as in Part I) [AJ].
+
+## XIV.1 Who this view is for
+
+**Profile.** The product already has a permission model, an audit log, an installer and a release train, and is adding GenAI features: an assistant, summarisation, extraction or a bounded agent step [AJ]. The weights reflect this: deployment flexibility 20%, licence portability 15%, cost 5% (`views.json`) [AJ].
+
+**Assumptions [AJ].** The customer usually pays for inference, through its own account or hardware. The vendor sees no customer data in normal operation, and support telemetry is opt-in. Customers range from mid-market firms to the regulated FS firm of Parts I–XII, which is the toughest buyer. At least one edition runs air-gapped and one is sold through a hyperscaler marketplace. The vendor sells into the EU and the UK.
+
+**The five biggest differences from the FS view.**
+
+| # | FS view (Parts I–XII) | Software product company view | Why [AJ] |
+|---:|---|---|---|
+| 1 | The firm is a *deployer* under the AI Act and an outsourcing customer under DORA and PS7/26 | The vendor is a CRA *manufacturer*, a PLD *producer* and, under its own name, an AI Act *provider* | Installed software is a CRA product, and from 9 December 2026 software is a PLD product however it is supplied [VF: E1-S001, E1-S010, A8-S016] |
+| 2 | One firm-owned control plane (gateway, identity, evidence) | Many customer-owned control planes; the product integrates with them and ships only minimal defaults | The vendor does not run the estate, so it cannot impose its gateway or its evidence store [AJ] |
+| 3 | A two-vendor model portfolio through the primary cloud | A **support matrix**: bring-your-own model account or endpoint, plus one bundled open-weight model whose licence allows redistribution | Hosted models live for months; CRA support periods are at least five years unless expected use is shorter [VF: B-L1-S003, E1-S001] |
+| 4 | Licence review as a gate on *use* | Licence review as a gate on *redistribution* (AGPL, SSPL, ELv2, BUSL, CC-BY-NC and model use policies that must flow into the EULA) | What is fine to run internally can be impossible to ship [VF: A2-S132, A7-S060, A2-S024, E2-S001] |
+| 5 | Evidence per use case, in the firm's own store | Evidence per **release** (vendor), plus runtime evidence exported to the customer's own tools | Under the PLD, release history, evaluation records and logs are the main defence [VF: E1-S010] [R: E1-S013] |
+
+## XIV.2 Findings that change for this view
+
+**1. The vendor is a manufacturer now, and the reporting clock has already started.** The CRA's reporting duty has applied since 11 September 2026. Conformity assessment, the EU declaration of conformity and CE marking apply to each EU release from 11 December 2027 [VF: E1-S001, E1-S002]. An actively exploited vulnerability needs an early warning within 24 hours and a notification within 72 hours, through ENISA's Single Reporting Platform [VF: E1-S003, E1-S006]. A vendor-run endpoint that the product needs in order to work counts as the product's "remote data processing" and is in scope [VF: E1-S001]. For the FS firm this is a supplier question; here it is a release-engineering duty covering every bundled model, library and engine [AJ].
+
+**2. Model lifetimes and support periods do not match.** A Gemini Flash version released on 13 August 2026 retires on 28 January 2027. OpenAI gives previews as little as about two weeks' notice. Mistral Medium 3.1 retired on 31 August 2026 [VF: B-L1-S003, B-L1-S001, B-L1-S002]. Yet the CRA support period must reflect expected use and be at least five years unless expected use is shorter, with its end month and year stated at purchase [VF: E1-S001]. A product therefore needs a configurable model route, a support matrix that changes between releases, and one bundled open-weight model the vendor controls for the whole support period [Rec].
+
+**3. Redistribution, not use, decides the open-weight shortlist.** Gemma 4, Mistral Large 3 and Ministral 3, Qwen3.8-27B and DeepSeek V4 are Apache 2.0 or MIT and ship with the licence and notices [VF: A5-S034, A5-S074, A5-S066, A5-S063]. gpt-oss is Apache 2.0 subject to a usage policy whose text was not retrieved [VF: E2-S003, E2-S024] [NPV]. Mistral Medium 3.5 is "Modified MIT" with revenue-based exceptions [VF: V2-S018], and older Gemma and DeepSeek terms require use restrictions to be passed on as enforceable terms [VF: E2-S023, E2-S013, E2-S014]. Llama 4 needs "Built with Llama" attribution, a Notice file and a "Llama" prefix on derived models [VF: E2-S001], and its Acceptable Use Policy grants no rights to the multimodal Llama 4 models to companies with their principal place of business in the EU, end users of an incorporating product excepted [VF: E2-S002]. An EU-headquartered vendor should leave Llama 4 multimodal models out of its product [Rec].
+
+**4. Many "open" infrastructure components cannot be embedded as freely as they can be run.** Elasticsearch is AGPLv3, SSPL or ELv2; MongoDB Community is SSPL; Vault is BUSL 1.1, which excludes competing embedded offerings; Jina's weights are CC-BY-NC-4.0; and LM Studio's terms prohibit redistribution [VF: A2-S132, A2-S137, A7-S060, A2-S024, A4-S145]. Arize Phoenix is the reverse case: ELv2 permits redistribution but not a hosted service [VF: A1-S048], so it fits a self-managed edition but not a vendor-run SaaS edition [AJ]. XIV.8 applies this gate to every proposed component [AJ].
+
+**5. The customer's control plane is the integration target.** Every gateway in the dataset exposes or accepts an OpenAI-compatible format [VF: A6-S015, A6-S049, A6-S053, A6-S061, A6-S063], and vLLM and SGLang serve it [VF: A4-S009, A4-S010]. One endpoint setting therefore reaches the customer's gateway, a hyperscaler deployment the customer owns, or the bundled engine; Azure's guidance already names this "tenant-provided" resource pattern [VF: E2-S016]. Where the FS firm puts its own gateway of record (Part I.2, decision 1), the product should *be routed by* the customer's gateway [Rec].
+
+**6. Bring-your-own account shifts the model terms to the customer.** Anthropic's Commercial Terms permit powering products for the customer's own customers but bar reselling the Services without approval; OpenAI bars using Output to build competing models and transferring API keys; Google bars services likely to be accessed by under-18s; and Anthropic's Usage Policy reaches end users of integrating products [VF: E2-S004, E2-S026, E2-S007, E2-S005]. When the vendor holds the account these flow into its EULA; when the customer brings its own, the customer's terms govern [AJ]. Bring-your-own is the default [Rec].
+
+**7. Retrieval belongs inside the product's existing permission model.** The FS equivalent of "platforms the firm already runs" (Part I.2, decision 9) is the product's own database [AJ]. pgvector is under the permissive PostgreSQL licence and ranks first in L6 under this view [VF: A2-S050, V1-S021] [AJ]. OWASP LLM08 names cross-context leakage in vector stores and recommends a permission-aware store [VF: E2-S051], which is easiest next to the product's own access-control tables [AJ].
+
+**8. The supply chain is the vendor's own liability.** Malicious LiteLLM releases 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026 [VF: A6-S008, V2-S027]. Pickle-format model files can execute code on load [VF: A7-S082, B-C7-S006]. Under the PLD, vendors stay liable for defects from software within their control, including a lack of safety-relevant security updates, and component makers share liability [VF: E1-S010]. Beyond the FS firm's mirror and pins (Part VII Stack A, C7), the vendor must patch the copies it has shipped for the whole support period [AJ].
+
+**9. AI Act duties arrive as provider duties and written agreements.** Whoever supplies an AI system under its own name is its provider [VF: A8-S016]. Article 50 requires machine-readable marking of generated output, with a grace period to 2 December 2026 for systems on the market before 2 August 2026 [VF: E1-S035, E1-S036]. Where a customer builds a high-risk system on the product, Article 25(4) requires a written agreement, and monetised open-source components lose the exception [VF: E1-S033]. An integrator becomes a GPAI provider only above one third of the original training compute [VF: E1-S034], so ordinary fine-tuning in a product does not make the vendor one [AJ].
+
+## XIV.3 Scoring for this view
+
+The view re-weights the same criterion scores; no fact, score or master tier changes [AJ].
+
+| Criterion | FS weight | SW weight | Change | Reason [AJ] |
+|---|---:|---:|---:|---|
+| Technical | 15 | 15 | 0 | Capability matters equally |
+| Enterprise readiness | 15 | 10 | −5 | The product inherits the customer's identity and audit stack |
+| Security and compliance | 20 | 15 | −5 | The vendor's CRA and PLD duties sit in its architecture, not in a component's certificates |
+| Deployment flexibility | 15 | 20 | +5 | The product runs wherever the customer runs it |
+| Ecosystem | 5 | 10 | +5 | Open interfaces are how the product plugs in |
+| Reliability and maturity | 10 | 10 | 0 | Unchanged |
+| Cost and TCO | 5 | 5 | 0 | The customer usually pays for inference |
+| Lock-in and portability | 15 | 15 | 0 | Meaning widens to *redistributability* |
+
+**What moves, and why.** The largest risers pair deployment flexibility 5 with ecosystem 4 or 5: MCP and Agent Skills (+0.25 each, MCP to 3.80), Llama Protections (+0.25), SGLang and OpenLineage (+0.20), vLLM, MLflow and Promptfoo (+0.15) (`SW_scores.md`). Managed single-cloud services with deployment 2 fall by 0.15: AgentCore Memory, Memory Bank, Gemini Embedding 2 and OpenAI embeddings [AJ].
+
+**Ranks that change the advice [AJ].** In L6, pgvector rises from 3 to 1 and Elasticsearch falls from 1 to 3. In L7, Sentence Transformers rises to 1. In L9, DeepEval rises from 6 to 2 and Langfuse falls from 2 to 4. In L1, Anthropic falls from 3 to 4 (no self-hosting [VF: A5-S010]) and Gemini from 5 to 8 (API-only [VF: A5-S032]), while Qwen and DeepSeek rise on open weights. In C7, model and package scanning rises to 1.
+
+**Core candidates.** There are 48 core candidates under this view's weights, against 45 under FS, of 138 scored products [AJ]. Four become core candidates: Pydantic AI (3.65), MCP (3.80), Arize Phoenix (3.60) and Promptfoo (3.70). Google Sensitive Data Protection drops to Situational (3.50; deployment 2). The fit is computed and indicative. The master tiers and their conditions still apply: MCP stays Strategic, conditional on a gateway with mandatory authorisation; Phoenix and Promptfoo stay Tactical [AJ].
+
+**Where the score and the licence disagree.** Llama Protections rises by 0.25, but Llama Guard 4 is under the Llama 4 community licence and its Acceptable Use Policy [VF: A6-S030, A6-S038], and whether the EU multimodal restriction reaches it was not established [NPV]. The rubric does not score redistribution, so this view adds a licence gate (XIV.8) [AJ].
+
+The full table, all seven views side by side, is in `05_Data/views.xlsx`, and the per-layer ranks are in `work/stageE/views/SW_scores.md` [AJ].
+
+## XIV.4 The architecture for this view
+
+The architecture has three planes: the vendor's build and release plane, the product in the customer's estate, and the customer's own control plane that the product plugs into [AJ]. The FS view's twelve decisions (Part I.2) survive but split: evidence, evaluation and supply chain move into the release plane, while gateway, identity and policy are honoured by integrating with the customer's choices [AJ].
+
+![SW architecture: the vendor's release plane and the product inside the customer's estate](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/SW-1.png){width=100%}
+
+*Figure: The vendor qualifies every supported model, gates every redistributed component and ships a signed release; in the customer's estate the AI feature uses the product's own permissions, calls the model through the customer's gateway or cloud account (or a bundled open-weight model on air-gapped sites), and sends telemetry and audit events to the customer's own tools. Editable source: `08_Graphic/diagrams/SW-1.md`.* [AJ]
+
+**Ten design decisions for this view [Rec]:**
+
+1. **A model adapter, not a gateway of record.** An OpenAI-compatible endpoint setting, model-ID pin and fallback list; the customer's gateway is the preferred target. [Rec]
+2. **A published support matrix.** Each release lists the models it was qualified on; others are labelled "customer-qualified". [Rec]
+3. **One bundled open-weight model under Apache 2.0 or MIT**, served by vLLM, signed, in safetensors format, and patched for the support period. [Rec]
+4. **Retrieval inside the product's own database and permission model**, rebuildable, with the embedding version on every vector. [Rec]
+5. **Deterministic workflows with one bounded model step.** Tools read-only by default, through the customer's tool gateway where one exists. [Rec]
+6. **Identity from the customer's IdP** via the product's SSO and SCIM; no credentials beyond the user's own session. [Rec]
+7. **OTel spans and audit events exported** to the customer's collector and SIEM, redaction on, conventions version pinned (still "Development" [VF: A1-S058]); nothing to the vendor without opt-in. [Rec]
+8. **A licence and supply-chain gate in CI**: a redistribution register, an SBOM, model scanning, signed artefacts and a private mirror. [Rec]
+9. **An evaluation harness that ships**, so the customer can re-run the suite on its own model and documents. [Rec]
+10. **Article 50 disclosure and machine-readable marking built into the feature**, with a per-customer off switch. [Rec]
+
+## XIV.5 Layer by layer, then control by control
+
+| Layer / control | Default choice for this view | Change from the FS view | Why |
+|---|---|---|---|
+| L1 models | Customer's own hosted model (GPT, Claude, Gemini or Mistral; Strategic, with conditions); bundled Gemma 4 or Ministral 3 / Mistral Large 3 (Strategic) | Support matrix replaces the two-vendor portfolio; bundled model Apache 2.0 or MIT; for Claude, GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as alternatives | Hosted lifetimes are short; Apache 2.0 needs only licence and notices [VF: B-L1-S003, A5-S034, A5-S074] [AJ] |
+| L2 inference | Customer's endpoint; vLLM (Strategic) inside the bundled route | vLLM moves from exit route to shipped engine; SGLang (Strategic, conditional) once CVE-2026-3059 is fixed | Apache-2.0, OpenAI-compatible [VF: A4-S009, A4-S010, B-REVC-S002] [AJ] |
+| L3 orchestration | LangGraph (Strategic) or Pydantic AI (Strategic, conditional) as libraries; durability via the product's job system | Temporal optional; the Claude Agent SDK (Experimental) stays out of shipped code (alternatives: LangGraph, Pydantic AI) | MIT libraries ship; the Claude Agent SDK is under Anthropic's Commercial Terms [VF: A4-S001, A4-S003, A4-S092] [AJ] |
+| L4 tools | Read-only internal tools; an MCP server (Strategic, conditional) for customers' agents, OpenAPI as the independent alternative | The product becomes a *tool provider*, not only a consumer | MIT under AAIF; authorisation is optional in the specification, so the product enforces its own [VF: A3-S058, A3-S018, A3-S055] |
+| L5 memory | None; per-user preferences in the product's own data model | Same deferral; memory products are mostly open core or managed | Mem0 and Cognee keep features in licensed or platform tiers [VF: A3-S001, A3-S080, A3-S005] [AJ] |
+| L6 stores | pgvector in the product's own PostgreSQL (Strategic); Qdrant or Milvus (Strategic) for a dedicated engine | Elasticsearch (Strategic) or MongoDB only where already embedded under an acceptable licence | Permissive licences ship; AGPL/SSPL/ELv2 options need legal review [VF: A2-S050, A2-S108, A2-S118, A2-S132, A2-S137] |
+| L7 retrieval optimisation | Sentence Transformers (Strategic) serving an Apache-2.0 embedding model; Qwen3-Embedding (Tactical) after provenance review | Hosted embeddings only through the customer's account; Jina weights never bundled | Model version on every vector; CC-BY-NC weights cannot ship [VF: A2-S029, A2-S020, A2-S024] |
+| L8 ingestion | Docling and Unstructured OSS (Strategic) embedded; each parsing model's licence checked | Managed parsers become customer-selectable options, not defaults | Docling's code is MIT but individual models carry their own licences [VF: A1-S057, A1-S008, A1-S011] |
+| L9 evaluation | Shipped harness on DeepEval or Promptfoo (Tactical); OTel export; MLflow or Langfuse (Strategic) internally | Vendor platform holds *release* evidence; customer picks its runtime platform | Tools ship; Promptfoo's announced owner is a model vendor, so keep an independent second red-team tool [VF: A1-S051, A1-S052, A1-S024] |
+| C1 gateway | Customer's gateway; for customers without one, an optional bundled LiteLLM core (Strategic, conditional) or agentgateway (Tactical) | The vendor does not own the gateway of record | Open cores ship; LiteLLM must be pinned to clean releases [VF: A6-S001, A6-S061, A6-S009] |
+| C2 guardrails | Product invariants; NeMo Guardrails (Tactical) with a redistributable detector; cloud services as adapters | Managed detectors cannot be bundled | NeMo is Apache-2.0 but still 0.x; the Llama Guard 4 licence needs review [VF: A6-S003, A6-S030] |
+| C3 privacy | Presidio (Strategic) embedded behind a product privacy API; redaction before export | Same engine; policy per customer, not firm-wide | MIT, runs in-estate [VF: A6-S005, A6-S040] |
+| C4 identity | Product SSO and SCIM against the customer's IdP; OPA or Cedar (Strategic) for feature policy | Entra Agent ID and Okta for AI Agents are customer-side integrations | OPA and Cedar are Apache-2.0 [VF: A6-S088, A6-S045] |
+| C5 configuration | Prompts as code (Strategic), versioned with the release; customer overrides in configuration | Prompts ship in the release, not from a runtime registry | Prompty (MIT) and Dotprompt (Apache-2.0) are open formats [VF: A7-S008, A7-S065] |
+| C6 FinOps | Token and request metering exposed to the customer; FOCUS-aligned (Strategic) usage export | The vendor rarely pays for inference; the customer needs the numbers | FOCUS is CC-BY-4.0 [VF: A7-S096] |
+| C7 security | Scanning (Strategic), safetensors only, OMS signing (Tactical), SBOM; the product's own secrets store | From protecting one estate to signing and patching shipped copies; Vault (Strategic, conditional) not embedded | BUSL excludes competing embedded offerings [VF: A7-S002, A7-S038, A7-S060] |
+| C8 governance | OpenLineage (Strategic) events and evidence export; vendor release-evidence store | The customer's governance tool consumes the export; no vendor governance platform needed | Apache-2.0 [VF: A7-S041] [AJ] |
+
+## XIV.6 Regulation, contracts and customer assurance
+
+**The vendor's own duties.** Part V's anchors are SS1/23, DORA and AI Act deployer duties; this view's are the CRA, the PLD and the AI Act provider role [AJ].
+
+| Instrument | What it requires of a software product company | Date | Source |
+|---|---|---|---|
+| CRA (R-EU-CRA) | Report actively exploited vulnerabilities and severe incidents within 24 h / 72 h | Since 11 September 2026 | [VF: E1-S001, E1-S003, E1-S006] |
+| CRA | Conformity assessment, declaration, CE marking, SBOM, support period of at least five years unless use is shorter | 11 December 2027 | [VF: E1-S001, E1-S002] |
+| PLD (R-EU-PLD) | Software is a product however supplied; liability for defects within the vendor's control, including missing safety-relevant updates | Products placed on the market from 9 December 2026 | [VF: E1-S010, E1-S011, E1-S012] |
+| AI Act provider role (R-EUAIA, R-EU-AIA-ROLES) | Provider of the AI feature under its own name; Article 50 disclosure and marking; Article 25(4) agreements for customers' high-risk systems | Article 50 marking grace ends 2 December 2026; Annex III from 2 December 2027 | [VF: A8-S016, E1-S033, E1-S035, E1-S036, A8-S011] |
+| CRA and AI Act link | Meeting CRA Annex I is deemed to meet Article 15 cybersecurity for a high-risk AI system; accuracy and robustness still apply | With CRA application | [R: E1-S008] |
+| UK (R-UK-SOFTWARE) | No CRA equivalent; the voluntary Software Security Code of Practice (14 principles) is the buyer's reference; PSTI covers only consumer products | Code launched 7 May 2025 | [VF: E1-S051, E1-S052, E1-S053, E1-S054] |
+| US states (R-US-STATE-AI) | Colorado developer documentation (intended uses, training-data categories, limitations, human review); enforcement stayed pending rulemaking | From 1 January 2027 (stayed) | [VF: E1-S038, E1-S039, E1-S040, E1-S050] |
+| Data Act (R-EU-DATA-ACT) | SaaS edition only: no switching charges, egress included | From 12 January 2027 | [VF: E1-S025, E1-S026] |
+
+**What this means architecturally [AJ].**
+- **The SBOM includes the AI components.** Bundled open-weight models and open-source libraries become components the manufacturer must document and patch: the model, the serving engine, the parsing and embedding models [AJ].
+- **The release record is the defence.** PLD disclosure orders and the presumption for technical complexity make release history, evaluation records and logs the main defence [VF: E1-S010] [R: E1-S013], so release qualification (XIV.10) is a liability control as well as a quality control [AJ].
+- **Article 25(4) needs a standard information pack** for customers in HR, credit or insurance pricing who build on the product [VF: E1-S033] [Rec].
+- **Open points.** The CRA fine-tier allocation and the Commission guidance's line on SaaS and support periods were not established [NPV].
+
+**Contracts [AJ].** The EULA carries the notices and flow-down terms of every bundled model (XIV.2, finding 3), the AI disclosure duty, the hosted-model terms where the vendor holds the account, and a support-period statement consistent with the support matrix. Where the customer brings its own account, the contract should say that the customer's model terms govern and that the vendor is not a subprocessor for that inference [Rec]. Where an EU financial entity buys vendor-operated support or a hosted edition, expect DORA Article 30 clauses on subcontracting, data locations, exit, incident assistance and, for critical functions, audit rights [VF: E1-S055, E1-S056, E1-S057] [AJ].
+
+**Customer assurance.** Expect SOC 2 against the 2017 criteria with 2022 points of focus [R: E2-S048], ISO/IEC 27001:2022 [R: E2-S046], and increasingly a CSA AI-CAIQ or STAR for AI entry [VF: E2-S047]. A self-managed product adds the SBOM, the support period, the vulnerability-handling policy, and proof that the AI feature can be switched off and run air-gapped; generate these per release, not in a sales spreadsheet [Rec].
+
+## XIV.7 Reference stack
+
+This is the stack the vendor *ships and builds with*, cloud-neutral by necessity [AJ]. The per-cloud columns differ only where the customer's cloud supplies the bring-your-own model route or an optional adapter. Tiers are the master tiers, abbreviated S, T and E as in Part VII [AJ].
+
+| Layer / control | Shipped default (master tier) | Independent alternative | AWS customer | Azure customer | Google Cloud customer |
+|---|---|---|---|---|---|
+| L1 hosted (BYO) | Customer-chosen GPT (S), Claude (S, cond.), Gemini (S, cond.) or Mistral (S) via the customer's account | For Claude: GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 | Bedrock in the customer's account, geographic or in-Region [VF: B-L2-S005] | Tenant-provided Foundry resource, Data Zone or Regional [VF: E2-S016, B-L2-S006] | Regional endpoint in the customer's project [VF: B-L2-S008] |
+| L3 | LangGraph (S) or Pydantic AI (S, cond.) | Microsoft Agent Framework (S) for .NET products | Strands SDK (S, cond.) only if the product is AWS-only | Microsoft Agent Framework (S) | ADK (S, cond.) only if the product is Google-only |
+| L4 | Product MCP server (S, cond.) and read-only internal tools | OpenAPI description of the same endpoints | Listed behind AgentCore Gateway by the customer [VF: A3-S047] | Behind APIM by the customer [VF: A6-S053] | Behind Apigee by the customer [VF: A6-S023] |
+| L6 | pgvector (S) in the product database | Qdrant (S) or Milvus (S) embedded engine | pgvector on RDS/Aurora for the SaaS edition [VF: B-L6-S004] | Azure Database for PostgreSQL [VF: B-L6-S005] | Cloud SQL [VF: B-L6-S005] |
+| L7 | Sentence Transformers (S) with an Apache-2.0 model | Cohere private deployment (T) where the customer licenses it [VF: A2-S015] | Customer's Bedrock embeddings (not profiled [NPV]) | Customer's Foundry embeddings (not profiled [NPV]) | Gemini Embedding 2 (S, cond.) via the customer's project |
+| L8 | Docling (S) + Unstructured OSS (S) | Mistral OCR self-managed (T) under the customer's agreement [VF: A1-S135] | Same | Same | Document AI (S, cond.) as a customer option |
+| L9 | OTel export; shipped harness on DeepEval (T) and Promptfoo (T) | Opik (T), Apache-2.0 for the full platform [VF: A1-S050] | Customer's MLflow on SageMaker (S) | Customer's MLflow on Azure ML (S) | Customer's Langfuse (S) |
+| C1 | Customer's gateway; optional LiteLLM core (S, cond.) | agentgateway (T) | AgentCore Gateway (S, cond.) for tools, customer-owned | APIM AI policies (S, cond.) | Apigee (S, cond.) |
+| C2 | Product invariants + NeMo Guardrails (T) | Check Point AI Guardrails (T), self-hosted, as a customer option [VF: A7-S024] | Bedrock Guardrails adapter (S, cond.) | Content Safety adapter (S, cond.) | Model Armor adapter (S, cond.) |
+| C3 | Presidio (S, cond.) | Google Sensitive Data Protection (S, cond.) as a customer option | Same | Purview DSPM for the customer's posture (S, cond.) | Sensitive Data Protection adapter |
+| C4 | Product SSO/SCIM + OPA (S) | Cedar (S) | Customer's IdP; AgentCore Identity where the customer uses it | Entra (Agent ID for agent access) (S, cond.) | Customer's IdP |
+| C6 | Usage metering + FOCUS (S) export | Gateway cost attribution (S) in the customer's gateway | Bedrock application inference profiles in the customer's account [VF: B-C6-S004] | Foundry project tags [VF: B-C6-S005] | Customer gateway metering |
+
+**The same in every cloud [Rec].** The bundled route (Gemma 4 (S) or Ministral 3 / Mistral Large 3 (S) on vLLM (S), with gpt-oss (S) or Qwen3.8-27B (T) as alternatives and SGLang (S, cond.) as the second engine), prompts as code (S) in the release, scanning (S) with OMS signing (T) and an SBOM, and OpenLineage (S) evidence export do not vary by cloud; marketplace editions ship them as an AMI, container or VM image [AJ].
+
+**Marketplace editions [VF: E2-S034, E2-S036, E2-S020, E2-S038].** AWS private offers name up to 25 buyer accounts and can share AMI and container licences; eligible Microsoft Marketplace purchases count fully toward the Azure commitment; Google Cloud Marketplace draws down Google commitments and private offers can include third-party models for Vertex AI. Pre-wire the marketplace image to the customer's model service in that cloud, so the buyer's commitment pays for both product and inference [Rec].
+
+## XIV.8 Build vs buy, and lock-in
+
+**The rule for this view.** Build what makes the product the product: the AI feature, permission-aware retrieval, the model adapter, the evaluation suite and the release evidence. Embed open components whose licences allow redistribution. Never ship a component the vendor cannot redistribute, patch for the support period, or run air-gapped [AJ]. Unlike Part VIII, "buy" cannot mean a managed service in the shipped product; a managed service is only ever a *customer-selected adapter* [AJ].
+
+| Component | Decision | The vendor builds | It embeds, or leaves to the customer |
+|---|---|---|---|
+| Model access (L1, L2, C1) | **Build the adapter; embed an engine** | Adapter, support matrix, qualification suite | vLLM and one Apache-2.0 model; the customer's gateway or account |
+| Orchestration and tools (L3, L4) | **Embed open source; build workflows and the product's MCP server** | Feature workflows, run records, MCP and OpenAPI interfaces | LangGraph or Pydantic AI [VF: A4-S001, A4-S003]; customers' tool gateways |
+| Retrieval (L6–L8) | **Build the envelope; embed the engines** | Permission filter, chunk metadata, rebuild pipeline | pgvector, Sentence Transformers, Docling, Unstructured |
+| Evaluation (L9) | **Build the suite** | Datasets, scorers, customer-runnable harness | DeepEval, Promptfoo, OTel SDK |
+| Controls (C2–C4) | **Hybrid; reuse the product's identity** | Invariants, privacy API, feature policy | NeMo Guardrails, Presidio, OPA; cloud detectors as adapters |
+| Supply chain and evidence (C7, C8) | **Build** | Licence register, SBOM, signing, patch process, evidence export | Open scanners, OMS; the customer's SIEM and governance tool |
+
+**The redistribution gate [Rec].** Each component gets one row in a licence register: licence, redistribution allowed, notices, flow-down terms, thresholds, and air-gap capability. Applied to the components most often proposed [AJ]:
+
+| Outcome | Components | Source |
+|---|---|---|
+| Ship with notices | Gemma 4, Mistral Large 3, Ministral 3, Qwen3.8-27B, DeepSeek V4, vLLM, SGLang, LangGraph, Pydantic AI, pgvector, Qdrant, Milvus, Sentence Transformers, Docling code, Unstructured OSS, DeepEval, Promptfoo, Opik, MLflow, Presidio, OPA, Cedar, OpenLineage | Licence fields of each product record in `05_Data/products.json` [VF: A5-S034, A4-S009, A2-S050, A1-S057, A6-S005] |
+| Ship with flow-down terms or thresholds | gpt-oss, Mistral Medium 3.5, Llama 4 (non-EU vendors only for multimodal models), Crawl4AI, MinerU, GLM-5.3, Kimi | [VF: E2-S024, V2-S018, E2-S001, A1-S056, A1-S054, A5-S071, A5-S069] |
+| Self-managed edition only | Arize Phoenix (ELv2) | [VF: A1-S048] |
+| Ship the open core; licence the rest | LiteLLM, Langfuse, Kong Gateway OSS, Weaviate, Cognee | [VF: A6-S001, A1-S023, A6-S017, A2-S115, A3-S005] |
+| Legal review first | Elasticsearch, MongoDB Community, Firecrawl server, Vault, ValidMind library | [VF: A2-S132, A2-S137, A1-S053, A7-S060, A7-S003] |
+| Do not ship | Jina weights without a commercial licence; Llama 4 multimodal models from an EU-domiciled vendor; LM Studio; NeMo Retriever without NVIDIA AI Enterprise | [VF: A2-S024, E2-S002, A4-S145, A2-S041] |
+
+**Lock-in, in both directions.**
+- **The vendor's lock-in.** The costly event is a terms or owner change in something already shipped: Weaviate's move to open core, Langfuse under ClickHouse, Promptfoo's announced sale to OpenAI, TGI archived [VF: A2-S115, A1-S021, A1-S024, V1-S054]. Every embedded component needs a named replacement in the register, and Part IX.1's abstractions (model routing, retrieval, embedding, evaluation, privacy) belong in the product code [Rec].
+- **The customer's lock-in to the vendor.** For the SaaS edition, Data Act switching rules give at most two months' notice, a 30-day transition and machine-readable export [VF: E1-S025, E1-S026]; whether embeddings or fine-tuned weights are exportable data is unresolved [NPV]. Export documents, prompts, configuration and evidence in open formats and let the index rebuild [Rec].
+- **Where multi-vendor is necessary.** At least two qualified hosted models from unrelated vendors plus the bundled model, so that one retirement or suspension does not stop the feature for every customer at once; one framework, one store and one telemetry format are enough (Part IX.3) [AJ].
+
+## XIV.9 Roadmap
+
+The roadmap is sized to a quarterly release train and aligned to the vendor's dates, not to PS7/26 [AJ].
+
+| Date | Event | Consequence [AJ] |
+|---|---|---|
+| Since 11 September 2026 | CRA vulnerability and incident reporting [VF: E1-S001, E1-S003] | Reporting covers AI components now |
+| 2 December 2026 | Article 50 marking grace ends for systems on the market before 2 August 2026 [VF: E1-S036] | Machine-readable marking in the next release |
+| 9 December 2026 | PLD applies to products placed on the market from this date [VF: E1-S011] | Release evidence kept per release |
+| 1 January 2027 | Colorado developer-documentation duties (stayed pending rulemaking) [VF: E1-S038, E1-S040] | Documentation pack drafted |
+| 12 January 2027 | Data Act: no switching charges for cloud and SaaS [VF: E1-S025] | SaaS edition export and switching terms |
+| 28 January 2027 | A Gemini Flash version retires [VF: B-L1-S003] | Support-matrix change process exercised |
+| 2 December 2027 | Annex III high-risk duties [VF: A8-S011] | Article 25(4) pack available to high-risk customers |
+| 11 December 2027 | CRA conformity, declaration and CE marking [VF: E1-S001, E1-S002] | Every EU release conforms |
+
+**Phase 0: Roles, licences and reporting (October–December 2026) [Rec].** Classify each edition under the CRA; record each AI feature's AI Act role; start the licence register and the AI-aware SBOM; extend the reporting runbook to bundled AI components; add Article 50 marking to features already on the market. *Exit:* the register covers the current release and the reporting drill has run once.
+
+**Phase 1: Model adapter and qualification (January–March 2027) [Rec].** Ship the OpenAI-compatible adapter with pins and fallbacks; run the evaluation suite on two unrelated hosted vendors; publish the first support matrix; add redacted OTel export. *Exit:* a customer switches hosted model by configuration, and release notes carry the qualification results.
+
+**Phase 2: Permission-aware retrieval and the first GA feature (April–June 2027) [Rec].** Retrieval in the product database with the ACL filter and embedding version tags; Docling ingestion; a cross-user leak test in CI; first feature generally available, bring-your-own model only. *Exit:* the leak test returns zero and the index rebuilds within the documented time.
+
+**Phase 3: The bundled and air-gapped edition (July–September 2027) [Rec].** Signed, safetensors bundled model on vLLM with its notices; offline installer; customer-runnable harness; Article 25(4) and Colorado packs. *Exit:* the feature runs with no outbound connection and the bundled model passes the same suite.
+
+**Phase 4: CRA conformity (October–December 2027) [Rec].** Conformity assessment, declaration and CE marking; support periods consistent with the matrix; a patch drill on a bundled AI component. *Exit:* the first CE-marked release ships before 11 December 2027.
+
+**Phase 5: Agents and tools (2028) [Rec].** The product's MCP server (OpenAPI as the independent alternative) becomes a supported interface for customers' agents, with mandatory authorisation; write tools only behind customer policy and human approval. *Exit:* the OWASP agentic red-team cases pass [VF: R-OWASP-AGENTIC, A8-S042].
+
+## XIV.10 Worked example: "ask your documents" in an on-premises document-management product
+
+**The use case.** An on-premises document-management product ships an "ask your documents" assistant (`views.json`). Customers choose a hosted model through their own account, or a bundled open-weight model for air-gapped sites; retrieval respects the product's existing permissions [AJ]. As in Part VI, it is a deterministic workflow with one model step, grounded in documents the user may read [AJ].
+
+**Trace.**
+
+| Step | What happens | Components |
+|---:|---|---|
+| 0 | Release 2027.2 ships a signed manifest with SBOM: prompt set, support matrix (two unrelated hosted vendors plus bundled Gemma 4 on vLLM), embedding version, guard policy, evaluation thresholds | Vendor C5, C7, L9 |
+| 1 | The administrator selects a route: an OpenAI-compatible endpoint (the customer's gateway, or its Bedrock, Foundry or Google Cloud deployment) or the bundled route; the feature can be disabled per library | C1, L2, C5 |
+| 2 | Ingestion: new and changed documents are parsed (Docling), chunked and embedded; each chunk carries document ID, version, the product's ACL reference and the embedding version | L8, L7, L6 |
+| 3 | A user signs in through the product's SSO against the customer's IdP; groups via SCIM | C4 |
+| 4 | The user asks a question; Presidio redacts configured entities before any external call | C3 |
+| 5 | Retrieval: query embedding, hybrid search in the product's PostgreSQL (pgvector plus full text), filtered by the user's current ACLs inside the query, then rerank | L7, L6, C4 |
+| 6 | Retrieved chunks are screened for indirect injection and wrapped as data | C2, C7 |
+| 7 | One model call through the model adapter to the selected route, with the pinned model ID, a timeout, one qualified fallback, and a token ceiling | L3, C1, L1, C6 |
+| 8 | Output checks: every citation references a retrieved chunk; permission re-checked on cited documents; visible AI label and machine-readable marking | C2, C4, Article 50 |
+| 9 | OTel spans (redacted) to the customer's collector; an audit event to the product's audit log, forwarded to the customer's SIEM | L9, C8 |
+| 10 | User feedback stays in the customer's instance, exportable for its own evaluation | L9 |
+
+**Boundaries.**
+
+| May [Rec] | Must never [Rec] | Enforced by |
+|---|---|---|
+| Answer from documents the user may read, with citations to document versions | Retrieve or cite a document the user cannot open | Permission filter inside the query; citation re-check; CI leak test |
+| Summarise and compare documents | Send a document, prompt or answer to the vendor without customer opt-in | No vendor endpoint on the request path; telemetry opt-in |
+| Use the customer's chosen model route | Fall back to an unqualified model, or a route the customer did not configure | Adapter fallback list limited to the support matrix; administrator setting |
+| Run fully offline on the bundled model | Load model weights that are unsigned or in pickle format | Signature check at start; safetensors only |
+| Propose edits or tags as suggestions | Change, move, share or delete documents | No write tools in this release |
+| Show that an answer is AI-generated | Present generated text as a document's content | Article 50 label and marking; distinct UI element |
+
+**The evidence kept.** It is split between the vendor and the customer, and neither copy depends on the other [AJ].
+
+| Evidence | Kept by | Contents and purpose |
+|---|---|---|
+| Release-qualification record | Vendor | Suite version, results per supported model, manifest hash, SBOM, signatures; the PLD defence and CRA technical documentation [VF: E1-S001, E1-S010] |
+| Licence register and vulnerability-handling records | Vendor | Licences, notices, flow-down terms; report, fix, release and customer notice for CRA reporting [VF: E1-S003] |
+| Runtime audit event and OTel trace | Customer | User, question hash, document IDs and versions, model route and version, guard verdicts, citations; redacted spans [AJ] |
+| Feedback and edits | Customer | Ratings and corrections for re-qualifying the customer's own model choice [AJ] |
+
+**What it costs [AJ].** Inference falls on the customer; the vendor pays for the qualification matrix, one suite run per supported model per release. The number of supported models, not the token price, is the cost to manage, so keep the matrix short and fresh [AJ].
+
+## XIV.11 Checklist, what to avoid, what to monitor
+
+**Checklist [Rec].**
+- Each edition classified under the CRA, each AI feature's AI Act role recorded, and the 24-hour / 72-hour runbook extended to bundled AI components.
+- A licence register and an AI-aware SBOM in every release.
+- A support matrix per release: at least two unrelated hosted vendors plus one Apache 2.0 or MIT bundled model.
+- A model route configurable to the customer's gateway or account; no provider SDKs in feature code.
+- ACL filtering inside the retrieval query, citation re-checks, and a leak test in CI.
+- Signed, safetensors-only bundled weights; OTel export with redaction on; no data to the vendor without opt-in.
+- Article 50 disclosure and marking; a per-customer off switch; Article 25(4) and Colorado documentation packs.
+- An independent alternative documented for each Anthropic item: OpenAPI for MCP; AGENTS.md or C5 packages for Agent Skills; LangGraph or Pydantic AI for the Claude Agent SDK; GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 for Claude models.
+
+**What to avoid [Rec].**
+- A hosted model ID hard-coded for a support period [VF: B-L1-S003].
+- The "do not ship" row of XIV.8, and its "legal review first" row without the review.
+- Pickle-format weights, and unpinned AI libraries with a recent supply-chain incident [VF: A7-S082, A6-S008].
+- A vendor-run endpoint on the request path of a self-managed product: it enters CRA scope and breaks air-gapped use [VF: E1-S001].
+- A firm-style gateway of record inside the product that regulated customers are asked to route through.
+- The Claude Agent SDK, or any component governed by a vendor's commercial terms, in shipped code without a redistribution review [VF: A4-S092].
+
+**What to monitor.**
+
+| Monitor | Trigger for action [Rec] |
+|---|---|
+| CRA guidance C(2026) 5252 and Delegated Regulation (EU) 2026/881 | Read in full [NPV] |
+| Hosted-model retirement notices | Re-qualify; publish a matrix change [VF: B-L1-S001, B-L1-S003] |
+| gpt-oss usage policy, Mistral Medium 3.5 threshold wording, Mistral Large 4 and Muse Glimmer licences | Read the licence files before shipping [VF: A5-S076] [R: E2-S027, E2-S028] [NPV] |
+| Ownership and licence changes of embedded tools | Re-run the redistribution gate [VF: A2-S115, A1-S021, A1-S024, A1-S045] |
+| OTel GenAI conventions leaving "Development" | Re-pin the exported version [VF: A1-S058] |
+| MCP authorisation and agent-identity work | Make authorisation mandatory on the product's MCP server [VF: A3-S055, A3-S016] |
+| Colorado rulemaking and stay; California bills of September 2026 | Publish developer documentation when enforceable [VF: E1-S040] [NPV] |
+| UK Cyber Security and Resilience Bill; AI Office Article 25(4) model terms | Check reach to software vendors; align the information pack [VF: E1-S023, E1-S033] |
+
+**The answer, in one paragraph.** A software product company should own a release plane, not a control plane [AJ]. It should qualify a short support matrix of hosted models that customers reach through their own accounts and gateways. It should ship one Apache 2.0 or MIT model on vLLM for air-gapped sites. It should build retrieval inside its own permission model on pgvector, embed only components that pass a redistribution gate, and export telemetry and evidence to the customer's own tools. It should treat the CRA and the PLD as the architecture's deadlines [Rec]. Most of the FS view's recommendations still hold, but the vendor meets them by plugging into each customer's gateway, identity and evidence tools rather than owning those controls itself (Part I.2; Part VII Stack C for the open-source components) [AJ].
+
+
+# Part XV: The view for start-ups
+
+This Part gives the view at end of Q3 2026 for an early-stage company building an AI-native product with a small team. It keeps the master view's layers, controls, products and criterion scores (Parts I–XII), changes the weights, adds Stage E evidence, and changes the advice wherever cash, speed and the first enterprise customer outweigh a regulator; where the FS view holds, it points back [AJ].
+
+> **Conflict-of-interest disclosure.** The author is an Anthropic model. This Part names Anthropic's Claude models, the Claude Agent SDK, the Claude for Startups credit programme and two Anthropic-originated standards (MCP and Agent Skills). Each is scored on the same rubric as its competitors, and wherever one is recommended an independent alternative is named in the same row or sentence [AJ].
+
+## XV.1 Who this view is for
+
+**Profile.** The reader is an early-stage technology company, from pre-seed to Series B, building an AI-native product with a small team. Speed to a working product, cash runway and developer productivity come first. The first enterprise customers will soon ask for security assurance, and the architecture must not trap the company when it scales (`views.json`, SU profile) [AJ].
+
+**Assumptions [AJ].**
+
+- The team has between three and twenty engineers, no dedicated security or platform function, and no SRE rota able to patch a GPU fleet monthly.
+- The product is a multi-tenant SaaS application: each customer organisation is a tenant, and customers' confidential data flows through model calls.
+- The company is based in the UK or EU and sells first to UK and EU customers, with US sales possible. This mirrors the master view's jurisdiction, and the worked example (XV.10) assumes it.
+- Customers are businesses, not consumers or children. Section XV.6 flags where a consumer or education product changes the answer.
+- The company is the provider of its AI product under the EU AI Act, not a deployer, and does not train foundation models [AJ].
+
+**The five biggest differences from the FS view.**
+
+| # | FS view (Parts I–XII) | Start-up view | Why it changes [AJ] |
+|---:|---|---|---|
+| 1 | A firm-owned control and evidence plane first: two gateway deployments, self-hosted evaluation, immutable evidence store | A **thin** control plane in the first fortnight: one pinned open-source gateway, managed tracing on a free tier, an evidence table in the application database | Same control points, but each must cost days, not quarters |
+| 2 | Models through the primary cloud's in-region service, two vendors, plus a self-hosted open-weight exit | First-party APIs or the credit-giving cloud; one vendor primary, a second qualified on the same evaluation set | Credits steer the model choice, so reversibility comes from the gateway (XV.2, finding 1) |
+| 3 | The control problem is model risk, outsourcing and resilience | The control problem is **tenant isolation and the first security questionnaire** | Customers, not a supervisor, ask for evidence first |
+| 4 | The firm is a deployer under SS1/23, DORA and PS7/26 | An **AI Act provider** from launch, owing Article 50 transparency; a CRA manufacturer if it ships anything installable | The role follows what the company sells (XV.6) |
+| 5 | Agents registered in the workforce IdP | A **hosted customer-identity service** with tenant context on every call | The users are customers' staff |
+
+## XV.2 Findings that change for this view
+
+**1. Start-up credits steer the model choice, and most do not pay for other vendors' models.** Google for Startups offers up to US$350,000 to AI-first start-ups (volatile; re-verify), but the credits cover Google models such as Gemini and Gemma, and third-party models are billed directly [VF: E2-S009, E2-S010]. Claude for Startups credits apply only to the first-party Claude API, not to Bedrock or Vertex (volatile; re-verify) [VF: E2-S008]. AWS Activate offers up to US$200,000 through an Activate Provider, though AWS's own pages also say US$100,000, and Microsoft for Startups offers up to US$150,000 "across eligible Azure services" (volatile; re-verify) [VF: E2-S042, E2-S011]. No official OpenAI start-up credit page was found, and a Mistral programme could not be confirmed [R: E2-S045] [NPV]. Whether AWS or Azure credits pay for third-party models on Bedrock or Foundry was not established [NPV]. A company living on credits is pulled towards the credit-giver's models, so the model sits behind a gateway from the first commit [AJ].
+
+**2. A router that bills on its own account can forfeit the credits.** OpenRouter charges a platform fee of 5.5% on credit purchases on its Standard plan, and Cloudflare AI Gateway charges 5% on Unified Billing credits (volatile; re-verify) [VF: A4-S144, A6-S052]. Because Anthropic's credits only work on the first-party API [VF: E2-S008], paying for model calls through an intermediary's account can mean paying cash for calls that credits would have covered [AJ]. Keep the model contracts, and the credits, in the start-up's own accounts and use the gateway for routing only, with each provider's own keys [Rec].
+
+**3. The thin gateway is cheap, but the March 2026 compromise makes pinning mandatory at any size.** LiteLLM's core is MIT and free to self-host [VF: A6-S001, A6-S007], and gateways ship virtual keys with per-key budgets and spend reports [VF: A7-S070, A6-S015]. Malicious LiteLLM releases 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026, and 1.83.0 was the first build from the rebuilt pipeline [VF: A6-S008, A6-S009]. A five-person team is as exposed to a poisoned package as a bank, so the gateway must be version-pinned with hashes from day one [Rec].
+
+**4. Model-vendor terms decide two product questions early: who may use the product, and whether you may train your own model.** The Gemini API terms and Google Cloud's generative AI terms bar services directed at, or likely to be accessed by, people under 18, and bar clinical use [VF: E2-S007, E2-S030]. Anthropic's Usage Policy applies to end users of products that integrate Claude, requires AI disclosure in consumer-facing chatbots, and requires qualified human review in high-risk uses [VF: E2-S005]. OpenAI and Anthropic bar using their services or outputs to build competing models, and Google bars using output to create models similar to a Google model except through its own tuning features [VF: E2-S026, E2-S004, E2-S007]. Treat distilling your own model from vendor outputs as barred until counsel reads the terms, and fine-tune Apache-2.0 weights instead (Gemma 4, gpt-oss, Mistral Large 3) [VF: A5-S034, E2-S003, A5-S074] [Rec].
+
+**5. Fine-tuning does not change a start-up's role.** Supplying an AI system under its own name already makes the company its provider [VF: A8-S016], and a modifier becomes provider of a modified GPAI model only above one third of the original training compute [VF: E1-S034]. This reverses the FS view's "do not build yet" on fine-tuning (Part VIII): for a start-up it is a cost and quality decision [AJ].
+
+**6. Tenant isolation, not model risk, is the start-up's first control problem.** OWASP LLM08:2025 names cross-context leakage in multi-tenant vector stores and recommends a permission-aware vector database [VF: E2-S051]. AWS's multi-tenant RAG guidance uses the silo, pool and bridge patterns, with per-tenant data sources and KMS keys in the silo model and automatic tenant-filter injection in the pool model [VF: E2-S050]. Azure's guidance keeps tenants' data out of a shared model unless they agree [VF: E2-S015]. Every retrieval, trace, evidence row and budget carries a tenant identifier, and a cross-tenant leak test runs in CI from the first paying customer [Rec].
+
+**7. The first enterprise questionnaire arrives before the first regulator, and it has a standard AI format.** Buyers expect SOC 2 (2017 Trust Services Criteria with 2022 points of focus) and ISO/IEC 27001:2022, since 2013 certificates expired by 31 October 2025 [R: E2-S048, E2-S046]. CSA's STAR for AI Level 1 is a published AI-CAIQ self-assessment, while Level 2 needs ISO/IEC 42001 [VF: E2-S047]. The AI-CAIQ is a cheap, public answer to "send us your AI questionnaire" and can be filed long before an audit [AJ].
+
+**8. EU rules cut a start-up's cost but not its duties, and two dates fall in the next quarter.** AI Act SME measures cut fees, documentation and fines (XV.6) [VF: E1-S029, E1-S031]. Software, including SaaS, is a product under the Product Liability Directive from 9 December 2026 [VF: E1-S010, E1-S011]. The Article 50(2) marking grace period ends on 2 December 2026 and covers only systems already on the market, so a product launched now has none [VF: R-EUAIA, A8-S018] [AJ].
+
+**9. Free tiers are short-lived evidence, and the neutral tools keep changing owner.** Free observability tiers keep data for 15 to 60 days [VF: A1-S047, A1-S031, A1-S123], and Langfuse, Promptfoo and Helicone all changed owner in 2026 [VF: A1-S021, A1-S024, A7-S112]. The evaluation dataset and the prompts are product IP and belong in Git [Rec].
+
+## XV.3 Scoring for this view
+
+The SU weights re-weight the same eight Stage B criterion scores; no fact or score changes, and the weights are architectural judgement (`views.json`) [AJ].
+
+| Criterion | FS weight | SU weight | Reason for the change [AJ] |
+|---|---:|---:|---|
+| Technical capability | 15 | **25** | The product is the technology; capability decides whether it works at all |
+| Enterprise readiness | 15 | **5** | SSO, SCIM, audit logs and support tiers matter little before the first enterprise deal |
+| Security and compliance | 20 | **10** | Still material (customers' data), but certifications are the vendor's, and the start-up's own come later |
+| Deployment flexibility | 15 | **5** | One cloud and one region are enough until a customer asks for more |
+| Ecosystem | 5 | **15** | Documentation, examples and integrations decide developer speed |
+| Reliability and maturity | 10 | 10 | Unchanged: a broken dependency stops a small team as surely as a large one |
+| Cost and TCO | 5 | **20** | Runway; free tiers and open licences matter |
+| Lock-in and portability | 15 | **10** | Kept moderate, so that exits stay open cheaply |
+
+**What moves, and why.** **57 of 138 scored products are core candidates, against 45 under FS weights**: 16 gain the fit and 4 lose it (`work/stageE/views/SU_scores.md`; full table in `05_Data/views.xlsx`). The movers follow the cost and ecosystem weights [AJ]:
+
+- **Voyage AI** rises most (3.05 → 3.65, rank 7 → 2 in L7); its master tier stays Tactical, conditional on SOC 2 scope being evidenced [VF: A2-S044, A2-S143].
+- **Model Armor** (3.35 → 3.80) becomes the top guardrail because its first 2 million tokens a month are free (volatile; re-verify) [VF: A6-S067]; it stays Strategic, conditional on Google Cloud.
+- **Cloudflare AI Gateway**, **Agent Skills**, **Guardrails AI** and **Helicone** gain 0.35–0.40 on cost, but none becomes a core candidate; the last two stay Experimental [VF: A7-S112, V2-S071].
+- **MCP** becomes the top L4 item (3.85), **LiteLLM** extends its C1 lead (4.20) and **pgvector** moves to first in L6 (4.40) [AJ].
+- The enterprise platforms fall: Milvus/Zilliz and SPIFFE/SPIRE by 0.30; Pinecone, W&B Weave, PromptLayer and Credo AI by 0.25. Pinecone, Arize AX, Presidio and prompts-as-code lose core-candidate fit [AJ].
+
+**Where this Part overrides the computed fit [AJ].** The fit is indicative, and four results are overridden by judgement on stated evidence:
+
+| Item | Computed SU fit | This Part's advice | Reason |
+|---|---|---|---|
+| IBM watsonx.governance (C8, Tactical) | Core candidate (3.70) | Not at this stage | Technical 5 drives the score, but the AWS SaaS bundle is listed at US$38,160 a year (volatile; re-verify) [VF: A7-S103] |
+| Prisma AIRS (C7, Tactical) | Core candidate (3.60) | Not at this stage | A runtime security platform is a buyer-side purchase; capability separation costs nothing [AJ] |
+| Prompts-as-code (C5, Strategic) | Situational (3.45) | Default | Free, open formats [VF: A7-S067, A7-S066]; its technical 3 reflects a pattern, not a weakness |
+| Presidio (C3, Strategic, cond.) | Situational (3.50) | Default redactor, in-process | MIT and free [VF: A6-S040]; the score falls only because enterprise readiness is down-weighted |
+
+## XV.4 The architecture for this view
+
+The architecture is the master's layer model with every control kept as a **point** but collapsed into the product's own codebase, cloud account and database [AJ]. Four things are built in the first fortnight because they cost days and are expensive to add later: the gateway with per-tenant keys, the tenant identifier on every row, OpenTelemetry tracing, and an evaluation set with the prompts in Git [Rec]. Everything in the dashed box waits for a customer who asks [Rec].
+
+![Start-up architecture: one thin control plane, built in the first fortnight](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/SU-1.png){width=100%}
+
+*Figure: A small team runs one product on one cloud account and one Postgres database. Every model call passes through a pinned gateway that holds the routes, per-tenant budgets and model pins. The model writes only inside deterministic workflow code, and the code checks every output before a person sees it. Traces and evaluations leave from day one through OpenTelemetry. The dashed box holds what the first enterprise customer will ask for, which is added then and not before. Editable source: `08_Graphic/diagrams/SU-1.md`.* [AJ]
+
+Two FS principles survive intact: deterministic workflows with one bounded model step rather than autonomous loops (Part I, finding 4), and no model writes to a system of record (Part VI.3) [AJ]. What changes is that the control plane is a handful of modules owned by the product engineers, and the evidence store is a table, not an archive [AJ].
+
+## XV.5 Layer by layer, then control by control
+
+Master tiers are quoted as S (Strategic), T (Tactical) or E (Experimental); "SU core" or "SU situational" is the computed fit from XV.3 [AJ].
+
+| Layer / control | Default for a start-up | Change from the FS view | Why |
+|---|---|---|---|
+| L1 models | One mid-tier vendor primary, chosen by a bake-off on the product's evaluation set and by the credits held: OpenAI GPT (S; SU core, 4.30), Anthropic Claude (S, cond.; SU core; independent alternatives GPT-6.1 Sol, Mistral Medium 3.5 or Gemini 3.8 Flash), Mistral (S; SU core) or Gemini (S, cond.; SU situational) on Google credits. A second vendor qualified on the same set; a small tier for triage | First-party APIs allowed; no self-hosted exit route at first | Mid tiers list at US$2 / US$10 per 1M tokens (GPT-6.1 Sol, Claude Sonnet 5.5) and small tiers at US$0.10 / US$0.50 (GPT-6 Luna, Claude Haiku 5.5) (volatile; re-verify) [VF: A5-S004, A5-S011]. The master's hyperscaler-only condition for Claude is a residency condition; Claude has no first-party EU or UK inference [VF: A5-S018, V2-S075] [AJ] |
+| L2 inference | The vendors' own endpoints; Together AI (T; SU core) only for an open-weight model; vLLM (S; SU core, 4.45) once volume justifies a GPU | No in-region hyperscaler requirement until a customer asks; no own GPUs | An on-demand H100 lists at US$8.00 an hour on Fireworks (volatile; re-verify) [VF: A4-S135] [AJ] |
+| L3 orchestration | Plain code first; LangGraph (S; SU core, 4.35) with a Postgres checkpointer when a flow needs state or interrupts; Pydantic AI (S, cond.; SU core) for typed Python; Vercel AI SDK (T) for TypeScript | Temporal (S) not needed at first; no managed agent runtime | LangGraph and Pydantic AI are MIT and Production/Stable [VF: A4-S001, A4-S003]; the Claude Agent SDK (E, Alpha) and OpenAI Agents SDK (T, 0.x) only as a sandboxed sub-step [VF: A4-S006, A4-S005] |
+| L4 tools | Read-only connectors written in-house; MCP (S, cond.; SU core, 3.85) where a server already exists, OpenAPI tools as the independent alternative; E2B (T) for generated code | No separate tool-governance gateway; the allow-list lives in code | E2B Hobby is free with a US$100 credit (volatile; re-verify) [VF: A3-S104]; after Composio's token exposure, customers' tokens stay in the start-up's own store [VF: B-L4-S007] |
+| L5 memory | None; per-tenant settings are ordinary rows | Same as FS (memory last), with no memory API | Mem0 and Zep become SU core on cost [VF: A3-S049, A3-S089], but nothing yet shows a gap they close [AJ] |
+| L6 stores | pgvector (S; SU core, 4.40) in the application's Postgres, tenant column on every row, filter inside the query | Isolation per tenant, not per mandate | One database to secure, export and erase [AJ]; free under the PostgreSQL licence [VF: A2-S050] |
+| L7 retrieval optimisation | The primary vendor's embedding model, or Voyage (T; SU core) once its scope is evidenced; Sentence Transformers (S; SU core) as exit; `model_version` on every vector | Hosted embeddings acceptable | text-embedding-3-small costs US$0.02 per 1M; voyage-4 US$0.06 with 200M tokens free (volatile; re-verify) [VF: A2-S001, A2-S007] |
+| L8 ingestion | Docling (S; SU core, 4.25) in a background job; LlamaParse (T) free tier for hard documents | No ingestion envelope; a per-document record of source, tenant and parse version | Docling is MIT [VF: A1-S057]; LlamaParse gives 10,000 free credits a month (volatile; re-verify) [VF: A1-S116] |
+| L9 evaluation | OTel instrumentation; Langfuse Cloud (S, master condition self-hosted; SU core) or Opik (T; SU core); DeepEval (T) in CI; Promptfoo (T) for red-team cases | Managed SaaS, not self-hosted; one red-team tool, not two | Langfuse Hobby is free, Core US$29 a month; Opik Pro US$19 (volatile; re-verify) [VF: A1-S031, A1-S123]; every L9 product ingests OTel [VF: A1-S032, A1-S049] |
+| C1 gateway | LiteLLM open source (S, cond.; SU core, 4.20), pinned with hashes, one deployment | No Enterprise licence or second deployment at first | The master condition (hardened, pinned) still applies [VF: A6-S001, A6-S008] [AJ] |
+| C2 guardrails | Deterministic checks in code; Model Armor (S, cond.; SU core) on Google Cloud, else the cloud's detector or NeMo Guardrails (T) | One detector, not two | Model Armor's first 2M tokens a month are free (volatile; re-verify) [VF: A6-S067]; figure checks are domain logic [AJ] |
+| C3 privacy | Presidio (S, cond.; SU situational) in-process for trace redaction; placeholders for names in prompts; Sensitive Data Protection (S, cond.; SU core) on Google Cloud | Two enforcement points (prompt, trace export), not six | Presidio is MIT and community-governed [VF: A6-S040] |
+| C4 identity | Auth0 for AI Agents (S, cond.; SU core, rank 4 → 2) for sign-in, tenant context and delegated tokens; OPA (S) when policy outgrows code | Customer identity, not workforce identity | Auth0 Free covers 25,000 MAU (volatile; re-verify; page may be stale) [VF: A6-S098] |
+| C5 configuration | Prompts, pins and routes in Git with a CI evaluation gate (S); Langfuse Prompts (S) for run-time delivery | The second approver is a co-founder's review | Prompt management is in Langfuse's MIT core [VF: A7-S074] |
+| C6 FinOps | Gateway keys per tenant (S); a cost-per-tenant table with FOCUS (S) column names | No FinOps tool; cost against revenue per tenant | Budgets ship in the gateway [VF: A6-S015, A7-S070] |
+| C7 security | Pinned dependencies; cloud secret store; capability separation; safetensors (S) if weights are self-hosted | No runtime security platform | The supply chain is the realistic attack path [VF: A6-S008] [AJ] |
+| C8 governance | An evidence table keyed by trace ID; a one-page AI register | No governance platform; OpenLineage (S) later | Customers ask for the register before any tool [AJ] |
+
+## XV.6 Regulation, contracts and customer assurance
+
+**The AI Act role is provider from launch.** Supplying an AI system under the company's own name makes it the provider, whichever vendor's model is underneath [VF: A8-S016]. Article 50(1) requires people to be told they are dealing with an AI system unless it is obvious, and Article 50(2) requires synthetic text to be marked machine-readably where technically feasible, but not for assistive editing that does not substantially alter the input [VF: E1-S035, E1-S036]. Whether a drafting assistant whose output a professional then edits falls inside the assistive-editing exception was not established from the evidence [NPV]. Treat drafted text as in scope until counsel says otherwise, and consider the voluntary Code of Practice on Transparency of AI-generated Content, which about 190 organisations had signed by August 2026, as the accepted route to show compliance [VF: E1-S037] [Rec].
+
+**SME and start-up reliefs.** Article 62 gives priority sandbox access, tailored training and reduced conformity fees; sandboxes are free, documentation may be simplified, and fines are capped at the lower of the percentage or fixed amount [VF: E1-S029, E1-S030, E1-S032, E1-S031]. They cut cost, not obligations. Annex III high-risk duties (from 2 December 2027) arise only in listed uses such as hiring or credit scoring [VF: A8-S011], and a start-up heading there should join a sandbox before building [Rec].
+
+**Product rules: CRA, PLD and the Data Act.**
+
+| Rule | When it bites a start-up | What to do [Rec] |
+|---|---|---|
+| Cyber Resilience Act | Anything downloadable sold in the EU (desktop app, add-in, SDK, mobile app relying on the maker's API) makes the company a CRA manufacturer from its first sale; reporting has applied since 11 September 2026, the main obligations from 11 December 2027 [VF: E1-S001, E1-S002] | Keep the first release web-only if possible; otherwise set up 24/72-hour reporting and an SBOM now; small firms are spared only the fine for a missed 24-hour warning [VF: E1-S001] |
+| Product Liability Directive | Software, including SaaS, is a product from 9 December 2026 [VF: E1-S010, E1-S011] | Keep release history, evaluation results and logs; disclosure orders make them the main defence [VF: E1-S010] [R: E1-S013] |
+| Data Act switching | From 12 January 2027 no switching charges, including egress, for cloud and SaaS; customers get at most two months' notice, a 30-day transition and machine-readable export [VF: E1-S025, E1-S026] | Build tenant export early; it is a duty to EU customers and also lowers the cost of leaving a cloud when credits run out [AJ] |
+| UK | No CRA equivalent; the voluntary Software Security Code of Practice (14 principles, self-assessed) is the buyer's reference [VF: E1-S051, E1-S052] | File the self-assessment with the first questionnaire |
+
+**United States.** Most state AI duties apply only where a product makes, or helps make, consequential decisions about individuals [VF: R-US-STATE-AI] [AJ]. Texas TRAIGA (in force since 1 January 2026) prohibits AI built or used with intent to harm or discriminate unlawfully [VF: E1-S042, E1-S043]. California's SB 53 and AI Transparency Act apply only above US$500m revenue or 1,000,000 monthly users, and the CPPA's ADMT rules apply to significant decisions from 1 January 2027 [VF: E1-S044, E1-S045, E1-S047]. Colorado's law is stayed pending rulemaking [VF: E1-S040]. A productivity product that decides nothing about a person sits outside almost all of it [AJ].
+
+**Data transfers.** Personal data sent to US model APIs relies on the EU–US Data Privacy Framework, still in effect with an appeal pending, or on standard contractual clauses [VF: A8-S053]. Anthropic's DPA includes SCCs, a UK Addendum and notice of new subprocessors [VF: E2-S012]. OpenAI offers EU residency for new projects with Modified Abuse Monitoring or ZDR, but its UK option does not process in the UK [VF: A5-S006]; Mistral hosts in the EU by default [VF: A5-S075]. The subprocessor list is the model portfolio, so a vendor change is a customer notification, not just configuration [AJ].
+
+**Terms the start-up must flow down [Rec].** Its own terms of service should pass on the model vendors' usage policies, the AI-disclosure duty, the instruction that factual outputs need checking (an Anthropic Commercial Terms requirement), and, on Google models, the under-18 and clinical-use bars [VF: E2-S004, E2-S005, E2-S007]. Anthropic may suspend a customer for its users' breaches, so the start-up carries its tenants' misuse risk [VF: E2-S004] [AJ]. Anthropic's Usage Policy page carries an effective date of 12 November 2026, so the current version should be re-read before launch [VF: E2-S005].
+
+**Customer assurance, sequenced to the sales pipeline.** The order below is the author's judgement on reported buyer expectations; it is not a published standard [AJ].
+
+| Stage | Trigger | Evidence to have [Rec] | Source |
+|---|---|---|---|
+| 1 | First paying customer | Security page; DPA; subprocessor list (the model vendors); AI disclosure; data-export route | [VF: E2-S012, E1-S025] |
+| 2 | First questionnaire | AI-CAIQ self-assessment published as STAR for AI Level 1; UK Software Security Code self-assessment; the model vendors' certificates by reference | [VF: E2-S047, E1-S051, A5-S007, A5-S021] |
+| 3 | First enterprise deal | SOC 2 Type I, then Type II over the next window; SSO and SCIM; audit log export | [R: E2-S048] |
+| 4 | EU enterprise and regulated buyers | ISO/IEC 27001:2022 (never 2013); EU processing route; for FS buyers, DORA Article 30 clauses (Part XVI covers the vendor side) | [R: E2-S046] [VF: E1-S055] |
+| 5 | AI-specific scrutiny | ISO/IEC 42001 and STAR for AI Level 2 | [VF: E2-S047] |
+
+## XV.7 Reference stack
+
+The cloud-neutral column is the default; orchestration (LangGraph or Pydantic AI in the product's container) and evaluation (Langfuse Cloud or Opik via OTel) are the same on every cloud, so a row appears only where a cloud changes the answer [AJ]. Choose one cloud, usually the one whose credits are largest for the models you will actually use [Rec].
+
+| Layer / control | Cloud-neutral default | AWS | Azure | Google Cloud |
+|---|---|---|---|---|
+| Credits (volatile; re-verify) | Claude for Startups via a partner VC, up to US$100K, first-party API only (independent alternatives: the hyperscaler programmes in this row) [VF: E2-S008]; NVIDIA Inception, free, with partner cloud credits [VF: E2-S044] | Activate: US$1,000–5,000 Founders, up to US$200,000 Portfolio [VF: E2-S042]; coverage of third-party Bedrock models [NPV] | Up to US$150,000 across eligible Azure services [VF: E2-S011]; tier mechanics third-party only [R: E2-S043] | Up to US$350,000 for AI-first, Google models only [VF: E2-S009, E2-S010] |
+| L1 models | First-party APIs of the primary vendor and the qualified second vendor | Claude or a GPT-6 tier on Bedrock when a customer needs EU processing (confirm GPT-6 EU availability) [VF: A5-S008, V2-S079] | GPT-6.1 Sol on Foundry, Global Standard US$2 / US$10 per 1M; Data Zone EU when needed [VF: A5-S004] | Gemini 3.8 Flash at US$0.75 / US$3.75 per 1M until 31 December 2026, doubling on 1 January 2027; Gemma 4 managed at US$0.15 / US$0.60 [VF: A5-S027, V2-S010] |
+| L6 stores | pgvector on the managed Postgres | RDS or Aurora [VF: B-L6-S004] | Azure Database for PostgreSQL [VF: B-L6-S005] | Cloud SQL [VF: B-L6-S005] |
+| C1 gateway | LiteLLM open source, pinned | Same; AgentCore Gateway (S, cond.) only if the product moves onto AgentCore | Same | Same |
+| C2 guardrails | Code checks + NeMo Guardrails | Bedrock Guardrails (S, cond.) [VF: A6-S072] | Azure AI Content Safety (S, cond.) [VF: A6-S055] | Model Armor, 2M tokens a month free [VF: A6-S067] |
+| C3 privacy | Presidio in-process | Same | Same | Sensitive Data Protection [VF: A6-S065] |
+| C4 identity | Auth0 for AI Agents | Same; AgentCore Identity only with AgentCore | Same | Same |
+
+**What differs from Stack D.** The master's minimal stack (Part VII) is a regulated firm's minimum. This stack drops its in-region model service, second gateway instance, workforce-IdP agent registration, WORM archive and second red-team tool. It adds tenant isolation, customer identity, per-tenant cost and data export [AJ].
+
+## XV.8 Build vs buy, and lock-in
+
+**The rule.** Build what is the product, which means the workflow, the domain checks, the evaluation set and the tenant model. Buy or adopt everything else on a free or open tier, behind an interface the team owns. Do not build anything a customer has not yet asked for [AJ].
+
+| Component | FS decision (Part VIII) | Start-up decision | Note [AJ] |
+|---|---|---|---|
+| Foundation models | Buy | Buy; fine-tune Apache-2.0 weights only when the evaluation set shows a gap | Distilling from vendor outputs is barred or legally unclear (XV.2, finding 4) |
+| Serving | Buy access; open engine for exit | Buy access only | The open-weight route is a later cost lever, not a regulatory exit |
+| Evaluation | Hybrid | Adopt a SaaS platform; build the dataset and the scorers | The dataset is IP and the regression baseline |
+| Gateway | Hybrid, Enterprise-licensed | Adopt the open-source core; buy Enterprise only when a customer asks for SSO and audit on it | [VF: A6-S001] |
+| Identity | Buy the IdP, build the policy | Buy hosted customer identity | Writing authentication is not a start-up's edge |
+| Governance | Build the store, buy the workflow (optional) | Build a table and a one-page register | A platform is a buyer's tool |
+
+**Lock-in that traps a start-up, and the cheap insurance against it.**
+
+| Trap | Evidence | Insurance [Rec] |
+|---|---|---|
+| Credits pull the whole product onto one vendor's models and SDK | Google credits cover Google models only; Anthropic's cover the first-party API only [VF: E2-S010, E2-S008] | An OpenAI-compatible call through the gateway; no vendor SDK in product code; second vendor qualified quarterly |
+| Vendor-hosted agent state | Hosted agent APIs hold the run state at the vendor [VF: A4-S055, A4-S123] | State in the start-up's own Postgres checkpointer |
+| Evaluation data in a vendor UI | Free tiers keep 15–60 days [VF: A1-S031, A1-S123] | Datasets and results exported to Git or object storage |
+| Customers' OAuth tokens in a broker | Composio incident [VF: B-L4-S007] | Own secrets store, per-tenant scopes |
+| Licence surprises at scale | Mistral Medium 3.5 reportedly needs a commercial licence above about US$20m monthly revenue, and Qwen3.8-Max above US$50m [R: E2-S027, E2-S025]; Llama 4 multimodal grants no rights to EU-domiciled companies [VF: E2-S002] | Prefer Apache-2.0 or MIT weights; record each licence in the AI register |
+| Acquired tools change terms | Four neutral tools changed owner in 2026 [VF: A1-S021, A1-S024, V2-S025, A7-S112] | OTel instrumentation; open cores you could self-host |
+
+**Where multi-vendor pays for a start-up.** It pays in one place: a second model vendor qualified on the same evaluation set, because a single vendor's outage, retirement or policy suspension stops the product. A three-week Fable 5 outage and short Gemini Flash lifetimes show the risk [VF: V2-S004, B-L1-S003] [AJ]. Everything else in Part IX.3's "necessary" list, such as two gateway deployments, two guardrail detectors and two red-team tools, can wait for the first enterprise contract [AJ].
+
+## XV.9 Roadmap
+
+The phases are sized to a team of five to twenty and to a funding round, not to a regulatory calendar; dates assume a start in October 2026 [AJ].
+
+| Phase | When | Scope [Rec] | Exit criteria [Rec] |
+|---|---|---|---|
+| 0. Foundations | Weeks 0–2 | Gateway with per-tenant keys and budgets; OTel tracing to a free-tier platform; prompts, model pins and an evaluation set of 50–200 real cases in Git with a CI gate; `tenant_id` on every table; AI register started | A model change is a one-line pull request that runs the evaluation set |
+| 1. Design partners | Weeks 2–10 | The first workflow with one bounded model step and deterministic checks; read-only connectors; Article 50 disclosure; second vendor qualified on the set | Design partners use it weekly; numeric checks at 100%; cost per tenant measured |
+| 2. Paying customers | Months 3–6 | DPA and subprocessor list; cross-tenant leak test in CI; tenant data export; batch and caching on stable prefixes; incident and vulnerability-reporting route | Leak test returns zero; cost per tenant inside the target share of revenue |
+| 3. First enterprise deal | Months 6–12 | AI-CAIQ (STAR for AI Level 1); SOC 2 Type I, then Type II; SSO and SCIM; audit-log export; EU processing route; dedicated-tenant option for one large customer | The first security questionnaire is answered from existing evidence |
+| 4. Scale | Months 12–24 | Gateway Enterprise licence and second deployment; ISO/IEC 27001:2022; a self-hosted open-weight small model where volume pays; a second red-team tool | Passes an FS buyer's due diligence without re-platforming |
+
+**Dates inside the first year.**
+
+| Date | Event | Consequence for the roadmap [AJ] |
+|---|---|---|
+| 30 November 2026 | OpenAI Agent Builder shuts down [VF: A4-S054] | Any prototype built there moves to code in Phase 0 |
+| 2 December 2026 | Article 50(2) marking grace period ends for systems already on the market [VF: R-EUAIA, A8-S018] | No grace period for a new launch |
+| 9 December 2026 | PLD applies to products placed on the market [VF: E1-S010, E1-S011] | Release history and evaluation logs kept from Phase 0 |
+| 1 January 2027 | Gemini 3.8 Flash price doubles; CPPA ADMT rules apply [VF: V2-S010, E1-S047] | Re-run the cost model; confirm no significant decisions |
+| 12 January 2027 | Data Act: no switching charges [VF: E1-S025, E1-S026] | Export route ready for EU customers |
+
+## XV.10 Worked example
+
+**The use case.** A five-person start-up builds an AI assistant for small accounting firms. It drafts client e-mails and summarises bookkeeping anomalies. It must ship in weeks, keep model spend below a set share of revenue, and pass its first customer's security questionnaire within a year (`views.json`) [AJ]. Each accounting firm is a tenant, and the data is the firm's clients' bookkeeping records, much of it personal or confidential [AJ].
+
+**The architectural reading.** As in Part VI, this is a deterministic workflow, not a free agent: rules in code find the anomalies, figures come from the ledger, and the model writes prose around figures it is given. The accountant edits and sends; the product never sends or changes a ledger. The use is not Annex III and decides nothing about a person [AJ].
+
+| Step | What happens | Components |
+|---:|---|---|
+| 0 | Release manifest in Git: prompt versions, model pins for the mid and small tiers, route, evaluation thresholds | C5 |
+| 1 | The accountant signs in (MFA); the session carries the firm's tenant ID | C4 |
+| 2 | Nightly job: the connector reads the firm's ledger through the bookkeeping platform's API with the firm's delegated, read-only token from the secrets store | L4, C4, C7 |
+| 3 | Rules in SQL flag candidate anomalies (duplicate payments, unusual amounts, missing references); the model is not involved | L3 |
+| 4 | The small tier triages flagged items as a batch job through the gateway, under the tenant's key and budget | C1, L1, C6 |
+| 5 | The mid tier drafts one anomaly summary per client from the flagged rows, which are passed in as data | C1, L1 |
+| 6 | A deterministic check confirms that every amount, date and account in the summary matches the source rows; a mismatch triggers one retry, then "needs review" | C2, L9 |
+| 7 | The accountant asks for a client e-mail; the firm's templates and previously sent e-mails are retrieved, filtered by tenant inside the query | L6, L7 |
+| 8 | The prompt uses placeholders for client names and identifiers; the application fills them in after generation | C3 |
+| 9 | The e-mail is drafted on the mid tier; output checks confirm placeholders are intact, no figure is absent from the source, and there is no tax advice | C1, C2 |
+| 10 | The accountant edits and sends it from their own e-mail system; the edit diff is recorded | L3, L9 |
+| 11 | The OTel trace (redacted) goes to the evaluation platform; a sample is scored by a small-tier judge | L9, C3 |
+| 12 | An evidence row is written: trace ID, tenant, manifest version, model ID as returned, check results, cost, and the user who sent it | C8, C6 |
+
+**Boundaries.**
+
+**May [Rec]:** draft e-mails and anomaly summaries for the accountant to edit; explain why a rule flagged an item, using the rule's output; suggest wording from the firm's own templates.
+
+| Must never [Rec] | Enforced by |
+|---|---|
+| Send an e-mail or post to the ledger | No write tool exists (L4); sending happens in the accountant's own system |
+| Invent, round or "correct" a figure | Deterministic check (C2); blocking evaluation (L9) |
+| Read another firm's data | Tenant filter inside every query; leak test in CI (L6) |
+| Give tax or legal advice | Denied-topic check (C2); disclosure text |
+| Send identifiers to a vendor not on the subprocessor list, or run on an unpinned model | Placeholders (C3); gateway routes and pins in Git (C1, C5) |
+| Use one firm's data to improve another's output without consent | Per-tenant retrieval; no shared tuning [VF: E2-S015] |
+
+**The evidence kept, and who asks for it.**
+
+| Element | Contents | Who will ask [AJ] |
+|---|---|---|
+| Manifest and model | Prompt, model and threshold versions; exact model ID and region as returned | The questionnaire; the DPA and subprocessor review; the PLD defence [VF: E1-S010] |
+| Source snapshot | Ledger rows and rule outputs used, by hash | Support, when an accountant disputes a summary |
+| Checks and human action | Numeric, placeholder and judge results; who edited and sent, and the diff | The questionnaire's AI section; the Article 50 position |
+| Cost | Tokens and cost per step, by tenant | Gross margin |
+
+**What it costs [AJ].** These are the author's own illustrative figures at list prices (volatile; re-verify). Assume a firm with 50 clients, 200 e-mails a month (6,000 input tokens, 4,000 of them a cached prefix, and 400 output), a monthly summary per client (8,000 in, 800 out) and small-tier triage (20,000 in per client). At US$2 / US$10 per 1M for the mid tier and US$0.10 / US$0.50 for the small tier [VF: A5-S004, A5-S011], that is about US$4.50 per firm per month. With cached input (US$0.10 per 1M on GPT-6.1 Sol; 0.05x on Claude Sonnet 5.5) and batch at 50% for nightly jobs [VF: A5-S004, V2-S002], it is about US$2.30 before cache-write charges. Tokens are not the margin risk at this scale. A runaway loop or a default to the frontier tier (US$10 / US$50 per 1M) is, which is why the per-tenant budget comes in Phase 0 [VF: A5-S004] [AJ].
+
+## XV.11 Checklist, what to avoid, what to monitor
+
+**Checklist [Rec].**
+
+- [ ] Every model call goes through one pinned gateway with a key and budget per tenant (C1, C6).
+- [ ] Prompts, model pins, routes and the evaluation set are in Git, and CI runs the set on every change (C5, L9).
+- [ ] A second model vendor is qualified on the same set and can be switched to by configuration (L1).
+- [ ] `tenant_id` is on every row, vector, trace and evidence record, and a cross-tenant leak test runs in CI (L6).
+- [ ] Figures in outputs are checked deterministically against source data (C2).
+- [ ] No tool writes to a customer's system of record; customers' tokens are in your own store; identifiers are redacted before traces leave (L4, C7, C3).
+- [ ] The AI register records the provider role, Article 50 position, subprocessors and model licences, and the terms flow down the vendors' usage policies (C8).
+- [ ] Credits and their expiry dates are on the finance calendar, with the post-credit cost per tenant modelled [Rec].
+
+**What to avoid (evidence-based) [Rec].**
+
+| Avoid | Evidence |
+|---|---|
+| Unpinned LiteLLM installs, and versions 1.82.7 and 1.82.8 | [VF: A6-S008, V2-S027] |
+| Helicone for new adoption (maintenance mode) | [VF: A7-S112, V2-S043] |
+| Composio managed cloud holding customers' tokens | [VF: B-L4-S007] |
+| OpenAI Agent Builder for anything new (shuts 30 November 2026) | [VF: A4-S054] |
+| Guardrails AI's hosted hub (retired) | [VF: V2-S071] |
+| Google generative AI models in a product likely to be used by under-18s | [VF: E2-S007, E2-S030] |
+| Llama 4 multimodal models for an EU-domiciled company | [VF: E2-S002] |
+| Jina weights without a commercial licence; a modified Firecrawl server without AGPL compliance | [VF: A2-S024, A1-S053] |
+| Paying for model calls through a router's credits when your own credits would cover them | [VF: A4-S144, E2-S008] [AJ] |
+
+**What to monitor [Rec].**
+
+| Monitor | Trigger for action |
+|---|---|
+| Start-up programme terms (Google, AWS, Microsoft, Anthropic, NVIDIA); OpenAI and Mistral programmes [NPV] | Re-verify each quarter; re-run the model bake-off when credits end [VF: E2-S008, E2-S009, E2-S011, E2-S042, E2-S044] |
+| Anthropic Usage Policy effective 12 November 2026 | Re-read and update the flow-down terms [VF: E2-S005] |
+| Gemini 3.8 Flash price change and Flash retirements | Re-run cost per tenant; re-qualify [VF: V2-S010, B-L1-S003] |
+| Claude Agent SDK and OpenAI Agents SDK reaching 1.0 | Re-score maturity before wider use [VF: B-REVC-S001] |
+| Promptfoo–OpenAI closing; Langfuse under ClickHouse; OpenRouter–Stripe closing | Check pricing and free-tier changes [VF: A1-S024, A1-S021, V1-S059] |
+| Voyage SOC 2 scope | Confirm before sending customer data [VF: A2-S044, A2-S143] |
+| Mistral Medium 3.5 and Large 4 licences | Read the licence file before self-hosting at scale [R: E2-S027] [VF: A5-S076] |
+| The agentic-SDLC evidence (Stage E, E3), not yet available | Add coding-agent and AI-code-review guidance for the start-up's own engineering when published; Part XVII covers the vendor side [NPV] |
 
 
 # Annex: Sources, data and companion documents
