@@ -165,7 +165,7 @@ The FS architecture (Part IV.1) is the buyer's and is not redrawn [AJ]. A coding
 
 | Layer / control | Cloud-neutral | AWS | Azure | Google Cloud |
 |---|---|---|---|---|
-| L1 models | Two unrelated vendors per task type: OpenAI GPT (S) with Claude (S, cond.; alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) or Mistral (S); air-gapped: Mistral, gpt-oss or Gemma 4 (all S) | Claude or a GPT-6 tier on Bedrock [VF: A5-S008] | GPT-6.1 Sol in Foundry | Gemini (S, cond.) |
+| L1 models | Two unrelated vendors per task type: OpenAI GPT (S) with Claude (S, cond.; alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) or Mistral (S); air-gapped: Mistral or gpt-oss (both S), or Gemma 4 (S, cond.) | Claude or a GPT-6 tier on Bedrock [VF: A5-S008] | GPT-6.1 Sol in Foundry | Gemini (S, cond.) |
 | L2 inference | Customer's endpoint first; vLLM (S) for the open-weight edition | Bedrock Standard plus Flex for background tasks [VF: E2-S032] | Foundry Standard and Batch; Azure caching nuances [VF: E2-S019] | Gemini Enterprise Agent Platform endpoint |
 | L3 orchestration | LangGraph (S) + Temporal (S); Pydantic AI (S, cond.) or OpenAI Agents SDK (T); Claude Agent SDK (E) only in one sandboxed step (alternatives as before) | Strands on AgentCore (S, cond.) | Microsoft Agent Framework (S) | ADK on Agent Engine (S, cond.) |
 | L4 tools | Own MCP server (MCP S, cond.; alternative OpenAPI tools); E2B (T) BYOC sandbox; AGENTS.md read, Agent Skills (T; Anthropic-maintained, alternative AGENTS.md or C5 packages) optional | AgentCore Gateway + Identity (S, cond.) | APIM AI gateway (S, cond.) | Apigee MCP (S, cond.) |

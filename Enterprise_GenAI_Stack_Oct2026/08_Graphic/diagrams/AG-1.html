@@ -9,43 +9,40 @@
 <pre class="mermaid">flowchart TD
   classDef vendor fill:#E8F0F8,stroke:#2E6DA4,stroke-width:2px;
   classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
-  subgraph OUT["Outside the customer's account"]
+  V["Agent start-up&lt;br/&gt;signed release: container,&lt;br/&gt;manifest, Agent Card,&lt;br/&gt;evaluation suite, SBOM"]:::vendor
+  U["Named business user&lt;br/&gt;signs in through&lt;br/&gt;the customer's IdP"]
+  subgraph RUN["Customer's cloud account: the agent runs here"]
     direction LR
-    V["Agent start-up&lt;br/&gt;signed release: container, manifest,&lt;br/&gt;Agent Card, evaluation suite, SBOM"]:::vendor
-    U["Named business user&lt;br/&gt;signs in through the customer's IdP"]
+    CFG["C5 customer overlay in Git&lt;br/&gt;thresholds, model pins,&lt;br/&gt;tool list"]:::note
+    AG["L3 agent runtime&lt;br/&gt;deterministic workflow +&lt;br/&gt;one bounded agent step&lt;br/&gt;registered agent identity,&lt;br/&gt;no standing secrets"]
+    CFG -.-&gt; AG
   end
-  subgraph CS["Customer's cloud account: the agent runs here"]
-    direction TB
-    AG["Agent runtime (L3)&lt;br/&gt;deterministic workflow + one bounded agent step&lt;br/&gt;registered agent identity, no standing secrets"]
-    CFG["C5 customer overlay in Git&lt;br/&gt;thresholds, model pins, tool list"]:::note
-    subgraph CP["Customer control plane: the integration contract"]
-      direction LR
-      ID["C4 identity&lt;br/&gt;agent ID + sponsor&lt;br/&gt;OBO token per tool"]
-      GW["C1 AI gateway&lt;br/&gt;customer's model route,&lt;br/&gt;region and budget"]
-      TG["L4 tool gateway&lt;br/&gt;MCP or OpenAPI tools&lt;br/&gt;allow-list + policy"]
-      PR["C3 privacy service&lt;br/&gt;redact before&lt;br/&gt;any model call"]
-    end
-    subgraph EV["Customer evidence plane"]
-      direction LR
-      OT["L9 OTel collector&lt;br/&gt;gen_ai.* spans"]
-      ES["C8 evidence store&lt;br/&gt;one record per output"]
-      FN["C6 cost per task&lt;br/&gt;FOCUS-shaped"]
-    end
+  subgraph CP["Customer control plane: the integration contract"]
+    direction LR
+    ID["C4 identity&lt;br/&gt;agent ID + sponsor&lt;br/&gt;OBO token per tool"]
+    PR["C3 privacy service&lt;br/&gt;redact before any model call"]
+    TG["L4 tool gateway&lt;br/&gt;MCP or OpenAPI tools&lt;br/&gt;allow-list + policy"]
+    GW["C1 AI gateway&lt;br/&gt;customer's model route,&lt;br/&gt;region and budget"]
+  end
+  subgraph EV["Customer evidence plane"]
+    direction LR
+    OT["L9 OTel collector&lt;br/&gt;gen_ai.* spans"]
+    ES["C8 evidence store&lt;br/&gt;one record per output"]
+    FN["C6 cost per task&lt;br/&gt;FOCUS-shaped"]
+    OT --&gt; ES
+    OT --&gt; FN
   end
   subgraph DS["Behind the customer's gateways"]
     direction LR
-    M["Customer's model portfolio (L1, L2)&lt;br/&gt;two vendors, in region"]
-    SOR["Systems of record&lt;br/&gt;read-only tools"]
+    SOR["Systems of record&lt;br/&gt;read-only, via the&lt;br/&gt;L4 tool gateway"]
+    M["Customer's model portfolio&lt;br/&gt;L1, L2: two vendors, in region,&lt;br/&gt;via the C1 AI gateway"]
   end
-  V -- "marketplace or private offer" --&gt; AG
-  U --&gt; ID
-  CFG -.-&gt; AG
-  AG --&gt; CP
-  GW --&gt; M
-  TG --&gt; SOR
-  AG --&gt; EV
-  OT --&gt; ES
-  OT --&gt; FN
-  AG -. "opt-in health metadata only" .-&gt; V
+  HM["To the start-up:&lt;br/&gt;opt-in health&lt;br/&gt;metadata only"]:::note
+  V --&gt;|"marketplace or&lt;br/&gt;private offer"| RUN
+  U --&gt; RUN
+  RUN --&gt; CP
+  RUN --&gt; EV
+  RUN -.-&gt; HM
+  CP --&gt; DS
 </pre><div class="c">The start-up ships a signed release (container, manifest, Agent Card, evaluation suite, SBOM) that runs in the customer's cloud account. Every dependency the agent has is a customer-owned interface: the customer's IdP registers the agent and issues a short-lived on-behalf-of token per tool; model calls go through the customer's AI gateway to the customer's chosen models; tool calls go through the customer's tool gateway under deny-by-default policy; telemetry, evidence and cost land in the customer's stores. The vendor receives only opt-in health metadata.</div></div>
 <script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

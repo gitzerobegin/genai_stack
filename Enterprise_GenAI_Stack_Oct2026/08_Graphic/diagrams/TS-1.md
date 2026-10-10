@@ -1,5 +1,5 @@
 # The technology service provider's GenAI architecture: one estate, every call tenant-aware
-Caption: The provider runs one control plane for all tenants: tenant identity travels in every token, the gateway meters, limits and routes per tenant, the knowledge plane is partitioned by tenant (pooled by default, siloed for tenants who pay for it), and every span carries the tenant ID so cost, margin and customer evidence can be reported per tenant.
+Caption: The provider runs one control plane for all tenants: tenant identity travels in every token, the gateway meters, limits and routes per tenant, the privacy service redacts each request before the gateway, the model and knowledge planes are partitioned by tenant in three tiers (pooled by default, bridged for regulated or residency-bound tenants, siloed for tenants who pay for single-tenancy), and every span carries the tenant ID so cost, margin and customer evidence can be reported per tenant.
 
 ```mermaid
 flowchart TD
@@ -9,27 +9,27 @@ flowchart TD
     direction LR
     ID["C4 identity<br/>tenant + user + agent<br/>in every token"]
     APP["L3 workflow per feature<br/>tenant ID on every step"]
+    PG["C3 privacy service + C2 screen<br/>per-tenant policy;<br/>redact before the gateway"]
     GW["C1 gateway<br/>key, quota, budget per tenant<br/>route by tenant residency"]
-    PG["C2 / C3 policy per tenant<br/>redact before any model"]
-    ID --> APP --> GW --> PG
+    ID --> APP --> PG --> GW
   end
   CFG["C5 manifest: global release<br/>plus tenant overlays"]:::note
   CFG -.-> CP
   T --> CP
-  subgraph MP["Shared model plane: L1, L2"]
+  subgraph MP["Model plane: L1, L2, in three tenancy tiers"]
     direction LR
-    M1["Vendor A<br/>mid + small tier<br/>reserved for peak"]
-    M2["Vendor B<br/>qualified fallback"]
-    M3["Batch / Flex<br/>for async work"]
-    BYO["Tenant's own<br/>model account<br/>(optional)"]
-    M1 ~~~ M2 ~~~ M3 ~~~ BYO
+    M1["Pooled (default)<br/>shared deployments: Vendor A<br/>mid + small tier, Vendor B<br/>fallback, Batch / Flex for async"]
+    M2["Bridged<br/>shared deployments with<br/>dedicated capacity or<br/>region for the tenant"]
+    M3["Siloed<br/>dedicated deployment, or<br/>the tenant's own model<br/>account; fine-tuned models"]
+    M1 ~~~ M2 ~~~ M3
   end
-  subgraph KP["Knowledge and tools: L4 to L8, partitioned by tenant"]
+  subgraph KP["Knowledge and tools: L4 to L8, in the same three tiers"]
     direction LR
-    K1["Pooled index<br/>tenant filter injected"]
-    K2["Siloed index + key<br/>for tenants who pay"]
+    K1["Pooled (default)<br/>shared index, tenant filter<br/>injected from the token"]
+    K2["Bridged<br/>partition or namespace<br/>per tenant + own key"]
+    K3["Siloed<br/>own index and key,<br/>deployment stamp"]
     TL["Tenant tools via L4 gateway<br/>delegated per-tenant tokens"]
-    K1 ~~~ K2 ~~~ TL
+    K1 ~~~ K2 ~~~ K3 ~~~ TL
   end
   CP --> MP
   MP ~~~ KP

@@ -18,21 +18,22 @@
   end
   subgraph P["2 · Customer estate: the product as deployed (self-managed, on-premises, air-gapped or marketplace)"]
     direction LR
-    P1["Product's existing&lt;br/&gt;permission model&lt;br/&gt;and audit log"]
-    P2["AI feature&lt;br/&gt;workflow with one&lt;br/&gt;bounded model step"]
-    P3["Retrieval in the&lt;br/&gt;product's own database&lt;br/&gt;permission-filtered"]
-    P5["Guard, AI disclosure&lt;br/&gt;and output marking"]
+    P2["AI feature&lt;br/&gt;product's own permissions&lt;br/&gt;and audit log; one&lt;br/&gt;bounded model step"]
+    PR["C3 redaction&lt;br/&gt;before any&lt;br/&gt;external call"]
+    P3["Retrieval in the&lt;br/&gt;product's own database,&lt;br/&gt;permission-filtered;&lt;br/&gt;chunks screened (C2)"]
     P4["Model adapter&lt;br/&gt;OpenAI-compatible&lt;br/&gt;endpoint setting"]
+    P5["Output checks,&lt;br/&gt;AI label and machine-&lt;br/&gt;readable marking"]
     P6["Telemetry exporter&lt;br/&gt;OTel GenAI spans,&lt;br/&gt;redaction on"]
-    P1 --&gt; P2 --&gt; P3 --&gt; P5 --&gt; P4 --&gt; P6
+    BR["Bundled route for&lt;br/&gt;air-gapped sites:&lt;br/&gt;vLLM + open-weight&lt;br/&gt;model, shipped in&lt;br/&gt;the release"]
+    P2 --&gt; PR --&gt; P3 --&gt; P4 --&gt; P5 --&gt; P6
+    P4 -.-&gt; BR
   end
   subgraph C["3 · Customer's own control plane: the product plugs in and never replaces it"]
     direction LR
     C4["Customer IdP&lt;br/&gt;SSO and SCIM (C4)"]
     C1["Customer gateway (C1)&lt;br/&gt;or hyperscaler account:&lt;br/&gt;Bedrock, Foundry or Gemini&lt;br/&gt;Enterprise Agent Platform"]
-    C2["Bundled route for&lt;br/&gt;air-gapped sites:&lt;br/&gt;vLLM + open-weight model"]
     C9["Customer OTel collector,&lt;br/&gt;SIEM and evidence store&lt;br/&gt;(L9, C8)"]
-    C4 ~~~ C1 ~~~ C2 ~~~ C9
+    C4 ~~~ C1 ~~~ C9
   end
   V -- "customer installs or subscribes" --&gt; P
   P -- "SSO and SCIM · model calls · OTel spans and audit events" --&gt; C

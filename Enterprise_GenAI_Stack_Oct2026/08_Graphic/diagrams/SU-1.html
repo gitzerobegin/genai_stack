@@ -22,7 +22,7 @@
     KEYS["Routes and model pins from Git (C5)&lt;br/&gt;per-tenant keys and budgets (C6)&lt;br/&gt;redaction before export (C3)"]
   end
   subgraph MOD["L1 / L2 models: first-party APIs or the credit-giving cloud"]
-    direction LR
+    direction TB
     M1["Mid tier&lt;br/&gt;primary vendor"]
     M2["Mid tier&lt;br/&gt;qualified fallback,&lt;br/&gt;second vendor"]
     M3["Small tier&lt;br/&gt;triage and batch"]
@@ -30,13 +30,12 @@
   OBS["L9 traces and evaluations&lt;br/&gt;OpenTelemetry spans from workflow and gateway&lt;br/&gt;to a managed platform; eval set and prompts&lt;br/&gt;in Git, CI gate"]
   OUT["Draft shown to the user,&lt;br/&gt;who edits and decides"]
   LATER["Added at the first enterprise deal:&lt;br/&gt;SSO and SCIM, EU processing route,&lt;br/&gt;dedicated-tenant option, SOC 2,&lt;br/&gt;AI questionnaire, data export"]:::later
-  U --&gt; AUTH --&gt; WF
+  U --&gt; APP
+  AUTH --&gt; WF
   WF --&gt; TOOLS
   WF &lt;--&gt; PG
   WF --&gt; KEYS
-  KEYS --&gt; M1
-  KEYS -.-&gt; M2
-  KEYS --&gt; M3
+  KEYS --&gt; MOD
   WF --&gt; CHK --&gt; OUT
   WF --&gt; OBS
   OBS ~~~ LATER

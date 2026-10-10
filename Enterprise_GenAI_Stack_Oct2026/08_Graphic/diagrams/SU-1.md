@@ -18,7 +18,7 @@ flowchart TD
     KEYS["Routes and model pins from Git (C5)<br/>per-tenant keys and budgets (C6)<br/>redaction before export (C3)"]
   end
   subgraph MOD["L1 / L2 models: first-party APIs or the credit-giving cloud"]
-    direction LR
+    direction TB
     M1["Mid tier<br/>primary vendor"]
     M2["Mid tier<br/>qualified fallback,<br/>second vendor"]
     M3["Small tier<br/>triage and batch"]
@@ -26,13 +26,12 @@ flowchart TD
   OBS["L9 traces and evaluations<br/>OpenTelemetry spans from workflow and gateway<br/>to a managed platform; eval set and prompts<br/>in Git, CI gate"]
   OUT["Draft shown to the user,<br/>who edits and decides"]
   LATER["Added at the first enterprise deal:<br/>SSO and SCIM, EU processing route,<br/>dedicated-tenant option, SOC 2,<br/>AI questionnaire, data export"]:::later
-  U --> AUTH --> WF
+  U --> APP
+  AUTH --> WF
   WF --> TOOLS
   WF <--> PG
   WF --> KEYS
-  KEYS --> M1
-  KEYS -.-> M2
-  KEYS --> M3
+  KEYS --> MOD
   WF --> CHK --> OUT
   WF --> OBS
   OBS ~~~ LATER

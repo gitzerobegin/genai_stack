@@ -81,7 +81,7 @@
 
 | Ref | Component | Master tier | AT score (rank in layer) |
 |---|---|---|---|
-| L1 | Mistral family; Gemma 4 (open weights for in-product models) | Strategic; Strategic | 3.95 (2); 3.80 (4) |
+| L1 | Mistral family; Gemma 4 (open weights for in-product models) | Strategic; Strategic, conditional | 3.95 (2); 3.80 (4) |
 | L2 | vLLM | Strategic | 4.45 (1) |
 | L6 | pgvector | Strategic | 4.35 (1) |
 | L7 | Sentence Transformers | Strategic | 3.90 (1) |
@@ -139,7 +139,7 @@ Automated single-tenant deployment stamps give the strongest isolation at the lo
 
 | Layer / control | What the buyer's stack expects | The interface the product should offer | Evidence |
 |---|---|---|---|
-| L1 models | A two-vendor portfolio consumed through its own cloud route, with pinned versions; no hidden model dependency | No hard-wired vendor; in-product models either bundled open weights (Mistral or Gemma 4, Strategic) or the customer's own model accounts through the customer's gateway; any Claude route paired with a non-Anthropic alternative (GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) | Model vendors restrict reselling raw access and transferring keys [VF: E2-S004, E2-S026]; ZDR conditions differ by model and must pass through [VF: E3-S011, E3-S032] |
+| L1 models | A two-vendor portfolio consumed through its own cloud route, with pinned versions; no hidden model dependency | No hard-wired vendor; in-product models either bundled open weights (Mistral, Strategic, or Gemma 4, Strategic, conditional) or the customer's own model accounts through the customer's gateway; any Claude route paired with a non-Anthropic alternative (GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) | Model vendors restrict reselling raw access and transferring keys [VF: E2-S004, E2-S026]; ZDR conditions differ by model and must pass through [VF: E3-S011, E3-S032] |
 | L2 inference | OpenAI-compatible model access through the gateway; a vLLM private route | Accept an OpenAI-compatible base URL and key; serve bundled models on vLLM (Strategic) in the customer's account | Every gateway exposes or accepts the format [VF: A6-S015, A6-S053, A6-S061] |
 | L3 orchestration | Deterministic workflows; durable activities; approval interrupts | Idempotent, side-effect-free calls safe to retry; a typed outcome (allow, block, transform) with error distinct from policy block | NeMo IORails' `RailOutcome` contract separates policy blocks from execution failures [VF: A6-S036] |
 | L4 tools | No tool reachable except through the governed tool gateway; read-only by default | Where agents call the product: an MCP server (Strategic, conditional; Anthropic-originated, alternative an OpenAPI description) that enforces OAuth authorisation and works under managed allow-lists; A2A only for agent delegation | MCP authorisation is optional in the specification [VF: A3-S055]; MCP allow-listing is a standard admin control [VF: E3-S004] |
@@ -198,7 +198,7 @@ AIUC-1 appears as an attestation on Cursor's security page; its weight with FS b
 
 | Layer / control | Cloud-neutral (also the customer-run edition) | AWS | Azure | Google Cloud |
 |---|---|---|---|---|
-| L1 in-product models | Apache-2.0 open weights: Gemma 4 (S) or Mistral Large 3 / Ministral 3 (S) for recognisers and judges; customer's own model account for anything larger | Bedrock in an EU region in the SaaS edition | Foundry Data Zone in the SaaS edition | Gemini (S, cond.) in an EU region; credits apply to Google models only [VF: E2-S010] |
+| L1 in-product models | Apache-2.0 open weights: Gemma 4 (S, cond.) or Mistral Large 3 / Ministral 3 (S) for recognisers and judges; customer's own model account for anything larger | Bedrock in an EU region in the SaaS edition | Foundry Data Zone in the SaaS edition | Gemini (S, cond.) in an EU region; credits apply to Google models only [VF: E2-S010] |
 | L2 serving | vLLM (S), CPU path for small models where possible | Same, on the customer's EKS | Same, on AKS | Same, on GKE |
 | L3 internal workflows | Plain code; Pydantic AI (S, cond.) for typed LLM steps; LangGraph (S) if multi-step | Same | Same | Same |
 | L4 agent interface | MCP server (S, cond.; Anthropic-originated, alternative OpenAPI description); AGENTS.md or skill guidance for coding agents | AWS Marketplace "AI Agents and Tools" listing for MCP servers [VF: E2-S035] | Same | Same |

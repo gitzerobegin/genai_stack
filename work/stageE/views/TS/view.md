@@ -83,7 +83,7 @@ The FS architecture (Part IV.1) is kept layer for layer; what changes is that te
 
 ![The technology service provider's GenAI architecture: one estate, every call tenant-aware](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/TS-1.png){width=100%}
 
-*Figure: The provider runs one control plane for all tenants: tenant identity travels in every token, the gateway meters, limits and routes per tenant, the knowledge plane is partitioned by tenant (pooled by default, siloed for tenants who pay for it), and every span carries the tenant ID so cost, margin and customer evidence can be reported per tenant. Editable source: `08_Graphic/diagrams/TS-1.md`.* [AJ]
+*Figure: The provider runs one control plane for all tenants: tenant identity travels in every token, the gateway meters, limits and routes per tenant, the privacy service redacts each request before the gateway, the model and knowledge planes are partitioned by tenant in three tiers (pooled by default, bridged for regulated or residency-bound tenants, siloed for tenants who pay for single-tenancy), and every span carries the tenant ID so cost, margin and customer evidence can be reported per tenant. Editable source: `08_Graphic/diagrams/TS-1.md`.* [AJ]
 
 **Three tenancy tiers, one code path.** The architecture offers three isolation tiers built from the same components, following the pool, bridge and silo patterns [VF: E2-S050, E2-S053] [AJ]:
 

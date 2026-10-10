@@ -14,21 +14,22 @@ flowchart TD
   end
   subgraph P["2 · Customer estate: the product as deployed (self-managed, on-premises, air-gapped or marketplace)"]
     direction LR
-    P1["Product's existing<br/>permission model<br/>and audit log"]
-    P2["AI feature<br/>workflow with one<br/>bounded model step"]
-    P3["Retrieval in the<br/>product's own database<br/>permission-filtered"]
-    P5["Guard, AI disclosure<br/>and output marking"]
+    P2["AI feature<br/>product's own permissions<br/>and audit log; one<br/>bounded model step"]
+    PR["C3 redaction<br/>before any<br/>external call"]
+    P3["Retrieval in the<br/>product's own database,<br/>permission-filtered;<br/>chunks screened (C2)"]
     P4["Model adapter<br/>OpenAI-compatible<br/>endpoint setting"]
+    P5["Output checks,<br/>AI label and machine-<br/>readable marking"]
     P6["Telemetry exporter<br/>OTel GenAI spans,<br/>redaction on"]
-    P1 --> P2 --> P3 --> P5 --> P4 --> P6
+    BR["Bundled route for<br/>air-gapped sites:<br/>vLLM + open-weight<br/>model, shipped in<br/>the release"]
+    P2 --> PR --> P3 --> P4 --> P5 --> P6
+    P4 -.-> BR
   end
   subgraph C["3 · Customer's own control plane: the product plugs in and never replaces it"]
     direction LR
     C4["Customer IdP<br/>SSO and SCIM (C4)"]
     C1["Customer gateway (C1)<br/>or hyperscaler account:<br/>Bedrock, Foundry or Gemini<br/>Enterprise Agent Platform"]
-    C2["Bundled route for<br/>air-gapped sites:<br/>vLLM + open-weight model"]
     C9["Customer OTel collector,<br/>SIEM and evidence store<br/>(L9, C8)"]
-    C4 ~~~ C1 ~~~ C2 ~~~ C9
+    C4 ~~~ C1 ~~~ C9
   end
   V -- "customer installs or subscribes" --> P
   P -- "SSO and SCIM · model calls · OTel spans and audit events" --> C
