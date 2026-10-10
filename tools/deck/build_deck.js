@@ -90,8 +90,8 @@ function table(s, rows, o) {
 // 1 Title
 let s = slide("TITLE", "The Enterprise GenAI Stack", "Opening");
 s.addText("A new baseline for the enterprise GenAI stack, set by this research: the reference architecture, what to select, what to deliberately not build yet, and how the advice changes for seven kinds of reader.", { placeholder: "body" });
-T(s, "Reference architecture · 9 layers · 8 enterprise controls · 140 products · 1,255 sources", { x: 5.75, y: 6.2, w: 7.0, h: 0.4, fontSize: 11, color: C.accent5 });
-s.addNotes("Purpose: give the leadership team one decision-ready view of the 2026 GenAI stack. The full evidence (about 230,000 words, 1,255 sources) sits in the master document and appendix. Disclosure: researched and drafted with an Anthropic model; Anthropic items were scored on the same rubric, borderline calls resolved against them, and tiers set by the reader are marked.");
+T(s, "Reference architecture · 9 layers · 8 enterprise controls · 140 products · 1,449 sources", { x: 5.75, y: 6.2, w: 7.0, h: 0.4, fontSize: 11, color: C.accent5 });
+s.addNotes("Purpose: give the leadership team one decision-ready view of the 2026 GenAI stack. The full evidence (about 230,000 words, 1,449 sources) sits in the master document and appendix. Disclosure: researched and drafted with an Anthropic model; Anthropic items were scored on the same rubric, borderline calls resolved against them, and tiers set by the reader are marked.");
 
 // 2 The answer
 s = slide("CONTENT", "The answer in one sentence", "Opening");
@@ -106,7 +106,7 @@ s.addNotes("Source: synthesis Part I.2. Rationale for each point: Part I.1 findi
 
 // 3 What we reviewed
 s = slide("CONTENT", "A new baseline, set by this research", "Opening");
-const stats = [["17", "layers and controls: nine stack layers (L1–L9) and eight enterprise controls (C1–C8)", C.text2], ["140", "products profiled: 92 in the stack layers, 48 in the controls; 138 scored", C.accent1], ["192", "high-risk claims re-checked by two adversarial verifiers", C.accent6], ["1,255", "sources logged with URL and access date", C.accent3]];
+const stats = [["17", "layers and controls: nine stack layers (L1–L9) and eight enterprise controls (C1–C8)", C.text2], ["140", "products profiled: 92 in the stack layers, 48 in the controls; 138 scored", C.accent1], ["192", "high-risk claims re-checked by two adversarial verifiers", C.accent6], ["1,449", "sources logged with URL and access date", C.accent3]];
 stats.forEach((st, i) => {
   const x = 0.6 + i * 3.08;
   T(s, st[0], { x, y: 1.7, w: 2.9, h: 1.3, fontSize: 60, bold: true, color: st[2], fontFace: THEME.headFontFace });
@@ -265,7 +265,7 @@ krm.forEach((k, i) => { const x = 0.6 + i * 4.1;
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.4, w: 3.9, h: 0.6, rectRadius: 0.06, fill: { color: k[2] }, line: { color: k[2] } });
   T(s, k[0], { x: x + 0.2, y: 1.45, w: 3.5, h: 0.5, fontSize: 17, bold: true, color: C.background1, valign: "middle" });
   T(s, k[1].split(" · ").map((t, j, arr) => ({ text: t, options: { bullet: true, breakLine: j < arr.length - 1 } })), { x: x + 0.1, y: 2.15, w: 3.7, h: 4.6, fontSize: 14, paraSpaceAfter: 4 }); });
-s.addNotes("The baseline this review sets, stated on its own terms. Layer and control definitions: synthesis Part IV; product status (current, retired, renamed, acquired, unverifiable) in each record of 05_Data/products.json and the product technical appendix.");
+s.addNotes("The baseline this review sets, stated on its own terms (master document Part XII, 'The new baseline at a glance'). Layer and control definitions: Part IV; product status (current, retired, renamed, acquired, unverifiable) in each record of 05_Data/products.json and the product technical appendix.");
 
 // 16 Avoid
 s = slide("CONTENT", "Deliberately not selected, on evidence", "What to select");

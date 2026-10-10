@@ -42,7 +42,7 @@ grep -rn "October 2026\|Q3 2026" tools $NEW/08_Graphic   # titles, subtitles, de
 # REFRESH_QUARTERLY.md is left out on purpose: step 4 needs the old path for the comparison.
 ```
 
-Keep the old ZIP inside the renamed folder only if you want both editions in one place. Otherwise remove it; the baseline commit keeps it.
+No ZIP is made or committed (user decision, 10 October 2026): every file is pushed to GitHub, and the baseline commit keeps the previous edition.
 
 ## 3. Facts (R0, R1, R2) → checkpoint RCP1
 
@@ -80,14 +80,14 @@ First update `tools/deck/tiers.json` and any slide text that names tiers, counts
 
 ```bash
 bash tools/rebuild_all.sh        # dataset, tag check, diagrams, post visuals, stack graphic (--sync), explorer,
-                                 # LinkedIn document, deck, master, print and Kindle edition, appendix, ZIP
+                                 # LinkedIn document, deck, master, print and Kindle edition, appendix (Word only; no ZIP)
 ```
 
 `build_stack_graphic.py --sync` (inside the script) refreshes tiers in the stack graphic from the dataset and adds new products to its Markdown; check the labels afterwards. To run steps one at a time, see the commands inside `tools/rebuild_all.sh` and `RERUN_ON_DESKTOP.md` §2b.
 
 Then:
 - update `<PKG>/00_README.md` (as-of date and counts);
-- read `01_Report/Print/Build_Summary.md`. Every KDP check should say OK; the spine width follows the new page count automatically. If you sell the book, upload the new `Interior.pdf`, `Cover_Paperback.pdf` and `Ebook.epub` as a new edition (see `Publishing_Kit.md` §6);
+- read `01_Report/Print/Build_Summary.md`. Every KDP check should say OK; the spine width follows the new page count automatically. If you sell the book, upload the new `Interior.docx` (KDP converts it), `Cover_Paperback.pdf` and `Ebook.epub`; the spine uses an estimated page count, so confirm it in KDP's previewer (or build `Interior.pdf` with `python3 -I tools/build_print_edition.py . --pdf`) as a new edition (see `Publishing_Kit.md` §6);
 - update or copy the Claude Doc;
 - add a run-log row and a new "Current position" to `MEMORY.md`;
 - commit and push the refresh branch.

@@ -10,7 +10,7 @@
      {N} {S} {T} {E} in the stats line are filled in from the tables. -->
 
 - subtitle: The new baseline set by this review: reference architecture and product landscape for a regulated UK/EU asset manager · evidence as of 9 October 2026
-- stats: **9** layers, L1 → L9; **8** enterprise controls; **{N}** products assessed; **1,255** sources; **{S}** Strategic · **{T}** Tactical · **{E}** Experimental
+- stats: **9** layers, L1 → L9; **8** enterprise controls; **{N}** products assessed; **1,449** sources; **{S}** Strategic · **{T}** Tactical · **{E}** Experimental
 - legend-strategic: Strategic — platform default (most carry a condition)
 - legend-tactical: Tactical — a stated niche or estate
 - legend-experimental: Experimental — pilot only, outside regulated paths

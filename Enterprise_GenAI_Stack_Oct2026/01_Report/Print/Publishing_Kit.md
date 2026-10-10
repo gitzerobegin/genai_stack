@@ -8,7 +8,7 @@ This folder is the master document prepared as a book you can sell on Amazon (KD
 
 | File | Use |
 |---|---|
-| `Interior.pdf` | **Paperback interior.** 8.5 × 11 in trim with mirrored margins (the inside margin is the gutter). Parts open on right-hand pages; every chapter starts on a new page. Running heads show the Part on left-hand pages and the chapter on right-hand pages. Front matter is numbered in roman numerals; Part I starts at page 1. All fonts are embedded, and images are lossless at full resolution. |
+| `Interior.pdf` | **Not built by default** (no PDF from any Word document; user decision, 10 October 2026); when you are ready to upload, run `python3 -I tools/build_print_edition.py . --pdf`, which also sets the exact page count for the spine. It is not committed. **Paperback interior.** 8.5 × 11 in trim with mirrored margins (the inside margin is the gutter). Parts open on right-hand pages; every chapter starts on a new page. Running heads show the Part on left-hand pages and the chapter on right-hand pages. Front matter is numbered in roman numerals; Part I starts at page 1. All fonts are embedded, and images are lossless at full resolution. |
 | `Interior.docx` | The same content as an editable Word file. Page styles, running heads and right-hand openings are applied in LibreOffice when the PDF is made, so lay out the PDF from this script rather than from Word. |
 | `Cover_Paperback.pdf` | **Full-wrap paperback cover:** back, spine and front, with 0.125 in bleed. The spine width is computed from the interior's page count. A white box marks where KDP prints the barcode. |
 | `cover.html` | Editable cover source. Change `tools/print/book.json` (blurb, author, title) and rebuild. |

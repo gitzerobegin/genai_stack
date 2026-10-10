@@ -23,7 +23,7 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install requests beautifulsoup4 openpyxl python-docx python-pptx reportlab pypdf markdownify
 # For rebuilding the deliverables (step 2.8, tools/rebuild_all.sh):
 #   pandoc                      (Word and EPUB exports)
-#   LibreOffice with its Python UNO bridge (PDF exports and the print layout: tools/docx2pdf.py,
+#   LibreOffice with its Python UNO bridge (the deck PDF, and PDFs only on request with --pdf: tools/docx2pdf.py,
 #     tools/print/print_pdf.py; on Debian/Ubuntu: apt install libreoffice python3-uno; on macOS run the
 #     scripts with LibreOffice's bundled python: /Applications/LibreOffice.app/Contents/Resources/python)
 #   Node.js 18+ with Playwright (figures and covers): npm install -g playwright && npx playwright install chromium
@@ -46,9 +46,9 @@ When you start Claude Code in the repo root, it reads `CLAUDE.md`, which points 
 | 2.5 Unprofiled products | Prompt **G3** | ServiceNow, OneTrust, Daytona, Modal, Azure AI Search, Vertex Vector Search |
 | 2.6 Rebuild | `python3 -I tools/build_dataset.py .`, then `python3 -I tools/diff_tiers.py . <previous-edition commit>` to list tier and score changes against the previous edition | `products.json`/`.xlsx`, `bibliography.xlsx`, the integrity report (expect 0 issues) and `work/refresh/tier_changes.md` |
 | 2.7 Re-score | Re-run the Stage B writers for any layer whose evidence changed (prompts in `work/prompts/stageA_prime_and_stageB_prompts.md`), then `python3 -I tools/score.py work/stageB/<L>/assessments.json --write` | Scores reflect the new evidence; the NPV cap is lifted where facts are now verified |
-| 2.8 Rebuild the deliverables | `bash tools/rebuild_all.sh` (everything, in order: dataset, tag check, diagrams, LinkedIn visuals, stack graphic, explorer, LinkedIn document, deck, master, print and Kindle edition, appendix, ZIP). `bash tools/rebuild_all.sh --quick` skips the PDFs. Update `tools/deck/tiers.json` and slide text first if tiers changed | Refreshed `01_Report` … `08_Graphic`, `01_Report/Print/` and the ZIP. The three PDF layouts take several minutes each |
+| 2.8 Rebuild the deliverables | `bash tools/rebuild_all.sh` (everything, in order: dataset, tag check, diagrams, LinkedIn visuals, stack graphic, explorer, LinkedIn document, deck, master, print and Kindle edition, appendix; Word documents only, no PDF from any .docx and no ZIP). `bash tools/rebuild_all.sh --quick` also skips the deck PDF and the print edition. Update `tools/deck/tiers.json` and slide text first if tiers changed | Refreshed `01_Report` … `08_Graphic`, `01_Report/Print/` |
 | 2.9 Update the synthesis and the views | If a tier changed, ask Claude Code to update `work/stageC/synthesis.md` (Parts I, VII and XI) and, after `python3 -I tools/build_views.py .`, the six view Parts (`work/stageE/views/<VIEW>/view.md`, prompt R4b in `work/prompts/refresh_prompts.md`) to match, run `python3 -I tools/check_tags.py . work/stageC/synthesis.md`, then repeat 2.8 | Report, explorer and deck agree with the new scores |
-| 2.10 Commit | `rebuild_all.sh` re-creates the ZIP. Then `git add -A && git commit -m "Desktop gap-fill" && git push origin claude/nice-meitner-0me752` | |
+| 2.10 Commit | No ZIP: push every file. `git add -A && git commit -m "Desktop gap-fill" && git push origin claude/nice-meitner-0me752` | |
 
 **Rules still apply:**
 - Never work around paywalls or logins.

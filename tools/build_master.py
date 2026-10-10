@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Assemble the master architecture document and export Word + PDF.
+"""Assemble the master architecture document and export Word (PDF only on request).
 
-Usage: python3 -I tools/build_master.py <repo_root> [--no-pdf]
+Usage: python3 -I tools/build_master.py <repo_root> [--pdf]
+
+No PDF is made from the .docx unless --pdf is given (user decision, 10 October 2026).
 
 Order (plan §16): title & disclosure · Executive summary (synthesis Part I) · Method & quality rules ·
 Nine layers L1→L9 · Controls C1–C8 · remaining synthesis Parts (hypotheses … the new baseline at a glance) ·
@@ -12,7 +14,7 @@ not repeated here. Each LinkedIn post visual
 Writes:
   Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.md   (full inline tags)
   Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.docx (footnote-style tags, CP5-1)
-  Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.pdf  (via LibreOffice)
+  Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.pdf  (only with --pdf, via LibreOffice; not committed)
 """
 import collections, json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -145,7 +147,7 @@ cmd = ["pandoc", "work/stageD/Master_Architecture.pandoc.md", "-f", "markdown+pi
        "--reference-doc=tools/templates/reference.docx"]
 r = subprocess.run(cmd, capture_output=True, text=True)
 print("pandoc:", r.returncode, r.stderr[-500:])
-if "--no-pdf" not in sys.argv and r.returncode == 0:
+if "--pdf" in sys.argv and r.returncode == 0:
     r2 = subprocess.run([sys.executable, "-I", "tools/docx2pdf.py", os.path.join(OUT, "Master_Architecture.docx"), os.path.join(OUT, "Master_Architecture.pdf")],
                         capture_output=True, text=True, timeout=3600)
     print("pdf:", r2.returncode, (r2.stdout + r2.stderr)[-300:])

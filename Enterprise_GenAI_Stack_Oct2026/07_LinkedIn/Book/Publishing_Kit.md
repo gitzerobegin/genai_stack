@@ -4,8 +4,8 @@ This folder holds the LinkedIn series as a 6 × 9 in trade book, ready for Amazo
 
 | File | Use |
 |---|---|
-| `Interior.docx` | **The editable Word master.** KDP accepts .docx, but upload the PDF for print: it carries the right-hand Part openings, the running heads and the roman front matter, which LibreOffice applies when the PDF is made. |
-| `Interior.pdf` | Paperback interior, 6 × 9 in, mirrored margins, fonts embedded |
+| `Interior.docx` | **The editable Word master.** KDP accepts .docx. For the paperback, a PDF keeps the right-hand Part openings, the running heads and the roman front matter, which LibreOffice applies when the PDF is made. |
+| `Interior.pdf` | **Not built by default** (no PDF from any Word document; user decision, 10 October 2026). When you are ready to upload, run `python3 -I tools/build_linkedin_book.py . --pdf` to make the 6 × 9 in interior with mirrored margins and embedded fonts; it is not committed. |
 | `Cover_Paperback.pdf` / `cover.html` | Full-wrap cover, with the spine width taken from the page count |
 | `Cover_Front.jpg` | Kindle and store-page cover |
 | `Ebook.epub` | Kindle eBook |
