@@ -27,7 +27,7 @@ W, H = [int(round(v * IN)) for v in book["trim_in"]]
 MG = {k: int(round(v * IN)) for k, v in book["margins_in"].items()}
 NAVY, GOLD, MUTE = 0x0B1B33, 0xD4A13A, 0x5B6B7A
 ROMAN_LOWER, ARABIC, PAGE_DESCRIPTOR = 3, 4, 5
-CHAPTER_H2 = re.compile(r"^(\d+|C\d)\.\s")
+CHAPTER_H2 = re.compile(r"^(\d+|C\d)\.\s|^(Introduction|Conclusion|Afterword)\b")
 
 port = 2002 + os.getpid() % 1000
 office = subprocess.Popen(["soffice", "--headless", "--invisible", "--norestore", "--nologo",
@@ -44,7 +44,7 @@ try:
     desktop = ctx.ServiceManager.createInstanceWithContext("com.sun.star.frame.Desktop", ctx)
     doc = desktop.loadComponentFromURL(uno.systemPathToFileUrl(src), "_blank", 0, (prop("Hidden", True),))
     E = lambda t, v: uno.Enum(t, v)
-    doc.lockControllers(); doc.addActionLock()   # re-paginate once at the end, not after every style change
+    doc.lockControllers()   # re-paginate once at the end, not after every style change
 
     # ---------- page styles
     fam = doc.StyleFamilies.getByName("PageStyles")
@@ -85,6 +85,7 @@ try:
     title = book["title"]
     style("FrontPlain", "ALL", ROMAN_LOWER, None, None, "FrontPlain")
     style("FrontPlainR", "RIGHT", ROMAN_LOWER, None, None, "FrontPlain")
+    style("FrontTitleR", "RIGHT", ROMAN_LOWER, None, None, "FrontPlain")   # the title page: its own recto
     style("FrontMatter", "MIRRORED", ROMAN_LOWER, ([title.upper()], [chapter_field(0)]), True, "FrontMatter")
     style("FrontOpen", "RIGHT", ROMAN_LOWER, None, True, "FrontMatter")
     style("BookBody", "MIRRORED", ARABIC, ([chapter_field(0)], [chapter_field(1)]), True, "BookBody")
@@ -98,10 +99,11 @@ try:
             for k, v in kw.items():
                 setattr(s, k, E("com.sun.star.style.ParagraphAdjust", v) if k == "ParaAdjust" else v)
     C = "CENTER"
-    pstyle("HalfTitle", CharFontName="Arial", CharHeight=24, CharWeight=150, CharColor=NAVY, ParaAdjust=C, ParaTopMargin=int(3.2 * IN))
-    pstyle("BookTitle", CharFontName="Arial", CharHeight=36, CharWeight=150, CharColor=NAVY, ParaAdjust=C, ParaTopMargin=int(2.0 * IN), ParaBottomMargin=int(0.25 * IN))
+    TH = book["trim_in"][1]                      # spacing scales with the trim height (11 in master, 9 in trade)
+    pstyle("HalfTitle", CharFontName="Arial", CharHeight=24, CharWeight=150, CharColor=NAVY, ParaAdjust=C, ParaTopMargin=int(0.29 * TH * IN))
+    pstyle("BookTitle", CharFontName="Arial", CharHeight=36, CharWeight=150, CharColor=NAVY, ParaAdjust=C, ParaTopMargin=int(0.16 * TH * IN), ParaBottomMargin=int(0.25 * IN))
     pstyle("BookSubtitle", CharFontName="Arial", CharHeight=15, CharColor=NAVY, ParaAdjust=C, ParaBottomMargin=int(0.6 * IN))
-    pstyle("BookAuthor", CharFontName="Arial", CharHeight=16, CharWeight=150, CharColor=NAVY, ParaAdjust=C, ParaBottomMargin=int(1.6 * IN))
+    pstyle("BookAuthor", CharFontName="Arial", CharHeight=16, CharWeight=150, CharColor=NAVY, ParaAdjust=C, ParaBottomMargin=int(0.12 * TH * IN))
     pstyle("BookLogo", ParaAdjust=C)
     pstyle("Copyright", CharHeight=8.5, ParaBottomMargin=int(0.08 * IN))
     pstyle("ContentsTitle", CharFontName="Arial", CharHeight=24, CharWeight=150, CharColor=NAVY, ParaTopMargin=int(0.9 * IN), ParaBottomMargin=int(0.3 * IN))
@@ -121,9 +123,9 @@ try:
         if first:
             par.PageDescName = "FrontPlainR"; first = False; continue
         if st == "BookTitle":
-            par.PageDescName = "FrontPlainR"
+            par.PageDescName = "FrontTitleR"
         elif st == "Copyright" and not seen_copyright:
-            seen_copyright = True; par.BreakType = PB; par.ParaTopMargin = int(3.6 * IN)
+            seen_copyright = True; par.BreakType = PB; par.ParaTopMargin = int(0.3 * book["trim_in"][1] * IN)
         elif st == "ContentsTitle":
             par.PageDescName = "FrontOpen"
         elif st in ("Heading 1", "Heading1"):
@@ -135,7 +137,7 @@ try:
         elif st in ("Heading 2", "Heading2") and seen_part1 and CHAPTER_H2.match(txt):
             n_ch += 1; par.BreakType = PB; par.CharHeight = 22; par.ParaTopMargin = int(0.5 * IN); par.ParaBottomMargin = int(0.2 * IN)
 
-    doc.removeActionLock(); doc.unlockControllers()
+    doc.unlockControllers()
     # ---------- table of contents: refresh twice so the numbers settle after the layout changes
     idx = doc.getDocumentIndexes(); n_idx = idx.getCount()
     for _ in range(2):
@@ -143,6 +145,15 @@ try:
             idx.getByIndex(i).update()
         doc.refresh()
 
+    try:   # keep the blank left-hand pages LibreOffice inserts before right-hand openings (print needs them)
+        ds = doc.createInstance("com.sun.star.text.DocumentSettings"); ds.PrintEmptyPages = True
+    except Exception as e:
+        print("PrintEmptyPages not set:", e)
+    try:
+        doc.DocumentProperties.Title = book["title"]; doc.DocumentProperties.Author = book.get("author", "")
+        doc.DocumentProperties.Subject = book.get("subtitle", "")
+    except Exception:
+        pass
     fd = uno.Any("[]com.sun.star.beans.PropertyValue", tuple([
         prop("UseLosslessCompression", True), prop("ReduceImageResolution", False), prop("ExportBookmarks", True),
         prop("IsSkipEmptyPages", False), prop("EmbedStandardFonts", True), prop("ExportNotes", False),
