@@ -33,11 +33,9 @@ flowchart TD
     M["Customer's model portfolio (L1, L2)<br/>two vendors, in region"]
     SOR["Systems of record<br/>read-only tools"]
   end
-  OUT --> CS
   V -- "marketplace or private offer" --> AG
   U --> ID
   CFG -.-> AG
-  ID --> AG
   AG --> CP
   GW --> M
   TG --> SOR

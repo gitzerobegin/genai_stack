@@ -2,7 +2,8 @@
 """Assemble the LinkedIn series book (Stage F) from its chapters, ready for tools/build_print_edition.py.
 
 Usage: python3 -I tools/build_linkedin_book.py <repo_root> [--no-print]
-Reads  work/stageF/linkedin_book/chapters/ch00.md … ch24.md   (one chapter per post; brief: work/stage0/12_stageF_linkedin_book_brief.md)
+Reads  work/stageF/linkedin_book/chapters/ch00.md … ch32.md   (one chapter per post; brief: work/stage0/12_stageF_linkedin_book_brief.md;
+                                                               ch25-ch32 = Part IV, "One stack, seven lenses", included when present)
        work/stageC2/worked_example_build.json                 (adds "In the worked example" to every chapter, and Appendix A)
        work/stageF/linkedin_book/glossary.md, about_author.md  (back matter)
 Writes work/stageF/linkedin_book/book.md          (inline claim tags, for editing and review)
@@ -45,18 +46,21 @@ def title(n):
 parts = ["# Part I: The argument\n", chapter(0),
          "# Part II: Nine layers and the controls that make them safe\n"] + [chapter(n) for n in range(1, 19)] + \
         ["# Part III: Putting it together\n"] + [chapter(n) for n in range(19, 25)]
+LENS = [n for n in range(25, 33) if os.path.exists(os.path.join(D, "chapters", "ch%02d.md" % n))]   # "One stack, seven lenses"
+if LENS:
+    parts += ["# Part IV: One stack, seven lenses\n"] + [chapter(n) for n in LENS]
 appA = ["# Appendix A: The worked example, step by step\n", WX["use_case"] + " The series teaches the stack in layer order; "
         "the real build order (evaluation and governance first) is set out at step 20 [AJ].\n",
         "| Step | Stage | What it adds | Must never |", "|---|---|---|---|"]
 appA += ["| %d | %s | %s | %s |" % (s["post"], s["stage"], s["adds"], s["boundary"]) for s in WX["steps"]]
 appB = ["\n# Appendix B: The book at a glance\n", "| Chapter | In one line |", "|---|---|"]
-appB += ["| %s | %s |" % (title(n), one_line(n)) for n in range(0, 25)]
+appB += ["| %s | %s |" % (title(n), one_line(n)) for n in list(range(0, 25)) + LENS]
 back = [open(os.path.join(D, f), encoding="utf-8").read().strip() + "\n" for f in ("glossary.md", "about_author.md") if os.path.exists(os.path.join(D, f))]
 book = "\n\n".join(parts + ["\n".join(appA), "\n".join(appB)] + back)
 book = book.replace("{width=4.4in}", "{width=4.2in}")       # fits the 6 x 9 in text block with room for the caption
 open(os.path.join(D, "book.md"), "w", encoding="utf-8").write(book)
 open(os.path.join(D, "book.pandoc.md"), "w", encoding="utf-8").write(convert_markdown(book, *load_index(".")))
-print(json.dumps({"words": len(re.sub(r"\[[^\]]*\]", "", book).split()), "chapters": 25}))
+print(json.dumps({"words": len(re.sub(r"\[[^\]]*\]", "", book).split()), "chapters": 25 + len(LENS)}))
 if "--no-print" not in sys.argv:
     r = subprocess.run([sys.executable, "-I", "tools/build_print_edition.py", ".", "--config", "tools/print/linkedin_book.json"] +
                        [a for a in sys.argv[2:] if a.startswith("--no-") or a == "--cover-only"], text=True)

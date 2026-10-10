@@ -34,7 +34,7 @@ for b in posts:
     m = re.match(r"### Post (\d+)\s*·\s*Week (\d+)\s*·\s*(.+)", head)
     if not m: continue
     n, wk, theme = int(m.group(1)), int(m.group(2)), m.group(3).strip()
-    day = "Introduction" if n == 0 else ("Stack post" if n % 2 else "Control post")
+    day = "Introduction" if n == 0 else ("Views post" if n >= 25 else ("Stack post" if n % 2 else "Control post"))   # 25-32: "One stack, seven lenses"
     full = sub(b, "Full post")
     hook = next((l.strip() for l in full.split("\n") if l.strip()), "")
     rows.append(dict(n=n, week=wk, day=day, theme=theme, pair=field(b, "Pair"), tension=field(b, "Tension"), hook=hook[:300],
@@ -55,7 +55,7 @@ for c in ws[3]:
     c.font = Font(bold=True, color="FFFFFF"); c.fill = PatternFill("solid", fgColor="1F3864"); c.alignment = Alignment(wrap_text=True, vertical="top")
 for r in sorted(rows, key=lambda x: x["n"]):
     i = ws.max_row + 1
-    off = -3 if r["n"] == 0 else (r["week"] - 1) * 7 + (0 if r["day"] == "Stack post" else 2)
+    off = -3 if r["n"] == 0 else (r["week"] - 1) * 7 + (0 if r["n"] % 2 else 2)
     wx = WXS.get(r["n"], {})
     ws.append([r["n"], r["week"], r["day"], '=IF($E$1="","",$E$1+%d)' % off, "08:00", r["theme"], (wx.get("stage", "") + ": " + wx.get("adds", "")) if wx else "", r["pair"], r["tension"], r["hook"], r["words"],
                r["tags"], r["visual"], r["reverify"], "Draft", "Not required (CP4b)", "", "",

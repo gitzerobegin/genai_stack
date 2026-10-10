@@ -19,6 +19,12 @@ const BUILD_FILE = "work/stageC2/worked_example_build.json";
 const BUILD = fs.existsSync(BUILD_FILE) ? JSON.parse(fs.readFileSync(BUILD_FILE, "utf8")) : null;
 function buildStrip(postNo) {
   if (!BUILD || postNo === null || isNaN(postNo)) return "";
+  const lens = (BUILD.lenses || []).find((l) => l.post === postNo);
+  if (lens) {   // "One stack, seven lenses" (Posts 25-32): a strip of the seven views, the current one in gold
+    const views = ["FS", "TS", "SW", "SU", "AT", "DV", "AG"];
+    const chips = views.map((v) => `<span class="c ${lens.view === "ALL" ? "done" : (v === lens.view ? "now" : "")}">${v}</span>`).join("");
+    return `<div class="wx"><span class="lb">Seven lenses · ${lens.label}</span>${chips}</div>`;
+  }
   const step = BUILD.steps.find((s) => s.post === postNo); if (!step) return "";
   const codes = BUILD.codes, cur = codes.indexOf(step.code), all = step.code === "ALL";
   const chips = codes.map((c, i) => {

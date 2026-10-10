@@ -153,5 +153,15 @@
      "boundary": "What was not selected stays off until the evidence changes.",
      "evidence": "The signed-off architecture and its 'not selected' list.",
      "metric": "Human-intervention rate, tracked and falling."}
+  ],
+  "lenses": [
+    {"post": 25, "view": "ALL", "label": "the opener"},
+    {"post": 26, "view": "TS", "label": "service provider"},
+    {"post": 27, "view": "SW", "label": "software product"},
+    {"post": 28, "view": "SU", "label": "start-up"},
+    {"post": 29, "view": "AT", "label": "AI-tools vendor"},
+    {"post": 30, "view": "DV", "label": "agentic-SDLC vendor"},
+    {"post": 31, "view": "AG", "label": "agent vendor"},
+    {"post": 32, "view": "ALL", "label": "what stays the same"}
   ]
 }
