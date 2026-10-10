@@ -44,7 +44,7 @@ This Part gives the view at end of Q3 2026 for an early-stage company building a
 
 **8. EU rules cut a start-up's cost but not its duties, and two dates fall in the next quarter.** AI Act SME measures cut fees, documentation and fines (XV.6) [VF: E1-S029, E1-S031]. Software, including SaaS, is a product under the Product Liability Directive from 9 December 2026 [VF: E1-S010, E1-S011]. The Article 50(2) marking grace period ends on 2 December 2026 and covers only systems already on the market, so a product launched now has none [VF: R-EUAIA, A8-S018] [AJ].
 
-**9. Free tiers are short-lived evidence, and the neutral tools keep changing owner.** Free observability tiers keep data for 15 to 60 days [VF: A1-S047, A1-S031, A1-S123], and Langfuse, Promptfoo and Helicone all changed owner in 2026 [VF: A1-S021, A1-S024, A7-S112]. The evaluation dataset and the prompts are product IP and belong in Git [Rec].
+**9. Free tiers are short-lived evidence, and the neutral tools keep changing owner.** Free observability tiers keep data for 15 to 60 days [VF: A1-S047, A1-S031, A1-S123]. Langfuse and Helicone changed owner in 2026, and OpenAI announced its acquisition of Promptfoo, with no closing published [VF: A1-S021, A7-S112, A1-S024]. The evaluation dataset and the prompts are product IP and belong in Git [Rec].
 
 ## XV.3 Scoring for this view
 
@@ -127,7 +127,7 @@ Master tiers are quoted as S (Strategic), T (Tactical) or E (Experimental); "SU 
 | Data Act switching | From 12 January 2027 no switching charges, including egress, for cloud and SaaS; customers get at most two months' notice, a 30-day transition and machine-readable export [VF: E1-S025, E1-S026] | Build tenant export early; it is a duty to EU customers and also lowers the cost of leaving a cloud when credits run out [AJ] |
 | UK | No CRA equivalent; the voluntary Software Security Code of Practice (14 principles, self-assessed) is the buyer's reference [VF: E1-S051, E1-S052] | File the self-assessment with the first questionnaire |
 
-**United States.** Most state AI duties apply only where a product makes, or helps make, consequential decisions about individuals [VF: R-US-STATE-AI] [AJ]. Texas TRAIGA (in force since 1 January 2026) prohibits AI built or used with intent to harm or discriminate unlawfully [VF: E1-S042, E1-S043]. California's SB 53 and AI Transparency Act apply only above US$500m revenue or 1,000,000 monthly users, and the CPPA's ADMT rules apply to significant decisions from 1 January 2027 [VF: E1-S044, E1-S045, E1-S047]. Colorado's law is stayed pending rulemaking [VF: E1-S040]. A productivity product that decides nothing about a person sits outside almost all of it [AJ].
+**United States.** Most state AI duties apply only where a product makes, or helps make, consequential decisions about individuals (R-US-STATE-AI) [AJ]. Texas TRAIGA (in force since 1 January 2026) prohibits AI built or used with intent to harm or discriminate unlawfully [VF: E1-S042, E1-S043]. California's SB 53 and AI Transparency Act apply only above US$500m revenue or 1,000,000 monthly users, and the CPPA's ADMT rules apply to significant decisions from 1 January 2027 [VF: E1-S044, E1-S045, E1-S047]. Colorado's law is stayed pending rulemaking [VF: E1-S040]. A productivity product that decides nothing about a person sits outside almost all of it [AJ].
 
 **Data transfers.** Personal data sent to US model APIs relies on the EU–US Data Privacy Framework, still in effect with an appeal pending, or on standard contractual clauses [VF: A8-S053]. Anthropic's DPA includes SCCs, a UK Addendum and notice of new subprocessors [VF: E2-S012]. OpenAI offers EU residency for new projects with Modified Abuse Monitoring or ZDR, but its UK option does not process in the UK [VF: A5-S006]; Mistral hosts in the EU by default [VF: A5-S075]. The subprocessor list is the model portfolio, so a vendor change is a customer notification, not just configuration [AJ].
 
@@ -181,9 +181,9 @@ The cloud-neutral column is the default; orchestration (LangGraph or Pydantic AI
 | Evaluation data in a vendor UI | Free tiers keep 15–60 days [VF: A1-S031, A1-S123] | Datasets and results exported to Git or object storage |
 | Customers' OAuth tokens in a broker | Composio incident [VF: B-L4-S007] | Own secrets store, per-tenant scopes |
 | Licence surprises at scale | Mistral Medium 3.5 reportedly needs a commercial licence above about US$20m monthly revenue, and Qwen3.8-Max above US$50m [R: E2-S027, E2-S025]; Llama 4 multimodal grants no rights to EU-domiciled companies [VF: E2-S002] | Prefer Apache-2.0 or MIT weights; record each licence in the AI register |
-| Acquired tools change terms | Four neutral tools changed owner in 2026 [VF: A1-S021, A1-S024, V2-S025, A7-S112] | OTel instrumentation; open cores you could self-host |
+| Acquired tools change terms | Three neutral tools changed owner in 2026 and a fourth's sale was announced [VF: A1-S021, V2-S025, A7-S112, A1-S024] | OTel instrumentation; open cores you could self-host |
 
-**Where multi-vendor pays for a start-up.** It pays in one place: a second model vendor qualified on the same evaluation set, because a single vendor's outage, retirement or policy suspension stops the product. A three-week Fable 5 outage and short Gemini Flash lifetimes show the risk [VF: V2-S004, B-L1-S003] [AJ]. Everything else in Part IX.3's "necessary" list, such as two gateway deployments, two guardrail detectors and two red-team tools, can wait for the first enterprise contract [AJ].
+**Where multi-vendor pays for a start-up.** It pays in one place: a second model vendor qualified on the same evaluation set, because a single vendor's outage, retirement or policy suspension stops the product. The suspension of Fable 5 access from 12 June to 1 July 2026 and short Gemini Flash lifetimes show the risk [VF: V2-S004, B-L1-S003] [AJ]. Everything else in Part IX.3's "necessary" list, such as two gateway deployments, two guardrail detectors and two red-team tools, can wait for the first enterprise contract [AJ].
 
 ## XV.9 Roadmap
 
@@ -291,4 +291,4 @@ The phases are sized to a team of five to twenty and to a funding round, not to 
 | Promptfoo–OpenAI closing; Langfuse under ClickHouse; OpenRouter–Stripe closing | Check pricing and free-tier changes [VF: A1-S024, A1-S021, V1-S059] |
 | Voyage SOC 2 scope | Confirm before sending customer data [VF: A2-S044, A2-S143] |
 | Mistral Medium 3.5 and Large 4 licences | Read the licence file before self-hosting at scale [R: E2-S027] [VF: A5-S076] |
-| The agentic-SDLC evidence (Stage E, E3), not yet available | Add coding-agent and AI-code-review guidance for the start-up's own engineering when published; Part XVII covers the vendor side [NPV] |
+| Guidance on coding agents for the start-up's own engineering; the E3 research found no NIST or CISA guidance specific to AI coding assistants [NPV] | Apply the E3 evidence (Part XVII covers the vendor side) and adopt guidance when published |

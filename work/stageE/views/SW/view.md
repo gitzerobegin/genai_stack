@@ -57,7 +57,7 @@ The view re-weights the same criterion scores; no fact, score or master tier cha
 | Cost and TCO | 5 | 5 | 0 | The customer usually pays for inference |
 | Lock-in and portability | 15 | 15 | 0 | Meaning widens to *redistributability* |
 
-**What moves, and why.** The largest risers pair deployment flexibility 5 with ecosystem 4 or 5: MCP and Agent Skills (+0.25 each, MCP to 3.80), Llama Protections (+0.25), SGLang and OpenLineage (+0.20), vLLM, MLflow and Promptfoo (+0.15) (`SW_scores.md`). Managed single-cloud services with deployment 2 fall by 0.15: AgentCore Memory, Memory Bank, Gemini Embedding 2 and OpenAI embeddings [AJ].
+**What moves, and why.** The largest risers pair deployment flexibility 5 with ecosystem 4 or 5: MCP and Agent Skills (+0.25 each, MCP to 3.80), Llama Protections (+0.25), SGLang and OpenLineage (+0.20), vLLM, MLflow and Promptfoo (+0.15) (`SW_scores.md`). Managed single-cloud or API-only services with deployment 2 fall by 0.15: AgentCore Memory, Memory Bank, Gemini Embedding 2 and OpenAI embeddings [AJ].
 
 **Ranks that change the advice [AJ].** In L6, pgvector rises from 3 to 1 and Elasticsearch falls from 1 to 3. In L7, Sentence Transformers rises to 1. In L9, DeepEval rises from 6 to 2 and Langfuse falls from 2 to 4. In L1, Anthropic falls from 3 to 4 (no self-hosting [VF: A5-S010]) and Gemini from 5 to 8 (API-only [VF: A5-S032]), while Qwen and DeepSeek rise on open weights. In C7, model and package scanning rises to 1.
 

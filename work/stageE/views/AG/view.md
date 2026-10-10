@@ -132,7 +132,7 @@ Deployment stamps give the strongest isolation at the lowest cost efficiency [VF
 | C1 gateway | One gateway of record for model, MCP and agent traffic; fail closed | Customer-supplied base URL, key and route; stop on budget errors; no direct egress | Gateways govern LLM, MCP and A2A [VF: A6-S015, A6-S016, A6-S024] |
 | C2 guardrails | Deterministic invariants first; detectors behind the gateway | The agent's own checks published as code and tests; customer detectors never bypassed | Part IV.3, row 30 [AJ] |
 | C3 privacy | One privacy service at six enforcement points | Call the customer's service before model calls, traces and evidence writes | Part I.2, decision 8 [Rec] |
-| C4 identity | Registered agent with sponsor; OBO tokens; deny-by-default policy | Workload in the customer's IdP (Entra Agent ID or Okta for AI Agents, Strategic, conditional; SPIFFE/SPIRE, Strategic); token exchange per tool audience; EMA for MCP tools; asynchronous approval for consequential steps | Flows [VF: A6-S060]; EMA on ID-JAG [VF: A3-S017, A6-S079]; CIBA [VF: A6-S078, A6-S076] |
+| C4 identity | Registered agent with sponsor; OBO tokens; deny-by-default policy | Workload in the customer's IdP (Entra Agent ID or Okta for AI Agents, Strategic, conditional; SPIFFE/SPIRE, Strategic); token exchange per tool audience; EMA for MCP tools (Anthropic-originated; alternative OAuth 2.0 resource servers on OpenAPI tools); asynchronous approval for consequential steps | Flows [VF: A6-S060]; EMA on ID-JAG [VF: A3-S017, A6-S079]; CIBA [VF: A6-S078, A6-S076] |
 | C5 configuration | Git as configuration of record; manifest with an evaluation gate | Prompts, pins, tools, thresholds and autonomy as files; customer overlay wins; vendor releases as pull requests | Prompts as code (Strategic) [VF: A7-S067, A7-S066] |
 | C6 FinOps | Cost per approved task; budgets fail closed | Usage per run tagged with use case and gateway key; FOCUS (Strategic)-shaped export | Virtual keys [VF: A7-S070]; FOCUS 1.4 [VF: V2-S046] |
 | C7 security | Capability separation; no standing secrets; signed dependencies | Signed images, SBOM; secrets from the customer's vault at call time | User-agent intersection [VF: A7-S033, A7-S034]; LiteLLM compromise [VF: A6-S008] |
@@ -221,7 +221,7 @@ Deployment stamps give the strongest isolation at the lowest cost efficiency [VF
 | Date | Event | Consequence [AJ] |
 |---|---|---|
 | 30 November 2026 | OpenAI Agent Builder shuts down [VF: A4-S054] | Buyers re-platforming builder agents are in the market |
-| 2 December 2026 | Article 50(2) marking deadline [VF: E1-S036] | Disclosure and marking live where content reaches people |
+| 2 December 2026 | Article 50(2) marking grace period ends for systems already on the market; a new launch has none [VF: E1-S036] | Disclosure and marking live where content reaches people |
 | 9 December 2026 | PLD applies [VF: E1-S011] | Release history and evaluation records retained |
 | 1 January 2027 | CPPA ADMT rules [VF: E1-S047] | Confirm no significant decisions about individuals |
 | 12 January 2027 | Data Act: no switching charges [VF: E1-S025] | Customer export ready |

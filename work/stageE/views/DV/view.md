@@ -36,7 +36,7 @@
 
 **5. Telemetry exists; complete audit does not.** Copilot exports OpenTelemetry traces of agent sessions, without prompt content by default [VF: E3-S081]. The OTel GenAI agent and MCP conventions are still at Development, with no tagged release [VF: E3-S066, E3-S067, E3-S068, E3-S069]. The Codex Compliance API does not cover every hosted file operation, command or approval, and keeps logs for 30 days [VF: E3-S023]. An audit trail of every agent action in the customer's store is a gap a start-up can fill [AJ].
 
-**6. The incumbents are consolidating and model vendors are moving in.** Cursor is now part of SpaceX, which also owns xAI, and Grok 4.5 was trained alongside Cursor [VF: E3-S029, V2-S011]. Windsurf became Devin Desktop under Cognition, Tricentis acquired Tabnine, and Amp spun out of Sourcegraph [VF: E3-S045, E3-S056, E3-S053]. Google stopped selling new Gemini Code Assist subscriptions on 9 October 2026, and Q Developer reaches end of support on 30 April 2027 [VF: E3-S033, E3-S040]. The neutral coding tool is becoming scarce: the start-up's opening and its likely exit [AJ].
+**6. The incumbents are consolidating and model vendors are moving in.** Cursor is now part of SpaceX, which also owns xAI [VF: E3-S029, V2-S011]; Grok 4.5 was reportedly trained alongside Cursor, per SpaceX filings read only through a search summary [R: E3-S029]. Windsurf became Devin Desktop under Cognition, Tricentis acquired Tabnine, and Amp spun out of Sourcegraph [VF: E3-S045, E3-S056, E3-S053]. Google stopped selling new Gemini Code Assist subscriptions on 9 October 2026, and Q Developer reaches end of support on 30 April 2027 [VF: E3-S033, E3-S040]. The neutral coding tool is becoming scarce: the start-up's opening and its likely exit [AJ].
 
 **7. Wrapping an incumbent's agent has terms attached.** A vendor that embeds Claude Code must ship it unmodified, with each end user authenticating with their own credentials [VF: E3-S016]. GitHub's third-party agent slot is in public preview and lists only Claude and Codex [VF: E3-S003]. Building on a model vendor's harness limits both the business model and the model choice [AJ].
 
@@ -82,7 +82,7 @@
 | C4 | MCP Authorization (alternative: OAuth resource-server pattern on OpenAPI tools) | Strategic, conditional | 3.45 → 3.65 | Becomes core candidate |
 | C7 | HashiCorp Vault | Strategic, conditional | 3.65 → 3.75 | Core candidate |
 
-**How to read the fit.** The fit is indicative; master tiers and conditions stand (Part I.3) [AJ]. Presidio (3.65 → 3.45) and prompts as code (3.65 → 3.50) become situational, and this view keeps both: a coding-agent vendor's prompts and tool definitions are its product and belong in Git, and the customer's privacy service is what the product calls [AJ]. E2B stays situational on enterprise readiness 2, but it remains the reference pattern for the sandbox, which a coding agent cannot do without [VF: A3-S062] [AJ].
+**How to read the fit.** The fit is indicative; master tiers and conditions stand (Part I.3) [AJ]. Presidio (3.65 → 3.45) and prompts as code (3.65 → 3.50) become situational, and this view keeps both: a coding-agent vendor's prompts and tool definitions are its product and belong in Git, and the customer's privacy service is what the product calls [AJ]. E2B stays situational (3.45, below the 3.6 threshold; enterprise readiness 2), but it remains the reference pattern for the sandbox, which a coding agent cannot do without [VF: A3-S062] [AJ].
 
 **Anthropic.** The Claude family moves from third to second in L1 (3.80 → 3.95), behind OpenAI (4.35), because its technical, ecosystem and cost scores gain weight; its lowest criteria remain deployment flexibility 3 and reliability 3 (`DV_scores.md`) [AJ]. The Claude Agent SDK remains Experimental and eleventh of twelve in L3 [VF: A4-S006, B-REVC-S001] [AJ].
 
@@ -115,7 +115,7 @@ The FS architecture (Part IV.1) is the buyer's and is not redrawn [AJ]. A coding
 | L1 models | The customer's chosen vendor and tier, pinned | Model-agnostic prompts and tools, qualified per task type; for Claude, alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5 | Incumbents compete on model choice [VF: E3-S014, E3-S025, E3-S050] |
 | L2 inference | Hyperscaler endpoint or private vLLM route | OpenAI-compatible client; tolerate Flex 429s in background work | vLLM is OpenAI-compatible [VF: A4-S063]; Flex 429s [VF: E2-S031] |
 | L3 orchestration | Bounded workflow: plan, change, test, pull request | Durable task runs; step budget; stop on request | FS default (Part I.2) [AJ] |
-| L4 tools | MCP behind the customer's tool gateway; AGENTS.md | MCP server under managed allow-lists; code only in a microVM with default-deny egress | [VF: E3-S004, E3-S019, A3-S062] |
+| L4 tools | MCP behind the customer's tool gateway; AGENTS.md | MCP server under managed allow-lists (alternative: OpenAPI tools behind the same gateway); code only in a microVM with default-deny egress | [VF: E3-S004, E3-S019, A3-S062] |
 | L5 memory | None held by the vendor | Learnings proposed as pull requests to AGENTS.md | Memory poisoning is ASI06 [VF: E3-S072] |
 | L6 stores | The repository is the store | Per-task index in the sandbox, destroyed at task end | Every store is another copy to exit (Part VIII) [AJ] |
 | L7 retrieval optimisation | The customer's `embed` service, if any | Pinned, self-hostable embeddings (Sentence Transformers) | Hosted embedding adds a processor [AJ] |
@@ -168,13 +168,13 @@ The FS architecture (Part IV.1) is the buyer's and is not redrawn [AJ]. A coding
 | L1 models | Two unrelated vendors per task type: OpenAI GPT (S) with Claude (S, cond.; alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) or Mistral (S); air-gapped: Mistral, gpt-oss or Gemma 4 (all S) | Claude or a GPT-6 tier on Bedrock [VF: A5-S008] | GPT-6.1 Sol in Foundry | Gemini (S, cond.) |
 | L2 inference | Customer's endpoint first; vLLM (S) for the open-weight edition | Bedrock Standard plus Flex for background tasks [VF: E2-S032] | Foundry Standard and Batch; Azure caching nuances [VF: E2-S019] | Gemini Enterprise Agent Platform endpoint |
 | L3 orchestration | LangGraph (S) + Temporal (S); Pydantic AI (S, cond.) or OpenAI Agents SDK (T); Claude Agent SDK (E) only in one sandboxed step (alternatives as before) | Strands on AgentCore (S, cond.) | Microsoft Agent Framework (S) | ADK on Agent Engine (S, cond.) |
-| L4 tools | Own MCP server (MCP S, cond.; alternative OpenAPI tools); E2B (T) BYOC sandbox; AGENTS.md read, Agent Skills (T) optional | AgentCore Gateway + Identity (S, cond.) | APIM AI gateway (S, cond.) | Apigee MCP (S, cond.) |
+| L4 tools | Own MCP server (MCP S, cond.; alternative OpenAPI tools); E2B (T) BYOC sandbox; AGENTS.md read, Agent Skills (T; Anthropic-maintained, alternative AGENTS.md or C5 packages) optional | AgentCore Gateway + Identity (S, cond.) | APIM AI gateway (S, cond.) | Apigee MCP (S, cond.) |
 | L5–L8 | No vendor-side memory or store; per-task index in the sandbox; Sentence Transformers (S) if embeddings are needed | Same | Same | Same |
 | L9 evaluation | OTel spans; Langfuse (S) or MLflow (S); task suites on real repositories; Promptfoo (T) plus an independent red-team tool | MLflow on SageMaker | MLflow on Azure ML | Langfuse self-hosted |
 | C1 gateway | LiteLLM (S, cond.), pinned and signed, inside the hosted plane; customer's gateway in customer-run editions | Same | Same | Same |
 | C2 guardrails | Tests and SAST as the gate; NeMo Guardrails (T) for injected instructions | Bedrock Guardrails (S, cond.) | Azure AI Content Safety (S, cond.) | Model Armor (S, cond.) |
 | C3 privacy | Presidio (S, cond.) for trace redaction in the hosted plane | Same | Same | Sensitive Data Protection (S, cond.) |
-| C4 identity | SSO and SCIM; Okta/Auth0 (S, cond.) or Entra Agent ID (S, cond.); MCP Authorization (S, cond.); OPA (S) | AgentCore Identity | Entra Agent ID | Okta or Entra |
+| C4 identity | SSO and SCIM; Okta/Auth0 (S, cond.) or Entra Agent ID (S, cond.); MCP Authorization (S, cond.; alternative OAuth resource-server pattern on OpenAPI tools); OPA (S) | AgentCore Identity | Entra Agent ID | Okta or Entra |
 | C5 configuration | Prompts, tool definitions and policies as code (S) | Same | Same | Same |
 | C6 FinOps | Gateway cost attribution (S) per customer and task; FOCUS (S) export | Application inference profiles [VF: B-C6-S004] | Foundry project tags [VF: B-C6-S005] | Gateway metering |
 | C7 security | Vault (S, cond.) for the hosted plane; package and model scanning (S); signed releases with SBOMs | Cloud secrets + workload identity | Same | Same |
@@ -195,14 +195,14 @@ The FS architecture (Part IV.1) is the buyer's and is not redrawn [AJ]. A coding
 | Enterprise wrapper (SSO, SCIM, RBAC, policy as code) | **Build**, and charge for it | The baseline [VF: E3-S027, E3-S005] |
 | Model access, hosting, billing | **Buy** (model vendors, clouds, marketplaces) | Marketplace private offers draw down the buyer's cloud commitment [VF: E2-S034, E2-S036, E2-S020] |
 
-**Lock-in, for the start-up.** Lock-in weighs 5%, but three lock-ins matter [AJ]. One model vendor is a product risk: the Fable 5 outage ran from 12 June to 1 July 2026 [VF: V2-S004], and a one-vendor product cannot serve a buyer standardised on another. An incumbent's harness brings its terms [VF: E3-S016]. One SCM's agent slot ties distribution to a preview [VF: E3-S003] [AJ].
+**Lock-in, for the start-up.** Lock-in weighs 5%, but three lock-ins matter [AJ]. One model vendor is a product risk: Fable 5 access was suspended from 12 June to 1 July 2026 [VF: V2-S004], and a one-vendor product cannot serve a buyer standardised on another. An incumbent's harness brings its terms [VF: E3-S016]. One SCM's agent slot ties distribution to a preview [VF: E3-S003] [AJ].
 
 **Where incumbents are, and where they are moving.** The landscape records, read even-handedly [AJ]:
 
 | Incumbent | Ownership and product events | Deployment options | Model choice | Direction and implication [AJ] |
 |---|---|---|---|---|
 | GitHub Copilot | Folded into Microsoft CoreAI [R: E3-S013] | SaaS; GHE Cloud with residency; not on GHES [VF: E3-S001, E3-S009] | Multi-vendor; BYOK [VF: E3-S011, E3-S002] | A multi-agent hub [VF: E3-S003]; sell into it on GitHub's terms |
-| Cursor | Part of SpaceX since 14 August 2026 [VF: E3-S029] | SaaS; self-hosting not found [NPV] | Multi-vendor; BYOK for chat [VF: E3-S030] | Joint training with SpaceX/xAI [VF: E3-S029]; neutrality now questioned |
+| Cursor | Part of SpaceX since 14 August 2026 [VF: E3-S029] | SaaS; self-hosting not found [NPV] | Multi-vendor; BYOK for chat [VF: E3-S030] | Joint training with SpaceX/xAI reported [R: E3-S029]; neutrality now questioned |
 | Claude Code (Anthropic) | No ownership event recorded | SaaS; Bedrock, Google Cloud, Foundry; customer runners in beta [VF: E3-S014, E3-S018] | Claude only [VF: E3-S014] | Enterprise depth on one model family; independent alternatives: Codex CLI, Gemini CLI, Junie, Tabnine |
 | OpenAI Codex | AGENTS.md donated to AAIF [VF: E3-S061] | SaaS cloud tasks; local open-source CLI [VF: E3-S020, E3-S022] | OpenAI default; custom and local providers [VF: E3-S025] | Open CLI widens reach; audit and retention gaps remain [VF: E3-S023, E3-S024] |
 | Google (Code Assist, Gemini CLI, Antigravity) | Code Assist end of sale 9 October 2026 [VF: E3-S033] | Google Cloud; Gemini CLI local [VF: E3-S037, E3-S035] | Gemini; Claude optional since 8 October 2026 [VF: E3-S039] | Antigravity is outside several certifications [VF: E3-S034]; a window for certified tools |
