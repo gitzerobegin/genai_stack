@@ -14,8 +14,10 @@ What it does (mechanics only; the research and writing are REFRESH_QUARTERLY.md 
      Label rule unless --label is given: a run in the first month of a quarter (Jan, Apr, Jul, Oct) is
      "The view at end of Q<n> <year>" for the quarter just ended; any other month is "The view in <Month> <year>".
   4. Replaces the old edition's label phrases with the new ones in the master's sources (synthesis, the 17
-     chapters, the six view Parts, method, the stack graphic source, the package README) and the old package
-     name in the guides, briefs and refresh prompts. Dated facts ("as of 8 October 2026") are NOT changed:
+     chapters, the six view Parts, method, the stack graphic and one-page sources, the package README, the
+     master's publishing kit).
+  5. Replaces the old package folder name (a path) in every tracked text file, so figure links and data paths
+     resolve after the move; history (MEMORY.md, checkpoints/, inputs/, archived web content) is left as written. Dated facts ("as of 8 October 2026") are NOT changed:
      they are evidence, re-verified by the refresh; tools/check_edition.py lists what still names the old edition.
   The LinkedIn series and its book keep their own (first) edition and are not relabelled.
 Then: bash tools/rebuild_all.sh, python3 -I tools/check_edition.py ., and the refresh steps in REFRESH_QUARTERLY.md.
@@ -71,7 +73,7 @@ PAIRS = [(OLD["view_label"], label), (lc(OLD["view_label"]), lc(label)), (OLD["v
          (title_case(OLD["view_label"]), title_case(label)), (OLD["as_at"], as_at)]
 PAIRS = [(a, b) for a, b in PAIRS if a != b]
 
-def rewrite(paths, pairs):
+def rewrite(paths, pairs, quiet=False):
     n = 0
     for p in paths:
         if not os.path.isfile(p):
@@ -81,7 +83,8 @@ def rewrite(paths, pairs):
             t = t.replace(a, b)
         if t != s:
             n += 1
-            print("  relabel", p)
+            if not quiet:
+                print("  relabel", p)
             if not DRY:
                 open(p, "w", encoding="utf-8").write(t)
     return n
@@ -104,13 +107,22 @@ if not DRY:
 # 4. relabel the master's sources and the package README
 P = new_pkg if not DRY else OLD["package"]
 content = (["work/stageC/synthesis.md", "work/stageD/method.md", os.path.join(P, "00_README.md"),
-            os.path.join(P, "08_Graphic", (new_pkg if not DRY else OLD["package"]) + ".md")]
+            os.path.join(P, "08_Graphic", (new_pkg if not DRY else OLD["package"]) + ".md"),
+            os.path.join(P, "08_Graphic", "Architecture_One_Page.html"), os.path.join(P, "01_Report/Print/Publishing_Kit.md")]
            + sorted(glob.glob("work/stageB/*/section.md")) + sorted(glob.glob("work/stageE/views/*/view.md")))
 print("Relabelled %d source files" % rewrite(content, PAIRS))
-# old package name in guides, briefs and refresh prompts (history in MEMORY.md and checkpoints/ is left as written)
-guides = (["CLAUDE.md", "CONTEXT.md", "RERUN_ON_DESKTOP.md", "work/prompts/refresh_prompts.md",
-           "work/prompts/gapfill_desktop_prompts.md", os.path.join(P, "00_README.md"), os.path.join(P, "01_Report/Print/Publishing_Kit.md"),
-           os.path.join(P, "07_LinkedIn/Book/Publishing_Kit.md")] + sorted(glob.glob("work/stage0/*.md")))
-print("Updated the package name in %d guides" % rewrite(guides, [(OLD["package"], new_pkg)]))
+# 5. the old package name (a folder path: figure links, data paths, commands) in every tracked text file, so figures
+#    and data still resolve after the move. History is left as written: MEMORY.md, checkpoints/, inputs/, archived web
+#    content (06_References/snapshots, originals) and REFRESH_QUARTERLY.md, which describes the move itself.
+SKIP = ("MEMORY.md", "REFRESH_QUARTERLY.md", "checkpoints/", "inputs/", "/06_References/snapshots/", "/06_References/originals/",
+        "tools/new_edition.py", "tools/check_edition.py", "edition.json")
+TEXT = (".md", ".py", ".js", ".json", ".html", ".csv", ".txt", ".sh", ".yaml", ".yml", ".css")
+files = subprocess.run(["git", "ls-files"], capture_output=True, text=True).stdout.split("\n")
+files = [f for f in files if f.endswith(TEXT) and not any(s in "/" + f if s.startswith("/") else f.startswith(s) or f == s for s in SKIP)
+         and "node_modules/" not in f]
+if DRY:
+    print("Would update the package name in tracked text files that contain it")
+else:
+    print("Updated the package name in %d files" % rewrite(files, [(OLD["package"], new_pkg)], quiet=True))
 print("\nNext: bash tools/rebuild_all.sh ; python3 -I tools/check_edition.py . ; then REFRESH_QUARTERLY.md R0-R5."
       "\nCompare with the previous edition: python3 -I tools/diff_tiers.py .   (base %s)" % head)
