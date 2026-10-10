@@ -5,3 +5,9 @@ work/stageD/*.pandoc.md
 __pycache__/
 tools/diagrams/node_modules/
 *.render.tmp.html
+
+# No ZIP and no PDF made from a Word document (user decision, 10 October 2026)
+*.zip
+Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.pdf
+Enterprise_GenAI_Stack_Oct2026/02_Appendix/Product_Technical_Appendix.pdf
+**/Interior.pdf

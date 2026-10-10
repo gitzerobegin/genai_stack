@@ -9,7 +9,7 @@ Reads  work/stageF/linkedin_book/chapters/ch00.md … ch32.md   (one chapter per
 Writes work/stageF/linkedin_book/book.md          (inline claim tags, for editing and review)
        work/stageF/linkedin_book/book.pandoc.md   (tags as footnotes: the source for the print and Kindle build)
 Then, unless --no-print, runs tools/build_print_edition.py --config tools/print/linkedin_book.json, which writes
-Enterprise_GenAI_Stack_Oct2026/07_LinkedIn/Book/ (Interior.docx/.pdf, cover, EPUB, Build_Summary.md).
+Enterprise_GenAI_Stack_Oct2026/07_LinkedIn/Book/ (Interior.docx, cover, EPUB, Build_Summary.md; Interior.pdf only with --pdf).
 """
 import json, os, re, subprocess, sys
 root = sys.argv[1]; os.chdir(root); sys.path.insert(0, "tools")
@@ -63,5 +63,5 @@ open(os.path.join(D, "book.pandoc.md"), "w", encoding="utf-8").write(convert_mar
 print(json.dumps({"words": len(re.sub(r"\[[^\]]*\]", "", book).split()), "chapters": 25 + len(LENS)}))
 if "--no-print" not in sys.argv:
     r = subprocess.run([sys.executable, "-I", "tools/build_print_edition.py", ".", "--config", "tools/print/linkedin_book.json"] +
-                       [a for a in sys.argv[2:] if a.startswith("--no-") or a == "--cover-only"], text=True)
+                       [a for a in sys.argv[2:] if a.startswith("--no-") or a in ("--cover-only", "--pdf")], text=True)
     sys.exit(r.returncode)

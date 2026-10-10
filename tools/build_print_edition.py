@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the print and ebook editions of the master document (for KDP or any print-on-demand service).
 
-Usage: python3 -I tools/build_print_edition.py <repo_root> [--config tools/print/book.json] [--no-pdf] [--no-epub] [--no-cover] [--cover-only]
+Usage: python3 -I tools/build_print_edition.py <repo_root> [--config tools/print/book.json] [--pdf] [--no-epub] [--no-cover] [--cover-only]
 One builder, several books, each described by a config file:
   tools/print/book.json           the master document as a book (run tools/build_master.py first)
   tools/print/linkedin_book.json  the LinkedIn series as a book (run tools/build_linkedin_book.py first)
@@ -9,7 +9,8 @@ A config sets the metadata (title, author, ISBNs, blurb), trim size, margins, pa
 file and the output folder.
 
 Writes Enterprise_GenAI_Stack_Oct2026/01_Report/Print/:
-  Interior.pdf          print interior: trim size, mirrored margins, recto Part openers, running heads, fonts embedded
+  Interior.docx         the print interior KDP takes for the paperback (no PDF by default: user decision, 10 October 2026)
+  Interior.pdf          only with --pdf (LibreOffice layout, slow): trim size, mirrored margins, recto Part openers, running heads, fonts embedded
   Interior.docx         the same content as an editable Word file (layout features are applied in LibreOffice)
   Cover_Paperback.pdf   full-wrap cover (back, spine, front, 0.125 in bleed), spine width from the interior's page count
   Cover_Front.jpg       front cover for the ebook and the store page (1600 x 2560)
@@ -136,24 +137,31 @@ ref = make_reference()
 md = front + book_body()
 open(os.path.join(WORK, "Interior.md"), "w", encoding="utf-8").write(md)
 docx = os.path.join(OUT, "Interior.docx")
-ONLY_COVER = "--cover-only" in sys.argv          # re-render cover, EPUB and summary from the existing Interior.pdf
-if ONLY_COVER:
-    sys.argv += ["--no-pdf"]
+ONLY_COVER = "--cover-only" in sys.argv          # re-render cover, EPUB and summary from the existing interior
+WANT_PDF = "--pdf" in sys.argv and not ONLY_COVER   # docx -> PDF only on request
 r = subprocess.CompletedProcess([], 0, "", "") if ONLY_COVER else subprocess.run(["pandoc", os.path.join(WORK, "Interior.md"), "-f", FMT, "-o", docx, "--reference-doc=" + ref,
                     "--metadata", "lang=" + B["language"]], capture_output=True, text=True)
 # no title metadata above: pandoc would print a second title block; print_pdf.py sets the PDF title
 print("pandoc docx:", r.returncode, r.stderr[-400:])
 # pandoc writes the title metadata as a Title paragraph only when the YAML has it; --metadata title adds docProps only
 pages = None
-if "--no-pdf" not in sys.argv and r.returncode == 0:
+if WANT_PDF and r.returncode == 0:
     pdf = os.path.join(OUT, "Interior.pdf")
     r2 = subprocess.run([sys.executable, "-I", "tools/print/print_pdf.py", docx, pdf, CFG],
                         capture_output=True, text=True, timeout=7200)
     print("interior pdf:", r2.returncode, (r2.stdout + r2.stderr)[-500:])
-if os.path.exists(os.path.join(OUT, "Interior.pdf")):
+PDF_PAGES = WANT_PDF and os.path.exists(os.path.join(OUT, "Interior.pdf"))
+if PDF_PAGES:
     info = subprocess.run(["pdfinfo", os.path.join(OUT, "Interior.pdf")], capture_output=True, text=True).stdout
     pages = int(re.search(r"Pages:\s+(\d+)", info).group(1))
     print("interior pages:", pages)
+else:   # estimate from the text: words per page for the trim, figures, Part openers on a recto, front matter; KDP's previewer gives the exact count
+    body = re.sub(r"\[\^[^\]]*\]|<[^>]+>|[#*|:{}\\-]", " ", md)
+    wpp = B.get("est_words_per_page", 300 if B["trim_in"][0] < 7 else 520)
+    figs = len(re.findall(r"!\[", md)); parts = len(re.findall(r"(?m)^# ", md))
+    pages = int(len(body.split()) / wpp + figs * 0.45 + parts * 1.5 + 14)
+    pages += pages % 2
+    print("interior pages (estimate, %d words per page):" % wpp, pages)
 
 # ---------------------------------------------------------------- 3. cover (full wrap) and front cover
 def cover_html(pages, mode):
@@ -257,15 +265,15 @@ img{max-width:100%}.Claim-Label,[data-custom-style="Claim Label"]{font-size:.7em
 if pages:
     K = B["kdp_checks"]; m = B["margins_in"]
     need = next((g for lo, hi, g in K["gutter_min_in_by_pages"] if lo <= pages <= hi), None)
-    fonts = subprocess.run(["pdffonts", os.path.join(OUT, "Interior.pdf")], capture_output=True, text=True).stdout.splitlines()[2:]
+    fonts = subprocess.run(["pdffonts", os.path.join(OUT, "Interior.pdf")], capture_output=True, text=True).stdout.splitlines()[2:] if PDF_PAGES else []
     not_emb = [f for f in fonts if f.split() and len(f.split()) > 4 and f.split()[-5] != "yes"]
     spine = round(pages * B["paper_spine_in_per_page"][B["paper"]], 3)
     tw, th = B["trim_in"]; bl = B["bleed_in"]
-    rows = [("Interior pages", pages),
+    rows = [("Interior pages", pages if PDF_PAGES else "%d (estimate from the text; upload Interior.docx and confirm in KDP's previewer, then set the spine from the real count)" % pages),
             ("Trim size", "%s x %s in" % (tw, th)),
             ("Inside margin (gutter)", "%s in; KDP minimum for %d pages: %s in -> %s" % (m["inside"], pages, need, "OK" if need and m["inside"] >= need else "CHECK")),
             ("Outside margin", "%s in; minimum %s in -> %s" % (m["outside"], K["outside_min_in_no_bleed"], "OK" if m["outside"] >= K["outside_min_in_no_bleed"] else "CHECK")),
-            ("Fonts embedded", "all %d fonts embedded" % len(fonts) if not not_emb else "NOT EMBEDDED: %s" % not_emb),
+            ("Fonts embedded", ("all %d fonts embedded" % len(fonts) if not not_emb else "NOT EMBEDDED: %s" % not_emb) if PDF_PAGES else "KDP embeds fonts when it converts Interior.docx"),
             *[("%s page limit (%s x %s in)" % (k.replace("_", " ").capitalize(), tw, th), "%s -> %s" % (v, "OK" if pages <= v else "TOO LONG for one volume"))
               for k, v in K["max_pages"].items()],
             ("Spine width (%s paper)" % B["paper"], "%s in; spine text %s" % (spine, "printed" if pages >= K["spine_text_min_pages"] else "omitted (under 80 pages)")),
