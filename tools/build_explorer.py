@@ -28,7 +28,7 @@ for p in prods:
     dep = p.get("deployment") or {}
     rows.append({
         "id": p["id"], "layer": p["layer"], "name": v(p.get("current_name")) or p["id"], "short": re.split(r"\s*[(;:,]\s*|\s+-\s+", v(p.get("current_name")) or p["id"])[0][:48], "company": v(p.get("company")),
-        "orig": p.get("original_label") or "", "tier": cl.get("tier") or "Not scored", "flags": cl.get("flags") or [],
+        "tier": cl.get("tier") or "Not scored", "flags": cl.get("flags") or [],
         "rationale": clean(cl.get("rationale")), "scores": sc.get("criteria") or {}, "fs": sc.get("fs_total"), "gen": sc.get("generic_total"),
         "caps": [clean(x) for x in (sc.get("evidence_caps_applied") or [])],
         "licence": v(p.get("licence_model")), "version": v(p.get("version_or_lineup")), "status": v(p.get("status_events")),
@@ -50,6 +50,22 @@ def part(pattern):
     r = subprocess.run(["pandoc", "-f", "markdown-tex_math_dollars-raw_tex", "-t", "html"], input=hit, capture_output=True, text=True)
     return r.stdout
 extras = {"trace": part("Worked example"), "hyp": part("hypothes"), "stacks": part("reference stacks"), "final": part("Final recommended")}
+
+# ---- Seven views (Stage E, Parts XIII-XVIII): re-weighted scores and fit from 05_Data/views.json (tools/build_views.py)
+VJ = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/views.json", encoding="utf-8"))
+PARTS = {"FS": "Parts I–XII", "TS": "Part XIII", "SW": "Part XIV", "SU": "Part XV", "AT": "Part XVI", "DV": "Part XVII", "AG": "Part XVIII"}
+def view_part(vid):
+    f = "work/stageE/views/%s/view.md" % vid
+    if not os.path.exists(f): return "<p><em>Part not yet available.</em></p>"
+    t = TAG.sub(lambda m: " ⟨%s⟩" % (m.group(1) or m.group(2)), open(f, encoding="utf-8").read())
+    return subprocess.run(["pandoc", "-f", "markdown-tex_math_dollars-raw_tex", "-t", "html", "--shift-heading-level-by=1"], input=t, capture_output=True, text=True).stdout
+VIEWS = [{"id": v["id"], "name": v["name"], "short": v["short"], "weights": v["weights"], "profile": v.get("profile", ""),
+          "why": v.get("why_weights", ""), "part": PARTS.get(v["id"], ""), "core": sum(1 for r in VJ["products"] if r["fit"][v["id"]] == "Core candidate"),
+          "html": "" if v["id"] == "FS" else view_part(v["id"])} for v in VJ["views"]]
+VFIT = {r["id"]: {"s": r["scores"], "f": {k: (1 if x == "Core candidate" else 0) for k, x in r["fit"].items()}, "r": r["rank"]} for r in VJ["products"]}
+for r in rows:
+    if r["id"] in VFIT: r["v"] = VFIT[r["id"]]
+VMETA = {"scored": len(VJ["products"]), "rule": VJ["fit_rules"]["rule"], "th": VJ["fit_rules"]["core_threshold"]}
 
 TEMPLATE = r"""<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GenAI Stack Explorer</title>
@@ -141,6 +157,6 @@ document.getElementById("theme").onclick=()=>{const r=document.documentElement;r
 render();
 </script></body></html>"""
 page = TEMPLATE.replace("__DATA__", json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")).replace("__EXTRAS__", json.dumps(extras, ensure_ascii=False).replace("</", "<\\/")) \
-               .replace("__NAMES__", json.dumps(NAMES)).replace("__LOCKUPW__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_white_small.png", "rb").read()).decode()).replace("__LOCKUP__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_small.png", "rb").read()).decode()).replace("__N__", str(len(rows)))
+               .replace("__NAMES__", json.dumps(NAMES)).replace("__VIEWS__", json.dumps(VIEWS, ensure_ascii=False).replace("</", "<\\/")).replace("__VMETA__", json.dumps(VMETA, ensure_ascii=False)).replace("__LOCKUPW__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_white_small.png", "rb").read()).decode()).replace("__LOCKUP__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_small.png", "rb").read()).decode()).replace("__N__", str(len(rows)))
 open(os.path.join(OUT, "explorer.html"), "w", encoding="utf-8").write(page)
 print(len(page), "bytes")
