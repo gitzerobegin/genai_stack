@@ -4,9 +4,10 @@
 Usage: python3 -I tools/build_master.py <repo_root> [--no-pdf]
 
 Order (plan §16): title & disclosure · Executive summary (synthesis Part I) · Method & quality rules ·
-Nine layers L1→L9 · Controls C1–C8 · remaining synthesis Parts (hypotheses … what changed since the popular stack diagram) ·
-Annex: sources, data and companion documents. The LinkedIn series and the tile-by-tile what-changed table each have
-one home elsewhere (07_LinkedIn, 05_Data/what_changed.xlsx) and are not repeated here. Each LinkedIn post visual
+Nine layers L1→L9 · Controls C1–C8 · remaining synthesis Parts (hypotheses … the new baseline at a glance) ·
+Annex: sources, data and companion documents. The review sets a new baseline (end of Q3 2026) and presents the stack
+on its own terms (user decision, 10 October 2026). The LinkedIn series has one home elsewhere (07_LinkedIn) and is
+not repeated here. Each LinkedIn post visual
 (08_Graphic/linkedin/P<NN>.png) is placed in the chapter or Part it illustrates (VISUALS below).
 Writes:
   Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.md   (full inline tags)
@@ -57,7 +58,7 @@ def visual(pid, width="4.8in"):
 def place_chapter_visual(code, md):
     pid = CHAPTER_VIS.get(code)
     fig = visual(pid) if pid else ""
-    if code == "L9":  # the L9 card contrasts with the popular stack diagram, so it lives under 9.13 (house convention)
+    if code == "L9":  # the L9 card illustrates the H8 view, so it lives under 9.13 (baseline position and hypothesis view)
         fig = visual("P17")
         return re.sub(r"(?m)^(### 9\.13 [^\n]*\n)", lambda m: m.group(1) + "\n" + fig, md, count=1) if fig else md
     if not fig:
@@ -102,7 +103,7 @@ rest = [p for p in parts if p is not exec_part and p is not pre_orig]
 doc = []
 doc.append("---\ntitle: \"The Enterprise GenAI Stack\"\nsubtitle: \"The view at end of Q3 2026: reference architecture and product assessment for regulated financial services, technology service providers, software companies and start-ups\"\ndate: \"%s\"\n---\n" % "Veyan · evidence as of 9 October 2026")
 doc.append("![Veyan](brand/veyan_lockup.png){width=2.6in}\n")
-doc.append("> **The view at end of Q3 2026.** The popular stack diagram was the inspiration and baseline; this document presents the stack as it stands at the end of Q3 2026, and Part XII sets out what changed since the diagram. Not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Part II.\n")
+doc.append("> **The view at end of Q3 2026: a new baseline.** This review sets a new baseline for the enterprise GenAI stack, built from its own research: %s products (%s scored) across nine layers and eight controls, every claim labelled and sourced. Part XII summarises the baseline, and later quarterly editions are compared with it. Not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Part II.\n" % (stats["N_PRODUCTS"], stats["N_SCORED"]))
 if pre_part:
     doc.append(pre_part)
 if exec_part:
@@ -129,7 +130,6 @@ doc.append("# Annex: Sources, data and companion documents\n\nEach item below ha
            "| All sources, with access dates and the claim map | `06_References/bibliography.xlsx` |\n"
            "| Product dataset (140 records, fact cells and scores) | `05_Data/products.xlsx` and `products.json` |\n"
            "| Product fact sheets for every record | `02_Appendix/Product_Technical_Appendix` |\n"
-           "| Tile-by-tile table: what changed since the popular stack diagram | `05_Data/what_changed.xlsx` (summary in Part XII) |\n"
            "| Regulatory and standards records | `05_Data/regulatory_facts.json` |\n"
            "| LinkedIn series (introduction and 24 posts, with visuals) | `07_LinkedIn/LinkedIn_Series.docx` and `Content_Calendar.xlsx` |\n"
            "| Editable sources of every figure | `08_Graphic/` (stack graphic, one-page architecture, `diagrams/`, `linkedin/`) |\n"

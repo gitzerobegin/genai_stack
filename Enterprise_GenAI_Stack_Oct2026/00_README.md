@@ -6,8 +6,8 @@
 |---|---|
 | **As of** | 9 October 2026 |
 | **Status** | Checkpoint 5: final package, signed off; rebuilt with the house conventions and a print edition |
-| **Scope** | The "Full AI Stack Explained" graphic (9 layers, 80 tools), brought up to date and extended to 140 product records and 8 cross-cutting enterprise controls, assessed for a regulated UK/EU asset manager |
-| **Method** | Plan v4.3, §13. Stage 0 baseline → Stage A research (8 streams) → Stage A′ adversarial verification (2 verifiers) → Stage B writing (17 chapters, three calibration reviews) → Stage C synthesis (with an independent reviewer) → Stage C2 LinkedIn series → Stage D package |
+| **Scope** | A new baseline for the enterprise GenAI stack as it stands at the end of Q3 2026, built from this review's own research: 140 product records across nine layers and eight cross-cutting enterprise controls, assessed for a regulated UK/EU asset manager, with six further views |
+| **Method** | Plan v4.3, §13. Stage 0 scoping → Stage A research (8 streams) → Stage A′ adversarial verification (2 verifiers) → Stage B writing (17 chapters, three calibration reviews) → Stage C synthesis (with an independent reviewer) → Stage C2 LinkedIn series → Stage D package |
 | **Disclosure** | The author is an Anthropic model. Anthropic products and standards (Claude, the Claude Agent SDK, MCP and Agent Skills) are scored on the same rubric as everything else, and an independent alternative is always named. Tiers the reader set at checkpoints are marked as the reader's decision. |
 | **Not advice** | Personal research. It does not describe any firm's actual platform or vendor choices. Re-verify any fact before you rely on it. |
 
@@ -15,21 +15,21 @@
 
 | Folder | File | What it is |
 |---|---|---|
-| `01_Report/` | `Master_Architecture.docx` / `.pdf` / `.md` | The master document: disclosure and final tiers, Part I executive summary, Part II method, the nine layer chapters (**L1 → L9**), the eight control chapters (C1–C8), Parts III–XII (hypotheses, reference architecture, FS view, worked example, four reference stacks, build vs buy, lock-in, 18-month roadmap, final stack, and what changed since the popular stack diagram), and an annex pointing to the companion files. Every flow is a figure, and each LinkedIn post visual sits in the chapter it illustrates. Word and PDF show claim labels as small footnotes; the `.md` keeps the inline tags. |
+| `01_Report/` | `Master_Architecture.docx` / `.pdf` / `.md` | The master document: disclosure and final tiers, Part I executive summary, Part II method, the nine layer chapters (**L1 → L9**), the eight control chapters (C1–C8), Parts III–XII (hypotheses, reference architecture, FS view, worked example, four reference stacks, build vs buy, lock-in, 18-month roadmap, final stack, and the new baseline at a glance), and an annex pointing to the companion files. Every flow is a figure, and each LinkedIn post visual sits in the chapter it illustrates. Word and PDF show claim labels as small footnotes; the `.md` keeps the inline tags. |
 | `01_Report/Print/` | `Interior.pdf`, `Cover_Paperback.pdf`, `Cover_Front.jpg`, `Ebook.epub`, `Publishing_Kit.md`, `Build_Summary.md` | **The book edition**, ready for Amazon KDP or any print-on-demand service: 8.5 × 11 in interior with mirrored margins, Parts opening on right-hand pages, running heads, a copyright page and contents; a full-wrap cover sized from the page count; a Kindle EPUB; and the publishing checklist, with the store listing and KDP checks. |
 | `02_Appendix/` | `Product_Technical_Appendix.docx` / `.pdf` / `.md` | One entry per product record: tier, scorecard (generic and FS weights), assessment, and every fact cell with its label and source IDs |
 | `03_Slides/` | `Executive_Deck.pptx` / `.pdf` | 28-slide executive deck |
 | `04_Explorer/` | `explorer.html` | Offline, single-file explorer: filter and compare products, and read the worked example, hypotheses, reference stacks and final stack. Open it in any browser; it needs no network. |
-| `05_Data/` | `products.json` / `.xlsx`, `regulatory_facts.json`, `what_changed.xlsx` | The dataset: 140 records (138 scored), fact cells with label, confidence and sources; 20 regulatory facts |
-| `05_Data/what_changed.xlsx` | | The only home of the tile-by-tile table of what changed since the popular stack diagram (summary in Part XII) |
-| `06_References/` | `bibliography.xlsx`, `snapshots/<stream>/`, `originals/` | 1,255 sources plus a claim → source map; text snapshots and dated search extracts |
+| `05_Data/` | `products.json` / `.xlsx`, `regulatory_facts.json`, `views.json` / `.xlsx` | The dataset: 140 records (138 scored), fact cells with label, confidence and sources; 27 regulatory and standards records; the re-weighted scores for the six further views |
+| `06_References/` | `bibliography.xlsx`, `snapshots/<stream>/`, `originals/` | 1,449 sources plus a claim → source map; text snapshots and dated search extracts |
 | `08_Graphic/` | `Enterprise_GenAI_Stack_Oct2026.png` / `.pdf` (stack poster), `Architecture_One_Page.png` / `.pdf`, `diagrams/*.png`, each with an editable source (`.md` or `.html`) | The stack poster: control plane, then layers **L1 → L9**, one tile per assessed product (138) coloured by final tier. The one-page architecture. Every flow and decision tree in the report, as a Mermaid diagram. `linkedin/P00–P24`: the visual for each LinkedIn post (1080 × 1350 PNG, PDF and HTML, editable `.md`; render with `node tools/render_post_visuals.js`). **To edit:** change the `.md` or `.html` source, then run `python3 -I tools/build_stack_graphic.py .` (poster) and/or `NODE_PATH=$(npm root -g) node tools/render_graphic.js <html> <basename>` (poster, architecture) or `NODE_PATH=$(npm root -g) node tools/render_diagrams.js` (diagrams). |
 | `07_LinkedIn/` | `Content_Calendar.xlsx`, `LinkedIn_Series.docx` | The only home of the LinkedIn series: an introduction post (Post 0) and 24 posts over 12 weeks, each with its visual, plus 3 reactive templates. Enter the date of Post 1 in cell E1 and suggested dates fill in (no weekday is fixed; edit any date). Post 0 goes out a few days before. |
 
 ## Headline numbers
 
 - **140** product records, **138** scored: **58 Strategic, 67 Tactical, 13 Experimental**. Most Strategic tiers are conditional, and the condition is the decision.
-- **1,255** sources, **4,620** fact cells. **1,557** cells are *Not publicly verified* and were never guessed.
+- **1,449** sources, **4,620** fact cells. **1,557** cells are *Not publicly verified* and were never guessed.
+- **A new baseline.** This edition sets the baseline for the enterprise GenAI stack at the end of Q3 2026. Each quarterly edition is compared with the previous one, tier by tier and record by record (`tools/diff_tiers.py`).
 
 ## Confidence legend
 

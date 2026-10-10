@@ -38,7 +38,7 @@ python3 -I tools/build_print_edition.py .        # about 10–20 minutes: the in
 - [ ] **ISBNs.** Use KDP's free ISBN or your own; a paperback, a hardcover and an ebook each need their own. Enter them in `book.json`. They print on the copyright page and go into the EPUB metadata. Rebuild afterwards.
 - [ ] **AI disclosure in KDP.** KDP asks at set-up whether the content is AI-generated. Its guidelines treat text created by an AI tool as AI-generated even after substantial human editing. This book's text was researched and drafted with Claude, an AI model made by Anthropic, under your direction. **Answer "yes" for text.** The copyright page already says how the book was made.
 - [ ] **Brand and imagery.** The cover uses the Veyan brand image and lockup. Confirm you hold the rights to use them commercially.
-- [ ] **The popular stack diagram.** The book refers to it by name and describes it; it does not reproduce it. Keep it that way, or get the owner's permission before adding any image of it.
+- [ ] **The background diagram.** The book says once, in Part II, that the work began from a popular public stack diagram; it sets a new baseline of its own and does not describe or reproduce that diagram. Keep it that way, or get the owner's permission before adding any image of it.
 - [ ] **Facts still current.** The evidence date is 9 October 2026. If you publish more than a few weeks later, run the quarterly refresh (`REFRESH_QUARTERLY.md`) or at least the R0 monitor sweep. Then rebuild, so the book matches the evidence date it states.
 - [ ] **Order a printed proof.** Check:
   - greyscale contrast in the diagrams and LinkedIn cards;
@@ -71,7 +71,7 @@ Sources: [KDP: Trim size](https://kdp.amazon.com/help/topic/G201834560); [KDP: S
 **Author:** as in `book.json`
 **Description** (paste into KDP; it accepts simple HTML such as `<p>`, `<b>` and `<ul>`):
 
-> Most enterprise GenAI diagrams are shelves of product logos. By the end of Q3 2026, almost half of the tiles on the most widely shared stack diagram needed a correction: acquired, renamed, mispositioned or superseded.
+> Most enterprise GenAI maps are shelves of product logos, and the logos move every quarter. This book sets a new baseline instead: the enterprise GenAI stack as it stands at the end of Q3 2026, built from 1,449 logged sources and checked by two adversarial verifiers.
 >
 > This book takes a different route. It asks what a regulated asset manager actually needs to run GenAI safely in production, and answers with a reference architecture: nine layers, from foundation models to evaluation, under a firm-owned control plane of eight components (gateway, guardrails, privacy, identity, configuration, FinOps, security and model risk).
 >

@@ -2,6 +2,10 @@
 """Apply Stage A' verifier corrections (V1/V2 verification_log.md section 3) to the raw
 "What changed" rows and write the CP1 table (markdown + xlsx).
 
+Provenance only (user decision, 10 October 2026): the review sets a new baseline and the deliverable package no
+longer carries a diagram-relative table. The spreadsheet is written to work/stageD/archive/diagram_provenance.xlsx,
+not to 05_Data. Quarterly editions compare against the previous edition instead (tools/diff_tiers.py).
+
 Usage: python3 -I tools/build_cp1_what_changed.py <repo_root>
 """
 import json, os, sys
@@ -100,12 +104,12 @@ for row in ws.iter_rows():
     for c in row:
         c.alignment = Alignment(wrap_text=True, vertical="top")
 ws.freeze_panes = "D2"; ws.auto_filter.ref = ws.dimensions
-os.makedirs("Enterprise_GenAI_Stack_Oct2026/05_Data", exist_ok=True)
-wb.save("Enterprise_GenAI_Stack_Oct2026/05_Data/what_changed.xlsx")
+os.makedirs("work/stageD/archive", exist_ok=True)
+wb.save("work/stageD/archive/diagram_provenance.xlsx")  # provenance only; not part of the deliverable package
 
 with open("checkpoints/CP1/02_What_Changed_Since_Original_Diagram.md", "w", encoding="utf-8") as f:
     f.write("# What changed since the original diagram\n\n")
-    f.write("| | |\n|---|---|\n| **As of** | 8 October 2026 |\n| **Basis** | Stage A research (8 streams), corrected by Stage A′ adversarial verification (V1, V2) |\n| **Rows** | %d: 80 graphic tiles, the control-plane candidates (not in the graphic) and the plan's regulatory assumptions |\n| **Also in** | `Enterprise_GenAI_Stack_Oct2026/05_Data/what_changed.xlsx` (filterable) |\n\n" % len(rows))
+    f.write("| | |\n|---|---|\n| **As of** | 8 October 2026 |\n| **Basis** | Stage A research (8 streams), corrected by Stage A′ adversarial verification (V1, V2) |\n| **Rows** | %d: 80 graphic tiles, the control-plane candidates (not in the graphic) and the plan's regulatory assumptions |\n| **Also in** | `work/stageD/archive/diagram_provenance.xlsx` (filterable; provenance only) |\n\n" % len(rows))
     f.write("Source IDs resolve in `Enterprise_GenAI_Stack_Oct2026/06_References/bibliography.xlsx`. Text marked **A′** was added or corrected by the verifiers.\n\n")
     cur = None
     for i, r in enumerate(rows, 1):

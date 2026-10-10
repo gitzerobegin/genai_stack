@@ -8,7 +8,7 @@ date: "Veyan · evidence as of 9 October 2026"
 ![Veyan](brand/veyan_lockup.png){width=2.6in}
 
 
-> **The view at end of Q3 2026.** The popular stack diagram was the inspiration and baseline; this document presents the stack as it stands at the end of Q3 2026, and Part XII sets out what changed since the diagram. Not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Part II.
+> **The view at end of Q3 2026: a new baseline.** This review sets a new baseline for the enterprise GenAI stack, built from its own research: 140 products (138 scored) across nine layers and eight controls, every claim labelled and sourced. Part XII summarises the baseline, and later quarterly editions are compared with it. Not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Part II.
 
 
 # About this document: disclosure and final tiers
@@ -43,9 +43,9 @@ After these changes the 140 records stand at **58 Strategic, 67 Tactical, 13 Exp
 
 ## I.1 Ten findings that shape the stack at end of Q3 2026
 
-Ten findings from the research define the stack at the end of Q3 2026 [AJ]. How the stack compares with the popular stack diagram that inspired this review is set out in Part XII; the tile-by-tile table is in `05_Data/what_changed.xlsx` [AJ].
+Ten findings from the research define the stack at the end of Q3 2026, the new baseline this review sets [AJ]. Part XII summarises that baseline: what it establishes, what it excludes and what it names explicitly [AJ].
 
-**1. The enterprise problem is a control system, not a catalogue.** The eight enterprise controls (gateway, guardrails, DLP, identity, configuration, FinOps, AI security, governance) are where a regulated firm manages GenAI risk [AJ]. Meanwhile the gateway has become the place where model, tool and agent traffic is governed: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. The architecture that matters is the control plane wrapped around the tiles, not the tiles themselves [AJ].
+**1. The enterprise problem is a control system, not a catalogue.** The eight enterprise controls (gateway, guardrails, DLP, identity, configuration, FinOps, AI security, governance) are where a regulated firm manages GenAI risk [AJ]. Meanwhile the gateway has become the place where model, tool and agent traffic is governed: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. The architecture that matters is the control plane wrapped around the products, not the products themselves [AJ].
 
 **2. "Neutral" tooling is now mostly owned by platform vendors.** Dynatrace completed its acquisition of Arize (Phoenix and AX) on 1 October 2026 [VF: A1-S045, V1-S005]. ClickHouse announced it had acquired Langfuse on 16 January 2026 [VF: A1-S021, V2-S041]. OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing published [VF: A1-S024, V1-S006]. MongoDB owns Voyage AI and Elastic owns Jina AI [VF: A2-S033, V1-S023, A2-S023, V1-S025]. Nebius closed its acquisition of Tavily on 19 February 2026 [VF: A3-S084, V1-S041]. Stripe agreed to acquire OpenRouter on 19 August 2026, with closing pending [VF: V1-S059, V1-S060]. Palo Alto Networks bought Portkey and Protect AI, Check Point bought Lakera, Harvey bought Guardrails AI, and Mintlify bought Helicone [VF: A6-S011, V2-S025, A7-S014, V2-S039, A7-S012, V2-S038, A6-S028, A7-S112, V2-S043]. SpaceX acquired xAI on 2 February 2026, and the model vendor now operates as SpaceXAI (formerly xAI) [VF: V2-S011]. The consequence is that independence, exit planning and effective challenge can no longer be assumed from a product's origins; they must be designed in [AJ].
 
@@ -129,11 +129,13 @@ Ten findings from the research define the stack at the end of Q3 2026 [AJ]. How 
 
 ## How the work was done
 
+The work began from a popular public stack diagram, used only as background; this review sets a new baseline of its own, the enterprise GenAI stack at the end of Q3 2026, built from the research below, and later quarterly editions are compared with this one [AJ].
+
 The review followed a staged plan with human checkpoints:
 
 | Stage | What happened | Output |
 |---|---|---|
-| 0 Baseline | Inventory of the popular stack diagram, the review's inspiration and baseline (80 tiles, 9 layers); 19 ambiguities; dataset schema; style guide; hypotheses H1–H8 | `work/stage0/` |
+| 0 Scoping | Starting inventory; 19 ambiguities; dataset schema; style guide; hypotheses H1–H8 | `work/stage0/` |
 | A Research | Eight parallel research streams, primary sources first, every fact archived with URL and access date | `work/stageA/` |
 | A′ Verify | Two adversarial verifiers re-checked high-risk claims: versions, prices, acquisitions, certifications and regulatory dates | `work/stageA_verify/` |
 | B Write | Seventeen chapters (9 layers and 8 cross-cutting controls) on a 13-part template, each with a scored product assessment | `work/stageB/` |
@@ -148,7 +150,7 @@ The reader reviewed and decided at each checkpoint (CP1–CP5). Every decision i
 
 | Measure | Value |
 |---|---|
-| Product records | 140: the 80 tiles of the popular stack diagram, 48 control-plane products and 12 material additions |
+| Product records | 140 across the seventeen layers and controls (L1–L9, C1–C8), including 48 control-plane products and 12 material additions found during research |
 | Products scored | 138. Tiers: 58 Strategic · 67 Tactical · 13 Experimental |
 | Regulatory and standards records | 27 |
 | Sources logged | 1,449 |
@@ -218,7 +220,7 @@ The calibration rules agreed at the checkpoints are in `work/stage0/08_scoring_r
 
 > **Conflict-of-interest disclosure.** The author is an Anthropic model, writing about Anthropic and its direct competitors. This is the layer where that conflict is most acute. Anthropic's Claude family was scored on exactly the same rubric as every other family. Where a score for Anthropic was borderline, it was resolved against Anthropic, and each such call is named in its rationale. Anthropic's limitations and controversies are recorded in the same detail as everyone else's. Anthropic's allegation against Chinese laboratories is presented only as an allegation. An independent alternative is named wherever a Claude model appears in a recommendation, and no vendor benchmark (including Anthropic's) is used as a decision input [AJ]. Tier and neutral scoring set by the reader at Checkpoint 4 (CP4-1); the author's pipeline had resolved three borderline scores against Anthropic. Security and cost now carry the neutral rubric values identified by the CP4 calibration review [AJ].
 
-> **Executive summary.** This layer supplies the language models that every agent, retrieval pipeline and evaluation judge above it depends on. Four things have changed since the popular stack diagram. First, every major vendor now sells a *tiered family*, not a model: GPT-6 Astra, Sol and Luna plus GPT-6.1 Sol [VF: A5-S002, A5-S004]; Claude Fable 5.1 above Opus, Sonnet and Haiku 5.5 [VF: A5-S010, A5-S019]; Gemini 3.x with a restricted Gemini 4 Argon [VF: A5-S030, A5-S031]. Version labels in the popular stack diagram are already stale or wrong (Gemma "2.9" does not exist; Mistral Medium 3.1 retired on 31 August 2026; "QI4" matches no model) [VF: A5-S034, B-L1-S002] [R: A5-S038]. Second, the most capable tiers are now *gated*: OpenAI rates Astra "Critical" for cybersecurity and requires enterprise admins to enable it, Anthropic restricts Mythos 5.1, and Google released Argon first to cyber defenders [VF: A5-S002, A5-S003, A5-S016, A5-S031]. Third, open weights have become a serious option from both US/EU vendors (gpt-oss, Gemma 4, Mistral, Muse Glimmer) and Chinese-origin vendors (DeepSeek, Qwen, Kimi, GLM), which turns *where the model runs* and *who made it* into separate decisions [VF: A5-S005, A5-S034, A5-S074, A5-S063] [AJ]. Fourth, model lifetimes are short: a Gemini Flash version released on 13 August 2026 retires on 28 January 2027 [VF: B-L1-S003]. **Recommendation:** treat models as a portfolio, not a bet. Run a tiered portfolio (frontier, mid, small and a self-hosted open-weight tier) from at least two unrelated vendors, all routed through the firm's gateway (C1), each qualified and re-qualified on the firm's own evaluation suite (L9), with pinned versions and a tested exit to the second vendor [Rec].
+> **Executive summary.** This layer supplies the language models that every agent, retrieval pipeline and evaluation judge above it depends on. Four things define the layer at the end of Q3 2026. First, every major vendor now sells a *tiered family*, not a model: GPT-6 Astra, Sol and Luna plus GPT-6.1 Sol [VF: A5-S002, A5-S004]; Claude Fable 5.1 above Opus, Sonnet and Haiku 5.5 [VF: A5-S010, A5-S019]; Gemini 3.x with a restricted Gemini 4 Argon [VF: A5-S030, A5-S031]. Version labels date quickly, so the baseline pins them: Gemma 4 is the current Gemma family, Mistral Medium 3.1 retired on 31 August 2026, and Z.ai's current models are GLM-5.3 and GLM-5.3-Flash [VF: A5-S034, B-L1-S002, A5-S071] [R: A5-S038]. Second, the most capable tiers are now *gated*: OpenAI rates Astra "Critical" for cybersecurity and requires enterprise admins to enable it, Anthropic restricts Mythos 5.1, and Google released Argon first to cyber defenders [VF: A5-S002, A5-S003, A5-S016, A5-S031]. Third, open weights have become a serious option from both US/EU vendors (gpt-oss, Gemma 4, Mistral, Muse Glimmer) and Chinese-origin vendors (DeepSeek, Qwen, Kimi, GLM), which turns *where the model runs* and *who made it* into separate decisions [VF: A5-S005, A5-S034, A5-S074, A5-S063] [AJ]. Fourth, model lifetimes are short: a Gemini Flash version released on 13 August 2026 retires on 28 January 2027 [VF: B-L1-S003]. **Recommendation:** treat models as a portfolio, not a bet. Run a tiered portfolio (frontier, mid, small and a self-hosted open-weight tier) from at least two unrelated vendors, all routed through the firm's gateway (C1), each qualified and re-qualified on the firm's own evaluation suite (L9), with pinned versions and a tested exit to the second vendor [Rec].
 
 ![Treat foundation models as a portfolio, not a bet](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P01.png){width=4.8in}
 
@@ -413,17 +415,17 @@ Families are grouped as: US frontier vendors (OpenAI, Anthropic, Google Gemini, 
 - *What it is now:* Mistral Large 4 entered public preview on 6 October 2026: about 1T total parameters (docs say 1.05T / 52B active, the launch post 1T / 49B), multimodal, 1M context, API-only in preview, weights targeted for 27 October 2026, licence and list price not yet published [VF: A5-S076, V2-S017]. Mistral Medium 3.5 (28 April 2026; 128B dense; 256K context; Modified MIT v26.04; US$1.50 / US$7.50 per 1M) is the GA flagship [VF: A5-S074, V2-S018]. Large 3 (December 2025, Apache 2.0), Small 4.0, Ministral 3, Magistral (reasoning), Devstral 2 and Codestral (coding), Mistral OCR and Voxtral (speech) complete the line [VF: A5-S074] [R: A5-S038].
 - *Certifications and residency:* SOC 2 Type II and ISO 27001/27701 per Mistral's help centre, reports via the Trust Center on request; data hosted in the EU by default; EU regional endpoint api.eu.mistral.ai commits inference location (10% surcharge); some features may transfer data outside the EU; no training on API data; default 30-day retention; ZDR only for pay-as-you-go stateless calls at Mistral's discretion [VF: A5-S075].
 - *Deployment:* first-party API; Google Cloud, Bedrock and Microsoft Foundry carry different subsets; Scaleway hosts Medium 3.5; open weights for self-hosting [R: A5-S027, A5-S038] [VF: A5-S074].
-- *Lifecycle:* a published table of deprecated and retired models with replacements: Medium 3.1 (the popular stack diagram's label) retired on 31 August 2026; Small 3.2 and Devstral 2 (devstral-2512) on 31 July 2026; Labs models may be removed with 1 month's notice [VF: B-L1-S002].
+- *Lifecycle:* a published table of deprecated and retired models with replacements: Medium 3.1 retired on 31 August 2026; Small 3.2 and Devstral 2 (devstral-2512) on 31 July 2026; Labs models may be removed with 1 month's notice [VF: B-L1-S002].
 - *Strengths:* EU-hosted by default with an EU inference commitment, open weights at several tiers, and presence on all three hyperscalers: the natural EU and open-weight leg of a portfolio [AJ]. Mistral is a GPAI Code of Practice signatory [VF: R-EU-GPAI-COP, A8-S015].
 - *Limitations:* the frontier tier is a days-old preview; Medium 3.5's licence has revenue-based exceptions; certification scope is not stated; ZDR is discretionary [VF: A5-S076, A5-S074, A5-S075]. Mistral also resells Z.ai GLM models on its platform, so contracting with Mistral does not by itself exclude Chinese-origin models [R: A5-S038] [AJ].
 - *Choose when:* you need an EU-domiciled vendor and EU inference, or a non-Chinese open-weight model for a self-hosted tier [AJ].
 - *Avoid when:* you need a GA frontier-class model now, or your licence policy rejects revenue-threshold terms [AJ].
 - *Competitors:* OpenAI GPT, Google Gemma, Meta.
 - *FS note:* use the EU endpoint or self-host; obtain the SOC 2 report and ISO certificate scope; allow-list Mistral's own models at the gateway [Rec].
-- **Tier: Strategic. Flag: Superseded** (the popular stack diagram's Medium 3.1). Strategic as the EU and open-weight leg of the portfolio, not as the sole frontier model [AJ].
+- **Tier: Strategic. Flag: Superseded** (Medium 3.1, by Medium 3.5). Strategic as the EU and open-weight leg of the portfolio, not as the sole frontier model [AJ].
 
 **Google Gemma 4 (Google).**
-- *What it is now:* Gemma 4 comprises E2B, E4B, a 26B MoE and a 31B dense model (31 March / 2 April 2026) and a 12B unified multimodal model (3 June 2026). All take image and video input and E2B/E4B also take audio; context is 128K on the small sizes and up to 256K on the larger ones [VF: A5-S034, V2-S020]. The licence is Apache 2.0 [VF: A5-S034, V2-S020]. Gemma "2.9" in the popular stack diagram does not exist [VF: A5-S034].
+- *What it is now:* Gemma 4 comprises E2B, E4B, a 26B MoE and a 31B dense model (31 March / 2 April 2026) and a 12B unified multimodal model (3 June 2026). All take image and video input and E2B/E4B also take audio; context is 128K on the small sizes and up to 256K on the larger ones [VF: A5-S034, V2-S020]. The licence is Apache 2.0 [VF: A5-S034, V2-S020].
 - *Deployment:* self-hosted from phones and laptops to a single data-centre GPU; managed on Google Cloud (26B at US$0.15 / US$0.60 per 1M) and offered on Bedrock [VF: A5-S034, A5-S027] [R: A5-S038, A5-S035].
 - *Strengths:* a permissively licensed, multimodal small model family from a major vendor, suitable for in-estate classification, extraction and redaction [AJ]. Google reports 150 million Gemma 4 downloads [VF: A5-S034].
 - *Limitations:* no frontier tier; no vendor support for weights verified; one README links a separate Gemma licence page that was not read [VF: A5-S034] [AJ].
@@ -492,7 +494,7 @@ Families are grouped as: US frontier vendors (OpenAI, Anthropic, Google Gemini, 
 - *FS note:* no client data; sandbox only after licence review [Rec].
 - **Tier: Experimental. Flag: none.** Enterprise readiness 4 rests on Bedrock's cross-Region profiles only; on Azure, Foundry's Kimi K3 runs on Fireworks outside the customer tenant [VF: A5-S086, A5-S087]. The reader kept this credit at CP4-3 [AJ].
 
-**Z.ai GLM family (Zhipu AI; the popular stack diagram's "QI4").**
+**Z.ai GLM family (Zhipu AI).**
 - *What it is now:* no model named "QI4" or "Q4" exists; the Z logo matches Z.ai's GLM family [R: A5-S038] [VF: A5-S047]. GLM-5.3 (753B) launched on the API in mid-August 2026 (14 August per CAISI, 18 August per press), with weights around 28 August under a bespoke licence (an MIT-style grant with a condition for very large Model-as-a-Service businesses); GLM-5.3-Flash (26 August 2026; 320B / 18B active; natively multimodal) is MIT; GLM-5.2 has open weights; GLM-Image covers images [VF: A5-S071, V2-S021] [R: V2-S016, A5-S042].
 - *Hosted API:* personal data is "generally processed in Singapore" and may move to affiliates overseas; the current DPA says API content is not stored, an older version said temporary storage; the general privacy policy cites model training under legitimate interest [VF: A5-S073]. Certifications not publicly verified [NPV].
 - *Hyperscaler and self-hosted:* GLM 5 runs in-Region in London on Bedrock, GLM 5.3 on Bedrock cross-Region only from 5 October 2026; Google Cloud hosts GLM-4.7/5/5.2; Foundry's GLM runs on Fireworks outside the tenant; Mistral resells GLM 5.x and retires GLM 5.2 on 31 October 2026 [VF: A5-S086, A5-S027, A5-S087, B-L1-S002].
@@ -631,29 +633,29 @@ A Claude model appears as the AWS primary, the Google Cloud fallback and one sma
 
 **Evidence per commentary (to C8).** Model ID and version, route and region, fallback used (yes or no), prompt and template version, token counts and cost, evaluation results, and approver [AJ].
 
-### 1.13 What changed since the popular stack diagram
+### 1.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| OpenAI "GPT-6" | Tiered family: Astra (gated), Sol, Luna, 6.1 Sol; GPT-5.6 still offered; gpt-oss open weights [VF: A5-S002, A5-S004, A5-S001, A5-S005] | Strategic: mid-tier primary or fallback on Azure/AWS; Luna for the small tier [Rec] |
-| Claude "Opus 5.5" | Correct but not top tier: Fable 5.1 above Opus/Sonnet/Haiku 5.5; Mythos restricted; Fable 5 suspended 12 June – 1 July 2026; no first-party EU inference [VF: A5-S010, V2-S004, V2-S075] | Strategic, conditional (FS 3.80; tier and neutral scores set by the reader at CP4-1): hyperscaler EU/UK routes only, one of two vendors with a qualified non-Anthropic fallback; independent alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5 [Rec] |
-| Gemini (no version) | Gemini 3.x (3.1 Pro preview, 3.8 Flash GA, 3.5 Flash-Lite); Gemini 4 Argon restricted [VF: A5-S030, A5-S031] | Strategic where Google Cloud is primary; pin versions against short retirement windows [Rec] |
-| Grok (no version) | Grok 4.7; SpaceXAI (formerly xAI) after SpaceX acquisition [VF: A5-S079, V2-S011] | Tactical: secondary option via a hyperscaler only [Rec] |
-| DeepSeek "V4" | V4-Pro (phase-out reversed) and V4.1-Flash; MIT weights; API stores data in the PRC [VF: A5-S064, V2-S013, A5-S062] | Tactical, weights or Foundry in-tenant only; hosted API not recommended [Rec] |
-| Qwen "3.8" | Correct; flagship weights under a custom licence; not on hyperscalers [VF: A5-S066, A5-S086] [R: V2-S014] | Tactical: Apache-2.0 sizes self-hosted, by policy [Rec] |
-| Kimi "K3" | Correct; custom licence; cross-Region or pass-through hyperscaler routes only [VF: A5-S069, A5-S086, A5-S087] | Experimental [Rec] |
-| "QI4" (Z logo) | No such model; Z.ai GLM-5.3 / 5.3-Flash; Zhipu on US Entity List [VF: A5-S071, A5-S072] | Tactical: MIT Flash weights only, after sanctions review [Rec] |
-| Mistral "Medium 3.1" | Retired 31 August 2026; Medium 3.5 GA; Large 4 preview [VF: B-L1-S002, A5-S074, A5-S076] | Strategic as the EU and open-weight leg [Rec] |
-| Gemma "2.9" | No such version; Gemma 4 under Apache 2.0 [VF: A5-S034, V2-S020] | Strategic as the small self-hosted tier [Rec] |
-| Meta "Llama (new: Muse)" | Muse Spark API GA; Muse Glimmer open; Llama 4 latest Llama [VF: A5-S077, V2-S019] | Tactical: open-weight continuity; block the contributor tier [Rec] |
-| (single "LLM" row) | Every vendor sells tiers; gating, short lifetimes and residency routes now matter as much as capability [VF: A5-S002, A5-S016, B-L1-S003] [AJ] | A governed model portfolio: two-vendor mid tier, small tier, self-hosted open-weight tier, all behind C1 and qualified in L9 [Rec] |
+| OpenAI GPT-6 family | Tiered family: Astra (gated), Sol, Luna, 6.1 Sol; GPT-5.6 still offered; gpt-oss open weights [VF: A5-S002, A5-S004, A5-S001, A5-S005] | Strategic: mid-tier primary or fallback on Azure/AWS; Luna for the small tier [Rec] |
+| Anthropic Claude family | Fable 5.1 is the top GA tier, above Opus/Sonnet/Haiku 5.5; Mythos restricted; Fable 5 suspended 12 June – 1 July 2026; no first-party EU inference [VF: A5-S010, V2-S004, V2-S075] | Strategic, conditional (FS 3.80; tier and neutral scores set by the reader at CP4-1): hyperscaler EU/UK routes only, one of two vendors with a qualified non-Anthropic fallback; independent alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5 [Rec] |
+| Google Gemini | Gemini 3.x (3.1 Pro preview, 3.8 Flash GA, 3.5 Flash-Lite); Gemini 4 Argon restricted [VF: A5-S030, A5-S031] | Strategic where Google Cloud is primary; pin versions against short retirement windows [Rec] |
+| Grok (SpaceXAI) | Grok 4.7; SpaceXAI (formerly xAI) after SpaceX acquisition [VF: A5-S079, V2-S011] | Tactical: secondary option via a hyperscaler only [Rec] |
+| DeepSeek | V4-Pro (phase-out reversed) and V4.1-Flash; MIT weights; API stores data in the PRC [VF: A5-S064, V2-S013, A5-S062] | Tactical, weights or Foundry in-tenant only; hosted API not recommended [Rec] |
+| Qwen | Qwen 3.8; flagship weights under a custom licence; not on hyperscalers [VF: A5-S066, A5-S086] [R: V2-S014] | Tactical: Apache-2.0 sizes self-hosted, by policy [Rec] |
+| Kimi | K3; custom licence; cross-Region or pass-through hyperscaler routes only [VF: A5-S069, A5-S086, A5-S087] | Experimental [Rec] |
+| Z.ai GLM | GLM-5.3 / 5.3-Flash; Zhipu on US Entity List [VF: A5-S071, A5-S072] | Tactical: MIT Flash weights only, after sanctions review [Rec] |
+| Mistral | Medium 3.1 retired 31 August 2026; Medium 3.5 GA; Large 4 preview [VF: B-L1-S002, A5-S074, A5-S076] | Strategic as the EU and open-weight leg [Rec] |
+| Gemma | Gemma 4 under Apache 2.0 [VF: A5-S034, V2-S020] | Strategic as the small self-hosted tier [Rec] |
+| Meta Muse and Llama | Muse Spark API GA; Muse Glimmer open; Llama 4 latest Llama [VF: A5-S077, V2-S019] | Tactical: open-weight continuity; block the contributor tier [Rec] |
+| **The layer as a whole** | Every vendor sells tiers; gating, short lifetimes and residency routes now matter as much as capability [VF: A5-S002, A5-S016, B-L1-S003] [AJ] | A governed model portfolio: two-vendor mid tier, small tier, self-hosted open-weight tier, all behind C1 and qualified in L9 [Rec] |
 
 **Hypothesis note.** No hypothesis (H1–H8) is assigned to L1. The layer's findings bear on **H1** (promote the gateway to a control-plane component): a model portfolio with residency routing, version pinning, fallback and deny-lists is unworkable without a firm-owned gateway, which supports H1 [AJ]. They also bear on a tension worth naming: "treat models as a portfolio, not a bet". The counter-argument is that a portfolio multiplies validation and contract work; the answer is to keep the portfolio small (two mid-tier vendors, one small model, one open-weight model) and make the L9 suite do the re-qualification [AJ]. **Provisional; verdict in synthesis.**
 
 
 ## 2. Inference, serving and model access
 
-> **Executive summary.** This layer turns a model choice (L1) into a callable, capacity-backed endpoint in a known place, and gives applications a governed way to reach it [AJ]. The popular stack diagram shows nine tiles as one undifferentiated "inference" box. The evidence now shows three distinct jobs. **Serving engines** run the model: vLLM (Apache-2.0, PyTorch Foundation-hosted since 7 May 2025) and SGLang (Apache-2.0, LMSYS-hosted, with RadixArk as commercial steward since May 2026) [VF: A4-S009, A4-S146, A4-S010, A4-S147]. **Inference optimisation and orchestration** sits above them: NVIDIA Dynamo calls itself "the orchestration layer above inference engines", and llm-d (a CNCF sandbox project) provides orchestration "above model servers" [VF: A4-S090, A4-S089]. **Model access** is reached through managed inference clouds (Together AI, Fireworks AI, Cerebras, Hugging Face Inference Endpoints), routers (OpenRouter, Hugging Face Inference Providers) and hyperscaler model services (Amazon Bedrock, Microsoft Foundry, Google Cloud) [VF: A4-S131, A4-S135, A4-S139, A4-S081, A4-S111, A4-S075, A5-S010]. Status has moved too: Stripe agreed to acquire OpenRouter on 19 August 2026, with closing pending on 8 October 2026 [VF: V1-S059, V1-S060]; Hugging Face's TGI repository was archived on 21 March 2026 [VF: V1-S054]; Cerebras priced its IPO on 13 May 2026 [VF: A4-S137]; Ollama now runs cloud models and is no longer local-only [VF: A4-S084]. **Recommendation:** for regulated workloads, default to managed model access in an approved region through the hyperscaler estate you already operate, called only through the firm's gateway (C1); add a private open-weight route on vLLM only where capacity, residency or exit planning justify it, and treat self-hosting as a capacity and operating-model decision rather than a cost saving [Rec].
+> **Executive summary.** This layer turns a model choice (L1) into a callable, capacity-backed endpoint in a known place, and gives applications a governed way to reach it [AJ]. The evidence shows three distinct jobs in it, not one undifferentiated "inference" box. **Serving engines** run the model: vLLM (Apache-2.0, PyTorch Foundation-hosted since 7 May 2025) and SGLang (Apache-2.0, LMSYS-hosted, with RadixArk as commercial steward since May 2026) [VF: A4-S009, A4-S146, A4-S010, A4-S147]. **Inference optimisation and orchestration** sits above them: NVIDIA Dynamo calls itself "the orchestration layer above inference engines", and llm-d (a CNCF sandbox project) provides orchestration "above model servers" [VF: A4-S090, A4-S089]. **Model access** is reached through managed inference clouds (Together AI, Fireworks AI, Cerebras, Hugging Face Inference Endpoints), routers (OpenRouter, Hugging Face Inference Providers) and hyperscaler model services (Amazon Bedrock, Microsoft Foundry, Google Cloud) [VF: A4-S131, A4-S135, A4-S139, A4-S081, A4-S111, A4-S075, A5-S010]. Status has moved too: Stripe agreed to acquire OpenRouter on 19 August 2026, with closing pending on 8 October 2026 [VF: V1-S059, V1-S060]; Hugging Face's TGI repository was archived on 21 March 2026 [VF: V1-S054]; Cerebras priced its IPO on 13 May 2026 [VF: A4-S137]; Ollama now runs cloud models and is no longer local-only [VF: A4-S084]. **Recommendation:** for regulated workloads, default to managed model access in an approved region through the hyperscaler estate you already operate, called only through the firm's gateway (C1); add a private open-weight route on vLLM only where capacity, residency or exit planning justify it, and treat self-hosting as a capacity and operating-model decision rather than a cost saving [Rec].
 
 ![Self-hosting is a capacity decision, not just cost](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P03.png){width=4.8in}
 
@@ -829,7 +831,7 @@ The eleven records are grouped by H1 sub-layer: serving engines, optimisation an
 #### Sub-layer 2b: local runtimes (developer tier, not production serving)
 
 **Ollama (Ollama).**
-- *What it is now:* an MIT-licensed local runtime and model packager [VF: A4-S086], plus **Ollama Cloud**, which runs larger models in Ollama's cloud through apps, CLI or API with an API key, and exposes OpenAI- and Anthropic-compatible APIs [VF: A4-S084]. The popular stack diagram's "run locally" is therefore incomplete [AJ]. Cloud features can be disabled (`OLLAMA_NO_CLOUD=1`) [VF: A4-S085]. Usage-based cloud plans started on 31 August 2026: Free, Pro US$20/month, Max US$100/month and Team US$500/month [VF: V1-S066]. A US$65M round was reported in July 2026 [R: V1-S071].
+- *What it is now:* an MIT-licensed local runtime and model packager [VF: A4-S086], plus **Ollama Cloud**, which runs larger models in Ollama's cloud through apps, CLI or API with an API key, and exposes OpenAI- and Anthropic-compatible APIs [VF: A4-S084]. Describing it as local-only is therefore incomplete [AJ]. Cloud features can be disabled (`OLLAMA_NO_CLOUD=1`) [VF: A4-S085]. Usage-based cloud plans started on 31 August 2026: Free, Pro US$20/month, Max US$100/month and Team US$500/month [VF: V1-S066]. A US$65M round was reported in July 2026 [R: V1-S071].
 - *Data handling:* locally, Ollama does not see prompts; in the cloud, prompts and responses are processed but, per the vendor, not stored or logged and never used for training [VF: A4-S085, A4-S084]. The vendor states cloud compute runs in the US and Europe, plus Singapore for some Qwen models [VF: V1-S066].
 - *Network exposure:* the server binds to 127.0.0.1:11434 by default; remote access means changing `OLLAMA_HOST` and fronting it with a proxy such as Nginx [VF: B-L2-S007]. Built-in authentication was not documented in the sources read [NPV].
 - *Strengths:* the lowest-friction way to run open models on a laptop or a disconnected workstation [AJ].
@@ -853,7 +855,7 @@ The eleven records are grouped by H1 sub-layer: serving engines, optimisation an
 #### Sub-layer 3: model access
 
 **Hugging Face (Hugging Face).**
-- *What it is now:* one tile, four products [VF: A4-S075, A4-S081, A4-S073]:
+- *What it is now:* one name, four products [VF: A4-S075, A4-S081, A4-S073]:
   1. **Hub**: model and dataset hosting with private repositories, malware, pickle and secrets scanning; SSO (SAML/OIDC), SCIM, RBAC and audit logs on Team and Enterprise; US and EU storage regions for Team and Enterprise organisations [VF: A4-S074, A4-S080, A4-S079, A4-S078].
   2. **Inference Providers**: an OpenAI-compatible router to partner clouds (including Cerebras, Fireworks, Groq, Together, Nscale, OVHcloud, Scaleway) with provider rates passed through and no Hugging Face markup; it does not store request or response bodies and keeps logs for up to 30 days [VF: A4-S075, A4-S076, A4-S077].
   3. **Inference Endpoints**: managed dedicated deployments on AWS, Azure or GCP, billed per minute, with vLLM, SGLang, TGI, llama.cpp or TEI as the engine; SOC 2 Type 2; AWS PrivateLink; payloads not stored, logs kept 30 days [VF: A4-S081, A4-S083, A4-S082].
@@ -865,7 +867,7 @@ The eleven records are grouped by H1 sub-layer: serving engines, optimisation an
 - *Avoid when:* routing client data through Inference Providers to partners you have not assessed [AJ]. Endpoints customers still on TGI should plan migration [Rec].
 - *Competitors:* Together AI and Fireworks (dedicated endpoints); hyperscaler model catalogues (Bedrock, Foundry, Vertex).
 - *FS note:* treat the Hub (Enterprise plan, EU storage) as part of the model supply chain: mirror approved weights internally and scan them (C7). Use Endpoints only in an approved region with PrivateLink, and confirm BAA and DPA scope in writing [Rec].
-- **Tier: Strategic, conditional: as the governed open-weight supply source on the Enterprise plan; Inference Endpoints are Tactical; Inference Providers is not for client data. Flags: Duplicated (four products in one tile), Deprecated (TGI).**
+- **Tier: Strategic, conditional: as the governed open-weight supply source on the Enterprise plan; Inference Endpoints are Tactical; Inference Providers is not for client data. Flags: Duplicated (four products under one name), Deprecated (TGI).**
 
 **Together AI (Together Computer, Inc.).**
 - *What it is now:* an "AI-native cloud" covering serverless and dedicated inference for open-weight models, Provisioned Throughput (PTU), fine-tuning and GPU clusters from H100 to GB300 [VF: A4-S131, A4-S093]. It raised a US$800M Series C at US$8.3B post-money on 1 July 2026 [VF: A4-S132, V1-S057].
@@ -893,7 +895,7 @@ The eleven records are grouped by H1 sub-layer: serving engines, optimisation an
 - **Tier: Strategic, conditional: for managed open-model inference, once its ISO certificates are confirmed. Flag: none.** Upgraded from Tactical ("candidate for Strategic after due diligence") by the reader at Checkpoint 4 (CP4-4); scores are unchanged (FS 3.65). For client data, use EU dedicated or BYOC deployments, because the self-serve residency setting is US-only [VF: A4-S134] [AJ].
 
 **Cerebras (Cerebras Systems Inc.).**
-- *What it is now:* a chip and system vendor (WSE-3, CS-3) that also runs an inference cloud with an OpenAI-compatible API, and sells CS-3 systems for on-premise deployment [VF: A4-S095, A4-S139]. The popular stack diagram's "ultra-scale cloud" omits the hardware business [AJ]. Its IPO priced on 13 May 2026 at US$185 per share (Nasdaq: CBRS) [VF: A4-S137, V1-S053]. It has a 750MW inference agreement with OpenAI from December 2025 [VF: A4-S154].
+- *What it is now:* a chip and system vendor (WSE-3, CS-3) that also runs an inference cloud with an OpenAI-compatible API, and sells CS-3 systems for on-premise deployment [VF: A4-S095, A4-S139]. Describing it only as an inference cloud omits the hardware business [AJ]. Its IPO priced on 13 May 2026 at US$185 per share (Nasdaq: CBRS) [VF: A4-S137, V1-S053]. It has a 750MW inference agreement with OpenAI from December 2025 [VF: A4-S154].
 - *Certifications and data handling:* the trust centre lists SOC 2 Type 2, GDPR and CCPA; HIPAA is not listed [VF: A4-S138, V1-S095]. The privacy policy says inference inputs and outputs are not retained and that data may be processed outside the US unless otherwise agreed [VF: A4-S153]. EU capacity is announced for end-2026, with 200MW targeted by end-2027 [VF: A4-S140].
 - *Controls:* console roles (Organization Admin, Project Admin, Project Member) and API keys; no SSO documentation was found [VF: A4-S153].
 - *Strengths:* speed as a design point, and an on-premise system option [AJ].
@@ -1045,22 +1047,22 @@ Plan §9 gives the starting example (managed API vs private-VPC managed inferenc
 - load weights from an unscanned public source onto the private route
 - generate or alter authoritative numbers; figures come only from the attribution engine through the read-only L4 tool, and the model only drafts narrative
 
-### 2.13 What changed since the popular stack diagram
+### 2.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| One "inference" layer with nine tiles | Three jobs: serving engines, optimisation/orchestration (Dynamo, llm-d), and model access (inference clouds, routers, hyperscaler services) [VF: A4-S090, A4-S089, A4-S131, A4-S111] | Split into serving → optimisation → access; gateway moves to the control plane as C1 [AJ] |
-| Hugging Face "models & APIs" | Four products: Hub, Inference Providers, Inference Endpoints, TGI (repository archived 21 Mar 2026) [VF: A4-S075, A4-S081, V1-S054] | Strategic, conditional: Hub as governed open-weight supply; Endpoints Tactical [Rec] |
-| OpenRouter "multi-provider" | Router with budgets, allowlists, ZDR, EU/US routing; SOC 2, no BAA; 5.5% credit fee; Stripe acquisition pending [VF: A4-S111, A4-S142, V1-S062, V1-S059] | Tactical: model-access source behind C1, not the gateway; no client data without contractual ZDR and residency [Rec] |
-| Together AI "open-source cloud" | AI-native cloud incl. GPU clusters; ZDR off by default; EU dedicated on Scale/Enterprise [VF: A4-S131, A4-S130] | Tactical: EU dedicated with ZDR on [Rec] |
-| Fireworks AI "fast inference" | ZDR on by default (Response API excepted); BYOC; ISO claims conflicting [VF: A4-S134, A4-S152, V1-S067] | Strategic, conditional: managed open-model inference, once ISO certificates are confirmed; EU dedicated or BYOC for client data (CP4-4) [Rec] |
-| Cerebras "ultra-scale cloud" | Chip vendor plus inference cloud; public since May 2026; no EU capacity yet [VF: A4-S095, A4-S137, A4-S140] | Tactical: latency-critical, non-confidential workloads [Rec] |
-| Ollama "run locally" | MIT local runtime plus Ollama Cloud [VF: A4-S086, A4-S084] | Tactical: developer tier with cloud disabled [Rec] |
-| LM Studio "desktop app" | Proprietary app, free for internal business use, no service use [VF: A4-S145] | Tactical: managed desktops only [Rec] |
-| vLLM "high-throughput" | 0.31.0, PyTorch Foundation-hosted, supported distribution available [VF: A4-S009, A4-S146, B-L2-S001] | Strategic: default engine for private routes [Rec] |
-| SGLang "efficient engine" | 0.5.21, RadixArk steward; open critical advisory [VF: A4-S010, A4-S147, B-L2-S009] | Strategic, conditional: qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed (CP4-4) [Rec] |
-| (absent) NVIDIA Dynamo, llm-d | Optimisation layers above engines; beta / sandbox [VF: A4-S098, A4-S089] | Experimental: pilot only [Rec] |
-| (absent) Hyperscaler model services | In-geography processing and reserved capacity on Bedrock, Foundry and Google Cloud; hyperscalers designated under DORA and UK CTP [VF: B-L2-S005, B-L2-S006, B-L2-S008, R-UK-CTP] | Default enterprise access route in the primary cloud [Rec] |
+| **The layer as a whole** | Three jobs: serving engines, optimisation/orchestration (Dynamo, llm-d), and model access (inference clouds, routers, hyperscaler services) [VF: A4-S090, A4-S089, A4-S131, A4-S111] | Split into serving → optimisation → access; gateway moves to the control plane as C1 [AJ] |
+| Hugging Face | Four products: Hub, Inference Providers, Inference Endpoints, TGI (repository archived 21 Mar 2026) [VF: A4-S075, A4-S081, V1-S054] | Strategic, conditional: Hub as governed open-weight supply; Endpoints Tactical [Rec] |
+| OpenRouter | Router with budgets, allowlists, ZDR, EU/US routing; SOC 2, no BAA; 5.5% credit fee; Stripe acquisition pending [VF: A4-S111, A4-S142, V1-S062, V1-S059] | Tactical: model-access source behind C1, not the gateway; no client data without contractual ZDR and residency [Rec] |
+| Together AI | AI-native cloud incl. GPU clusters; ZDR off by default; EU dedicated on Scale/Enterprise [VF: A4-S131, A4-S130] | Tactical: EU dedicated with ZDR on [Rec] |
+| Fireworks AI | ZDR on by default (Response API excepted); BYOC; ISO claims conflicting [VF: A4-S134, A4-S152, V1-S067] | Strategic, conditional: managed open-model inference, once ISO certificates are confirmed; EU dedicated or BYOC for client data (CP4-4) [Rec] |
+| Cerebras | Chip vendor plus inference cloud; public since May 2026; no EU capacity yet [VF: A4-S095, A4-S137, A4-S140] | Tactical: latency-critical, non-confidential workloads [Rec] |
+| Ollama | MIT local runtime plus Ollama Cloud [VF: A4-S086, A4-S084] | Tactical: developer tier with cloud disabled [Rec] |
+| LM Studio | Proprietary app, free for internal business use, no service use [VF: A4-S145] | Tactical: managed desktops only [Rec] |
+| vLLM | 0.31.0, PyTorch Foundation-hosted, supported distribution available [VF: A4-S009, A4-S146, B-L2-S001] | Strategic: default engine for private routes [Rec] |
+| SGLang | 0.5.21, RadixArk steward; open critical advisory [VF: A4-S010, A4-S147, B-L2-S009] | Strategic, conditional: qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed (CP4-4) [Rec] |
+| NVIDIA Dynamo, llm-d | Optimisation layers above engines; beta / sandbox [VF: A4-S098, A4-S089] | Experimental: pilot only [Rec] |
+| Hyperscaler model services | In-geography processing and reserved capacity on Bedrock, Foundry and Google Cloud; hyperscalers designated under DORA and UK CTP [VF: B-L2-S005, B-L2-S006, B-L2-S008, R-UK-CTP] | Default enterprise access route in the primary cloud [Rec] |
 
 **H1 (split L2 into model serving → inference optimisation → model gateway/routing, with the gateway promoted to a control-plane component). Provisional view; verdict in synthesis.**
 
@@ -1080,7 +1082,7 @@ The counter-evidence is twofold. First, optimisation techniques also ship inside
 
 > **Conflict-of-interest disclosure.** The author is an Anthropic model, and the Claude Agent SDK assessed in this section is an Anthropic product [VF: A4-S092, A4-S027]. It was scored on the same rubric as every other framework. Its limitations are recorded in full in §3.7, borderline calls on it were resolved against it, and independent alternatives are named wherever it is mentioned [AJ]. At Checkpoint 4 the reader set its maturity score to 2, the same as the OpenAI Agents SDK (CP4-9); its tier stays Experimental [AJ].
 
-> **Executive summary.** This layer decides how an AI application sequences model calls, tool calls, state and human decisions, and what happens when a step fails half-way. Four things have changed since the popular stack diagram. First, every major framework now ships two modes: a deterministic workflow or graph engine, and an autonomous agent loop. LangGraph combines both in one graph [VF: A4-S039]; Microsoft Agent Framework separates Agents from graph-based Workflows [VF: A4-S066]; CrewAI pairs Flows with Crews [VF: A4-S050]; Google ADK 2.0 added a Workflow Runtime [VF: A4-S114]. Second, durable execution has become a separate concern, delegated to engines such as Temporal: Pydantic AI v2 attaches durability through Temporal, DBOS or Prefect, the OpenAI Agents SDK integrates Temporal and DBOS, and Mistral Workflows is built on Temporal [VF: A4-S045, A4-S052, A4-S058]. Third, the vendor estate has been reshaped: Microsoft Agent Framework reached GA on 2 April 2026 as successor to Semantic Kernel and AutoGen, with AutoGen in maintenance mode [VF: A4-S008, A4-S012, A4-S021, V1-S050]; OpenAI's Agent Builder shuts down on 30 November 2026 [VF: A4-S054, V1-S051]; LangGraph Platform is now LangSmith Deployment [VF: A4-S031, V1-S056]; LlamaIndex says its focus has moved to LlamaParse [VF: A4-S117]; and no distinct "Mistral Agents SDK" exists [VF: A4-S057]. Fourth, the hyperscalers now sell framework-agnostic agent runtimes, such as Amazon Bedrock AgentCore, which runs each session in its own microVM [VF: A4-S116, B-L3-S004]. The popular stack diagram's single "agent framework" row hides the most important architectural choice in the stack: whether a process is a workflow or an agent [AJ]. **Recommendation:** build regulated use cases as deterministic workflow graphs with bounded LLM steps, run them on a durable-execution substrate, and keep approval gates and state in firm-controlled stores. Standardise on one framework per language estate (LangGraph by default; Microsoft Agent Framework in Microsoft estates; Google ADK or Strands with AgentCore where Google Cloud or AWS is the primary cloud), use Temporal (or DBOS) for durability, and admit autonomous agent loops only as sandboxed sub-steps with read-only tools [Rec].
+> **Executive summary.** This layer decides how an AI application sequences model calls, tool calls, state and human decisions, and what happens when a step fails half-way. Four things define the layer at the end of Q3 2026. First, every major framework now ships two modes: a deterministic workflow or graph engine, and an autonomous agent loop. LangGraph combines both in one graph [VF: A4-S039]; Microsoft Agent Framework separates Agents from graph-based Workflows [VF: A4-S066]; CrewAI pairs Flows with Crews [VF: A4-S050]; Google ADK 2.0 added a Workflow Runtime [VF: A4-S114]. Second, durable execution has become a separate concern, delegated to engines such as Temporal: Pydantic AI v2 attaches durability through Temporal, DBOS or Prefect, the OpenAI Agents SDK integrates Temporal and DBOS, and Mistral Workflows is built on Temporal [VF: A4-S045, A4-S052, A4-S058]. Third, the vendor estate has been reshaped: Microsoft Agent Framework reached GA on 2 April 2026 as successor to Semantic Kernel and AutoGen, with AutoGen in maintenance mode [VF: A4-S008, A4-S012, A4-S021, V1-S050]; OpenAI's Agent Builder shuts down on 30 November 2026 [VF: A4-S054, V1-S051]; LangGraph Platform is now LangSmith Deployment [VF: A4-S031, V1-S056]; LlamaIndex says its focus has moved to LlamaParse [VF: A4-S117]; and no distinct "Mistral Agents SDK" exists [VF: A4-S057]. Fourth, the hyperscalers now sell framework-agnostic agent runtimes, such as Amazon Bedrock AgentCore, which runs each session in its own microVM [VF: A4-S116, B-L3-S004]. A single "agent framework" category hides the most important architectural choice in the stack: whether a process is a workflow or an agent [AJ]. **Recommendation:** build regulated use cases as deterministic workflow graphs with bounded LLM steps, run them on a durable-execution substrate, and keep approval gates and state in firm-controlled stores. Standardise on one framework per language estate (LangGraph by default; Microsoft Agent Framework in Microsoft estates; Google ADK or Strands with AgentCore where Google Cloud or AWS is the primary cloud), use Temporal (or DBOS) for durability, and admit autonomous agent loops only as sandboxed sub-steps with read-only tools [Rec].
 
 ![Most enterprise "agents" should be workflows](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P05.png){width=4.8in}
 
@@ -1290,8 +1292,8 @@ The key design choice is that the graph, not the model, owns the control flow, a
 - *Choose when:* an EU-hosted, Mistral-model estate wants managed agents [AJ].
 - *Avoid when:* you need GA components or a portable framework [AJ].
 - *Competitors:* OpenAI Agents SDK, Temporal (directly), LangGraph.
-- *FS note:* relabel the popular stack diagram tile "Mistral Agents API (+ Workflows)"; keep the workflow definition in the firm's own code [Rec].
-- **Tier: Experimental. No flag** (tile relabelled; the products exist under other names).
+- *FS note:* record it as "Mistral Agents API (+ Workflows)"; keep the workflow definition in the firm's own code [Rec].
+- **Tier: Experimental. No flag** (recorded under the products' current names).
 
 **Vercel AI SDK (Vercel).**
 - *What it is now:* an Apache-2.0 TypeScript toolkit (npm `ai`, 7.0.131) giving a unified API across model providers for text and structured generation, tool calling and agents (ToolLoopAgent), plus UI hooks for React, Svelte, Vue and Angular [VF: A4-S022, A4-S069]. The companion Workflow SDK (5.1.0) makes TS/JS functions durable and can be self-hosted with Postgres [VF: A4-S106, A4-S071].
@@ -1465,20 +1467,20 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - hold run state only in process memory or a container's local disk
 - run the drafting step on a hosted agent service whose residency or retention terms are not approved for client data
 
-### 3.13 What changed since the popular stack diagram
+### 3.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| LangGraph "workflow" | Both workflows and agent loops; 1.x GA; LangGraph Platform renamed LangSmith Deployment [VF: A4-S039, A4-S001, A4-S031] | Strategic default framework [Rec] |
-| LlamaIndex "document agents" | Framework 0.x with Workflows; vendor focus moved to LlamaParse (formerly LlamaCloud) [VF: A4-S002, A4-S117, A4-S042] | Tactical: retrieval toolkit; LlamaParse in L8 [Rec] |
-| Pydantic AI "type-safe" | v2; durability via Temporal, DBOS or Prefect [VF: A4-S003, A4-S045] | Strategic, conditional: Python teams wanting type-safe agents; typed agent step inside a durable workflow (CP4-4) [Rec] |
-| CrewAI "multi-agent" | Crews plus Flows; AMP platform (earlier materials: CrewAI Enterprise) [VF: A4-S050, V1-S075] | Tactical: Flows for any regulated process [Rec] |
-| Agent SDK (OpenAI logo) | OpenAI Agents SDK (0.x); hosted Agents API beta; Agent Builder shuts 30 Nov 2026 [VF: A4-S005, A4-S055, A4-S054] | Tactical: sandboxed agent sub-step [Rec] |
-| Agent SDK (Anthropic logo) | Claude Agent SDK, renamed from Claude Code SDK; Alpha; Commercial Terms [VF: A4-S028, A4-S006, A4-S092] | Experimental: sandboxed sub-step only (conflict of interest disclosed) [Rec] |
-| Mistral "Agents SDK" | No such product: Agents API plus Workflows on Temporal (beta) [VF: A4-S057, A4-S058] | Experimental; relabel "Mistral Agents API (+ Workflows)" [Rec] |
-| AI SDK (triangle logo) | Vercel AI SDK 7; Workflow SDK [VF: A4-S022, A4-S071] | Tactical: TypeScript application tier [Rec] |
+| LangGraph | Both workflows and agent loops; 1.x GA; LangGraph Platform renamed LangSmith Deployment [VF: A4-S039, A4-S001, A4-S031] | Strategic default framework [Rec] |
+| LlamaIndex | Framework 0.x with Workflows; vendor focus moved to LlamaParse (formerly LlamaCloud) [VF: A4-S002, A4-S117, A4-S042] | Tactical: retrieval toolkit; LlamaParse in L8 [Rec] |
+| Pydantic AI | v2; durability via Temporal, DBOS or Prefect [VF: A4-S003, A4-S045] | Strategic, conditional: Python teams wanting type-safe agents; typed agent step inside a durable workflow (CP4-4) [Rec] |
+| CrewAI | Crews plus Flows; AMP platform (earlier materials: CrewAI Enterprise) [VF: A4-S050, V1-S075] | Tactical: Flows for any regulated process [Rec] |
+| OpenAI Agents SDK | OpenAI Agents SDK (0.x); hosted Agents API beta; Agent Builder shuts 30 Nov 2026 [VF: A4-S005, A4-S055, A4-S054] | Tactical: sandboxed agent sub-step [Rec] |
+| Claude Agent SDK | Claude Agent SDK, renamed from Claude Code SDK; Alpha; Commercial Terms [VF: A4-S028, A4-S006, A4-S092] | Experimental: sandboxed sub-step only (conflict of interest disclosed) [Rec] |
+| Mistral Agents API (+ Workflows) | Agents API plus Workflows on Temporal (beta); no separate "Agents SDK" product [VF: A4-S057, A4-S058] | Experimental [Rec] |
+| Vercel AI SDK | Vercel AI SDK 7; Workflow SDK [VF: A4-S022, A4-S071] | Tactical: TypeScript application tier [Rec] |
 | Microsoft Agent Framework | GA April 2026; successor to Semantic Kernel and AutoGen [VF: A4-S008, A4-S068] | Strategic, conditional: Microsoft/.NET estates [Rec] |
-| (absent) | Google ADK 2.0 Workflow Runtime; Strands + AgentCore; Temporal [VF: A4-S114, A4-S116, A4-S019] | ADK Strategic, conditional (Google Cloud primary cloud); AgentCore Strategic, conditional (AWS primary cloud); Temporal Strategic as durability substrate [Rec] |
+| Google ADK, Strands with AgentCore, Temporal | Google ADK 2.0 Workflow Runtime; Strands + AgentCore; Temporal [VF: A4-S114, A4-S116, A4-S019] | ADK Strategic, conditional (Google Cloud primary cloud); AgentCore Strategic, conditional (AWS primary cloud); Temporal Strategic as durability substrate [Rec] |
 
 **H2 (an "agent framework" is not one layer; distinguish deterministic workflows from autonomous agents). Provisional view; verdict in synthesis.**
 
@@ -1498,7 +1500,7 @@ The refinement is that the split is not two products but two modes inside one fr
 
 > **Conflict-of-interest disclosure.** The author is an Anthropic model. The Model Context Protocol (MCP) and Agent Skills both originated at Anthropic [VF: A3-S018, A3-S028]. Both were scored on the same rubric as every other product in this section. Independent criticism of both is recorded in their deep dives, and an independent alternative is named wherever either is recommended [AJ].
 
-> **Executive summary.** This layer is where an agent stops talking and starts acting: it calls tools, reads enterprise systems, browses, runs code and talks to other agents. Three things have changed since the popular stack diagram. First, the protocols have moved to neutral homes. Anthropic donated MCP to the Agentic AI Foundation (AAIF) under the Linux Foundation on 9 December 2025 [VF: A3-S018, V1-S038], and A2A 1.0.0 (12 March 2026) joined AAIF in August 2026 [VF: A3-S079, A3-S116, A3-S117]. Agent Skills has no neutral governance body and is not an AAIF project on available evidence [VF: V1-S046, A3-S115]. Second, MCP has grown an enterprise security model. The 2026-07-28 specification is stateless, deprecates Dynamic Client Registration and puts method and tool names in HTTP headers so that gateways can authorise them, and the Enterprise-Managed Authorization extension has been stable since June 2026 [VF: A3-S015, A3-S057, A3-S017]. Authorisation itself is still optional in the specification [VF: A3-S055]. Third, ownership and risk have shifted among the tool vendors. Nebius closed its acquisition of Tavily on 19 February 2026 [VF: A3-S084, V1-S041], and Composio disclosed a May 2026 incident in which connected-account tokens and API keys were exposed [VF: B-L4-S007]. The popular stack diagram draws L4 as a row of tools. The real design problem is governing what those tools are allowed to do, on whose behalf [AJ]. **Recommendation:** standardise on MCP for agent-to-tool connectivity, but only behind a firm-owned tool gateway that enforces authorisation, an allow-listed private registry and per-tool policy. Expose authoritative data through read-only tools. Run generated code only in a microVM sandbox with egress control. Treat every SaaS tool (search, browser, integration broker) as an outsourced data flow [Rec]. Independent alternatives to MCP are OpenAPI-described tools exposed through a gateway, and A2A for agent-to-agent delegation [Rec].
+> **Executive summary.** This layer is where an agent stops talking and starts acting: it calls tools, reads enterprise systems, browses, runs code and talks to other agents. Three things define the layer at the end of Q3 2026. First, the protocols have moved to neutral homes. Anthropic donated MCP to the Agentic AI Foundation (AAIF) under the Linux Foundation on 9 December 2025 [VF: A3-S018, V1-S038], and A2A 1.0.0 (12 March 2026) joined AAIF in August 2026 [VF: A3-S079, A3-S116, A3-S117]. Agent Skills has no neutral governance body and is not an AAIF project on available evidence [VF: V1-S046, A3-S115]. Second, MCP has grown an enterprise security model. The 2026-07-28 specification is stateless, deprecates Dynamic Client Registration and puts method and tool names in HTTP headers so that gateways can authorise them, and the Enterprise-Managed Authorization extension has been stable since June 2026 [VF: A3-S015, A3-S057, A3-S017]. Authorisation itself is still optional in the specification [VF: A3-S055]. Third, ownership and risk have shifted among the tool vendors. Nebius closed its acquisition of Tavily on 19 February 2026 [VF: A3-S084, V1-S041], and Composio disclosed a May 2026 incident in which connected-account tokens and API keys were exposed [VF: B-L4-S007]. The layer is more than a row of tools: the real design problem is governing what those tools are allowed to do, on whose behalf [AJ]. **Recommendation:** standardise on MCP for agent-to-tool connectivity, but only behind a firm-owned tool gateway that enforces authorisation, an allow-listed private registry and per-tool policy. Expose authoritative data through read-only tools. Run generated code only in a microVM sandbox with egress control. Treat every SaaS tool (search, browser, integration broker) as an outsourced data flow [Rec]. Independent alternatives to MCP are OpenAPI-described tools exposed through a gateway, and A2A for agent-to-agent delegation [Rec].
 
 ![Easy tool connections make governance the architecture](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P07.png){width=4.8in}
 
@@ -1861,20 +1863,20 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - use a shared service account or a long-lived key; credentials are issued per call from the vault
 - let a tool description or annotation decide the tool's risk class
 
-### 4.13 What changed since the popular stack diagram
+### 4.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| "Tools and protocols" row of eight tiles | Protocols under foundations; gateways in C1 now carry MCP and A2A traffic [VF: A3-S018, A3-S116, A6-S061, A6-S016] | L4 split into connectivity (protocols, tools, runtimes) and a tool-governance sub-layer bound to C1 and C4 [Rec] |
-| MCP "tools standard" | Spec 2026-07-28: stateless, header routing, DCR deprecated, EMA stable; authorisation optional; Registry preview v0.1; AAIF-governed [VF: A3-S015, A3-S057, A3-S017, A3-S055, A3-S036, A3-S018] | Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions (CP3 Q1); alternative: OpenAPI tools via gateway [Rec] |
-| A2A "agent-to-agent" | 1.0.0 (12 Mar 2026), 1.0.1; AAIF Growth Stage; optional card signing [VF: A3-S079, A3-S117, A3-S078] | Strategic, conditional: where cross-team or cross-vendor agent delegation is in scope (CP3 Q1); signed cards required [Rec] |
-| Agent Skills "reusable skills" | Open format, 46 clients; Anthropic-maintained, no neutral body, no versions, no signing [VF: A3-S113, A3-S115, V1-S046, A3-S037] | Tactical: internal, script-free skills only; alternative: C5 packages or AGENTS.md [Rec] |
-| Composio "integrations" | Broker plus MCP gateway; US-hosted cloud; May 2026 token-exposure incident [VF: A3-S063, A3-S119, B-L4-S007] | Experimental; self-hosted only, never for client data [Rec] |
-| Exa "search API" | Search API with structured output; SOC 2 Type II; no EU region found [VF: A3-S010, A3-S100, A3-S121] | Tactical, via egress proxy with DLP, non-confidential queries only [Rec] |
-| Tavily "search API" | Nebius-owned since 19 Feb 2026 [VF: V1-S041] | Tactical; refresh due diligence [Rec] |
-| Browserbase "cloud browsers" | Browsers plus Stagehand; standalone MCP server archived [VF: A3-S013, A3-S054] | Tactical, only where no API exists [Rec] |
-| E2B "code sandboxes" | Firecracker microVMs, egress firewall, Apache-2.0 runtime, BYOC [VF: A3-S062, A3-S120] | Tactical; reference sandbox pattern for derived calculations [Rec] |
-| (absent) | AgentCore Gateway + Identity + Policy: managed tool gateway, token vault, Cedar policy [VF: A3-S047, A6-S026] | Strategic, conditional: where AWS is your primary cloud (CP3 Q2); cloud-neutral alternatives in C1 [Rec] |
+| **The layer as a whole** | Protocols under foundations; gateways in C1 now carry MCP and A2A traffic [VF: A3-S018, A3-S116, A6-S061, A6-S016] | L4 split into connectivity (protocols, tools, runtimes) and a tool-governance sub-layer bound to C1 and C4 [Rec] |
+| MCP | Spec 2026-07-28: stateless, header routing, DCR deprecated, EMA stable; authorisation optional; Registry preview v0.1; AAIF-governed [VF: A3-S015, A3-S057, A3-S017, A3-S055, A3-S036, A3-S018] | Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions (CP3 Q1); alternative: OpenAPI tools via gateway [Rec] |
+| A2A | 1.0.0 (12 Mar 2026), 1.0.1; AAIF Growth Stage; optional card signing [VF: A3-S079, A3-S117, A3-S078] | Strategic, conditional: where cross-team or cross-vendor agent delegation is in scope (CP3 Q1); signed cards required [Rec] |
+| Agent Skills | Open format, 46 clients; Anthropic-maintained, no neutral body, no versions, no signing [VF: A3-S113, A3-S115, V1-S046, A3-S037] | Tactical: internal, script-free skills only; alternative: C5 packages or AGENTS.md [Rec] |
+| Composio | Broker plus MCP gateway; US-hosted cloud; May 2026 token-exposure incident [VF: A3-S063, A3-S119, B-L4-S007] | Experimental; self-hosted only, never for client data [Rec] |
+| Exa | Search API with structured output; SOC 2 Type II; no EU region found [VF: A3-S010, A3-S100, A3-S121] | Tactical, via egress proxy with DLP, non-confidential queries only [Rec] |
+| Tavily | Nebius-owned since 19 Feb 2026 [VF: V1-S041] | Tactical; refresh due diligence [Rec] |
+| Browserbase | Browsers plus Stagehand; standalone MCP server archived [VF: A3-S013, A3-S054] | Tactical, only where no API exists [Rec] |
+| E2B | Firecracker microVMs, egress firewall, Apache-2.0 runtime, BYOC [VF: A3-S062, A3-S120] | Tactical; reference sandbox pattern for derived calculations [Rec] |
+| AWS AgentCore Gateway, Identity and Policy | AgentCore Gateway + Identity + Policy: managed tool gateway, token vault, Cedar policy [VF: A3-S047, A6-S026] | Strategic, conditional: where AWS is your primary cloud (CP3 Q2); cloud-neutral alternatives in C1 [Rec] |
 
 **H3 (tools and protocols need an explicit agent identity, authorisation and tool-governance sub-layer). Provisional view; verdict in synthesis.**
 
@@ -1893,7 +1895,7 @@ The counter-evidence is that the products implementing the sub-layer are the C1 
 
 ## 5. Memory
 
-> **Executive summary.** This layer decides what an agent carries from one interaction to the next, where that state is stored, and who is allowed to change, inspect or erase it. Four things have changed since the popular stack diagram. First, the independent products have moved apart: Mem0 removed every external graph store from its open-source build on 14 April 2026 and replaced it with entity linking, which is not a queryable graph [VF: A3-S053, A3-S081, V1-S043]; Zep deprecated its Community Edition, so Graphiti is the only open-source path [VF: A3-S059, V1-S044]; Letta pivoted to Letta Code, an agent harness, and retired its V1 server [VF: A3-S060, A3-S073, A3-S093]; and LangMem has had no release since 27 October 2025 [VF: A3-S006]. Second, the hyperscalers now ship memory as a platform feature: Amazon Bedrock AgentCore Memory has been GA since 13 October 2025 and Google's Memory Bank since December 2025 [VF: A3-S047, V1-S087, V1-S088]. Third, every product stores memory in ordinary vector, graph, relational or file stores [VF: A3-S053, A3-S003, A3-S005, A3-S064, A3-S006, A3-S073], so memory is a data-architecture problem as much as an agent feature [AJ]. Fourth, memory is now a named attack surface: OWASP's Agentic Top 10 includes memory and context poisoning (ASI06) [VF: B-L5-S001]. No independent product in this layer reaches Strategic tier; the two hyperscaler memory services are Strategic only on the condition that their cloud is the firm's primary cloud (CP3 Q2) [AJ]. **Recommendation:** treat agent memory as a governed record class held in the firm's own retrieval and data stores (L6), written only through an approved, logged write path with subject-scoped erasure and versioning. Build it last, after evaluation, gateway, retrieval, workflows and tools, as the plan's build order already says. Use the agent platform's native memory (AgentCore Memory or Memory Bank) where the runtime already lives there, and self-hosted Mem0 or Graphiti only behind the firm's own memory API [Rec].
+> **Executive summary.** This layer decides what an agent carries from one interaction to the next, where that state is stored, and who is allowed to change, inspect or erase it. Four things define the layer at the end of Q3 2026. First, the independent products have moved apart: Mem0 removed every external graph store from its open-source build on 14 April 2026 and replaced it with entity linking, which is not a queryable graph [VF: A3-S053, A3-S081, V1-S043]; Zep deprecated its Community Edition, so Graphiti is the only open-source path [VF: A3-S059, V1-S044]; Letta pivoted to Letta Code, an agent harness, and retired its V1 server [VF: A3-S060, A3-S073, A3-S093]; and LangMem has had no release since 27 October 2025 [VF: A3-S006]. Second, the hyperscalers now ship memory as a platform feature: Amazon Bedrock AgentCore Memory has been GA since 13 October 2025 and Google's Memory Bank since December 2025 [VF: A3-S047, V1-S087, V1-S088]. Third, every product stores memory in ordinary vector, graph, relational or file stores [VF: A3-S053, A3-S003, A3-S005, A3-S064, A3-S006, A3-S073], so memory is a data-architecture problem as much as an agent feature [AJ]. Fourth, memory is now a named attack surface: OWASP's Agentic Top 10 includes memory and context poisoning (ASI06) [VF: B-L5-S001]. No independent product in this layer reaches Strategic tier; the two hyperscaler memory services are Strategic only on the condition that their cloud is the firm's primary cloud (CP3 Q2) [AJ]. **Recommendation:** treat agent memory as a governed record class held in the firm's own retrieval and data stores (L6), written only through an approved, logged write path with subject-scoped erasure and versioning. Build it last, after evaluation, gateway, retrieval, workflows and tools, as the plan's build order already says. Use the agent platform's native memory (AgentCore Memory or Memory Bank) where the runtime already lives there, and self-hosted Mem0 or Graphiti only behind the firm's own memory API [Rec].
 
 ![Build memory last, on purpose](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P09.png){width=4.8in}
 
@@ -2242,18 +2244,18 @@ Letta, Supermemory and LangMem do not appear as defaults. Letta is a harness, no
 - let a memory written for one fund be recalled for another; scope is the fund ID, enforced at C4
 - keep memory after its retention class expires, or survive an erasure request in revisions, caches or graph history
 
-### 5.13 What changed since the popular stack diagram
+### 5.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| A separate "memory" layer with six tiles | Products sit on vector, graph, relational and file stores [VF: A3-S053, A3-S003, A3-S005, A3-S006, A3-S073]; hyperscalers bundle memory into agent platforms [VF: A3-S047, A3-S108] | A governed memory service (policy gate, subject index, lifecycle) over the firm's L6 stores; organisational memory as versioned artefacts in C5 [Rec] |
-| Mem0 "memory layer" | Open core; OSS graph stores removed for entity linking; Platform-only graph, decay and export [VF: A3-S081, V1-S043, A3-S080] | Tactical: self-hosted OSS behind the firm's API [Rec] |
-| Zep "graph memory" | Proprietary Zep Cloud; Graphiti is the OSS path; Community Edition deprecated [VF: A3-S003, A3-S059] | Tactical: Graphiti self-hosted where temporal provenance matters [Rec] |
-| Letta "stateful agents" | Letta Code agent harness; V1 server retired [VF: A3-S060, A3-S073, A3-S093] | Experimental; belongs with L3 harnesses [Rec] |
-| Cognee "knowledge graphs" | Apache-2.0 graph-plus-vector memory; licensed Postgres graph; no certification [VF: A3-S005, A3-S095] | Tactical: in-estate or air-gapped only [Rec] |
-| Supermemory "memory API" | Memory plus RAG plus connectors behind one proprietary API; v5 breaking change [VF: A3-S064, A3-S012] | Experimental [Rec] |
-| LangMem "long-term" | LangGraph library; no release since 27 October 2025 [VF: A3-S006] | Experimental; reference patterns only [Rec] |
-| (absent) | AgentCore Memory (GA October 2025) and Memory Bank (GA December 2025) [VF: V1-S087, V1-S088] | Strategic, conditional: where AWS or Google Cloud respectively is your primary cloud (CP3 Q2) [Rec] |
+| **The layer as a whole** | Products sit on vector, graph, relational and file stores [VF: A3-S053, A3-S003, A3-S005, A3-S006, A3-S073]; hyperscalers bundle memory into agent platforms [VF: A3-S047, A3-S108] | A governed memory service (policy gate, subject index, lifecycle) over the firm's L6 stores; organisational memory as versioned artefacts in C5 [Rec] |
+| Mem0 | Open core; OSS graph stores removed for entity linking; Platform-only graph, decay and export [VF: A3-S081, V1-S043, A3-S080] | Tactical: self-hosted OSS behind the firm's API [Rec] |
+| Zep | Proprietary Zep Cloud; Graphiti is the OSS path; Community Edition deprecated [VF: A3-S003, A3-S059] | Tactical: Graphiti self-hosted where temporal provenance matters [Rec] |
+| Letta | Letta Code agent harness; V1 server retired [VF: A3-S060, A3-S073, A3-S093] | Experimental; belongs with L3 harnesses [Rec] |
+| Cognee | Apache-2.0 graph-plus-vector memory; licensed Postgres graph; no certification [VF: A3-S005, A3-S095] | Tactical: in-estate or air-gapped only [Rec] |
+| Supermemory | Memory plus RAG plus connectors behind one proprietary API; v5 breaking change [VF: A3-S064, A3-S012] | Experimental [Rec] |
+| LangMem | LangGraph library; no release since 27 October 2025 [VF: A3-S006] | Experimental; reference patterns only [Rec] |
+| Hyperscaler memory services | AgentCore Memory (GA October 2025) and Memory Bank (GA December 2025) [VF: V1-S087, V1-S088] | Strategic, conditional: where AWS or Google Cloud respectively is your primary cloud (CP3 Q2) [Rec] |
 
 **H4 (memory may not be separate from retrieval and data architecture). Provisional view; verdict in synthesis.**
 
@@ -2271,7 +2273,7 @@ The counter-evidence is real. Memory has a write path that retrieval does not ha
 
 ## 6. Retrieval and knowledge stores (vector databases)
 
-> **Executive summary.** This layer stores the vectors, text and metadata that an agent searches, and returns a small, permitted, relevant set of passages. It must do so fast, under filters, for many tenants, and with the same security and records discipline as any other store of client data [AJ]. Four things have changed since the popular stack diagram. First, hybrid retrieval is now standard. turbopuffer ranks by vectors and BM25 [VF: A2-S056], Chroma Cloud offers vector, hybrid and full-text search [VF: A2-S060], Milvus ships BM25 [VF: A2-S054, A2-S117], and Elasticsearch, MongoDB, Qdrant and Pinecone all fuse sparse and dense results [VF: A2-S133, A2-S141, A2-S103, A2-S101]. Second, general-purpose databases have absorbed vector search: pgvector reached 0.8.7 on 1 October 2026 [VF: V1-S020, V1-S022], and MongoDB Vector Search is GA on self-managed Community and Enterprise Advanced as well as Atlas [VF: A2-S137, V1-S035]. Third, vectors are moving onto object storage: Amazon S3 Vectors has been GA since December 2025 [VF: A2-S081, V1-S030], Milvus 3.0 is "lake-native" [VF: A2-S118], and turbopuffer keeps all durable state in object storage [VF: A2-S124]. Fourth, vendors are repositioning above the store: Pinecone now sells Nexus, a "knowledge engine for agents" (GA 6 August 2026) [VF: A2-S073, V1-S029]. The term "vector database" now describes a feature more than a product category [AJ]. **Recommendation:** treat this layer as a retrieval and knowledge store that is always a *derived index*, never the system of record. Start with vectors inside the database or search engine you already run (PostgreSQL with pgvector, Elasticsearch or MongoDB). Move to a dedicated engine (Qdrant or Milvus, self-hosted or in your own cloud account) only when scale, filtered latency or tenant isolation demand it. Enforce entitlements as filters applied before ranking, in every case [Rec].
+> **Executive summary.** This layer stores the vectors, text and metadata that an agent searches, and returns a small, permitted, relevant set of passages. It must do so fast, under filters, for many tenants, and with the same security and records discipline as any other store of client data [AJ]. Four things define the layer at the end of Q3 2026. First, hybrid retrieval is now standard. turbopuffer ranks by vectors and BM25 [VF: A2-S056], Chroma Cloud offers vector, hybrid and full-text search [VF: A2-S060], Milvus ships BM25 [VF: A2-S054, A2-S117], and Elasticsearch, MongoDB, Qdrant and Pinecone all fuse sparse and dense results [VF: A2-S133, A2-S141, A2-S103, A2-S101]. Second, general-purpose databases have absorbed vector search: pgvector reached 0.8.7 on 1 October 2026 [VF: V1-S020, V1-S022], and MongoDB Vector Search is GA on self-managed Community and Enterprise Advanced as well as Atlas [VF: A2-S137, V1-S035]. Third, vectors are moving onto object storage: Amazon S3 Vectors has been GA since December 2025 [VF: A2-S081, V1-S030], Milvus 3.0 is "lake-native" [VF: A2-S118], and turbopuffer keeps all durable state in object storage [VF: A2-S124]. Fourth, vendors are repositioning above the store: Pinecone now sells Nexus, a "knowledge engine for agents" (GA 6 August 2026) [VF: A2-S073, V1-S029]. The term "vector database" now describes a feature more than a product category [AJ]. **Recommendation:** treat this layer as a retrieval and knowledge store that is always a *derived index*, never the system of record. Start with vectors inside the database or search engine you already run (PostgreSQL with pgvector, Elasticsearch or MongoDB). Move to a dedicated engine (Qdrant or Milvus, self-hosted or in your own cloud account) only when scale, filtered latency or tenant isolation demand it. Enforce entitlements as filters applied before ranking, in every case [Rec].
 
 ![You may not need a vector database](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P11.png){width=4.8in}
 
@@ -2654,22 +2656,22 @@ The central question is whether a dedicated vector database is needed at all [AJ
 - hold the only copy of an approved commentary or style guide
 - run an unauthenticated store, or hold client content in a region the residency policy does not allow
 
-### 6.13 What changed since the popular stack diagram
+### 6.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| "Vector DBs" layer with ten tiles | Vectors are a feature of databases, search engines and object storage, and some vendors sell knowledge engines above the store [VF: A2-S137, A2-S133, A2-S081, A2-S073] | "Retrieval and knowledge stores": a derived-index layer with entitlement filtering, tenant isolation and rebuild-from-source as defining duties [Rec] |
+| **The layer as a whole** | Vectors are a feature of databases, search engines and object storage, and some vendors sell knowledge engines above the store [VF: A2-S137, A2-S133, A2-S081, A2-S073] | "Retrieval and knowledge stores": a derived-index layer with entitlement filtering, tenant isolation and rebuild-from-source as defining duties [Rec] |
 | Postgres + pgvector | pgvector 0.8.7 (1 October 2026), two 2026 CVE fixes, managed on all three hyperscalers [VF: V1-S020, V1-S022, B-L6-S004, B-L6-S005] | Strategic default where PostgreSQL is standard [Rec] |
-| Pinecone "managed" | Managed plus BYOC (late September 2026); Nexus knowledge engine; CEO change [VF: V1-S034, A2-S073, A2-S068] | Tactical: managed dedicated store with BYOC; Nexus a separate decision [Rec] |
-| Qdrant "open source" | Apache-2.0; Hybrid and air-gapped Private Cloud; Series B [VF: A2-S108, A2-S106, A2-S107] | Strategic dedicated engine for in-estate use [Rec] |
-| Milvus "vector search" | Milvus 3.0 lake-native; Zilliz Cloud "Vector Lakebase" [VF: A2-S118, A2-S117] | Strategic dedicated engine for very large corpora; 3.0 after validation [Rec] |
-| Weaviate "open source" | Open core in transition (`wl/` commercial licence, 1.40 RC) [VF: A2-S115, V1-S070] | Tactical until the licence position is settled [Rec] |
-| turbopuffer "cloud vector store" | Vector plus BM25 on object storage; BYOC; Anthropic reported as a customer [VF: A2-S056, A2-S124, A2-S125] [R: A2-S126] | Tactical: many-tenant, cost-sensitive corpora, BYOC only [Rec] |
-| Elasticsearch "hybrid search" | Elastic 9.5; AGPL option; Jina models bundled [VF: A2-S133, A2-S132, A2-S023] | Strategic where already operated; OpenSearch as fork alternative [Rec] |
-| MongoDB "Atlas vector" | MongoDB Vector Search, self-managed GA as well as Atlas; hybrid GA; Voyage reranking preview [VF: A2-S137, A2-S141] | Strategic where MongoDB is the operational store [Rec] |
-| Chroma "open source" | Apache-2.0; Chroma Cloud with SOC 2 Type II; no PyPI release since May 2026 [VF: A2-S060, A2-S130] | Tactical: prototypes and harnesses [Rec] |
-| S3 Vectors "AWS" | GA December 2025; 2 billion vectors per index; no BM25 [VF: A2-S081, A2-S083, V1-S030] | Tactical: AWS cost tier and Bedrock Knowledge Bases; not AWS's lead vector-search service, so not Strategic under CP3 Q2 [Rec] |
-| (absent) | Azure AI Search, Vertex AI Vector Search, OpenSearch, Oracle and SQL Server vector support are not in the fact base, except OpenSearch inside the Elastic record [VF: A2-S136] [NPV] | Assess in a follow-up pass; Azure- or Google-centred firms should evaluate their platform's native option at STEP 1 [Rec] |
+| Pinecone | Managed plus BYOC (late September 2026); Nexus knowledge engine; CEO change [VF: V1-S034, A2-S073, A2-S068] | Tactical: managed dedicated store with BYOC; Nexus a separate decision [Rec] |
+| Qdrant | Apache-2.0; Hybrid and air-gapped Private Cloud; Series B [VF: A2-S108, A2-S106, A2-S107] | Strategic dedicated engine for in-estate use [Rec] |
+| Milvus | Milvus 3.0 lake-native; Zilliz Cloud "Vector Lakebase" [VF: A2-S118, A2-S117] | Strategic dedicated engine for very large corpora; 3.0 after validation [Rec] |
+| Weaviate | Open core in transition (`wl/` commercial licence, 1.40 RC) [VF: A2-S115, V1-S070] | Tactical until the licence position is settled [Rec] |
+| turbopuffer | Vector plus BM25 on object storage; BYOC; Anthropic reported as a customer [VF: A2-S056, A2-S124, A2-S125] [R: A2-S126] | Tactical: many-tenant, cost-sensitive corpora, BYOC only [Rec] |
+| Elasticsearch | Elastic 9.5; AGPL option; Jina models bundled [VF: A2-S133, A2-S132, A2-S023] | Strategic where already operated; OpenSearch as fork alternative [Rec] |
+| MongoDB | MongoDB Vector Search, self-managed GA as well as Atlas; hybrid GA; Voyage reranking preview [VF: A2-S137, A2-S141] | Strategic where MongoDB is the operational store [Rec] |
+| Chroma | Apache-2.0; Chroma Cloud with SOC 2 Type II; no PyPI release since May 2026 [VF: A2-S060, A2-S130] | Tactical: prototypes and harnesses [Rec] |
+| S3 Vectors | GA December 2025; 2 billion vectors per index; no BM25 [VF: A2-S081, A2-S083, V1-S030] | Tactical: AWS cost tier and Bedrock Knowledge Bases; not AWS's lead vector-search service, so not Strategic under CP3 Q2 [Rec] |
+| Further platform-native options | Azure AI Search, Vertex AI Vector Search, OpenSearch, Oracle and SQL Server vector support are not in the fact base, except OpenSearch inside the Elastic record [VF: A2-S136] [NPV] | Assess in a follow-up pass; Azure- or Google-centred firms should evaluate their platform's native option at STEP 1 [Rec] |
 
 **H5 ("vector database" should become "Retrieval / Knowledge Stores"). Provisional view; verdict in synthesis.**
 
@@ -2689,7 +2691,7 @@ The counter-evidence is that dedicated engines still differentiate on filtered s
 
 ## 7. Embeddings and reranking
 
-> **Executive summary.** This layer turns text, and now images, audio and PDF pages, into vectors that a retrieval store can search. It then reorders the candidates so that the few passages handed to the model are the right ones. Three things have changed since the popular stack diagram. First, every model vendor in this layer except OpenAI now offers both an embedding model and a reranker: Cohere, Voyage, Jina, NVIDIA and Qwen ship them together, and Google offers a separate Vertex ranking API [VF: A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S026, A2-S030, A2-S031, A2-S020, B-REV-S026]. Second, two of the popular stack diagram's vendors now belong to database companies: Voyage AI to MongoDB since 17 February 2025 [VF: A2-S033, V1-S023], and Jina AI to Elastic since 9 October 2025 [VF: A2-S023, V1-S025]. Third, the stores themselves now host embedding and reranking [VF: A2-S101, A2-S141, A2-S133]. The architectural point that matters most is this: the embedding model version is production configuration, because changing it forces the whole corpus to be re-embedded [AJ]. **Recommendation:** build one governed retrieval-optimisation service that pins the embedding and reranker versions, keeps raw text and model-version metadata, and migrates by dual index. Choose the models by in-domain evaluation. For regulated data, prefer options that run in your own estate or in a verified region [Rec].
+> **Executive summary.** This layer turns text, and now images, audio and PDF pages, into vectors that a retrieval store can search. It then reorders the candidates so that the few passages handed to the model are the right ones. Three things define the layer at the end of Q3 2026. First, every model vendor in this layer except OpenAI now offers both an embedding model and a reranker: Cohere, Voyage, Jina, NVIDIA and Qwen ship them together, and Google offers a separate Vertex ranking API [VF: A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S026, A2-S030, A2-S031, A2-S020, B-REV-S026]. Second, two of the layer's vendors now belong to database companies: Voyage AI to MongoDB since 17 February 2025 [VF: A2-S033, V1-S023], and Jina AI to Elastic since 9 October 2025 [VF: A2-S023, V1-S025]. Third, the stores themselves now host embedding and reranking [VF: A2-S101, A2-S141, A2-S133]. The architectural point that matters most is this: the embedding model version is production configuration, because changing it forces the whole corpus to be re-embedded [AJ]. **Recommendation:** build one governed retrieval-optimisation service that pins the embedding and reranker versions, keeps raw text and model-version metadata, and migrates by dual index. Choose the models by in-domain evaluation. For regulated data, prefer options that run in your own estate or in a verified region [Rec].
 
 ![Retrieval quality is a two-stage problem](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P13.png){width=4.8in}
 
@@ -2930,7 +2932,7 @@ Each deep dive gives the current state as tagged facts, then judgement. Totals a
 - **Tier: Strategic. Flag: none.** FS 3.70. Rule 2 caps were applied.
 
 **NVIDIA NeMo Retriever embedding and reranking NIMs (NVIDIA).**
-- *What it is now:* the popular stack diagram's "NVIDIA – Embed" tile is now the set of NeMo Retriever NIM microservices [VF: A2-S030, A2-S031]:
+- *What it is now:* NVIDIA's embedding offer is the set of NeMo Retriever NIM microservices [VF: A2-S030, A2-S031]:
   - Embedding NIM 2.3, with nemotron-3-embed-1b (added in 2.2) and the llama-nemotron-embed text and VL models [VF: A2-S031, V1-S094]
   - Reranking NIM 2.0.0, with text and multimodal rerankers [VF: A2-S030]
 - *Deployment and licensing:* they deploy via Helm or Docker on supported GPUs, in any cloud or data centre [VF: A2-S031, A2-S040]. Production use requires NVIDIA AI Enterprise, from US$4,500 per GPU per year (as of 7 October 2026) [VF: A2-S040]. Model licences vary by model [VF: A2-S041]. The Helm chart warns that a text-only reranker silently degrades multimodal reranking [VF: A2-S031].
@@ -3023,7 +3025,7 @@ Output of `tools/score.py` (scores 1–5; totals are weighted averages):
 - Self-hosted, they create no data transfer [AJ]. They do need a model-provenance and supply-chain review, which is consistent with the OWASP supply-chain risk (LLM03 in the 2025 list) [R: A8-S040] [AJ].
 - The hosted Model Studio API is a different decision, because its regions are Singapore, Hong Kong and Beijing [VF: A2-S022].
 
-**Concentration.** Database companies now own two of the popular stack diagram's vendors (Voyage and Jina) [VF: A2-S033, A2-S023]. Choosing MongoDB with Voyage, or Elastic with Jina, concentrates L6 and L7 on one supplier. Their outages and ownership events then become correlated [AJ]. IOSCO names concentration among few AI technology providers as a supervisory concern (R-INTL-AI-ASSETMGMT) [VF: A8-S058]. For important business services, either accept the bundle consciously and record it in the exit plan, or keep the embedding vendor independent of the store [Rec].
+**Concentration.** Database companies now own two of the layer's embedding vendors (Voyage and Jina) [VF: A2-S033, A2-S023]. Choosing MongoDB with Voyage, or Elastic with Jina, concentrates L6 and L7 on one supplier. Their outages and ownership events then become correlated [AJ]. IOSCO names concentration among few AI technology providers as a supervisory concern (R-INTL-AI-ASSETMGMT) [VF: A8-S058]. For important business services, either accept the bundle consciously and record it in the exit plan, or keep the embedding vendor independent of the store [Rec].
 
 **Auditability.** For every retrieval, the C8 evidence pack should hold [Rec]:
 - query hash
@@ -3067,21 +3069,21 @@ That is enough to show what the model was shown, and to reproduce it while the i
 - **Retrieve unapproved drafts** or superseded style-guide versions. Approval status and validity dates are filter fields.
 - **Run on an unpinned model.** The commentary index carries one `model_version`, and the evidence pack records it alongside the reranker version and the retrieved document IDs.
 
-### 7.13 What changed since the popular stack diagram
+### 7.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| OpenAI – Embeddings 3 | Still text-embedding-3 (January 2024); no reranker found [VF: A2-S001, A2-S002] | Tactical text baseline where OpenAI is already approved; pair with a separate reranker [Rec] |
-| Gemini – Embedding 2 | gemini-embedding-2 GA 22 April 2026; multimodal; EU endpoint excludes UK [VF: A2-S004, A2-S039] | Strategic, conditional: where Google Cloud is your primary cloud and UK-only processing is not mandatory (CP3 Q2) [Rec] |
-| Voyage AI – Voyage-3 | MongoDB-owned; Voyage 4 family, rerank-3 (Preview) [VF: A2-S033, A2-S006, V1-S024] | Tactical; preferred where MongoDB is the store, after SOC 2 scope is evidenced [Rec] |
-| Cohere – Embed v3 + Rerank | Embed 5 and Rerank 4; Aleph Alpha combination pending [VF: A2-S012, A2-S010, A2-S018] | Tactical (FS 3.70 on Foundry or SageMaker); Strategic candidate for private or hyperscaler deployment once per-service due diligence confirms the presumed access controls [Rec] |
-| Qwen3 – Embeddings | Embedding **and** Reranker, Apache 2.0, plus VL variants [VF: A2-S020, A2-S021] | Tactical; self-host only, after provenance review [Rec] |
-| Jina AI – Embeddings v3 | Elastic-owned; v5 text/omni, reranker v3.5; CC-BY-NC weights [VF: A2-S023, A2-S025, A2-S024] | Tactical inside Elastic estates; licensed routes only [Rec] |
-| SBERT – Sentence transformers | 6.1.0, Apache-2.0, Hugging Face; dense, cross-encoder, sparse, multi-vector [VF: A2-S029] | **Strategic** as the self-hosting, fine-tuning and exit toolkit [Rec] |
-| NVIDIA – Embed | NeMo Retriever embed and rerank NIMs; AI Enterprise needed for production [VF: A2-S031, A2-S040] | Tactical for NVIDIA-standardised estates [Rec] |
+| OpenAI embeddings | Still text-embedding-3 (January 2024); no reranker found [VF: A2-S001, A2-S002] | Tactical text baseline where OpenAI is already approved; pair with a separate reranker [Rec] |
+| Gemini embeddings | gemini-embedding-2 GA 22 April 2026; multimodal; EU endpoint excludes UK [VF: A2-S004, A2-S039] | Strategic, conditional: where Google Cloud is your primary cloud and UK-only processing is not mandatory (CP3 Q2) [Rec] |
+| Voyage AI | MongoDB-owned; Voyage 4 family, rerank-3 (Preview) [VF: A2-S033, A2-S006, V1-S024] | Tactical; preferred where MongoDB is the store, after SOC 2 scope is evidenced [Rec] |
+| Cohere Embed and Rerank | Embed 5 and Rerank 4; Aleph Alpha combination pending [VF: A2-S012, A2-S010, A2-S018] | Tactical (FS 3.70 on Foundry or SageMaker); Strategic candidate for private or hyperscaler deployment once per-service due diligence confirms the presumed access controls [Rec] |
+| Qwen3 Embedding and Reranker | Both an embedding model and a reranker, Apache 2.0, plus VL variants [VF: A2-S020, A2-S021] | Tactical; self-host only, after provenance review [Rec] |
+| Jina AI | Elastic-owned; v5 text/omni, reranker v3.5; CC-BY-NC weights [VF: A2-S023, A2-S025, A2-S024] | Tactical inside Elastic estates; licensed routes only [Rec] |
+| Sentence Transformers | 6.1.0, Apache-2.0, Hugging Face; dense, cross-encoder, sparse, multi-vector [VF: A2-S029] | **Strategic** as the self-hosting, fine-tuning and exit toolkit [Rec] |
+| NVIDIA NeMo Retriever | NeMo Retriever embed and rerank NIMs; AI Enterprise needed for production [VF: A2-S031, A2-S040] | Tactical for NVIDIA-standardised estates [Rec] |
 | EthicalAgents; Ragoos | Not publicly verified; removed per CP1 Q4(a) [VF: A2-S079, A2-S080] | Do not use |
-| (missing) | Amazon Bedrock embeddings and Rerank, Mixedbread and ZeroEntropy were not researched in this run [NPV]; the Vertex AI ranking API exists but was not scored [VF: B-REV-S026] | Candidates for a follow-up pass; not recommended or rejected here [AJ] |
-| Layer: "Embeddings" and "RAG re-rankers" as separate tiles | Vendors ship both; stores host both [VF: A2-S101, A2-S141, A2-S133] | One governed retrieval-optimisation service: pinned versions, raw text retained, dual-index migration, in-domain eval gate [Rec] |
+| Not yet assessed | Amazon Bedrock embeddings and Rerank, Mixedbread and ZeroEntropy were not researched in this run [NPV]; the Vertex AI ranking API exists but was not scored [VF: B-REV-S026] | Candidates for a follow-up pass; not recommended or rejected here [AJ] |
+| **The layer as a whole** | Vendors ship both; stores host both [VF: A2-S101, A2-S141, A2-S133] | One governed retrieval-optimisation service: pinned versions, raw text retained, dual-index migration, in-domain eval gate [Rec] |
 
 **H6, provisional; verdict in synthesis.** The evidence supports treating embedding and reranking as one **retrieval-optimisation** concern [AJ]:
 
@@ -3089,12 +3091,12 @@ That is enough to show what the model was shown, and to reproduce it while the i
 - Sentence Transformers covers both in one library [VF: A2-S029].
 - The two are evaluated together, and they are versioned together.
 
-The same evidence also shows the compute moving into L6, because MongoDB, Pinecone and Elastic host embedding and reranking natively [VF: A2-S141, A2-S101, A2-S133]. The provisional view is to **merge** the popular stack diagram's "Embeddings" and "RAG re-rankers" into one retrieval-optimisation layer, defined by responsibility rather than by where the compute runs [AJ]. That layer owns model choice, version pinning, hybrid fusion policy and the retrieval evaluation gate, whether the models run as APIs, in the firm's own estate, or inside the store. Embedding-model versioning should be named explicitly as a governed configuration item, because it is the one decision in this layer that carries a corpus-wide migration cost [AJ].
+The same evidence also shows the compute moving into L6, because MongoDB, Pinecone and Elastic host embedding and reranking natively [VF: A2-S141, A2-S101, A2-S133]. The provisional view is to **merge** embedding and reranking into one retrieval-optimisation layer, defined by responsibility rather than by where the compute runs [AJ]. That layer owns model choice, version pinning, hybrid fusion policy and the retrieval evaluation gate, whether the models run as APIs, in the firm's own estate, or inside the store. Embedding-model versioning should be named explicitly as a governed configuration item, because it is the one decision in this layer that carries a corpus-wide migration cost [AJ].
 
 
 ## 8. Data extraction, ingestion and web
 
-> L8 turns source material (enterprise documents, scans, spreadsheets, slides, e-mails and web pages) into clean, structured, permission-tagged content that retrieval (L7/L6) and agents can trust. The popular stack diagram treats it as a shelf of parsers and scrapers. Since then the products have moved: LlamaParse is now the name of LlamaIndex's whole document platform [VF: A1-S080, V1-S008]; Mistral OCR is at version 4.1, with 4.0 retired on 30 September 2026 [VF: A1-S130, V1-S014]; Docling graduated within LF AI & Data in August 2026 [VF: V1-S091]; and Firecrawl's server is AGPL-3.0, with its enterprise controls offered only in the Cloud [VF: A1-S053, A1-S079]. Of the ten products assessed, only Unstructured's open-source connectors carry access-control metadata into the pipeline [VF: A1-S094], and none emits lineage [VF: A1-S094, A1-S096]. The parsers are commodity components; the enterprise value is in the control plane that wraps them [AJ]. **Recommendation:** standardise on a self-hosted, open document model (Docling as default, Unstructured ingest where connectors with ACLs are needed), put managed parsers and OCR engines behind that model as replaceable engines, and build the lineage, classification, entitlement and incremental-indexing envelope yourself [Rec].
+> L8 turns source material (enterprise documents, scans, spreadsheets, slides, e-mails and web pages) into clean, structured, permission-tagged content that retrieval (L7/L6) and agents can trust. It is more than a shelf of parsers and scrapers, and the products have moved: LlamaParse is now the name of LlamaIndex's whole document platform [VF: A1-S080, V1-S008]; Mistral OCR is at version 4.1, with 4.0 retired on 30 September 2026 [VF: A1-S130, V1-S014]; Docling graduated within LF AI & Data in August 2026 [VF: V1-S091]; and Firecrawl's server is AGPL-3.0, with its enterprise controls offered only in the Cloud [VF: A1-S053, A1-S079]. Of the ten products assessed, only Unstructured's open-source connectors carry access-control metadata into the pipeline [VF: A1-S094], and none emits lineage [VF: A1-S094, A1-S096]. The parsers are commodity components; the enterprise value is in the control plane that wraps them [AJ]. **Recommendation:** standardise on a self-hosted, open document model (Docling as default, Unstructured ingest where connectors with ACLs are needed), put managed parsers and OCR engines behind that model as replaceable engines, and build the lineage, classification, entitlement and incremental-indexing envelope yourself [Rec].
 
 ![Many "hallucinations" start in a table parser](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P15.png){width=4.8in}
 
@@ -3104,7 +3106,7 @@ The same evidence also shows the compute moving into L6, because MongoDB, Pineco
 
 L8 owns the path from an approved source to an indexed, governed unit of content: source → acquisition → parsing → OCR → structure extraction → cleaning → chunking → metadata → indexing (plan §5), across PDFs and scans, tables, PowerPoint and Excel, websites, e-mails, enterprise documents, structured data and multimodal documents [AJ].
 
-The layer has two distinct jobs, and the popular stack diagram blurs them [AJ]:
+The layer has two distinct jobs, and they are easily blurred [AJ]:
 
 1. **Acquisition:** getting bytes from a source the firm is entitled to use. Web acquisition (Firecrawl, Crawl4AI, Apify) raises questions of law, terms of service, robots.txt and provenance. Enterprise acquisition (connectors into SharePoint, OneDrive, Confluence, S3) raises questions of entitlements and change detection [AJ].
 2. **Document understanding:** turning bytes into faithful structure: text, reading order, tables, figures and their coordinates. Docling, LlamaParse, MinerU, Reducto, Unstructured, Mistral OCR and Google Document AI compete here [AJ].
@@ -3451,22 +3453,22 @@ The performance-attribution commentary agent drafts monthly Brinson-style commen
 - **Send client-identifying content to a parser outside the approved residency.**
 - **Lose the parse manifest.** Without it, last month's draft cannot be reproduced.
 
-### 8.13 What changed since the popular stack diagram
+### 8.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| One "data extraction" tile row mixing scrapers and parsers | Two distinct jobs, web acquisition and document understanding, plus agent-facing web tools that overlap L4 [VF: A1-S077, A1-S089] | Keep one L8 layer with two sub-layers (acquisition; document understanding) under a shared ingestion control plane; move runtime web access to L4 [Rec] |
-| Firecrawl – web to LLM-ready | AGPL server, Cloud-only enterprise controls, US data [VF: A1-S053, A1-S079, A1-S134] | Tactical for public sources [Rec] |
-| Docling – doc parser | MIT, LF AI & Data Graduate (August 2026), 2.135.0 [VF: V1-S091, A1-S008] | Strategic default engine and canonical model [Rec] |
-| LlamaParse – PDF / documents | Renamed: the whole LlamaIndex platform (formerly LlamaCloud) [VF: A1-S080] | Tactical; Parse/Extract only, indexing kept in-house [Rec] |
-| Crawl4AI – open crawler | Pre-1.0; Apache-2.0 plus attribution clause [VF: A1-S009, A1-S056] | Experimental; self-hosted pilots [Rec] |
-| MinerU – PDF parser | 4.0, multi-format, custom licence [VF: A1-S055, A1-S054] | Experimental pending licence review [Rec] |
-| Reducto – enterprise docs | Proprietary API, vendor-only security evidence [VF: A1-S112] | Tactical after due diligence [Rec] |
-| Mistral OCR – OCR | OCR 4.1 (GA 26 August 2026); 4.0 retired 30 September 2026 [VF: A1-S130, V1-S014] | Tactical OCR engine; pin model ID [Rec] |
-| Unstructured – ETL for docs | Free OSS plus Transform v2 API; ACL-digest connectors [VF: A1-S075, A1-S094] | Strategic for connectors and entitlement capture [Rec] |
-| Apify – scrapers | Actor platform, MCP, US-only [VF: A1-S089, A1-S086] | Tactical; public data only [Rec] |
-| (missing) hyperscaler document AI | Google Document AI added; Azure and AWS equivalents not verified [VF: A1-S101] [NPV] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
-| (missing) lineage, classification, PII, entitlements, incremental indexing | Partial in products: Unstructured ACL digest [VF: A1-S094]; Firecrawl PII redaction and ZDR [VF: A1-S076]; no lineage in any L8 product; OpenLineage has no GenAI facets [VF: A7-S042] | A built ingestion control plane (below) [Rec] |
+| **The layer as a whole** | Two distinct jobs, web acquisition and document understanding, plus agent-facing web tools that overlap L4 [VF: A1-S077, A1-S089] | Keep one L8 layer with two sub-layers (acquisition; document understanding) under a shared ingestion control plane; move runtime web access to L4 [Rec] |
+| Firecrawl | AGPL server, Cloud-only enterprise controls, US data [VF: A1-S053, A1-S079, A1-S134] | Tactical for public sources [Rec] |
+| Docling | MIT, LF AI & Data Graduate (August 2026), 2.135.0 [VF: V1-S091, A1-S008] | Strategic default engine and canonical model [Rec] |
+| LlamaParse | Renamed: the whole LlamaIndex platform (formerly LlamaCloud) [VF: A1-S080] | Tactical; Parse/Extract only, indexing kept in-house [Rec] |
+| Crawl4AI | Pre-1.0; Apache-2.0 plus attribution clause [VF: A1-S009, A1-S056] | Experimental; self-hosted pilots [Rec] |
+| MinerU | 4.0, multi-format, custom licence [VF: A1-S055, A1-S054] | Experimental pending licence review [Rec] |
+| Reducto | Proprietary API, vendor-only security evidence [VF: A1-S112] | Tactical after due diligence [Rec] |
+| Mistral OCR | OCR 4.1 (GA 26 August 2026); 4.0 retired 30 September 2026 [VF: A1-S130, V1-S014] | Tactical OCR engine; pin model ID [Rec] |
+| Unstructured | Free OSS plus Transform v2 API; ACL-digest connectors [VF: A1-S075, A1-S094] | Strategic for connectors and entitlement capture [Rec] |
+| Apify | Actor platform, MCP, US-only [VF: A1-S089, A1-S086] | Tactical; public data only [Rec] |
+| Hyperscaler document AI | Google Document AI assessed; Azure and AWS equivalents not verified [VF: A1-S101] [NPV] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
+| Lineage, classification, PII, entitlements, incremental indexing | Partial in products: Unstructured ACL digest [VF: A1-S094]; Firecrawl PII redaction and ZDR [VF: A1-S076]; no lineage in any L8 product; OpenLineage has no GenAI facets [VF: A7-S042] | A built ingestion control plane (below) [Rec] |
 
 **Hypothesis H7 (provisional; verdict in synthesis).** The evidence supports H7, with one refinement: the enterprise additions are not product features to buy but a control plane to build around replaceable parsers [AJ]. Only partial capabilities exist in products:
 
@@ -3489,7 +3491,7 @@ The open question for synthesis is whether this control plane is an L8 sub-layer
 
 ## 9. Evaluation and observability (cross-cutting)
 
-> **Executive summary.** This layer answers two questions for every GenAI system: is the output good enough to use, and what actually happened when it ran? Three things have changed since the popular stack diagram. First, ownership has consolidated. Dynatrace completed its acquisition of Arize (Phoenix and AX) on 1 October 2026 [VF: A1-S045, V1-S005]. ClickHouse announced it had acquired Langfuse on 16 January 2026 [VF: A1-S021, V2-S041]. OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A1-S024, V1-S006]. W&B Weave has been part of CoreWeave since 5 May 2025 [VF: A1-S131]. Second, OpenTelemetry has become the common ingest format [AJ], although the GenAI semantic conventions are still at "Development" status [VF: A1-S058]. Third, the products now reach across the stack into gateways, prompt management, guardrails and automated fix proposals [VF: A1-S043, A1-S039, A1-S067]. This layer is not a box at the end of the pipeline [AJ]. **Recommendation:** instrument once with OpenTelemetry GenAI conventions or OpenInference, and own the evaluation harness and the evidence store. Then pick one platform of record for traces and evals (self-hosted Langfuse, or MLflow where an ML platform already exists, or LangSmith for LangGraph estates). Run two CI eval and red-team tools, one of them independent of any model vendor [Rec].
+> **Executive summary.** This layer answers two questions for every GenAI system: is the output good enough to use, and what actually happened when it ran? Three things define the layer at the end of Q3 2026. First, ownership has consolidated. Dynatrace completed its acquisition of Arize (Phoenix and AX) on 1 October 2026 [VF: A1-S045, V1-S005]. ClickHouse announced it had acquired Langfuse on 16 January 2026 [VF: A1-S021, V2-S041]. OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A1-S024, V1-S006]. W&B Weave has been part of CoreWeave since 5 May 2025 [VF: A1-S131]. Second, OpenTelemetry has become the common ingest format [AJ], although the GenAI semantic conventions are still at "Development" status [VF: A1-S058]. Third, the products now reach across the stack into gateways, prompt management, guardrails and automated fix proposals [VF: A1-S043, A1-S039, A1-S067]. This layer is not a box at the end of the pipeline [AJ]. **Recommendation:** instrument once with OpenTelemetry GenAI conventions or OpenInference, and own the evaluation harness and the evidence store. Then pick one platform of record for traces and evals (self-hosted Langfuse, or MLflow where an ML platform already exists, or LangSmith for LangGraph estates). Run two CI eval and red-team tools, one of them independent of any model vendor [Rec].
 
 ### 9.1 Responsibility
 
@@ -3532,7 +3534,7 @@ The IOSCO supervisory toolkit names indicators for asset managers that include t
 The mechanics have three loops that share one trace and dataset store.
 
 1. **Instrumentation.** Each layer emits spans (model call, retrieval, tool execution, agent step) using the OpenTelemetry GenAI semantic conventions, still at "Development" status as of 7 October 2026 [VF: A1-S058]. Since semconv v1.42.0 these definitions live in a dedicated repository, `semantic-conventions-genai` [VF: A1-S060], covering client inference, agents, tool execution, retrieval, evaluation and MCP [VF: A1-S061]. It defines a `gen_ai.evaluation.result` event with name, score, label and explanation [VF: A1-S059], so a score can travel on the same pipe as the trace it judges [AJ]. OpenInference (Apache-2.0) is the alternative used by Phoenix and AX [VF: A1-S049, A1-S066].
-2. **Offline and CI evaluation.** Versioned datasets (golden cases, past failures, red-team cases) run against every change to model, prompt, retrieval configuration or tool, and results gate the merge. Six of the evaluation products in the popular stack diagram document a CI path: pytest plugins for LangSmith [VF: A1-S108], Phoenix [VF: A1-S106] and Opik [VF: A1-S067]; DeepEval's Pytest-like framework [VF: A1-S068]; Promptfoo with GitHub Actions, GitLab and Jenkins [VF: A1-S065]; and Braintrust's GitHub Action posting PR comments [VF: A1-S109].
+2. **Offline and CI evaluation.** Versioned datasets (golden cases, past failures, red-team cases) run against every change to model, prompt, retrieval configuration or tool, and results gate the merge. Six of the evaluation products assessed here document a CI path: pytest plugins for LangSmith [VF: A1-S108], Phoenix [VF: A1-S106] and Opik [VF: A1-S067]; DeepEval's Pytest-like framework [VF: A1-S068]; Promptfoo with GitHub Actions, GitLab and Jenkins [VF: A1-S065]; and Braintrust's GitHub Action posting PR comments [VF: A1-S109].
 3. **Online evaluation and feedback.** Evaluators score a sample of production traces, and reviewer edits and user ratings attach to traces as scores: Opik online evaluation rules [VF: A1-S072], Langfuse evaluators [VF: A1-S073], Datadog evaluations [VF: A1-S099]. Clustering groups recurring failures: LangSmith Engine [VF: A1-S039], Braintrust Topics [VF: A1-S043], AX Signal [VF: A1-S046]. Failing cases are promoted into the CI dataset, which closes the loop [AJ].
 
 ![L9 observability: one firm-owned telemetry pipeline and a closed evaluation loop](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L9-1.png){width=100%}
@@ -3639,7 +3641,7 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 - *Avoid when:* you need roadmap certainty now [AJ].
 - *Competitors:* LangSmith, Datadog, Braintrust.
 - *FS note:* refresh third-party due diligence after the change of control [Rec].
-- **Tier: Tactical. Flags: Acquired, Duplicated** (the popular stack diagram shows Arize twice).
+- **Tier: Tactical. Flags: Acquired, Duplicated** (Phoenix and AX are two products from one vendor).
 
 **DeepEval (Confident AI).**
 - *What it is now:* an Apache-2.0 Python framework, "similar to Pytest but specialised for unit testing LLM apps" [VF: A1-S068, A1-S051]. Version 4.2.8 was released on 2 October 2026 [VF: A1-S005].
@@ -3837,32 +3839,32 @@ The tree is applied in four steps. Steps 0 and 4 are not product choices; step 4
 - discard or overwrite eval evidence when a vendor tier expires
 - score a release without recording which dataset and judge version produced the score
 
-### 9.13 What changed since the popular stack diagram
+### 9.13 Baseline position and hypothesis view
 
 ![Evaluation is a plane, not the last box](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P17.png){width=4.8in}
 
-*Figure: Evaluation is a plane, not the last box. Instrument once on an open standard, own the eval harness and evidence store, and treat the products as plug-ins. The left-hand stack is generic. Editable source: `08_Graphic/linkedin/P17.md`.* [AJ]
+*Figure: Evaluation is a plane, not the last box. Instrument once on an open standard, own the eval harness and evidence store, and treat the products as plug-ins. The left-hand stack is a generic pipeline view; the right-hand stack is the new baseline. Editable source: `08_Graphic/linkedin/P17.md`.* [AJ]
 
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| Downstream "evals and observability" layer with eight tiles | Products now include gateways (Braintrust, LangSmith, MLflow), guardrails (Opik), prompt management and fix proposals [VF: A1-S043, A1-S039, A1-S103, A1-S067] | A cross-cutting plane: firm-owned OTel Collector, one platform of record, CI eval and red-team harness, evidence archive in C8 [Rec] |
-| Langfuse "open source" | MIT core, enterprise-gated audit and RBAC; ClickHouse-owned [VF: A1-S033, A1-S021] | Strategic platform of record, self-hosted with Enterprise licence [Rec] |
-| LangSmith "trace & eval" | Agent platform (Engine, Fleet, Gateway, Deployment) [VF: A1-S039] | Strategic for LangGraph estates, dual-instrumented with OTel [Rec] |
-| Braintrust "evals platform" | Repositioned to "active observability for agents"; hybrid data plane [VF: A1-S043, A1-S041] | Tactical: eval-led teams [Rec] |
-| Phoenix "Atrace" | Arize Phoenix, ELv2, Dynatrace-owned [VF: A1-S048, A1-S045] | Tactical: validation sandboxes; OpenInference as portable instrumentation [Rec] |
-| Arize "RAG metrics" | Arize AX, full platform; duplicate vendor tile; Dynatrace-owned [VF: A1-S046, A1-S045] | Tactical; re-assess after the Dynatrace roadmap [Rec] |
-| DeepEval "LLM unit tests" | Accurate; agentic and trajectory metrics added [VF: A1-S068] | Tactical: default CI metric library [Rec] |
-| Promptfoo "red-teaming" | Evals plus red-teaming; OpenAI acquisition announced 9 March 2026, closing not published [VF: A1-S062, V2-S042] | Tactical: one of two red-team tools [Rec] |
-| Opik "comet" | Apache-2.0 full platform by Comet [VF: A1-S050] | Tactical: Apache-2.0 alternative with Comet Enterprise [Rec] |
-| (absent) | MLflow GenAI, Datadog Agent Observability, W&B Weave [VF: A1-S103, A1-S097, A1-S104] | MLflow Strategic where an ML platform exists; Datadog and Weave Tactical [Rec] |
+| **The layer as a whole** | Products now include gateways (Braintrust, LangSmith, MLflow), guardrails (Opik), prompt management and fix proposals [VF: A1-S043, A1-S039, A1-S103, A1-S067] | A cross-cutting plane: firm-owned OTel Collector, one platform of record, CI eval and red-team harness, evidence archive in C8 [Rec] |
+| Langfuse | MIT core, enterprise-gated audit and RBAC; ClickHouse-owned [VF: A1-S033, A1-S021] | Strategic platform of record, self-hosted with Enterprise licence [Rec] |
+| LangSmith | Agent platform (Engine, Fleet, Gateway, Deployment) [VF: A1-S039] | Strategic for LangGraph estates, dual-instrumented with OTel [Rec] |
+| Braintrust | Repositioned to "active observability for agents"; hybrid data plane [VF: A1-S043, A1-S041] | Tactical: eval-led teams [Rec] |
+| Arize Phoenix | Arize Phoenix, ELv2, Dynatrace-owned [VF: A1-S048, A1-S045] | Tactical: validation sandboxes; OpenInference as portable instrumentation [Rec] |
+| Arize AX | Full platform; same vendor as Phoenix; Dynatrace-owned [VF: A1-S046, A1-S045] | Tactical; re-assess after the Dynatrace roadmap [Rec] |
+| DeepEval | Agentic and trajectory metrics added [VF: A1-S068] | Tactical: default CI metric library [Rec] |
+| Promptfoo | Evals plus red-teaming; OpenAI acquisition announced 9 March 2026, closing not published [VF: A1-S062, V2-S042] | Tactical: one of two red-team tools [Rec] |
+| Opik (Comet) | Apache-2.0 full platform by Comet [VF: A1-S050] | Tactical: Apache-2.0 alternative with Comet Enterprise [Rec] |
+| MLflow, Datadog, W&B Weave | MLflow GenAI, Datadog Agent Observability, W&B Weave [VF: A1-S103, A1-S097, A1-S104] | MLflow Strategic where an ML platform exists; Datadog and Weave Tactical [Rec] |
 
 **H8 (evaluation and observability are cross-cutting, not a downstream layer). Provisional view; verdict in synthesis.**
 
 The evidence supports the hypothesis on four counts.
 
 - **The instrumentation standard spans the stack.** OTel GenAI conventions cover client inference, agents, tool execution, retrieval, evaluation and MCP. Evaluation results have their own event type [VF: A1-S061, A1-S059].
-- **Tools couple CI to production.** Six of the evaluation products in the popular stack diagram document a CI evaluation path [VF: A1-S108, A1-S106, A1-S067, A1-S068, A1-S065, A1-S109], and the platform products run evaluators over production traces [VF: A1-S072, A1-S073, A1-S046, A1-S099].
+- **Tools couple CI to production.** Six of the evaluation products assessed here document a CI evaluation path [VF: A1-S108, A1-S106, A1-S067, A1-S068, A1-S065, A1-S109], and the platform products run evaluators over production traces [VF: A1-S072, A1-S073, A1-S046, A1-S099].
 - **Vendors are pushing the layer sideways.** It is moving into gateways (C1), prompt management (C5), guardrails (C2) and security testing (C7) [VF: A1-S043, A1-S103, A1-S067, A1-S024].
 - **Ownership is consolidating into horizontal platforms.** The new owners are an APM vendor (Dynatrace), a database vendor (ClickHouse), a model vendor (OpenAI) and a GPU cloud (CoreWeave), and a second APM vendor (Datadog) sells its own module [VF: A1-S045, A1-S021, A1-S024, A1-S131, A1-S097].
 
@@ -3876,7 +3878,7 @@ The counter-evidence is that the OTel GenAI conventions are still "Development" 
 
 ## C1. AI / LLM gateway
 
-> **Executive summary.** The gateway is the single point through which every model call, and now every tool and agent call, leaves an application. It owns provider abstraction, routing and fallback, quotas and budgets, caching, policy enforcement and the request log [AJ]. The popular stack diagram has no gateway. Its only nod to one is OpenRouter in L2, a hosted router that now carries budgets, allowlists, zero-data-retention and regional routing [VF: A4-S111, A4-S109]. Four things have changed since then. First, the gateways now carry three kinds of traffic: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. Second, ownership is moving towards security vendors: Palo Alto Networks completed its acquisition of Portkey on 29 May 2026 and sells it as Prisma AIRS AI Gateway [VF: A6-S011, A6-S012, V2-S025]. Third, the gateway has proved to be an attack target in its own right: malicious LiteLLM 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026 [VF: A6-S008, V2-S027]. Fourth, the hyperscaler offerings are real but uneven: the Azure API Management AI Gateway tier is preview with no SLA [VF: A6-S020, V2-S073], and no AWS product called "AI gateway" was found: AWS offers an MCP gateway with new inference targets and a LiteLLM-based reference pattern instead [VF: A6-S021, A6-S022, A6-S105]. **Recommendation:** run one firm-controlled gateway of record for all production LLM and MCP traffic, deployed in-region, failing closed, with pinned and signed builds. Choose LiteLLM (hardened and Enterprise-licensed), Kong, Apigee or the GA AI gateway policies in Azure API Management according to your existing API and cloud estate, and keep the model-switch route tested, because the gateway is what makes an exit plan executable [Rec].
+> **Executive summary.** The gateway is the single point through which every model call, and now every tool and agent call, leaves an application. It owns provider abstraction, routing and fallback, quotas and budgets, caching, policy enforcement and the request log [AJ]. The baseline draws it as a control-plane component, not a feature of the inference layer: a hosted router such as OpenRouter now carries budgets, allowlists, zero-data-retention and regional routing [VF: A4-S111, A4-S109], but it is a model-access source behind the gateway, not the gateway itself [AJ]. Four things define the market at the end of Q3 2026. First, the gateways now carry three kinds of traffic: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. Second, ownership is moving towards security vendors: Palo Alto Networks completed its acquisition of Portkey on 29 May 2026 and sells it as Prisma AIRS AI Gateway [VF: A6-S011, A6-S012, V2-S025]. Third, the gateway has proved to be an attack target in its own right: malicious LiteLLM 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026 [VF: A6-S008, V2-S027]. Fourth, the hyperscaler offerings are real but uneven: the Azure API Management AI Gateway tier is preview with no SLA [VF: A6-S020, V2-S073], and no AWS product called "AI gateway" was found: AWS offers an MCP gateway with new inference targets and a LiteLLM-based reference pattern instead [VF: A6-S021, A6-S022, A6-S105]. **Recommendation:** run one firm-controlled gateway of record for all production LLM and MCP traffic, deployed in-region, failing closed, with pinned and signed builds. Choose LiteLLM (hardened and Enterprise-licensed), Kong, Apigee or the GA AI gateway policies in Azure API Management according to your existing API and cloud estate, and keep the model-switch route tested, because the gateway is what makes an exit plan executable [Rec].
 
 ![The boring component that makes exit real](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P04.png){width=4.8in}
 
@@ -4213,20 +4215,20 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - accept a provider-side model version change without recording it and triggering re-qualification
 - become the place where drafting logic or numbers are generated; it routes and records, it does not author
 
-### C1.13 What changed since the popular stack diagram
+### C1.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| **(absent).** The popular stack diagram has no gateway control; gateway concerns are implied only by OpenRouter in L2 | Gateways now carry LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061] | A control-plane component: one firm-controlled gateway of record, two deployments, fail-closed [Rec] |
-| OpenRouter "multi-provider" (L2) as the implied router | Hosted router with gateway-style governance (budgets, allowlists, ZDR, EU/US routing); Stripe acquisition agreed, pending [VF: A4-S111, A4-S109, V1-S059] | A model-access source behind the firm's gateway, not the gateway itself [Rec] |
-| (absent) LiteLLM | Open-core LLM+MCP+A2A gateway; PyPI compromise 24 March 2026, clean 1.83.0 [VF: A6-S015, A6-S008, A6-S009] | Strategic, conditional: hardened, pinned, Enterprise-licensed [Rec] |
-| (absent) Portkey | Acquired by Palo Alto Networks; now Prisma AIRS AI Gateway [VF: A6-S012, A6-S014] | Tactical; for Prisma AIRS estates [Rec] |
-| (absent) Kong AI Gateway | AI Gateway 2.0 GA 1 September 2026; 2.2 on 30 September [VF: A6-S016, V2-S034] | Strategic where Kong is the API standard [Rec] |
-| (absent) Cloudflare AI Gateway | Free core, DLP, Llama Guard guardrails, Unified Billing, new log pricing [VF: A6-S052, V2-S074] | Tactical; non-confidential workloads, BYOK [Rec] |
-| (absent) Azure APIM AI gateway | GA policies; AI Gateway tier preview with no SLA [VF: A6-S020, V2-S073] | Strategic, conditional: where Azure is your primary cloud (CP3 Q2); GA policies only, not the preview tier [Rec] |
-| (absent) "AWS AI gateway" | No product by that name found; AgentCore Gateway (MCP + new inference targets) and a LiteLLM-based Guidance [VF: A6-S021, A6-S022, A6-S105] | Strategic, conditional: where AWS is your primary cloud (CP3 Q2), for MCP tool governance; model routing elsewhere until inference targets are GA [Rec] |
-| (absent) Apigee | Marketed as an AI gateway; MCP GA 31 March 2026 [VF: A6-S024, A6-S023] | Strategic, conditional: where Google Cloud is your primary cloud or Apigee is the standard (CP3 Q2) [Rec] |
-| (absent) agentgateway, Envoy AI Gateway | agentgateway v1.6.0 (open foundation); Envoy AI Gateway renamed Agent Router (AAIF) [VF: A6-S062, A6-S063] | Tactical; neutral options for Kubernetes estates [Rec] |
+| **The control as a whole** | Gateways now carry LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061] | A control-plane component: one firm-controlled gateway of record, two deployments, fail-closed [Rec] |
+| OpenRouter (L2) | Hosted router with gateway-style governance (budgets, allowlists, ZDR, EU/US routing); Stripe acquisition agreed, pending [VF: A4-S111, A4-S109, V1-S059] | A model-access source behind the firm's gateway, not the gateway itself [Rec] |
+| LiteLLM | Open-core LLM+MCP+A2A gateway; PyPI compromise 24 March 2026, clean 1.83.0 [VF: A6-S015, A6-S008, A6-S009] | Strategic, conditional: hardened, pinned, Enterprise-licensed [Rec] |
+| Portkey | Acquired by Palo Alto Networks; now Prisma AIRS AI Gateway [VF: A6-S012, A6-S014] | Tactical; for Prisma AIRS estates [Rec] |
+| Kong AI Gateway | AI Gateway 2.0 GA 1 September 2026; 2.2 on 30 September [VF: A6-S016, V2-S034] | Strategic where Kong is the API standard [Rec] |
+| Cloudflare AI Gateway | Free core, DLP, Llama Guard guardrails, Unified Billing, new log pricing [VF: A6-S052, V2-S074] | Tactical; non-confidential workloads, BYOK [Rec] |
+| Azure APIM AI gateway | GA policies; AI Gateway tier preview with no SLA [VF: A6-S020, V2-S073] | Strategic, conditional: where Azure is your primary cloud (CP3 Q2); GA policies only, not the preview tier [Rec] |
+| "AWS AI gateway" | No product by that name found; AgentCore Gateway (MCP + new inference targets) and a LiteLLM-based Guidance [VF: A6-S021, A6-S022, A6-S105] | Strategic, conditional: where AWS is your primary cloud (CP3 Q2), for MCP tool governance; model routing elsewhere until inference targets are GA [Rec] |
+| Apigee | Marketed as an AI gateway; MCP GA 31 March 2026 [VF: A6-S024, A6-S023] | Strategic, conditional: where Google Cloud is your primary cloud or Apigee is the standard (CP3 Q2) [Rec] |
+| agentgateway, Envoy AI Gateway | agentgateway v1.6.0 (open foundation); Envoy AI Gateway renamed Agent Router (AAIF) [VF: A6-S062, A6-S063] | Tactical; neutral options for Kubernetes estates [Rec] |
 
 **H1 (split L2 into serving → optimisation → gateway/routing, and promote the gateway to the control plane). Provisional view; verdict in synthesis.**
 
@@ -4244,7 +4246,7 @@ The counter-evidence is twofold. Microsoft says the AI gateway is an extension o
 
 ## C2. Guardrails
 
-> **Executive summary.** Guardrails are the run-time checks that sit on either side of a model or agent call: they inspect what goes in (user input, retrieved documents, tool results) and what comes out (text, tool calls), and they block, transform or flag it against policy [AJ]. The popular stack diagram has no guardrail control; its only safety-adjacent tiles are the L9 evaluation and red-teaming tools, which test before release but block nothing at run time [VF: A1-S062, A1-S068] [AJ]. Three things define the market in October 2026. First, the hyperscalers now ship broad managed services: Bedrock Guardrails covers content and prompt-attack filters, denied topics, PII, contextual grounding and Automated Reasoning [VF: A6-S072]; Azure Prompt Shields has been GA since August 2024, with Task Adherence for agent tool use in preview [VF: A6-S055]; and Google's Model Armor enforces data residency by default [VF: A6-S067, B-C2-S003]. Second, the open-source options are fragile: NeMo Guardrails is still 0.x Beta [VF: A6-S003], Meta has released no new Llama Guard, Prompt Guard or LlamaFirewall since May 2025 [VF: A6-S006, A6-S107], and Harvey announced its acquisition of Guardrails AI on 9 September 2026, after the project had retired hosted remote inference [VF: A6-S028, V2-S026, V2-S071]. Third, guardrails are moving towards agent behaviour, checking tool use and goal hijacking [VF: A6-S055, A6-S039]. **Recommendation:** own the guardrail policy and its test set; invoke guardrails from the gateway (C1) as a layered set of deterministic rules, small classifiers and, only where needed, model-based checks; and remember that a guardrail cannot make an autonomous workflow safe that should have been a deterministic one (L3) [Rec].
+> **Executive summary.** Guardrails are the run-time checks that sit on either side of a model or agent call: they inspect what goes in (user input, retrieved documents, tool results) and what comes out (text, tool calls), and they block, transform or flag it against policy [AJ]. The baseline names it as a run-time control in its own right: the L9 evaluation and red-teaming tools test before release but block nothing at run time [VF: A1-S062, A1-S068] [AJ]. Three things define the market in October 2026. First, the hyperscalers now ship broad managed services: Bedrock Guardrails covers content and prompt-attack filters, denied topics, PII, contextual grounding and Automated Reasoning [VF: A6-S072]; Azure Prompt Shields has been GA since August 2024, with Task Adherence for agent tool use in preview [VF: A6-S055]; and Google's Model Armor enforces data residency by default [VF: A6-S067, B-C2-S003]. Second, the open-source options are fragile: NeMo Guardrails is still 0.x Beta [VF: A6-S003], Meta has released no new Llama Guard, Prompt Guard or LlamaFirewall since May 2025 [VF: A6-S006, A6-S107], and Harvey announced its acquisition of Guardrails AI on 9 September 2026, after the project had retired hosted remote inference [VF: A6-S028, V2-S026, V2-S071]. Third, guardrails are moving towards agent behaviour, checking tool use and goal hijacking [VF: A6-S055, A6-S039]. **Recommendation:** own the guardrail policy and its test set; invoke guardrails from the gateway (C1) as a layered set of deterministic rules, small classifiers and, only where needed, model-based checks; and remember that a guardrail cannot make an autonomous workflow safe that should have been a deterministic one (L3) [Rec].
 
 ![Guardrails cannot fix the wrong autonomy](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P06.png){width=4.8in}
 
@@ -4543,17 +4545,17 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - silently sanitise an injected document and continue as if it were trusted
 - be used to justify giving the workflow more autonomy or write access than the deterministic design needs
 
-### C2.13 What changed since the popular stack diagram
+### C2.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| **(absent).** No guardrail control; safety appears only as pre-release evaluation and red-teaming in L9 (Promptfoo, DeepEval) | Managed and open-source guardrails for input, output, grounding and agent tool use [VF: A6-S072, A6-S054, A6-S067, A6-S036] | A control-plane service invoked from the gateway: firm-owned policy and test sets, layered rules → classifiers → judges [Rec] |
-| (absent) NeMo Guardrails | 0.24.1, still 0.x Beta; IORails engine; supported microservice [VF: A6-S003, A6-S036, A6-S111] | Tactical: in-estate orchestration, pinned [Rec] |
-| (absent) Guardrails AI | Hosted hub retired (6 or 25 August 2026); acquired by Harvey 9 September 2026 [VF: V2-S071, V2-S072, A6-S028] | Experimental: freeze and plan migration [Rec] |
-| (absent) Llama Guard / Prompt Guard | Llama Guard 4, Prompt Guard 2, LlamaFirewall 1.0.3; nothing since May 2025 [VF: A6-S030, A6-S006, A6-S107] | Tactical: one detector among several [Rec] |
-| (absent) Bedrock Guardrails | Content, prompt-attack, PII, grounding, Automated Reasoning; standalone API [VF: A6-S072, A6-S073] | Strategic, conditional: where AWS is your primary cloud (CP3 Q2) [Rec] |
-| (absent) Azure AI Content Safety | Prompt Shields GA; Task Adherence and groundedness preview [VF: A6-S055, A6-S054] | Strategic, conditional: where Azure is your primary cloud (CP3 Q2); GA features only [Rec] |
-| (absent) Model Armor | Screening with strict residency by default; Apigee and MCP integration [VF: A6-S067, B-C2-S003] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
+| **The control as a whole** (pre-release evaluation and red-teaming in L9, such as Promptfoo and DeepEval, block nothing at run time) | Managed and open-source guardrails for input, output, grounding and agent tool use [VF: A6-S072, A6-S054, A6-S067, A6-S036] | A control-plane service invoked from the gateway: firm-owned policy and test sets, layered rules → classifiers → judges [Rec] |
+| NeMo Guardrails | 0.24.1, still 0.x Beta; IORails engine; supported microservice [VF: A6-S003, A6-S036, A6-S111] | Tactical: in-estate orchestration, pinned [Rec] |
+| Guardrails AI | Hosted hub retired (6 or 25 August 2026); acquired by Harvey 9 September 2026 [VF: V2-S071, V2-S072, A6-S028] | Experimental: freeze and plan migration [Rec] |
+| Llama Guard / Prompt Guard | Llama Guard 4, Prompt Guard 2, LlamaFirewall 1.0.3; nothing since May 2025 [VF: A6-S030, A6-S006, A6-S107] | Tactical: one detector among several [Rec] |
+| Bedrock Guardrails | Content, prompt-attack, PII, grounding, Automated Reasoning; standalone API [VF: A6-S072, A6-S073] | Strategic, conditional: where AWS is your primary cloud (CP3 Q2) [Rec] |
+| Azure AI Content Safety | Prompt Shields GA; Task Adherence and groundedness preview [VF: A6-S055, A6-S054] | Strategic, conditional: where Azure is your primary cloud (CP3 Q2); GA features only [Rec] |
+| Model Armor | Screening with strict residency by default; Apigee and MCP integration [VF: A6-S067, B-C2-S003] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
 
 **Relation to the hypotheses (provisional; verdict in synthesis).** C2 bears on two hypotheses rather than having its own [AJ].
 - **H1 (gateway as control plane).** Every gateway in C1 invokes guardrails inline, and the managed services are designed to be called from gateways [VF: A6-S015, A6-S017, A6-S020, A6-S024, A6-S073]. That supports drawing C2 as a set of services the gateway calls, not as a separate traffic hop [AJ].
@@ -4564,7 +4566,7 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 
 ## C3. DLP and PII protection
 
-> **Executive summary.** This control finds, classifies and transforms sensitive data wherever it can enter or leave a GenAI system: at ingestion, in prompts, in tool results, in model outputs, in memory and in traces [AJ]. The popular stack diagram has no such control; it shows ingestion, memory, retrieval and evaluation boxes that each copy data, and none of them says what happens to client identifiers [AJ]. Four things have changed in the candidate products. Presidio is no longer a Microsoft project: it is community-governed under the "Data Privacy Stack" organisation, MIT-licensed, and states that it is "not owned or operated by a commercial entity" [VF: A6-S040, V2-S030]. Microsoft folded "DSPM for AI" into a unified Purview Data Security Posture Management, generally available in May 2026, which needs Microsoft 365 E5 or the Purview Suite [VF: A6-S090, A6-S091, V2-S036]. Google's Sensitive Data Protection (formerly Cloud DLP) is positioned for GenAI prompts and responses and underpins Model Armor's sensitive-data screening [VF: A6-S066, A6-S067]. Protegrity's AI Team Edition is still documented as Tech Preview and deploys on AWS only, and Skyflow sells an "LLM Privacy Vault" with EU vaults, with no funding round verified after March 2024 [VF: A6-S093, A6-S095, A6-S096]. Meanwhile, DLP has started to appear inside gateways and guardrails: Cloudflare AI Gateway, Kong AI Gateway, Bedrock Guardrails and Model Armor all inspect prompts or responses for sensitive data [VF: A6-S052, A6-S016, A6-S072, A6-S067]. **Recommendation:** build one firm-owned privacy service (detect, transform and, under policy, re-identify) and call it from every enforcement point, rather than buying a different detector per layer. Use Presidio as the in-estate detection engine, with Google Sensitive Data Protection as the managed engine in a Google Cloud estate. Add a vault or tokenisation platform (Protegrity, Skyflow) only where reversible pseudonymisation at scale is required, and use Purview DSPM for posture over Microsoft 365 Copilot and SaaS AI apps in a Microsoft estate [Rec].
+> **Executive summary.** This control finds, classifies and transforms sensitive data wherever it can enter or leave a GenAI system: at ingestion, in prompts, in tool results, in model outputs, in memory and in traces [AJ]. The baseline needs it because ingestion, memory, retrieval and evaluation each copy data, and none of them on its own says what happens to client identifiers [AJ]. Four things have changed in the candidate products. Presidio is no longer a Microsoft project: it is community-governed under the "Data Privacy Stack" organisation, MIT-licensed, and states that it is "not owned or operated by a commercial entity" [VF: A6-S040, V2-S030]. Microsoft folded "DSPM for AI" into a unified Purview Data Security Posture Management, generally available in May 2026, which needs Microsoft 365 E5 or the Purview Suite [VF: A6-S090, A6-S091, V2-S036]. Google's Sensitive Data Protection (formerly Cloud DLP) is positioned for GenAI prompts and responses and underpins Model Armor's sensitive-data screening [VF: A6-S066, A6-S067]. Protegrity's AI Team Edition is still documented as Tech Preview and deploys on AWS only, and Skyflow sells an "LLM Privacy Vault" with EU vaults, with no funding round verified after March 2024 [VF: A6-S093, A6-S095, A6-S096]. Meanwhile, DLP has started to appear inside gateways and guardrails: Cloudflare AI Gateway, Kong AI Gateway, Bedrock Guardrails and Model Armor all inspect prompts or responses for sensitive data [VF: A6-S052, A6-S016, A6-S072, A6-S067]. **Recommendation:** build one firm-owned privacy service (detect, transform and, under policy, re-identify) and call it from every enforcement point, rather than buying a different detector per layer. Use Presidio as the in-estate detection engine, with Google Sensitive Data Protection as the managed engine in a Google Cloud estate. Add a vault or tokenisation platform (Protegrity, Skyflow) only where reversible pseudonymisation at scale is required, and use Purview DSPM for posture over Microsoft 365 Copilot and SaaS AI apps in a Microsoft estate [Rec].
 
 ![One client identifier, seven copies to protect](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P16.png){width=4.8in}
 
@@ -4852,12 +4854,12 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - raw identifiers in traces, memory or the regression dataset
 - the privacy service failing open on an external call
 
-### C3.13 What changed since the popular stack diagram
+### C3.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| Absent from the popular stack diagram; ingestion (L8), memory (L5), vector stores (L6) and evals (L9) each copy data with no stated protection | DLP appears piecemeal inside gateways and guardrails (Cloudflare, Kong, Bedrock Guardrails, Model Armor) [VF: A6-S052, A6-S016, A6-S072, A6-S067] | A cross-cutting privacy service with one policy, called at six enforcement points [Rec] |
-| "Microsoft Presidio" (plan candidate) | Community-governed Presidio under Data Privacy Stack, MIT [VF: A6-S040, V2-S030] | Strategic, conditional: in-estate detection engine [Rec] |
+| **The control as a whole**: ingestion (L8), memory (L5), stores (L6) and evaluation (L9) each copy data | DLP appears piecemeal inside gateways and guardrails (Cloudflare, Kong, Bedrock Guardrails, Model Armor) [VF: A6-S052, A6-S016, A6-S072, A6-S067] | A cross-cutting privacy service with one policy, called at six enforcement points [Rec] |
+| Presidio | Community-governed Presidio under Data Privacy Stack, MIT [VF: A6-S040, V2-S030] | Strategic, conditional: in-estate detection engine [Rec] |
 | Google Sensitive Data Protection (candidate) | Managed DLP positioned for GenAI; underpins Model Armor [VF: A6-S066, A6-S067] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
 | Microsoft Purview (candidate) | DSPM for AI folded into unified DSPM, GA May 2026; E5 or Purview Suite [VF: A6-S090, A6-S091] | Strategic, conditional: where Azure and Microsoft 365 are your primary cloud (CP3 Q2); AI posture, not prompt-path DLP [Rec] |
 | Protegrity (candidate) | AI Team Edition Tech Preview, AWS-only; ESA RBAC and audit [VF: A6-S093, B-C3-S004] | Tactical for existing customers [Rec] |
@@ -4876,7 +4878,7 @@ The C3 evidence supports H7 on the DLP and classification elements, with a refin
 
 ## C4. Identity and access for agents
 
-> **Executive summary.** This control answers the question every incident review and every regulator will ask: who did this, on whose authority, and with what permission [AJ]? For an agent that means five things: the agent has its own identity, it acts on behalf of a named human where a human started the work, its permissions are the least needed for the task, it holds no standing secrets, and every action is attributable to both the agent and the human [AJ]. The popular stack diagram has no such control; it shows MCP and A2A as connectivity in L4 without saying who is allowed to call what [AJ]. Since then the products have reached general availability. Microsoft Entra Agent ID became GA in April 2026, with its security features tied to Microsoft Agent 365 licences [VF: A6-S058, A6-S059, V2-S032]. Auth0 for AI Agents became GA on 19 November 2025, Okta for AI Agents on 30 April 2026, and Okta Agent SSO (Cross App Access) on 24 August 2026; Okta states that Cross App Access is the MCP Enterprise-Managed Authorization extension [VF: A6-S097, A6-S100, A6-S099, V2-S035]. MCP revision 2026-07-28 deprecated Dynamic Client Registration and added issuer validation, but authorisation in MCP is still optional and OAuth 2.1 is still an IETF draft [VF: A6-S032, A6-S033]. Policy in Amazon Bedrock AgentCore, built on Cedar, became GA on 3 March 2026 and now authors policies in Dogwood, a Cedar superset [VF: A6-S026, V2-S033]. SPIFFE/SPIRE and OPA are CNCF graduated [VF: A6-S087, A6-S046]. **Recommendation:** register every agent in the firm's workforce identity provider (Entra or Okta, whichever already holds the humans) with a named sponsor; use on-behalf-of token exchange so tool calls carry short-lived, audience-bound tokens scoped to the user and the task; give runtimes workload identity (SPIFFE/SPIRE or the cloud equivalent) instead of secrets; and put a deny-by-default policy decision point (OPA, or Cedar in an AWS AgentCore estate) at the gateway for every tool call. Record user, agent, tool and policy decision in one audit event [Rec].
+> **Executive summary.** This control answers the question every incident review and every regulator will ask: who did this, on whose authority, and with what permission [AJ]? For an agent that means five things: the agent has its own identity, it acts on behalf of a named human where a human started the work, its permissions are the least needed for the task, it holds no standing secrets, and every action is attributable to both the agent and the human [AJ]. The baseline needs it because MCP and A2A provide connectivity in L4 without saying who is allowed to call what [AJ]. The products have reached general availability. Microsoft Entra Agent ID became GA in April 2026, with its security features tied to Microsoft Agent 365 licences [VF: A6-S058, A6-S059, V2-S032]. Auth0 for AI Agents became GA on 19 November 2025, Okta for AI Agents on 30 April 2026, and Okta Agent SSO (Cross App Access) on 24 August 2026; Okta states that Cross App Access is the MCP Enterprise-Managed Authorization extension [VF: A6-S097, A6-S100, A6-S099, V2-S035]. MCP revision 2026-07-28 deprecated Dynamic Client Registration and added issuer validation, but authorisation in MCP is still optional and OAuth 2.1 is still an IETF draft [VF: A6-S032, A6-S033]. Policy in Amazon Bedrock AgentCore, built on Cedar, became GA on 3 March 2026 and now authors policies in Dogwood, a Cedar superset [VF: A6-S026, V2-S033]. SPIFFE/SPIRE and OPA are CNCF graduated [VF: A6-S087, A6-S046]. **Recommendation:** register every agent in the firm's workforce identity provider (Entra or Okta, whichever already holds the humans) with a named sponsor; use on-behalf-of token exchange so tool calls carry short-lived, audience-bound tokens scoped to the user and the task; give runtimes workload identity (SPIFFE/SPIRE or the cloud equivalent) instead of secrets; and put a deny-by-default policy decision point (OPA, or Cedar in an AWS AgentCore estate) at the gateway for every tool call. Record user, agent, tool and policy decision in one audit event [Rec].
 
 **Conflict of interest.** The author is an Anthropic model, and MCP originated at Anthropic. MCP authorisation is scored on the same rubric as every other product, and independent alternatives are named in its deep dive [AJ]. At the CP3 calibration review its tier was a borderline call, and the reviewers resolved it against the Anthropic-originated specification (Tactical, mandatory where MCP is used). The reader then set the tier at Checkpoint 3 (CP3 Q1): MCP and its authorisation profile are one decision, Strategic, conditional, only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions [AJ].
 
@@ -5182,15 +5184,15 @@ Output of `tools/score.py` (FS weights favour security, deployment and lock-in):
 - an approval recorded without the approver's identity, or by the requester or the agent
 - the agent continuing to act after the analyst's or the agent's access has been revoked
 
-### C4.13 What changed since the popular stack diagram
+### C4.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| Absent from the popular stack diagram; L4 shows MCP as a "tools standard" and A2A as "agent-to-agent" with no identity or authorisation | MCP authorisation profile with EMA (Stable), authorisation optional; A2A leaves mid-task authorisation semantics undefined [VF: A6-S033, A6-S035, A3-S078] | An explicit identity, delegation and tool-governance control enforced at the gateway [Rec] |
-| (absent) agent identity | Entra Agent ID GA April 2026; Okta for AI Agents GA 30 April 2026; Agent SSO GA 24 August 2026 [VF: V2-S032, A6-S100, V2-S035] | Agent identities in the workforce IdP, with sponsors and reviews [Rec] |
-| (absent) delegated authority | OBO and token exchange GA in Entra and Auth0; ID-JAG in MCP EMA [VF: A6-S060, A6-S097, A6-S079] | OBO by default for user-started work [Rec] |
-| (absent) policy engines | OPA graduated; Cedar-based AgentCore Policy GA 3 March 2026 [VF: A6-S046, A6-S026] | Deny-by-default PDP per tool call: OPA, or Cedar on AgentCore [Rec] |
-| (absent) workload identity and secrets | SPIRE graduated; Vault agentic IAM GA 1 September 2026 [VF: A6-S087, A7-S033] | SVIDs or cloud workload identity; dynamic secrets from C7 [Rec] |
+| **The control as a whole**: MCP and A2A connect agents and tools but do not decide who may call what | MCP authorisation profile with EMA (Stable), authorisation optional; A2A leaves mid-task authorisation semantics undefined [VF: A6-S033, A6-S035, A3-S078] | An explicit identity, delegation and tool-governance control enforced at the gateway [Rec] |
+| Agent identity | Entra Agent ID GA April 2026; Okta for AI Agents GA 30 April 2026; Agent SSO GA 24 August 2026 [VF: V2-S032, A6-S100, V2-S035] | Agent identities in the workforce IdP, with sponsors and reviews [Rec] |
+| Delegated authority | OBO and token exchange GA in Entra and Auth0; ID-JAG in MCP EMA [VF: A6-S060, A6-S097, A6-S079] | OBO by default for user-started work [Rec] |
+| Policy engines | OPA graduated; Cedar-based AgentCore Policy GA 3 March 2026 [VF: A6-S046, A6-S026] | Deny-by-default PDP per tool call: OPA, or Cedar on AgentCore [Rec] |
+| Workload identity and secrets | SPIRE graduated; Vault agentic IAM GA 1 September 2026 [VF: A6-S087, A7-S033] | SVIDs or cloud workload identity; dynamic secrets from C7 [Rec] |
 
 **H3 (tools and protocols need an explicit agent identity, authorisation and tool-governance sub-layer). Provisional view; verdict in synthesis.**
 
@@ -5206,7 +5208,7 @@ The evidence supports H3 strongly, with one refinement about where it sits [AJ].
 
 ## C5. Prompt and configuration management
 
-> **Executive summary.** This control decides which instructions, model, parameters, tools and retrieval settings a GenAI system runs with, who may change them, and how a change is tested, released and rolled back. The popular stack diagram has no box for it [AJ]. What exists in the market today is mostly a capability inside other products. Langfuse and LangSmith each ship a prompt registry inside their L9 platforms [VF: A7-S071, A7-S076]. LaunchDarkly delivers model and prompt configuration through its feature-flag service and renamed the product from AI Configs to AgentControl in 2026, with the API unchanged [VF: A7-S117, V2-S045]. PromptLayer remains an independent registry [VF: A7-S004]. The "prompts as code" pattern keeps prompt files (Prompty, Dotprompt) in the application repository and tests them in CI [VF: A7-S067, A7-S066, A7-S068]. Two ownership changes touch the control: ClickHouse announced its acquisition of Langfuse on 16 January 2026 [VF: A7-S075, V2-S041], and OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A7-S068, V2-S042]. The central argument of this section is that a prompt, an embedding-model version and a retrieval setting are all production configuration [AJ]. A change to any of them can change the output as much as a model upgrade, so each needs versioning, review, an evaluation gate and rollback [AJ]. **Recommendation:** make Git the system of record for every approved prompt and configuration item, approved by pull request with a second reviewer and an L9 eval gate, and released as one pinned manifest. Use a registry (Langfuse or LangSmith, whichever is the L9 platform) only to deliver approved versions at run time and to link each trace to the version that produced it. Use feature-flag rollout (LaunchDarkly AgentControl, PromptLayer release labels) only to choose between versions that have already been approved [Rec].
+> **Executive summary.** This control decides which instructions, model, parameters, tools and retrieval settings a GenAI system runs with, who may change them, and how a change is tested, released and rolled back. The baseline names it as a control in its own right [AJ]. What exists in the market today is mostly a capability inside other products. Langfuse and LangSmith each ship a prompt registry inside their L9 platforms [VF: A7-S071, A7-S076]. LaunchDarkly delivers model and prompt configuration through its feature-flag service and renamed the product from AI Configs to AgentControl in 2026, with the API unchanged [VF: A7-S117, V2-S045]. PromptLayer remains an independent registry [VF: A7-S004]. The "prompts as code" pattern keeps prompt files (Prompty, Dotprompt) in the application repository and tests them in CI [VF: A7-S067, A7-S066, A7-S068]. Two ownership changes touch the control: ClickHouse announced its acquisition of Langfuse on 16 January 2026 [VF: A7-S075, V2-S041], and OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A7-S068, V2-S042]. The central argument of this section is that a prompt, an embedding-model version and a retrieval setting are all production configuration [AJ]. A change to any of them can change the output as much as a model upgrade, so each needs versioning, review, an evaluation gate and rollback [AJ]. **Recommendation:** make Git the system of record for every approved prompt and configuration item, approved by pull request with a second reviewer and an L9 eval gate, and released as one pinned manifest. Use a registry (Langfuse or LangSmith, whichever is the L9 platform) only to deliver approved versions at run time and to link each trace to the version that produced it. Use feature-flag rollout (LaunchDarkly AgentControl, PromptLayer release labels) only to choose between versions that have already been approved [Rec].
 
 ![A prompt change is a production change](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P14.png){width=4.8in}
 
@@ -5483,15 +5485,15 @@ Steps 0 and 3 are not product choices; they are applied whatever is selected [Re
 - a commentary whose trace cannot name the manifest that produced it
 - a vendor auto-fix (LangSmith Engine, Braintrust Loop; see L9 §9.12) changing a production prompt outside change control
 
-### C5.13 What changed since the popular stack diagram
+### C5.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| (absent) prompt management | A capability inside L9 platforms: Langfuse prompts and LangSmith prompts [VF: A7-S071, A7-S076] | Registry for run-time delivery and trace linkage, fed from Git by CI [Rec] |
-| (absent) configuration management | LaunchDarkly AI Configs, renamed AgentControl in 2026 and repositioned towards agent operations [VF: A7-S117, V2-S045] | Tactical: progressive rollout between approved variants where LaunchDarkly is the standard [Rec] |
-| (absent) standalone registry | PromptLayer, independent, with Enterprise identity and customer-AWS deployment [VF: A7-S004, A7-S086, A7-S087] | Tactical: framework-neutral registry where no L9 registry exists [Rec] |
-| (absent) Git-based patterns | Prompty v2 and Dotprompt as open formats; Promptfoo configs in CI, with OpenAI's acquisition announced 9 March 2026 [VF: A7-S067, A7-S066, V2-S042] | Strategic: Git as the system of record for all production configuration [Rec] |
-| Embedding models shown only as a component (L7) | Embedding version is production configuration (L7 §7.13) [AJ] | Embedding and reranker versions pinned in the C5 manifest [Rec] |
+| Prompt management | A capability inside L9 platforms: Langfuse prompts and LangSmith prompts [VF: A7-S071, A7-S076] | Registry for run-time delivery and trace linkage, fed from Git by CI [Rec] |
+| Configuration management | LaunchDarkly AI Configs, renamed AgentControl in 2026 and repositioned towards agent operations [VF: A7-S117, V2-S045] | Tactical: progressive rollout between approved variants where LaunchDarkly is the standard [Rec] |
+| Standalone registry | PromptLayer, independent, with Enterprise identity and customer-AWS deployment [VF: A7-S004, A7-S086, A7-S087] | Tactical: framework-neutral registry where no L9 registry exists [Rec] |
+| Git-based patterns | Prompty v2 and Dotprompt as open formats; Promptfoo configs in CI, with OpenAI's acquisition announced 9 March 2026 [VF: A7-S067, A7-S066, V2-S042] | Strategic: Git as the system of record for all production configuration [Rec] |
+| Embedding and reranker versions (L7) | Embedding version is production configuration (L7 §7.13) [AJ] | Embedding and reranker versions pinned in the C5 manifest [Rec] |
 
 **Relevant hypotheses: H6 (embeddings and reranking as one retrieval-optimisation layer) and H8 (evaluation and observability are cross-cutting). Provisional view; verdict in synthesis.**
 
@@ -5504,7 +5506,7 @@ Steps 0 and 3 are not product choices; they are applied whatever is selected [Re
 
 ## C6. AI FinOps
 
-> **Executive summary.** This control makes the cost of GenAI visible, attributable, bounded and improvable: what each task costs, who pays for it, when spending must stop, and which design choices would make it cheaper without making it worse. The popular stack diagram has no box for it [AJ]. Four things have changed in the market. First, the measurement point has settled on the gateway: every model call passes through it, and gateways now ship budgets, rate limits and spend tracking per key, team and user [VF: A6-S015, A6-S019, A6-S053]. Second, the independent tooling is consolidating. Helicone was acquired by Mintlify on 3 March 2026 and is in maintenance mode [VF: A7-S112, V2-S043], and Portkey was acquired by Palo Alto Networks on 29 May 2026 [VF: A6-S011, V2-S025]. Third, the cloud-cost vendors Vantage and CloudZero have added AI-provider integrations, described mainly in their own blog posts [VF: A7-S113, A7-S114]. Fourth, the open billing standard is catching up but is not there yet. FOCUS 1.4 was ratified on 4 June 2026. FOCUS 1.5, which has no ratification date, adds AI model-identity properties, and a first-class input/output token-type column has been deferred [VF: V2-S046, A7-S116]. The central argument is that the metric that matters is cost per task, not cost per token [AJ]. A cheaper token that needs three retries and a longer human review is not cheaper [AJ]. **Recommendation:** meter and enforce at the gateway (C1), with virtual keys per use case and fund; join gateway records to L9 traces to report cost per completed task; reconcile monthly against provider usage APIs and cloud bills; land everything in a FOCUS-shaped dataset the firm owns; and pair every budget with an enforcement point that fails closed. Treat a FinOps SaaS tool (Vantage, CloudZero) as an optional reporting layer, not the system of record [Rec].
+> **Executive summary.** This control makes the cost of GenAI visible, attributable, bounded and improvable: what each task costs, who pays for it, when spending must stop, and which design choices would make it cheaper without making it worse. The baseline names it as a control in its own right [AJ]. Four things have changed in the market. First, the measurement point has settled on the gateway: every model call passes through it, and gateways now ship budgets, rate limits and spend tracking per key, team and user [VF: A6-S015, A6-S019, A6-S053]. Second, the independent tooling is consolidating. Helicone was acquired by Mintlify on 3 March 2026 and is in maintenance mode [VF: A7-S112, V2-S043], and Portkey was acquired by Palo Alto Networks on 29 May 2026 [VF: A6-S011, V2-S025]. Third, the cloud-cost vendors Vantage and CloudZero have added AI-provider integrations, described mainly in their own blog posts [VF: A7-S113, A7-S114]. Fourth, the open billing standard is catching up but is not there yet. FOCUS 1.4 was ratified on 4 June 2026. FOCUS 1.5, which has no ratification date, adds AI model-identity properties, and a first-class input/output token-type column has been deferred [VF: V2-S046, A7-S116]. The central argument is that the metric that matters is cost per task, not cost per token [AJ]. A cheaper token that needs three retries and a longer human review is not cheaper [AJ]. **Recommendation:** meter and enforce at the gateway (C1), with virtual keys per use case and fund; join gateway records to L9 traces to report cost per completed task; reconcile monthly against provider usage APIs and cloud bills; land everything in a FOCUS-shaped dataset the firm owns; and pair every budget with an enforcement point that fails closed. Treat a FinOps SaaS tool (Vantage, CloudZero) as an optional reporting layer, not the system of record [Rec].
 
 ![Cost per task, not cost per token](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P02.png){width=4.8in}
 
@@ -5784,15 +5786,15 @@ Steps 0 and 4 are not product choices; they apply whatever is selected [Rec].
 - chargeback of AI costs to fund expenses without compliance and fund-governance approval
 - cost exports that contain client data or draft text
 
-### C6.13 What changed since the popular stack diagram
+### C6.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| (absent) gateway cost tracking | Gateways ship budgets, limits and spend tracking; Portkey acquired by Palo Alto Networks [VF: A6-S015, A6-S019, V2-S025] | Strategic: gateway as the metering and enforcement point, tested to fail closed [Rec] |
-| (absent) provider and cloud billing | Provider usage APIs with token-type breakdown; Bedrock and Foundry cost tags [VF: A7-S070, B-C6-S004, B-C6-S005] | Reconciliation source, monthly [Rec] |
-| (absent) Helicone | Acquired by Mintlify on 3 March 2026; maintenance mode [VF: A7-S112, V2-S043] | Experimental, not recommended; migrate [Rec] |
-| (absent) Vantage, CloudZero | AI-provider integrations, described in vendor blogs; SOC 2 Type 2 [VF: A7-S113, A7-S114, B-C6-S001, B-C6-S002] | Tactical: reporting layer where already used [Rec] |
-| (absent) chargeback patterns | FOCUS 1.4 ratified; 1.5 adds model identity, token-type column deferred; FinOps for AI category [VF: V2-S046, A7-S115] | Strategic: firm-owned FOCUS-shaped dataset; cost per task as the headline metric [Rec] |
+| Gateway cost tracking | Gateways ship budgets, limits and spend tracking; Portkey acquired by Palo Alto Networks [VF: A6-S015, A6-S019, V2-S025] | Strategic: gateway as the metering and enforcement point, tested to fail closed [Rec] |
+| Provider and cloud billing | Provider usage APIs with token-type breakdown; Bedrock and Foundry cost tags [VF: A7-S070, B-C6-S004, B-C6-S005] | Reconciliation source, monthly [Rec] |
+| Helicone | Acquired by Mintlify on 3 March 2026; maintenance mode [VF: A7-S112, V2-S043] | Experimental, not recommended; migrate [Rec] |
+| Vantage, CloudZero | AI-provider integrations, described in vendor blogs; SOC 2 Type 2 [VF: A7-S113, A7-S114, B-C6-S001, B-C6-S002] | Tactical: reporting layer where already used [Rec] |
+| Chargeback patterns | FOCUS 1.4 ratified; 1.5 adds model identity, token-type column deferred; FinOps for AI category [VF: V2-S046, A7-S115] | Strategic: firm-owned FOCUS-shaped dataset; cost per task as the headline metric [Rec] |
 
 **Relevant hypothesis: H1 (the gateway is promoted to a control-plane component). Provisional view; verdict in synthesis.**
 
@@ -5808,7 +5810,7 @@ The counter-evidence is that cost per task needs the trace (L9), not only the ga
 
 ## C7. AI security
 
-> **Executive summary.** This control keeps attackers, and the system's own over-eager components, from turning a GenAI platform into a way to steal data, spend money or take actions nobody approved. It covers secrets, the software and model supply chain, sandboxing, prompt injection (direct and indirect), data exfiltration and agent abuse, plus the red-teaming that tests all of these. The popular stack diagram had no security control at all [AJ]. Three things define it in October 2026. First, the threat has moved into the supply chain. On 24 March 2026, malicious LiteLLM releases 1.82.7 and 1.82.8 were published to PyPI using stolen release credentials [VF: A6-S008, A6-S009, A6-S010, V2-S027]. LiteLLM attributes the theft to a compromised Trivy scanner in CI; other reports describe a hijacked maintainer account [VF: A6-S009, V2-S027]. Pickle-based model files can still execute code on load [VF: A7-S082, B-C7-S006]. Second, the specialist vendors have largely been bought: Lakera by Check Point (completed 22 October 2025) [VF: A7-S012, V2-S038], Protect AI by Palo Alto Networks (22 July 2025) [VF: A7-S014, V2-S039], Prompt Security by SentinelOne, CalypsoAI by F5 and Pangea by CrowdStrike (all closed in September 2025) [VF: A7-S018, A7-S019, A7-S020, V2-S040]. HiddenLayer is the main independent left in this set [VF: A7-S017, V2-S047]. Third, the agent is now the attack surface: the OWASP Top 10 for Agentic Applications for 2026 opens with ASI01 Agent Goal Hijack [VF: R-OWASP-AGENTIC, A8-S042]. **Recommendation:** design the security architecture so that no single detector has to be right. Broker secrets outside the model (Vault or the cloud's native service), and give agents short-lived credentials scoped to each request. Treat every retrieved document as untrusted input and remove write and egress capability from any agent that reads it. Gate every model and package on provenance, scanning and signing. Buy a runtime AI-security product as a replaceable detector behind the gateway, not as the foundation [Rec].
+> **Executive summary.** This control keeps attackers, and the system's own over-eager components, from turning a GenAI platform into a way to steal data, spend money or take actions nobody approved. It covers secrets, the software and model supply chain, sandboxing, prompt injection (direct and indirect), data exfiltration and agent abuse, plus the red-teaming that tests all of these. The baseline names it as a control in its own right [AJ]. Three things define it in October 2026. First, the threat has moved into the supply chain. On 24 March 2026, malicious LiteLLM releases 1.82.7 and 1.82.8 were published to PyPI using stolen release credentials [VF: A6-S008, A6-S009, A6-S010, V2-S027]. LiteLLM attributes the theft to a compromised Trivy scanner in CI; other reports describe a hijacked maintainer account [VF: A6-S009, V2-S027]. Pickle-based model files can still execute code on load [VF: A7-S082, B-C7-S006]. Second, the specialist vendors have largely been bought: Lakera by Check Point (completed 22 October 2025) [VF: A7-S012, V2-S038], Protect AI by Palo Alto Networks (22 July 2025) [VF: A7-S014, V2-S039], Prompt Security by SentinelOne, CalypsoAI by F5 and Pangea by CrowdStrike (all closed in September 2025) [VF: A7-S018, A7-S019, A7-S020, V2-S040]. HiddenLayer is the main independent left in this set [VF: A7-S017, V2-S047]. Third, the agent is now the attack surface: the OWASP Top 10 for Agentic Applications for 2026 opens with ASI01 Agent Goal Hijack [VF: R-OWASP-AGENTIC, A8-S042]. **Recommendation:** design the security architecture so that no single detector has to be right. Broker secrets outside the model (Vault or the cloud's native service), and give agents short-lived credentials scoped to each request. Treat every retrieved document as untrusted input and remove write and egress capability from any agent that reads it. Gate every model and package on provenance, scanning and signing. Buy a runtime AI-security product as a replaceable detector behind the gateway, not as the foundation [Rec].
 
 ![Every retrieved document is untrusted input](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P12.png){width=4.8in}
 
@@ -6137,17 +6139,17 @@ The architecture defends in layers, so no single control has to catch it [AJ]:
 - load a model or package that has not passed the supply-chain gate
 - let the detector vendor retain prompts containing holdings beyond the records policy
 
-### C7.13 What changed since the popular stack diagram
+### C7.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| (absent) No security control | Supply-chain attacks on AI tooling are real (LiteLLM, 24 March 2026) [VF: A6-S008, V2-S027]; agent-specific OWASP list exists [VF: A8-S042] | A cross-cutting control with build-time, run-time and assurance planes; capability separation as the first defence [Rec] |
-| (absent) Lakera | Check Point AI Guardrails, part of the AI Defense Plane; acquisition completed 22 Oct 2025 [VF: A7-S013, A7-S025, V2-S038] | Tactical: swappable runtime detector, self-hosted for client data [Rec] |
-| (absent) Protect AI | Absorbed into Prisma AIRS (with Koi and Portkey) [VF: A7-S014, A7-S016] | Tactical: broadest platform; Strategic only for Palo Alto estates with confirmed product-scoped certification [Rec] |
-| (absent) HiddenLayer | Independent; Series B 2 Sep 2026 [VF: A7-S017, V2-S047] | Tactical: independent specialist; confirm certificates [Rec] |
-| (absent) HashiCorp Vault | IBM-owned; BUSL 1.1; agentic IAM GA in 2.1 [VF: A7-S032, A7-S060, A7-S034] | Strategic for multi-cloud secrets and agent credentials, conditional on accepting BUSL [Rec] |
-| (absent) Model/package scanning | Open scanners plus safetensors; commercial successors [VF: A7-S082, A7-S007, A7-S039] | Strategic pattern: safetensors by default, scanning gate, pinned packages [Rec] |
-| (absent) Model signing | OpenSSF Model Signing v1.0 [VF: A7-S040] | Tactical: sign internally produced weights [Rec] |
+| **The control as a whole** | Supply-chain attacks on AI tooling are real (LiteLLM, 24 March 2026) [VF: A6-S008, V2-S027]; agent-specific OWASP list exists [VF: A8-S042] | A cross-cutting control with build-time, run-time and assurance planes; capability separation as the first defence [Rec] |
+| Lakera | Check Point AI Guardrails, part of the AI Defense Plane; acquisition completed 22 Oct 2025 [VF: A7-S013, A7-S025, V2-S038] | Tactical: swappable runtime detector, self-hosted for client data [Rec] |
+| Protect AI | Absorbed into Prisma AIRS (with Koi and Portkey) [VF: A7-S014, A7-S016] | Tactical: broadest platform; Strategic only for Palo Alto estates with confirmed product-scoped certification [Rec] |
+| HiddenLayer | Independent; Series B 2 Sep 2026 [VF: A7-S017, V2-S047] | Tactical: independent specialist; confirm certificates [Rec] |
+| HashiCorp Vault | IBM-owned; BUSL 1.1; agentic IAM GA in 2.1 [VF: A7-S032, A7-S060, A7-S034] | Strategic for multi-cloud secrets and agent credentials, conditional on accepting BUSL [Rec] |
+| Model/package scanning | Open scanners plus safetensors; commercial successors [VF: A7-S082, A7-S007, A7-S039] | Strategic pattern: safetensors by default, scanning gate, pinned packages [Rec] |
+| Model signing | OpenSSF Model Signing v1.0 [VF: A7-S040] | Tactical: sign internally produced weights [Rec] |
 
 **Related hypotheses. Provisional view; verdict in synthesis.**
 
@@ -6158,7 +6160,7 @@ The architecture defends in layers, so no single control has to catch it [AJ]:
 
 ## C8. Model risk, governance and auditability
 
-> **Executive summary.** This control answers the questions a regulator, auditor or board will ask about any GenAI system. What is it, and who owns it? Was it independently validated for this use? Is it still performing? Who approved this output, on what evidence? Can we reproduce what happened? The popular stack diagram had no governance control [AJ]. The regulatory ground moved sharply in 2026. In the US, SR 26-2 superseded SR 11-7 on 17 April 2026 and expressly places generative and agentic AI **outside** its scope, leaving their governance to each firm's own risk practices [VF: R-US-MRM, A8-S001, A8-S002, V2-S049]. US firms therefore have to write their own GenAI standard. In the UK, PRA SS1/23 (effective 17 May 2024) is technology-agnostic and covers vendor models [VF: R-PRA-SS123, A8-S008]. In the EU, the AI Act's GPAI obligations became enforceable on 2 August 2026, and the Annex III high-risk duties moved to 2 December 2027 [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011, A8-S019]. SS1/23 and the AI Act are therefore the operative anchors [AJ]. The vendor market is consolidating around "AI control plane" positioning: Collibra announced its acquisition of trail ML on 5 October 2026 [VF: A7-S101, A7-S105, V2-S044], and IBM added agent Enforcement Tracking to watsonx.governance on 11 August 2026 [VF: A7-S111]. Two findings shape the recommendation. First, the evidence that matters is produced elsewhere: by evaluation (L9), gateway logs (C1), prompt versions (C5) and security testing (C7). The eval suite *is* most of the validation evidence, provided it is independent, versioned and retained [AJ]. Second, no governance platform reaches Strategic on public evidence today; only one vendor, ValidMind, claims to map to SS1/23 [VF: A7-S052], and certification evidence is thin for most [AJ]. **Recommendation:** own the inventory schema and the evidence store (immutable, firm-controlled, joined by trace and version IDs); use OpenLineage for data lineage; then choose a governance workflow tool to fit the estate (ValidMind for MRM-led banks, watsonx.governance for IBM estates, Collibra where it is already the data catalogue, Credo AI for policy-led programmes) as a replaceable layer over that evidence [Rec].
+> **Executive summary.** This control answers the questions a regulator, auditor or board will ask about any GenAI system. What is it, and who owns it? Was it independently validated for this use? Is it still performing? Who approved this output, on what evidence? Can we reproduce what happened? The baseline names it as a control in its own right [AJ]. The regulatory ground moved sharply in 2026. In the US, SR 26-2 superseded SR 11-7 on 17 April 2026 and expressly places generative and agentic AI **outside** its scope, leaving their governance to each firm's own risk practices [VF: R-US-MRM, A8-S001, A8-S002, V2-S049]. US firms therefore have to write their own GenAI standard. In the UK, PRA SS1/23 (effective 17 May 2024) is technology-agnostic and covers vendor models [VF: R-PRA-SS123, A8-S008]. In the EU, the AI Act's GPAI obligations became enforceable on 2 August 2026, and the Annex III high-risk duties moved to 2 December 2027 [VF: R-EUAIA, R-EU-OMNIBUS-AI, A8-S011, A8-S019]. SS1/23 and the AI Act are therefore the operative anchors [AJ]. The vendor market is consolidating around "AI control plane" positioning: Collibra announced its acquisition of trail ML on 5 October 2026 [VF: A7-S101, A7-S105, V2-S044], and IBM added agent Enforcement Tracking to watsonx.governance on 11 August 2026 [VF: A7-S111]. Two findings shape the recommendation. First, the evidence that matters is produced elsewhere: by evaluation (L9), gateway logs (C1), prompt versions (C5) and security testing (C7). The eval suite *is* most of the validation evidence, provided it is independent, versioned and retained [AJ]. Second, no governance platform reaches Strategic on public evidence today; only one vendor, ValidMind, claims to map to SS1/23 [VF: A7-S052], and certification evidence is thin for most [AJ]. **Recommendation:** own the inventory schema and the evidence store (immutable, firm-controlled, joined by trace and version IDs); use OpenLineage for data lineage; then choose a governance workflow tool to fit the estate (ValidMind for MRM-led banks, watsonx.governance for IBM estates, Collibra where it is already the data catalogue, Credo AI for policy-led programmes) as a replaceable layer over that evidence [Rec].
 
 ![Your eval suite is your validation evidence](Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P18.png){width=4.8in}
 
@@ -6593,17 +6595,17 @@ Pinning versions and keeping a fallback model qualified on the same suite is als
 - a vendor's policy pack presented to the board as proof of compliance
 - the developers acting as the only validators of their own eval suite
 
-### C8.13 What changed since the popular stack diagram
+### C8.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| (absent) No governance control | SR 11-7 superseded by SR 26-2, which excludes GenAI and agentic AI [VF: R-US-MRM, A8-S001]; SS1/23 in force [VF: R-PRA-SS123, A8-S008]; AI Act GPAI enforceable 2 Aug 2026, Annex III 2 Dec 2027 [VF: R-EUAIA, A8-S011] | A firm GenAI model-risk standard to SS1/23 quality; use case as governed unit; firm-owned evidence store [Rec] |
-| (absent) ValidMind | MRM platform with GenAI tests; only SS1/23 claimant; AGPL library [VF: A7-S003, A7-S052] | Tactical: MRM-led firms, after SOC 2 Type II evidence [Rec] |
-| (absent) Credo AI | Policy-led registry and packs; EU SaaS and air-gapped self-host [VF: A7-S102, A7-S107, A7-S123] | Tactical: policy- and compliance-led programmes [Rec] |
-| (absent) IBM watsonx.governance | Agent discovery and Enforcement Tracking (2026) [VF: A7-S111] | Tactical, conditional Strategic for IBM estates once certification scope is confirmed [Rec] |
-| (absent) ModelOp | Lifecycle automation with blocking workflows; thin public evidence [VF: A7-S098] [NPV] | Tactical, after full due diligence [Rec] |
-| (absent) Collibra AI Governance | "Enterprise AI Control Plane"; trail ML acquisition announced 5 Oct 2026; OpenLineage integration [VF: A7-S122, A7-S101, V2-S044] | Tactical: where Collibra is the catalogue of record [Rec] |
-| (absent) OpenLineage | Graduate LF AI & Data spec; no GenAI facets [VF: A7-S041, A7-S042] | Strategic lineage standard, with firm GenAI facets [Rec] |
+| **The control as a whole** | SR 11-7 superseded by SR 26-2, which excludes GenAI and agentic AI [VF: R-US-MRM, A8-S001]; SS1/23 in force [VF: R-PRA-SS123, A8-S008]; AI Act GPAI enforceable 2 Aug 2026, Annex III 2 Dec 2027 [VF: R-EUAIA, A8-S011] | A firm GenAI model-risk standard to SS1/23 quality; use case as governed unit; firm-owned evidence store [Rec] |
+| ValidMind | MRM platform with GenAI tests; only SS1/23 claimant; AGPL library [VF: A7-S003, A7-S052] | Tactical: MRM-led firms, after SOC 2 Type II evidence [Rec] |
+| Credo AI | Policy-led registry and packs; EU SaaS and air-gapped self-host [VF: A7-S102, A7-S107, A7-S123] | Tactical: policy- and compliance-led programmes [Rec] |
+| IBM watsonx.governance | Agent discovery and Enforcement Tracking (2026) [VF: A7-S111] | Tactical, conditional Strategic for IBM estates once certification scope is confirmed [Rec] |
+| ModelOp | Lifecycle automation with blocking workflows; thin public evidence [VF: A7-S098] [NPV] | Tactical, after full due diligence [Rec] |
+| Collibra AI Governance | "Enterprise AI Control Plane"; trail ML acquisition announced 5 Oct 2026; OpenLineage integration [VF: A7-S122, A7-S101, V2-S044] | Tactical: where Collibra is the catalogue of record [Rec] |
+| OpenLineage | Graduate LF AI & Data spec; no GenAI facets [VF: A7-S041, A7-S042] | Strategic lineage standard, with firm GenAI facets [Rec] |
 
 **H8 (evaluation is cross-cutting). Provisional view; verdict in synthesis.** The C8 evidence supports H8 strongly.
 - Governance products now consume evaluation evidence directly. watsonx.governance Enforcement Tracking retrieves agent evaluation metrics against thresholds [VF: A7-S111]. ValidMind's Library logs tests to the governance record and monitors against thresholds [VF: A7-S003, A7-S056]. IBM's SDK evaluates metrics and prompt templates [VF: A7-S058].
@@ -6632,7 +6634,7 @@ The plan required the nine-layer structure to be tested, not assumed (plan §4).
 | H5 | "Vector database" becomes "Retrieval / Knowledge Stores" | **Rename** | L6 "Retrieval, knowledge and memory stores": a derived, entitlement-filtered, rebuildable index with four implementation options [AJ] |
 | H6 | Embeddings and reranking form one retrieval-optimisation layer | **Merge** | L7 "Retrieval optimisation": model choice, version pinning (held in C5), hybrid fusion policy and the retrieval evaluation gate [AJ] |
 | H7 | Ingestion includes lineage, classification, PII/DLP, access-control metadata and incremental indexing | **Keep**, with a scope change (and runtime web access repositioned to L4) | L8 "Ingestion and data preparation" with a built ingestion control envelope around replaceable parsers; policy from C3, evidence to C8 [AJ] |
-| H8 | Evaluation and observability are cross-cutting | **Reposition** | L9 leaves the bottom of the stack and becomes the evaluation and observability plane, joined with C8 as one evidence plane with two owners [AJ] |
+| H8 | Evaluation and observability are cross-cutting | **Reposition** | L9 becomes the evaluation and observability plane across every layer, joined with C8 as one evidence plane with two owners [AJ] |
 
 ## H1: Split L2 into serving → optimisation → gateway/routing, and promote the gateway
 
@@ -6718,7 +6720,7 @@ The plan required the nine-layer structure to be tested, not assumed (plan §4).
 
 **Resulting architecture change [Rec].**
 - Physically, memory is stored in the firm's L6 stores; the layer is renamed **"Retrieval, knowledge and memory stores"** (see H5).
-- Logically, a thin **L5 memory service** remains in the diagram, because it carries the controls unique to memory: the policy-gated write path, the subject index, retention and erasure "beyond use", and a memory snapshot ID per run.
+- Logically, a thin **L5 memory service** remains in the architecture, because it carries the controls unique to memory: the policy-gated write path, the subject index, retention and erasure "beyond use", and a memory snapshot ID per run.
 - Organisational and procedural memory (style rules, glossaries) is not agent memory: it is a versioned artefact in C5, proposed by the agent and approved by a person.
 - Memory is built last (Phase 6). Hyperscaler memory (AgentCore Memory, Memory Bank) is used only where the agent runtime already lives on that cloud.
 
@@ -6787,7 +6789,7 @@ The plan required the nine-layer structure to be tested, not assumed (plan §4).
 
 **Evidence.**
 - *The instrumentation standard spans the stack.* OTel GenAI conventions cover client inference, agents, tool execution, retrieval, evaluation and MCP, and evaluation results have their own event type [VF: A1-S061, A1-S059].
-- *Tools couple CI to production.* Six of the evaluation products in the popular stack diagram document a CI evaluation path, and the platforms run evaluators over production traces [VF: A1-S108, A1-S106, A1-S067, A1-S068, A1-S065, A1-S109, A1-S072, A1-S073, A1-S046, A1-S099].
+- *Tools couple CI to production.* Six of the evaluation products assessed in L9 document a CI evaluation path, and the platforms run evaluators over production traces [VF: A1-S108, A1-S106, A1-S067, A1-S068, A1-S065, A1-S109, A1-S072, A1-S073, A1-S046, A1-S099].
 - *Vendors push the layer sideways* into gateways, prompt management, guardrails and security testing [VF: A1-S043, A1-S103, A1-S067, A1-S024]. Every prompt registry is part of an observability platform or adds evaluation of its own [VF: A7-S071, A7-S076, A7-S004, A7-S117].
 - *Governance products consume evaluation evidence directly.* watsonx.governance Enforcement Tracking retrieves agent evaluation metrics against thresholds, and ValidMind logs tests to the governance record [VF: A7-S111, A7-S003, A7-S056].
 - *Regulators converge on ongoing monitoring.* AI Act Articles 26 and 72, the PRA's AI roundtables under SS1/23, ESMA's "frequent ex-post output controls" and IOSCO's human-intervention indicator all require it [VF: R-EUAIA, A8-S016, A8-S017; R-PRA-SS123, A8-S009; R-INTL-AI-ASSETMGMT, A8-S059, A8-S058].
@@ -6810,7 +6812,7 @@ The plan required the nine-layer structure to be tested, not assumed (plan §4).
 
 ## IV.1 The revised layer model
 
-The verdicts in Part III produce the model below: nine layers, L1 → L9, under one control plane of eight components. The numbers match the 17 chapters; Part XII.5 maps each layer to the popular stack diagram [AJ].
+The verdicts in Part III produce the model below: nine layers, L1 → L9, under one control plane of eight components. The numbers match the 17 chapters; Part XII.5 records which hypothesis shaped each layer [AJ].
 
 | # | Layer at end of Q3 2026 | Defining duty [AJ] |
 |---|---|---|
@@ -7679,19 +7681,19 @@ Select a firm-owned control and evidence plane first, and buy or adopt replaceab
 
 *Figure: Select the control plane first. A firm-owned control and evidence plane first, replaceable components beneath it, and a short list of what to leave out. Illustrative: categories, no vendor names. Editable source: `08_Graphic/linkedin/P24.md`.* [AJ]
 
-# Part XII: What changed since the popular stack diagram
+# Part XII: The new baseline at a glance
 
-## XII.1 The baseline
+## XII.1 What the baseline is
 
-The popular stack diagram ("Full AI Stack Explained", dated October 2026) was this review's inspiration and baseline. It draws nine layers and 80 product tiles as a shelf of tools [AJ]. This review's What-changed table, built from Stage A research and corrected by two adversarial verifiers, flags **39 of the 80 tiles** as out of date: 9 acquired, 9 mispositioned, 8 renamed, 8 with a wrong version label, 6 not publicly verifiable, 4 duplicated, 3 superseded and 2 deprecated, with some tiles carrying more than one flag [AJ]. The full tile-by-tile table, with sources, is in `05_Data/what_changed.xlsx` [AJ]. The rest of this document presents the stack as it stands at the end of Q3 2026; this part is the bridge from the diagram [AJ].
+This review sets a new baseline: the enterprise GenAI stack as it stands at the end of Q3 2026, built from the review's own research [AJ]. The baseline covers 140 product records, of which 138 are scored (58 Strategic, 67 Tactical and 13 Experimental), across seventeen layers and controls (L1 → L9, then C1 → C8), with 27 regulatory and standards records and 1,449 logged sources; the high-risk claims were re-checked by two adversarial verifiers (Part II) [AJ]. The product-level record, with every fact cell, score and tier, is `05_Data/products.xlsx` [AJ]. Each later quarterly edition is compared with this baseline, its previous edition, tier by tier and record by record, so that a reader can see what moved and why [AJ].
 
-## XII.2 Still sound
+## XII.2 Established in the baseline
 
-These elements of the popular stack diagram remain sound at the end of Q3 2026, sometimes under a new name [AJ]:
+These components hold their place in the baseline on firm evidence [AJ]:
 
-| Still sound | Why (tagged in the sections) |
+| Established | Why (tagged in the sections) |
 |---|---|
-| The nine-layer spine as a teaching device | It still maps the work; Part IV renames, splits and merges layers rather than discarding them [AJ] |
+| The nine-layer model, L1 → L9, under one control plane | It maps the work; Part IV defines each layer by responsibility, after the hypothesis verdicts in Part III [AJ] |
 | vLLM, Hugging Face (Hub), SGLang (conditional) | vLLM is Apache-2.0 and PyTorch Foundation-hosted [VF: A4-S009, A4-S146]; the Hub is the governed open-weight supply [VF: A4-S075] |
 | LangGraph | Workflows and agent loops in one graph, 1.x GA [VF: A4-S039, A4-S001] |
 | Docling, Unstructured | Docling: MIT, an LF AI & Data Graduate project since August 2026 [VF: V1-S091, A1-S057]; Unstructured: ACL-digest connectors [VF: A1-S094] |
@@ -7701,29 +7703,29 @@ These elements of the popular stack diagram remain sound at the end of Q3 2026, 
 | MCP and A2A | Now under a foundation; Strategic only behind a governed gateway (reader's decision, CP3) [VF: A3-S018, A3-S116]. MCP originated at Anthropic; the independent alternative is OpenAPI-described tools behind the same gateway [AJ] |
 | OpenAI, Anthropic, Gemini, Mistral, Gemma | The portfolio candidates, all Strategic, each with its route condition; Anthropic's tier was set by the reader at CP4 and is never the only qualified vendor [AJ] |
 
-## XII.3 Removed or demoted
+## XII.3 Excluded from the baseline, or below the line
 
-These tiles are not part of the enterprise stack at the end of Q3 2026, or sit below the line [Rec]:
+The baseline excludes the following, or places them below the line, on the evidence [Rec]:
 
-| Removed or demoted | Evidence |
+| Excluded or below the line | Evidence |
 |---|---|
 | EthicalAgents, Ragoos | Could not be verified; removed at CP1 [VF: A2-S079, A2-S080] |
-| "Gemma 2.9", "QI4", "Mistral Medium 3.1", unversioned "Mistral OCR" | Labels that do not exist or have been retired [VF: A5-S034, A5-S071, B-L1-S002, A1-S130] |
+| Unpinned, retired or non-existent model labels | The baseline names current, pinned versions: Gemma 4, Z.ai GLM-5.3, Mistral Medium 3.5 (Medium 3.1 retired on 31 August 2026) and Mistral OCR 4.1 [VF: A5-S034, A5-S071, B-L1-S002, A1-S130] |
 | TGI | Repository archived 21 March 2026 [VF: V1-S054] |
 | OpenRouter as "the" multi-provider layer | A model-access source behind the firm's gateway, not the gateway; owner changing [VF: A4-S111, V1-S059] |
-| Separate "Embeddings" and "RAG re-rankers" rows | One retrieval-optimisation responsibility [VF: A2-S012, A2-S010, A2-S029] |
+| Embeddings and reranking as separate layers | One retrieval-optimisation responsibility [VF: A2-S012, A2-S010, A2-S029] |
 | Memory as a separate infrastructure layer | Memory products are retrieval stacks with an extraction step [VF: A3-S053, A3-S003, A3-S005] |
-| "Agent SDK" tiles as peers of LangGraph | Model-vendor harnesses belong in sandboxed sub-steps; the Claude Agent SDK is Alpha and the OpenAI Agents SDK is pre-1.0 [VF: A4-S006, A4-S005] |
+| Model-vendor agent SDKs as peers of LangGraph | Model-vendor harnesses belong in sandboxed sub-steps; the Claude Agent SDK is Alpha and the OpenAI Agents SDK is pre-1.0 [VF: A4-S006, A4-S005] |
 | Ollama and LM Studio in the production picture | Developer tier only; LM Studio's terms exclude service use [VF: A4-S084, A4-S145] |
-| Evaluation drawn as the last box in the pipeline | It is the evidence plane for every layer [AJ] |
+| Evaluation as the last box in the pipeline | It is the evidence plane for every layer [AJ] |
 
-## XII.4 Added to the stack
+## XII.4 Components the baseline names explicitly
 
-The popular stack diagram has no place for the following; each is a named component of the stack at the end of Q3 2026 [AJ]:
+Each of the following is a named component of the baseline at the end of Q3 2026 [AJ]:
 
-| Added capability | Where it lives |
+| Component | Where it lives |
 |---|---|
-| AI traffic gateway (model, tool and agent calls) | C1, promoted to the control plane |
+| AI traffic gateway (model, tool and agent calls) | C1, in the control plane |
 | Guardrails, owned as policy and test sets | C2, invoked from the gateway |
 | DLP and PII protection at six enforcement points | C3 privacy service |
 | Agent identity, delegated authority and tool governance | C4 plus the L4 tool-governance sub-layer |
@@ -7736,22 +7738,22 @@ The popular stack diagram has no place for the following; each is a named compon
 | Ingestion control envelope (source register, lineage, ACLs, incremental indexing) | L8, built around replaceable parsers [VF: A1-S094, A7-S042] |
 | Hyperscaler agent stacks (AgentCore, Foundry, Agent Engine) | Per-cloud alternatives across L3–L5, C1, C2, C4 [VF: A3-S047, B-L3-S006, A4-S114] |
 
-## XII.5 Layer names: from the popular stack diagram to the end of Q3 2026
+## XII.5 How the hypotheses shaped each layer
 
-Part IV.1 sets out the nine layers as they stand. This table maps each one back to the popular stack diagram; the hypotheses (H1–H8) are argued in Part III [AJ].
+Part IV.1 sets out the nine layers and the control plane as they stand. This table records which hypothesis verdict (Part III) gave each one its shape [AJ].
 
-| # | In the popular stack diagram | Name at end of Q3 2026 | Change |
+| # | Name in the baseline | Hypothesis | Shape |
 |---|---|---|---|
-| L1 | LLMs | Foundation-model portfolio | Kept |
-| L2 | Inference | Inference and model access | Split (H1); routing moved to C1 |
-| L3 | Agent frameworks | Orchestration: workflows and agents | Split into three concerns (H2) |
-| L4 | Tools and protocols | Tools and connectivity, with a tool-governance sub-layer | Kept and split (H3) |
-| L5 | Memory | Memory service (logical component of L6) | Merged (H4) |
-| L6 | Vector DBs | Retrieval, knowledge and memory stores | Renamed (H5); absorbs L5 (H4) |
-| L7 | Embeddings; RAG re-rankers | Retrieval optimisation | Merged (H6) |
-| L8 | Data extraction | Ingestion and data preparation | Scope extended (H7); runtime web access moved to L4 |
-| L9 | Evals and observability | Evaluation and observability plane | Repositioned (H8) |
-| C1–C8 | (absent) | Control plane | Added |
+| L1 | Foundation-model portfolio | None assigned | A governed portfolio of tiers from at least two vendors, pinned and re-qualified |
+| L2 | Inference and model access | H1 | Serving, optional optimisation and model access; routing policy sits in C1 |
+| L3 | Orchestration: workflows and agents | H2 | Three stacked concerns: workflow orchestration, bounded agent steps, durable execution |
+| L4 | Tools and connectivity, with a tool-governance sub-layer | H3 | Connectivity plus a mandatory enforcement point bound to C1 and C4 |
+| L5 | Memory service (logical component of L6) | H4 | A governed logical component over the L6 stores, built last |
+| L6 | Retrieval, knowledge and memory stores | H5, H4 | A derived, entitlement-filtered, rebuildable index that also holds memory |
+| L7 | Retrieval optimisation | H6 | Embedding and reranking as one governed responsibility |
+| L8 | Ingestion and data preparation | H7 | A built control envelope around replaceable parsers; runtime web access sits in L4 |
+| L9 | Evaluation and observability plane | H8 | An evidence plane across every layer, joined with C8 |
+| C1–C8 | Control plane | H1, H3, H8 | Firm-owned policy and evidence for every call |
 
 
 # Part XIII: The view for technology service providers
@@ -7790,7 +7792,7 @@ Part IV.1 sets out the nine layers as they stand. This table maps each one back 
 
 **4. Cost levers are large and must be designed in.** Batch processing is 50% below standard on OpenAI, Anthropic, the Gemini API, Bedrock (select models) and Azure OpenAI Global and Data Zone Batch [VF: A5-S004, A5-S011, A5-S032, E2-S032, E2-S018]. Cached input is about 90–95% cheaper on OpenAI, and an Anthropic cache read costs 0.1x the base input price (0.05x on Opus 5.5 and Sonnet 5.5) [VF: A5-S004, V2-S002]. Regional processing costs about 10% more on Bedrock regional endpoints for Claude, non-global Google Cloud endpoints and Mistral's EU endpoint [VF: A5-S011, A5-S027, A5-S075]. Stable prompt prefixes, an asynchronous path and a small model tier are architecture decisions that set the margin [AJ].
 
-**5. Multi-tenant isolation has primary guidance, but no single standard.** Microsoft's guidance sets out four isolation models for Azure OpenAI, warns that a shared resource gives no security segmentation per deployment, and says not to share an instance when using fine-tuned models [VF: E2-S016]; tenants must agree before their data trains a shared model [VF: E2-S015]. AWS describes silo, pool and bridge patterns for multi-tenant retrieval, with per-tenant KMS keys in the silo and automatic tenant-filter injection in the pool [VF: E2-S050]. OWASP's LLM08:2025 names cross-context leakage in multi-tenant vector stores [VF: E2-S051], but no OWASP item on tenant isolation was found [NPV]. Shared prefix caches and tiered KV stores can carry one request's context into another's [VF: A4-S091, A4-S090, A4-S089], and Apigee fixed an SSRF in its semantic-cache lookup on 30 September 2026 [VF: A6-S025]. The provider must write its own tenancy standard, with a tenant key in the address of every cache, memory and checkpoint [AJ].
+**5. Multi-tenant isolation has primary guidance, but no single standard.** Microsoft's guidance sets out four isolation models for Azure OpenAI, warns that a shared resource gives no security segmentation per deployment, and says not to share an instance when using fine-tuned models [VF: E2-S016]; tenants must agree before their data trains a shared model [VF: E2-S015]. AWS describes silo, pool and bridge patterns for multi-tenant retrieval, with per-tenant KMS keys in the silo and automatic tenant-filter injection in the pool [VF: E2-S050]. OWASP's LLM08:2025 names cross-context leakage in multi-tenant vector stores [VF: E2-S051], but no OWASP item on tenant isolation was found [NPV]. Prefix-cache-aware routing and tiered KV-cache stores are now standard in serving stacks [VF: A4-S091, A4-S090, A4-S089], and a cache shared across tenants can carry one request's context into another's [AJ]; Apigee fixed an SSRF in its semantic-cache lookup on 30 September 2026 [VF: A6-S025]. The provider must write its own tenancy standard, with a tenant key in the address of every cache, memory and checkpoint [AJ].
 
 **6. The provider sits in two regulatory positions at once.** It is regulated in its own right under NIS2, the Product Liability Directive and AI Act Article 50 (XIII.6) [VF: E1-S017, E1-S010, E1-S035]. It is also a third party in its regulated customers' books: DORA Article 30 clauses and subcontracting rules reach it and, through it, its model API vendors [VF: E1-S055, E1-S057]. The FS view is, in effect, the provider's most demanding customer [AJ].
 
@@ -7839,7 +7841,7 @@ The FS architecture (Part IV.1) is kept layer for layer; what changes is that te
 
 ![The technology service provider's GenAI architecture: one estate, every call tenant-aware](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/TS-1.png){width=100%}
 
-*Figure: The provider runs one control plane for all tenants: tenant identity travels in every token, the gateway meters, limits and routes per tenant, the knowledge plane is partitioned by tenant (pooled by default, siloed for tenants who pay for it), and every span carries the tenant ID so cost, margin and customer evidence can be reported per tenant. Editable source: `08_Graphic/diagrams/TS-1.md`.* [AJ]
+*Figure: The provider runs one control plane for all tenants: tenant identity travels in every token, the gateway meters, limits and routes per tenant, the privacy service redacts each request before the gateway, the model and knowledge planes are partitioned by tenant in three tiers (pooled by default, bridged for regulated or residency-bound tenants, siloed for tenants who pay for single-tenancy), and every span carries the tenant ID so cost, margin and customer evidence can be reported per tenant. Editable source: `08_Graphic/diagrams/TS-1.md`.* [AJ]
 
 **Three tenancy tiers, one code path.** The architecture offers three isolation tiers built from the same components, following the pool, bridge and silo patterns [VF: E2-S050, E2-S053] [AJ]:
 
@@ -7883,7 +7885,7 @@ Each row gives the provider's default and how it departs from the FS defaults (P
 
 | Regime | What applies to a provider | Date | Consequence [AJ] |
 |---|---|---|---|
-| AI Act Article 50 | Supplying an AI system under its own name makes the provider its provider [VF: A8-S016]; chat features disclose AI; generated content is marked; pre-August 2026 systems have until 2 December 2026 for marking [VF: E1-S035, E1-S036] | 2 Dec 2026 | Disclosure and marking as tenant settings with a provider floor |
+| AI Act Article 50 | Supplying an AI system under its own name makes the provider its provider [VF: A8-S016]; chat features disclose AI; generated content is marked; pre-August 2026 systems have until 2 December 2026 for marking [VF: E1-S035, E1-S036] | Since 2 Aug 2026; marking for systems already on the market by 2 Dec 2026 | Disclosure and marking as tenant settings with a provider floor |
 | AI Act roles | Fine-tuning makes an integrator a GPAI provider only above one third of original training compute [VF: E1-S034] | In force | Per-tenant tuning does not normally make the provider a GPAI provider |
 | NIS2 | Cloud, MSP and MSSP providers, medium and large, in scope [VF: E1-S017, E1-S018]; 24-hour, 72-hour, one-month reporting [VF: E1-S016]; supply-chain policy reaching model vendors [VF: E1-S019]; management liability [VF: E1-S016] | Per transposition [NPV] | Model vendor incidents feed the provider's incident process |
 | Product Liability Directive | Software, including SaaS, is a product from 9 December 2026 [VF: E1-S010, E1-S011, E1-S012]; the AI Liability Directive was withdrawn [VF: E1-S014] | 9 Dec 2026 | Agents that can delete a person's data need approval gates |
@@ -7932,7 +7934,7 @@ Stack A's control plane (Part VII), made tenant-aware, with managed services acc
 | Detectors (C2, C3) | Hybrid, swappable | **Buy managed, keep the policy** | Cost and reliability favour managed detectors |
 | Evaluation (L9) | Hybrid | **Hybrid, per-tenant suites** | Large tenants' acceptance tests become regression sets |
 
-**Lock-in, reread.** Lock-in weighs 5% because the provider can migrate on its own schedule [AJ]. Three lock-ins still matter. A single model vendor is a service-level risk, given suspension for tenants' misuse [VF: E2-S004] and the Fable 5 outage [VF: V2-S004]. Billing intermediation puts a third party in the margin, and OpenRouter's sale to Stripe is pending [VF: V1-S059]. Ownership churn (Portkey to Palo Alto Networks, Langfuse to ClickHouse, Arize to Dynatrace, Promptfoo to OpenAI, announced) turns each embedded tool's change of control into a subprocessor notice [VF: A6-S011, A1-S021, A1-S045, A1-S024] [AJ].
+**Lock-in, reread.** Lock-in weighs 5% because the provider can migrate on its own schedule [AJ]. Three lock-ins still matter. A single model vendor is a service-level risk, given suspension for tenants' misuse [VF: E2-S004] and the suspension of Fable 5 access from 12 June to 1 July 2026 [VF: V2-S004]. Billing intermediation puts a third party in the margin, and OpenRouter's sale to Stripe is pending [VF: V1-S059]. Ownership churn (Portkey to Palo Alto Networks, Langfuse to ClickHouse, Arize to Dynatrace, Promptfoo to OpenAI, announced) turns each embedded tool's change of control into a subprocessor notice [VF: A6-S011, A1-S021, A1-S045, A1-S024] [AJ].
 
 **The inverse lock-in [Rec].** Make the service easy to leave, because the Data Act removes switching charges from 12 January 2027 [VF: E1-S025]: keep each tenant's prompts, overlays, content, evaluation sets and evidence exportable in open formats (Git, OTel, OpenLineage, FOCUS). Embeddings can be regenerated if raw text is kept [AJ].
 
@@ -8085,7 +8087,7 @@ The view re-weights the same criterion scores; no fact, score or master tier cha
 | Cost and TCO | 5 | 5 | 0 | The customer usually pays for inference |
 | Lock-in and portability | 15 | 15 | 0 | Meaning widens to *redistributability* |
 
-**What moves, and why.** The largest risers pair deployment flexibility 5 with ecosystem 4 or 5: MCP and Agent Skills (+0.25 each, MCP to 3.80), Llama Protections (+0.25), SGLang and OpenLineage (+0.20), vLLM, MLflow and Promptfoo (+0.15) (`SW_scores.md`). Managed single-cloud services with deployment 2 fall by 0.15: AgentCore Memory, Memory Bank, Gemini Embedding 2 and OpenAI embeddings [AJ].
+**What moves, and why.** The largest risers pair deployment flexibility 5 with ecosystem 4 or 5: MCP and Agent Skills (+0.25 each, MCP to 3.80), Llama Protections (+0.25), SGLang and OpenLineage (+0.20), vLLM, MLflow and Promptfoo (+0.15) (`SW_scores.md`). Managed single-cloud or API-only services with deployment 2 fall by 0.15: AgentCore Memory, Memory Bank, Gemini Embedding 2 and OpenAI embeddings [AJ].
 
 **Ranks that change the advice [AJ].** In L6, pgvector rises from 3 to 1 and Elasticsearch falls from 1 to 3. In L7, Sentence Transformers rises to 1. In L9, DeepEval rises from 6 to 2 and Langfuse falls from 2 to 4. In L1, Anthropic falls from 3 to 4 (no self-hosting [VF: A5-S010]) and Gemini from 5 to 8 (API-only [VF: A5-S032]), while Qwen and DeepSeek rise on open weights. In C7, model and package scanning rises to 1.
 
@@ -8120,7 +8122,7 @@ The architecture has three planes: the vendor's build and release plane, the pro
 
 | Layer / control | Default choice for this view | Change from the FS view | Why |
 |---|---|---|---|
-| L1 models | Customer's own hosted model (GPT, Claude, Gemini or Mistral; Strategic, with conditions); bundled Gemma 4 or Ministral 3 / Mistral Large 3 (Strategic) | Support matrix replaces the two-vendor portfolio; bundled model Apache 2.0 or MIT; for Claude, GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as alternatives | Hosted lifetimes are short; Apache 2.0 needs only licence and notices [VF: B-L1-S003, A5-S034, A5-S074] [AJ] |
+| L1 models | Customer's own hosted model (GPT, Claude, Gemini or Mistral; Strategic, with conditions); bundled Gemma 4 (Strategic, conditional) or Ministral 3 / Mistral Large 3 (Strategic) | Support matrix replaces the two-vendor portfolio; bundled model Apache 2.0 or MIT; for Claude, GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as alternatives | Hosted lifetimes are short; Apache 2.0 needs only licence and notices [VF: B-L1-S003, A5-S034, A5-S074] [AJ] |
 | L2 inference | Customer's endpoint; vLLM (Strategic) inside the bundled route | vLLM moves from exit route to shipped engine; SGLang (Strategic, conditional) once CVE-2026-3059 is fixed | Apache-2.0, OpenAI-compatible [VF: A4-S009, A4-S010, B-REVC-S002] [AJ] |
 | L3 orchestration | LangGraph (Strategic) or Pydantic AI (Strategic, conditional) as libraries; durability via the product's job system | Temporal optional; the Claude Agent SDK (Experimental) stays out of shipped code (alternatives: LangGraph, Pydantic AI) | MIT libraries ship; the Claude Agent SDK is under Anthropic's Commercial Terms [VF: A4-S001, A4-S003, A4-S092] [AJ] |
 | L4 tools | Read-only internal tools; an MCP server (Strategic, conditional) for customers' agents, OpenAPI as the independent alternative | The product becomes a *tool provider*, not only a consumer | MIT under AAIF; authorisation is optional in the specification, so the product enforces its own [VF: A3-S058, A3-S018, A3-S055] |
@@ -8182,7 +8184,7 @@ This is the stack the vendor *ships and builds with*, cloud-neutral by necessity
 | C4 | Product SSO/SCIM + OPA (S) | Cedar (S) | Customer's IdP; AgentCore Identity where the customer uses it | Entra (Agent ID for agent access) (S, cond.) | Customer's IdP |
 | C6 | Usage metering + FOCUS (S) export | Gateway cost attribution (S) in the customer's gateway | Bedrock application inference profiles in the customer's account [VF: B-C6-S004] | Foundry project tags [VF: B-C6-S005] | Customer gateway metering |
 
-**The same in every cloud [Rec].** The bundled route (Gemma 4 (S) or Ministral 3 / Mistral Large 3 (S) on vLLM (S), with gpt-oss (S) or Qwen3.8-27B (T) as alternatives and SGLang (S, cond.) as the second engine), prompts as code (S) in the release, scanning (S) with OMS signing (T) and an SBOM, and OpenLineage (S) evidence export do not vary by cloud; marketplace editions ship them as an AMI, container or VM image [AJ].
+**The same in every cloud [Rec].** The bundled route (Gemma 4 (S, cond.) or Ministral 3 / Mistral Large 3 (S) on vLLM (S), with gpt-oss (S) or Qwen3.8-27B (T) as alternatives and SGLang (S, cond.) as the second engine), prompts as code (S) in the release, scanning (S) with OMS signing (T) and an SBOM, and OpenLineage (S) evidence export do not vary by cloud; marketplace editions ship them as an AMI, container or VM image [AJ].
 
 **Marketplace editions [VF: E2-S034, E2-S036, E2-S020, E2-S038].** AWS private offers name up to 25 buyer accounts and can share AMI and container licences; eligible Microsoft Marketplace purchases count fully toward the Azure commitment; Google Cloud Marketplace draws down Google commitments and private offers can include third-party models for Vertex AI. Pre-wire the marketplace image to the customer's model service in that cloud, so the buyer's commitment pays for both product and inference [Rec].
 
@@ -8366,7 +8368,7 @@ This Part gives the view at end of Q3 2026 for an early-stage company building a
 
 **8. EU rules cut a start-up's cost but not its duties, and two dates fall in the next quarter.** AI Act SME measures cut fees, documentation and fines (XV.6) [VF: E1-S029, E1-S031]. Software, including SaaS, is a product under the Product Liability Directive from 9 December 2026 [VF: E1-S010, E1-S011]. The Article 50(2) marking grace period ends on 2 December 2026 and covers only systems already on the market, so a product launched now has none [VF: R-EUAIA, A8-S018] [AJ].
 
-**9. Free tiers are short-lived evidence, and the neutral tools keep changing owner.** Free observability tiers keep data for 15 to 60 days [VF: A1-S047, A1-S031, A1-S123], and Langfuse, Promptfoo and Helicone all changed owner in 2026 [VF: A1-S021, A1-S024, A7-S112]. The evaluation dataset and the prompts are product IP and belong in Git [Rec].
+**9. Free tiers are short-lived evidence, and the neutral tools keep changing owner.** Free observability tiers keep data for 15 to 60 days [VF: A1-S047, A1-S031, A1-S123]. Langfuse and Helicone changed owner in 2026, and OpenAI announced its acquisition of Promptfoo, with no closing published [VF: A1-S021, A7-S112, A1-S024]. The evaluation dataset and the prompts are product IP and belong in Git [Rec].
 
 ## XV.3 Scoring for this view
 
@@ -8449,7 +8451,7 @@ Master tiers are quoted as S (Strategic), T (Tactical) or E (Experimental); "SU 
 | Data Act switching | From 12 January 2027 no switching charges, including egress, for cloud and SaaS; customers get at most two months' notice, a 30-day transition and machine-readable export [VF: E1-S025, E1-S026] | Build tenant export early; it is a duty to EU customers and also lowers the cost of leaving a cloud when credits run out [AJ] |
 | UK | No CRA equivalent; the voluntary Software Security Code of Practice (14 principles, self-assessed) is the buyer's reference [VF: E1-S051, E1-S052] | File the self-assessment with the first questionnaire |
 
-**United States.** Most state AI duties apply only where a product makes, or helps make, consequential decisions about individuals [VF: R-US-STATE-AI] [AJ]. Texas TRAIGA (in force since 1 January 2026) prohibits AI built or used with intent to harm or discriminate unlawfully [VF: E1-S042, E1-S043]. California's SB 53 and AI Transparency Act apply only above US$500m revenue or 1,000,000 monthly users, and the CPPA's ADMT rules apply to significant decisions from 1 January 2027 [VF: E1-S044, E1-S045, E1-S047]. Colorado's law is stayed pending rulemaking [VF: E1-S040]. A productivity product that decides nothing about a person sits outside almost all of it [AJ].
+**United States.** Most state AI duties apply only where a product makes, or helps make, consequential decisions about individuals (R-US-STATE-AI) [AJ]. Texas TRAIGA (in force since 1 January 2026) prohibits AI built or used with intent to harm or discriminate unlawfully [VF: E1-S042, E1-S043]. California's SB 53 and AI Transparency Act apply only above US$500m revenue or 1,000,000 monthly users, and the CPPA's ADMT rules apply to significant decisions from 1 January 2027 [VF: E1-S044, E1-S045, E1-S047]. Colorado's law is stayed pending rulemaking [VF: E1-S040]. A productivity product that decides nothing about a person sits outside almost all of it [AJ].
 
 **Data transfers.** Personal data sent to US model APIs relies on the EU–US Data Privacy Framework, still in effect with an appeal pending, or on standard contractual clauses [VF: A8-S053]. Anthropic's DPA includes SCCs, a UK Addendum and notice of new subprocessors [VF: E2-S012]. OpenAI offers EU residency for new projects with Modified Abuse Monitoring or ZDR, but its UK option does not process in the UK [VF: A5-S006]; Mistral hosts in the EU by default [VF: A5-S075]. The subprocessor list is the model portfolio, so a vendor change is a customer notification, not just configuration [AJ].
 
@@ -8503,9 +8505,9 @@ The cloud-neutral column is the default; orchestration (LangGraph or Pydantic AI
 | Evaluation data in a vendor UI | Free tiers keep 15–60 days [VF: A1-S031, A1-S123] | Datasets and results exported to Git or object storage |
 | Customers' OAuth tokens in a broker | Composio incident [VF: B-L4-S007] | Own secrets store, per-tenant scopes |
 | Licence surprises at scale | Mistral Medium 3.5 reportedly needs a commercial licence above about US$20m monthly revenue, and Qwen3.8-Max above US$50m [R: E2-S027, E2-S025]; Llama 4 multimodal grants no rights to EU-domiciled companies [VF: E2-S002] | Prefer Apache-2.0 or MIT weights; record each licence in the AI register |
-| Acquired tools change terms | Four neutral tools changed owner in 2026 [VF: A1-S021, A1-S024, V2-S025, A7-S112] | OTel instrumentation; open cores you could self-host |
+| Acquired tools change terms | Three neutral tools changed owner in 2026 and a fourth's sale was announced [VF: A1-S021, V2-S025, A7-S112, A1-S024] | OTel instrumentation; open cores you could self-host |
 
-**Where multi-vendor pays for a start-up.** It pays in one place: a second model vendor qualified on the same evaluation set, because a single vendor's outage, retirement or policy suspension stops the product. A three-week Fable 5 outage and short Gemini Flash lifetimes show the risk [VF: V2-S004, B-L1-S003] [AJ]. Everything else in Part IX.3's "necessary" list, such as two gateway deployments, two guardrail detectors and two red-team tools, can wait for the first enterprise contract [AJ].
+**Where multi-vendor pays for a start-up.** It pays in one place: a second model vendor qualified on the same evaluation set, because a single vendor's outage, retirement or policy suspension stops the product. The suspension of Fable 5 access from 12 June to 1 July 2026 and short Gemini Flash lifetimes show the risk [VF: V2-S004, B-L1-S003] [AJ]. Everything else in Part IX.3's "necessary" list, such as two gateway deployments, two guardrail detectors and two red-team tools, can wait for the first enterprise contract [AJ].
 
 ## XV.9 Roadmap
 
@@ -8613,7 +8615,7 @@ The phases are sized to a team of five to twenty and to a funding round, not to 
 | Promptfoo–OpenAI closing; Langfuse under ClickHouse; OpenRouter–Stripe closing | Check pricing and free-tier changes [VF: A1-S024, A1-S021, V1-S059] |
 | Voyage SOC 2 scope | Confirm before sending customer data [VF: A2-S044, A2-S143] |
 | Mistral Medium 3.5 and Large 4 licences | Read the licence file before self-hosting at scale [R: E2-S027] [VF: A5-S076] |
-| The agentic-SDLC evidence (Stage E, E3), not yet available | Add coding-agent and AI-code-review guidance for the start-up's own engineering when published; Part XVII covers the vendor side [NPV] |
+| Guidance on coding agents for the start-up's own engineering; the E3 research found no NIST or CISA guidance specific to AI coding assistants [NPV] | Apply the E3 evidence (Part XVII covers the vendor side) and adopt guidance when published |
 
 
 # Part XVI: The view for start-ups selling AI tools into the enterprise stack
@@ -8699,7 +8701,7 @@ The phases are sized to a team of five to twenty and to a funding round, not to 
 
 | Ref | Component | Master tier | AT score (rank in layer) |
 |---|---|---|---|
-| L1 | Mistral family; Gemma 4 (open weights for in-product models) | Strategic; Strategic | 3.95 (2); 3.80 (4) |
+| L1 | Mistral family; Gemma 4 (open weights for in-product models) | Strategic; Strategic, conditional | 3.95 (2); 3.80 (4) |
 | L2 | vLLM | Strategic | 4.45 (1) |
 | L6 | pgvector | Strategic | 4.35 (1) |
 | L7 | Sentence Transformers | Strategic | 3.90 (1) |
@@ -8757,7 +8759,7 @@ Automated single-tenant deployment stamps give the strongest isolation at the lo
 
 | Layer / control | What the buyer's stack expects | The interface the product should offer | Evidence |
 |---|---|---|---|
-| L1 models | A two-vendor portfolio consumed through its own cloud route, with pinned versions; no hidden model dependency | No hard-wired vendor; in-product models either bundled open weights (Mistral or Gemma 4, Strategic) or the customer's own model accounts through the customer's gateway; any Claude route paired with a non-Anthropic alternative (GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) | Model vendors restrict reselling raw access and transferring keys [VF: E2-S004, E2-S026]; ZDR conditions differ by model and must pass through [VF: E3-S011, E3-S032] |
+| L1 models | A two-vendor portfolio consumed through its own cloud route, with pinned versions; no hidden model dependency | No hard-wired vendor; in-product models either bundled open weights (Mistral, Strategic, or Gemma 4, Strategic, conditional) or the customer's own model accounts through the customer's gateway; any Claude route paired with a non-Anthropic alternative (GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) | Model vendors restrict reselling raw access and transferring keys [VF: E2-S004, E2-S026]; ZDR conditions differ by model and must pass through [VF: E3-S011, E3-S032] |
 | L2 inference | OpenAI-compatible model access through the gateway; a vLLM private route | Accept an OpenAI-compatible base URL and key; serve bundled models on vLLM (Strategic) in the customer's account | Every gateway exposes or accepts the format [VF: A6-S015, A6-S053, A6-S061] |
 | L3 orchestration | Deterministic workflows; durable activities; approval interrupts | Idempotent, side-effect-free calls safe to retry; a typed outcome (allow, block, transform) with error distinct from policy block | NeMo IORails' `RailOutcome` contract separates policy blocks from execution failures [VF: A6-S036] |
 | L4 tools | No tool reachable except through the governed tool gateway; read-only by default | Where agents call the product: an MCP server (Strategic, conditional; Anthropic-originated, alternative an OpenAPI description) that enforces OAuth authorisation and works under managed allow-lists; A2A only for agent delegation | MCP authorisation is optional in the specification [VF: A3-S055]; MCP allow-listing is a standard admin control [VF: E3-S004] |
@@ -8769,7 +8771,7 @@ Automated single-tenant deployment stamps give the strongest isolation at the lo
 | C1 gateway | One gateway of record; detectors as call-outs; fail-closed routes | A low-latency HTTP call-out usable from pre-call and post-call hooks, with a published latency budget and timeout behaviour | Gateway hooks [VF: A6-S015, A6-S017, A6-S020, A6-S024]; generic third-party call-out per gateway [NPV] |
 | C2 guardrails | Policy and test sets owned by the firm; two detectors from different owners on untrusted input | Policy importable and exportable as files; the customer's test sets runnable against the product in CI | Detectors are being absorbed by security vendors [VF: A7-S012, A7-S014, A6-S028] |
 | C3 privacy | One privacy service at six enforcement points | If the product is not the privacy service, call the customer's before storing content, and redact its own logs | Six enforcement points (C3 §C3.1) [AJ] |
-| C4 identity | Workforce IdP; agents as registered identities acting on behalf of users | SAML or OIDC SSO, SCIM, RBAC; workload identity (SPIFFE/SPIRE, Strategic) or OAuth tokens for service calls; MCP Enterprise-Managed Authorization where agents call it | EMA builds on ID-JAG [VF: A6-S079, E3-S073]; Entra Agent ID and Okta for AI Agents are GA [VF: V2-S032, A6-S100] |
+| C4 identity | Workforce IdP; agents as registered identities acting on behalf of users | SAML or OIDC SSO, SCIM, RBAC; workload identity (SPIFFE/SPIRE, Strategic) or OAuth tokens for service calls; MCP Enterprise-Managed Authorization where agents call it (Anthropic-originated; alternative OAuth 2.0 on an OpenAPI interface) | EMA builds on ID-JAG [VF: A6-S079, E3-S073]; Entra Agent ID and Okta for AI Agents are GA [VF: V2-S032, A6-S100] |
 | C5 configuration | Git as the configuration of record; release manifest with an evaluation gate | Policy and configuration as code with a versioned API; no setting that exists only in a console | "Policy held only in a vendor console" is the FS anti-pattern (Part IV.3, row 34) [AJ] |
 | C6 FinOps | Cost per approved task; budgets that fail closed | Usage metered per customer use case or gateway key, exported in a FOCUS-shaped form | FOCUS 1.4 ratified 4 June 2026 [VF: V2-S046] |
 | C7 security | Capability separation; signed and pinned dependencies; secrets in the firm's vault | Signed images, an SBOM per release, pinned dependencies, secrets from the customer's vault, no standing credentials | LiteLLM PyPI compromise [VF: A6-S008]; CRA SBOM duty [VF: E1-S001] |
@@ -8816,7 +8818,7 @@ AIUC-1 appears as an attestation on Cursor's security page; its weight with FS b
 
 | Layer / control | Cloud-neutral (also the customer-run edition) | AWS | Azure | Google Cloud |
 |---|---|---|---|---|
-| L1 in-product models | Apache-2.0 open weights: Gemma 4 (S) or Mistral Large 3 / Ministral 3 (S) for recognisers and judges; customer's own model account for anything larger | Bedrock in an EU region in the SaaS edition | Foundry Data Zone in the SaaS edition | Gemini (S, cond.) in an EU region; credits apply to Google models only [VF: E2-S010] |
+| L1 in-product models | Apache-2.0 open weights: Gemma 4 (S, cond.) or Mistral Large 3 / Ministral 3 (S) for recognisers and judges; customer's own model account for anything larger | Bedrock in an EU region in the SaaS edition | Foundry Data Zone in the SaaS edition | Gemini (S, cond.) in an EU region; credits apply to Google models only [VF: E2-S010] |
 | L2 serving | vLLM (S), CPU path for small models where possible | Same, on the customer's EKS | Same, on AKS | Same, on GKE |
 | L3 internal workflows | Plain code; Pydantic AI (S, cond.) for typed LLM steps; LangGraph (S) if multi-step | Same | Same | Same |
 | L4 agent interface | MCP server (S, cond.; Anthropic-originated, alternative OpenAPI description); AGENTS.md or skill guidance for coding agents | AWS Marketplace "AI Agents and Tools" listing for MCP servers [VF: E2-S035] | Same | Same |
@@ -9001,7 +9003,7 @@ AIUC-1 appears as an attestation on Cursor's security page; its weight with FS b
 
 **5. Telemetry exists; complete audit does not.** Copilot exports OpenTelemetry traces of agent sessions, without prompt content by default [VF: E3-S081]. The OTel GenAI agent and MCP conventions are still at Development, with no tagged release [VF: E3-S066, E3-S067, E3-S068, E3-S069]. The Codex Compliance API does not cover every hosted file operation, command or approval, and keeps logs for 30 days [VF: E3-S023]. An audit trail of every agent action in the customer's store is a gap a start-up can fill [AJ].
 
-**6. The incumbents are consolidating and model vendors are moving in.** Cursor is now part of SpaceX, which also owns xAI, and Grok 4.5 was trained alongside Cursor [VF: E3-S029, V2-S011]. Windsurf became Devin Desktop under Cognition, Tricentis acquired Tabnine, and Amp spun out of Sourcegraph [VF: E3-S045, E3-S056, E3-S053]. Google stopped selling new Gemini Code Assist subscriptions on 9 October 2026, and Q Developer reaches end of support on 30 April 2027 [VF: E3-S033, E3-S040]. The neutral coding tool is becoming scarce: the start-up's opening and its likely exit [AJ].
+**6. The incumbents are consolidating and model vendors are moving in.** Cursor is now part of SpaceX, which also owns xAI [VF: E3-S029, V2-S011]; Grok 4.5 was reportedly trained alongside Cursor, per SpaceX filings read only through a search summary [R: E3-S029]. Windsurf became Devin Desktop under Cognition, Tricentis acquired Tabnine, and Amp spun out of Sourcegraph [VF: E3-S045, E3-S056, E3-S053]. Google stopped selling new Gemini Code Assist subscriptions on 9 October 2026, and Q Developer reaches end of support on 30 April 2027 [VF: E3-S033, E3-S040]. The neutral coding tool is becoming scarce: the start-up's opening and its likely exit [AJ].
 
 **7. Wrapping an incumbent's agent has terms attached.** A vendor that embeds Claude Code must ship it unmodified, with each end user authenticating with their own credentials [VF: E3-S016]. GitHub's third-party agent slot is in public preview and lists only Claude and Codex [VF: E3-S003]. Building on a model vendor's harness limits both the business model and the model choice [AJ].
 
@@ -9047,7 +9049,7 @@ AIUC-1 appears as an attestation on Cursor's security page; its weight with FS b
 | C4 | MCP Authorization (alternative: OAuth resource-server pattern on OpenAPI tools) | Strategic, conditional | 3.45 → 3.65 | Becomes core candidate |
 | C7 | HashiCorp Vault | Strategic, conditional | 3.65 → 3.75 | Core candidate |
 
-**How to read the fit.** The fit is indicative; master tiers and conditions stand (Part I.3) [AJ]. Presidio (3.65 → 3.45) and prompts as code (3.65 → 3.50) become situational, and this view keeps both: a coding-agent vendor's prompts and tool definitions are its product and belong in Git, and the customer's privacy service is what the product calls [AJ]. E2B stays situational on enterprise readiness 2, but it remains the reference pattern for the sandbox, which a coding agent cannot do without [VF: A3-S062] [AJ].
+**How to read the fit.** The fit is indicative; master tiers and conditions stand (Part I.3) [AJ]. Presidio (3.65 → 3.45) and prompts as code (3.65 → 3.50) become situational, and this view keeps both: a coding-agent vendor's prompts and tool definitions are its product and belong in Git, and the customer's privacy service is what the product calls [AJ]. E2B stays situational (3.45, below the 3.6 threshold; enterprise readiness 2), but it remains the reference pattern for the sandbox, which a coding agent cannot do without [VF: A3-S062] [AJ].
 
 **Anthropic.** The Claude family moves from third to second in L1 (3.80 → 3.95), behind OpenAI (4.35), because its technical, ecosystem and cost scores gain weight; its lowest criteria remain deployment flexibility 3 and reliability 3 (`DV_scores.md`) [AJ]. The Claude Agent SDK remains Experimental and eleventh of twelve in L3 [VF: A4-S006, B-REVC-S001] [AJ].
 
@@ -9080,7 +9082,7 @@ The FS architecture (Part IV.1) is the buyer's and is not redrawn [AJ]. A coding
 | L1 models | The customer's chosen vendor and tier, pinned | Model-agnostic prompts and tools, qualified per task type; for Claude, alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5 | Incumbents compete on model choice [VF: E3-S014, E3-S025, E3-S050] |
 | L2 inference | Hyperscaler endpoint or private vLLM route | OpenAI-compatible client; tolerate Flex 429s in background work | vLLM is OpenAI-compatible [VF: A4-S063]; Flex 429s [VF: E2-S031] |
 | L3 orchestration | Bounded workflow: plan, change, test, pull request | Durable task runs; step budget; stop on request | FS default (Part I.2) [AJ] |
-| L4 tools | MCP behind the customer's tool gateway; AGENTS.md | MCP server under managed allow-lists; code only in a microVM with default-deny egress | [VF: E3-S004, E3-S019, A3-S062] |
+| L4 tools | MCP behind the customer's tool gateway; AGENTS.md | MCP server under managed allow-lists (alternative: OpenAPI tools behind the same gateway); code only in a microVM with default-deny egress | [VF: E3-S004, E3-S019, A3-S062] |
 | L5 memory | None held by the vendor | Learnings proposed as pull requests to AGENTS.md | Memory poisoning is ASI06 [VF: E3-S072] |
 | L6 stores | The repository is the store | Per-task index in the sandbox, destroyed at task end | Every store is another copy to exit (Part VIII) [AJ] |
 | L7 retrieval optimisation | The customer's `embed` service, if any | Pinned, self-hostable embeddings (Sentence Transformers) | Hosted embedding adds a processor [AJ] |
@@ -9130,16 +9132,16 @@ The FS architecture (Part IV.1) is the buyer's and is not redrawn [AJ]. A coding
 
 | Layer / control | Cloud-neutral | AWS | Azure | Google Cloud |
 |---|---|---|---|---|
-| L1 models | Two unrelated vendors per task type: OpenAI GPT (S) with Claude (S, cond.; alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) or Mistral (S); air-gapped: Mistral, gpt-oss or Gemma 4 (all S) | Claude or a GPT-6 tier on Bedrock [VF: A5-S008] | GPT-6.1 Sol in Foundry | Gemini (S, cond.) |
+| L1 models | Two unrelated vendors per task type: OpenAI GPT (S) with Claude (S, cond.; alternatives GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5) or Mistral (S); air-gapped: Mistral or gpt-oss (both S), or Gemma 4 (S, cond.) | Claude or a GPT-6 tier on Bedrock [VF: A5-S008] | GPT-6.1 Sol in Foundry | Gemini (S, cond.) |
 | L2 inference | Customer's endpoint first; vLLM (S) for the open-weight edition | Bedrock Standard plus Flex for background tasks [VF: E2-S032] | Foundry Standard and Batch; Azure caching nuances [VF: E2-S019] | Gemini Enterprise Agent Platform endpoint |
 | L3 orchestration | LangGraph (S) + Temporal (S); Pydantic AI (S, cond.) or OpenAI Agents SDK (T); Claude Agent SDK (E) only in one sandboxed step (alternatives as before) | Strands on AgentCore (S, cond.) | Microsoft Agent Framework (S) | ADK on Agent Engine (S, cond.) |
-| L4 tools | Own MCP server (MCP S, cond.; alternative OpenAPI tools); E2B (T) BYOC sandbox; AGENTS.md read, Agent Skills (T) optional | AgentCore Gateway + Identity (S, cond.) | APIM AI gateway (S, cond.) | Apigee MCP (S, cond.) |
+| L4 tools | Own MCP server (MCP S, cond.; alternative OpenAPI tools); E2B (T) BYOC sandbox; AGENTS.md read, Agent Skills (T; Anthropic-maintained, alternative AGENTS.md or C5 packages) optional | AgentCore Gateway + Identity (S, cond.) | APIM AI gateway (S, cond.) | Apigee MCP (S, cond.) |
 | L5–L8 | No vendor-side memory or store; per-task index in the sandbox; Sentence Transformers (S) if embeddings are needed | Same | Same | Same |
 | L9 evaluation | OTel spans; Langfuse (S) or MLflow (S); task suites on real repositories; Promptfoo (T) plus an independent red-team tool | MLflow on SageMaker | MLflow on Azure ML | Langfuse self-hosted |
 | C1 gateway | LiteLLM (S, cond.), pinned and signed, inside the hosted plane; customer's gateway in customer-run editions | Same | Same | Same |
 | C2 guardrails | Tests and SAST as the gate; NeMo Guardrails (T) for injected instructions | Bedrock Guardrails (S, cond.) | Azure AI Content Safety (S, cond.) | Model Armor (S, cond.) |
 | C3 privacy | Presidio (S, cond.) for trace redaction in the hosted plane | Same | Same | Sensitive Data Protection (S, cond.) |
-| C4 identity | SSO and SCIM; Okta/Auth0 (S, cond.) or Entra Agent ID (S, cond.); MCP Authorization (S, cond.); OPA (S) | AgentCore Identity | Entra Agent ID | Okta or Entra |
+| C4 identity | SSO and SCIM; Okta/Auth0 (S, cond.) or Entra Agent ID (S, cond.); MCP Authorization (S, cond.; alternative OAuth resource-server pattern on OpenAPI tools); OPA (S) | AgentCore Identity | Entra Agent ID | Okta or Entra |
 | C5 configuration | Prompts, tool definitions and policies as code (S) | Same | Same | Same |
 | C6 FinOps | Gateway cost attribution (S) per customer and task; FOCUS (S) export | Application inference profiles [VF: B-C6-S004] | Foundry project tags [VF: B-C6-S005] | Gateway metering |
 | C7 security | Vault (S, cond.) for the hosted plane; package and model scanning (S); signed releases with SBOMs | Cloud secrets + workload identity | Same | Same |
@@ -9160,14 +9162,14 @@ The FS architecture (Part IV.1) is the buyer's and is not redrawn [AJ]. A coding
 | Enterprise wrapper (SSO, SCIM, RBAC, policy as code) | **Build**, and charge for it | The baseline [VF: E3-S027, E3-S005] |
 | Model access, hosting, billing | **Buy** (model vendors, clouds, marketplaces) | Marketplace private offers draw down the buyer's cloud commitment [VF: E2-S034, E2-S036, E2-S020] |
 
-**Lock-in, for the start-up.** Lock-in weighs 5%, but three lock-ins matter [AJ]. One model vendor is a product risk: the Fable 5 outage ran from 12 June to 1 July 2026 [VF: V2-S004], and a one-vendor product cannot serve a buyer standardised on another. An incumbent's harness brings its terms [VF: E3-S016]. One SCM's agent slot ties distribution to a preview [VF: E3-S003] [AJ].
+**Lock-in, for the start-up.** Lock-in weighs 5%, but three lock-ins matter [AJ]. One model vendor is a product risk: Fable 5 access was suspended from 12 June to 1 July 2026 [VF: V2-S004], and a one-vendor product cannot serve a buyer standardised on another. An incumbent's harness brings its terms [VF: E3-S016]. One SCM's agent slot ties distribution to a preview [VF: E3-S003] [AJ].
 
 **Where incumbents are, and where they are moving.** The landscape records, read even-handedly [AJ]:
 
 | Incumbent | Ownership and product events | Deployment options | Model choice | Direction and implication [AJ] |
 |---|---|---|---|---|
 | GitHub Copilot | Folded into Microsoft CoreAI [R: E3-S013] | SaaS; GHE Cloud with residency; not on GHES [VF: E3-S001, E3-S009] | Multi-vendor; BYOK [VF: E3-S011, E3-S002] | A multi-agent hub [VF: E3-S003]; sell into it on GitHub's terms |
-| Cursor | Part of SpaceX since 14 August 2026 [VF: E3-S029] | SaaS; self-hosting not found [NPV] | Multi-vendor; BYOK for chat [VF: E3-S030] | Joint training with SpaceX/xAI [VF: E3-S029]; neutrality now questioned |
+| Cursor | Part of SpaceX since 14 August 2026 [VF: E3-S029] | SaaS; self-hosting not found [NPV] | Multi-vendor; BYOK for chat [VF: E3-S030] | Joint training with SpaceX/xAI reported [R: E3-S029]; neutrality now questioned |
 | Claude Code (Anthropic) | No ownership event recorded | SaaS; Bedrock, Google Cloud, Foundry; customer runners in beta [VF: E3-S014, E3-S018] | Claude only [VF: E3-S014] | Enterprise depth on one model family; independent alternatives: Codex CLI, Gemini CLI, Junie, Tabnine |
 | OpenAI Codex | AGENTS.md donated to AAIF [VF: E3-S061] | SaaS cloud tasks; local open-source CLI [VF: E3-S020, E3-S022] | OpenAI default; custom and local providers [VF: E3-S025] | Open CLI widens reach; audit and retention gaps remain [VF: E3-S023, E3-S024] |
 | Google (Code Assist, Gemini CLI, Antigravity) | Code Assist end of sale 9 October 2026 [VF: E3-S033] | Google Cloud; Gemini CLI local [VF: E3-S037, E3-S035] | Gemini; Claude optional since 8 October 2026 [VF: E3-S039] | Antigravity is outside several certifications [VF: E3-S034]; a window for certified tools |
@@ -9403,7 +9405,7 @@ Deployment stamps give the strongest isolation at the lowest cost efficiency [VF
 | C1 gateway | One gateway of record for model, MCP and agent traffic; fail closed | Customer-supplied base URL, key and route; stop on budget errors; no direct egress | Gateways govern LLM, MCP and A2A [VF: A6-S015, A6-S016, A6-S024] |
 | C2 guardrails | Deterministic invariants first; detectors behind the gateway | The agent's own checks published as code and tests; customer detectors never bypassed | Part IV.3, row 30 [AJ] |
 | C3 privacy | One privacy service at six enforcement points | Call the customer's service before model calls, traces and evidence writes | Part I.2, decision 8 [Rec] |
-| C4 identity | Registered agent with sponsor; OBO tokens; deny-by-default policy | Workload in the customer's IdP (Entra Agent ID or Okta for AI Agents, Strategic, conditional; SPIFFE/SPIRE, Strategic); token exchange per tool audience; EMA for MCP tools; asynchronous approval for consequential steps | Flows [VF: A6-S060]; EMA on ID-JAG [VF: A3-S017, A6-S079]; CIBA [VF: A6-S078, A6-S076] |
+| C4 identity | Registered agent with sponsor; OBO tokens; deny-by-default policy | Workload in the customer's IdP (Entra Agent ID or Okta for AI Agents, Strategic, conditional; SPIFFE/SPIRE, Strategic); token exchange per tool audience; EMA for MCP tools (Anthropic-originated; alternative OAuth 2.0 resource servers on OpenAPI tools); asynchronous approval for consequential steps | Flows [VF: A6-S060]; EMA on ID-JAG [VF: A3-S017, A6-S079]; CIBA [VF: A6-S078, A6-S076] |
 | C5 configuration | Git as configuration of record; manifest with an evaluation gate | Prompts, pins, tools, thresholds and autonomy as files; customer overlay wins; vendor releases as pull requests | Prompts as code (Strategic) [VF: A7-S067, A7-S066] |
 | C6 FinOps | Cost per approved task; budgets fail closed | Usage per run tagged with use case and gateway key; FOCUS (Strategic)-shaped export | Virtual keys [VF: A7-S070]; FOCUS 1.4 [VF: V2-S046] |
 | C7 security | Capability separation; no standing secrets; signed dependencies | Signed images, SBOM; secrets from the customer's vault at call time | User-agent intersection [VF: A7-S033, A7-S034]; LiteLLM compromise [VF: A6-S008] |
@@ -9492,7 +9494,7 @@ Deployment stamps give the strongest isolation at the lowest cost efficiency [VF
 | Date | Event | Consequence [AJ] |
 |---|---|---|
 | 30 November 2026 | OpenAI Agent Builder shuts down [VF: A4-S054] | Buyers re-platforming builder agents are in the market |
-| 2 December 2026 | Article 50(2) marking deadline [VF: E1-S036] | Disclosure and marking live where content reaches people |
+| 2 December 2026 | Article 50(2) marking grace period ends for systems already on the market; a new launch has none [VF: E1-S036] | Disclosure and marking live where content reaches people |
 | 9 December 2026 | PLD applies [VF: E1-S011] | Release history and evaluation records retained |
 | 1 January 2027 | CPPA ADMT rules [VF: E1-S047] | Confirm no significant decisions about individuals |
 | 12 January 2027 | Data Act: no switching charges [VF: E1-S025] | Customer export ready |
@@ -9611,7 +9613,6 @@ Each item below has one home; this document does not repeat it [AJ].
 | All sources, with access dates and the claim map | `06_References/bibliography.xlsx` |
 | Product dataset (140 records, fact cells and scores) | `05_Data/products.xlsx` and `products.json` |
 | Product fact sheets for every record | `02_Appendix/Product_Technical_Appendix` |
-| Tile-by-tile table: what changed since the popular stack diagram | `05_Data/what_changed.xlsx` (summary in Part XII) |
 | Regulatory and standards records | `05_Data/regulatory_facts.json` |
 | LinkedIn series (introduction and 24 posts, with visuals) | `07_LinkedIn/LinkedIn_Series.docx` and `Content_Calendar.xlsx` |
 | Editable sources of every figure | `08_Graphic/` (stack graphic, one-page architecture, `diagrams/`, `linkedin/`) |

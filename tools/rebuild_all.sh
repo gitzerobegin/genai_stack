@@ -14,7 +14,7 @@ G=$PKG/08_Graphic
 export NODE_PATH="$(npm root -g)"
 step() { printf '\n=== %s\n' "$*"; }
 
-step "1. Dataset, bibliography, what-changed table (expect 0 issues)"
+step "1. Dataset and bibliography (expect 0 issues)"
 python3 -I tools/build_dataset.py .
 step "2. Further views (TS, SW, SU, AT, DV, AG): re-weighted scores; claim-tag check on synthesis, chapters and views"
 python3 -I tools/build_views.py .

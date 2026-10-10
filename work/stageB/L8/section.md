@@ -1,12 +1,12 @@
 ## 8. Data extraction, ingestion and web
 
-> L8 turns source material (enterprise documents, scans, spreadsheets, slides, e-mails and web pages) into clean, structured, permission-tagged content that retrieval (L7/L6) and agents can trust. The popular stack diagram treats it as a shelf of parsers and scrapers. Since then the products have moved: LlamaParse is now the name of LlamaIndex's whole document platform [VF: A1-S080, V1-S008]; Mistral OCR is at version 4.1, with 4.0 retired on 30 September 2026 [VF: A1-S130, V1-S014]; Docling graduated within LF AI & Data in August 2026 [VF: V1-S091]; and Firecrawl's server is AGPL-3.0, with its enterprise controls offered only in the Cloud [VF: A1-S053, A1-S079]. Of the ten products assessed, only Unstructured's open-source connectors carry access-control metadata into the pipeline [VF: A1-S094], and none emits lineage [VF: A1-S094, A1-S096]. The parsers are commodity components; the enterprise value is in the control plane that wraps them [AJ]. **Recommendation:** standardise on a self-hosted, open document model (Docling as default, Unstructured ingest where connectors with ACLs are needed), put managed parsers and OCR engines behind that model as replaceable engines, and build the lineage, classification, entitlement and incremental-indexing envelope yourself [Rec].
+> L8 turns source material (enterprise documents, scans, spreadsheets, slides, e-mails and web pages) into clean, structured, permission-tagged content that retrieval (L7/L6) and agents can trust. It is more than a shelf of parsers and scrapers, and the products have moved: LlamaParse is now the name of LlamaIndex's whole document platform [VF: A1-S080, V1-S008]; Mistral OCR is at version 4.1, with 4.0 retired on 30 September 2026 [VF: A1-S130, V1-S014]; Docling graduated within LF AI & Data in August 2026 [VF: V1-S091]; and Firecrawl's server is AGPL-3.0, with its enterprise controls offered only in the Cloud [VF: A1-S053, A1-S079]. Of the ten products assessed, only Unstructured's open-source connectors carry access-control metadata into the pipeline [VF: A1-S094], and none emits lineage [VF: A1-S094, A1-S096]. The parsers are commodity components; the enterprise value is in the control plane that wraps them [AJ]. **Recommendation:** standardise on a self-hosted, open document model (Docling as default, Unstructured ingest where connectors with ACLs are needed), put managed parsers and OCR engines behind that model as replaceable engines, and build the lineage, classification, entitlement and incremental-indexing envelope yourself [Rec].
 
 ### 8.1 Responsibility
 
 L8 owns the path from an approved source to an indexed, governed unit of content: source → acquisition → parsing → OCR → structure extraction → cleaning → chunking → metadata → indexing (plan §5), across PDFs and scans, tables, PowerPoint and Excel, websites, e-mails, enterprise documents, structured data and multimodal documents [AJ].
 
-The layer has two distinct jobs, and the popular stack diagram blurs them [AJ]:
+The layer has two distinct jobs, and they are easily blurred [AJ]:
 
 1. **Acquisition:** getting bytes from a source the firm is entitled to use. Web acquisition (Firecrawl, Crawl4AI, Apify) raises questions of law, terms of service, robots.txt and provenance. Enterprise acquisition (connectors into SharePoint, OneDrive, Confluence, S3) raises questions of entitlements and change detection [AJ].
 2. **Document understanding:** turning bytes into faithful structure: text, reading order, tables, figures and their coordinates. Docling, LlamaParse, MinerU, Reducto, Unstructured, Mistral OCR and Google Document AI compete here [AJ].
@@ -353,22 +353,22 @@ The performance-attribution commentary agent drafts monthly Brinson-style commen
 - **Send client-identifying content to a parser outside the approved residency.**
 - **Lose the parse manifest.** Without it, last month's draft cannot be reproduced.
 
-### 8.13 What changed since the popular stack diagram
+### 8.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| One "data extraction" tile row mixing scrapers and parsers | Two distinct jobs, web acquisition and document understanding, plus agent-facing web tools that overlap L4 [VF: A1-S077, A1-S089] | Keep one L8 layer with two sub-layers (acquisition; document understanding) under a shared ingestion control plane; move runtime web access to L4 [Rec] |
-| Firecrawl – web to LLM-ready | AGPL server, Cloud-only enterprise controls, US data [VF: A1-S053, A1-S079, A1-S134] | Tactical for public sources [Rec] |
-| Docling – doc parser | MIT, LF AI & Data Graduate (August 2026), 2.135.0 [VF: V1-S091, A1-S008] | Strategic default engine and canonical model [Rec] |
-| LlamaParse – PDF / documents | Renamed: the whole LlamaIndex platform (formerly LlamaCloud) [VF: A1-S080] | Tactical; Parse/Extract only, indexing kept in-house [Rec] |
-| Crawl4AI – open crawler | Pre-1.0; Apache-2.0 plus attribution clause [VF: A1-S009, A1-S056] | Experimental; self-hosted pilots [Rec] |
-| MinerU – PDF parser | 4.0, multi-format, custom licence [VF: A1-S055, A1-S054] | Experimental pending licence review [Rec] |
-| Reducto – enterprise docs | Proprietary API, vendor-only security evidence [VF: A1-S112] | Tactical after due diligence [Rec] |
-| Mistral OCR – OCR | OCR 4.1 (GA 26 August 2026); 4.0 retired 30 September 2026 [VF: A1-S130, V1-S014] | Tactical OCR engine; pin model ID [Rec] |
-| Unstructured – ETL for docs | Free OSS plus Transform v2 API; ACL-digest connectors [VF: A1-S075, A1-S094] | Strategic for connectors and entitlement capture [Rec] |
-| Apify – scrapers | Actor platform, MCP, US-only [VF: A1-S089, A1-S086] | Tactical; public data only [Rec] |
-| (missing) hyperscaler document AI | Google Document AI added; Azure and AWS equivalents not verified [VF: A1-S101] [NPV] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
-| (missing) lineage, classification, PII, entitlements, incremental indexing | Partial in products: Unstructured ACL digest [VF: A1-S094]; Firecrawl PII redaction and ZDR [VF: A1-S076]; no lineage in any L8 product; OpenLineage has no GenAI facets [VF: A7-S042] | A built ingestion control plane (below) [Rec] |
+| **The layer as a whole** | Two distinct jobs, web acquisition and document understanding, plus agent-facing web tools that overlap L4 [VF: A1-S077, A1-S089] | Keep one L8 layer with two sub-layers (acquisition; document understanding) under a shared ingestion control plane; move runtime web access to L4 [Rec] |
+| Firecrawl | AGPL server, Cloud-only enterprise controls, US data [VF: A1-S053, A1-S079, A1-S134] | Tactical for public sources [Rec] |
+| Docling | MIT, LF AI & Data Graduate (August 2026), 2.135.0 [VF: V1-S091, A1-S008] | Strategic default engine and canonical model [Rec] |
+| LlamaParse | Renamed: the whole LlamaIndex platform (formerly LlamaCloud) [VF: A1-S080] | Tactical; Parse/Extract only, indexing kept in-house [Rec] |
+| Crawl4AI | Pre-1.0; Apache-2.0 plus attribution clause [VF: A1-S009, A1-S056] | Experimental; self-hosted pilots [Rec] |
+| MinerU | 4.0, multi-format, custom licence [VF: A1-S055, A1-S054] | Experimental pending licence review [Rec] |
+| Reducto | Proprietary API, vendor-only security evidence [VF: A1-S112] | Tactical after due diligence [Rec] |
+| Mistral OCR | OCR 4.1 (GA 26 August 2026); 4.0 retired 30 September 2026 [VF: A1-S130, V1-S014] | Tactical OCR engine; pin model ID [Rec] |
+| Unstructured | Free OSS plus Transform v2 API; ACL-digest connectors [VF: A1-S075, A1-S094] | Strategic for connectors and entitlement capture [Rec] |
+| Apify | Actor platform, MCP, US-only [VF: A1-S089, A1-S086] | Tactical; public data only [Rec] |
+| Hyperscaler document AI | Google Document AI assessed; Azure and AWS equivalents not verified [VF: A1-S101] [NPV] | Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2) [Rec] |
+| Lineage, classification, PII, entitlements, incremental indexing | Partial in products: Unstructured ACL digest [VF: A1-S094]; Firecrawl PII redaction and ZDR [VF: A1-S076]; no lineage in any L8 product; OpenLineage has no GenAI facets [VF: A7-S042] | A built ingestion control plane (below) [Rec] |
 
 **Hypothesis H7 (provisional; verdict in synthesis).** The evidence supports H7, with one refinement: the enterprise additions are not product features to buy but a control plane to build around replaceable parsers [AJ]. Only partial capabilities exist in products:
 

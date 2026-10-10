@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Collect the per-stream "What changed since the original diagram" tables (notes.md section (a))
 into one table: work/cp1/what_changed_raw.md and .json (layer order 9 -> 1, then controls, then regulation).
+Provenance only: the result feeds tools/build_cp1_what_changed.py, which writes work/stageD/archive/diagram_provenance.xlsx.
+The deliverable package carries no diagram-relative table (user decision, 10 October 2026).
 
 Usage: python3 -I tools/build_what_changed.py <repo_root>
 """

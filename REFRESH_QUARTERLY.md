@@ -70,7 +70,7 @@ Keep the old ZIP inside the renamed folder only if you want both editions in one
 ## 5. Synthesis and posts (R4, R5)
 
 - **R4b. Further views.** Update Parts XIII–XVIII (`work/stageE/views/{TS,SW,SU,AT,DV,AG}/view.md`) with prompt R4b: new view scores, changed E1/E2 facts, the views' worked examples and roadmaps. Run `check_tags.py` on each.
-- **R4.** Update the synthesis in place: the tier table and counts, Part I, the stacks, the Part XI lists, and the calendar. Add a closing "What changed since <previous edition>" part. Then run the independent synthesis reviewer and `python3 -I tools/check_tags.py . work/stageC/synthesis.md`.
+- **R4.** Update the synthesis in place: the tier table and counts, Part I, the stacks, the Part XI lists, and the calendar. Update Part XII ("The new baseline at a glance") so that it describes the new edition's baseline, and add to it a short "Changes since <previous edition>" section built from the `tools/diff_tiers.py` output (step 4). Compare only with the previous edition, never with the original diagram (house convention 2). Then run the independent synthesis reviewer and `python3 -I tools/check_tags.py . work/stageC/synthesis.md`.
 - **R5b. The LinkedIn book.** Update the chapters whose posts or evidence changed (prompt R5b), keep `worked_example_build.json` in step, and rebuild with `python3 -I tools/build_linkedin_book.py .`. A new edition of the book needs new ISBNs if its content changes materially (`07_LinkedIn/Book/Publishing_Kit.md`).
 - **R5 (optional).** Write 2–4 LinkedIn posts on the most material changes. Give each new post a visual: copy a similar `08_Graphic/linkedin/P<NN>.md`, edit it and render it with `node tools/render_post_visuals.js`. If counts changed, update Post 0 (the series introduction) and its visual P00. If any view's weights or core-candidate counts changed (`work/stageE/views/views.json`), update the seven-lenses Posts 25–32, their visuals P25–P32 and book chapters ch25–ch32.
 
@@ -102,9 +102,9 @@ Then:
 
 ## What stays the same between editions
 
-- The house conventions in `CONTEXT.md`: layer order L1 → L9, "the view at end of Q<n> <year>" framing with diagram-relative content only under "What changed since the popular stack diagram", Veyan branding with the full lockup, and Mermaid diagrams (no ASCII art). Update the quarter wording (for example "The view at end of Q4 2026") in `tools/deck/build_deck.js`, `tools/build_master.py`, `tools/make_reference_docx.py`, the graphics' sources and the synthesis.
+- The house conventions in `CONTEXT.md`: layer order L1 → L9, the new-baseline framing, "the view at end of Q<n> <year>", with no diagram-relative content (each edition is compared with the previous edition only), Veyan branding with the full lockup, and Mermaid diagrams (no ASCII art). Update the quarter wording (for example "The view at end of Q4 2026") in `tools/deck/build_deck.js`, `tools/build_master.py`, `tools/make_reference_docx.py`, the graphics' sources and the synthesis.
 
-- **One home per section.** The LinkedIn series lives only in `07_LinkedIn`. The tile-by-tile what-changed table lives only in `05_Data/what_changed.xlsx`, summarised in synthesis Part XII. The master links to both and repeats neither.
+- **One home per section.** The LinkedIn series lives only in `07_LinkedIn`, and product fact sheets only in `02_Appendix`. The master links to both and repeats neither. The old tile-by-tile table against the original diagram is provenance only (`work/stageD/archive/diagram_provenance.xlsx`) and is not refreshed.
 - **Seven views.** The regulated-FS master view (Parts I–XII) plus six further views (Parts XIII–XVIII): technology service provider, software product company, start-up, and the vendor start-ups selling AI tools, agentic SDLC tools and agents. Each is refreshed every edition (`work/stage0/11_stageE_views_brief.md`).
 - **The book.** `tools/build_print_edition.py` turns the master into the print and Kindle editions. Its settings are in `tools/print/book.json`.
 - Scoring rubric rules 1–13 and the weights, unless you change them at RCP2.

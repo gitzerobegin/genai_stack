@@ -8,11 +8,13 @@
 
 ## How the work was done
 
+The work began from a popular public stack diagram, used only as background; this review sets a new baseline of its own, the enterprise GenAI stack at the end of Q3 2026, built from the research below, and later quarterly editions are compared with this one [AJ].
+
 The review followed a staged plan with human checkpoints:
 
 | Stage | What happened | Output |
 |---|---|---|
-| 0 Baseline | Inventory of the popular stack diagram, the review's inspiration and baseline (80 tiles, 9 layers); 19 ambiguities; dataset schema; style guide; hypotheses H1–H8 | `work/stage0/` |
+| 0 Scoping | Starting inventory; 19 ambiguities; dataset schema; style guide; hypotheses H1–H8 | `work/stage0/` |
 | A Research | Eight parallel research streams, primary sources first, every fact archived with URL and access date | `work/stageA/` |
 | A′ Verify | Two adversarial verifiers re-checked high-risk claims: versions, prices, acquisitions, certifications and regulatory dates | `work/stageA_verify/` |
 | B Write | Seventeen chapters (9 layers and 8 cross-cutting controls) on a 13-part template, each with a scored product assessment | `work/stageB/` |
@@ -27,7 +29,7 @@ The reader reviewed and decided at each checkpoint (CP1–CP5). Every decision i
 
 | Measure | Value |
 |---|---|
-| Product records | {N_PRODUCTS}: the 80 tiles of the popular stack diagram, 48 control-plane products and 12 material additions |
+| Product records | {N_PRODUCTS} across the seventeen layers and controls (L1–L9, C1–C8), including 48 control-plane products and 12 material additions found during research |
 | Products scored | {N_SCORED}. Tiers: {N_STRATEGIC} Strategic · {N_TACTICAL} Tactical · {N_EXPERIMENTAL} Experimental |
 | Regulatory and standards records | {N_REG} |
 | Sources logged | {N_SOURCES} |

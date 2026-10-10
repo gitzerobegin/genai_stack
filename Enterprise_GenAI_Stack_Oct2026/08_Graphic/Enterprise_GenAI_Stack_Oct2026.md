@@ -9,7 +9,7 @@
      Tiers: Strategic | Tactical | Experimental | Pattern (drawn dotted, not scored). Cloud: AWS | Azure | Google Cloud or blank.
      {N} {S} {T} {E} in the stats line are filled in from the tables. -->
 
-- subtitle: The view at end of Q3 2026 · reference architecture and product landscape for a regulated UK/EU asset manager · evidence as of 9 October 2026
+- subtitle: The new baseline set by this review: reference architecture and product landscape for a regulated UK/EU asset manager · evidence as of 9 October 2026
 - stats: **9** layers, L1 → L9; **8** enterprise controls; **{N}** products assessed; **1,255** sources; **{S}** Strategic · **{T}** Tactical · **{E}** Experimental
 - legend-strategic: Strategic — platform default (most carry a condition)
 - legend-tactical: Tactical — a stated niche or estate

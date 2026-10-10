@@ -67,19 +67,19 @@ Reactive templates R1 (model launch), R2 (acquisition) and R3 (regulatory milest
 
 **Pair:** Post 1 (L1, Week 1). **Bridge:** The series starts where every architecture starts: the models, and how not to bet the firm on one of them.
 
-**Theme and source:** Why the series exists, what it covers and how it runs. `work/stageD/method.md` (evidence base), `work/stageC/synthesis.md` (Part I finding 1, Part XII), `Enterprise_GenAI_Stack_Oct2026/05_Data/what_changed.xlsx`.
+**Theme and source:** Why the series exists, what it covers and how it runs. `work/stageD/method.md` (evidence base), `work/stageC/synthesis.md` (Part I finding 1, Part XII), `Enterprise_GenAI_Stack_Oct2026/05_Data/products.xlsx`.
 
-**Tension:** The logos move faster than any diagram; the controls around them are what last.
+**Tension:** The logos move every quarter; the controls around them are what last.
 
 #### Full post
 
 Over the next twelve weeks I am going to take the enterprise GenAI stack apart, one layer at a time.
 
-Most of us have shared some version of the popular stack diagram: nine layers, rows of product logos. It is a useful map. But by the end of Q3 2026, 39 of its 80 tiles needed a correction. Acquired, renamed, mispositioned, superseded. The logos move faster than any diagram can.
+This work began from a popular public stack diagram, but it sets a new baseline of its own: the enterprise GenAI stack as it stands at the end of Q3 2026. Logos move every quarter, so the baseline is built on responsibilities and evidence, not on a shelf of products.
 
 So I asked a narrower question. What would a regulated asset manager actually need to run GenAI safely in production?
 
-The answer became a review of 140 products across nine layers and eight cross-cutting controls, built on 1,255 logged sources and checked by two independent verifiers. The finding that shaped everything else: the architecture that matters is the control plane around the products, not the products themselves.
+The answer became a review of 140 products across nine layers and eight cross-cutting controls, built on 1,449 logged sources and checked by two independent verifiers. The finding that shaped everything else: the architecture that matters is the control plane around the products, not the products themselves.
 
 The series follows that shape. Each week takes one layer of the stack, from foundation models to evaluation, and then the control that makes it safe. One worked example runs throughout: an agent that drafts the monthly performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
 
@@ -93,9 +93,9 @@ If one of these weeks saves you a quarter of rework, the series will have done i
 
 Over the next twelve weeks I am going to take the enterprise GenAI stack apart, one layer at a time.
 
-The popular stack diagram is a useful map, but by the end of Q3 2026, 39 of its 80 tiles needed a correction. The logos move faster than any diagram.
+This work began from a popular public stack diagram, but it sets a new baseline of its own: the enterprise GenAI stack at the end of Q3 2026.
 
-So I asked a narrower question: what does a regulated asset manager need to run GenAI safely in production? The answer became a review of 140 products, nine layers and eight controls, built on 1,255 sources.
+So I asked a narrower question: what does a regulated asset manager need to run GenAI safely in production? The answer became a review of 140 products, nine layers and eight controls, built on 1,449 sources.
 
 Each week, one layer, then the control that makes it safe. One worked example throughout: an agent drafting a fund's monthly attribution commentary, with a portfolio manager approving every draft.
 
@@ -112,11 +112,11 @@ Judgement, not vendor rankings. The first post is on foundation models.
 
 Over the next twelve weeks I am going to take the enterprise GenAI stack apart, one layer at a time.
 
-Most of us have shared some version of the popular stack diagram: nine layers, rows of product logos. It is a useful map. But by the end of Q3 2026, 39 of its 80 tiles needed a correction. Acquired, renamed, mispositioned, superseded. The logos move faster than any diagram can.
+This work began from a popular public stack diagram, but it sets a new baseline of its own: the enterprise GenAI stack as it stands at the end of Q3 2026. Logos move every quarter, so the baseline is built on responsibilities and evidence, not on a shelf of products.
 
 So I asked a narrower question. What would a regulated asset manager actually need to run GenAI safely in production?
 
-The answer became a review of 140 products across nine layers and eight cross-cutting controls, built on 1,255 logged sources and checked by two independent verifiers. The finding that shaped everything else: the architecture that matters is the control plane around the products, not the products themselves.
+The answer became a review of 140 products across nine layers and eight cross-cutting controls, built on 1,449 logged sources and checked by two independent verifiers. The finding that shaped everything else: the architecture that matters is the control plane around the products, not the products themselves.
 
 The series follows that shape. Each week takes one layer of the stack, from foundation models to evaluation, and then the control that makes it safe. One worked example runs throughout: an agent that drafts the monthly performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
 
@@ -133,8 +133,8 @@ Series map: the nine layers (L1 → L9) as a stack on the left, each paired by a
 #### First comment
 
 Personal views; not a description of any firm's platform or vendor choices. Sources: the Enterprise GenAI Stack review (the view at end of Q3 2026).
-- Scope and evidence: 140 product records (138 scored), 20 regulatory and standards records and 1,255 logged sources, checked by two adversarial verifiers (review method, "Evidence base").
-- The 39 of 80 tiles: the review's "What changed since the popular stack diagram" table (9 acquired, 9 mispositioned, 8 renamed, 8 with a wrong version label, 6 not publicly verifiable, 4 duplicated, 3 superseded, 2 deprecated; some tiles carry more than one flag).
+- Scope and evidence: 140 product records (138 scored), 27 regulatory and standards records and 1,449 logged sources, checked by two adversarial verifiers (review method, "Evidence base").
+- The new baseline: the enterprise GenAI stack at the end of Q3 2026, summarised in the review's Part XII ("The new baseline at a glance"): 58 Strategic, 67 Tactical and 13 Experimental products across seventeen layers and controls. Later quarterly editions are compared with it.
 - Disclosure: I used an AI model made by Anthropic to help research and draft the review and these posts. Anthropic products are treated like every other vendor's, and an independent alternative is named wherever one is recommended.
 - Format: each week, one stack layer, then the control that makes it safe.
 - **Worked example: the brief.** The use case and its boundary: the agent writes words around numbers it is given; it never produces a number, and a named portfolio manager approves every draft. Each post adds one piece of the design; the strip at the foot of every visual shows how far the build has come. The series teaches the stack in layer order; the real build order (evaluation and governance first) comes in Post 20.
@@ -145,7 +145,7 @@ Personal views; not a description of any firm's platform or vendor choices. Sour
 
 #### Re-verify before posting
 
-- The counts (140 products, 1,255 sources, 39 of 80 tiles) against the final published edition
+- The counts (140 products, 138 scored, 1,449 sources) against the final published edition
 - The planned date of Post 1 (set in the content calendar)
 
 #### Compliance check
@@ -1695,7 +1695,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, C3 DLP and PII prote
 
 #### Full post
 
-Most diagrams of the AI stack put evaluation in the last box. It is the layer that ages slowest — and the one most teams build last.
+Evaluation usually sits in the last box of the AI stack. It is the layer that ages slowest — and the one most teams build last.
 
 That ordering is the trap. Evals added after go-live measure the damage, not the quality. When a drafted figure turns out to be wrong, the question becomes which outputs were affected, and nobody can answer it if the prompt version was never recorded and the traces expired on a vendor's free tier.
 
@@ -1709,11 +1709,11 @@ The leadership move is sequencing. Fund the eval suite before the first feature,
 
 [Anecdote slot: one or two sentences on a quality problem that surfaced late because nobody was measuring it, and what you or the team changed afterwards.]
 
-Diagrams keep changing. What you measured, and can still prove, is what lasts.
+Products keep changing. What you measured, and can still prove, is what lasts.
 
 #### Short variant
 
-Most diagrams of the AI stack put evaluation in the last box. It is the layer that ages slowest, and the one most teams build last.
+Evaluation usually sits in the last box of the AI stack. It is the layer that ages slowest, and the one most teams build last.
 
 Evals added after go-live measure the damage, not the quality. When a drafted figure turns out to be wrong, the real question is which outputs were affected. Without recorded prompt versions and retained traces, nobody can answer it.
 
@@ -1721,7 +1721,7 @@ Treat evaluation as a plane across the stack, not a downstream box. Instrument o
 
 The signal I would start with is numeric faithfulness: every figure in a draft matches the authoritative source, or the release is blocked.
 
-Fund the eval suite before the first feature. Diagrams keep changing. What you measured, and can still prove, is what lasts.
+Fund the eval suite before the first feature. Products keep changing. What you measured, and can still prove, is what lasts.
 
 #### Anecdote slot
 
@@ -1732,7 +1732,7 @@ Fund the eval suite before the first feature. Diagrams keep changing. What you m
 
 #### Fallback version
 
-Most diagrams of the AI stack put evaluation in the last box. It is the layer that ages slowest — and the one most teams build last.
+Evaluation usually sits in the last box of the AI stack. It is the layer that ages slowest — and the one most teams build last.
 
 That ordering is the trap. Evals added after go-live measure the damage, not the quality. When a drafted figure turns out to be wrong, the question becomes which outputs were affected, and nobody can answer it if the prompt version was never recorded and the traces expired on a vendor's free tier.
 
@@ -1746,11 +1746,11 @@ The leadership move is sequencing. Fund the eval suite before the first feature,
 
 The honest caveat: the shared telemetry conventions for GenAI are still marked as in development. That is an argument for owning the harness, not for waiting.
 
-Diagrams keep changing. What you measured, and can still prove, is what lasts.
+Products keep changing. What you measured, and can still prove, is what lasts.
 
 #### Suggested visual
 
-Two-panel diagram. Left: the popular nine-layer stack diagram with "Evals and observability" as the last box. Right: the same stack with evaluation and observability redrawn as a vertical plane running alongside every layer, labelled "firm-owned telemetry and evidence spine", with products drawn as replaceable plug-ins. A small callout shows the one metric: "Numeric faithfulness: 100%, any miss blocks." Source: L9 §9.13 and the H8 provisional view.
+Two-panel diagram. Left: a generic pipeline view of the nine layers with "Evals and observability" as the last box, usually built last. Right: the new baseline, with evaluation and observability redrawn as a vertical plane running alongside every layer, labelled "firm-owned telemetry and evidence spine", with products drawn as replaceable plug-ins. A small callout shows the one metric: "Numeric faithfulness: 100%, any miss blocks." Source: L9 §9.13 and the H8 provisional view.
 
 #### First comment
 
@@ -2365,13 +2365,13 @@ Personal views. Source: the Enterprise GenAI Stack review, synthesis Part IX.4 (
 
 **Pair:** Post 23 (Which lock-in is acceptable, Week 12). **Bridge:** The stack post's lock-in classification is the filter; the control post shows what passes through it, what does not, and what leading the change actually requires.
 
-**Theme and source:** The final recommended stack on one page, and a lesson about leading the transformation. `work/stageC/synthesis.md` Part XI (XI.4 Experimental, XI.5 Products to avoid, XI.7 The answer in one paragraph), with Part I.1 (39 of 80 tiles) and I.2 (twelve decisions).
+**Theme and source:** The final recommended stack on one page, and a lesson about leading the transformation. `work/stageC/synthesis.md` Part XI (XI.4 Experimental, XI.5 Products to avoid, XI.7 The answer in one paragraph), with Part I.1 (ten findings), I.2 (twelve decisions) and Part XII (the new baseline at a glance).
 
 **Tension:** The full stack on one page, plus a lesson about leading the transformation.
 
 #### Full post
 
-Twelve weeks ago this series started from a popular diagram of the AI stack. On this review, 39 of its 80 product tiles were out of date. The diagram was a catalogue. The enterprise problem is a control system.
+Twelve weeks ago this series set out to build a new baseline for the enterprise GenAI stack, from the evidence up. The finding held all the way through: this is not a catalogue problem. The enterprise problem is a control system.
 
 So here is what I would select, on one page.
 
@@ -2389,7 +2389,7 @@ Select the plane first. Everything beneath it is allowed to change.
 
 #### Short variant
 
-Twelve weeks ago this series started from a popular AI-stack diagram. On this review, 39 of its 80 tiles were out of date. It was a catalogue; the enterprise problem is a control system.
+Twelve weeks ago this series set out to build a new baseline for the enterprise GenAI stack. The finding held throughout: it is not a catalogue; the enterprise problem is a control system.
 
 What I would select: a firm-owned control and evidence plane first, meaning one gateway of record, evaluation from day one, a firm-owned evidence store, one privacy service, agent identities and configuration in source control. Beneath it, replaceable components and a two-vendor model portfolio.
 
@@ -2408,7 +2408,7 @@ Select the plane first. Everything beneath it is allowed to change.
 
 #### Fallback version
 
-Twelve weeks ago this series started from a popular diagram of the AI stack. On this review, 39 of its 80 product tiles were out of date. The diagram was a catalogue. The enterprise problem is a control system.
+Twelve weeks ago this series set out to build a new baseline for the enterprise GenAI stack, from the evidence up. The finding held all the way through: this is not a catalogue problem. The enterprise problem is a control system.
 
 So here is the selection, on one page.
 
@@ -2426,11 +2426,11 @@ Select the plane first. Everything beneath it is allowed to change.
 
 #### Suggested visual
 
-The one-page architecture from synthesis I.2, with vendor names removed: control plane (C1–C8 with the L9 evidence plane) across the top; agent, knowledge and model planes beneath. To the right, a short "Deliberately not selected" column with the categories from XI.5 and XI.7. Optional carousel: slide 1 the popular stack diagram with 39 tiles flagged; slide 2 the one-page architecture; slide 3 the twelve decisions; slide 4 "not selected".
+The one-page architecture from synthesis I.2, with vendor names removed: control plane (C1–C8 with the L9 evidence plane) across the top; agent, knowledge and model planes beneath. To the right, a short "Deliberately not selected" column with the categories from XI.5 and XI.7. Optional carousel: slide 1 the new baseline at a glance (nine layers, eight controls, 140 products assessed); slide 2 the one-page architecture; slide 3 the twelve decisions; slide 4 "not selected".
 
 #### First comment
 
-Personal views; not a description of any firm's platform or vendor choices. Sources: the Enterprise GenAI Stack review, synthesis Part I.1 (39 of 80 tiles out of date: 9 acquired, 9 mispositioned, 8 renamed, 8 with a wrong version label, 6 not publicly verifiable, 4 duplicated, 3 superseded, 2 deprecated, with some tiles carrying several flags), I.2 (twelve decisions), XI.5 (products to avoid, evidence-based only) and XI.7 (the answer in one paragraph).
+Personal views; not a description of any firm's platform or vendor choices. Sources: the Enterprise GenAI Stack review, synthesis Part I.1 (ten findings), I.2 (twelve decisions), Part XII (the new baseline at a glance), XI.5 (products to avoid, evidence-based only) and XI.7 (the answer in one paragraph).
 - The cloud-neutral core in the review: a hardened LiteLLM or Kong gateway; Langfuse or MLflow with a firm-owned OpenTelemetry Collector; Presidio; workforce IdP with OPA; Git; Docling and Unstructured; Sentence Transformers and pgvector; read-only MCP tools (OpenAPI tools as the independent alternative); LangGraph on Temporal; the primary cloud's model service with vLLM as the exit route; a two-vendor portfolio drawn from OpenAI, Anthropic (with GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as the named alternative), Mistral and, on Google Cloud, Gemini; Gemma 4 or Mistral self-hosted.
 - Conflict of interest: these drafts were prepared with an Anthropic model; Anthropic's tier in the review was set by me, on neutral-rubric scores, not by the drafting tool, and an independent alternative is named wherever a Claude model, MCP or Agent Skills appears.
 - IOSCO's supervisory toolkit names the level and frequency of human intervention as an indicator for asset managers [R-INTL-AI-ASSETMGMT: A8-S058].
@@ -3430,3 +3430,5 @@ The three reactive templates get the same length, hashtag and emoji checks. Word
 Result on 9 October 2026: all 24 posts and 3 templates passed. Full posts are 261–290 words, short variants 123–142, fallback versions 269–297, and templates 231–268 (short variants 126–134). Post 0 was added later the same day and passed the same checks (full post 263 words, short variant 128, fallback 267).
 
 Posts 25–32 ("One stack, seven lenses") were added on 10 October 2026 and passed the same checks, plus a check that no weekday is named in the posts or their visuals. Full posts are 287–296 words, short variants 131–141 and fallback versions 280–293. The "Views that change this advice" lines added to the first comments of Posts 1–24 left every post body unchanged.
+
+On 10 October 2026 Posts 0, 17 and 24 were reworded so that the series presents the review as a new baseline, built from its own research, on its own terms (user decision). They passed the same checks on a whitespace split: Post 0 full 264, short 125, fallback 268; Post 17 full 286, short 139, fallback 288; Post 24 full 292, short 126, fallback 291.

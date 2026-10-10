@@ -1,6 +1,6 @@
 # About this book
 
-Most enterprise GenAI diagrams are shelves of product logos. This book presents the enterprise GenAI stack as it stands at the end of Q3 2026: nine layers, from foundation models (L1) to evaluation and observability (L9), under a firm-owned control plane of eight components (C1 to C8). The popular stack diagram was its inspiration and baseline; Part XII sets out what changed since that diagram [AJ].
+This book sets a new baseline for the enterprise GenAI stack: the stack as it stands at the end of Q3 2026, built from the review's own research. It has nine layers, from foundation models (L1) to evaluation and observability (L9), under a firm-owned control plane of eight components (C1 to C8), with 140 products assessed on one rubric. Part XII summarises the baseline, and each later quarterly edition is compared with it [AJ].
 
 It is written first for the people who must make GenAI work inside a regulated firm: enterprise and solution architects, technology and data leaders, model-risk, compliance and operational-resilience teams, and the engineers who build the platform. Parts XIII to XVIII re-read the same stack for technology companies, start-ups and the start-ups that sell AI tools, coding agents and agents to enterprises [AJ].
 
@@ -12,7 +12,7 @@ It is written first for the people who must make GenAI work inside a regulated f
 | Chapters 1 to 9 | The nine layers, L1 to L9 |
 | Chapters C1 to C8 | The eight cross-cutting enterprise controls |
 | Parts III to XI | Hypotheses, reference architecture, the financial-services view, the worked example, four reference stacks, build versus buy, lock-in, the roadmap and the final recommended stack |
-| Part XII | What changed since the popular stack diagram |
+| Part XII | The new baseline at a glance |
 | Parts XIII to XV | Three further views for organisations that use GenAI: technology service providers, software product companies and start-ups |
 | Parts XVI to XVIII | Three views for start-ups that sell into the enterprise stack: AI tools, agentic software-development tools and agents |
 | Annex | Sources, data and companion files |
@@ -30,7 +30,7 @@ Every chapter follows the same thirteen sections, so any two chapters can be rea
 | x.3 | Goals and KPIs | x.10 | Lock-in classification |
 | x.4 | How it works | x.11 | Regulated financial-services lens |
 | x.5 | Enterprise design principles | x.12 | Worked-example slice |
-| x.6 | Product selection criteria | x.13 | What changed since the popular stack diagram |
+| x.6 | Product selection criteria | x.13 | Baseline position and hypothesis view |
 | x.7 | Product deep dives | | |
 
 **Claim labels.** Every substantive sentence carries a label: verified fact (VF), reported (R), architectural judgement (AJ), recommendation (Rec) or not publicly verified (NPV). Verified and reported facts have a footnote naming the source and its access date. Part II explains the labels and the scoring rubric [AJ].

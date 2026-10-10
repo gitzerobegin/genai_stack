@@ -1,6 +1,6 @@
 ## 7. Embeddings and reranking
 
-> **Executive summary.** This layer turns text, and now images, audio and PDF pages, into vectors that a retrieval store can search. It then reorders the candidates so that the few passages handed to the model are the right ones. Three things have changed since the popular stack diagram. First, every model vendor in this layer except OpenAI now offers both an embedding model and a reranker: Cohere, Voyage, Jina, NVIDIA and Qwen ship them together, and Google offers a separate Vertex ranking API [VF: A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S026, A2-S030, A2-S031, A2-S020, B-REV-S026]. Second, two of the popular stack diagram's vendors now belong to database companies: Voyage AI to MongoDB since 17 February 2025 [VF: A2-S033, V1-S023], and Jina AI to Elastic since 9 October 2025 [VF: A2-S023, V1-S025]. Third, the stores themselves now host embedding and reranking [VF: A2-S101, A2-S141, A2-S133]. The architectural point that matters most is this: the embedding model version is production configuration, because changing it forces the whole corpus to be re-embedded [AJ]. **Recommendation:** build one governed retrieval-optimisation service that pins the embedding and reranker versions, keeps raw text and model-version metadata, and migrates by dual index. Choose the models by in-domain evaluation. For regulated data, prefer options that run in your own estate or in a verified region [Rec].
+> **Executive summary.** This layer turns text, and now images, audio and PDF pages, into vectors that a retrieval store can search. It then reorders the candidates so that the few passages handed to the model are the right ones. Three things define the layer at the end of Q3 2026. First, every model vendor in this layer except OpenAI now offers both an embedding model and a reranker: Cohere, Voyage, Jina, NVIDIA and Qwen ship them together, and Google offers a separate Vertex ranking API [VF: A2-S012, A2-S010, A2-S006, A2-S034, A2-S025, A2-S026, A2-S030, A2-S031, A2-S020, B-REV-S026]. Second, two of the layer's vendors now belong to database companies: Voyage AI to MongoDB since 17 February 2025 [VF: A2-S033, V1-S023], and Jina AI to Elastic since 9 October 2025 [VF: A2-S023, V1-S025]. Third, the stores themselves now host embedding and reranking [VF: A2-S101, A2-S141, A2-S133]. The architectural point that matters most is this: the embedding model version is production configuration, because changing it forces the whole corpus to be re-embedded [AJ]. **Recommendation:** build one governed retrieval-optimisation service that pins the embedding and reranker versions, keeps raw text and model-version metadata, and migrates by dual index. Choose the models by in-domain evaluation. For regulated data, prefer options that run in your own estate or in a verified region [Rec].
 
 ### 7.1 Responsibility
 
@@ -237,7 +237,7 @@ Each deep dive gives the current state as tagged facts, then judgement. Totals a
 - **Tier: Strategic. Flag: none.** FS 3.70. Rule 2 caps were applied.
 
 **NVIDIA NeMo Retriever embedding and reranking NIMs (NVIDIA).**
-- *What it is now:* the popular stack diagram's "NVIDIA – Embed" tile is now the set of NeMo Retriever NIM microservices [VF: A2-S030, A2-S031]:
+- *What it is now:* NVIDIA's embedding offer is the set of NeMo Retriever NIM microservices [VF: A2-S030, A2-S031]:
   - Embedding NIM 2.3, with nemotron-3-embed-1b (added in 2.2) and the llama-nemotron-embed text and VL models [VF: A2-S031, V1-S094]
   - Reranking NIM 2.0.0, with text and multimodal rerankers [VF: A2-S030]
 - *Deployment and licensing:* they deploy via Helm or Docker on supported GPUs, in any cloud or data centre [VF: A2-S031, A2-S040]. Production use requires NVIDIA AI Enterprise, from US$4,500 per GPU per year (as of 7 October 2026) [VF: A2-S040]. Model licences vary by model [VF: A2-S041]. The Helm chart warns that a text-only reranker silently degrades multimodal reranking [VF: A2-S031].
@@ -330,7 +330,7 @@ Output of `tools/score.py` (scores 1–5; totals are weighted averages):
 - Self-hosted, they create no data transfer [AJ]. They do need a model-provenance and supply-chain review, which is consistent with the OWASP supply-chain risk (LLM03 in the 2025 list) [R: A8-S040] [AJ].
 - The hosted Model Studio API is a different decision, because its regions are Singapore, Hong Kong and Beijing [VF: A2-S022].
 
-**Concentration.** Database companies now own two of the popular stack diagram's vendors (Voyage and Jina) [VF: A2-S033, A2-S023]. Choosing MongoDB with Voyage, or Elastic with Jina, concentrates L6 and L7 on one supplier. Their outages and ownership events then become correlated [AJ]. IOSCO names concentration among few AI technology providers as a supervisory concern (R-INTL-AI-ASSETMGMT) [VF: A8-S058]. For important business services, either accept the bundle consciously and record it in the exit plan, or keep the embedding vendor independent of the store [Rec].
+**Concentration.** Database companies now own two of the layer's embedding vendors (Voyage and Jina) [VF: A2-S033, A2-S023]. Choosing MongoDB with Voyage, or Elastic with Jina, concentrates L6 and L7 on one supplier. Their outages and ownership events then become correlated [AJ]. IOSCO names concentration among few AI technology providers as a supervisory concern (R-INTL-AI-ASSETMGMT) [VF: A8-S058]. For important business services, either accept the bundle consciously and record it in the exit plan, or keep the embedding vendor independent of the store [Rec].
 
 **Auditability.** For every retrieval, the C8 evidence pack should hold [Rec]:
 - query hash
@@ -374,21 +374,21 @@ That is enough to show what the model was shown, and to reproduce it while the i
 - **Retrieve unapproved drafts** or superseded style-guide versions. Approval status and validity dates are filter fields.
 - **Run on an unpinned model.** The commentary index carries one `model_version`, and the evidence pack records it alongside the reranker version and the retrieved document IDs.
 
-### 7.13 What changed since the popular stack diagram
+### 7.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| OpenAI – Embeddings 3 | Still text-embedding-3 (January 2024); no reranker found [VF: A2-S001, A2-S002] | Tactical text baseline where OpenAI is already approved; pair with a separate reranker [Rec] |
-| Gemini – Embedding 2 | gemini-embedding-2 GA 22 April 2026; multimodal; EU endpoint excludes UK [VF: A2-S004, A2-S039] | Strategic, conditional: where Google Cloud is your primary cloud and UK-only processing is not mandatory (CP3 Q2) [Rec] |
-| Voyage AI – Voyage-3 | MongoDB-owned; Voyage 4 family, rerank-3 (Preview) [VF: A2-S033, A2-S006, V1-S024] | Tactical; preferred where MongoDB is the store, after SOC 2 scope is evidenced [Rec] |
-| Cohere – Embed v3 + Rerank | Embed 5 and Rerank 4; Aleph Alpha combination pending [VF: A2-S012, A2-S010, A2-S018] | Tactical (FS 3.70 on Foundry or SageMaker); Strategic candidate for private or hyperscaler deployment once per-service due diligence confirms the presumed access controls [Rec] |
-| Qwen3 – Embeddings | Embedding **and** Reranker, Apache 2.0, plus VL variants [VF: A2-S020, A2-S021] | Tactical; self-host only, after provenance review [Rec] |
-| Jina AI – Embeddings v3 | Elastic-owned; v5 text/omni, reranker v3.5; CC-BY-NC weights [VF: A2-S023, A2-S025, A2-S024] | Tactical inside Elastic estates; licensed routes only [Rec] |
-| SBERT – Sentence transformers | 6.1.0, Apache-2.0, Hugging Face; dense, cross-encoder, sparse, multi-vector [VF: A2-S029] | **Strategic** as the self-hosting, fine-tuning and exit toolkit [Rec] |
-| NVIDIA – Embed | NeMo Retriever embed and rerank NIMs; AI Enterprise needed for production [VF: A2-S031, A2-S040] | Tactical for NVIDIA-standardised estates [Rec] |
+| OpenAI embeddings | Still text-embedding-3 (January 2024); no reranker found [VF: A2-S001, A2-S002] | Tactical text baseline where OpenAI is already approved; pair with a separate reranker [Rec] |
+| Gemini embeddings | gemini-embedding-2 GA 22 April 2026; multimodal; EU endpoint excludes UK [VF: A2-S004, A2-S039] | Strategic, conditional: where Google Cloud is your primary cloud and UK-only processing is not mandatory (CP3 Q2) [Rec] |
+| Voyage AI | MongoDB-owned; Voyage 4 family, rerank-3 (Preview) [VF: A2-S033, A2-S006, V1-S024] | Tactical; preferred where MongoDB is the store, after SOC 2 scope is evidenced [Rec] |
+| Cohere Embed and Rerank | Embed 5 and Rerank 4; Aleph Alpha combination pending [VF: A2-S012, A2-S010, A2-S018] | Tactical (FS 3.70 on Foundry or SageMaker); Strategic candidate for private or hyperscaler deployment once per-service due diligence confirms the presumed access controls [Rec] |
+| Qwen3 Embedding and Reranker | Both an embedding model and a reranker, Apache 2.0, plus VL variants [VF: A2-S020, A2-S021] | Tactical; self-host only, after provenance review [Rec] |
+| Jina AI | Elastic-owned; v5 text/omni, reranker v3.5; CC-BY-NC weights [VF: A2-S023, A2-S025, A2-S024] | Tactical inside Elastic estates; licensed routes only [Rec] |
+| Sentence Transformers | 6.1.0, Apache-2.0, Hugging Face; dense, cross-encoder, sparse, multi-vector [VF: A2-S029] | **Strategic** as the self-hosting, fine-tuning and exit toolkit [Rec] |
+| NVIDIA NeMo Retriever | NeMo Retriever embed and rerank NIMs; AI Enterprise needed for production [VF: A2-S031, A2-S040] | Tactical for NVIDIA-standardised estates [Rec] |
 | EthicalAgents; Ragoos | Not publicly verified; removed per CP1 Q4(a) [VF: A2-S079, A2-S080] | Do not use |
-| (missing) | Amazon Bedrock embeddings and Rerank, Mixedbread and ZeroEntropy were not researched in this run [NPV]; the Vertex AI ranking API exists but was not scored [VF: B-REV-S026] | Candidates for a follow-up pass; not recommended or rejected here [AJ] |
-| Layer: "Embeddings" and "RAG re-rankers" as separate tiles | Vendors ship both; stores host both [VF: A2-S101, A2-S141, A2-S133] | One governed retrieval-optimisation service: pinned versions, raw text retained, dual-index migration, in-domain eval gate [Rec] |
+| Not yet assessed | Amazon Bedrock embeddings and Rerank, Mixedbread and ZeroEntropy were not researched in this run [NPV]; the Vertex AI ranking API exists but was not scored [VF: B-REV-S026] | Candidates for a follow-up pass; not recommended or rejected here [AJ] |
+| **The layer as a whole** | Vendors ship both; stores host both [VF: A2-S101, A2-S141, A2-S133] | One governed retrieval-optimisation service: pinned versions, raw text retained, dual-index migration, in-domain eval gate [Rec] |
 
 **H6, provisional; verdict in synthesis.** The evidence supports treating embedding and reranking as one **retrieval-optimisation** concern [AJ]:
 
@@ -396,4 +396,4 @@ That is enough to show what the model was shown, and to reproduce it while the i
 - Sentence Transformers covers both in one library [VF: A2-S029].
 - The two are evaluated together, and they are versioned together.
 
-The same evidence also shows the compute moving into L6, because MongoDB, Pinecone and Elastic host embedding and reranking natively [VF: A2-S141, A2-S101, A2-S133]. The provisional view is to **merge** the popular stack diagram's "Embeddings" and "RAG re-rankers" into one retrieval-optimisation layer, defined by responsibility rather than by where the compute runs [AJ]. That layer owns model choice, version pinning, hybrid fusion policy and the retrieval evaluation gate, whether the models run as APIs, in the firm's own estate, or inside the store. Embedding-model versioning should be named explicitly as a governed configuration item, because it is the one decision in this layer that carries a corpus-wide migration cost [AJ].
+The same evidence also shows the compute moving into L6, because MongoDB, Pinecone and Elastic host embedding and reranking natively [VF: A2-S141, A2-S101, A2-S133]. The provisional view is to **merge** embedding and reranking into one retrieval-optimisation layer, defined by responsibility rather than by where the compute runs [AJ]. That layer owns model choice, version pinning, hybrid fusion policy and the retrieval evaluation gate, whether the models run as APIs, in the firm's own estate, or inside the store. Embedding-model versioning should be named explicitly as a governed configuration item, because it is the one decision in this layer that carries a corpus-wide migration cost [AJ].

@@ -3,13 +3,43 @@ title: "Product Technical Appendix"
 subtitle: "The Enterprise GenAI Stack: the view at end of Q3 2026"
 ---
 
-This appendix holds the full record for every product assessed: current facts with their claim labels and source IDs (resolve in `06_References/bibliography.xlsx`), the assessment, the classification and the scorecard (generic and regulated-FS weights). Fact cells marked *Not publicly verified* could not be confirmed from a public source and were never guessed. Disclosure: researched and drafted by an Anthropic model; Anthropic-related items were scored on the same rubric, and tiers set by the reader at checkpoints are noted in the relevant chapter.
+This review sets a new baseline for the enterprise GenAI stack, and this appendix holds its product record: 140 products across nine stack layers (L1–L9) and eight enterprise controls (C1–C8), as at the end of Q3 2026 [AJ]{custom-style="Claim Label"}. Each entry gives the current facts with their claim labels and source IDs (resolve in `06_References/bibliography.xlsx`), the assessment, the classification, the scorecard (generic and regulated-FS weights) and the product's fit under each of the seven views. Fact cells marked *Not publicly verified* could not be confirmed from a public source and were never guessed. Disclosure: researched and drafted by an Anthropic model; Anthropic-related items were scored on the same rubric, an independent alternative is named beside each, and tiers set by the reader at checkpoints are noted in the relevant chapter.
+
+# The seven views
+
+The master document reads the stack through seven views. The regulated-financial-services view is the master (Parts I–XII); six further views follow as Parts XIII–XVIII. Every view uses the same facts and the same eight criterion scores; only the weights change, and each weight profile sums to 100 [AJ]{custom-style="Claim Label"}. Each product entry below ends its scorecard with a **Fit by view** table: the product's re-weighted score (1–5) and its indicative fit under each view, computed by `tools/build_views.py` (full table in `05_Data/views.xlsx`) [AJ]{custom-style="Claim Label"}.
+
+| View | Reader | Part | Tech. | Ent. | Sec. | Dep. | Eco. | Mat. | Cost | Lock-in | Core candidates |
+|---|------------|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| FS | Regulated financial services (the master view) | Parts I–XII | 15 | 15 | **20** | 15 | 5 | 10 | 5 | 15 | 45 of 138 |
+| TS | Technology service provider | Part XIII | **15** | **15** | **15** | 10 | 10 | **15** | **15** | 5 | 48 of 138 |
+| SW | Software product company | Part XIV | 15 | 10 | 15 | **20** | 10 | 10 | 5 | 15 | 48 of 138 |
+| SU | Start-up technology company | Part XV | **25** | 5 | 10 | 5 | 15 | 10 | 20 | 10 | 57 of 138 |
+| AT | Start-up selling AI tools into the enterprise stack | Part XVI | **20** | 10 | 15 | 15 | 15 | 5 | 10 | 10 | 56 of 138 |
+| DV | Start-up selling agentic SDLC tools to developers | Part XVII | **25** | 10 | 15 | 10 | 15 | 5 | 15 | 5 | 63 of 138 |
+| AG | Start-up selling agents to enterprises | Part XVIII | **20** | 15 | 15 | 15 | 15 | 5 | 5 | 10 | 56 of 138 |
+
+*Weights in per cent; the highest weight in each view is in bold. Columns: technical; enterprise readiness; security and compliance; deployment flexibility; ecosystem; reliability and maturity; cost / TCO; lock-in / portability.*
+
+**Who each view is for [AJ]{custom-style="Claim Label"}.**
+
+- **FS, Regulated financial services (master view, Parts I–XII).** A regulated UK/EU asset manager deploying GenAI internally and to clients under model-risk, outsourcing and operational-resilience rules. This is the view in Parts I to XII.
+- **TS, Technology service provider (Part XIII).** A technology company that runs GenAI inside services it operates for its customers: a multi-tenant SaaS platform, a managed or hosted service, or a digital platform. It hosts customer data as a processor, owes customers uptime and security commitments, answers their security questionnaires, and earns a gross margin on every model call.
+- **SW, Software product company (Part XIV).** A software vendor that ships products with GenAI features built in, which its customers deploy and operate: self-managed or on-premises installs, private-cloud and air-gapped editions, cloud-marketplace images and SDKs. The vendor must let each customer choose or bring the model, redistribute only what licences allow, and support many customer estates it does not control.
+- **SU, Start-up technology company (Part XV).** An early-stage technology company (pre-seed to Series B) building an AI-native product with a small team. Speed to a working product, cash runway and developer productivity come first; the first enterprise customers will soon ask for security assurance, and the architecture must not trap the company when it scales.
+- **AT, Start-up selling AI tools into the enterprise stack (Part XVI).** An early-stage company whose product is itself a component of the Enterprise GenAI Stack: a gateway, guardrail, privacy, evaluation, observability, retrieval, ingestion, memory or governance tool sold to enterprises. Its buyers are the platform, security and model-risk teams the FS view describes; to be adopted it must slot into their control plane, run where their data is, and survive their due diligence.
+- **DV, Start-up selling agentic SDLC tools to developers (Part XVII).** An early-stage company selling coding agents, AI code review, test generation, migration or other agentic software-development tools to engineering teams in enterprises. It competes with, or plugs into, the large coding-agent platforms; its buyers care about source-code confidentiality, model choice, auditability of agent changes, cost per task and fit with their repositories, CI and identity.
+- **AG, Start-up selling agents to enterprises (Part XVIII).** An early-stage company whose product is an agent (or a set of agents) that does work inside a customer's business: a finance-operations agent, a support agent, a research agent. To be bought by enterprises it must run under the customer's identity and policy, call tools through the customer's gateway, emit evidence the customer can audit, and be deployable in the customer's cloud or through its agent marketplace.
+
+**How to read the fit.** Core candidate: view score >= 3.6, no criterion at 1, and the product is not Experimental or Not recommended in the master tiers (immaturity and evidence gaps do not depend on the view). Situational: everything else that is scored. The fit is computed, indicative and not checkpoint-reviewed; conditions attached to the master tier still apply. The tier in each entry remains the master (regulated-FS) tier, with its conditions [AJ]{custom-style="Claim Label"}.
+
+**Where to read more.** Part XIII (technology service provider), Part XIV (software product company), Part XV (start-up), Part XVI (start-ups selling AI tools into the enterprise stack), Part XVII (start-ups selling agentic SDLC tools) and Part XVIII (start-ups selling agents to enterprises) of the master document give each view's findings, architecture, reference stack and worked example. A view's weights never change a fact in this appendix [AJ]{custom-style="Claim Label"}.
 
 # L1: Foundation models
 
 ## OpenAI GPT model family (GPT-6: Astra, Sol, Luna; GPT-6.1 Sol), plus GPT-5.6 Sol/Terra/Luna and open-weight gpt-oss (`L1-openai`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** OpenAI – GPT-6
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Broadest evidenced lineup, two hyperscaler routes plus first-party EU processing, product-scoped SOC 2 and ISO 27001; concentration is managed by pairing with a second vendor, not by avoiding OpenAI [AJ]{custom-style="Claim Label"}.
 
@@ -24,6 +54,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Transparent per-tier pricing (Luna US$0.10/US$0.50, Sol US$2/US$10, Astra US$10/US$50 per 1M) with 50% batch discount (A5-S004); competitive, not uniquely efficient. |
 | Lock-in / portability | 3 | Proprietary frontier API on a de facto standard interface, on two non-OpenAI clouds, with Apache-2.0 gpt-oss as a portability option. |
 | **Total (generic / FS)** | **4.25 / 4.05** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.05 | 4.20 | 4.10 | 4.30 | 4.25 | 4.35 | 4.25 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Tiered proprietary family: GPT-6 Astra (gated flagship, introduced 3 September 2026), GPT-6 Sol and Luna (22 September 2026), GPT-6.1 Sol (29 September 2026), with GPT-5.6 Sol/Terra/Luna still offered; all GPT-6 tiers are reasoning models with text and image input; Daybreak cyber models in limited availability on Bedrock; open-weight gpt-oss-120b/20b under Apache 2.0 (August 2025) [VF]{custom-style="Claim Label"}^[Verified fact — A5-S001: Previewing GPT-5.6 Sol / GPT-5.6 Sol, Terra and Luna (with help-centre preview article and API changelog) (OpenAI) <https://openai.com/index/previewing-gpt-5-6-sol/> accessed 2026-10-07 [search-tool extract]; A5-S002: GPT-6 Astra: A new generation of intelligence (plus release notes, Introducing GPT-6 Sol and Luna, GPT-6.1 Sol, GPT-6 for everyone) (OpenAI) <https://openai.com/index/gpt-6-astra/> accessed 2026-10-07 [search-tool extract]; A5-S003: OpenAI announces rollout of GPT-6 Astra model (with Axios and OpenRouter results) (CNBC) <https://www.cnbc.com/2026/09/03/open-ai-astra-gpt-6-cyber.html> accessed 2026-10-07 [search-tool extract]; A5-S005: Introducing gpt-oss (and gpt-oss-safeguard; help-centre open-weight article) (OpenAI) <https://openai.com/index/introducing-gpt-oss/> accessed 2026-10-07 [search-tool extract]; A5-S008: OpenAI GPT-6 Astra / GPT-6 Sol and Luna generally available on Amazon Bedrock (AWS) <https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-on-amazon-bedrock/> accessed 2026-10-07 [search-tool extract]; A5-S009: GPT-6 Astra, Sol, and Luna for production AI agents in Microsoft Foundry <https://azure.microsoft.com/en-us/blog/gpt-6-astra-sol-and-luna-for-production-agents-in-microsoft-foundry/> accessed 2026-10-07 [search-tool extract]; A5-S083: ChatGPT Release Notes ('Introducing GPT-6 Astra', 3 Sept 2026); Path to Astra (1 Sept 2026); Safety overview: GPT-6 Astra (OpenAI) <https://help.openai.com/en/articles/6825453-chatgpt-release-notes> accessed 2026-10-07 [search-tool extract]].
 
@@ -88,7 +125,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Mistral AI model family (Mistral Large 4 preview; Mistral Medium 3.5; Mistral Large 3; Mistral Small 4.0; Ministral 3; Magistral; Devstral 2; Codestral; Mistral OCR; Voxtral) (`L1-mistral`)
 
-**Tier:** Strategic · **Flags:** Superseded · **Label in the popular stack diagram:** Mistral – Medium 3.1
+**Tier:** Strategic · **Flags:** Superseded
 
 *Rationale:* The strongest combination of EU residency, open weights and multi-cloud availability in the layer; Strategic as the EU and open-weight leg of the portfolio, not as the sole frontier model [AJ]{custom-style="Claim Label"}. 'Superseded' refers to the graphic's Medium 3.1 label.
 
@@ -103,6 +140,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Medium 3.5 at US$1.50/US$7.50 per 1M (A5-S074) and free open weights; EU endpoint carries 10% surcharge (A5-S075). |
 | Lock-in / portability | 4 | Open weights under Apache 2.0 or Modified MIT; revenue thresholds on Medium 3.5 (rule 4) keep it from 5. |
 | **Total (generic / FS)** | **3.90 / 3.85** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.85 | 3.80 | 3.95 | 3.85 | 3.95 | 3.90 | 3.95 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Mistral AI family: Mistral Large 4 (public preview 6 October 2026, API-only, weights targeted for 27 October 2026, licence unpublished), Mistral Medium 3.5 (28 April 2026, 128B dense, 256K context, Modified MIT v26.04), Large 3 (Apache 2.0), Small 4.0, Ministral 3, Magistral reasoning, Devstral 2 and Codestral coding, Mistral OCR and Voxtral speech [VF]{custom-style="Claim Label"}^[Verified fact — A5-S074: Mistral Medium 3.5 model card; Introducing Mistral 3 (Large 3, Ministral 3); Mistral-Medium-3.5-128B (Hugging Face) (Mistral AI) <https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04> accessed 2026-10-07 [search-tool extract]; A5-S076: Introducing Mistral Large 4 (and Mistral changelog) (Mistral AI) <https://mistral.ai/news/mistral-large-4/> accessed 2026-10-07 [search-tool extract]; V2-S017: Mistral launches Mistral Large 4 (with VentureBeat, AI News, The Tribune) (SiliconANGLE) <https://siliconangle.com/2026/10/06/mistral-launches-open-source-mistral-large-4-details-ai-roadmap/> accessed 2026-10-08 [search-tool extract]; V2-S018: Mistral Medium 3.5 model card (with mistral.ai Vibe remote agents post, changelog) (Mistral AI) <https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04> accessed 2026-10-08 [search-tool extract]] [R]{custom-style="Claim Label"}^[Reported — A5-S038: LiteLLM 1.104.1 model_prices_and_context_window map (PyPI wheel) (BerriAI / LiteLLM (community-maintained)) <https://pypi.org/project/litellm/1.104.1/> accessed 2026-10-07 [search-tool extract]].
 
@@ -164,7 +208,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Anthropic Claude model family (Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5; restricted Claude Mythos 5.1) (`L1-anthropic`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Claude – Opus 5.5
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: consumed only through a hyperscaler EU or UK region (Bedrock regional endpoint or Google Cloud EU), as one of two frontier and mid-tier vendors with a non-Anthropic fallback qualified on the same evaluation suite, not as the sole frontier model; independent alternatives are OpenAI GPT-6.1 Sol, Gemini 3.8 Flash and Mistral Medium 3.5. FS 3.80 with no criterion below 3. Tier and neutral scoring set by the reader at Checkpoint 4 (CP4-1); the author's pipeline had resolved three borderline scores against Anthropic. Security 5 and cost 4 are the neutral rubric values identified in CP4 review C (previously 4 and 3). The first-party residency gap and the June 2026 Fable 5 suspension remain factual weaknesses and are stated as conditions. Conflict of interest: the author is an Anthropic model [AJ]{custom-style="Claim Label"}.
 
@@ -179,6 +223,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Transparent; list prices equal OpenAI's at every tier (Fable 5.1 = Astra US$10/US$50; Sonnet 5.5 = GPT-6.1 Sol US$2/US$10; Haiku 5.5 = Luna US$0.10/US$0.50 per 1M) with a 50% batch discount (A5-S011, A5-S004), and OpenAI scores 4. The 10% regional premium does not hold peers at 3 (Mistral and Grok score 4), and the dearer recommended default (Opus 5.5, US$4/US$20) is a deployment choice, not a vendor price. Set to 4, the neutral rubric value, by the reader at Checkpoint 4 (CP4-1; previously 3). |
 | Lock-in / portability | 3 | Proprietary API with no open weights, but on three clouds and with an OpenAI-compatible endpoint, so a gateway can switch it out. |
 | **Total (generic / FS)** | **3.85 / 3.80** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.80 | 3.85 | 3.70 | 3.85 | 3.85 | 3.95 | 3.85 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Proprietary Claude family: Claude Fable 5.1 (top GA tier, 1 September 2026), Opus 5.5 (22 September 2026; Anthropic's recommended starting point), Sonnet 5.5 (28 September 2026) and Haiku 5.5 (7 October 2026); Mythos 5.1 is the same model as Fable 5.1 with looser safeguards for trusted-access programmes only; all four GA models have adaptive thinking, text and image input, text output, 1M-token context and 128K output; no open weights [VF]{custom-style="Claim Label"}^[Verified fact — A5-S010: Models overview - Claude API Docs (Anthropic) <https://platform.claude.com/docs/en/models/overview> accessed 2026-10-07; A5-S012: Anthropic Newsroom <https://www.anthropic.com/news> accessed 2026-10-07; A5-S016: Introducing Claude Fable 5.1 and Claude Mythos 5.1 (Anthropic) <https://www.anthropic.com/claude-fable-and-mythos-5-1> accessed 2026-10-07; A5-S019: Introducing Claude Opus 5.5 (Anthropic) <https://www.anthropic.com/claude-opus-5-5> accessed 2026-10-07; A5-S020: Introducing Claude Haiku 5.5 (Anthropic) <https://www.anthropic.com/claude-haiku-5-5> accessed 2026-10-07; V2-S066: Introducing Claude Fable 5.1 and Claude Mythos 5.1 (Anthropic) <https://www.anthropic.com/claude-fable-and-mythos-5-1> accessed 2026-10-08]. Conflict of interest: the author is an Anthropic model.
 
@@ -243,7 +294,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Google Gemma 4 (open-weight family) (`L1-google-gemma`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Gemma – 2.9
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: as the small, self-hosted open-weight tier of the portfolio; not a substitute for a frontier model [AJ]{custom-style="Claim Label"}.
 
@@ -258,6 +309,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free weights; the larger sizes need a data-centre GPU, so operations are not trivial. |
 | Lock-in / portability | 4 | Permissive open weights; governance by one vendor, not neutral, so not 5. |
 | **Total (generic / FS)** | **3.80 / 3.80** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.80 | 3.80 | 3.90 | 3.70 | 3.80 | 3.70 | 3.80 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Gemma 4 open-weight family: E2B, E4B, 26B MoE and 31B dense (31 March / 2 April 2026) and a 12B unified multimodal model (3 June 2026); image and video input on all sizes, audio on E2B/E4B; up to 256K context; Apache 2.0 [VF]{custom-style="Claim Label"}^[Verified fact — A5-S034: Gemma 4: Byte for byte, the most capable open models (with Gemma releases page, Gemma 4 12B post) (Google) <https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/> accessed 2026-10-07 [search-tool extract]; A5-S035: google/gemma-4-31B-it and related Gemma 4 model cards - Hugging Face (Google (Hugging Face)) <https://huggingface.co/google/gemma-4-31B-it> accessed 2026-10-07 [search-tool extract]; V2-S020: Gemma 4: Byte for byte, the most capable open models (with Gemma releases page, Gemma 4 model card, Introducing Gemma 4 12B) (Google) <https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/> accessed 2026-10-08 [search-tool extract]].
 
@@ -314,7 +372,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Google Gemini model family (Gemini 3.x: 3.1 Pro, 3.8 Flash, 3.5 Flash-Lite; Gemini 4 Argon in limited release) (`L1-google-gemini`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Gemini – Gemini
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Google Cloud is your primary cloud (rule 10, the lead model service on that cloud); deployment and lock-in score 2, allowed under rule 11 as an existing platform commitment; FS 3.35 [AJ]{custom-style="Claim Label"}.
 
@@ -329,6 +387,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent, but 3.8 Flash doubles on 1 January 2027 and regional endpoints carry a 10% premium (A5-S027, V2-S010). |
 | Lock-in / portability | 2 | Proprietary API on one cloud only (A5-S027). |
 | **Total (generic / FS)** | **3.50 / 3.35** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.45 | 3.20 | 3.50 | 3.40 | 3.60 | 3.45 |
+| Fit | Situational | Situational | Situational | Situational | Situational | **Core** | Situational |
 
 **Capabilities.** Proprietary Gemini 3.x production lineup: 3.1 Pro (still preview since 19 February 2026), 3.8 Flash (GA 2 September 2026), 3.5 Flash-Lite, 3.8 Live and TTS models, image models and cyber-specialised Flash variants; Gemini 4 Argon announced 30 September 2026 with access restricted to trusted cyber defenders (Fairwind) and not on Google Cloud at launch; natively multimodal input (text, image, video, audio) [VF]{custom-style="Claim Label"}^[Verified fact — A5-S027: Generative AI pricing - Google Cloud (Gemini Enterprise Agent Platform, formerly Vertex AI) <https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing> accessed 2026-10-07; A5-S030: Gemini API Release notes (with Models, Deprecations, 'What's new in Gemini 3.8 Flash' pages) (Google) <https://ai.google.dev/gemini-api/docs/changelog> accessed 2026-10-07 [search-tool extract]; A5-S031: Gemini 4 Argon: our next era of frontier intelligence (Google) <https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/> accessed 2026-10-07 [search-tool extract]; A5-S032: Gemini Developer API pricing (and Gemini 3.1 Pro preview model page) (Google) <https://ai.google.dev/gemini-api/docs/pricing> accessed 2026-10-07 [search-tool extract]; V2-S009: Gemini 4 Argon: our next era of frontier intelligence (with deepmind.google cyber page, Fairwind Program page) (Google) <https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/> accessed 2026-10-08 [search-tool extract]; V2-S010: Gemini API release notes (with Gemini 3.8 Flash model page, Gemini 3.1 Pro preview model page, Gemini Enterprise release notes) (Google) <https://ai.google.dev/gemini-api/docs/changelog> accessed 2026-10-08 [search-tool extract]].
 
@@ -391,7 +456,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## xAI Grok model family (Grok 4.7 flagship; 4.6, 4.5, 4.3, 4.20; Grok 4.1 Fast; grok-code-fast-1 / Grok Build) (`L1-xai-grok`)
 
-**Tier:** Tactical · **Flags:** Acquired · **Label in the popular stack diagram:** Grok
+**Tier:** Tactical · **Flags:** Acquired
 
 *Rationale:* Capable, cheap and on every hyperscaler, but the change of control, naming churn, missing ISO certification and derived-data terms keep it out of the foundation tier [AJ]{custom-style="Claim Label"}.
 
@@ -406,6 +471,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Transparent and low list prices (A5-S079); 1.1x for the US regional endpoint. |
 | Lock-in / portability | 2 | Proprietary API on standard routes would be 3; reduced by 1 for the 2026 change of ownership (rule 3). |
 | **Total (generic / FS)** | **3.50 / 3.25** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.25 | 3.50 | 3.25 | 3.55 | 3.45 | 3.60 | 3.45 |
+| Fit | Situational | Situational | Situational | Situational | Situational | **Core** | Situational |
 
 **Capabilities.** Proprietary Grok family from SpaceXAI (formerly xAI): Grok 4.7 flagship (21 September 2026, 500K context, configurable reasoning effort), Grok 4.6, 4.5, 4.3 and 4.20 (reasoning, non-reasoning and multi-agent), Grok 4.1 Fast, grok-code-fast-1, image and video generation [VF]{custom-style="Claim Label"}^[Verified fact — A5-S079: Introducing Grok 4.7 (21 September 2026) and Grok Models & Pricing docs (xAI (SpaceXAI)) <https://x.ai/news/grok-4-7> accessed 2026-10-07 [search-tool extract]; V2-S012: Grok 4.7 model page (with x.ai/news/grok-4-7, docs.x.ai pricing and release notes) (SpaceXAI (xAI)) <https://docs.x.ai/developers/grok-4-7> accessed 2026-10-08 [search-tool extract]] [R]{custom-style="Claim Label"}^[Reported — A5-S038: LiteLLM 1.104.1 model_prices_and_context_window map (PyPI wheel) (BerriAI / LiteLLM (community-maintained)) <https://pypi.org/project/litellm/1.104.1/> accessed 2026-10-07 [search-tool extract]].
 
@@ -465,7 +537,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## DeepSeek V4 family (DeepSeek-V4-Pro; DeepSeek-V4.1-Flash, which replaced V4-Flash in the API) (`L1-deepseek`)
 
-**Tier:** Tactical · **Flags:** Not recommended · **Label in the popular stack diagram:** DeepSeek – V4
+**Tier:** Tactical · **Flags:** Not recommended
 
 *Rationale:* Tactical, conditional: self-hosted MIT weights or Microsoft Foundry in-tenant only; the 'Not recommended' flag applies to DeepSeek's hosted API (PRC storage, unremediated Garante limitation) [AJ]{custom-style="Claim Label"}.
 
@@ -482,6 +554,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.25 / 3.15** | |
 
 *Evidence rules applied:* security_compliance at 1 (below the NPV cap of 2): certifications NPV plus unremediated regulatory finding on the hosted API
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.15 | 3.10 | 3.30 | 3.30 | 3.35 | 3.30 | 3.40 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** DeepSeek V4 family: V4-Pro (1.6T total / 49B active, GA 13 August 2026, 1M context; a planned phase-out was reversed on 17 September 2026) and V4.1-Flash (10 September 2026, replaced V4-Flash in the API, native vision); thinking and non-thinking modes; open weights under MIT [VF]{custom-style="Claim Label"}^[Verified fact — A5-S063: DeepSeek V4 Preview Release (24 April 2026) and deepseek-ai/DeepSeek-V4-Pro model card (MIT) <https://api-docs.deepseek.com/news/news260424/> accessed 2026-10-07 [search-tool extract]; A5-S064: DeepSeek-V4.1-Flash: Smarter, Faster, More Efficient (10 September 2026) and API Change Log <https://api-docs.deepseek.com/news/news260910/> accessed 2026-10-07 [search-tool extract]; A5-S065: DeepSeek Models & Pricing <https://api-docs.deepseek.com/quick_start/pricing/> accessed 2026-10-07 [search-tool extract]; V2-S013: DeepSeek-V4.1-Flash: Smarter, Faster, More Efficient (with SiliconANGLE 10 Sep 2026, digitalapplied) <https://api-docs.deepseek.com/news/news260910/> accessed 2026-10-08 [search-tool extract]].
 
@@ -543,7 +622,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Z.ai (Zhipu) GLM model family (GLM-5.3, GLM-5.3-Flash, GLM-5.2, GLM-5.1, GLM-5; GLM-4.7) (`L1-zai-glm`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** QI4 (Z logo) – Q4
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Tactical, conditional: self-hosted GLM-5.3-Flash (MIT) only, after sanctions review; Entity List status and unverified data terms rule out the hosted API [AJ]{custom-style="Claim Label"}.
 
@@ -560,6 +639,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.25 / 3.15** | |
 
 *Evidence rules applied:* security_compliance capped at 2: certifications NPV
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.15 | 3.10 | 3.20 | 3.15 | 3.25 | 3.25 | 3.30 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Z.ai (Zhipu) GLM-5.x family: GLM-5.3 (753B, API mid-August 2026 (14 August per CAISI, 18 August per press), weights about 28 August under a bespoke licence), GLM-5.3-Flash (26 August 2026, 320B / 18B active, natively multimodal, MIT), GLM-5.2 open weights, GLM-Image; the graphic's 'QI4' label matches no model [VF]{custom-style="Claim Label"}^[Verified fact — A5-S071: zai-org/GLM-5.3 and GLM-5.3-Flash (Hugging Face, licences) and Z.ai pricing <https://huggingface.co/zai-org/GLM-5.3> accessed 2026-10-07 [search-tool extract]; V2-S021: CAISI's Assessment of Z.ai's GLM-5.3 Cyber Capabilities (with UK AISI / CAISI Preliminary Assessment of Kimi K3, July 2026) (NIST CAISI) <https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities> accessed 2026-10-08 [search-tool extract]] [R]{custom-style="Claim Label"}^[Reported — V2-S016: Z.ai Releases GLM-5.3-Flash (with testingcatalog, digitalapplied 'GLM-5.3's Weights Are Out. The Licence Is Not MIT') (MarkTechPost) <https://www.marktechpost.com/2026/08/26/z-ai-releases-glm-5-3-flash-a-320b-a18b-natively-multimodal-moe-with-a-1m-token-context/> accessed 2026-10-08 [search-tool extract]; A5-S038: LiteLLM 1.104.1 model_prices_and_context_window map (PyPI wheel) (BerriAI / LiteLLM (community-maintained)) <https://pypi.org/project/litellm/1.104.1/> accessed 2026-10-07 [search-tool extract]; A5-S042: KTransformers README updates (PyPI) (kvcache-ai (KTransformers project)) <https://pypi.org/project/ktransformers/> accessed 2026-10-07 [search-tool extract]].
 
@@ -618,7 +704,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Meta Muse family (Muse Spark 1.1-1.3 via Meta Model API; Muse Glimmer 30B open weights; Muse Code; Muse Image) plus Llama 4 (Scout, Maverick) (`L1-meta`)
 
-**Tier:** Tactical · **Flags:** Renamed · **Label in the popular stack diagram:** Meta – Llama (new: Muse)
+**Tier:** Tactical · **Flags:** Renamed
 
 *Rationale:* Brand transition from Llama to Muse is under way, the API is weeks past GA and its data terms are unverified; useful for open-weight continuity only [AJ]{custom-style="Claim Label"}.
 
@@ -635,6 +721,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.15 / 3.05** | |
 
 *Evidence rules applied:* security_compliance capped at 2: certifications NPV
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.05 | 3.05 | 3.15 | 3.05 | 3.20 | 3.15 | 3.25 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Meta Muse family from Meta Superintelligence Labs: Muse Spark (announced April 2026; 1.1 to 1.3 via the Meta Model API, GA at Meta Connect 23-24 September 2026; 1M context), Muse Glimmer 30B open weights (August 2026, Apache 2.0 per secondary sources), Muse Code and Muse Image; plus Llama 4 Scout and Maverick under the Llama 4 Community License [VF]{custom-style="Claim Label"}^[Verified fact — A5-S077: Introducing Muse Spark (Meta, April 2026); Introducing Muse Spark 1.1 / Meta Model API (ai.meta.com); Meta Connect 2026 recap <https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/> accessed 2026-10-07 [search-tool extract]; A5-S078: meta-models/Muse-Glimmer-30B model card (Apache 2.0) and Llama 4 Community License Agreement (llama.com) (Meta) <https://huggingface.co/meta-models/Muse-Glimmer-30B> accessed 2026-10-07 [search-tool extract]; V2-S019: Meta Connect 2026: The end-to-end recap (with research.meta.ai 'Introducing Muse Spark 1.3') <https://developers.meta.com/blog/meta-connect-recap/> accessed 2026-10-08 [search-tool extract]; A5-S027: Generative AI pricing - Google Cloud (Gemini Enterprise Agent Platform, formerly Vertex AI) <https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing> accessed 2026-10-07] [R]{custom-style="Claim Label"}^[Reported — A5-S038: LiteLLM 1.104.1 model_prices_and_context_window map (PyPI wheel) (BerriAI / LiteLLM (community-maintained)) <https://pypi.org/project/litellm/1.104.1/> accessed 2026-10-07 [search-tool extract]; A5-S040: ms-swift README news (PyPI) (ModelScope / Alibaba (ms-swift project)) <https://pypi.org/project/ms-swift/> accessed 2026-10-07 [search-tool extract]].
 
@@ -692,7 +785,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Alibaba Qwen model family (Qwen3.8: Max, Flash, Omni-Flash API; open-weight Qwen3.8-27B, Qwen3.8-2.4T-A95B, Qwen3.8-Flash-Next) (`L1-alibaba-qwen`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Qwen – 3.8
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Tactical, conditional: self-hosted Apache-2.0 sizes only, subject to sovereignty policy; hosted Max and Model Studio lack verified certifications and controls [AJ]{custom-style="Claim Label"}.
 
@@ -709,6 +802,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.15 / 3.00** | |
 
 *Evidence rules applied:* enterprise_readiness capped at 2: SSO/RBAC/audit NPV and no current-generation hyperscaler route; security_compliance capped at 2: certifications NPV
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.00 | 3.05 | 3.20 | 3.30 | 3.25 | 3.25 | 3.20 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Qwen3.8 family: hosted qwen3.8-max (launched 3 August 2026), qwen3.8-flash and omni-flash through Alibaba Cloud Model Studio; open weights Qwen3.8-27B (Apache 2.0), Qwen3.8-2.4T-A95B (12 August 2026, custom Qwen3.8-Max License) and Qwen3.8-Flash-Next; coding and embedding lines [VF]{custom-style="Claim Label"}^[Verified fact — A5-S066: Alibaba Unveils Qwen3.8-27B and Releases Weights of Qwen3.8 Flagship Model (with Qwen/Qwen3.8-27B model card) (Alibaba Cloud) <https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463> accessed 2026-10-07 [search-tool extract]; A5-S068: Alibaba Cloud Model Studio model pricing (qwen3.8-max, qwen3.8-flash) and Alizila Qwen3.8-Flash release <https://www.alibabacloud.com/help/en/model-studio/model-pricing> accessed 2026-10-07 [search-tool extract]] [R]{custom-style="Claim Label"}^[Reported — V2-S014: Alibaba's AI model Qwen3.8-Max made widely accessible ahead of open-weights release (with Quartz, MarkTechPost 3 Aug 2026, The Decoder, DeepLearning.AI The Batc (South China Morning Post) <https://www.scmp.com/tech/article/3362738/alibabas-ai-model-qwen38-max-made-widely-accessible-ahead-open-weights-release> accessed 2026-10-08 [search-tool extract]; A5-S038: LiteLLM 1.104.1 model_prices_and_context_window map (PyPI wheel) (BerriAI / LiteLLM (community-maintained)) <https://pypi.org/project/litellm/1.104.1/> accessed 2026-10-07 [search-tool extract]; A5-S040: ms-swift README news (PyPI) (ModelScope / Alibaba (ms-swift project)) <https://pypi.org/project/ms-swift/> accessed 2026-10-07 [search-tool extract]].
 
@@ -767,7 +867,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Moonshot AI Kimi model family (Kimi K3; K2.7-Code, K2.6, K2.5, K2-Thinking) (`L1-moonshot-kimi`)
 
-**Tier:** Experimental · **Flags:** none · **Label in the popular stack diagram:** Kimi – K3
+**Tier:** Experimental · **Flags:** none
 
 *Rationale:* Large and capable on paper, but evidence is largely secondary, the weights are expensive to host, the licence is custom and no in-region hyperscaler route exists [AJ]{custom-style="Claim Label"}.
 
@@ -784,6 +884,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.80 / 2.80** | |
 
 *Evidence rules applied:* security_compliance capped at 2: certifications NPV
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.80 | 2.70 | 2.80 | 2.65 | 2.80 | 2.75 | 2.90 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Kimi K3 (launched 16 July 2026; weights by 27 July 2026; 2.8T-parameter MoE, about 104B active reported; native multimodal; 1M context) plus K2.7-Code and earlier K2.x models [VF]{custom-style="Claim Label"}^[Verified fact — A5-S069: Kimi K3 Tech Blog; Kimi K3 API quickstart and pricing; moonshotai/Kimi-K3 LICENSE (Hugging Face) (Moonshot AI) <https://www.kimi.com/en/blog/kimi-k3> accessed 2026-10-07 [search-tool extract]] [R]{custom-style="Claim Label"}^[Reported — V2-S015: Kimi K3 coverage (aiweekly, morphllm, Hugging Face community blog, cryptobriefing, ayautomate) (Various (secondary)) <https://huggingface.co/moonshotai/Kimi-K3> accessed 2026-10-08 [search-tool extract]; A5-S038: LiteLLM 1.104.1 model_prices_and_context_window map (PyPI wheel) (BerriAI / LiteLLM (community-maintained)) <https://pypi.org/project/litellm/1.104.1/> accessed 2026-10-07 [search-tool extract]].
 
@@ -843,7 +950,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## vLLM (`L2-vllm`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** vLLM – high-throughput
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Default serving engine for any self-hosted route; neutral governance; conditional on patch and model-provenance discipline
 
@@ -858,6 +965,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free; cost is GPU hours and operations [AJ]{custom-style="Claim Label"} |
 | Lock-in / portability | 5 | Apache-2.0, open APIs, neutral governance [VF]{custom-style="Claim Label"}^[Verified fact — A4-S009: PyPI JSON metadata: vllm (Python Package Index) <https://pypi.org/pypi/vllm/json> accessed 2026-10-07; A4-S146: PyTorch Foundation Welcomes vLLM as a Hosted Project (and umbrella-foundation press release, 7 May 2025) (PyTorch Foundation (Linux Foundation)) <https://pytorch.org/blog/pytorch-foundation-welcomes-vllm/> accessed 2026-10-07 [search-tool extract]] |
 | **Total (generic / FS)** | **4.35 / 4.30** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.30 | 4.25 | 4.45 | 4.45 | 4.45 | 4.40 | 4.45 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 LLM inference and serving engine (0.31.0, 5 October 2026), PyTorch Foundation-hosted since 7 May 2025, with PagedAttention, continuous batching, prefix caching, quantisation (FP8, MXFP4, NVFP4, INT4/8, GPTQ/AWQ, GGUF), speculative decoding (n-gram, suffix, EAGLE, DFlash), disaggregated prefill/decode/encode, OpenAI-compatible and Anthropic Messages APIs, 200+ architectures and multi-vendor hardware [VF]{custom-style="Claim Label"}^[Verified fact — A4-S009: PyPI JSON metadata: vllm (Python Package Index) <https://pypi.org/pypi/vllm/json> accessed 2026-10-07; A4-S063: vLLM README (GitHub) (vLLM project) <https://raw.githubusercontent.com/vllm-project/vllm/main/README.md> accessed 2026-10-07; A4-S146: PyTorch Foundation Welcomes vLLM as a Hosted Project (and umbrella-foundation press release, 7 May 2025) (PyTorch Foundation (Linux Foundation)) <https://pytorch.org/blog/pytorch-foundation-welcomes-vllm/> accessed 2026-10-07 [search-tool extract]]. A commercially supported distribution exists (Red Hat AI Inference) [VF]{custom-style="Claim Label"}^[Verified fact — B-L2-S001: Red Hat AI Inference 3.4 release notes <https://docs.redhat.com/en/documentation/red_hat_ai_inference/3.4/html/release_notes/rhaii-340-ga-release-notes_release-notes> accessed 2026-10-08 [search-tool extract]].
 
@@ -915,7 +1029,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Fireworks AI (`L2-fireworks-ai`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Fireworks AI – fast inference
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: for managed open-model inference, once its ISO 27001, 27701 and 42001 certificates are confirmed (trust-centre and docs pages conflict); the strongest controls among the independent inference clouds. For client data use EU dedicated or BYOC deployments, because the self-serve residency setting is US-only. Upgraded from Tactical ('candidate for Strategic after due diligence') by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.65) [AJ]{custom-style="Claim Label"}.
 
@@ -930,6 +1044,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent but GPU rates higher than peers; batch at 50% [VF]{custom-style="Claim Label"}^[Verified fact — A4-S135: Fireworks - Pricing (and Serverless Pricing docs) (Fireworks AI) <https://fireworks.ai/pricing> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 4 | Open models portable; BYOC reduces data-plane lock-in [VF]{custom-style="Claim Label"}^[Verified fact — A4-S152: Custom SSO - Fireworks AI Docs (with Enterprise, Virtual Cloud and changelog pages) <https://docs.fireworks.ai/accounts/sso> accessed 2026-10-07 [search-tool extract]] |
 | **Total (generic / FS)** | **3.65 / 3.65** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.65 | 3.55 | 3.70 | 3.60 | 3.70 | 3.65 | 3.75 |
+| Fit | **Core** | Situational | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Managed inference and fine-tuning for open models (serverless, on-demand and reserved dedicated, batch, RFT), hybrid BYOC in the customer VPC, customer-managed keys, SSO (OIDC/SAML), RBAC and audit logs; ZDR by default for open models except the Response API (30-day storage by default); SOC 2 Type II, while ISO 27001/27701/42001 claims conflict across its own pages [VF]{custom-style="Claim Label"}^[Verified fact — A4-S135: Fireworks - Pricing (and Serverless Pricing docs) (Fireworks AI) <https://fireworks.ai/pricing> accessed 2026-10-07 [search-tool extract]; A4-S152: Custom SSO - Fireworks AI Docs (with Enterprise, Virtual Cloud and changelog pages) <https://docs.fireworks.ai/accounts/sso> accessed 2026-10-07 [search-tool extract]; A4-S134: Zero Data Retention / Data residency / Regions - Fireworks AI Docs <https://docs.fireworks.ai/guides/security_compliance/data_handling> accessed 2026-10-07 [search-tool extract]; A4-S133: Trust Center - Fireworks AI (with docs Certifications page and certification blogs) <https://trust.fireworks.ai/> accessed 2026-10-07 [search-tool extract]; V1-S067: Fireworks data security / Security & Compliance FAQ / triple ISO blog (Fireworks AI) <https://docs.fireworks.ai/guides/security_compliance/data_security> accessed 2026-10-08 [search-tool extract]].
 
@@ -987,7 +1108,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## SGLang (`L2-sglang`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** SGLang – efficient engine
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: as the qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed in the deployed version (NVD and OSV reference a fix in 0.5.10; the GitHub advisory lists none), with internal ports isolated; not the default engine. Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.65), with security 2 carried as the tier condition [AJ]{custom-style="Claim Label"}.
 
@@ -1004,6 +1125,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.80 / 3.65** | |
 
 *Evidence rules applied:* enterprise_readiness capped at 4 (rule 2, no verified commercial support); not binding at 3
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.65 | 3.65 | 3.85 | 3.95 | 3.90 | 3.90 | 3.85 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 serving framework (0.5.21, 1 October 2026) hosted by the LMSYS non-profit, with RadixAttention prefix caching, PD disaggregation, speculative decoding, FP4/FP8 quantisation, TPU and multi-vendor hardware support and day-0 support for new open models; RadixArk (US$100M seed, May 2026) is its commercial steward [VF]{custom-style="Claim Label"}^[Verified fact — A4-S010: PyPI JSON metadata: sglang (Python Package Index) <https://pypi.org/pypi/sglang/json> accessed 2026-10-07; A4-S065: SGLang README (GitHub) (SGLang project (LMSYS)) <https://raw.githubusercontent.com/sgl-project/sglang/main/README.md> accessed 2026-10-07; A4-S147: RadixArk Launches with $100 Million in Seed Funding Led by Accel to Grow SGLang (Business Wire, May 2026) (RadixArk (Business Wire)) <https://www.morningstar.com/news/business-wire/20260505077157/radixark-launches-with-100-million-in-seed-funding-led-by-accel-to-grow-sglang-and-democratize-frontier-ai-infrastructure> accessed 2026-10-07 [search-tool extract]; V1-S063: RadixArk Launches with $100 Million in Seed Funding Led by Accel (RadixArk (Business Wire)) <https://www.morningstar.com/news/business-wire/20260505077157/radixark-launches-with-100-million-in-seed-funding-led-by-accel-to-grow-sglang-and-democratize-frontier-ai-infrastructure> accessed 2026-10-08 [search-tool extract]].
 
@@ -1061,7 +1189,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Hugging Face: Hub (models/datasets/Spaces/buckets/Jobs), Inference Providers (routed serverless inference), Inference Endpoints (managed dedicated deployments); Text Generation Inference (TGI) in maintenance mode (`L2-hugging-face`)
 
-**Tier:** Strategic · **Flags:** Duplicated, Deprecated · **Label in the popular stack diagram:** Hugging Face – models & APIs
+**Tier:** Strategic · **Flags:** Duplicated, Deprecated
 
 *Rationale:* Strategic, conditional: as the governed open-weight supply source (Enterprise plan); Endpoints Tactical; Inference Providers not for client data
 
@@ -1076,6 +1204,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Pass-through pricing; per-minute instance billing [VF]{custom-style="Claim Label"}^[Verified fact — A4-S076: Inference Providers Pricing and Billing (Hugging Face) <https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/inference-providers/pricing.md> accessed 2026-10-07; A4-S083: Inference Endpoints Pricing (Hugging Face) <https://raw.githubusercontent.com/huggingface/hf-endpoints-documentation/main/docs/source/support/pricing.md> accessed 2026-10-07] |
 | Lock-in / portability | 4 | Models portable, open engines, OpenAI-compatible routing [VF]{custom-style="Claim Label"}^[Verified fact — A4-S076: Inference Providers Pricing and Billing (Hugging Face) <https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/inference-providers/pricing.md> accessed 2026-10-07; A4-S075: Hugging Face Inference Providers <https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/inference-providers/index.md> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.70 / 3.60** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.60 | 3.70 | 3.65 | 3.90 | 3.80 | 3.85 | 3.80 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Four products under one tile: the Hub (model and dataset distribution with SSO, SCIM, RBAC, audit logs and EU storage on Team/Enterprise), Inference Providers (OpenAI-compatible router to partner clouds with pass-through pricing), Inference Endpoints (managed dedicated serving on AWS, Azure or GCP with vLLM, SGLang, TGI, llama.cpp or TEI, SOC 2 Type 2, AWS PrivateLink) and TGI (maintenance mode; repository archived 21 March 2026) [VF]{custom-style="Claim Label"}^[Verified fact — A4-S074: Hugging Face Hub Security <https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/hub/security.md> accessed 2026-10-07; A4-S075: Hugging Face Inference Providers <https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/inference-providers/index.md> accessed 2026-10-07; A4-S080: Hugging Face Single Sign-On (SSO) <https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/hub/security-sso.md> accessed 2026-10-07; A4-S081: About Inference Endpoints (Hugging Face) <https://raw.githubusercontent.com/huggingface/hf-endpoints-documentation/main/docs/source/about.md> accessed 2026-10-07; A4-S082: Inference Endpoints Security & Compliance (Hugging Face) <https://raw.githubusercontent.com/huggingface/hf-endpoints-documentation/main/docs/source/guides/security.md> accessed 2026-10-07; V1-S054: GitHub repository metadata: huggingface/text-generation-inference (archived) (GitHub (via GitHub MCP search_repositories)) <https://api.github.com/repos/huggingface/text-generation-inference> accessed 2026-10-08 [search-tool extract]].
 
@@ -1131,7 +1266,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Together AI (`L2-together-ai`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Together AI – open-source cloud
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Capable open-model cloud; unsafe defaults (ZDR off) and partial RBAC keep it Tactical
 
@@ -1146,6 +1281,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Transparent per-token and per-hour pricing; one H100 price conflict [VF]{custom-style="Claim Label"}^[Verified fact — A4-S131: Pricing - Together AI docs (serverless, dedicated endpoints, GPU clusters) <https://docs.together.ai/docs/inference/pricing> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 4 | Open-weight models and standard usage; contractual capacity [VF]{custom-style="Claim Label"}^[Verified fact — A4-S131: Pricing - Together AI docs (serverless, dedicated endpoints, GPU clusters) <https://docs.together.ai/docs/inference/pricing> accessed 2026-10-07 [search-tool extract]] |
 | **Total (generic / FS)** | **3.50 / 3.50** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.50 | 3.45 | 3.55 | 3.60 | 3.55 | 3.55 | 3.50 |
+| Fit | Situational | Situational | Situational | **Core** | Situational | Situational | Situational |
 
 **Capabilities.** AI-native cloud: serverless and dedicated inference for open-weight models, Provisioned Throughput with SLA, fine-tuning and GPU clusters; SOC 2 Type 2 and ISO 27001:2022 (vendor-stated); ZDR available but off by default; EU dedicated endpoints only on Scale and Enterprise; US$800M Series C on 1 July 2026 [VF]{custom-style="Claim Label"}^[Verified fact — A4-S131: Pricing - Together AI docs (serverless, dedicated endpoints, GPU clusters) <https://docs.together.ai/docs/inference/pricing> accessed 2026-10-07 [search-tool extract]; A4-S129: Powering Secure AI: Together AI Achieves SOC 2 Type 2 Compliance (and product pages) <https://www.together.ai/blog/soc-2-compliance> accessed 2026-10-07 [search-tool extract]; A4-S130: Zero data retention / Privacy and security - Together AI docs (and EU data centers support article) <https://docs.together.ai/docs/zero-data-retention> accessed 2026-10-07 [search-tool extract]; V1-S079: Together AI Trust Center; ISO 27001:2022 certification blog; SOC 2 Type 2 blog <https://trust.together.ai/> accessed 2026-10-08 [search-tool extract]; V1-S057: Together AI Raises $800 Million at $8.3 Billion Valuation (Together AI (Business Wire)) <https://www.businesswire.com/news/home/20260701243402/en/Together-AI-Raises-$800-Million-at-$8.3-Billion-Valuation-to-Make-Frontier-AI-Accessible-to-All> accessed 2026-10-08 [search-tool extract]].
 
@@ -1201,7 +1343,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## llm-d (`L2-llm-d`)
 
-**Tier:** Experimental · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Experimental · **Flags:** none
 
 *Rationale:* The neutral-governance option for the optimisation sub-layer, but pre-1.0 and only Technology Preview support
 
@@ -1218,6 +1360,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.30 / 3.35** | |
 
 *Evidence rules applied:* enterprise_readiness capped at 4 (rule 2, support is Technology Preview only); not binding at 3
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.15 | 3.50 | 3.45 | 3.50 | 3.40 | 3.50 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Apache-2.0 Kubernetes-native distributed inference stack above vLLM and SGLang: prefix-cache- and load-aware routing, tiered KV-cache management, PD disaggregation, wide expert parallelism and SLO-aware autoscaling; CNCF sandbox project (March 2026) founded by Red Hat, Google Cloud, IBM Research, CoreWeave and NVIDIA; v0.7 in May 2026 [VF]{custom-style="Claim Label"}^[Verified fact — A4-S089: llm-d README (GitHub) (llm-d project) <https://raw.githubusercontent.com/llm-d/llm-d/main/README.md> accessed 2026-10-07; A4-S062: Introducing the next generation of AI inference, powered by llm-d (Google Cloud) <https://cloud.google.com/blog/products/ai-machine-learning/enhancing-vllm-for-distributed-inference-with-llm-d> accessed 2026-10-07]. Red Hat supports it only as a Technology Preview [VF]{custom-style="Claim Label"}^[Verified fact — B-L2-S002: Supported platforms for Distributed Inference with llm-d (Red Hat AI 3) <https://docs.redhat.com/en/documentation/red_hat_ai/3/html/supported_product_and_hardware_configurations/llmd-supported-platforms_supported-configurations> accessed 2026-10-08 [search-tool extract]].
 
@@ -1273,7 +1422,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## OpenRouter (`L2-openrouter`)
 
-**Tier:** Tactical · **Flags:** Acquired · **Label in the popular stack diagram:** OpenRouter – multi-provider
+**Tier:** Tactical · **Flags:** Acquired
 
 *Rationale:* Useful router for evaluation; third-party SaaS with billing intermediation and a pending change of owner
 
@@ -1288,6 +1437,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Provider prices passed through plus 5.5-8% platform fee [VF]{custom-style="Claim Label"}^[Verified fact — V1-S062: Simplifying Our Platform Fee (OpenRouter) <https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/> accessed 2026-10-08 [search-tool extract]; A4-S144: OpenRouter Business / plans (and pricing blog posts) <https://openrouter.ai/business> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 2 | OpenAI-compatible (3) but proprietary guardrails and billing; reduced by 1 for ownership change (rule 3) [VF]{custom-style="Claim Label"}^[Verified fact — A4-S111: OpenRouter Docs: Guardrails <https://raw.githubusercontent.com/OpenRouterTeam/docs/main/guides/features/guardrails.mdx> accessed 2026-10-07; V1-S059: Stripe agrees to acquire OpenRouter to help businesses optimize token routing and usage <https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter> accessed 2026-10-08 [search-tool extract]] |
 | **Total (generic / FS)** | **3.25 / 3.05** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.05 | 3.25 | 3.00 | 3.30 | 3.20 | 3.35 | 3.25 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Hosted multi-provider model router with budgets, model and provider allowlists, ZDR enforcement, EU/US in-region routing (Business and Enterprise), SSO and SCIM (Enterprise); SOC 2 Type 2, no HIPAA BAA; 5.5% fee on credit purchases; Stripe agreed to acquire it (announced 19 August 2026, pending as of 8 October 2026) [VF]{custom-style="Claim Label"}^[Verified fact — A4-S111: OpenRouter Docs: Guardrails <https://raw.githubusercontent.com/OpenRouterTeam/docs/main/guides/features/guardrails.mdx> accessed 2026-10-07; A4-S109: OpenRouter Docs: In-Region Routing (EU/US) <https://raw.githubusercontent.com/OpenRouterTeam/docs/main/guides/features/in-region-routing.mdx> accessed 2026-10-07; A4-S110: OpenRouter Docs: Single Sign-On <https://raw.githubusercontent.com/OpenRouterTeam/docs/main/guides/features/sso.mdx> accessed 2026-10-07; A4-S142: OpenRouter Trust Center (and OpenRouter blog / Enterprise Access Agreement) <https://trust.openrouter.ai/> accessed 2026-10-07 [search-tool extract]; A4-S144: OpenRouter Business / plans (and pricing blog posts) <https://openrouter.ai/business> accessed 2026-10-07 [search-tool extract]; V1-S062: Simplifying Our Platform Fee (OpenRouter) <https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/> accessed 2026-10-08 [search-tool extract]; V1-S059: Stripe agrees to acquire OpenRouter to help businesses optimize token routing and usage <https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter> accessed 2026-10-08 [search-tool extract]].
 
@@ -1344,7 +1500,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## NVIDIA Dynamo (`L2-nvidia-dynamo`)
 
-**Tier:** Experimental · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Experimental · **Flags:** none
 
 *Rationale:* Clear H1 evidence and real capability, but beta packaging and month-long support windows make it unsuitable as a critical dependency today
 
@@ -1359,6 +1515,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Free; heavy Kubernetes and GPU operations, subscription for support [VF]{custom-style="Claim Label"}^[Verified fact — B-L2-S003: Dynamo Support Coverage (NVIDIA) <https://docs.nvidia.com/dynamo/dev/reference/enterprise/support-coverage> accessed 2026-10-08 [search-tool extract]] [AJ]{custom-style="Claim Label"} |
 | Lock-in / portability | 3 | Apache-2.0 but NVIDIA-led and NVIDIA-optimised [VF]{custom-style="Claim Label"}^[Verified fact — A4-S090: NVIDIA Dynamo README (GitHub) <https://raw.githubusercontent.com/ai-dynamo/dynamo/main/README.md> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.10 / 3.00** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.00 | 2.95 | 3.10 | 3.10 | 3.15 | 3.15 | 3.15 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Apache-2.0 distributed inference orchestration layer above vLLM, SGLang and TensorRT-LLM: disaggregated serving, KV-aware routing, multi-tier KV block manager, SLA-based planner and autoscaling, a Kubernetes Gateway API Inference Extension plugin; ai-dynamo 1.5.1 (7 October 2026, PyPI classifier Beta) [VF]{custom-style="Claim Label"}^[Verified fact — A4-S090: NVIDIA Dynamo README (GitHub) <https://raw.githubusercontent.com/ai-dynamo/dynamo/main/README.md> accessed 2026-10-07; A4-S098: PyPI JSON metadata: ai-dynamo (Python Package Index) <https://pypi.org/pypi/ai-dynamo/json> accessed 2026-10-07]. Enterprise support is an NVIDIA AI Enterprise feature branch [VF]{custom-style="Claim Label"}^[Verified fact — B-L2-S003: Dynamo Support Coverage (NVIDIA) <https://docs.nvidia.com/dynamo/dev/reference/enterprise/support-coverage> accessed 2026-10-08 [search-tool extract]].
 
@@ -1414,7 +1577,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Ollama (local runtime) with Ollama Cloud (hosted cloud models) (`L2-ollama`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Ollama – run locally
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Useful developer runtime; Ollama Cloud is an unverified third-party processor
 
@@ -1431,6 +1594,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.00 / 2.95** | |
 
 *Evidence rules applied:* enterprise_readiness capped at 2: SSO/RBAC/audit NPV; security_compliance capped at 2: Ollama Cloud certifications NPV
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.95 | 2.95 | 3.15 | 3.25 | 3.20 | 3.15 | 3.10 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** MIT-licensed local LLM runtime and model packager, plus Ollama Cloud, a hosted service for larger models with OpenAI- and Anthropic-compatible APIs; cloud features can be disabled; usage-based cloud plans from 31 August 2026 [VF]{custom-style="Claim Label"}^[Verified fact — A4-S084: Ollama Cloud docs <https://raw.githubusercontent.com/ollama/ollama/main/docs/cloud.mdx> accessed 2026-10-07; A4-S085: Ollama FAQ <https://raw.githubusercontent.com/ollama/ollama/main/docs/faq.mdx> accessed 2026-10-07; A4-S086: Ollama LICENSE <https://raw.githubusercontent.com/ollama/ollama/main/LICENSE> accessed 2026-10-07; V1-S066: Pricing - Ollama; Ollama's transparent pricing (31 Aug 2026) <https://ollama.com/pricing> accessed 2026-10-08 [search-tool extract]]. Binds 127.0.0.1:11434 by default [VF]{custom-style="Claim Label"}^[Verified fact — B-L2-S007: FAQ - Ollama <https://docs.ollama.com/faq> accessed 2026-10-08 [search-tool extract]].
 
@@ -1487,7 +1657,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Cerebras Systems (Cerebras Inference / Cerebras Cloud; CS-3 systems) (`L2-cerebras`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Cerebras – ultra-scale cloud
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Distinctive speed but thin enterprise controls and no EU processing yet
 
@@ -1502,6 +1672,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent per-token pricing; enterprise flat pricing [VF]{custom-style="Claim Label"}^[Verified fact — A4-S139: Pricing - Build with Cerebras Inference (Cerebras Systems) <https://inference-docs.cerebras.ai/support/pricing> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 3 | OpenAI-compatible API, proprietary hardware [VF]{custom-style="Claim Label"}^[Verified fact — A4-S139: Pricing - Build with Cerebras Inference (Cerebras Systems) <https://inference-docs.cerebras.ai/support/pricing> accessed 2026-10-07 [search-tool extract]; A4-S095: PyPI JSON metadata: cerebras-cloud-sdk (Python Package Index) <https://pypi.org/pypi/cerebras-cloud-sdk/json> accessed 2026-10-07] |
 | **Total (generic / FS)** | **2.85 / 2.80** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.80 | 2.85 | 2.85 | 2.90 | 2.85 | 2.85 | 2.85 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Chip and system vendor (WSE-3, CS-3) that also runs an OpenAI-compatible inference cloud and sells on-premise systems; IPO priced 13 May 2026 (Nasdaq: CBRS); 750MW OpenAI agreement; SOC 2 Type 2, GDPR and CCPA listed, HIPAA not; EU capacity targeted for end-2026 [VF]{custom-style="Claim Label"}^[Verified fact — A4-S095: PyPI JSON metadata: cerebras-cloud-sdk (Python Package Index) <https://pypi.org/pypi/cerebras-cloud-sdk/json> accessed 2026-10-07; A4-S137: Cerebras Systems Announces Pricing of Initial Public Offering <https://www.cerebras.ai/press-release/cerebras-systems-announces-pricing-of-initial-public-offering> accessed 2026-10-07 [search-tool extract]; A4-S154: Cerebras Systems Inc. Form 10-Q (quarter ended 30 June 2026) and related S-1/8-K filings (Cerebras Systems Inc. (SEC EDGAR)) <https://www.sec.gov/Archives/edgar/data/0002021728/000162828026056357/cbrs-20260630.htm> accessed 2026-10-07 [search-tool extract]; A4-S138: Cerebras Systems Trust Center (and Cerebras Inference blog posts on data retention) <https://trust.cerebras.ai/> accessed 2026-10-07 [search-tool extract]; A4-S140: Cerebras Systems Accelerates European Expansion with 200MW of AI Compute Capacity by End of 2027 (8 Jul 2026) and Mikkeli, Finland release (31 Aug 2026) <https://investors.cerebras.ai/news-releases/news-release-details/cerebras-systems-accelerates-european-expansion-200mw-ai-compute> accessed 2026-10-07 [search-tool extract]; V1-S095: Cerebras Systems Trust Center; six new datacenters press release (March 2025) <https://trust.cerebras.ai/> accessed 2026-10-08 [search-tool extract]].
 
@@ -1557,7 +1734,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## LM Studio (desktop app) with lms CLI and Python/JS SDKs (`L2-lm-studio`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** LM Studio – desktop app
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Desktop-only tool; not part of the serving architecture
 
@@ -1574,6 +1751,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.25 / 2.25** | |
 
 *Evidence rules applied:* security_compliance capped at 2: security features and certifications NPV
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.25 | 2.35 | 2.25 | 2.50 | 2.30 | 2.35 | 2.20 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Proprietary desktop app for downloading and running local models with a local API server, MIT lms CLI and SDKs; free for personal and internal business use since about July 2025; may not be redistributed or offered as a service; a paid Enterprise plan adds SSO and model/MCP gating [VF]{custom-style="Claim Label"}^[Verified fact — A4-S087: lms CLI README (LM Studio) <https://raw.githubusercontent.com/lmstudio-ai/lms/main/README.md> accessed 2026-10-07; A4-S088: lms LICENSE (LM Studio) <https://raw.githubusercontent.com/lmstudio-ai/lms/main/LICENSE> accessed 2026-10-07; A4-S145: LM Studio is free for use at work (blog) and LM Studio App Terms of Service <https://lmstudio.ai/blog/free-for-work> accessed 2026-10-07 [search-tool extract]; V1-S076: LM Studio is free for use at work; LM Studio App Terms of Service (LM Studio (Element Labs)) <https://lmstudio.ai/blog/free-for-work> accessed 2026-10-08 [search-tool extract]].
 
@@ -1630,7 +1814,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## LangGraph (open-source framework); managed runtime now branded LangSmith Deployment (formerly LangGraph Platform) (`L3-langgraph`)
 
-**Tier:** Strategic · **Flags:** Renamed · **Label in the popular stack diagram:** LangGraph – workflow
+**Tier:** Strategic · **Flags:** Renamed
 
 *Rationale:* Deepest coverage of the L3 questions with a stable 1.x line; Renamed refers to LangGraph Platform -> LangSmith Deployment.
 
@@ -1645,6 +1829,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | OSS free; LangSmith seat and LSU pricing published [VF]{custom-style="Claim Label"}^[Verified fact — A4-S036: LangSmith Plans and Pricing (LangChain) <https://www.langchain.com/pricing> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 3 | MIT, self-hostable, but graph/checkpoint APIs proprietary to LangGraph and deployment is proprietary [VF]{custom-style="Claim Label"}^[Verified fact — A4-S001: PyPI JSON metadata: langgraph (Python Package Index) <https://pypi.org/pypi/langgraph/json> accessed 2026-10-07; A4-S039: LangGraph Persistence / Durable execution / Interrupts - Docs by LangChain <https://docs.langchain.com/oss/python/langgraph/durable-execution> accessed 2026-10-07 [search-tool extract]] |
 | **Total (generic / FS)** | **4.40 / 4.20** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.20 | 4.30 | 4.30 | 4.35 | 4.40 | 4.45 | 4.40 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Low-level stateful graph runtime (MIT) combining deterministic code and LLM decisions in one graph, with checkpointed durable execution, interrupts for human-in-the-loop, time travel, memory and streaming; managed runtime is LangSmith Deployment (formerly LangGraph Platform) [VF]{custom-style="Claim Label"}^[Verified fact — A4-S118: LangGraph README (GitHub) (LangChain) <https://raw.githubusercontent.com/langchain-ai/langgraph/main/README.md> accessed 2026-10-07; A4-S039: LangGraph Persistence / Durable execution / Interrupts - Docs by LangChain <https://docs.langchain.com/oss/python/langgraph/durable-execution> accessed 2026-10-07 [search-tool extract]; A4-S031: Product naming changes: LangSmith Deployment and LangSmith Studio (LangChain) <https://changelog.langchain.com/announcements/product-naming-changes-langsmith-deployment-and-langsmith-studio> accessed 2026-10-07 [search-tool extract]].
 
@@ -1702,7 +1893,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Temporal (durable execution platform; Python SDK temporalio) (`L3-temporal`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic as the durable-execution substrate under deterministic workflows; independent of model vendors.
 
@@ -1717,6 +1908,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Cloud pricing not verified; self-host operations heavy [NPV]{custom-style="Claim Label"} [VF]{custom-style="Claim Label"}^[Verified fact — B-L3-S002: Temporal server repository; production deployment and Cloud overview docs (Temporal Technologies Inc.) <https://github.com/temporalio/temporal> accessed 2026-10-08 [search-tool extract]] |
 | Lock-in / portability | 4 | MIT server; portable between self-host and Cloud; code is Temporal-specific [VF]{custom-style="Claim Label"}^[Verified fact — B-L3-S002: Temporal server repository; production deployment and Cloud overview docs (Temporal Technologies Inc.) <https://github.com/temporalio/temporal> accessed 2026-10-08 [search-tool extract]] |
 | **Total (generic / FS)** | **3.90 / 3.90** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.90 | 3.80 | 4.00 | 3.75 | 3.90 | 3.80 | 3.95 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Durable execution engine: workflows whose activities are recorded so execution resumes after failure; used beneath Pydantic AI, the OpenAI Agents SDK and Mistral Workflows. MIT server, self-hosted or Temporal Cloud on AWS and GCP [VF]{custom-style="Claim Label"}^[Verified fact — A4-S019: PyPI JSON metadata: temporalio (Python Package Index) <https://pypi.org/pypi/temporalio/json> accessed 2026-10-07; A4-S045: Pydantic AI Durable Execution (overview, Temporal, DBOS, Prefect) <https://pydantic.dev/docs/ai/capabilities/durable_execution/overview/> accessed 2026-10-07 [search-tool extract]; A4-S052: OpenAI Agents SDK documentation (agents, sessions, handoffs, guardrails, tracing, running agents) <https://openai.github.io/openai-agents-python/> accessed 2026-10-07 [search-tool extract]; A4-S058: Workflows for work that runs the business (Mistral Workflows) (Mistral AI) <https://mistral.ai/news/workflows/> accessed 2026-10-07 [search-tool extract]; B-L3-S002: Temporal server repository; production deployment and Cloud overview docs (Temporal Technologies Inc.) <https://github.com/temporalio/temporal> accessed 2026-10-08 [search-tool extract]].
 
@@ -1774,7 +1972,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Microsoft Agent Framework (MAF) (`L3-microsoft-agent-framework`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Agent Framework – Microsoft
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Microsoft/Azure or .NET is the primary platform; supersedes Semantic Kernel and AutoGen.
 
@@ -1789,6 +1987,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free MIT; durable hosting extra [VF]{custom-style="Claim Label"}^[Verified fact — A4-S067: Microsoft Agent Framework LICENSE <https://raw.githubusercontent.com/microsoft/agent-framework/main/LICENSE> accessed 2026-10-07] |
 | Lock-in / portability | 3 | MIT, multi-provider, but Azure-first integrations [VF]{custom-style="Claim Label"}^[Verified fact — A4-S066: Microsoft Agent Framework README (GitHub) <https://raw.githubusercontent.com/microsoft/agent-framework/main/README.md> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.80 / 3.65** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.65 | 3.80 | 3.70 | 3.80 | 3.75 | 3.80 | 3.75 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** MIT framework (Python, .NET, Go) that separates Agents from graph-based Workflows (sequential, concurrent, handoff, group collaboration) with checkpointing, streaming, HITL and time travel; durable agents via Durable Task or Azure Durable Functions (beta); A2A, MCP, OTel; declared successor to Semantic Kernel and AutoGen; Foundry Hosted Agents for managed hosting [VF]{custom-style="Claim Label"}^[Verified fact — A4-S066: Microsoft Agent Framework README (GitHub) <https://raw.githubusercontent.com/microsoft/agent-framework/main/README.md> accessed 2026-10-07; A4-S012: PyPI JSON metadata: semantic-kernel (Python Package Index) <https://pypi.org/pypi/semantic-kernel/json> accessed 2026-10-07; A4-S101: PyPI JSON metadata: agent-framework-durabletask (Python Package Index) <https://pypi.org/pypi/agent-framework-durabletask/json> accessed 2026-10-07; A4-S102: PyPI JSON metadata: agent-framework-azurefunctions (Python Package Index) <https://pypi.org/pypi/agent-framework-azurefunctions/json> accessed 2026-10-07; B-L3-S006: Foundry Hosted Agents (Agent Framework hosting docs and Foundry blog) (Microsoft) <https://learn.microsoft.com/en-us/agent-framework/hosting/foundry-hosted-agent> accessed 2026-10-08 [search-tool extract]].
 
@@ -1845,7 +2050,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Pydantic AI (`L3-pydantic-ai`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Pydantic AI – type-safe
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: for Python teams wanting type-safe agents, typically as the typed agent step inside a Temporal or DBOS workflow; pin the major version (breaking v2 ten months after v1) and note that commercial support is not verified. Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.55) [AJ]{custom-style="Claim Label"}.
 
@@ -1860,6 +2065,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free MIT; durability backend adds cost [VF]{custom-style="Claim Label"}^[Verified fact — A4-S003: PyPI JSON metadata: pydantic-ai (Python Package Index) <https://pypi.org/pypi/pydantic-ai/json> accessed 2026-10-07] [AJ]{custom-style="Claim Label"} |
 | Lock-in / portability | 4 | MIT, model-agnostic, durability on standard engines [VF]{custom-style="Claim Label"}^[Verified fact — A4-S003: PyPI JSON metadata: pydantic-ai (Python Package Index) <https://pypi.org/pypi/pydantic-ai/json> accessed 2026-10-07; A4-S119: Pydantic AI README (GitHub) <https://raw.githubusercontent.com/pydantic/pydantic-ai/main/README.md> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.60 / 3.55** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.55 | 3.55 | 3.65 | 3.75 | 3.70 | 3.70 | 3.65 |
+| Fit | Situational | Situational | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Typed, model-agnostic Python agent loop with structured outputs and tools, pydantic_graph for graph control flow, and durable execution attached as a capability via Temporal, DBOS or Prefect [VF]{custom-style="Claim Label"}^[Verified fact — A4-S119: Pydantic AI README (GitHub) <https://raw.githubusercontent.com/pydantic/pydantic-ai/main/README.md> accessed 2026-10-07; A4-S044: Pydantic AI v2: capabilities, a leaner core, and the Harness (with upgrade guide) <https://pydantic.dev/articles/pydantic-ai-v2> accessed 2026-10-07 [search-tool extract]; A4-S045: Pydantic AI Durable Execution (overview, Temporal, DBOS, Prefect) <https://pydantic.dev/docs/ai/capabilities/durable_execution/overview/> accessed 2026-10-07 [search-tool extract]].
 
@@ -1914,7 +2126,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Agent Development Kit (ADK) (`L3-google-adk`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Google Cloud is your primary cloud (rule 10: ADK on Agent Engine is Google's lead agent framework and runtime, matching Strands/AgentCore on AWS and Microsoft Agent Framework on Azure); no criterion at 1; scored as a library under rule 2, so enterprise readiness and security stay at 3. Tier changed from Tactical by CP4 reviewer C for rule-10 parity. Confirmed by the reader at Checkpoint 4 (CP4-4).
 
@@ -1929,6 +2141,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free Apache-2.0 [VF]{custom-style="Claim Label"}^[Verified fact — A4-S114: Agent Development Kit (ADK) 2.0 README (GitHub) (Google) <https://raw.githubusercontent.com/google/adk-python/main/README.md> accessed 2026-10-07] |
 | Lock-in / portability | 3 | Apache-2.0 but Gemini-optimised and GCP-targeted [VF]{custom-style="Claim Label"}^[Verified fact — A4-S114: Agent Development Kit (ADK) 2.0 README (GitHub) (Google) <https://raw.githubusercontent.com/google/adk-python/main/README.md> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.45 / 3.35** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.40 | 3.40 | 3.50 | 3.45 | 3.50 | 3.40 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Apache-2.0 code-first agent framework (Python, Java, Kotlin, Go, TS); ADK 2.0 adds a graph-based Workflow Runtime (routing, fan-out/fan-in, loops, retry, state, HITL, nested workflows) and a Task API for agent-to-agent delegation; deploys to Cloud Run or Vertex AI Agent Engine [VF]{custom-style="Claim Label"}^[Verified fact — A4-S114: Agent Development Kit (ADK) 2.0 README (GitHub) (Google) <https://raw.githubusercontent.com/google/adk-python/main/README.md> accessed 2026-10-07; A4-S017: PyPI JSON metadata: google-adk (Python Package Index) <https://pypi.org/pypi/google-adk/json> accessed 2026-10-07].
 
@@ -1983,7 +2202,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## OpenAI Agents SDK (Python: openai-agents; JS/TS: @openai/agents) (`L3-openai-agents-sdk`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Agent SDK (OpenAI logo)
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Good agent-step SDK, but pre-1.0 and surrounded by product churn.
 
@@ -1998,6 +2217,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free MIT [VF]{custom-style="Claim Label"}^[Verified fact — A4-S005: PyPI JSON metadata: openai-agents (Python Package Index) <https://pypi.org/pypi/openai-agents/json> accessed 2026-10-07] |
 | Lock-in / portability | 3 | MIT and provider-agnostic, but defaults favour OpenAI services [VF]{custom-style="Claim Label"}^[Verified fact — A4-S120: OpenAI Agents SDK README (GitHub) <https://raw.githubusercontent.com/openai/openai-agents-python/main/README.md> accessed 2026-10-07; A4-S052: OpenAI Agents SDK documentation (agents, sessions, handoffs, guardrails, tracing, running agents) <https://openai.github.io/openai-agents-python/> accessed 2026-10-07 [search-tool extract]] |
 | **Total (generic / FS)** | **3.45 / 3.30** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.30 | 3.35 | 3.40 | 3.55 | 3.55 | 3.60 | 3.50 |
+| Fit | Situational | Situational | Situational | Situational | Situational | **Core** | Situational |
 
 **Capabilities.** MIT, provider-agnostic multi-agent SDK: agents with tools, handoffs or agents-as-tools, input/output guardrails, sessions with resumable approvals, tracing, sandboxed agents; Temporal and DBOS integrations for durable runs. Distinct from the hosted Agents API (beta) and Agent Builder (shutting down 30 November 2026) [VF]{custom-style="Claim Label"}^[Verified fact — A4-S120: OpenAI Agents SDK README (GitHub) <https://raw.githubusercontent.com/openai/openai-agents-python/main/README.md> accessed 2026-10-07; A4-S052: OpenAI Agents SDK documentation (agents, sessions, handoffs, guardrails, tracing, running agents) <https://openai.github.io/openai-agents-python/> accessed 2026-10-07 [search-tool extract]; A4-S053: The next evolution of the Agents SDK (OpenAI) <https://openai.com/index/the-next-evolution-of-the-agents-sdk/> accessed 2026-10-07 [search-tool extract]; A4-S055: OpenAI API Changelog (Agents API public beta, Sep 2026) and Introducing the Agents API <https://developers.openai.com/api/docs/changelog> accessed 2026-10-07 [search-tool extract]; A4-S054: OpenAI Deprecations (Agent Builder) and Introducing AgentKit update <https://developers.openai.com/api/docs/deprecations> accessed 2026-10-07 [search-tool extract]].
 
@@ -2053,7 +2279,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Strands Agents (open-source SDK) and Amazon Bedrock AgentCore (managed agent runtime and services) (`L3-aws-strands-agentcore`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where AWS is your primary cloud (rule 10, lead AWS agent runtime); deployment and lock-in at 2 accepted under rule 11 as an existing platform commitment.
 
@@ -2068,6 +2294,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Runtime pricing not retrieved [NPV]{custom-style="Claim Label"}; consumption model assumed [AJ]{custom-style="Claim Label"} |
 | Lock-in / portability | 2 | Proprietary AWS-only service APIs [VF]{custom-style="Claim Label"}^[Verified fact — A4-S116: Bedrock AgentCore SDK README (GitHub) (AWS) <https://raw.githubusercontent.com/aws/bedrock-agentcore-sdk-python/main/README.md> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.40 / 3.25** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.25 | 3.40 | 3.15 | 3.40 | 3.35 | 3.50 | 3.40 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Strands Agents (Apache-2.0 model-driven agent SDK) plus Amazon Bedrock AgentCore, a framework-agnostic managed agent platform: Runtime with per-session microVM isolation (up to 8 hours per lifecycle), Memory, Gateway, Identity, Observability; hosts Strands, LangGraph, CrewAI, AutoGen or custom agents [VF]{custom-style="Claim Label"}^[Verified fact — A4-S115: Strands Agents README (GitHub) (AWS (Strands Agents)) <https://raw.githubusercontent.com/strands-agents/sdk-python/main/README.md> accessed 2026-10-07; A4-S116: Bedrock AgentCore SDK README (GitHub) (AWS) <https://raw.githubusercontent.com/aws/bedrock-agentcore-sdk-python/main/README.md> accessed 2026-10-07; B-L3-S004: AgentCore Runtime sessions / microVMs / quotas / security best practices (Amazon Web Services) <https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-sessions.html> accessed 2026-10-08 [search-tool extract]].
 
@@ -2124,7 +2357,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## CrewAI (open-source framework: Crews and Flows); commercial platform CrewAI AMP (Agent Management Platform; earlier materials say CrewAI Enterprise; explicit rename notice not found) (`L3-crewai`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** CrewAI – multi-agent
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Both modes available, but abstractions are proprietary and durability is unproven.
 
@@ -2139,6 +2372,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Free tier 50 executions/month; Enterprise custom-priced [VF]{custom-style="Claim Label"}^[Verified fact — A4-S047: CrewAI Pricing <https://crewai.com/pricing> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 3 | MIT framework, proprietary abstractions and AMP [VF]{custom-style="Claim Label"}^[Verified fact — A4-S126: crewAI LICENSE (crewAI, Inc.) <https://raw.githubusercontent.com/crewAIInc/crewAI/main/LICENSE> accessed 2026-10-07; A4-S047: CrewAI Pricing <https://crewai.com/pricing> accessed 2026-10-07 [search-tool extract]] |
 | **Total (generic / FS)** | **3.25 / 3.20** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.20 | 3.30 | 3.20 | 3.30 | 3.25 | 3.30 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** MIT multi-agent framework with two modes: Crews (autonomous role-based agents) and Flows (event-driven, stateful process definitions); commercial platform CrewAI AMP (earlier materials call it CrewAI Enterprise) [VF]{custom-style="Claim Label"}^[Verified fact — A4-S004: PyPI JSON metadata: crewai (Python Package Index) <https://pypi.org/pypi/crewai/json> accessed 2026-10-07; A4-S050: CrewAI Introduction / Flows / Evaluating Use Cases - CrewAI docs <https://docs.crewai.com/en/introduction> accessed 2026-10-07 [search-tool extract]; A4-S049: CrewAI AMP - Agent Management Platform (product page, docs and blog) <https://crewai.com/agent-management-platform> accessed 2026-10-07 [search-tool extract]; V1-S075: CrewAI AMP - CrewAI Platform (docs); CrewAI AMP - The Agent Management Platform (blog) <https://docs.crewai.com/en/enterprise/introduction> accessed 2026-10-08 [search-tool extract]].
 
@@ -2194,7 +2434,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## LlamaIndex (open-source framework, incl. Workflows); commercial platform now named LlamaParse (formerly LlamaCloud), which includes LlamaAgents (`L3-llamaindex`)
 
-**Tier:** Tactical · **Flags:** Renamed · **Label in the popular stack diagram:** LlamaIndex – document agents
+**Tier:** Tactical · **Flags:** Renamed
 
 *Rationale:* Capable but 0.x and no longer the vendor's focus; Renamed refers to LlamaCloud -> LlamaParse.
 
@@ -2209,6 +2449,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Framework free (MIT) [VF]{custom-style="Claim Label"}^[Verified fact — A4-S002: PyPI JSON metadata: llama-index-core (Python Package Index) <https://pypi.org/pypi/llama-index-core/json> accessed 2026-10-07] |
 | Lock-in / portability | 3 | MIT but Workflows API is LlamaIndex-specific [VF]{custom-style="Claim Label"}^[Verified fact — A4-S041: Announcing Workflows 1.0: a lightweight framework for agentic systems (LlamaIndex) <https://www.llamaindex.ai/blog/announcing-workflows-1-0-a-lightweight-framework-for-agentic-systems> accessed 2026-10-07 [search-tool extract]] |
 | **Total (generic / FS)** | **3.25 / 3.15** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.15 | 3.20 | 3.25 | 3.30 | 3.35 | 3.35 | 3.30 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** MIT framework for RAG and agentic applications with Workflows, an event-driven, step-based engine with typed state and OpenTelemetry instrumentation; LlamaAgents deploys document agents on the proprietary LlamaParse platform (formerly LlamaCloud) [VF]{custom-style="Claim Label"}^[Verified fact — A4-S117: LlamaIndex README (GitHub) <https://raw.githubusercontent.com/run-llama/llama_index/main/README.md> accessed 2026-10-07; A4-S041: Announcing Workflows 1.0: a lightweight framework for agentic systems (LlamaIndex) <https://www.llamaindex.ai/blog/announcing-workflows-1-0-a-lightweight-framework-for-agentic-systems> accessed 2026-10-07 [search-tool extract]; A4-S042: LlamaAgents Open Preview: Build Document Agents (and LlamaIndex newsletters Jan-Feb 2026) <https://www.llamaindex.ai/blog/llamaagents-build-serve-and-deploy-document-agents> accessed 2026-10-07 [search-tool extract]].
 
@@ -2264,7 +2511,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## AI SDK (by Vercel); npm package 'ai' (`L3-vercel-ai-sdk`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** AI SDK – AI SDK (triangle logo)
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Good TS application toolkit; fast-moving majors; not an orchestration standard.
 
@@ -2279,6 +2526,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free; gateway priced separately [VF]{custom-style="Claim Label"}^[Verified fact — A4-S070: AI SDK LICENSE (Vercel) <https://raw.githubusercontent.com/vercel/ai/main/LICENSE> accessed 2026-10-07] |
 | Lock-in / portability | 3 | Apache-2.0; optional gateway default [VF]{custom-style="Claim Label"}^[Verified fact — A4-S069: AI SDK package README (GitHub) (Vercel) <https://raw.githubusercontent.com/vercel/ai/main/packages/ai/README.md> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.25 / 3.15** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.15 | 3.20 | 3.25 | 3.30 | 3.35 | 3.35 | 3.30 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Apache-2.0 TypeScript toolkit (npm 'ai') for provider-agnostic generation, structured output, tool calling and ToolLoopAgent agents, with UI hooks for React, Svelte, Vue and Angular; companion Workflow SDK makes TS/JS functions durable [VF]{custom-style="Claim Label"}^[Verified fact — A4-S069: AI SDK package README (GitHub) (Vercel) <https://raw.githubusercontent.com/vercel/ai/main/packages/ai/README.md> accessed 2026-10-07; A4-S071: Workflow SDK README (GitHub) (Vercel) <https://raw.githubusercontent.com/vercel/workflow/main/packages/workflow/README.md> accessed 2026-10-07; A4-S106: npm registry metadata: workflow (Vercel Workflow SDK) <https://registry.npmjs.org/workflow> accessed 2026-10-07].
 
@@ -2333,7 +2587,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Claude Agent SDK (Python: claude-agent-sdk; TypeScript: @anthropic-ai/claude-agent-sdk); formerly Claude Code SDK (`L3-claude-agent-sdk`)
 
-**Tier:** Experimental · **Flags:** Renamed · **Label in the popular stack diagram:** Agent SDK (Anthropic logo)
+**Tier:** Experimental · **Flags:** Renamed
 
 *Rationale:* Alpha (the vendor's own PyPI classifier), single-model and subprocess-bound; stays Experimental. Maturity set to 2 by the reader at Checkpoint 4 (CP4-9), in line with the OpenAI Agents SDK; technical 3 and deployment 3 are the peer-consistent values (CP4 review C). Conflict of interest disclosed.
 
@@ -2348,6 +2602,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | No SDK charge; compute scales with concurrent sessions [VF]{custom-style="Claim Label"}^[Verified fact — A4-S122: Hosting the Agent SDK - Claude Code Docs (Anthropic) <https://code.claude.com/docs/en/agent-sdk/hosting> accessed 2026-10-07] [AJ]{custom-style="Claim Label"} |
 | Lock-in / portability | 2 | Claude-only, bundled CLI binary, Commercial Terms [VF]{custom-style="Claim Label"}^[Verified fact — A4-S027: Agent SDK overview - Claude Code Docs (Anthropic) <https://code.claude.com/docs/en/agent-sdk/overview> accessed 2026-10-07; A4-S092: Claude Agent SDK (Python) LICENSE (Anthropic) <https://raw.githubusercontent.com/anthropics/claude-agent-sdk-python/main/LICENSE> accessed 2026-10-07] |
 | **Total (generic / FS)** | **2.85 / 2.75** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.75 | 2.80 | 2.75 | 2.80 | 2.85 | 2.90 | 2.85 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Anthropic's agent harness SDK (formerly Claude Code SDK): embeds Claude Code's agent loop, built-in file/shell/web tools, hooks, subagents, MCP, permission modes and resumable/forkable sessions as a Python or TypeScript library; spawns one Claude Code CLI subprocess per session [VF]{custom-style="Claim Label"}^[Verified fact — A4-S027: Agent SDK overview - Claude Code Docs (Anthropic) <https://code.claude.com/docs/en/agent-sdk/overview> accessed 2026-10-07; A4-S122: Hosting the Agent SDK - Claude Code Docs (Anthropic) <https://code.claude.com/docs/en/agent-sdk/hosting> accessed 2026-10-07; A4-S028: Migrate to Claude Agent SDK - Claude Code Docs (Anthropic) <https://platform.claude.com/docs/en/agent-sdk/migration-guide> accessed 2026-10-07]. Conflict of interest: Anthropic product scored by an Anthropic model.
 
@@ -2406,7 +2667,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Mistral Agents API (exposed through the mistralai Python and TypeScript client SDKs, with an 'agents' extra) and Mistral Workflows (mistralai-workflows SDK); no separately branded 'Mistral Agents SDK' product found (`L3-mistral-agents`)
 
-**Tier:** Experimental · **Flags:** none · **Label in the popular stack diagram:** Mistral – Agents SDK
+**Tier:** Experimental · **Flags:** none
 
 *Rationale:* Real products under a different name; beta status and proprietary hosted state. Tile relabelled 'Mistral Agents API (+ Workflows)'.
 
@@ -2423,6 +2684,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.60 / 2.55** | |
 
 *Evidence rules applied:* enterprise_readiness capped at 2: access controls NPV
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.55 | 2.50 | 2.60 | 2.55 | 2.65 | 2.65 | 2.65 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** No distinct 'Mistral Agents SDK' exists. Mistral offers the Agents API (persistent agents, connectors incl. MCP, branchable stateful conversations, handoffs) through the general mistralai SDKs, and Mistral Workflows, a Temporal-based durable workflow SDK with Mistral-hosted control plane and customer-run workers [VF]{custom-style="Claim Label"}^[Verified fact — A4-S057: Build AI agents with the Mistral Agents API (and Agents & Conversations / Handoffs docs) (Mistral AI) <https://mistral.ai/news/agents-api/> accessed 2026-10-07 [search-tool extract]; A4-S058: Workflows for work that runs the business (Mistral Workflows) (Mistral AI) <https://mistral.ai/news/workflows/> accessed 2026-10-07 [search-tool extract]; A4-S061: PyPI JSON metadata: mistralai-workflows (Python Package Index) <https://pypi.org/pypi/mistralai-workflows/json> accessed 2026-10-07].
 
@@ -2480,7 +2748,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Agent2Agent (A2A) Protocol (`L4-a2a`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** A2A – agent-to-agent
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where cross-team or cross-vendor agent delegation is in scope (CP3 Q1); signed Agent Cards verified, and delegated authority scoped and revocable by the firm, because the protocol does not define it [AJ]{custom-style="Claim Label"}.
 
@@ -2495,6 +2763,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free specification; operations cost in implementations [AJ]{custom-style="Claim Label"} |
 | Lock-in / portability | 5 | Apache-2.0 with neutral multi-vendor governance [VF]{custom-style="Claim Label"}^[Verified fact — A3-S075: PyPI JSON metadata: a2a-sdk (Python Package Index (PyPI)) <https://pypi.org/pypi/a2a-sdk/json> accessed 2026-10-07; A3-S065: A2A GOVERNANCE.md (A2A Project (GitHub)) <https://raw.githubusercontent.com/a2aproject/A2A/main/GOVERNANCE.md> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.60 / 3.70** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.70 | 3.55 | 3.85 | 3.65 | 3.75 | 3.60 | 3.70 |
+| Fit | **Core** | Situational | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Open protocol (Apache-2.0) for communication between opaque agents: Agent Card discovery, messages, long-running tasks with streaming and push notifications; v1.0 adds multi-tenancy, multiple bindings, optional JWS-signed Agent Cards and modernised OAuth flows [VF]{custom-style="Claim Label"}^[Verified fact — A3-S078: A2A Protocol Specification (source, latest released version 1.0.0) (A2A Project (GitHub)) <https://raw.githubusercontent.com/a2aproject/A2A/main/docs/specification.md> accessed 2026-10-07; A3-S030: A2A Protocol Ships v1.0: Production-Ready Standard (A2A Project (Linux Foundation)) <https://a2a-protocol.org/latest/announcing-1.0/> accessed 2026-10-07 [search-tool extract]; A3-S079: A2A CHANGELOG (A2A Project (GitHub)) <https://raw.githubusercontent.com/a2aproject/A2A/main/CHANGELOG.md> accessed 2026-10-07].
 
@@ -2550,7 +2825,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Model Context Protocol (MCP) (`L4-mcp`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** MCP – tools standard
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions. Tier set by the reader at Checkpoint 3 (CP3 Q1), treating MCP and its authorisation profile (C4-mcp-authorization) as one decision; FS 3.55 is below the 3.6 guide and security scores 2, which is why the condition is mandatory. Conflict of interest: MCP originated at Anthropic and the author is an Anthropic model [AJ]{custom-style="Claim Label"}.
 
@@ -2565,6 +2840,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free specification and SDKs; cost lies in operating servers, gateway and authorisation server [AJ]{custom-style="Claim Label"} |
 | Lock-in / portability | 4 | MIT under AAIF, but technical direction concentrated in Anthropic maintainers, so not fully neutral governance [VF]{custom-style="Claim Label"}^[Verified fact — A3-S082: Expanding the MCP Maintainer Team (8 Apr 2026) (Model Context Protocol project (blog)) <https://blog.modelcontextprotocol.io/posts/2026-04-08-maintainer-update/> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.70 / 3.55** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.55 | 3.60 | 3.80 | 3.85 | 3.85 | 3.80 | 3.80 |
+| Fit | Situational | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Open protocol (MIT) for connecting agent hosts to tools, resources and prompts over JSON-RPC; spec 2026-07-28 is stateless with Mcp-Method/Mcp-Name headers for gateway routing, Tasks for long-running work, an optional OAuth 2.1 authorisation profile (RFC 8707, RFC 9728, RFC 9207, PKCE, no token passthrough) and the stable Enterprise-Managed Authorization extension (ID-JAG) [VF]{custom-style="Claim Label"}^[Verified fact — A3-S015: The 2026-07-28 Specification (Model Context Protocol project (blog)) <https://blog.modelcontextprotocol.io/posts/2026-07-28/> accessed 2026-10-07; A3-S057: MCP Specification 2026-07-28: Key Changes (Model Context Protocol project (GitHub)) <https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/specification/2026-07-28/changelog.mdx> accessed 2026-10-07; A3-S055: MCP Specification 2026-07-28: Authorization (Model Context Protocol project (GitHub)) <https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/specification/2026-07-28/basic/authorization/index.mdx> accessed 2026-10-07; A3-S056: MCP Specification 2026-07-28: Authorization Security Considerations (Model Context Protocol project (GitHub)) <https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/specification/2026-07-28/basic/authorization/security-considerations.mdx> accessed 2026-10-07; A3-S017: Enterprise-Managed Authorization: Zero-touch OAuth for MCP (18 Jun 2026) (Model Context Protocol project (blog)) <https://blog.modelcontextprotocol.io/posts/enterprise-managed-auth/> accessed 2026-10-07]. Conflict of interest: originated at Anthropic; author is an Anthropic model [AJ]{custom-style="Claim Label"}.
 
@@ -2626,7 +2908,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Amazon Bedrock AgentCore Gateway and AgentCore Identity (`L4-aws-agentcore-gateway-identity`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10). AWS's lead managed tool gateway and agent identity service; deployment 2 (AWS-managed only) is accepted under rule 11 because the condition is an existing platform commitment. Same tier as C1-aws-agentcore-gateway [AJ]{custom-style="Claim Label"}.
 
@@ -2641,6 +2923,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Low published per-call pricing [VF]{custom-style="Claim Label"}^[Verified fact — A6-S021: Amazon Bedrock AgentCore Pricing; AgentCore GA announcement (Oct 2025); AgentCore Gateway docs (Amazon Web Services) <https://aws.amazon.com/bedrock/agentcore/pricing/> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 3 | Proprietary AWS API but standard MCP/OAuth interfaces; Cedar policies portable [VF]{custom-style="Claim Label"}^[Verified fact — A6-S045: Cedar README (GitHub) (Cedar project) <https://raw.githubusercontent.com/cedar-policy/cedar/main/README.md> accessed 2026-10-07] |
 | **Total (generic / FS)** | **3.55 / 3.45** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.45 | 3.60 | 3.35 | 3.70 | 3.55 | 3.70 | 3.55 |
+| Fit | Situational | **Core** | Situational | **Core** | Situational | **Core** | Situational |
 
 **Capabilities.** Managed MCP tool gateway (APIs, Lambda and MCP servers as tools; IAM or JWT inbound; 3LO outbound) plus agent identity and refresh-token vault; pairs with Cedar-based AgentCore Policy for pre-execution authorisation [VF]{custom-style="Claim Label"}^[Verified fact — A3-S047: Amazon Bedrock AgentCore is now generally available (Oct 2025) (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/> accessed 2026-10-07 [search-tool extract]; A3-S048: Release notes for Amazon Bedrock AgentCore (Amazon Web Services) <https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html> accessed 2026-10-07 [search-tool extract]; A6-S021: Amazon Bedrock AgentCore Pricing; AgentCore GA announcement (Oct 2025); AgentCore Gateway docs (Amazon Web Services) <https://aws.amazon.com/bedrock/agentcore/pricing/> accessed 2026-10-07 [search-tool extract]; A6-S074: AWS API model: Amazon Bedrock AgentCore control plane (botocore service-2.json) (Amazon Web Services (via boto/botocore)) <https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/bedrock-agentcore-control/2023-06-05/service-2.json> accessed 2026-10-07; A6-S026: Policy in Amazon Bedrock AgentCore is now generally available; AgentCore Policy docs; Why Policy in AgentCore chose Cedar (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/> accessed 2026-10-07 [search-tool extract]]. Same service also profiled as C1-aws-agentcore-gateway [AJ]{custom-style="Claim Label"}.
 
@@ -2697,7 +2986,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Browserbase (cloud browser infrastructure) and Stagehand (open-source browser automation SDK) (`L4-browserbase`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Browserbase – cloud browsers
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Well-controlled browser runtime for the narrow case where no API exists [AJ]{custom-style="Claim Label"}.
 
@@ -2712,6 +3001,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent tiered pricing [VF]{custom-style="Claim Label"}^[Verified fact — A3-S102: Browserbase Trust Center (and docs enterprise security / plans, pricing pages) <https://trust.browserbase.com/> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 4 | Client-side tooling open and portable; service proprietary [AJ]{custom-style="Claim Label"} |
 | **Total (generic / FS)** | **3.35 / 3.35** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.30 | 3.40 | 3.50 | 3.45 | 3.45 | 3.45 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Managed headless browsers driven over CDP by Playwright/Puppeteer, with Stagehand (MIT) for AI-driven interaction and extraction [VF]{custom-style="Claim Label"}^[Verified fact — A3-S013: PyPI JSON metadata: browserbase (Python Package Index (PyPI)) <https://pypi.org/pypi/browserbase/json> accessed 2026-10-07; A3-S068: Stagehand LICENSE (MIT, Browserbase Inc.) (Browserbase (GitHub)) <https://raw.githubusercontent.com/browserbase/stagehand/main/LICENSE> accessed 2026-10-07].
 
@@ -2767,7 +3063,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## E2B (`L4-e2b`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** E2B – code sandboxes
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Reference sandbox pattern; missing enterprise identity controls keep it short of Strategic [AJ]{custom-style="Claim Label"}.
 
@@ -2784,6 +3080,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.35 / 3.35** | |
 
 *Evidence rules applied:* enterprise_readiness capped at 2: SSO/SCIM/RBAC listed as planned; no verified SSO, RBAC or customer audit log (B-L4-S003)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.25 | 3.50 | 3.50 | 3.50 | 3.45 | 3.45 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Firecracker microVM sandboxes for AI-generated code with per-sandbox egress firewall, workload identity tokens and secrets kept out of API/logs/spans; Apache-2.0 runtime; Cloud, BYOC (AWS, GCP) and dedicated deployments [VF]{custom-style="Claim Label"}^[Verified fact — A3-S062: E2B Runtime README (e2b-dev/infra) (E2B (GitHub)) <https://raw.githubusercontent.com/e2b-dev/infra/main/README.md> accessed 2026-10-07; A3-S007: PyPI JSON metadata: e2b (Python Package Index (PyPI)) <https://pypi.org/pypi/e2b/json> accessed 2026-10-07; A3-S120: E2B Enterprise (and docs: regions, BYOC; trust.e2b.dev controls) <https://e2b.dev/enterprise> accessed 2026-10-07 [search-tool extract]].
 
@@ -2839,7 +3142,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Agent Skills (SKILL.md open format) (`L4-agent-skills`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Agent Skills – reusable skills
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Useful format, but vendor-led governance, no versioning and no provenance keep it out of foundational use [AJ]{custom-style="Claim Label"}.
 
@@ -2854,6 +3157,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 5 | Free, no operations [VF]{custom-style="Claim Label"}^[Verified fact — A3-S061: agentskills/agentskills README (Agent Skills project (GitHub)) <https://raw.githubusercontent.com/agentskills/agentskills/main/README.md> accessed 2026-10-07] |
 | Lock-in / portability | 3 | Portable Markdown, but no neutral governance [VF]{custom-style="Claim Label"}^[Verified fact — V1-S046: Skills Over MCP (AAIF blog); Agent Plugins 1.0 post; agentskills.io specification (Agentic AI Foundation / agentskills.io) <https://aaif.io/blog/skills-over-mcp> accessed 2026-10-08 [search-tool extract]] |
 | **Total (generic / FS)** | **3.20 / 3.00** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.00 | 3.15 | 3.25 | 3.40 | 3.35 | 3.35 | 3.20 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Open packaging format (SKILL.md plus optional scripts, references, assets) with progressive disclosure; adopted by 46 listed clients including OpenAI Codex and Gemini CLI [VF]{custom-style="Claim Label"}^[Verified fact — A3-S061: agentskills/agentskills README (Agent Skills project (GitHub)) <https://raw.githubusercontent.com/agentskills/agentskills/main/README.md> accessed 2026-10-07; A3-S113: Agent Skills client showcase list (docs/snippets/clients.jsx) (Agent Skills project (GitHub)) <https://raw.githubusercontent.com/agentskills/agentskills/main/docs/snippets/clients.jsx> accessed 2026-10-07; A3-S033: Codex: Build skills (OpenAI) <https://developers.openai.com/codex/skills> accessed 2026-10-07 [search-tool extract]; A3-S034: Gemini CLI: Agent Skills (Google (Gemini CLI docs)) <https://geminicli.com/docs/cli/skills/> accessed 2026-10-07 [search-tool extract]]. Conflict of interest: originated at Anthropic and maintained by Anthropic staff; author is an Anthropic model [AJ]{custom-style="Claim Label"}.
 
@@ -2908,7 +3218,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Composio (`L4-composio`)
 
-**Tier:** Experimental · **Flags:** none · **Label in the popular stack diagram:** Composio – integrations
+**Tier:** Experimental · **Flags:** none
 
 *Rationale:* Credential-broker model, vendor-only security evidence and the May 2026 token-exposure incident make it unsuitable as a critical dependency [AJ]{custom-style="Claim Label"}.
 
@@ -2925,6 +3235,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.15 / 2.90** | |
 
 *Evidence rules applied:* security_compliance capped at 2: Composio security claims are vendor marketing only (V1 verification log section 4)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.90 | 3.00 | 3.05 | 3.15 | 3.20 | 3.25 | 3.20 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Managed tool-integration platform: 1000+ toolkits, per-user sessions, OAuth/connected-account brokering, per-session tool restriction, and an MCP Gateway with vendor-stated SSO, SCIM, policy-as-code and per-call audit logs [VF]{custom-style="Claim Label"}^[Verified fact — A3-S063: ComposioHQ/composio README (Composio (GitHub)) <https://raw.githubusercontent.com/ComposioHQ/composio/next/README.md> accessed 2026-10-07; A3-S008: PyPI JSON metadata: composio (Python Package Index (PyPI)) <https://pypi.org/pypi/composio/json> accessed 2026-10-07; A3-S119: Composio: Two questions every security review asks us (and MCP gateway/governance pages) <https://composio.dev/blog/two-questions-every-security-review-asks-us> accessed 2026-10-07 [search-tool extract]; A3-S098: Composio Enterprise (and related composio.dev content pages) <https://composio.dev/enterprise> accessed 2026-10-07 [search-tool extract]].
 
@@ -2980,7 +3297,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Exa (`L4-exa`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Exa – search API
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Competent, certified search API; SaaS-only with no EU region [AJ]{custom-style="Claim Label"}.
 
@@ -2995,6 +3312,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent per-request pricing with a page conflict [VF]{custom-style="Claim Label"}^[Verified fact — A3-S100: Exa Trust Center (and exa.ai pricing/enterprise/FAQ pages) <https://trust.exa.ai/> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 3 | Proprietary index, but trivially swappable behind one interface [AJ]{custom-style="Claim Label"} |
 | **Total (generic / FS)** | **2.70 / 2.70** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.70 | 2.80 | 2.60 | 2.90 | 2.70 | 2.80 | 2.70 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Web search API for AI with filters, page contents, answers and structured output; MCP server [VF]{custom-style="Claim Label"}^[Verified fact — A3-S010: PyPI JSON metadata: exa-py (Python Package Index (PyPI)) <https://pypi.org/pypi/exa-py/json> accessed 2026-10-07; A3-S054: GitHub repository metadata (stars, forks, created, archived) retrieved via GitHub MCP search_repositories tool, 7 Oct 2026 <https://api.github.com/search/repositories> accessed 2026-10-07 [search-tool extract]].
 
@@ -3048,7 +3372,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Tavily (`L4-tavily`)
 
-**Tier:** Tactical · **Flags:** Acquired · **Label in the popular stack diagram:** Tavily – search API
+**Tier:** Tactical · **Flags:** Acquired
 
 *Rationale:* Useful search API with good proxy support; SaaS-only and newly acquired [AJ]{custom-style="Claim Label"}.
 
@@ -3063,6 +3387,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent credit pricing [VF]{custom-style="Claim Label"}^[Verified fact — A3-S088: Tavily pricing, FAQ and help-centre security pages <https://www.tavily.com/pricing> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 2 | Proprietary but swappable; reduced by 1 for ownership change (rule 3) [AJ]{custom-style="Claim Label"} |
 | **Total (generic / FS)** | **2.65 / 2.55** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.55 | 2.75 | 2.45 | 2.80 | 2.60 | 2.75 | 2.60 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Search, extract, crawl, map and research API for agents; custom HTTP session injection for proxying through an enterprise gateway; MCP server [VF]{custom-style="Claim Label"}^[Verified fact — A3-S009: PyPI JSON metadata: tavily-python (Python Package Index (PyPI)) <https://pypi.org/pypi/tavily-python/json> accessed 2026-10-07; A3-S054: GitHub repository metadata (stars, forks, created, archived) retrieved via GitHub MCP search_repositories tool, 7 Oct 2026 <https://api.github.com/search/repositories> accessed 2026-10-07 [search-tool extract]].
 
@@ -3118,7 +3449,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Zep (managed context-graph platform, 'Zep Cloud') and Graphiti (open-source temporal knowledge-graph framework) (`L5-zep`)
 
-**Tier:** Tactical · **Flags:** Deprecated · **Label in the popular stack diagram:** Zep – graph memory
+**Tier:** Tactical · **Flags:** Deprecated
 
 *Rationale:* Technically the strongest memory model for audit and temporal reasoning; tier-gated compliance, a proprietary managed engine and pre-1.0 Graphiti keep it Tactical [AJ]{custom-style="Claim Label"}.
 
@@ -3133,6 +3464,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Published credit pricing (Flex US$125, Flex Plus US$375 per month); Graphiti cost is graph DB + LLM ingestion |
 | Lock-in / portability | 2 | Zep Cloud proprietary engine and API; Graphiti (Apache-2.0) is a partial exit with no documented migration |
 | **Total (generic / FS)** | **3.75 / 3.50** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.50 | 3.60 | 3.55 | 3.65 | 3.70 | 3.80 | 3.75 |
+| Fit | Situational | **Core** | Situational | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Zep Cloud managed context-graph platform on a proprietary Context Graph Engine, with Graphiti (Apache-2.0) as the open-source temporal knowledge-graph framework: entities, facts with validity windows, episodes with provenance, communities; invalidation rather than deletion; hybrid semantic, keyword and graph retrieval [VF]{custom-style="Claim Label"}^[Verified fact — A3-S003: PyPI JSON metadata: graphiti-core (Python Package Index (PyPI)) <https://pypi.org/pypi/graphiti-core/json> accessed 2026-10-07; A3-S059: getzep/zep README: Zep Cloud Examples & Integrations (Zep AI (GitHub)) <https://raw.githubusercontent.com/getzep/zep/main/README.md> accessed 2026-10-07].
 
@@ -3192,7 +3530,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Mem0 (open-source library and self-hosted server; Mem0 Platform managed service) (`L5-mem0`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Mem0 – memory layer
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Broad, store-agnostic memory API useful behind a firm-owned wrapper; certification evidence and OSS/Platform divergence keep it off the Strategic tier [AJ]{custom-style="Claim Label"}.
 
@@ -3209,6 +3547,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.55 / 3.35** | |
 
 *Evidence rules applied:* security_compliance at 2: SOC 2 Type II status conflicting on vendor pages, only Type I confirmed (treated as below the 3 anchor)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.50 | 3.45 | 3.60 | 3.55 | 3.60 | 3.55 |
+| Fit | Situational | Situational | Situational | **Core** | Situational | **Core** | Situational |
 
 **Capabilities.** Open-core agent memory layer: extracts facts from conversations and agent actions, scopes them by user_id, agent_id and run_id, retrieves with semantic + BM25 + entity signals; add/search/get/update/delete/delete_all and per-memory history in OSS and Platform; storage in SQL + third-party vector store + entity store [VF]{custom-style="Claim Label"}^[Verified fact — A3-S001: PyPI JSON metadata: mem0ai (Python Package Index (PyPI)) <https://pypi.org/pypi/mem0ai/json> accessed 2026-10-07; A3-S080: Mem0 docs source: Platform vs Open Source (Mem0 (GitHub)) <https://raw.githubusercontent.com/mem0ai/mem0/main/docs/platform/platform-vs-oss.mdx> accessed 2026-10-07; A3-S053: Mem0 docs: Platform vs Open Source (and OSS v2-to-v3 migration notes) <https://docs.mem0.ai/platform/platform-vs-oss> accessed 2026-10-07 [search-tool extract]].
 
@@ -3268,7 +3613,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Cognee (`L5-cognee`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Cognee – knowledge graphs
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Credible in-estate graph-plus-vector memory with strong deployment options; no certification and seed-stage funding limit it to scoped, self-hosted use [AJ]{custom-style="Claim Label"}.
 
@@ -3285,6 +3630,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.35 / 3.25** | |
 
 *Evidence rules applied:* Rule 2 applied (self-hosted software; inherits host controls): security_compliance and enterprise_readiness scored on self-hosted basis, capped at 4; enterprise_readiness: NPV cap lifted to 3 by verified SSO (rule 7)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.25 | 3.20 | 3.40 | 3.25 | 3.35 | 3.30 | 3.35 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Open-source memory platform building knowledge graphs plus vectors from documents, code and conversations; remember, recall, improve and forget; retrieval selects graph, vector or code context; local small-model extraction; MCP server [VF]{custom-style="Claim Label"}^[Verified fact — A3-S005: PyPI JSON metadata: cognee (Python Package Index (PyPI)) <https://pypi.org/pypi/cognee/json> accessed 2026-10-07].
 
@@ -3341,7 +3693,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Amazon Bedrock AgentCore Memory (`L5-aws-agentcore-memory`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where AWS is your primary cloud and the agent runtime is AgentCore (CP3 Q2, rubric rule 10). AWS's lead managed agent memory service with good lifecycle documentation; a customer-managed key at creation and a pruner from day one are part of the condition, and deployment and lock-in at 2 are accepted under rule 11 [AJ]{custom-style="Claim Label"}.
 
@@ -3356,6 +3708,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Published unit pricing for short- and long-term memory (B-REVA-S005), changed on 6 October 2026; extraction LLM cost on top; transparent, so 3 (consistent with Memory Bank) |
 | Lock-in / portability | 2 | Proprietary AWS API; records listable for export; hyperscaler lock-in |
 | **Total (generic / FS)** | **3.30 / 3.20** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.30 | 3.05 | 3.25 | 3.20 | 3.35 | 3.25 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Managed memory in Amazon Bedrock AgentCore: short-term raw session events; long-term records via semantic, summary, user-preference, episodic or custom strategies, grouped by namespaces and retrieved by semantic search; self-managed strategy; record streaming; JSON-payload extraction (August 2026) [VF]{custom-style="Claim Label"}^[Verified fact — A3-S111: Designing lifecycle policies for AgentCore memory (and AgentCore Memory docs: harness-memory, delete-memory, UpdateMemory, memory-record-streaming) (Amazon Web Services) <https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/> accessed 2026-10-07 [search-tool extract]; A3-S047: Amazon Bedrock AgentCore is now generally available (Oct 2025) (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/> accessed 2026-10-07 [search-tool extract]; V1-S087: Amazon Bedrock AgentCore is now generally available; AgentCore FAQs; release notes (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/> accessed 2026-10-08 [search-tool extract]].
 
@@ -3413,7 +3772,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Vertex AI Agent Engine Memory Bank (newer docs: 'Agent Platform Memory Bank' in Gemini Enterprise Agent Platform) (`L5-gcp-vertex-memory-bank`)
 
-**Tier:** Strategic · **Flags:** Renamed · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** Renamed
 
 *Rationale:* Strategic, conditional: where Google Cloud is your primary cloud and the agent runtime is Agent Engine (CP3 Q2, rubric rule 10). Google's lead managed agent memory service with a strong scope model; written confirmation of data residency (the feature table and residency terms conflict) and a regional CMEK endpoint are part of the condition [AJ]{custom-style="Claim Label"}.
 
@@ -3428,6 +3787,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Published per-memory pricing; extraction LLM billed separately |
 | Lock-in / portability | 2 | Proprietary API; memories tied to Agent Runtime instance; Gemini dependency |
 | **Total (generic / FS)** | **3.30 / 3.20** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.30 | 3.05 | 3.25 | 3.20 | 3.35 | 3.25 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Managed long-term memory in Google's agent platform: Gemini-based asynchronous extraction of facts and preferences, consolidation with contradiction resolution, exact-scope retrieval with optional similarity search; TTL optional; revisions; purge by filter [VF]{custom-style="Claim Label"}^[Verified fact — A3-S108: Vertex AI Memory Bank in public preview (8 Jul 2025) (Google Cloud Blog) <https://cloud.google.com/blog/products/ai-machine-learning/vertex-ai-memory-bank-in-public-preview> accessed 2026-10-07; A3-S109: Vertex AI Agent Engine Memory Bank overview / generate memories / Memory Bank REST reference (docs.cloud.google.com, now 'Agent Platform Memory Bank') (Google Cloud) <https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/memory-bank/overview> accessed 2026-10-07 [search-tool extract]].
 
@@ -3485,7 +3851,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Supermemory (`L5-supermemory`)
 
-**Tier:** Experimental · **Flags:** none · **Label in the popular stack diagram:** Supermemory – memory API
+**Tier:** Experimental · **Flags:** none
 
 *Rationale:* Fast-moving combined memory-and-RAG API with a proprietary server, seed funding and an API that changed major version this week [AJ]{custom-style="Claim Label"}.
 
@@ -3502,6 +3868,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.30 / 3.05** | |
 
 *Evidence rules applied:* security_compliance at 2: SOC 2 report type not confirmed (pricing page only); enterprise_readiness: NPV cap lifted to 3 by verified SSO (rule 7)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.05 | 3.10 | 3.25 | 3.20 | 3.35 | 3.35 | 3.35 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Memory and context engine API: fact extraction, user profiles, temporal and contradiction handling, automatic forgetting, hybrid search over documents and memories, connectors and file processing; v5 namespace-first API [VF]{custom-style="Claim Label"}^[Verified fact — A3-S064: supermemoryai/supermemory README (Supermemory (GitHub)) <https://raw.githubusercontent.com/supermemoryai/supermemory/main/README.md> accessed 2026-10-07; A3-S012: PyPI JSON metadata: supermemory (Python Package Index (PyPI)) <https://pypi.org/pypi/supermemory/json> accessed 2026-10-07].
 
@@ -3560,7 +3933,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Letta (formerly MemGPT); current product is Letta Code, a stateful agent harness, with Letta Cloud (`L5-letta`)
 
-**Tier:** Experimental · **Flags:** Superseded · **Label in the popular stack diagram:** Letta – stateful agents
+**Tier:** Experimental · **Flags:** Superseded
 
 *Rationale:* Repositioned as an agent harness with changing architecture and no certification; belongs with L3 harness evaluation [AJ]{custom-style="Claim Label"}.
 
@@ -3577,6 +3950,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.85 / 2.75** | |
 
 *Evidence rules applied:* security_compliance capped at 2: certifications NPV (none found, A3-S118)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.75 | 2.85 | 2.80 | 3.00 | 2.90 | 2.95 | 2.85 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Stateful agent harness (Letta Code) with memory blocks and all context tracked in a git-backed memory filesystem (MemFS) that can sync to GitHub; Letta Cloud default backend or self-hosted 'letta server'; not a standalone memory layer [VF]{custom-style="Claim Label"}^[Verified fact — A3-S073: letta-ai/letta-code README (Letta (GitHub)) <https://raw.githubusercontent.com/letta-ai/letta-code/main/README.md> accessed 2026-10-07; A3-S060: letta-ai/letta README (Letta (GitHub)) <https://raw.githubusercontent.com/letta-ai/letta/main/README.md> accessed 2026-10-07; A3-S093: Letta's Next Phase (Mar 2026) <https://www.letta.com/blog/our-next-phase/> accessed 2026-10-07 [search-tool extract]].
 
@@ -3636,7 +4016,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## LangMem (`L5-langmem`)
 
-**Tier:** Experimental · **Flags:** Not publicly verified · **Label in the popular stack diagram:** LangMem – long-term
+**Tier:** Experimental · **Flags:** Not publicly verified
 
 *Rationale:* Pre-1.0 and apparently stalled; useful as patterns, not as a dependency [AJ]{custom-style="Claim Label"}.
 
@@ -3653,6 +4033,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.75 / 2.65** | |
 
 *Evidence rules applied:* Rule 2 applied (self-hosted library; inherits host controls): security_compliance and enterprise_readiness capped at 4
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.65 | 2.65 | 2.80 | 2.90 | 2.90 | 2.90 | 2.80 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** MIT library of memory utilities for LangGraph: extraction, hot-path memory tools, background memory manager and prompt refinement (procedural memory); persists via LangGraph BaseStore [VF]{custom-style="Claim Label"}^[Verified fact — A3-S006: PyPI JSON metadata: langmem (Python Package Index (PyPI)) <https://pypi.org/pypi/langmem/json> accessed 2026-10-07].
 
@@ -3709,7 +4096,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Elasticsearch (Elastic Search AI Platform) (`L6-elasticsearch`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Elasticsearch – hybrid search
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Elastic is already operated, because cost scores 2 [AJ]{custom-style="Claim Label"}.
 
@@ -3724,6 +4111,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 2 | Paid tiers for key security features; cluster pricing not verified; operations heavy |
 | Lock-in / portability | 3 | AGPL option but paid features proprietary; SSPL/ELv2 alternatives (rule 4) |
 | **Total (generic / FS)** | **4.30 / 4.25** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.25 | 4.20 | 4.25 | 4.10 | 4.25 | 4.25 | 4.35 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Distributed search engine combining BM25, dense/sparse vectors (BBQ/DiskBBQ default since 9.1), RRF and linear hybrid retrievers, semantic_text auto-embedding (Jina v5 default) and document-level security; Elastic 9.5 GA 4 August 2026 [VF]{custom-style="Claim Label"}^[Verified fact — A2-S133: Elastic 9.5: Columnar, VectorDB index mode & auto-calibration, and AI-driven alert triage <https://www.elastic.co/blog/whats-new-elastic-9-5-0> accessed 2026-10-07 [search-tool extract]; A2-S134: Use a customer-managed encryption key - Elastic Cloud <https://www.elastic.co/docs/deploy-manage/security/encrypt-deployment-with-customer-managed-encryption-key> accessed 2026-10-07 [search-tool extract]; V1-S085: Elastic 9.5: Columnar, VectorDB index mode & auto-calibration; Elastic community newsletter August 2026 <https://www.elastic.co/blog/whats-new-elastic-9-5-0> accessed 2026-10-08 [search-tool extract]].
 
@@ -3781,7 +4175,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Milvus (open source) and Zilliz Cloud (managed Milvus) (`L6-milvus-zilliz`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Milvus – vector search
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Foundation-governed, permissively licensed engine with a certified managed and BYOC route; scale option behind Qdrant [AJ]{custom-style="Claim Label"}.
 
@@ -3796,6 +4190,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | OSS free but distributed operations heavy; Zilliz BYOC pricing unpublished |
 | Lock-in / portability | 5 | Apache-2.0 under neutral foundation governance |
 | **Total (generic / FS)** | **4.10 / 4.25** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.25 | 4.00 | 4.30 | 3.95 | 4.15 | 4.00 | 4.20 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 distributed vector database (LF AI & Data graduated) with dense/sparse vectors, BM25, JSON path indexing and online schema changes; Milvus 3.0 'lake-native' GA 29 July 2026; Zilliz Cloud as managed and BYOC 'Vector Lakebase' [VF]{custom-style="Claim Label"}^[Verified fact — A2-S118: Zilliz Announces Milvus 3.0, Making the World's Most Adopted Open-Source Vector Database Lake-Native <https://zilliz.com/news/milvus-3-0-lake-native-vector-database> accessed 2026-10-07 [search-tool extract]; A2-S117: Release Notes - Milvus (Milvus project) <https://milvus.io/docs/release_notes.md> accessed 2026-10-07 [search-tool extract]; A2-S054: milvus-lite - PyPI (PyPI / Milvus contributors) <https://pypi.org/project/milvus-lite/> accessed 2026-10-07; A2-S119: Zilliz Trust Center <https://zilliz.com/trust-center> accessed 2026-10-07 [search-tool extract]].
 
@@ -3855,7 +4256,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## PostgreSQL with the pgvector extension (`L6-pgvector`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Postgres – + pgvector
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Lowest-increment, permissively licensed, transactionally integrated option on every hyperscaler; the default answer to 'do we need a dedicated vector DB?' [AJ]{custom-style="Claim Label"}.
 
@@ -3872,6 +4273,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **4.25 / 4.20** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted software): security scored on project hygiene; enterprise readiness on host controls with CP2 Q1 presumption for managed hyperscaler PostgreSQL
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.20 | 4.25 | 4.35 | 4.40 | 4.35 | 4.30 | 4.30 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** PostgreSQL extension adding vector types (incl. sparsevec) and HNSW/IVFFlat ANN indexes, so vectors sit beside relational data and SQL filters; iterative index scans and filter-aware index selection since 0.8.0; 0.8.7 released 1 October 2026 [VF]{custom-style="Claim Label"}^[Verified fact — A2-S063: pgvector CHANGELOG.md (pgvector project) <https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md> accessed 2026-10-07 [search-tool extract]; A2-S061: pgvector 0.8.7 Released (PostgreSQL Global Development Group (news post by pgvector p) <https://www.postgresql.org/about/news/pgvector-087-released-3392/> accessed 2026-10-07 [search-tool extract]; V1-S020: pgvector CHANGELOG.md (pgvector (GitHub)) <https://raw.githubusercontent.com/pgvector/pgvector/master/CHANGELOG.md> accessed 2026-10-08; V1-S022: pgvector 0.8.7 Released (PostgreSQL Global Development Group) <https://www.postgresql.org/about/news/pgvector-087-released-3392/> accessed 2026-10-08 [search-tool extract]].
 
@@ -3931,7 +4339,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Qdrant (open-source vector search engine; Qdrant Cloud, Hybrid Cloud, Private Cloud) (`L6-qdrant`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Qdrant – open source
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Permissive licence, filter-aware multi-tenant engine and air-gap-capable deployment make it the default dedicated engine when a trigger is met [AJ]{custom-style="Claim Label"}.
 
@@ -3946,6 +4354,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free OSS; managed from US$25 (as captured) |
 | Lock-in / portability | 4 | Apache-2.0 and self-hostable; single-vendor governance |
 | **Total (generic / FS)** | **3.90 / 3.85** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.85 | 3.80 | 3.95 | 3.85 | 3.95 | 3.90 | 3.95 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 Rust vector search engine with dense and sparse vectors, payload filtering (ACORN), weighted RRF fusion, tiered multitenancy, quantisation and audit access logging; server 1.19.2 (5 October 2026) [VF]{custom-style="Claim Label"}^[Verified fact — A2-S108: qdrant/LICENSE (Qdrant) <https://github.com/qdrant/qdrant/blob/master/LICENSE> accessed 2026-10-07 [search-tool extract]; A2-S103: Qdrant 1.17 - Relevance Feedback & Search Latency Improvements <https://qdrant.tech/blog/qdrant-1.17.x/> accessed 2026-10-07 [search-tool extract]; A2-S102: Releases - qdrant/qdrant (Qdrant) <https://github.com/qdrant/qdrant/releases> accessed 2026-10-07 [search-tool extract]].
 
@@ -4005,7 +4420,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Pinecone (vector database; Pinecone Nexus knowledge engine) (`L6-pinecone`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Pinecone – managed
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Scores 3.80 FS but lock-in is 2 and it would be a net-new proprietary dependency whose vendor is widening into L5/L8 (Nexus); a criterion at 2 is accepted as a Strategic condition only where it rides on an existing platform commitment (Elastic, MongoDB), so Pinecone is held at Tactical until an exit route is decided [AJ]{custom-style="Claim Label"}.
 
@@ -4020,6 +4435,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent unit pricing but Standard/Enterprise minimums and idle BYOC nodes |
 | Lock-in / portability | 2 | Proprietary API and format; Nexus/KnowQL coupling |
 | **Total (generic / FS)** | **3.85 / 3.80** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.80 | 3.80 | 3.70 | 3.55 | 3.70 | 3.75 | 3.75 |
+| Fit | **Core** | **Core** | **Core** | Situational | **Core** | **Core** | **Core** |
 
 **Capabilities.** Fully managed vector/document index with metadata filtering, namespaces, server-side embedding, hosted rerankers and a sparse model for cascading retrieval; Dedicated Read Nodes GA April 2026; Nexus knowledge engine GA 6 August 2026 [VF]{custom-style="Claim Label"}^[Verified fact — A2-S051: pinecone (Python SDK) - PyPI (PyPI / Pinecone Systems, Inc.) <https://pypi.org/project/pinecone/> accessed 2026-10-07; A2-S101: Introducing cascading retrieval: Unifying dense and sparse with reranking (Pinecone) <https://www.pinecone.io/blog/cascading-retrieval/> accessed 2026-10-07 [search-tool extract]; A2-S072: ZoomInfo and Pinecone Bring Real-Time, AI-Powered Contact Recommendations to Go-to-Market Teams <https://www.pinecone.io/newsroom/zoominfo-pinecone-drn/> accessed 2026-10-07 [search-tool extract]; A2-S073: General Availability of Pinecone Nexus Proves Knowledge Drives Real Outcomes for Agentic AI <https://www.pinecone.io/newsroom/general-availability-of-pinecone-nexus-proves-knowledge-drives-real-outcomes-for-agentic-ai/> accessed 2026-10-07 [search-tool extract]].
 
@@ -4079,7 +4501,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Weaviate (database; Weaviate Cloud: Shared, Dedicated, BYOC) (`L6-weaviate`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Weaviate – open source
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Capable and ISO-certified, but the open-core licence transition is incomplete and unannounced [AJ]{custom-style="Claim Label"}.
 
@@ -4094,6 +4516,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Open core; enterprise features behind licence keys; pricing naming conflicts |
 | Lock-in / portability | 3 | BSD core but commercial enterprise features (rule 4) |
 | **Total (generic / FS)** | **3.75 / 3.70** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.70 | 3.60 | 3.80 | 3.60 | 3.80 | 3.75 | 3.80 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Vector database combining vector search with structured filtering and hybrid search; Boost API and MMR GA in 1.39; v1.39.7 (25 September 2026); open core in transition [VF]{custom-style="Claim Label"}^[Verified fact — A2-S110: Weaviate 1.39 Release <https://weaviate.io/blog/weaviate-1-39-release> accessed 2026-10-07 [search-tool extract]; A2-S109: Releases - weaviate/weaviate (Weaviate) <https://github.com/weaviate/weaviate/releases> accessed 2026-10-07 [search-tool extract]; A2-S115: weaviate/weaviate (README and licence files; PR #13360) (Weaviate) <https://github.com/weaviate/weaviate> accessed 2026-10-07 [search-tool extract]].
 
@@ -4150,7 +4579,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## MongoDB Vector Search (Atlas; self-managed Community Edition and Enterprise Advanced) (`L6-mongodb-atlas-vector-search`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** MongoDB – Atlas vector
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: only where MongoDB is already the operational store, because lock-in scores 2; the condition is an existing platform commitment, which is why it differs from Pinecone [AJ]{custom-style="Claim Label"}.
 
@@ -4165,6 +4594,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Hourly Search Nodes; Community free; price tables conflict |
 | Lock-in / portability | 2 | SSPL and proprietary Atlas; Voyage coupling |
 | **Total (generic / FS)** | **3.80 / 3.65** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.65 | 3.75 | 3.65 | 3.60 | 3.70 | 3.75 | 3.75 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Vector and full-text search inside MongoDB via $vectorSearch/$search with hybrid fusion GA; $rerank (Voyage, preview) and Automated Embedding (preview); GA on Atlas and self-managed Community/Enterprise Advanced 8.2+ [VF]{custom-style="Claim Label"}^[Verified fact — A2-S137: MongoDB Search and Vector Search Now Run Anywhere <https://www.mongodb.com/company/blog/product-release-announcements/mongodb-search-vector-search-now-run-anywhere> accessed 2026-10-07 [search-tool extract]; A2-S141: Context Engineering Has a Retrieval Issue: Introducing rerank-3 and Native Reranking (MongoDB) <https://www.mongodb.com/company/blog/product-release-announcements/introducing-rerank-3-and-native-rerank> accessed 2026-10-07 [search-tool extract]; A2-S078: Unlocking AI Search: Introducing Automated Embedding in MongoDB Vector Search <https://www.mongodb.com/company/blog/product-release-announcements/unlocking-ai-search-introducing-automated-embedding-in-mongodb-vector-search> accessed 2026-10-07 [search-tool extract]; V1-S035: MongoDB Delivers Accurate AI Retrieval Wherever Enterprise Data Lives; Community Edition product page (MongoDB, Inc.) <https://investors.mongodb.com/news-releases/news-release-details/mongodb-delivers-accurate-ai-retrieval-wherever-enterprise-data> accessed 2026-10-08 [search-tool extract]].
 
@@ -4223,7 +4659,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Amazon S3 Vectors (`L6-s3-vectors`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** S3 Vectors – AWS
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Tactical, default in AWS estates as the low-cost vector tier. Not AWS's lead vector-search service: AWS positions it as a durable tier behind OpenSearch [VF]{custom-style="Claim Label"}^[Verified fact — A2-S092: Amazon S3 Vectors (feature page) (Amazon Web Services) <https://aws.amazon.com/s3/features/vectors/> accessed 2026-10-07 [search-tool extract]], so rubric rule 10 (CP3 Q2) does not make it Strategic [AJ]{custom-style="Claim Label"}.
 
@@ -4240,6 +4676,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.30 / 3.15** | |
 
 *Evidence rules applied:* security_compliance at 4 (not 5) under CP2 Q4: S3 Vectors compliance scope not stated
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.15 | 3.45 | 3.00 | 3.40 | 3.20 | 3.40 | 3.15 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Object storage with native vector indexes in vector buckets: up to 2 billion vectors per index, 50 metadata keys, 10,000 top-K, metadata filters; no BM25; Bedrock Knowledge Bases and OpenSearch integration; GA December 2025 [VF]{custom-style="Claim Label"}^[Verified fact — A2-S083: Limitations and restrictions - Amazon S3 Vectors (Amazon Web Services) <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html> accessed 2026-10-07 [search-tool extract]; A2-S086: Amazon S3 Vectors now supports up to 10,000 similarity search results per query (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2026/06/s3-vectors-supports-10000-search-results-per-query/> accessed 2026-10-07 [search-tool extract]; A2-S089: Prerequisites for using a vector store you created for a knowledge base - Amazon Bedrock (Amazon Web Services) <https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html> accessed 2026-10-07 [search-tool extract]; A2-S093: Selecting a vector store for Amazon Bedrock Knowledge Bases (Amazon Web Services (AWS Machine Learning Blog)) <https://aws.amazon.com/blogs/machine-learning/selecting-a-vector-store-for-amazon-bedrock-knowledge-bases/> accessed 2026-10-07 [search-tool extract]; V1-S030: Amazon S3 Vectors is now generally available with 40 times the scale of preview; S3 Vectors limitations; March 2026 region expansion (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/> accessed 2026-10-08 [search-tool extract]].
 
@@ -4297,7 +4740,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## turbopuffer (`L6-turbopuffer`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** turbopuffer – cloud vector store
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Distinctive object-storage design and per-namespace keys, but coarse key scoping, no ISO 27001, an Enterprise entry price well above peers and a proprietary API; author conflict disclosed and borderline calls resolved against it [AJ]{custom-style="Claim Label"}.
 
@@ -4312,6 +4755,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Published minimums and object-storage pricing, but the Enterprise tier needed for CMEK and private networking starts at US$4,096 per month with a 35% usage premium (Pinecone Enterprise from US$500); 3, resolved against the Anthropic-related item (CP3 review A) |
 | Lock-in / portability | 2 | Proprietary API and storage format |
 | **Total (generic / FS)** | **3.30 / 3.15** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.15 | 3.20 | 3.20 | 3.20 | 3.25 | 3.30 | 3.25 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Proprietary serverless search on object storage: namespaced ANN vector (SPFresh) and BM25 full-text with filters; stateless compute with SSD/memory caches; SaaS and BYOC on AWS, GCP and Azure [VF]{custom-style="Claim Label"}^[Verified fact — A2-S056: turbopuffer (Python SDK) - PyPI (PyPI / turbopuffer) <https://pypi.org/project/turbopuffer/> accessed 2026-10-07; A2-S124: Architecture - turbopuffer <https://turbopuffer.com/docs/architecture> accessed 2026-10-07 [search-tool extract]; A2-S125: turbopuffer BYOC <https://turbopuffer.com/docs/byoc> accessed 2026-10-07 [search-tool extract]]. Conflict of interest: Anthropic, the author's developer, is reported as a customer [R]{custom-style="Claim Label"}^[Reported — A2-S126: Ex-Shopify engineers raise fresh financing to scale Turbopuffer's AI search (BetaKit) <https://betakit.com/ex-shopify-engineers-raise-fresh-financing-to-scale-turbopuffers-ai-search/> accessed 2026-10-07 [search-tool extract]].
 
@@ -4370,7 +4820,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Chroma (open source) and Chroma Cloud (`L6-chroma`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Chroma – open source
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Useful for prototypes and harnesses; enterprise controls undocumented and release cadence uncertain [AJ]{custom-style="Claim Label"}.
 
@@ -4387,6 +4837,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.05 / 3.10** | |
 
 *Evidence rules applied:* enterprise_readiness capped at 2: customer SSO, RBAC and audit logs NPV
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.10 | 3.00 | 3.20 | 3.20 | 3.20 | 3.15 | 3.10 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Apache-2.0 embedded or client-server database for documents and embeddings with a small API; Chroma Cloud adds serverless vector, hybrid and full-text search, BYOC and single-tenant options [VF]{custom-style="Claim Label"}^[Verified fact — A2-S060: chromadb - PyPI (PyPI / Chroma) <https://pypi.org/project/chromadb/> accessed 2026-10-07; A2-S128: Pricing - Chroma <https://www.trychroma.com/pricing> accessed 2026-10-07 [search-tool extract]].
 
@@ -4446,7 +4903,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Cohere Embed 5 (embed-v5.0-pro, embed-v5.0-fast) and Cohere Rerank 4 (rerank-v4.0-pro, rerank-v4.0-fast) (`L7-cohere`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Cohere – Embed v3 + Rerank
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* The widest deployment range among the hosted vendors, with FS-grade certifications. FS 3.70 on the hyperscaler route meets the numeric guide for Strategic, but it stays Tactical until its stated condition is met: per-service due diligence confirming the Foundry or SageMaker controls (the CP2 Q1 presumption is not that evidence), with the pending Aleph Alpha combination recorded as an ownership event. Upgrade candidate [AJ]{custom-style="Claim Label"}.
 
@@ -4463,6 +4920,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.75 / 3.70** | |
 
 *Evidence rules applied:* NPV cap lifted at CP2 rework (8 October 2026): rule 6 (CP2 Q1) on the Foundry and SageMaker routes gives 4 (platform controls presumed (CP2 Q1); confirm per service); the direct hosted API, with only Owner and User roles verified (B-REV-S013), would be 3 under rule 7 (CP2 Q2); Rule 8 (CP2 Q4) confirmed: company-level SOC 2 Type II, ISO 27001 and ISO 42001 with product scope not stated, security_compliance 4
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.70 | 3.65 | 3.70 | 3.60 | 3.75 | 3.75 | 3.80 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Embed 5 (embed-v5.0-pro, embed-v5.0-fast; 30 September 2026): text, images and mixed text-image inputs into one vector, 100+ languages, 128K-token context, Matryoshka 256-2,048 dims, float/int8/binary outputs, Pro and Fast in one shared space. Rerank 4 (Pro and Fast; 11 December 2025): 32K-token context, multilingual, JSON documents [VF]{custom-style="Claim Label"}^[Verified fact — A2-S012: Announcing Cohere's Embed 5 Models <https://docs.cohere.com/changelog/embed-v5> accessed 2026-10-07 [search-tool extract]; A2-S009: Rerank 4: Cohere's Most Powerful Reranker Yet <https://cohere.com/blog/rerank-4> accessed 2026-10-07 [search-tool extract]; A2-S010: Cohere's Rerank v4.0 Model is Here! <https://docs.cohere.com/changelog/rerank-v4.0> accessed 2026-10-07 [search-tool extract]].
 
@@ -4523,7 +4987,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Sentence Transformers (sentence-transformers library; SBERT.net) (`L7-sentence-transformers`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** SBERT – Sentence transformers
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* The portable, self-hosted toolkit for embeddings, reranking, sparse and late interaction; the firm's exit route and fine-tuning base.
 
@@ -4540,6 +5004,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.80 / 3.70** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted library): enterprise_readiness and security_compliance capped at 4; NPV cap not applied
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.70 | 3.80 | 3.85 | 4.00 | 3.90 | 3.90 | 3.85 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 Python library (6.1.0, 18 September 2026) for dense embeddings, Cross-Encoder rerankers, Sparse Encoders and Multi-Vector Encoders (ColBERT-style late interaction), with training and fine-tuning; over 15,000 pre-trained models on Hugging Face [VF]{custom-style="Claim Label"}^[Verified fact — A2-S029: sentence-transformers - PyPI (PyPI / Hugging Face (maintainer)) <https://pypi.org/project/sentence-transformers/> accessed 2026-10-07; A2-S032: sentence-transformers PyPI JSON API <https://pypi.org/pypi/sentence-transformers/json> accessed 2026-10-07; A2-S028: Sentence Transformers is joining Hugging Face! <https://huggingface.co/blog/sentence-transformers-joins-hf> accessed 2026-10-07 [search-tool extract]]. Maintained by Hugging Face [VF]{custom-style="Claim Label"}^[Verified fact — A2-S028: Sentence Transformers is joining Hugging Face! <https://huggingface.co/blog/sentence-transformers-joins-hf> accessed 2026-10-07 [search-tool extract]; V1-S092: Sentence Transformers is joining Hugging Face! <https://huggingface.co/blog/sentence-transformers-joins-hf> accessed 2026-10-08 [search-tool extract]].
 
@@ -4598,7 +5069,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Gemini Embedding 2 (model id gemini-embedding-2) (`L7-gemini-embedding`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Gemini – Embedding 2
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10), consumed through Vertex AI. Google's lead embedding model and the leading multimodal option; not where UK-only processing is mandatory, because the eu multi-region excludes the UK [AJ]{custom-style="Claim Label"}.
 
@@ -4615,6 +5086,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.30 / 3.20** | |
 
 *Evidence rules applied:* NPV cap lifted at CP2 review (8 October 2026): platform IAM, Cloud Audit Logs and federated SSO verified (B-REV-S007, S008, S012); Rule 6 (CP2 Q1, hyperscaler presumption) applied at CP2 rework: enterprise_readiness 3 -> 4; platform controls presumed (CP2 Q1); confirm per service; Rule 8 (CP2 Q4) confirmed: platform-level certifications with per-model scope not confirmed, security_compliance 4
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.30 | 3.05 | 3.25 | 3.20 | 3.35 | 3.25 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** gemini-embedding-2 (GA 22 April 2026): one embedding space for text, images, video, audio and PDFs across 100+ languages; 8,192 text tokens; Matryoshka output 128-3,072 dims [VF]{custom-style="Claim Label"}^[Verified fact — A2-S004: Gemini Embedding 2 is now generally available (Google) <https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2-generally-available/> accessed 2026-10-07 [search-tool extract]; A2-S005: Embeddings (Gemini API docs) / Gemini Embedding 2 preview model (Google) <https://ai.google.dev/gemini-api/docs/embeddings> accessed 2026-10-07 [search-tool extract]]. Hosted on the Gemini API and Vertex AI (being renamed Gemini Enterprise Agent Platform) [VF]{custom-style="Claim Label"}^[Verified fact — A2-S039: Data residency (Vertex AI generative AI) (Google Cloud) <https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/data-residency> accessed 2026-10-07 [search-tool extract]].
 
@@ -4674,7 +5152,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## OpenAI embeddings: text-embedding-3-large and text-embedding-3-small (`L7-openai`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** OpenAI – Embeddings 3
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Competent, well-controlled text embeddings, but hosted-only, text-only and without a reranker; a baseline, not a foundation.
 
@@ -4691,6 +5169,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.30 / 3.20** | |
 
 *Evidence rules applied:* NPV cap lifted at CP2 review (8 October 2026): SSO, RBAC and audit logs verified (B-REV-S004 to S006); Rules 7 and 8 checked at CP2 rework (8 October 2026): enterprise_readiness 4 and security_compliance 4 kept
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.45 | 3.05 | 3.30 | 3.15 | 3.30 | 3.15 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Hosted text embeddings: text-embedding-3-large (3,072 dims by default, shortened with the 'dimensions' parameter) and text-embedding-3-small, 8,192-token input, released 25 January 2024 [VF]{custom-style="Claim Label"}^[Verified fact — A2-S001: text-embedding-3-large Model (OpenAI) <https://developers.openai.com/api/docs/models/text-embedding-3-large> accessed 2026-10-07 [search-tool extract]; A2-S002: New embedding models and API updates (OpenAI) <https://openai.com/index/new-embedding-models-and-api-updates/> accessed 2026-10-07 [search-tool extract]]. No first-party reranker was found [VF]{custom-style="Claim Label"}^[Verified fact — A2-S001: text-embedding-3-large Model (OpenAI) <https://developers.openai.com/api/docs/models/text-embedding-3-large> accessed 2026-10-07 [search-tool extract]].
 
@@ -4751,7 +5236,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Jina AI search foundation models (jina-embeddings-v5-text, jina-embeddings-v5-omni, jina-reranker-v3.5), part of Elastic (`L7-jina`)
 
-**Tier:** Tactical · **Flags:** Acquired · **Label in the popular stack diagram:** Jina AI – Embeddings v3
+**Tier:** Tactical · **Flags:** Acquired
 
 *Rationale:* Natural choice inside Elastic estates; non-commercial weights and an opaque price list make it a poor neutral default.
 
@@ -4768,6 +5253,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.30 / 3.15** | |
 
 *Evidence rules applied:* NPV cap lifted at CP2 review for the Elastic Inference Service route (B-REV-S019); the standalone Jina API remains capped at 2 (API keys only); Rule 7 (CP2 Q2) checked at CP2 rework: SSO and RBAC verified on Elastic Cloud, audit logging of EIS calls not evidenced, so 3 kept; rule 8 (CP2 Q4) confirmed for security 3 (Elastic Cloud certifications, Jina API scope unconfirmed)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.15 | 3.15 | 3.25 | 3.15 | 3.30 | 3.30 | 3.35 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Jina AI, part of Elastic since 9 October 2025 [VF]{custom-style="Claim Label"}^[Verified fact — A2-S023: Elastic Completes Acquisition of Jina AI, a Leader in Frontier Models for Multimodal and Multilingual Search <https://ir.elastic.co/News--Events/news/news-details/2025/Elastic-Completes-Acquisition-of-Jina-AI-a-Leader-in-Frontier-Models-for-Multimodal-and-Multilingual-Search/default.aspx> accessed 2026-10-07 [search-tool extract]; V1-S025: Elastic Completes Acquisition of Jina AI (Elastic N.V.) <https://ir.elastic.co/News--Events/news/news-details/2025/Elastic-Completes-Acquisition-of-Jina-AI-a-Leader-in-Frontier-Models-for-Multimodal-and-Multilingual-Search/default.aspx> accessed 2026-10-08 [search-tool extract]]: jina-embeddings-v5-text (February 2026; 32,768-token context, 1,024 dims), v5-omni (May 2026; text, image, audio, video, PDF, with text vectors identical to v5-text), jina-reranker-v3.5 (July 2026, listwise) and jina-reranker-m0 (multimodal) [VF]{custom-style="Claim Label"}^[Verified fact — A2-S025: jina-embeddings-v5-omni: Embeddings for Text, Image, Audio and Video (Jina AI (Elastic)) <https://jina.ai/news/jina-embeddings-v5-omni-multimodal-embeddings-for-text-image-audio-and-video/> accessed 2026-10-07 [search-tool extract]; A2-S026: jina-reranker-v3.5: Faster Listwise Reranking with Hybrid Attention and Self-Distillation (Jina AI (Elastic)) <https://jina.ai/en-US/news/jina-reranker-v3-5-faster-listwise-reranking-hybrid-attention-self-distillation/> accessed 2026-10-07 [search-tool extract]; V1-S026: jina-embeddings-v5 model pages (text-small, text-nano, omni-small, omni-nano); Jina llms.txt (Jina AI (Elastic)) <https://jina.ai/models/jina-embeddings-v5-text-small/> accessed 2026-10-08 [search-tool extract]].
 
@@ -4827,7 +5319,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Qwen3-Embedding and Qwen3-Reranker (open weights); Qwen3-VL-Embedding / Qwen3-VL-Reranker (multimodal); hosted as text-embedding-v4 and qwen3-rerank on Alibaba Cloud Model Studio (`L7-qwen3-embedding`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Qwen3 – Embeddings
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Capable Apache 2.0 embed-plus-rerank pair for self-hosting; usable only after provenance review and with in-house operations.
 
@@ -4844,6 +5336,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.20 / 3.15** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted open weights) applied instead of the NPV cap, because the recommendation is self-host only; scores unchanged at 2 on project hygiene and support, not on missing hosted certifications; Rule 7 (CP2 Q2) checked at CP2 rework: no SSO, RBAC or audit control verified; rule 2 scores kept
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.15 | 3.15 | 3.30 | 3.45 | 3.30 | 3.30 | 3.20 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Open-weight Qwen3-Embedding and Qwen3-Reranker in 0.6B, 4B and 8B (June 2025; 32K context; 119 languages; Apache 2.0) and Qwen3-VL-Embedding/-Reranker (January 2026) [VF]{custom-style="Claim Label"}^[Verified fact — A2-S020: Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models (Alibaba Qwen) <https://qwen.ai/blog?id=qwen3-embedding> accessed 2026-10-07 [search-tool extract]; A2-S021: Qwen3-VL-Embedding and Qwen3-VL-Reranker: A Unified Framework for State-of-the-Art Multimodal Retrieval and Ranking (Alibaba Qwen (arXiv)) <https://arxiv.org/abs/2601.04720> accessed 2026-10-07 [search-tool extract]; V1-S093: Qwen3-VL-Embedding and Qwen3-VL-Reranker (paper page, arXiv 2601.04720); Qwen blog (Qwen team (Alibaba) / Hugging Face) <https://huggingface.co/papers/2601.04720> accessed 2026-10-08 [search-tool extract]]. Hosted as text-embedding-v4 (64-2,048 dims) and qwen3-rerank on Alibaba Cloud Model Studio [VF]{custom-style="Claim Label"}^[Verified fact — A2-S022: Embedding - Alibaba Cloud Model Studio <https://www.alibabacloud.com/help/en/model-studio/embedding> accessed 2026-10-07 [search-tool extract]].
 
@@ -4903,7 +5402,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Voyage AI by MongoDB (Voyage 4 embedding family; Rerank 3 rerankers) (`L7-voyage`)
 
-**Tier:** Tactical · **Flags:** Acquired · **Label in the popular stack diagram:** Voyage AI – Voyage-3
+**Tier:** Tactical · **Flags:** Acquired
 
 *Rationale:* Technically the deepest lineup, but certifications are unverified, key APIs are in preview and ownership now couples it to MongoDB.
 
@@ -4920,6 +5419,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.40 / 3.05** | |
 
 *Evidence rules applied:* NPV cap on enterprise_readiness lifted at CP2 rework (8 October 2026) under rule 7 (CP2 Q2): Atlas organisation and project roles govern model API keys (B-REV-S028); SSO and audit logging for key use not stated, so 3; security_compliance capped at 2 (kept): certifications only Reported from a homepage listing; MongoDB's SOC 2 scope page does not name Voyage and excludes preview features (B-REV-S027)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.05 | 3.35 | 3.15 | 3.65 | 3.40 | 3.60 | 3.35 |
+| Fit | Situational | Situational | Situational | **Core** | Situational | **Core** | Situational |
 
 **Capabilities.** Voyage AI by MongoDB: Voyage 4 family (voyage-4-large, voyage-4, voyage-4-lite, open-weight voyage-4-nano) in one shared embedding space; voyage-code-4, voyage-context-4 (contextualised chunks), voyage-multimodal-3.5, domain models voyage-finance-2 and voyage-law-2; rerank-3 and rerank-3-lite (30 September 2026) with 32K-token context [VF]{custom-style="Claim Label"}^[Verified fact — A2-S006: The Voyage 4 model family: shared embedding space with MoE architecture (Voyage AI (MongoDB)) <https://blog.voyageai.com/2026/01/15/voyage-4/> accessed 2026-10-07 [search-tool extract]; A2-S007: Voyage AI Embedding and Reranking Models Overview - Voyage AI by MongoDB <https://www.mongodb.com/docs/voyageai/models/> accessed 2026-10-07 [search-tool extract]; A2-S034: rerank-3 and rerank-3-lite: the next generation of Voyage rerankers (Voyage AI (MongoDB)) <https://blog.voyageai.com/2026/09/30/rerank-3/> accessed 2026-10-07 [search-tool extract]]. rerank-3 is listed as Preview on MongoDB's model lifecycle page [VF]{custom-style="Claim Label"}^[Verified fact — V1-S024: rerank-3 and rerank-3-lite: the next generation of Voyage rerankers; MongoDB Voyage model lifecycle page (Voyage AI by MongoDB) <https://blog.voyageai.com/2026/09/30/rerank-3/> accessed 2026-10-08 [search-tool extract]].
 
@@ -4982,7 +5488,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## NVIDIA NeMo Retriever embedding and reranking NIM microservices (Nemotron embedding/reranking models) (`L7-nvidia-nemo-retriever`)
 
-**Tier:** Tactical · **Flags:** Renamed · **Label in the popular stack diagram:** NVIDIA – Embed
+**Tier:** Tactical · **Flags:** Renamed
 
 *Rationale:* Sound self-hosted runtime for NVIDIA-standardised estates; licence cost and GPU coupling make it a poor neutral default.
 
@@ -4999,6 +5505,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.00 / 2.95** | |
 
 *Evidence rules applied:* NPV cap not applied to security_compliance: self-hosted container, vendor certifications not applicable; scored on in-estate deployment and licence clarity; Rule 6 (CP2 Q1) not applied at CP2 rework: no hyperscaler-consumed route is in the fact base; scores kept
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.95 | 2.90 | 3.00 | 2.75 | 2.95 | 2.90 | 3.00 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** NVIDIA NeMo Retriever embedding and reranking NIM microservices: Embedding NIM 2.3 (nemotron-3-embed-1b added in 2.2; llama-nemotron-embed-1b-v2; llama-nemotron-embed-vl-1b-v2) and Reranking NIM 2.0.0 (llama-nemotron-rerank-vl-1b-v2, rerank-1b-v2, rerank-500m-v2), deployed by Helm on Kubernetes or Docker [VF]{custom-style="Claim Label"}^[Verified fact — A2-S030: Release Notes for NVIDIA NeMo Retriever Reranking NIM <https://docs.nvidia.com/nim/nemo-retriever/text-reranking/latest/release-notes.html> accessed 2026-10-07 [search-tool extract]; A2-S031: Get Started With NVIDIA NeMo Retriever Embedding NIM (2.3) <https://docs.nvidia.com/nim/nemo-retriever/embedding/2.3/getting-started.html> accessed 2026-10-07 [search-tool extract]; V1-S094: NeMo Retriever Embedding NIM release notes / overview / support matrix (NVIDIA) <https://docs.nvidia.com/nim/nemo-retriever/embedding/2.2/release-notes.html> accessed 2026-10-08 [search-tool extract]].
 
@@ -5058,9 +5571,11 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Not publicly verified (`L7-ethicalagents`)
 
-**Tier:** Not scored · **Flags:** Not publicly verified · **Label in the popular stack diagram:** EthicalAgents – embeddings
+**Tier:** Not scored · **Flags:** Not publicly verified
 
 *Rationale:* Could not be verified; removed per CP1 Q4(a).
+
+*Fit by view:* not scored, so no view fit.
 
 **Capabilities.** Not publicly verified: no product of this name found after six searches by Stage A and a fresh search by the verifier [VF]{custom-style="Claim Label"}^[Verified fact — A2-S079: Privacy Policy - Ethical Agentic AI (Ethical Agentic AI Inc.) <https://www.ethicalagentic.ai/privacy-policy> accessed 2026-10-07 [search-tool extract]; V1-S036: Null-result searches for 'EthicalAgents' embeddings and 'Ragoos' reranker (V1 re-check) (Web search tool (V1)) <search-tool-null-result (no URL)> accessed 2026-10-08 [search-tool extract]].
 
@@ -5101,9 +5616,11 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Not publicly verified (`L7-ragoos`)
 
-**Tier:** Not scored · **Flags:** Not publicly verified · **Label in the popular stack diagram:** Ragoos – RAG re-rankers
+**Tier:** Not scored · **Flags:** Not publicly verified
 
 *Rationale:* Could not be verified; removed per CP1 Q4(a).
+
+*Fit by view:* not scored, so no view fit.
 
 **Capabilities.** Not publicly verified: no product of this name found after six searches by Stage A and a fresh search by the verifier [VF]{custom-style="Claim Label"}^[Verified fact — A2-S080: Ragie <https://www.ragie.ai/> accessed 2026-10-07 [search-tool extract]; V1-S036: Null-result searches for 'EthicalAgents' embeddings and 'Ragoos' reranker (V1 re-check) (Web search tool (V1)) <search-tool-null-result (no URL)> accessed 2026-10-08 [search-tool extract]].
 
@@ -5146,7 +5663,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Docling (`L8-docling`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** Docling – doc parser
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* MIT, foundation-governed and self-hostable, so it can anchor the firm's canonical document model; enterprise controls are built around it.
 
@@ -5163,6 +5680,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **4.00 / 4.05** | |
 
 *Evidence rules applied:* Library rule applied (enterprise_readiness and security_compliance scored on what the library enables and project hygiene; inherits host controls)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.05 | 4.05 | 4.10 | 4.25 | 4.10 | 4.10 | 4.00 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Open-source conversion of PDF, Office, legacy Office, HTML, images, audio and video into a unified DoclingDocument, with OCR, VLM pipelines, ASR and hybrid chunking; runs as a library, CLI, docling-serve REST API or MCP server [VF]{custom-style="Claim Label"}^[Verified fact — A1-S057: Docling README (Docling Project (GitHub)) <https://raw.githubusercontent.com/docling-project/docling/main/README.md> accessed 2026-10-07; A1-S111: Docling supported formats (docs source) (Docling Project (GitHub docs source)) <https://raw.githubusercontent.com/docling-project/docling/main/docs/usage/supported_formats.md> accessed 2026-10-07; A1-S082: Docling Serve README (Docling Project (GitHub)) <https://raw.githubusercontent.com/docling-project/docling-serve/main/README.md> accessed 2026-10-07].
 
@@ -5222,7 +5746,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Unstructured: open-source 'unstructured' library and 'unstructured-ingest' connectors; commercial Transform v2 API / platform (`L8-unstructured`)
 
-**Tier:** Strategic · **Flags:** Renamed · **Label in the popular stack diagram:** Unstructured – ETL for docs
+**Tier:** Strategic · **Flags:** Renamed
 
 *Rationale:* The open-source ingest connectors are the only verified source of ACL metadata and incremental reprocessing in L8, with an in-VPC commercial path.
 
@@ -5239,6 +5763,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.80 / 3.85** | |
 
 *Evidence rules applied:* NPV cap lifted at CP2 review (8 October 2026): SSO and RBAC verified (B-REV-S016); audit-log feature not documented; Rule 7 (CP2 Q2) checked at CP2 rework: SSO and RBAC verified, audit logs not documented, so 3 kept (maximum without all three controls)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.85 | 3.65 | 3.95 | 3.70 | 3.90 | 3.80 | 3.90 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 'unstructured' partitioning library and 'unstructured-ingest' connectors (SharePoint including Teams channel files, OneDrive, Confluence, Salesforce, S3 and others) that move data to vector stores and warehouses; commercial Transform v2 API with shared, dedicated and in-VPC tiers [VF]{custom-style="Claim Label"}^[Verified fact — A1-S075: Unstructured open-source library README (Unstructured Technologies (GitHub)) <https://raw.githubusercontent.com/Unstructured-IO/unstructured/main/README.md> accessed 2026-10-07; A1-S094: unstructured-ingest CHANGELOG (Unstructured Technologies (GitHub)) <https://raw.githubusercontent.com/Unstructured-IO/unstructured-ingest/main/CHANGELOG.md> accessed 2026-10-07; A1-S117: Unstructured Pricing Plans for Data Processing <https://unstructured.io/pricing> accessed 2026-10-07 [search-tool extract]; V1-S019: Unstructured Transform: Parse your first document (API v2) <https://docs.unstructured.io/transform/first-request> accessed 2026-10-08 [search-tool extract]].
 
@@ -5299,7 +5830,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Google Cloud Document AI (`L8-google-document-ai`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10). Google's lead document-processing service; confirm the processor region and keep outputs in the firm's canonical document model to limit processor lock-in [AJ]{custom-style="Claim Label"}.
 
@@ -5316,6 +5847,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.40 / 3.25** | |
 
 *Evidence rules applied:* NPV cap lifted at CP2 review (8 October 2026): platform IAM, Cloud Audit Logs and federated SSO verified (B-REV-S010, S012); Rule 6 (CP2 Q1, hyperscaler presumption) applied at CP2 rework: enterprise_readiness 3 -> 4; platform controls presumed (CP2 Q1); confirm per service; Rule 8 (CP2 Q4) re-checked at CP3 rework (8 October 2026): certifications are product-scoped (A1-S102) with CMEK, but the SOC 2 report type is not stated, so security_compliance 5 -> 4 for consistency with other hyperscaler services
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.25 | 3.45 | 3.10 | 3.45 | 3.30 | 3.50 | 3.30 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Google Cloud managed OCR, parsing, extraction and classification through processors: Enterprise Document OCR, Form Parser, Layout Parser (with initial chunking), Custom Extractor, classifier/splitter and Summarizer [VF]{custom-style="Claim Label"}^[Verified fact — A1-S101: Document AI pricing (Google Cloud) <https://cloud.google.com/document-ai/pricing> accessed 2026-10-07].
 
@@ -5373,7 +5911,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Mistral OCR 4.1 (alias mistral-ocr-latest), part of Mistral Document AI (`L8-mistral-ocr`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Mistral OCR – OCR
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* A good EU or self-managed OCR engine to sit behind an interface, but short model-retirement windows make it a component, not a foundation.
 
@@ -5390,6 +5928,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.30 / 3.25** | |
 
 *Evidence rules applied:* NPV cap lifted at CP2 review (8 October 2026): SSO, RBAC and audit logs verified (B-REV-S014, S015); Rule 7 (CP2 Q2) applied at CP2 rework: all three controls plus SCIM; enterprise_readiness 3 -> 4; audit-log export not supported (stated as a due-diligence condition); Rule 8 (CP2 Q4) confirmed: company-level certifications with OCR scope not confirmed score one below the anchor (3)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.25 | 3.25 | 3.25 | 3.20 | 3.30 | 3.30 | 3.30 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Mistral OCR 4.1 (alias mistral-ocr-latest), part of Mistral Document AI: OCR endpoint returning structured output with bounding boxes, block labels, table formatting, header/footer extraction and block-level confidence scores [VF]{custom-style="Claim Label"}^[Verified fact — A1-S083: Mistral Python SDK: OCR operation docs (Mistral AI (GitHub)) <https://raw.githubusercontent.com/mistralai/client-python/main/docs/sdks/ocr/README.md> accessed 2026-10-07; A1-S130: OCR 4.1 - Mistral AI docs <https://docs.mistral.ai/models/ocr-4-1> accessed 2026-10-07 [search-tool extract]].
 
@@ -5450,7 +5995,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## LlamaParse (now the name of LlamaIndex's whole document platform: Parse, Extract, Index, Split, Agents; previously marketed as LlamaCloud) (`L8-llamaparse`)
 
-**Tier:** Tactical · **Flags:** Renamed · **Label in the popular stack diagram:** LlamaParse – PDF / documents
+**Tier:** Tactical · **Flags:** Renamed
 
 *Rationale:* Capable managed parser with EU and BYOC options, but proprietary credits, SDK churn and a platform that reaches into L6/L3 argue against a foundational dependency.
 
@@ -5467,6 +6012,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.40 / 3.20** | |
 
 *Evidence rules applied:* NPV cap lifted at CP2 rework (8 October 2026) under rule 7 (CP2 Q2): SSO verified (A1-S116, B-REV-S023); enterprise_readiness 2 -> 3, held at 3 because hosted roles are flat and audit logs are not documented
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.30 | 3.30 | 3.35 | 3.40 | 3.45 | 3.40 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** LlamaParse is now LlamaIndex's whole document platform (formerly LlamaCloud): agentic OCR and parsing of 130+ formats in priced tiers, structured extraction, splitting, classification, managed ingest/index/RAG pipelines and document agents [VF]{custom-style="Claim Label"}^[Verified fact — A1-S080: LlamaIndex README (company focus shift to LlamaParse) (LlamaIndex, Inc. (GitHub)) <https://raw.githubusercontent.com/run-llama/llama_index/main/README.md> accessed 2026-10-07; A1-S081: Llama Cloud Python SDK README (LlamaIndex, Inc. (GitHub)) <https://raw.githubusercontent.com/run-llama/llama-cloud-py/main/README.md> accessed 2026-10-07; V1-S008: LlamaParse (formerly LlamaCloud) (LlamaIndex) <https://developers.llamaindex.ai/python/framework/llama_cloud/> accessed 2026-10-08 [search-tool extract]].
 
@@ -5527,7 +6079,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Firecrawl (`L8-firecrawl`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Firecrawl – web to LLM-ready
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* The most enterprise-ready web acquisition option, but AGPL open core, US-only data location and unverified security evidence keep it tactical.
 
@@ -5544,6 +6096,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.25 / 3.00** | |
 
 *Evidence rules applied:* security_compliance capped at 2: Firecrawl security claims are vendor-only and flagged in V1 verification_log section 4; Rule 7 (CP2 Q2) applied at CP2 rework (8 October 2026): all three controls plus SCIM (B-REV-S024); enterprise_readiness 3 -> 4
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.00 | 3.20 | 3.05 | 3.25 | 3.20 | 3.30 | 3.25 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Web data API (v2) for scrape, crawl, map, search, extract and parse into Markdown or JSON, plus Cloud-only Agent, Browser and Interact; respects robots.txt by default; Alexandria agent data library launched September 2026 [VF]{custom-style="Claim Label"}^[Verified fact — A1-S053: Firecrawl README (Firecrawl (GitHub)) <https://raw.githubusercontent.com/firecrawl/firecrawl/main/README.md> accessed 2026-10-07; A1-S077: Firecrawl Billing (docs source) (Firecrawl (GitHub docs source)) <https://raw.githubusercontent.com/firecrawl/firecrawl-docs/main/billing.mdx> accessed 2026-10-07; A1-S079: Open source or Firecrawl Cloud (docs source) (Firecrawl (GitHub docs source)) <https://raw.githubusercontent.com/firecrawl/firecrawl-docs/main/contributing/open-source-or-cloud.mdx> accessed 2026-10-07; A1-S129: Introducing Alexandria and our $75M Series B (Firecrawl) <https://www.firecrawl.dev/blog/introducing-alexandria-series-b> accessed 2026-10-07 [search-tool extract]].
 
@@ -5602,7 +6161,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Crawl4AI (`L8-crawl4ai`)
 
-**Tier:** Experimental · **Flags:** none · **Label in the popular stack diagram:** Crawl4AI – open crawler
+**Tier:** Experimental · **Flags:** none
 
 *Rationale:* Useful and permissive in practice, but pre-1.0, single-maintainer and carrying a non-standard licence term.
 
@@ -5619,6 +6178,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.90 / 2.90** | |
 
 *Evidence rules applied:* Library rule applied (enterprise_readiness and security_compliance capped at 4; scored on project hygiene; inherits host controls); Rule 7 (CP2 Q2) checked at CP2 rework: no SSO, RBAC or audit control verified (token auth only, A1-S074); enterprise_readiness 2 kept under the library rule
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.90 | 2.85 | 3.05 | 3.10 | 3.05 | 3.00 | 2.95 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Open-source crawler and scraper producing LLM-ready Markdown or structured data with browser automation, batch crawling and LLM extraction; Python library, CLI, self-hosted REST server, MCP and a hosted Crawl4AI Cloud [VF]{custom-style="Claim Label"}^[Verified fact — A1-S074: Crawl4AI README (UncleCode / Crawl4AI (GitHub)) <https://raw.githubusercontent.com/unclecode/crawl4ai/main/README.md> accessed 2026-10-07].
 
@@ -5677,7 +6243,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Reducto (`L8-reducto`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Reducto – enterprise docs
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Technically strong managed extraction with flexible deployment on paper, but security evidence is vendor-only and the API is proprietary.
 
@@ -5694,6 +6260,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.05 / 2.90** | |
 
 *Evidence rules applied:* NPV cap on enterprise_readiness lifted at CP2 review: SSO/SAML and RBAC on Enterprise per docs.reducto.ai (B-REV-S017); security_compliance capped at 2 (kept): certifications are vendor-only claims flagged in V1 verification_log section 4; Rule 7 (CP2 Q2) checked at CP2 rework: SSO and RBAC verified, audit logging only on a marketing page, so 3 kept
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.90 | 2.95 | 2.95 | 2.95 | 2.95 | 3.00 | 2.95 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Proprietary document ingestion API with Parse, Extract, Split, Edit, Classify and Pipeline resources, asynchronous jobs and webhooks; EU and AU endpoints [VF]{custom-style="Claim Label"}^[Verified fact — A1-S093: Reducto Python SDK API reference (api.md) (Reducto (GitHub)) <https://raw.githubusercontent.com/reductoai/reducto-python-sdk/main/api.md> accessed 2026-10-07; A1-S092: Reducto Python SDK client (environment base URLs) (Reducto (GitHub)) <https://raw.githubusercontent.com/reductoai/reducto-python-sdk/main/src/reducto/_client.py> accessed 2026-10-07].
 
@@ -5752,7 +6325,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## MinerU (`L8-mineru`)
 
-**Tier:** Experimental · **Flags:** none · **Label in the popular stack diagram:** MinerU – PDF parser
+**Tier:** Experimental · **Flags:** none
 
 *Rationale:* Technically capable and local-first, but a custom licence with revenue thresholds, an unpublished commercial price and fresh major-version change.
 
@@ -5769,6 +6342,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.80 / 2.70** | |
 
 *Evidence rules applied:* Library rule applied (enterprise_readiness and security_compliance capped at 4; scored on project hygiene; inherits host controls); Rule 7 (CP2 Q2) checked at CP2 rework: no SSO, RBAC or audit control verified; enterprise_readiness 2 kept under the library rule
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.70 | 2.65 | 2.80 | 2.70 | 2.75 | 2.75 | 2.75 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** MinerU 4.0: local-first parsing of PDF, images, Office, OpenDocument, EPUB, OFD, HTML and CSV into Markdown/JSON with four parsing tiers, a document library with citation locators for agents, and a multi-service router [VF]{custom-style="Claim Label"}^[Verified fact — A1-S055: MinerU README (MinerU 4.0) (OpenDataLab MinerU Team (GitHub)) <https://raw.githubusercontent.com/opendatalab/MinerU/master/README.md> accessed 2026-10-07; A1-S010: PyPI JSON metadata: mineru (Python Package Index) <https://pypi.org/pypi/mineru/json> accessed 2026-10-07].
 
@@ -5827,7 +6407,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Apify (`L8-apify`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Apify – scrapers
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Convenient for public long-tail scraping, but single US region, marketplace code risk and platform-specific Actors.
 
@@ -5844,6 +6424,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.65 / 2.55** | |
 
 *Evidence rules applied:* NPV cap lifted at CP2 review (8 October 2026): roles and SSO documented (B-REV-S025); no audit log found; Rule 7 (CP2 Q2) checked at CP2 rework: roles and SSO verified, no audit log found, so 3 kept
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.55 | 2.75 | 2.45 | 2.80 | 2.60 | 2.75 | 2.60 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Serverless 'Actor' platform for scrapers and automations with Apify Proxy, datasets, key-value stores and request queues, the Apify Store marketplace and an MCP server [VF]{custom-style="Claim Label"}^[Verified fact — A1-S087: Apify platform architecture (docs source) (Apify Technologies s.r.o. (GitHub docs source)) <https://raw.githubusercontent.com/apify/apify-docs/master/sources/platform/security/architecture.md> accessed 2026-10-07; A1-S089: Apify MCP server (docs source) (Apify Technologies s.r.o. (GitHub docs source)) <https://raw.githubusercontent.com/apify/apify-docs/master/sources/platform/integrations/ai/mcp.md> accessed 2026-10-07].
 
@@ -5903,7 +6490,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## MLflow (GenAI capabilities: tracing, evaluation, prompt registry, AI Gateway) (`L9-mlflow-genai`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Apache-2.0, Linux Foundation-hosted and OTel-native, with managed options on the major clouds; the most portable platform of record where an ML platform already exists [AJ]{custom-style="Claim Label"}.
 
@@ -5920,6 +6507,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **4.25 / 4.25** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls; Rule 6 (CP2 Q1, hyperscaler presumption) applied at CP2 rework (8 October 2026) to the SageMaker and Azure ML managed routes: enterprise_readiness 3 -> 4; platform controls presumed (CP2 Q1); confirm per service
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.25 | 4.25 | 4.40 | 4.30 | 4.30 | 4.20 | 4.30 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 AI engineering platform: OTel-based tracing of LLM applications and agents, evaluation and quality monitoring, prompt registry and optimisation, and an AI Gateway, alongside the classic ML lifecycle [VF]{custom-style="Claim Label"}^[Verified fact — A1-S103: MLflow README (MLflow project (Databricks-originated) (GitHub)) <https://raw.githubusercontent.com/mlflow/mlflow/master/README.md> accessed 2026-10-07].
 
@@ -5978,7 +6572,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Langfuse (`L9-langfuse`)
 
-**Tier:** Strategic · **Flags:** Acquired · **Label in the popular stack diagram:** Langfuse – open source
+**Tier:** Strategic · **Flags:** Acquired
 
 *Rationale:* MIT core, OTel ingestion, self-hosting and certified EU Cloud make it a credible platform of record; ClickHouse ownership and the enterprise-gated audit/RBAC modules are the caveats [AJ]{custom-style="Claim Label"}.
 
@@ -5995,6 +6589,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.95 / 3.85** | |
 
 *Evidence rules applied:* Rule 7 (CP2 Q2) applied at CP2 rework (8 October 2026): SSO, RBAC and audit logs plus SCIM verified (A1-S033); enterprise_readiness 3 -> 4
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.85 | 3.95 | 3.85 | 3.90 | 3.90 | 3.95 | 3.90 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Open-core LLM engineering platform: OTel-based tracing of LLM calls, retrieval and agent actions; prompt versioning; LLM-as-a-judge and code evaluators over ingested traces; user feedback and manual labelling; datasets, experiments and a playground; public API [VF]{custom-style="Claim Label"}^[Verified fact — A1-S073: Langfuse README (Langfuse / ClickHouse (GitHub)) <https://raw.githubusercontent.com/langfuse/langfuse/main/README.md> accessed 2026-10-07; A1-S032: OpenTelemetry (OTEL) for LLM Observability - Langfuse (Langfuse (ClickHouse)) <https://langfuse.com/integrations/native/opentelemetry> accessed 2026-10-07 [search-tool extract]].
 
@@ -6055,7 +6656,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## LangSmith (`L9-langsmith`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** LangSmith – trace & eval
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strongest commercial option for LangGraph estates with the certifications and deployment options FS needs. Strategic is conditional: only inside a LangGraph estate, and only with OTel dual-instrumentation as the exit route, because lock-in scores 2 [AJ]{custom-style="Claim Label"}.
 
@@ -6070,6 +6671,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent but per-seat plus per-trace; heavy self-host footprint. |
 | Lock-in / portability | 2 | Proprietary platform, native format recommended, growing bundling with the agent runtime. |
 | **Total (generic / FS)** | **3.95 / 3.80** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.80 | 3.85 | 3.85 | 3.65 | 3.85 | 3.85 | 3.90 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Proprietary observability, evaluation and deployment platform: native and OTel trace ingest, offline and online evaluation on datasets, prompt management, pytest plugin, and hosted agent deployment; now also Engine (beta), Fleet, Sandboxes and an LLM Gateway [VF]{custom-style="Claim Label"}^[Verified fact — A1-S034: Set up LangSmith (deployment options) - Docs by LangChain (LangChain, Inc.) <https://docs.langchain.com/langsmith/platform-setup> accessed 2026-10-07 [search-tool extract]; A1-S037: Introducing End-to-End OpenTelemetry Support in LangSmith (LangChain, Inc.) <https://www.langchain.com/blog/end-to-end-opentelemetry-langsmith> accessed 2026-10-07 [search-tool extract]; A1-S039: Everything we shipped at Interrupt (LangChain, Inc.) <https://www.langchain.com/blog/interrupt-2026-overview> accessed 2026-10-07 [search-tool extract]; A1-S108: LangSmith Python SDK README (LangChain, Inc. (GitHub)) <https://raw.githubusercontent.com/langchain-ai/langsmith-sdk/main/python/README.md> accessed 2026-10-07].
 
@@ -6130,7 +6738,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Opik (`L9-opik`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Opik – comet
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Most permissive full-platform licence in the layer, but missing user management in the open edition and a young codebase keep it below the foundational tier [AJ]{custom-style="Claim Label"}.
 
@@ -6147,6 +6755,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.75 / 3.75** | |
 
 *Evidence rules applied:* Rule 8 (CP2 Q4) checked at CP2 rework (8 October 2026): SOC 2 Type 2 and ISO 27001 are listed against the Opik Enterprise plan (A1-S122), so product scope is stated; security_compliance 4 kept
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.75 | 3.75 | 3.75 | 3.90 | 3.80 | 3.85 | 3.70 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 platform from Comet for tracing LLM calls and agents, datasets and experiments with LLM-as-a-judge metrics (hallucination, moderation, RAG), online evaluation rules on production traces, dashboards, guardrails and an agent/prompt optimiser; PyTest integration, OTel over HTTP, MCP server [VF]{custom-style="Claim Label"}^[Verified fact — A1-S067: Opik README (Comet ML (GitHub)) <https://raw.githubusercontent.com/comet-ml/opik/main/README.md> accessed 2026-10-07; A1-S070: Opik OpenTelemetry integration docs (Comet ML (Opik docs source)) <https://raw.githubusercontent.com/comet-ml/opik/main/apps/opik-documentation/documentation/fern/docs-v2/integrations/opentelemetry.mdx> accessed 2026-10-07; A1-S072: Opik Online Evaluation rules (Comet ML (Opik docs source)) <https://raw.githubusercontent.com/comet-ml/opik/main/apps/opik-documentation/documentation/fern/docs-v2/production/online-evaluation/rules.mdx> accessed 2026-10-07].
 
@@ -6206,7 +6821,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Arize AX (`L9-arize-ax`)
 
-**Tier:** Tactical · **Flags:** Acquired, Duplicated · **Label in the popular stack diagram:** Arize – RAG metrics
+**Tier:** Tactical · **Flags:** Acquired, Duplicated
 
 *Rationale:* Technically strong and FS-deployable, but acquired seven days ago with a convergence roadmap; re-assess for Strategic once Dynatrace publishes product plans [AJ]{custom-style="Claim Label"}.
 
@@ -6221,6 +6836,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent Free and Pro tiers, no per-seat charges; Enterprise custom. |
 | Lock-in / portability | 2 | Base 3 (proprietary backend on portable instrumentation) reduced by 1 for the 2026 ownership change. |
 | **Total (generic / FS)** | **3.85 / 3.70** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.70 | 3.70 | 3.75 | 3.55 | 3.80 | 3.80 | 3.85 |
+| Fit | **Core** | **Core** | **Core** | Situational | **Core** | **Core** | **Core** |
 
 **Capabilities.** Commercial agent observability and evaluation: managed tracing, online and offline evaluation, monitoring and alerting at high volume, managed evaluation compute, multi-tenancy via organisations and spaces, and Signal, a scheduled worker that groups recurring failure patterns into issues [VF]{custom-style="Claim Label"}^[Verified fact — A1-S046: Arize Phoenix or Arize AX - Phoenix docs (Arize AI) <https://arize.com/docs/phoenix/resources/frequently-asked-questions/what-is-the-difference-between-phoenix-and-arize> accessed 2026-10-07 [search-tool extract]; A1-S047: Arize AX Pricing: AI agent observability and evaluation (Arize AI) <https://arize.com/pricing/> accessed 2026-10-07 [search-tool extract]].
 
@@ -6280,7 +6902,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## DeepEval (`L9-deepeval`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** DeepEval – LLM unit tests
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* The most complete open metric library for the layer's questions, but it is a substitutable component of an in-house eval harness, not a platform [AJ]{custom-style="Claim Label"}.
 
@@ -6297,6 +6919,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.75 / 3.70** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.70 | 3.65 | 3.85 | 3.80 | 3.85 | 3.80 | 3.80 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 Python evaluation framework, 'similar to Pytest but specialised for unit testing LLM apps': LLM-as-a-judge, statistical and NLP metrics, including G-Eval, DAG, RAG faithfulness and contextual recall/precision, and agentic metrics (task completion, tool correctness, plan adherence) with trajectory evaluation; runs in any CI/CD [VF]{custom-style="Claim Label"}^[Verified fact — A1-S068: DeepEval README (Confident AI (GitHub)) <https://raw.githubusercontent.com/confident-ai/deepeval/main/README.md> accessed 2026-10-07].
 
@@ -6356,7 +6985,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Promptfoo (`L9-promptfoo`)
 
-**Tier:** Tactical · **Flags:** Acquired · **Label in the popular stack diagram:** Promptfoo – red-teaming
+**Tier:** Tactical · **Flags:** Acquired
 
 *Rationale:* Valuable eval and red-team harness under MIT, but now owned by a model vendor with an unpublished closing date; use as one of two red-team tools, not the sole independent check [AJ]{custom-style="Claim Label"}.
 
@@ -6373,6 +7002,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.70 / 3.55** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.55 | 3.60 | 3.70 | 3.70 | 3.75 | 3.75 | 3.70 |
+| Fit | Situational | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** MIT CLI and library for automated evaluation of prompts, models and agents, red-teaming and vulnerability scanning, side-by-side model comparison, CI/CD checks and pull-request code scanning for LLM security issues; Promptfoo Enterprise as SaaS or On-Prem [VF]{custom-style="Claim Label"}^[Verified fact — A1-S062: Promptfoo README (Promptfoo (OpenAI) (GitHub)) <https://raw.githubusercontent.com/promptfoo/promptfoo/main/README.md> accessed 2026-10-07; A1-S063: Promptfoo Enterprise docs (SaaS and On-Prem) (Promptfoo (OpenAI) (GitHub docs source)) <https://raw.githubusercontent.com/promptfoo/promptfoo/main/site/docs/enterprise/index.md> accessed 2026-10-07].
 
@@ -6432,7 +7068,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Arize Phoenix (`L9-arize-phoenix`)
 
-**Tier:** Tactical · **Flags:** Acquired · **Label in the popular stack diagram:** Phoenix – Atrace
+**Tier:** Tactical · **Flags:** Acquired
 
 *Rationale:* Useful, portable workbench with strong instrumentation; ELv2, no audit trail, community-only support and new Dynatrace ownership make it unsuitable as the production record [AJ]{custom-style="Claim Label"}.
 
@@ -6449,6 +7085,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.65 / 3.50** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted software) applied: NPV cap not applied; enterprise_readiness and security_compliance scored on what the software enables and on project hygiene, capped at 4; inherits host controls; Rule 7 (CP2 Q2) applied at CP2 rework (8 October 2026) for consistency with Opik and Unstructured: roles and OAuth2 IdP login verified (A1-S105); enterprise_readiness 2 -> 3; no audit trail
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.50 | 3.65 | 3.60 | 3.75 | 3.65 | 3.70 | 3.60 |
+| Fit | Situational | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Self-hosted tracing and evaluation built on OpenTelemetry and OpenInference: LLM-based response and retrieval evaluations, versioned datasets, experiments, prompt playground and management, REST API, MCP endpoint and a pytest plugin for eval-in-CI [VF]{custom-style="Claim Label"}^[Verified fact — A1-S066: Arize Phoenix README (Arize AI (GitHub)) <https://raw.githubusercontent.com/Arize-ai/phoenix/main/README.md> accessed 2026-10-07; A1-S049: OpenInference LICENSE (Apache-2.0) (Arize AI (GitHub)) <https://raw.githubusercontent.com/Arize-ai/openinference/main/LICENSE> accessed 2026-10-07; A1-S106: Phoenix: Eval CI with pytest (docs source) (Arize AI (GitHub docs source)) <https://raw.githubusercontent.com/Arize-ai/phoenix/main/docs/phoenix/datasets-and-experiments/how-to-experiments/eval-ci-with-pytest.mdx> accessed 2026-10-07].
 
@@ -6509,7 +7152,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## W&B Weave (Weights & Biases) (`L9-wandb-weave`)
 
-**Tier:** Tactical · **Flags:** Acquired · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** Acquired
 
 *Rationale:* Good security posture and deployment options, but evaluation depth is less evidenced and the product follows a compute vendor's platform strategy [AJ]{custom-style="Claim Label"}.
 
@@ -6526,6 +7169,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.40 / 3.35** | |
 
 *Evidence rules applied:* Rule 8 (CP2 Q4) applied at CP2 rework (8 October 2026): ISO certifications are W&B site-level with Weave scope not stated; security_compliance 5 -> 4
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.35 | 3.30 | 3.10 | 3.30 | 3.30 | 3.35 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Tracing and evaluation toolkit for agents and LLM applications from Weights & Biases: traces conversations, turns, LLM and tool calls; evaluates agents; autopatches agent SDKs including OpenAI Agents SDK, Claude Agent SDK and Google ADK; OTLP/HTTP endpoint plus a dedicated agents endpoint [VF]{custom-style="Claim Label"}^[Verified fact — A1-S104: Weave by Weights & Biases README (Weights & Biases (GitHub)) <https://raw.githubusercontent.com/wandb/weave/master/README.md> accessed 2026-10-07; A1-S139: Send OpenTelemetry Traces to Weave (Weights & Biases (CoreWeave)) <https://docs.wandb.ai/weave/guides/tracking/otel> accessed 2026-10-07 [search-tool extract]].
 
@@ -6586,7 +7236,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Braintrust (`L9-braintrust`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** Braintrust – evals platform
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Strong evaluation workflow and a sensible hybrid model, but proprietary eval assets and no ISO 27001 keep it out of the foundational tier for FS [AJ]{custom-style="Claim Label"}.
 
@@ -6601,6 +7251,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Published Pro price (US$249/month plus usage); Enterprise custom. |
 | Lock-in / portability | 2 | Proprietary platform holding eval logic and datasets; OTel ingest only partially mitigates. |
 | **Total (generic / FS)** | **3.40 / 3.20** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.30 | 3.30 | 3.35 | 3.40 | 3.45 | 3.40 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Proprietary evaluation and observability platform: experiments, datasets and scorers; production trace logging; Topics trace clustering; Loop AI-assisted prompt/model optimisation; a gateway that routes and traces model calls; GitHub Action posting eval results on pull requests [VF]{custom-style="Claim Label"}^[Verified fact — A1-S043: Trace keynote recap: See it, improve it, optimize it (Braintrust Data, Inc.) <https://www.braintrust.dev/blog/trace-keynote> accessed 2026-10-07 [search-tool extract]; A1-S040: Braintrust pricing (Braintrust Data, Inc.) <https://www.braintrust.dev/pricing> accessed 2026-10-07 [search-tool extract]; A1-S109: Braintrust Eval Action README (Braintrust Data, Inc. (GitHub)) <https://raw.githubusercontent.com/braintrustdata/eval-action/main/README.md> accessed 2026-10-07].
 
@@ -6660,7 +7317,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Datadog Agent Observability (documented under the LLM Observability URL path) (`L9-datadog-agent-observability`)
 
-**Tier:** Tactical · **Flags:** Renamed · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** Renamed
 
 *Rationale:* Right answer for production monitoring in Datadog estates, with strong company-level certifications; SaaS-only and per-span metering make it a complement to, not the home of, evaluation evidence [AJ]{custom-style="Claim Label"}.
 
@@ -6677,6 +7334,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.15 / 3.20** | |
 
 *Evidence rules applied:* Rule 7 (CP2 Q2) checked at CP2 rework (8 October 2026): enterprise_readiness 4 kept, re-evidenced with the Roles API (B-L9-S003); rule 8 (CP2 Q4) scope rule confirmed for security_compliance 4
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.15 | 3.10 | 3.05 | 3.15 | 3.15 | 3.25 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Datadog module (documented as Agent Observability under the LLM Observability path) that traces each agent step and LLM call with latency, token usage, cost and errors; scans and redacts sensitive data; identifies prompt injection; runs quality, privacy and safety evaluations; and offers automated Insights [VF]{custom-style="Claim Label"}^[Verified fact — A1-S097: Datadog LLM Observability docs (Datadog, Inc.) <https://docs.datadoghq.com/llm_observability/> accessed 2026-10-07; A1-S099: Datadog LLM Observability: Evaluations (Datadog, Inc.) <https://docs.datadoghq.com/llm_observability/evaluations/> accessed 2026-10-07].
 
@@ -6739,7 +7403,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## LiteLLM (Python SDK and LiteLLM Proxy / 'AI Gateway') (`C1-litellm`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: only as a hardened, pinned, Enterprise-licensed internal service, because the March 2026 compromise and fail-open defaults put security and maturity at 3 [AJ]{custom-style="Claim Label"}.
 
@@ -6756,6 +7420,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **4.05 / 3.90** | |
 
 *Evidence rules applied:* Rule 2 basis: self-hosted open-core software with commercial support; NPV cap not applied
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.90 | 3.95 | 4.00 | 4.20 | 4.15 | 4.20 | 4.15 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Open-core Python SDK and proxy exposing 100+ providers through an OpenAI-format API, with virtual keys, budgets per key/user/team/customer, TPM/RPM limits, fallbacks, exact and semantic caching, pre/during/post-call guardrail hooks and logging callbacks; the same proxy fronts MCP servers and A2A agents [VF]{custom-style="Claim Label"}^[Verified fact — A6-S015: LiteLLM docs: MCP Overview, Agent Gateway (A2A), Caching, Budgets/Rate Limits, v1.89.0 release notes (BerriAI (LiteLLM)) <https://docs.litellm.ai/docs/mcp> accessed 2026-10-07 [search-tool extract]; A6-S051: LiteLLM README (GitHub) (BerriAI (LiteLLM)) <https://raw.githubusercontent.com/BerriAI/litellm/main/README.md> accessed 2026-10-07].
 
@@ -6814,7 +7485,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Kong AI Gateway (AI Gateway 2.x runtime in Kong Konnect; AI plugins in Kong Gateway 3.x) (`C1-kong-ai-gateway`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Kong is the API standard; cost (2) is a stated condition because pricing is not public [AJ]{custom-style="Claim Label"}.
 
@@ -6829,6 +7500,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 2 | Pricing 'contact sales'; advanced plugins licence-gated [VF]{custom-style="Claim Label"}^[Verified fact — A6-S017: Kong AI Gateway changelog; Kong Gateway changelog; AI Proxy Advanced plugin docs (Kong Inc.) <https://developer.konghq.com/ai-gateway/changelog/> accessed 2026-10-07 [search-tool extract]; A6-S018: Kong startup program page (compliance claims, deployment modes) (Kong Inc.) <https://konghq.com/solutions/startup-program> accessed 2026-10-07 [search-tool extract]] |
 | Lock-in / portability | 3 | Apache-2.0 OSS core, but 2.x runtime and advanced plugins licence-gated [VF]{custom-style="Claim Label"}^[Verified fact — A6-S017: Kong AI Gateway changelog; Kong Gateway changelog; AI Proxy Advanced plugin docs (Kong Inc.) <https://developer.konghq.com/ai-gateway/changelog/> accessed 2026-10-07 [search-tool extract]] |
 | **Total (generic / FS)** | **3.85 / 3.80** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.80 | 3.65 | 3.80 | 3.65 | 3.85 | 3.85 | 3.95 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** AI gateway for LLM, MCP and A2A traffic on Kong's API platform: multi-provider routing and load balancing, token budgets and rate limits, semantic caching, semantic prompt/response guards, PII sanitisation, cloud guardrail and NeMo Guardrails integrations, MCP access control and tool filtering; AI Gateway 2.x is a dedicated runtime in Konnect [VF]{custom-style="Claim Label"}^[Verified fact — A6-S016: Kong AI Gateway 2.0 Is Now GA — And It's Already Moving Faster (Kong Inc.) <https://konghq.com/blog/product-releases/kong-ai-gateway-2-0-ga> accessed 2026-10-07 [search-tool extract]; A6-S017: Kong AI Gateway changelog; Kong Gateway changelog; AI Proxy Advanced plugin docs (Kong Inc.) <https://developer.konghq.com/ai-gateway/changelog/> accessed 2026-10-07 [search-tool extract]].
 
@@ -6887,7 +7565,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Apigee (API management) used as an AI gateway (`C1-google-apigee-ai-gateway`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Google Cloud is your primary cloud or Apigee is already the API standard (CP3 Q2, rubric rule 10); lock-in at 2 is the stated condition [AJ]{custom-style="Claim Label"}.
 
@@ -6904,6 +7582,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.80 / 3.65** | |
 
 *Evidence rules applied:* enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.65 | 3.75 | 3.65 | 3.60 | 3.70 | 3.75 | 3.75 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apigee API management marketed as an AI gateway: token limits and monitoring, semantic caching, multicloud model routing with circuit breaking, LLM auditing and logging, Model Armor screening, MCP (GA 31 March 2026) and A2A support; SaaS or hybrid self-managed runtime [VF]{custom-style="Claim Label"}^[Verified fact — A6-S024: Apigee AI solutions: gateway to enterprise-ready AI (Google Cloud) <https://cloud.google.com/solutions/apigee-ai> accessed 2026-10-07; A6-S023: Apigee docs: AI gateway capabilities; semantic caching tutorial; MCP support for Apigee (Google Cloud) <https://docs.cloud.google.com/apigee/docs/api-platform/get-started/ai-capabilities> accessed 2026-10-07 [search-tool extract]; A6-S025: Apigee release notes (all; hybrid) (Google Cloud) <https://docs.cloud.google.com/apigee/docs/release-notes> accessed 2026-10-07 [search-tool extract]].
 
@@ -6959,7 +7644,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Portkey AI Gateway, now branded 'Prisma AIRS AI Gateway' (Palo Alto Networks) (`C1-portkey`)
 
-**Tier:** Tactical · **Flags:** Acquired, Renamed · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** Acquired, Renamed
 
 *Rationale:* Tactical: capable, but ownership and branding changed four months ago and the post-acquisition commercial terms are not public [AJ]{custom-style="Claim Label"}.
 
@@ -6976,6 +7661,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.60 / 3.50** | |
 
 *Evidence rules applied:* enterprise_readiness: NPV cap lifted by verified SSO, roles, audit logs and SCIM (rule 7)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.50 | 3.50 | 3.55 | 3.50 | 3.60 | 3.60 | 3.65 |
+| Fit | Situational | Situational | Situational | Situational | **Core** | **Core** | **Core** |
 
 **Capabilities.** AI gateway routing to 1,600+ models with fallbacks, retries, load balancing, caching, budgets, guardrails and logging, plus an MCP Gateway with a single auth layer; now Palo Alto Networks' Prisma AIRS AI Gateway [VF]{custom-style="Claim Label"}^[Verified fact — A6-S049: Portkey AI Gateway README (GitHub) (Portkey (Palo Alto Networks)) <https://raw.githubusercontent.com/Portkey-AI/gateway/main/README.md> accessed 2026-10-07; A6-S011: Palo Alto Networks Completes Acquisition of Portkey to Secure AI Agents (and 30 Apr 2026 announcement) <https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-portkey-to-secure-ai-agents> accessed 2026-10-07 [search-tool extract]; A6-S014: What is Portkey? - Portkey (Prisma AIRS AI Gateway) Docs (Portkey (Palo Alto Networks)) <https://portkey.ai/docs/introduction/what-is-portkey> accessed 2026-10-07 [search-tool extract]].
 
@@ -7034,7 +7726,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## agentgateway (`C1-agentgateway`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Tactical: the most neutral governance in the layer, but young and with unverified hygiene [AJ]{custom-style="Claim Label"}.
 
@@ -7051,6 +7743,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.40 / 3.45** | |
 
 *Evidence rules applied:* Rule 2 basis: self-hosted open-source software; NPV cap not applied; commercial support exists (B-C1-S010)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.45 | 3.35 | 3.55 | 3.60 | 3.50 | 3.45 | 3.45 |
+| Fit | Situational | Situational | Situational | **Core** | Situational | Situational | Situational |
 
 **Capabilities.** Open-source proxy for agent-to-LLM, agent-to-tool and agent-to-agent traffic: OpenAI-compatible routing with budget and spend controls, load balancing and failover, MCP federation with OAuth, and an A2A gateway [VF]{custom-style="Claim Label"}^[Verified fact — A6-S061: agentgateway README (GitHub) (agentgateway project (Linux Foundation)) <https://raw.githubusercontent.com/agentgateway/agentgateway/main/README.md> accessed 2026-10-07].
 
@@ -7105,7 +7804,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## AI gateway in Azure API Management (plus the AI Gateway tier, preview) (`C1-azure-apim-ai-gateway`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Azure is your primary cloud (CP3 Q2, rubric rule 10), using the GA AI gateway policies in existing APIM tiers, not the preview AI Gateway tier (no SLA); lock-in 2 is accepted under rule 11 because the condition is an existing platform commitment [AJ]{custom-style="Claim Label"}.
 
@@ -7122,6 +7821,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.40 / 3.25** | |
 
 *Evidence rules applied:* enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.25 | 3.40 | 3.15 | 3.40 | 3.35 | 3.50 | 3.40 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** AI gateway policies in Azure API Management: token limits and quotas per consumer, token metrics, semantic caching, load balancing and circuit breaking, Content Safety (incl. Prompt Shields) on LLM, MCP and A2A traffic, MCP exposure and governance, OAuth via credential manager; plus a dedicated AI Gateway tier in preview [VF]{custom-style="Claim Label"}^[Verified fact — A6-S053: AI gateway capabilities in Azure API Management (Microsoft Learn source, ms.date 29 May 2026) <https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/api-management/genai-gateway-capabilities.md> accessed 2026-10-07; A6-S020: Azure API Management AI gateway docs and Tech Community announcements (AI Gateway tier preview; Build 2026 updates) (Microsoft) <https://learn.microsoft.com/en-us/azure/api-management/ai-gateway-overview> accessed 2026-10-07 [search-tool extract]].
 
@@ -7178,7 +7884,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Amazon Bedrock AgentCore Gateway (plus 'Guidance for Multi-Provider Generative AI Gateway on AWS') (`C1-aws-agentcore-gateway`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10), as the gateway for MCP and tool traffic. Maturity 2 is a stated condition: keep model routing on a gateway with GA inference routing until AWS states GA and Regions for inference targets. Same tier as L4-aws-agentcore-gateway-identity [AJ]{custom-style="Claim Label"}.
 
@@ -7195,6 +7901,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.10 / 3.00** | |
 
 *Evidence rules applied:* enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.00 | 3.15 | 2.85 | 3.10 | 3.05 | 3.20 | 3.05 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Managed gateway that turns APIs, Lambda functions and MCP servers into MCP tools behind one endpoint, with IAM or JWT inbound auth, request/response interceptors, Cedar policy enforcement and, newly, inference targets that route to LLM providers with token-aware rate limits; AWS has no product named 'AI gateway' [VF]{custom-style="Claim Label"}^[Verified fact — A6-S021: Amazon Bedrock AgentCore Pricing; AgentCore GA announcement (Oct 2025); AgentCore Gateway docs (Amazon Web Services) <https://aws.amazon.com/bedrock/agentcore/pricing/> accessed 2026-10-07 [search-tool extract]; A6-S074: AWS API model: Amazon Bedrock AgentCore control plane (botocore service-2.json) (Amazon Web Services (via boto/botocore)) <https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/bedrock-agentcore-control/2023-06-05/service-2.json> accessed 2026-10-07; A6-S105: AgentCore Gateway: Inference targets; Inference connector/provider targets; Add rate limits to a gateway (Amazon Web Services) <https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-targets-inference.html> accessed 2026-10-07 [search-tool extract]; A6-S026: Policy in Amazon Bedrock AgentCore is now generally available; AgentCore Policy docs; Why Policy in AgentCore chose Cedar (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/> accessed 2026-10-07 [search-tool extract]].
 
@@ -7249,7 +7962,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Agent Router (formerly Envoy AI Gateway) (`C1-envoy-ai-gateway`)
 
-**Tier:** Tactical · **Flags:** Renamed · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** Renamed
 
 *Rationale:* Tactical: sound plumbing for Envoy estates, but narrower than the leaders and with unverified hygiene [AJ]{custom-style="Claim Label"}.
 
@@ -7266,6 +7979,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.90 / 3.00** | |
 
 *Evidence rules applied:* Rule 2 basis: self-hosted open-source software; NPV cap not applied
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.00 | 2.95 | 3.10 | 3.25 | 3.05 | 3.00 | 2.95 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Agent Router (formerly Envoy AI Gateway): one OpenAI-compatible API for hosted and self-hosted models and MCP servers, with centralised credentials, routing, quotas, failover and usage attribution enforced by Envoy and Envoy Gateway, in a two-tier design [VF]{custom-style="Claim Label"}^[Verified fact — A6-S063: Envoy AI Gateway / Agent Router README (GitHub) (Envoy AI Gateway project (Agentic AI Foundation)) <https://raw.githubusercontent.com/envoyproxy/ai-gateway/main/README.md> accessed 2026-10-07].
 
@@ -7321,7 +8041,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Cloudflare AI Gateway (`C1-cloudflare-ai-gateway`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Tactical: useful edge controls, but managed-only with unverified log localisation and no MCP evidence [AJ]{custom-style="Claim Label"}.
 
@@ -7338,6 +8058,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.00 / 2.80** | |
 
 *Evidence rules applied:* enterprise_readiness: NPV cap lifted to max 3 by one verified control (identity-based controls), rule 7
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.80 | 3.10 | 2.80 | 3.20 | 3.00 | 3.15 | 2.95 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Managed edge proxy for AI provider calls with analytics, caching, rate limiting, logging, Llama Guard guardrails, DLP scanning, dynamic routing and fallback, spend limits, identity-based budgets and Unified Billing [VF]{custom-style="Claim Label"}^[Verified fact — A6-S019: Cloudflare AI Gateway docs: Pricing, Features, Changelog; Cloudflare blog spend limits (Cloudflare, Inc.) <https://developers.cloudflare.com/ai-gateway/reference/pricing/> accessed 2026-10-07 [search-tool extract]; A6-S052: Cloudflare AI Gateway docs: Pricing (source mdx) (Cloudflare, Inc.) <https://raw.githubusercontent.com/cloudflare/cloudflare-docs/production/src/content/docs/ai-gateway/reference/pricing.mdx> accessed 2026-10-07].
 
@@ -7396,7 +8123,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## NVIDIA NeMo Guardrails (open-source library and Guardrails server) (`C2-nemo-guardrails`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Tactical: the most capable in-estate framework, but 0.x Beta with breaking changes; a Strategic candidate at 1.0 [AJ]{custom-style="Claim Label"}.
 
@@ -7413,6 +8140,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.50 / 3.45** | |
 
 *Evidence rules applied:* Rule 2 basis: self-hosted open-source library; NPV cap not applied; commercial support exists (NVIDIA AI Enterprise)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.45 | 3.40 | 3.55 | 3.65 | 3.65 | 3.65 | 3.60 |
+| Fit | Situational | Situational | Situational | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Apache-2.0 toolkit adding programmable rails around LLM applications: content safety, topic safety, jailbreak detection (including a NIM-based model), self-check rails, Colang dialogue rails and third-party integrations; runs as a library or an OpenAI-compatible Guardrails server with a /v1/checks endpoint; new IORails engine for input, output and tool rails [VF]{custom-style="Claim Label"}^[Verified fact — A6-S036: NeMo Guardrails CHANGELOG.md (NVIDIA) <https://raw.githubusercontent.com/NVIDIA-NeMo/Guardrails/develop/CHANGELOG.md> accessed 2026-10-07; A6-S027: NeMo Guardrails Release Notes; IORails engine feature support; Guardrail Catalog (NVIDIA) <https://docs.nvidia.com/nemo/guardrails/latest/about/release-notes.html> accessed 2026-10-07 [search-tool extract]].
 
@@ -7468,7 +8202,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Amazon Bedrock Guardrails (`C2-bedrock-guardrails`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where AWS is your primary cloud (CP3 Q2, rubric rule 10). The strongest managed policy set and AWS's lead guardrail service; use the Classic tier or region-constrained profiles for client data, because the Standard tier uses cross-region inference [AJ]{custom-style="Claim Label"}.
 
@@ -7485,6 +8219,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.50 / 3.35** | |
 
 *Evidence rules applied:* enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.45 | 3.20 | 3.50 | 3.40 | 3.60 | 3.45 |
+| Fit | Situational | Situational | Situational | Situational | Situational | **Core** | Situational |
 
 **Capabilities.** Managed guardrails for prompts and responses: content filters (including PROMPT_ATTACK) with Classic and Standard tiers, denied topics, word filters, PII detection with block or anonymise actions (31 entity types including UK NHS and NI numbers, IBAN, SWIFT), contextual grounding and Automated Reasoning checks; usable with any model through the standalone ApplyGuardrail API [VF]{custom-style="Claim Label"}^[Verified fact — A6-S072: AWS API model: Amazon Bedrock control plane (botocore service-2.json) - guardrail shapes (Amazon Web Services (via boto/botocore)) <https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/bedrock/2023-04-20/service-2.json> accessed 2026-10-07; A6-S073: AWS API model: Amazon Bedrock runtime (botocore service-2.json) - ApplyGuardrail (Amazon Web Services (via boto/botocore)) <https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/bedrock-runtime/2023-09-30/service-2.json> accessed 2026-10-07].
 
@@ -7540,7 +8281,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Model Armor (`C2-google-model-armor`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10). Google's lead guardrail service, efficient and residency-aware; narrower than Bedrock (grounding not evidenced), and the London residency position must be confirmed in writing where UK residency is required [AJ]{custom-style="Claim Label"}.
 
@@ -7557,6 +8298,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.60 / 3.35** | |
 
 *Evidence rules applied:* enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.70 | 3.25 | 3.80 | 3.55 | 3.80 | 3.50 |
+| Fit | Situational | **Core** | Situational | **Core** | Situational | **Core** | Situational |
 
 **Capabilities.** Managed screening of prompts, responses and agent interactions for prompt injection and jailbreaks, malicious URLs and files, harmful content with adjustable thresholds, and sensitive-data leaks (built on Sensitive Data Protection); invoked inline from Apigee, Agent Platform, Google MCP servers, Service Extensions, Firebase or LangChain [VF]{custom-style="Claim Label"}^[Verified fact — A6-S067: Model Armor product page (incl. pricing) (Google Cloud) <https://cloud.google.com/security/products/model-armor> accessed 2026-10-07].
 
@@ -7611,7 +8359,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Azure AI Content Safety (Prompt Shields); Azure product and pricing pages now titled 'Content Safety in Foundry Control Plane' (`C2-azure-ai-content-safety`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Azure is your primary cloud (CP3 Q2, rubric rule 10). Azure's lead guardrail service; GA features only (Prompt Shields, protected material) on regulated routes, because the agent-oriented and groundedness features are preview [AJ]{custom-style="Claim Label"}.
 
@@ -7628,6 +8376,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.30 / 3.20** | |
 
 *Evidence rules applied:* enterprise_readiness set to 4 under the hyperscaler presumption (CP2 Q1): platform controls presumed; confirm per service
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.25 | 3.10 | 3.20 | 3.25 | 3.35 | 3.35 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Managed APIs for harm categories with severity levels, Prompt Shields for user-input and document attacks, protected material detection, groundedness detection (preview), custom categories (preview) and Task Adherence for agent tool use (preview); callable from APIM on LLM, MCP and A2A traffic [VF]{custom-style="Claim Label"}^[Verified fact — A6-S054: What is Azure AI Content Safety? (Microsoft Learn source) <https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/ai-services/content-safety/overview.md> accessed 2026-10-07; A6-S055: What's new in Azure AI Content Safety? (Microsoft Learn source) <https://raw.githubusercontent.com/MicrosoftDocs/azure-ai-docs/main/articles/ai-services/content-safety/whats-new.md> accessed 2026-10-07; A6-S020: Azure API Management AI gateway docs and Tech Community announcements (AI Gateway tier preview; Build 2026 updates) (Microsoft) <https://learn.microsoft.com/en-us/azure/api-management/ai-gateway-overview> accessed 2026-10-07 [search-tool extract]].
 
@@ -7682,7 +8437,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Llama Protections: Llama Guard 4 (12B), Llama Prompt Guard 2 (86M/22M), LlamaFirewall, Code Shield (`C2-meta-llama-protections`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Tactical: useful self-hosted detectors, but no release for 17 months is a maintenance risk for a security control [AJ]{custom-style="Claim Label"}.
 
@@ -7699,6 +8454,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.10 / 2.95** | |
 
 *Evidence rules applied:* Rule 2 basis: self-hosted open weights and open-source framework; NPV cap not applied
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.95 | 3.00 | 3.20 | 3.20 | 3.25 | 3.20 | 3.15 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Meta's open-weight safety components: Llama Guard 4 (12B) classifies prompts and responses (text and images) against a safety taxonomy; Prompt Guard 2 (86M/22M) detects prompt injection and jailbreaks within a 512-token window; LlamaFirewall orchestrates PromptGuard, AlignmentCheck and CodeShield across agent inputs, reasoning and outputs [VF]{custom-style="Claim Label"}^[Verified fact — A6-S030: meta-llama/Llama-Guard-4-12B model card and LICENSE (Hugging Face); Llama Prompt Guard 2 model cards (Meta (via Hugging Face)) <https://huggingface.co/meta-llama/Llama-Guard-4-12B> accessed 2026-10-07 [search-tool extract]; A6-S039: LlamaFirewall README (GitHub) (Meta) <https://raw.githubusercontent.com/meta-llama/PurpleLlama/main/LlamaFirewall/README.md> accessed 2026-10-07; A6-S038: PurpleLlama README (GitHub) (Meta) <https://raw.githubusercontent.com/meta-llama/PurpleLlama/main/README.md> accessed 2026-10-07].
 
@@ -7753,7 +8515,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Guardrails AI (open-source 'guardrails' framework and Guardrails Hub validators) (`C2-guardrails-ai`)
 
-**Tier:** Experimental · **Flags:** Acquired · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Experimental · **Flags:** Acquired
 
 *Rationale:* Experimental: the owner is now an application company, the distribution model changed weeks before the deal, and the roadmap is not stated [AJ]{custom-style="Claim Label"}.
 
@@ -7770,6 +8532,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.70 / 2.60** | |
 
 *Evidence rules applied:* Rule 2 basis: self-hosted open-source library; NPV cap not applied
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.60 | 2.70 | 2.70 | 2.95 | 2.80 | 2.85 | 2.70 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Apache-2.0 Python framework running input and output Guards with composable validators and structured-output validation, plus a Guardrails Server REST API; validators now ship as PyPI packages after the hosted hub and remote inference were retired [VF]{custom-style="Claim Label"}^[Verified fact — A6-S037: Guardrails AI README (GitHub) (Guardrails AI (Harvey)) <https://raw.githubusercontent.com/guardrails-ai/guardrails/main/README.md> accessed 2026-10-07; A6-S029: Guardrails AI docs: Validators; Remote Validation Inference; Deploying Guardrails (Guardrails AI (Harvey)) <https://guardrailsai.com/guardrails/docs/concepts/validators> accessed 2026-10-07 [search-tool extract]; A6-S004: guardrails-ai - PyPI JSON metadata (Python Package Index) <https://pypi.org/pypi/guardrails-ai/json> accessed 2026-10-07].
 
@@ -7826,7 +8595,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Presidio (Data Privacy Stack) (`C3-presidio`)
 
-**Tier:** Strategic · **Flags:** Renamed · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** Renamed
 
 *Rationale:* Strategic, conditional: as the in-estate engine behind a firm-owned privacy service with recall testing and a sampling second detector; enterprise readiness is what the firm builds around it [AJ]{custom-style="Claim Label"}.
 
@@ -7843,6 +8612,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.50 / 3.65** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted library): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.65 | 3.45 | 3.75 | 3.50 | 3.60 | 3.45 | 3.55 |
+| Fit | **Core** | Situational | **Core** | Situational | **Core** | Situational | Situational |
 
 **Capabilities.** Open-source PII detection and de-identification SDK (analyzer, anonymizer, image redactor incl. DICOM, structured data) using NER, regex, rules and checksums with context; LLM-based recognisers added; Python packages and Docker REST services [VF]{custom-style="Claim Label"}^[Verified fact — A6-S068: Presidio README (GitHub, data-privacy-stack) (Presidio / Data Privacy Stack) <https://raw.githubusercontent.com/data-privacy-stack/presidio/main/README.MD> accessed 2026-10-07; A6-S040: Presidio has transitioned to a community-owned project (project_transition.md) (Presidio / Data Privacy Stack) <https://raw.githubusercontent.com/data-privacy-stack/presidio/main/docs/project_transition.md> accessed 2026-10-07; A6-S041: Presidio CHANGELOG.md (Presidio / Data Privacy Stack) <https://raw.githubusercontent.com/data-privacy-stack/presidio/main/CHANGELOG.md> accessed 2026-10-07]. 2.2.364 (22 July 2026), MIT [VF]{custom-style="Claim Label"}^[Verified fact — A6-S005: presidio-analyzer - PyPI JSON metadata (Python Package Index) <https://pypi.org/pypi/presidio-analyzer/json> accessed 2026-10-07; V2-S028: PyPI JSON API: litellm, guardrails-ai, presidio-analyzer, nemoguardrails, llamafirewall, langfuse, promptfoo, modelscan, picklescan, fickling, safetensors, mode <https://pypi.org/pypi/litellm/json> accessed 2026-10-08 [search-tool extract]].
 
@@ -7903,7 +8679,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Sensitive Data Protection (including Cloud Data Loss Prevention / DLP API) (`C3-google-sdp`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Google Cloud is your primary cloud (CP3 Q2, rubric rule 10), because deployment flexibility and lock-in score 2 [AJ]{custom-style="Claim Label"}.
 
@@ -7918,6 +8694,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent but volume-priced: US$3.00/GiB after 1 GiB free; discovery subscription US$2,500/unit/month. |
 | Lock-in / portability | 2 | Google Cloud-specific API; outputs portable. |
 | **Total (generic / FS)** | **3.80 / 3.60** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.60 | 3.85 | 3.50 | 3.85 | 3.65 | 3.85 | 3.70 |
+| Fit | **Core** | **Core** | Situational | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Managed discovery, classification and de-identification (formerly Cloud DLP): profiling of BigQuery, Cloud SQL, Cloud Storage and Agent Platform; 200+ detectors; masking, tokenisation, bucketing; hybrid jobs for external sources; underpins Model Armor [VF]{custom-style="Claim Label"}^[Verified fact — A6-S066: Sensitive Data Protection product page (Google Cloud) <https://cloud.google.com/security/products/sensitive-data-protection> accessed 2026-10-07; A6-S065: Sensitive Data Protection pricing (Google Cloud) <https://cloud.google.com/sensitive-data-protection/pricing> accessed 2026-10-07; A6-S067: Model Armor product page (incl. pricing) (Google Cloud) <https://cloud.google.com/security/products/model-armor> accessed 2026-10-07].
 
@@ -7976,7 +8759,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Microsoft Purview Data Security Posture Management (new unified DSPM, GA May 2026), absorbing the earlier 'DSPM for AI' experience (`C3-microsoft-purview-dspm-ai`)
 
-**Tier:** Strategic · **Flags:** Renamed · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** Renamed
 
 *Rationale:* Strategic, conditional: where Azure and Microsoft 365 are your primary cloud and E5 or the Purview Suite is already licensed (CP3 Q2, rubric rule 10). Microsoft's lead AI data-security posture service, for posture and Copilot evidence only: it is not the prompt-path DLP control for custom agents [AJ]{custom-style="Claim Label"}.
 
@@ -7991,6 +8774,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 2 | Requires E5 or Purview Suite; licensing for Business Premium conflicting. |
 | Lock-in / portability | 2 | Microsoft-specific posture model and labels. |
 | **Total (generic / FS)** | **3.10 / 3.05** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.05 | 3.10 | 2.95 | 2.95 | 3.05 | 3.10 | 3.15 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Unified Purview Data Security Posture Management (GA May 2026) absorbing DSPM for AI: discovers and assesses data-security risk in AI use, including prompts and responses for Microsoft 365 Copilot, Entra-registered AI apps and ChatGPT Enterprise; covers Foundry workloads; partner sources and the posture agent in preview [VF]{custom-style="Claim Label"}^[Verified fact — A6-S090: What's new in Microsoft Purview <https://learn.microsoft.com/en-us/purview/whats-new> accessed 2026-10-07 [search-tool extract]; A6-S091: Considerations for deploying Microsoft Purview DSPM for AI; Get started with DSPM (classic); Purview for Microsoft Foundry <https://learn.microsoft.com/en-us/purview/dspm-for-ai-considerations> accessed 2026-10-07 [search-tool extract]; V2-S036: What's new in Microsoft Purview (with DSPM task mapping page; Tech Community 'Beyond Visibility: the new Microsoft Purview DSPM experience') <https://learn.microsoft.com/en-us/purview/whats-new> accessed 2026-10-08 [search-tool extract]].
 
@@ -8047,7 +8837,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Skyflow (Data Privacy Vault; Detect) (`C3-skyflow`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Purpose-built for reversible LLM tokenisation, but a vendor-held vault is a lock-in and outsourcing decision, not a default [AJ]{custom-style="Claim Label"}.
 
@@ -8064,6 +8854,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.05 / 3.00** | |
 
 *Evidence rules applied:* enterprise_readiness: CP2 Q2 partial evidence (RBAC only verified), max 3
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.00 | 3.00 | 2.90 | 3.00 | 3.00 | 3.10 | 3.05 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Data privacy vault: stores sensitive data and returns tokens; detokenises under role-scoped credentials; Detect APIs de-identify text and files; LLM Privacy Vault tokenises or masks data before models, prompts, RAG, tools, traces and agent workflows with authorised rehydration; EU vaults [VF]{custom-style="Claim Label"}^[Verified fact — A6-S081: skyflow - PyPI JSON metadata (Python Package Index) <https://pypi.org/pypi/skyflow/json> accessed 2026-10-07; A6-S095: Skyflow GDPR Compliance; Data Privacy Vault; LLM Privacy Vault; SOC 2 solution pages; Why Skyflow (docs) <https://www.skyflow.com/gdpr-compliance> accessed 2026-10-07 [search-tool extract]].
 
@@ -8121,7 +8918,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Protegrity (data protection platform; 'Protegrity AI Developer Edition') (`C3-protegrity`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Strong tokenisation and audit model for existing customers; AI editions not yet GA and certification currency unverified [AJ]{custom-style="Claim Label"}.
 
@@ -8138,6 +8935,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.90 / 2.75** | |
 
 *Evidence rules applied:* security_compliance 2 by anchor (certificate currency unverified, no SOC 2 found); not an NPV cap; enterprise_readiness: CP2 Q2 partial evidence (RBAC and audit verified, SSO NPV), max 3
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.75 | 2.80 | 2.80 | 2.85 | 2.85 | 2.90 | 2.90 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Enterprise data-protection platform: Data Discovery for PII in unstructured text; Find and Redact, Protect and Unprotect under Protegrity protection policies (tokenisation, masking); Semantic Guardrail API; ESA central policy with role-per-data-element permissions and audit [VF]{custom-style="Claim Label"}^[Verified fact — A6-S082: protegrity-developer-python - PyPI JSON metadata (Python Package Index) <https://pypi.org/pypi/protegrity-developer-python/json> accessed 2026-10-07; B-C3-S004: Policy Management and Enterprise Security Administrator (ESA) documentation 10.1 (Protegrity) <https://docs.protegrity.com/10.1/docs/pmg/_print/> accessed 2026-10-08 [search-tool extract]]. AI Team Edition (17 November 2025) still Tech Preview, AWS-only [VF]{custom-style="Claim Label"}^[Verified fact — A6-S093: Protegrity AI Team Edition to Secure Agentic Workflows; AI Team Edition docs (Tech Preview); Protegrity Expands Team (April 2026) <https://www.protegrity.com/news/protegrity-ai-team-edition-to-secure-agentic-workflows> accessed 2026-10-07 [search-tool extract]].
 
@@ -8196,7 +9000,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Open Policy Agent (OPA) (`C4-opa`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* The neutral, mature policy decision point for agent tool governance across clouds [AJ]{custom-style="Claim Label"}.
 
@@ -8213,6 +9017,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **4.15 / 4.20** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.20 | 4.10 | 4.35 | 4.25 | 4.30 | 4.20 | 4.25 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Open Policy Agent: general-purpose policy engine evaluating Rego policies against JSON input for allow/deny or richer decisions, as library or sidecar/daemon, across services, APIs, Kubernetes and infrastructure; v1.21.1 (29 September 2026), Apache-2.0, CNCF graduated (February 2021) [VF]{custom-style="Claim Label"}^[Verified fact — A6-S046: Open Policy Agent README (GitHub) (Open Policy Agent project (CNCF)) <https://raw.githubusercontent.com/open-policy-agent/opa/main/README.md> accessed 2026-10-07; A6-S048: Go module proxy: github.com/open-policy-agent/opa @latest (Go module proxy (proxy.golang.org)) <https://proxy.golang.org/github.com/open-policy-agent/opa/@latest> accessed 2026-10-07; A6-S088: Open Policy Agent LICENSE (Open Policy Agent project) <https://raw.githubusercontent.com/open-policy-agent/opa/main/LICENSE> accessed 2026-10-07].
 
@@ -8267,7 +9078,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## SPIFFE (specification) and SPIRE (SPIFFE Runtime Environment) (`C4-spiffe-spire`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* The neutral workload-identity layer beneath agents and tools; mature, open and portable [AJ]{custom-style="Claim Label"}.
 
@@ -8284,6 +9095,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.85 / 4.05** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 4.05 | 3.85 | 4.15 | 3.75 | 3.90 | 3.70 | 3.90 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** SPIFFE specification and SPIRE runtime: attests running workloads and issues SPIFFE IDs and X.509/JWT SVIDs through the Workload API for mTLS or signed JWTs; Envoy SDS; SPIRE v1.15.3 (21 August 2026), Apache-2.0, CNCF graduated [VF]{custom-style="Claim Label"}^[Verified fact — A6-S087: SPIRE README (GitHub) (SPIFFE project (CNCF)) <https://raw.githubusercontent.com/spiffe/spire/main/README.md> accessed 2026-10-07; A6-S042: SPIRE CHANGELOG.md (SPIFFE project (CNCF)) <https://raw.githubusercontent.com/spiffe/spire/main/CHANGELOG.md> accessed 2026-10-07; A6-S043: Go module proxy: github.com/spiffe/spire @latest (Go module proxy (proxy.golang.org)) <https://proxy.golang.org/github.com/spiffe/spire/@latest> accessed 2026-10-07; A6-S089: SPIRE LICENSE (SPIFFE project) <https://raw.githubusercontent.com/spiffe/spire/main/LICENSE> accessed 2026-10-07].
 
@@ -8338,7 +9156,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Cedar policy language; Amazon Verified Permissions (managed Cedar); Policy in Amazon Bedrock AgentCore (Cedar-based) (`C4-cedar`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where AWS is your primary cloud and agents run on AgentCore Gateway (CP3 Q2, rubric rule 10). AgentCore Policy is AWS's lead managed policy service for agent tool calls, and its enforcement point (AgentCore Gateway) is now Strategic on the same condition in C1 and L4. OPA remains the cloud-neutral default; keep Cedar source in Git so policies stay portable [AJ]{custom-style="Claim Label"}.
 
@@ -8355,6 +9173,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.75 / 3.70** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls (Cedar library part); CP3 review: AgentCore Policy security re-based on the AgentCore SOC and ISO evidence already logged by C1 and L4 (B-C1-S005, B-C1-S006, B-L4-S002); 3 to 4
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.70 | 3.70 | 3.65 | 3.65 | 3.70 | 3.75 | 3.70 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Cedar policy language and engine (Apache-2.0; 4.13.0, 15 September 2026) for RBAC/ABAC with schema validation and automated-reasoning analysis; Amazon Verified Permissions (managed Cedar); Policy in Amazon Bedrock AgentCore (GA 3 March 2026, 13 Regions): deny-by-default evaluation of every gateway tool call on identity claims and arguments, denied tools filtered from tools/list, natural-language authoring, decisions logged to CloudWatch; policies now authored in Dogwood, an open-source Cedar superset [VF]{custom-style="Claim Label"}^[Verified fact — A6-S044: Cedar CHANGELOG.md (cedar-policy crate) (Cedar project) <https://raw.githubusercontent.com/cedar-policy/cedar/main/cedar-policy/CHANGELOG.md> accessed 2026-10-07; A6-S045: Cedar README (GitHub) (Cedar project) <https://raw.githubusercontent.com/cedar-policy/cedar/main/README.md> accessed 2026-10-07; A6-S026: Policy in Amazon Bedrock AgentCore is now generally available; AgentCore Policy docs; Why Policy in AgentCore chose Cedar (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/> accessed 2026-10-07 [search-tool extract]; A6-S104: Amazon Verified Permissions now supports policy store aliases and named policies and policy templates; Cedar 4 FAQ; differences from Cedar (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-verified-permissions-policy-store/> accessed 2026-10-07 [search-tool extract]; V2-S033: Policy in Amazon Bedrock AgentCore is now generally available (with AgentCore policy authoring guide and FAQ) (Amazon Web Services) <https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/> accessed 2026-10-08 [search-tool extract]].
 
@@ -8415,7 +9240,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Auth0 for AI Agents; Okta for AI Agents; Okta Agent SSO (Cross App Access, XAA) (`C4-okta-auth0-ai-agents`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Okta is the workforce IdP; FS 3.55 is below the usual 3.6 because deployment scores 2 (SaaS only), accepted because agent identities must live in the same directory as the delegating humans [AJ]{custom-style="Claim Label"}.
 
@@ -8432,6 +9257,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.65 / 3.55** | |
 
 *Evidence rules applied:* CP3 review: earlier CP2 Q2 cap (audit only on a training page) lifted; System Log coverage of AI agents and the AI agent administrator role are in Okta reference documentation (B-REVB-S001)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.55 | 3.60 | 3.45 | 3.75 | 3.65 | 3.80 | 3.70 |
+| Fit | Situational | **Core** | Situational | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Auth0 for AI Agents (GA 19 November 2025: user authentication, Token Vault, asynchronous authorisation via CIBA, FGA for RAG; Auth for MCP and OBO Token Exchange GA May 2026); Okta for AI Agents (GA 30 April 2026: discover, onboard, protect, govern agent identities); Okta Agent SSO / Cross App Access (GA 24 August 2026), the MCP Enterprise-Managed Authorization extension [VF]{custom-style="Claim Label"}^[Verified fact — A6-S097: Auth0 for AI Agents is Now Generally Available (GA); Auth0 May 2026 product innovations (Auth0 (Okta)) <https://auth0.com/blog/auth0-for-ai-agents-generally-available/> accessed 2026-10-07 [search-tool extract]; A6-S100: Okta for AI Agents is Now Generally Available; Okta announces new blueprint for the secure agentic enterprise (Okta, Inc.) <https://www.okta.com/blog/ai/okta-for-ai-agents-general-availability/> accessed 2026-10-07 [search-tool extract]; A6-S099: Okta brings first-class identity to AI agents with Agent SSO; Okta Introduces Agent SSO for Cross App Access (XAA) (Okta, Inc.) <https://www.okta.com/newsroom/press-releases/okta-brings-first-class-identity-to-ai-agents-with-agent-sso/> accessed 2026-10-07 [search-tool extract]; V2-S035: Okta brings first-class identity to AI agents with Agent SSO (with Okta support article, OIE release notes, Oktane 2026 release) <https://www.okta.com/newsroom/press-releases/okta-brings-first-class-identity-to-ai-agents-with-agent-sso/> accessed 2026-10-08 [search-tool extract]].
 
@@ -8491,7 +9323,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Microsoft Entra Agent ID (`C4-entra-agent-id`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: where Entra is the workforce IdP; FS 3.50 is below the usual 3.6 because deployment and cost score 2, accepted because agent identity must live in the same directory as the delegating humans [AJ]{custom-style="Claim Label"}.
 
@@ -8506,6 +9338,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 2 | Agent 365 licence needed for security features; prices not verified. |
 | Lock-in / portability | 3 | Standard OAuth/OIDC tokens, but proprietary agent constructs and licensing. |
 | **Total (generic / FS)** | **3.55 / 3.50** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.50 | 3.45 | 3.40 | 3.55 | 3.55 | 3.65 | 3.65 |
+| Fit | Situational | Situational | Situational | Situational | Situational | **Core** | **Core** |
 
 **Capabilities.** Agent identity platform in Microsoft Entra: agent identity blueprints, agent identities, agent users, owners/sponsors/managers; OAuth client_credentials for autonomous agents, jwt-bearer On-Behalf-Of, refresh_token for long-running delegated work, no interactive flows; Conditional Access, ID Governance access packages, ID Protection, network controls and sign-in/audit logs extended to agents; supports MCP, A2A and non-Microsoft agents via sidecar SDK or workload identity federation [VF]{custom-style="Claim Label"}^[Verified fact — A6-S057: What is Microsoft Entra Agent ID? (Microsoft Learn source) <https://raw.githubusercontent.com/MicrosoftDocs/entra-docs/main/docs/agent-id/what-is-microsoft-entra-agent-id.md> accessed 2026-10-07; A6-S058: What's new in Microsoft Entra Agent ID (Microsoft Learn source) <https://raw.githubusercontent.com/MicrosoftDocs/entra-docs/main/docs/agent-id/whats-new-agent-id.md> accessed 2026-10-07; A6-S060: Authentication protocols for agents (Microsoft Learn source) <https://raw.githubusercontent.com/MicrosoftDocs/entra-docs/main/docs/agent-id/agent-oauth-protocols.md> accessed 2026-10-07]. GA April 2026 [VF]{custom-style="Claim Label"}^[Verified fact — V2-S032: Microsoft Entra releases and announcements (with What's new in Entra Agent ID; Entra blog 'Build AI agents for production with secure identities from day one';  <https://learn.microsoft.com/en-us/entra/fundamentals/whats-new> accessed 2026-10-08 [search-tool extract]].
 
@@ -8564,7 +9403,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## MCP Authorization (MCP specification 2026-07-28) plus Enterprise-Managed Authorization extension (`C4-mcp-authorization`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions. Tier set by the reader at Checkpoint 3 (CP3 Q1): MCP (L4-mcp) and its authorisation profile are one decision. FS 3.45 and reliability 2 (IETF drafts, four breaking revisions) are why the condition includes pinning the specification revision at the gateway. Conflict of interest: MCP originated at Anthropic and the author is an Anthropic model [AJ]{custom-style="Claim Label"}.
 
@@ -8581,6 +9420,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.50 / 3.45** | |
 
 *Evidence rules applied:* Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.45 | 3.40 | 3.55 | 3.65 | 3.65 | 3.65 | 3.60 |
+| Fit | Situational | Situational | Situational | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Authorisation profile of OAuth 2.1 (still an IETF draft) for MCP: server as resource server with Protected Resource Metadata (RFC 9728), PKCE, audience-bound tokens via Resource Indicators (RFC 8707), token passthrough forbidden; 2026-07-28 adds RFC 9207 issuer validation and issuer-bound clients and deprecates Dynamic Client Registration; Enterprise-Managed Authorization (ID-JAG) extension Stable. Authorisation is OPTIONAL [VF]{custom-style="Claim Label"}^[Verified fact — A6-S033: MCP specification 2026-07-28: Authorization (Model Context Protocol project) <https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/specification/2026-07-28/basic/authorization/index.mdx> accessed 2026-10-07; A6-S034: MCP specification 2026-07-28: Authorization security considerations (Model Context Protocol project) <https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/specification/2026-07-28/basic/authorization/security-considerations.mdx> accessed 2026-10-07; A6-S032: MCP specification 2026-07-28: Key Changes (changelog) (Model Context Protocol project (Agentic AI Foundation)) <https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/specification/2026-07-28/changelog.mdx> accessed 2026-10-07; A6-S035: MCP extension: Enterprise-Managed Authorization (overview) (Model Context Protocol project) <https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/extensions/auth/enterprise-managed-authorization.mdx> accessed 2026-10-07; A6-S079: MCP ext-auth: Enterprise-Managed Authorization specification (Stable) (Model Context Protocol project) <https://raw.githubusercontent.com/modelcontextprotocol/ext-auth/main/specification/stable/enterprise-managed-authorization.mdx> accessed 2026-10-07].
 
@@ -8641,7 +9487,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## LangSmith prompt management (Prompts, Prompt Hub) (`C5-langsmith-prompts`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Strategic only in a LangSmith/LangGraph estate, with GitHub sync enabled as the exit route; otherwise Tactical [AJ]{custom-style="Claim Label"}.
 
@@ -8656,6 +9502,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Per-seat plus per-trace pricing; heavy self-host footprint. |
 | Lock-in / portability | 3 | Proprietary service, but prompt text syncs to GitHub, so lock-in is lower than for LangSmith traces (L9 scores 2). |
 | **Total (generic / FS)** | **4.00 / 3.95** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.95 | 3.90 | 4.00 | 3.75 | 3.95 | 3.90 | 4.00 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Prompts stored as a commit history with diffs; reserved Staging and Production environments assigned by promotion; per-environment rollback history; 'owners only' mode restricting who may tag, promote or delete; webhooks on every commit; synchronisation of prompts with a GitHub repository; public prompt hub [VF]{custom-style="Claim Label"}^[Verified fact — A7-S076: LangSmith docs: Manage prompts (LangChain) <https://raw.githubusercontent.com/langchain-ai/docs/main/src/langsmith/manage-prompts.mdx> accessed 2026-10-07].
 
@@ -8714,7 +9567,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Langfuse Prompt Management (a capability of the Langfuse platform) (`C5-langfuse-prompts`)
 
-**Tier:** Strategic · **Flags:** Acquired · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** Acquired
 
 *Rationale:* Strategic only where Langfuse is the L9 platform of record and the Enterprise licence is bought for protected labels, RBAC and audit logs; otherwise Tactical [AJ]{custom-style="Claim Label"}.
 
@@ -8731,6 +9584,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.95 / 3.85** | |
 
 *Evidence rules applied:* CP3 review: enterprise readiness raised from 3 to 4 to match the CP2-reworked L9 Langfuse score (rule 7: all three controls plus SCIM and an admin API)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.85 | 3.95 | 3.85 | 3.90 | 3.90 | 3.95 | 3.90 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Prompt registry inside the Langfuse platform: every prompt version gets an immutable version ID; labels (production, staging, tenant or experiment) select which version the SDK fetches; SDKs cache prompts client-side; prompt versions are linked to traces so quality and cost can be analysed by version; protected prompt labels restrict who may move a production label (Enterprise) [VF]{custom-style="Claim Label"}^[Verified fact — A7-S071: Langfuse docs: Prompt Management overview (Langfuse (ClickHouse)) <https://raw.githubusercontent.com/langfuse/langfuse-docs/main/content/docs/prompt-management/overview.mdx> accessed 2026-10-07; A7-S072: Langfuse docs: Prompt version control (Langfuse (ClickHouse)) <https://raw.githubusercontent.com/langfuse/langfuse-docs/main/content/docs/prompt-management/features/prompt-version-control.mdx> accessed 2026-10-07; A7-S074: Langfuse docs: Enterprise License Key (self-hosted) (Langfuse (ClickHouse)) <https://raw.githubusercontent.com/langfuse/langfuse-docs/main/content/self-hosting/license-key.mdx> accessed 2026-10-07].
 
@@ -8790,7 +9650,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Prompts-as-code pattern: Git-versioned prompt files (Prompty, Dotprompt) tested by config-driven evals (e.g. Promptfoo) (`C5-prompts-as-code`)
 
-**Tier:** Strategic · **Flags:** Acquired · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** Acquired
 
 *Rationale:* The only option whose change record lives in the firm's own controls and survives any vendor exit; the Acquired flag refers to Promptfoo as the example eval CLI, which is replaceable [AJ]{custom-style="Claim Label"}.
 
@@ -8807,6 +9667,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.60 / 3.65** | |
 
 *Evidence rules applied:* Rubric rule 2 (self-hosted libraries and open formats): enterprise readiness and security scored on what the pattern enables and on project hygiene, each capped at 4; inherits host controls
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.65 | 3.55 | 3.70 | 3.45 | 3.60 | 3.50 | 3.60 |
+| Fit | **Core** | Situational | **Core** | Situational | **Core** | Situational | **Core** |
 
 **Capabilities.** Prompts as files in the application repository: Prompty (.prompty, markdown with YAML front matter for model, connection and template settings) or Dotprompt (executable Handlebars-based templates, language- and provider-agnostic); changes go through code review and CI, where a CLI such as Promptfoo evaluates the prompt files [VF]{custom-style="Claim Label"}^[Verified fact — A7-S067: Prompty README (Microsoft) <https://raw.githubusercontent.com/microsoft/prompty/main/README.md> accessed 2026-10-07; A7-S066: Dotprompt README (Google) <https://raw.githubusercontent.com/google/dotprompt/main/README.md> accessed 2026-10-07; A7-S068: Promptfoo README (Promptfoo (OpenAI)) <https://raw.githubusercontent.com/promptfoo/promptfoo/main/README.md> accessed 2026-10-07].
 
@@ -8864,7 +9731,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## PromptLayer (Prompt Registry) (`C5-promptlayer`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Strong identity controls and rollout features, but security evidence is vendor-stated, pricing is unverified and it duplicates the registry built into the L9 platforms [AJ]{custom-style="Claim Label"}.
 
@@ -8879,6 +9746,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 2 | Pricing not publicly verified; self-hosting and identity features need an Enterprise contract. |
 | Lock-in / portability | 3 | Proprietary template API, but templates are text retrievable by API; no Git sync documented. |
 | **Total (generic / FS)** | **3.40 / 3.40** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.40 | 3.25 | 3.40 | 3.15 | 3.35 | 3.30 | 3.45 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Prompt Registry with versioned templates; release labels (e.g. 'prod') select the served version and support staged rollouts, user segmentation and A/B testing via dynamic release labels; SDK fetches templates and can proxy provider calls for logging; evals and OpenTelemetry tracing alongside [VF]{custom-style="Claim Label"}^[Verified fact — A7-S004: promptlayer on PyPI (JSON API) (PyPI / PromptLayer) <https://pypi.org/pypi/promptlayer/json> accessed 2026-10-07; A7-S088: PromptLayer docs: Release Labels <https://raw.githubusercontent.com/MagnivOrg/prompt-layer-docs/main/features/prompt-registry/release-labels.mdx> accessed 2026-10-07].
 
@@ -8936,7 +9810,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## LaunchDarkly AgentControl (formerly AI Configs; API unchanged) (`C5-launchdarkly-ai-configs`)
 
-**Tier:** Tactical · **Flags:** Renamed · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** Renamed
 
 *Rationale:* Strongest certifications and rollout mechanics in the control, but SaaS-only with unverified residency scope and proprietary configuration delivery [AJ]{custom-style="Claim Label"}.
 
@@ -8951,6 +9825,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Transparent pricing (US$10 per service connection per month with 5,000 AI runs; US$5 per extra 1,000), but metered on every model call. |
 | Lock-in / portability | 2 | Proprietary service and SDK; code-side defaults reduce runtime dependency but no export path is documented. |
 | **Total (generic / FS)** | **3.30 / 3.20** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.30 | 3.05 | 3.25 | 3.20 | 3.35 | 3.25 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** AgentControl (formerly AI Configs; API unchanged) delivers model name, parameters and prompt messages per user context from the LaunchDarkly feature-management service, with variable interpolation, a code-side default if the service is unavailable, and a tracker recording tokens, latency and success per configuration; online evals with custom judges GA 11 March 2026; agents, trends and approvals added [VF]{custom-style="Claim Label"}^[Verified fact — A7-S089: LaunchDarkly Server-Side AI SDK for Python README <https://raw.githubusercontent.com/launchdarkly/python-server-sdk-ai/main/README.md> accessed 2026-10-07; A7-S117: LaunchDarkly: Introducing AgentControl; AI Configs is now GA; AgentControl API docs <https://launchdarkly.com/blog/introducing-agentcontrol/> accessed 2026-10-07 [search-tool extract]; V2-S045: AgentControl API docs (LaunchDarkly) <https://launchdarkly.com/docs/api/agentcontrol> accessed 2026-10-08 [search-tool extract]].
 
@@ -9011,7 +9892,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## FinOps Open Cost and Usage Specification (FOCUS) (`C6-finops-focus`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* Open, foundation-governed schema that removes tool lock-in from cost data; strategic as the data model, not as a product [AJ]{custom-style="Claim Label"}.
 
@@ -9028,6 +9909,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.80 / 3.85** | |
 
 *Evidence rules applied:* Rubric rule 2 (open specification): enterprise readiness and security scored on what the specification enables and on hygiene, each capped at 4; inherits host controls
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.85 | 3.85 | 4.00 | 3.95 | 3.90 | 3.80 | 3.80 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Open specification for cost and usage data. FOCUS 1.4 was ratified on 4 June 2026; 1.2 added virtual-currency columns for credits and tokens; tokens are carried today through SKU IDs, ConsumedUnit and ConsumedQuantity. FOCUS 1.5 (no ratification date) is scoped to add AI pricing dimensions on SkuPriceDetails and four model-identity properties (ModelDeveloper, ModelFamily, ModelId, ModelVersion) with no new columns; a first-class token-type (input/output) column is deferred [VF]{custom-style="Claim Label"}^[Verified fact — A7-S049: FOCUS Specification CHANGELOG (FinOps Foundation (FOCUS Working Group)) <https://raw.githubusercontent.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/working_draft/CHANGELOG.md> accessed 2026-10-07; A7-S116: FOCUS 1.5 Release Scope; FOCUS for AI; Introducing FOCUS 1.2; Introducing FOCUS 1.4 (FinOps Foundation (FOCUS)) <https://focus.finops.org/focus-1-5-release-scope/> accessed 2026-10-07 [search-tool extract]; V2-S046: FOCUS 1.5 Release Scope: Confirmed and Stretch Features (with Introducing FOCUS 1.4; FOCUS for AI) (FinOps Foundation (FOCUS)) <https://focus.finops.org/focus-1-5-release-scope/> accessed 2026-10-08 [search-tool extract]].
 
@@ -9084,7 +9972,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Gateway-native and provider-native token cost tracking, budgets and chargeback (pattern) (`C6-gateway-cost-attribution`)
 
-**Tier:** Strategic · **Flags:** Acquired · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** Acquired
 
 *Rationale:* The only place where AI spend can be attributed per request and stopped in real time; implementations are replaceable behind the OpenAI-compatible interface. Acquired refers to Portkey [AJ]{custom-style="Claim Label"}.
 
@@ -9101,6 +9989,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.85 / 3.70** | |
 
 *Evidence rules applied:* Rubric rule 2 (pattern): enterprise readiness and security scored on what implementations enable and on their hygiene, each capped at 4; platform controls presumed for cloud gateways (CP2 Q1); confirm per service
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.70 | 3.75 | 3.80 | 3.75 | 3.85 | 3.85 | 3.85 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Pattern: the gateway (C1) issues virtual keys per team, project, user or customer and records tokens and cost per request, enforcing budgets and rate limits (LiteLLM: budgets at key, user, team and customer level, TPM/RPM limits); provider admin APIs (Anthropic Usage & Cost Admin API) and cloud billing tags (Bedrock application inference profiles, Microsoft Foundry project tags) are the reconciliation sources [VF]{custom-style="Claim Label"}^[Verified fact — A7-S010: litellm on PyPI (JSON API) (PyPI / BerriAI) <https://pypi.org/pypi/litellm/json> accessed 2026-10-07; A6-S015: LiteLLM docs: MCP Overview, Agent Gateway (A2A), Caching, Budgets/Rate Limits, v1.89.0 release notes (BerriAI (LiteLLM)) <https://docs.litellm.ai/docs/mcp> accessed 2026-10-07 [search-tool extract]; A7-S070: Usage and Cost Admin API (Claude Platform docs) (Anthropic) <https://platform.claude.com/docs/en/manage-claude/usage-cost-api> accessed 2026-10-07; B-C6-S004: Amazon Bedrock user guide: Application inference profiles; Best practices for cost attribution (Amazon Web Services) <https://docs.aws.amazon.com/bedrock/latest/userguide/cost-mgmt-application-inference-profiles.html> accessed 2026-10-08 [search-tool extract]; B-C6-S005: Plan and manage costs - Microsoft Foundry <https://learn.microsoft.com/en-us/azure/foundry/concepts/manage-costs> accessed 2026-10-08 [search-tool extract]].
 
@@ -9159,7 +10054,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Vantage (cloud cost management platform) (`C6-vantage`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Useful reporting layer for organisations already using it; SaaS-only with unverified residency and vendor-described AI features [AJ]{custom-style="Claim Label"}.
 
@@ -9174,6 +10069,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Managed AI Tags at no extra cost; AI spend counts toward quota tiers whose prices were not verified. |
 | Lock-in / portability | 3 | Proprietary SaaS, but FOCUS-mapped data and an API make export feasible. |
 | **Total (generic / FS)** | **2.95 / 2.90** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.90 | 3.00 | 2.90 | 3.10 | 3.00 | 3.05 | 3.00 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Cloud cost management platform that ingests cloud and AI-provider billing (Anthropic tokens by model, workspace, API key and service tier; Claude Enterprise; OpenAI tokens by model and operation), allocates it via virtual tagging and hierarchical allocation, normalises AI spend with Managed AI Tags (model, provider, token type) and exposes data through an API and an MCP server; its internal schema maps to FOCUS [VF]{custom-style="Claim Label"}^[Verified fact — A7-S113: Vantage blog: Managed AI Tags; Support for Anthropic Costs; Support for Claude Enterprise Costs; OpenAI cost tools <https://www.vantage.sh/blog/managed-ai-tags> accessed 2026-10-07 [search-tool extract]; A7-S090: Vantage MCP Server README <https://raw.githubusercontent.com/vantage-sh/vantage-mcp-server/main/README.md> accessed 2026-10-07].
 
@@ -9231,7 +10133,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## CloudZero (`C6-cloudzero`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Credible allocation features and SOC 2, but SaaS-only, proprietary allocation logic, unverified pricing and vendor-described AI claims [AJ]{custom-style="Claim Label"}.
 
@@ -9246,6 +10148,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 2 | Pricing not publicly verified. |
 | Lock-in / portability | 2 | Proprietary allocation engine (CostFormation); export and FOCUS support not verified. |
 | **Total (generic / FS)** | **2.70 / 2.65** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.65 | 2.70 | 2.60 | 2.65 | 2.65 | 2.70 | 2.70 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Cloud cost intelligence platform that ingests token-level usage and cost from OpenAI, the Anthropic API, Amazon Bedrock (including Claude Platform on AWS) and Azure OpenAI, and allocates it by customer, feature, team, product and environment through its CostFormation engine; a Kubernetes agent supplies container telemetry [VF]{custom-style="Claim Label"}^[Verified fact — A7-S114: CloudZero blog posts on AI cost (token-based pricing, Bedrock, Anthropic, Azure OpenAI) <https://www.cloudzero.com/blog/token-based-pricing/> accessed 2026-10-07 [search-tool extract]; A7-S091: CloudZero Agent README <https://raw.githubusercontent.com/Cloudzero/cloudzero-agent/develop/README.md> accessed 2026-10-07].
 
@@ -9302,7 +10211,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Helicone (AI Gateway and LLM Observability Platform) (`C6-helicone`)
 
-**Tier:** Experimental · **Flags:** Acquired, Not recommended · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Experimental · **Flags:** Acquired, Not recommended
 
 *Rationale:* Maintenance mode after the Mintlify acquisition makes it unsuitable as a dependency; not recommended for new use [AJ]{custom-style="Claim Label"}.
 
@@ -9319,6 +10228,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.60 / 2.50** | |
 
 *Evidence rules applied:* enterprise_readiness capped at 2: SSO, RBAC and audit logs NPV; security_compliance capped at 2: SOC 2 type not stated, no trust-centre report
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.50 | 2.55 | 2.60 | 2.85 | 2.75 | 2.80 | 2.65 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Proxy or logging layer for LLM requests that tracks cost, latency and quality per request, session and user, with prompt versioning and an OpenAI-compatible AI gateway with fallbacks [VF]{custom-style="Claim Label"}^[Verified fact — A7-S046: Helicone README <https://raw.githubusercontent.com/Helicone/helicone/main/README.md> accessed 2026-10-07].
 
@@ -9376,7 +10292,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## HashiCorp Vault (IBM Vault Self-Managed; HCP Vault Dedicated) (`C7-hashicorp-vault`)
 
-**Tier:** Strategic · **Flags:** Acquired · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** Acquired
 
 *Rationale:* Strategic for secrets and agent credential brokerage, conditional on accepting BUSL and IBM ownership (lock-in 2) [AJ]{custom-style="Claim Label"}.
 
@@ -9391,6 +10307,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | BUSL community use free; Enterprise needed for agentic IAM; HCP hourly pricing published. |
 | Lock-in / portability | 2 | Source-available BUSL (base 3), reduced by 1 for the 2025 acquisition (rule 3); licence risk under rule 4. |
 | **Total (generic / FS)** | **3.80 / 3.65** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.65 | 3.75 | 3.65 | 3.60 | 3.70 | 3.75 | 3.75 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Secrets storage and brokerage, dynamic credentials and certificates, identity-based authorisation; agentic IAM (GA in Vault Enterprise 2.1, 1 September 2026) registers agents, validates IdP OAuth JWTs, enforces user, agent-ceiling and request-scoped authorisation, and records user and agent in audit logs [VF]{custom-style="Claim Label"}^[Verified fact — A7-S034: HashiCorp Vault agentic IAM is now generally available (HashiCorp (IBM)) <https://www.hashicorp.com/en/blog/hashicorp-vault-agentic-iam-is-now-generally-available> accessed 2026-10-07 [search-tool extract]; A7-S061: HashiCorp Vault CHANGELOG (HashiCorp / IBM) <https://raw.githubusercontent.com/hashicorp/vault/main/CHANGELOG.md> accessed 2026-10-07].
 
@@ -9448,7 +10371,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Model and package supply-chain scanning (pattern): ModelScan, picklescan, fickling, Hugging Face Hub scanning, safetensors (`C7-model-supply-chain-scanning`)
 
-**Tier:** Strategic · **Flags:** Acquired · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** Acquired
 
 *Rationale:* Mandatory baseline pattern (safetensors by default plus scanning gate); ModelScan's owner was acquired [AJ]{custom-style="Claim Label"}.
 
@@ -9463,6 +10386,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 5 | Free open source with light operations. |
 | Lock-in / portability | 4 | Permissive licences and an open format (base 5), reduced by 1 because ModelScan is vendor-owned after a 2025 acquisition (rule 3). |
 | **Total (generic / FS)** | **3.65 / 3.60** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.60 | 3.65 | 3.75 | 3.75 | 3.75 | 3.70 | 3.65 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Pattern: safe serialisation (safetensors) plus open-source scanners (ModelScan, picklescan, fickling) in CI and at registry promotion, complemented by Hugging Face Hub-side scanning [VF]{custom-style="Claim Label"}^[Verified fact — A7-S082: ModelScan README (Protect AI (Palo Alto Networks)) <https://raw.githubusercontent.com/protectai/modelscan/main/README.md> accessed 2026-10-07; A7-S083: picklescan README (picklescan maintainers) <https://raw.githubusercontent.com/mmaitre314/picklescan/main/README.md> accessed 2026-10-07; A7-S064: fickling on PyPI (PyPI / Trail of Bits) <https://pypi.org/pypi/fickling/json> accessed 2026-10-07; A7-S007: safetensors on PyPI (JSON API) (PyPI / Hugging Face) <https://pypi.org/pypi/safetensors/json> accessed 2026-10-07; A7-S037: Hugging Face Hub Security docs (malware scanning, pickle scanning, third-party scanners Protect AI and JFrog) <https://huggingface.co/docs/hub/security> accessed 2026-10-07 [search-tool extract]].
 
@@ -9519,7 +10449,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## OpenSSF Model Signing (OMS) specification and model-signing library (`C7-openssf-model-signing`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Right standard for internally produced weights, but narrow and with unverified adoption [AJ]{custom-style="Claim Label"}.
 
@@ -9534,6 +10464,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 5 | Free. |
 | Lock-in / portability | 5 | Open specification, Apache-2.0, neutral governance. |
 | **Total (generic / FS)** | **3.35 / 3.50** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.50 | 3.40 | 3.50 | 3.50 | 3.40 | 3.35 | 3.30 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Open specification and Apache-2.0 library to sign and verify ML models of any format with a detached Sigstore bundle (DSSE/in-toto), using Sigstore, key pairs, certificates or PKCS#11 devices, with optional private Sigstore instances and a transparency log [VF]{custom-style="Claim Label"}^[Verified fact — A7-S040: Launch of Model Signing v1.0: OpenSSF AI/ML Working Group Secures the Machine Learning Supply Chain (OpenSSF (Linux Foundation)) <https://openssf.org/blog/2025/04/04/launch-of-model-signing-v1-0-openssf-ai-ml-working-group-secures-the-machine-learning-supply-chain/> accessed 2026-10-07 [search-tool extract]; A7-S038: model-signing on PyPI (JSON API) (PyPI / Sigstore model-transparency (OpenSSF)) <https://pypi.org/pypi/model-signing/json> accessed 2026-10-07; B-C7-S005: Model Transparency README (model-signing) (Sigstore / OpenSSF) <https://raw.githubusercontent.com/sigstore/model-transparency/main/README.md> accessed 2026-10-08].
 
@@ -9588,7 +10525,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Prisma AIRS (AI Runtime Security) 3.0 (`C7-prisma-airs`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Strongest runtime platform technically, but product-scoped certification is unconfirmed and credit licensing plus a proprietary SDK create lock-in; Strategic candidate only in Palo Alto estates after due diligence [AJ]{custom-style="Claim Label"}.
 
@@ -9603,6 +10540,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Published but complex pricing (token-metered credits, PAYG SKU). |
 | Lock-in / portability | 2 | Proprietary SDK licence and credit licensing tied to Strata Cloud Manager; Palo Alto is the acquirer, so no rule 3 reduction. |
 | **Total (generic / FS)** | **3.60 / 3.35** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.35 | 3.45 | 3.45 | 3.60 | 3.60 | 3.70 | 3.60 |
+| Fit | Situational | Situational | Situational | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** AI security platform (3.0, 23 March 2026): AI Model Security (35+ formats, 25+ threat categories, local scans), AI Red Teaming (including agents), AI Runtime by API or network intercept, Agent Artifact Scanning (agent code, MCP servers, skills), AI Skill Security and AI Gateway (GA 16 July 2026) [VF]{custom-style="Claim Label"}^[Verified fact — A7-S027: Palo Alto Networks Secures Agentic AI with Prisma AIRS 3.0 <https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-secures-agentic-ai-with-prisma-airs-3-0> accessed 2026-10-07 [search-tool extract]; A7-S028: New Features - Prisma AIRS (January-August 2026 release notes) (Palo Alto Networks) <https://docs.paloaltonetworks.com/ai-runtime-security/new-features/by-date/prisma-airs/august-2026> accessed 2026-10-07 [search-tool extract]; A7-S039: Prisma AIRS AI Model Security (Palo Alto Networks) <https://www.paloaltonetworks.com/ai-security/ai-model-security> accessed 2026-10-07 [search-tool extract]; V2-S048: Announcing the General Availability of Prisma AIRS AI Gateway (with Calcalist/SDxCentral on Koi completion) (Palo Alto Networks) <https://www.paloaltonetworks.com/blog/2026/07/announcing-general-availability-of-prisma-airs-ai-gateway/> accessed 2026-10-08 [search-tool extract]].
 
@@ -9663,7 +10607,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## HiddenLayer AI Security Platform (`C7-hiddenlayer`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Capable independent specialist, but dated certification evidence, unverified deployment breadth and opaque pricing [AJ]{custom-style="Claim Label"}.
 
@@ -9678,6 +10622,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 2 | Contract-only pricing, not published. |
 | Lock-in / portability | 3 | Proprietary platform with Apache-2.0 SDK; independent ownership. |
 | **Total (generic / FS)** | **3.10 / 3.10** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.10 | 3.00 | 3.10 | 3.05 | 3.10 | 3.10 | 3.15 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Model supply-chain scanning for registries and storage (S3, EFS, container registries), AI Runtime Security for agents against prompt injection, secret exposure and unsafe commands, and Agent Harness Security for coding agents (3 August 2026) [VF]{custom-style="Claim Label"}^[Verified fact — A7-S017: HiddenLayer Raises $100M Series B to Advance AI Security <https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security> accessed 2026-10-07 [search-tool extract]; A7-S029: HiddenLayer on AWS / AWS Marketplace listing / Gartner Peer Insights listing <https://hiddenlayer.com/aws> accessed 2026-10-07 [search-tool extract]].
 
@@ -9735,7 +10686,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Check Point AI Guardrails (formerly Lakera Guard), part of the Check Point AI Defense Plane; AI Agent Security in early access (`C7-lakera`)
 
-**Tier:** Tactical · **Flags:** Acquired, Renamed · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** Acquired, Renamed
 
 *Rationale:* Focused, self-hostable runtime detector; acquisition, renaming, proprietary API and default prompt logging keep it a replaceable component [AJ]{custom-style="Claim Label"}.
 
@@ -9750,6 +10701,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 3 | Published free tier; Enterprise quote-based. |
 | Lock-in / portability | 2 | Proprietary Guard API (base 3), reduced by 1 for the 2025 acquisition (rule 3). |
 | **Total (generic / FS)** | **3.10 / 3.00** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.00 | 3.05 | 3.05 | 2.95 | 3.05 | 3.05 | 3.05 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Runtime screening of prompts and responses through the Guard API for prompt attacks, data leakage (including PII), content violations and off-policy agent behaviour; AI Agent Security (early access from 10 April 2026) adds agent discovery and configuration risk assessment inside the Check Point AI Defense Plane [VF]{custom-style="Claim Label"}^[Verified fact — A7-S025: Lakera docs changelog and 'The Check Point AI Defense Plane' introduction (Lakera (Check Point)) <https://docs.lakera.ai/changelog> accessed 2026-10-07 [search-tool extract]; A7-S026: Check Point Launches AI Defense Plane to Secure the Agentic Enterprise at Scale (Check Point Software) <https://www.checkpoint.com/press-releases/check-point-launches-ai-defense-plane-to-secure-the-agentic-enterprise-at-scale/> accessed 2026-10-07 [search-tool extract]].
 
@@ -9811,7 +10769,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## OpenLineage (with Marquez reference implementation) (`C8-openlineage`)
 
-**Tier:** Strategic · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Strategic · **Flags:** none
 
 *Rationale:* The neutral lineage interchange standard; the firm must add GenAI facets [AJ]{custom-style="Claim Label"}.
 
@@ -9826,6 +10784,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 4 | Free; a backend (Marquez or catalogue) must be operated. |
 | Lock-in / portability | 5 | Open specification, Apache-2.0, neutral governance. |
 | **Total (generic / FS)** | **3.80 / 3.85** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.85 | 3.80 | 4.05 | 3.90 | 3.95 | 3.80 | 3.90 |
+| Fit | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Open specification for runtime data-lineage metadata (run, job and dataset entities extended by facets, and an event protocol), with Python, Java and SQL clients and the Marquez reference implementation; 1.53.0 adds explicit dataset-, field- and job-level lineage facets [VF]{custom-style="Claim Label"}^[Verified fact — A7-S041: OpenLineage README (OpenLineage (LF AI & Data)) <https://raw.githubusercontent.com/OpenLineage/OpenLineage/main/README.md> accessed 2026-10-07; A7-S043: Marquez README (Marquez Project (LF AI & Data)) <https://raw.githubusercontent.com/MarquezProject/marquez/main/README.md> accessed 2026-10-07; A7-S042: OpenLineage CHANGELOG (OpenLineage (LF AI & Data)) <https://raw.githubusercontent.com/OpenLineage/OpenLineage/main/CHANGELOG.md> accessed 2026-10-07].
 
@@ -9880,7 +10845,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## IBM watsonx.governance (`C8-watsonx-governance`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Highest technical coverage; Tactical only because certification scope is not publicly verified; conditional Strategic for IBM estates after due diligence [AJ]{custom-style="Claim Label"}.
 
@@ -9897,6 +10862,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.60 / 3.40** | |
 
 *Evidence rules applied:* security_compliance capped at 2: product-scoped SOC 2/ISO 27001 not publicly verified; FedRAMP status conflicting (B-C8-S002)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.40 | 3.50 | 3.55 | 3.70 | 3.60 | 3.65 | 3.60 |
+| Fit | Situational | Situational | Situational | **Core** | **Core** | **Core** | **Core** |
 
 **Capabilities.** Inventories AI use cases and models; evaluates models, prompt templates and agents; monitors in production and ties metrics to risks, controls and approvals; Compliance Accelerators; AI Asset Discovery (9 July 2026) for unmanaged agents, tools, MCP servers and models; Enforcement Tracking (11 August 2026) for agent metrics against thresholds; exportable factsheets [VF]{custom-style="Claim Label"}^[Verified fact — A7-S103: IBM watsonx.governance product, pricing and model-governance pages; Compliance Accelerators announcement; IBM Cloud catalog <https://www.ibm.com/products/watsonx-governance/pricing> accessed 2026-10-07 [search-tool extract]; A7-S111: IBM announcements 2026: Enforcement Tracking; AI Asset Discovery; security metrics and agent monitoring; Think 2026 AI assurance <https://www.ibm.com/new/announcements/from-governance-policies-to-governance-proof-with-enforcement-tracking-for-watsonx-orchestrate> accessed 2026-10-07 [search-tool extract]; A7-S058: ibm-watsonx-gov on PyPI (PyPI / IBM) <https://pypi.org/pypi/ibm-watsonx-gov/json> accessed 2026-10-07; B-C8-S003: Managing IAM access for watsonx.governance as a Service on AWS; factsheets; Enforcement Tracking (IBM) <https://dataplatform.cloud.ibm.com/docs/content/wsj/openpages/wxgov-aws-iam.html?context=wx> accessed 2026-10-08 [search-tool extract]].
 
@@ -9953,7 +10925,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Credo AI AI governance platform (AI Registry, policy packs, Govern AI Assistant) (`C8-credo-ai`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Strong deployment and identity controls for policy-led governance; certification evidence unconfirmed and validation depth limited [AJ]{custom-style="Claim Label"}.
 
@@ -9970,6 +10942,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.30 / 3.25** | |
 
 *Evidence rules applied:* security_compliance capped at 2: SOC 2 Type II report not re-confirmed (V2 verification log section 4)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.25 | 3.15 | 3.40 | 3.00 | 3.30 | 3.15 | 3.40 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** AI governance platform: AI Registry with auto-discovery, policy packs (EU AI Act, NIST AI RMF, ISO 42001, SOC 2) from a knowledge graph of 160+ policies and 110+ controls, audit-ready evidence and audit trails; moving to agent registry and runtime governance; AIUC-1 integrated [VF]{custom-style="Claim Label"}^[Verified fact — A7-S102: Credo AI - Product; Credo AI homepage; AI Governance Platform & Services <https://www.credo.ai/product> accessed 2026-10-07 [search-tool extract]].
 
@@ -10026,7 +11005,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## Collibra AI Governance / AI Command Center (Collibra 'Enterprise AI Control Plane') (`C8-collibra-ai-governance`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Strong certifications and the lineage bridge, but SaaS-only deployment and no validation workflow [AJ]{custom-style="Claim Label"}.
 
@@ -10041,6 +11020,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | Cost / TCO | 2 | Pricing not published. |
 | Lock-in / portability | 3 | Proprietary SaaS; OpenLineage integration eases lineage portability. |
 | **Total (generic / FS)** | **3.20 / 3.20** | |
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 3.20 | 3.15 | 3.15 | 3.25 | 3.25 | 3.30 | 3.30 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** AI governance on Collibra's data intelligence platform: AI use-case register, model and agent asset domains linked to model versions and agents from integrated AI platforms, EU AI Act and NIST AI RMF assessment templates, 46 controls mapped to EU AI Act, NIST and BCBS 239; OpenLineage integration; trail ML acquisition (announced 5 October 2026) for continuous assessment and runtime enforcement [VF]{custom-style="Claim Label"}^[Verified fact — A7-S099: About Collibra AI Governance (product docs) and AI Command Center product page <https://productresources.collibra.com/docs/collibra/latest/Content/AIGovernance/co_about-ai-governance.htm> accessed 2026-10-07 [search-tool extract]; A7-S122: Collibra Platform Cloud infrastructure and base components; Collibra Cloud Sites and OpenLineage integration blog; Collibra homepage <https://productresources.collibra.com/docs/collibra/latest/Content/Cloud/Intro/co_cloud-introduction.htm> accessed 2026-10-07 [search-tool extract]; A7-S101: Collibra acquires trail ML to automate AI governance from policy to production <https://www.collibra.com/company/newsroom/press-releases/collibra-acquires-trail-ml-to-automate-ai-governance-from-policy-to-production> accessed 2026-10-07 [search-tool extract]].
 
@@ -10098,7 +11084,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## ModelOp Center (positioned as 'Enterprise AI Command Center') (`C8-modelop`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Credible automation claims but the thinnest public evidence in the set [AJ]{custom-style="Claim Label"}.
 
@@ -10115,6 +11101,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **3.00 / 2.95** | |
 
 *Evidence rules applied:* security_compliance capped at 2: certifications not publicly verified (B-C8-S001)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.95 | 2.80 | 3.05 | 2.90 | 3.05 | 3.00 | 3.10 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** AI governance and lifecycle automation ('Enterprise AI Command Center'): inventory with self-service intake, risk tiering and approvals; 25+ governance process templates and 100+ tests and controls; risk-based workflows that can block non-compliant actions; claimed inline protections for agents [VF]{custom-style="Claim Label"}^[Verified fact — A7-S098: ModelOp: Automate AI Governance Workflows & Enforce Compliance; Enterprise AI Command Center; AI Lifecycle Automation <https://www.modelop.com/ai-governance-software/controls> accessed 2026-10-07 [search-tool extract]].
 
@@ -10170,7 +11163,7 @@ This appendix holds the full record for every product assessed: current facts wi
 
 ## ValidMind AI risk platform (ValidMind Platform and ValidMind Library) (`C8-validmind`)
 
-**Tier:** Tactical · **Flags:** none · **Label in the popular stack diagram:** not in the diagram
+**Tier:** Tactical · **Flags:** none
 
 *Rationale:* Best MRM workflow fit and the only SS1/23 claimant, held back by unverified certification evidence and unpublished pricing [AJ]{custom-style="Claim Label"}.
 
@@ -10187,6 +11180,13 @@ This appendix holds the full record for every product assessed: current facts wi
 | **Total (generic / FS)** | **2.95 / 2.90** | |
 
 *Evidence rules applied:* security_compliance capped at 2: SOC 2 Type II not publicly verified (vendor claim, type not stated)
+
+**Fit by view** (re-weighted score; core candidate or situational; see *The seven views*)
+
+| View | FS | TS | SW | SU | AT | DV | AG |
+|------|--:|--:|--:|--:|--:|--:|--:|
+| Score | 2.90 | 2.85 | 2.95 | 2.95 | 2.95 | 2.95 | 3.00 |
+| Fit | Situational | Situational | Situational | Situational | Situational | Situational | Situational |
 
 **Capabilities.** Model risk management platform: Python Library logs tests and documentation artefacts; Platform holds a customisable model inventory and runs documentation, validation workflows, approvals and ongoing monitoring with thresholds, alerts and workflow triggers; LLM test extras and LLM features; point-in-time model attestation [VF]{custom-style="Claim Label"}^[Verified fact — A7-S003: validmind on PyPI (JSON API) (PyPI / ValidMind) <https://pypi.org/pypi/validmind/json> accessed 2026-10-07; A7-S054: ValidMind docs: deployment available options <https://raw.githubusercontent.com/validmind/documentation/main/site/about/deployment/_deployment-available-options.qmd> accessed 2026-10-07; A7-S056: ValidMind docs: ongoing monitoring <https://raw.githubusercontent.com/validmind/documentation/main/site/guide/monitoring/ongoing-monitoring.qmd> accessed 2026-10-07; A7-S097: ValidMind docs: Large language model features <https://raw.githubusercontent.com/validmind/documentation/main/site/about/overview-llm-features.qmd> accessed 2026-10-07; B-C8-S005: ValidMind docs: Working with attestations; platform page; privacy FAQ <https://docs.validmind.ai/guide/attestation/working-with-attestations.html> accessed 2026-10-08 [search-tool extract]].
 

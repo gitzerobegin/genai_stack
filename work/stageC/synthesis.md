@@ -4,7 +4,7 @@
 |---|---|
 | **Date** | 9 October 2026 |
 | **Status** | Stage C synthesis (plan §12 and §16). It covers Parts I and III–XI of the master document. Part II (method, confidence legend, scorecard and classification) and the 17 layer and control chapters sit elsewhere in the master document. |
-| **Basis** | The 17 Stage B sections (`work/stageB/{L1..L9,C1..C8}/section.md`), their x.9–x.13 subsections, `work/stageB/_review/all_scores.md` with the CP4 tier decisions applied, `regulatory_facts.json`, and the What-changed table (`checkpoints/CP1/02_What_Changed_Since_Original_Diagram.md`) |
+| **Basis** | The 17 Stage B sections (`work/stageB/{L1..L9,C1..C8}/section.md`), their x.9–x.13 subsections, `work/stageB/_review/all_scores.md` with the CP4 tier decisions applied, and `regulatory_facts.json` |
 | **Binding decisions applied** | CP1 (SR 26-2 framing; NPV caps), CP2 rules 6–9, CP3 rules 10–13 and tiers, CP4 decisions 1–9 (`checkpoints/CP4/00_CP4_CP4b_Decisions.md`) |
 | **Claim tags** | `[VF …]` verified fact · `[R …]` reported, each followed by source IDs · `[AJ]` architectural judgement · `[Rec]` recommendation · `[NPV]` not publicly verified. IDs resolve in `Enterprise_GenAI_Stack_Oct2026/06_References/bibliography.xlsx` and `05_Data/regulatory_facts.json`. |
 
@@ -38,9 +38,9 @@ After these changes the 140 records stand at **58 Strategic, 67 Tactical, 13 Exp
 
 ## I.1 Ten findings that shape the stack at end of Q3 2026
 
-Ten findings from the research define the stack at the end of Q3 2026 [AJ]. How the stack compares with the popular stack diagram that inspired this review is set out in Part XII; the tile-by-tile table is in `05_Data/what_changed.xlsx` [AJ].
+Ten findings from the research define the stack at the end of Q3 2026, the new baseline this review sets [AJ]. Part XII summarises that baseline: what it establishes, what it excludes and what it names explicitly [AJ].
 
-**1. The enterprise problem is a control system, not a catalogue.** The eight enterprise controls (gateway, guardrails, DLP, identity, configuration, FinOps, AI security, governance) are where a regulated firm manages GenAI risk [AJ]. Meanwhile the gateway has become the place where model, tool and agent traffic is governed: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. The architecture that matters is the control plane wrapped around the tiles, not the tiles themselves [AJ].
+**1. The enterprise problem is a control system, not a catalogue.** The eight enterprise controls (gateway, guardrails, DLP, identity, configuration, FinOps, AI security, governance) are where a regulated firm manages GenAI risk [AJ]. Meanwhile the gateway has become the place where model, tool and agent traffic is governed: LiteLLM, Kong, Azure API Management, Apigee and agentgateway all govern LLM, MCP and A2A traffic [VF: A6-S015, A6-S016, A6-S053, A6-S024, A6-S061]. The architecture that matters is the control plane wrapped around the products, not the products themselves [AJ].
 
 **2. "Neutral" tooling is now mostly owned by platform vendors.** Dynatrace completed its acquisition of Arize (Phoenix and AX) on 1 October 2026 [VF: A1-S045, V1-S005]. ClickHouse announced it had acquired Langfuse on 16 January 2026 [VF: A1-S021, V2-S041]. OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing published [VF: A1-S024, V1-S006]. MongoDB owns Voyage AI and Elastic owns Jina AI [VF: A2-S033, V1-S023, A2-S023, V1-S025]. Nebius closed its acquisition of Tavily on 19 February 2026 [VF: A3-S084, V1-S041]. Stripe agreed to acquire OpenRouter on 19 August 2026, with closing pending [VF: V1-S059, V1-S060]. Palo Alto Networks bought Portkey and Protect AI, Check Point bought Lakera, Harvey bought Guardrails AI, and Mintlify bought Helicone [VF: A6-S011, V2-S025, A7-S014, V2-S039, A7-S012, V2-S038, A6-S028, A7-S112, V2-S043]. SpaceX acquired xAI on 2 February 2026, and the model vendor now operates as SpaceXAI (formerly xAI) [VF: V2-S011]. The consequence is that independence, exit planning and effective challenge can no longer be assumed from a product's origins; they must be designed in [AJ].
 
@@ -125,7 +125,7 @@ The plan required the nine-layer structure to be tested, not assumed (plan §4).
 | H5 | "Vector database" becomes "Retrieval / Knowledge Stores" | **Rename** | L6 "Retrieval, knowledge and memory stores": a derived, entitlement-filtered, rebuildable index with four implementation options [AJ] |
 | H6 | Embeddings and reranking form one retrieval-optimisation layer | **Merge** | L7 "Retrieval optimisation": model choice, version pinning (held in C5), hybrid fusion policy and the retrieval evaluation gate [AJ] |
 | H7 | Ingestion includes lineage, classification, PII/DLP, access-control metadata and incremental indexing | **Keep**, with a scope change (and runtime web access repositioned to L4) | L8 "Ingestion and data preparation" with a built ingestion control envelope around replaceable parsers; policy from C3, evidence to C8 [AJ] |
-| H8 | Evaluation and observability are cross-cutting | **Reposition** | L9 leaves the bottom of the stack and becomes the evaluation and observability plane, joined with C8 as one evidence plane with two owners [AJ] |
+| H8 | Evaluation and observability are cross-cutting | **Reposition** | L9 becomes the evaluation and observability plane across every layer, joined with C8 as one evidence plane with two owners [AJ] |
 
 ## H1: Split L2 into serving → optimisation → gateway/routing, and promote the gateway
 
@@ -211,7 +211,7 @@ The plan required the nine-layer structure to be tested, not assumed (plan §4).
 
 **Resulting architecture change [Rec].**
 - Physically, memory is stored in the firm's L6 stores; the layer is renamed **"Retrieval, knowledge and memory stores"** (see H5).
-- Logically, a thin **L5 memory service** remains in the diagram, because it carries the controls unique to memory: the policy-gated write path, the subject index, retention and erasure "beyond use", and a memory snapshot ID per run.
+- Logically, a thin **L5 memory service** remains in the architecture, because it carries the controls unique to memory: the policy-gated write path, the subject index, retention and erasure "beyond use", and a memory snapshot ID per run.
 - Organisational and procedural memory (style rules, glossaries) is not agent memory: it is a versioned artefact in C5, proposed by the agent and approved by a person.
 - Memory is built last (Phase 6). Hyperscaler memory (AgentCore Memory, Memory Bank) is used only where the agent runtime already lives on that cloud.
 
@@ -280,7 +280,7 @@ The plan required the nine-layer structure to be tested, not assumed (plan §4).
 
 **Evidence.**
 - *The instrumentation standard spans the stack.* OTel GenAI conventions cover client inference, agents, tool execution, retrieval, evaluation and MCP, and evaluation results have their own event type [VF: A1-S061, A1-S059].
-- *Tools couple CI to production.* Six of the evaluation products in the popular stack diagram document a CI evaluation path, and the platforms run evaluators over production traces [VF: A1-S108, A1-S106, A1-S067, A1-S068, A1-S065, A1-S109, A1-S072, A1-S073, A1-S046, A1-S099].
+- *Tools couple CI to production.* Six of the evaluation products assessed in L9 document a CI evaluation path, and the platforms run evaluators over production traces [VF: A1-S108, A1-S106, A1-S067, A1-S068, A1-S065, A1-S109, A1-S072, A1-S073, A1-S046, A1-S099].
 - *Vendors push the layer sideways* into gateways, prompt management, guardrails and security testing [VF: A1-S043, A1-S103, A1-S067, A1-S024]. Every prompt registry is part of an observability platform or adds evaluation of its own [VF: A7-S071, A7-S076, A7-S004, A7-S117].
 - *Governance products consume evaluation evidence directly.* watsonx.governance Enforcement Tracking retrieves agent evaluation metrics against thresholds, and ValidMind logs tests to the governance record [VF: A7-S111, A7-S003, A7-S056].
 - *Regulators converge on ongoing monitoring.* AI Act Articles 26 and 72, the PRA's AI roundtables under SS1/23, ESMA's "frequent ex-post output controls" and IOSCO's human-intervention indicator all require it [VF: R-EUAIA, A8-S016, A8-S017; R-PRA-SS123, A8-S009; R-INTL-AI-ASSETMGMT, A8-S059, A8-S058].
@@ -301,7 +301,7 @@ The plan required the nine-layer structure to be tested, not assumed (plan §4).
 
 ## IV.1 The revised layer model
 
-The verdicts in Part III produce the model below: nine layers, L1 → L9, under one control plane of eight components. The numbers match the 17 chapters; Part XII.5 maps each layer to the popular stack diagram [AJ].
+The verdicts in Part III produce the model below: nine layers, L1 → L9, under one control plane of eight components. The numbers match the 17 chapters; Part XII.5 records which hypothesis shaped each layer [AJ].
 
 | # | Layer at end of Q3 2026 | Defining duty [AJ] |
 |---|---|---|
@@ -1126,19 +1126,19 @@ By the reader's decision, a product or route is listed here only on evidence: de
 
 Select a firm-owned control and evidence plane first, and buy or adopt replaceable components beneath it [Rec]. On today's evidence, the cloud-neutral core of a regulated asset manager's platform is: a hardened LiteLLM or Kong gateway; Langfuse or MLflow with a firm-owned OTel Collector and Git-versioned evaluation datasets; Presidio behind a privacy-service API; agent identities in the workforce IdP with OPA; Git as the configuration of record; Docling and Unstructured inside a built ingestion envelope; Sentence Transformers and pgvector; read-only MCP tools behind a governed gateway (with OpenAPI tools as the independent alternative); LangGraph on Temporal; the primary cloud's in-region model service with vLLM as the exit route; and a two-vendor model portfolio drawn from OpenAI, Anthropic (with GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as the named alternative), Mistral and, on Google Cloud, Gemini, plus Gemma 4 or Mistral self-hosted [Rec]. Deliberately do not select: archived or deprecated products, unverifiable vendors, a third-party broker holding client tokens, licence-blocked weights, autonomous agents with write tools, memory before it is needed, and any vendor-held store as the only copy of the firm's evidence [Rec]. Two routes are on the monitor list by the reader's decision rather than the avoid list: Chinese-origin vendors' own APIs for client data, which the route rule in I.3 still keeps out of client-data paths, and billing intermediation [AJ].
 
-# Part XII: What changed since the popular stack diagram
+# Part XII: The new baseline at a glance
 
-## XII.1 The baseline
+## XII.1 What the baseline is
 
-The popular stack diagram ("Full AI Stack Explained", dated October 2026) was this review's inspiration and baseline. It draws nine layers and 80 product tiles as a shelf of tools [AJ]. This review's What-changed table, built from Stage A research and corrected by two adversarial verifiers, flags **39 of the 80 tiles** as out of date: 9 acquired, 9 mispositioned, 8 renamed, 8 with a wrong version label, 6 not publicly verifiable, 4 duplicated, 3 superseded and 2 deprecated, with some tiles carrying more than one flag [AJ]. The full tile-by-tile table, with sources, is in `05_Data/what_changed.xlsx` [AJ]. The rest of this document presents the stack as it stands at the end of Q3 2026; this part is the bridge from the diagram [AJ].
+This review sets a new baseline: the enterprise GenAI stack as it stands at the end of Q3 2026, built from the review's own research [AJ]. The baseline covers 140 product records, of which 138 are scored (58 Strategic, 67 Tactical and 13 Experimental), across seventeen layers and controls (L1 → L9, then C1 → C8), with 27 regulatory and standards records and 1,449 logged sources; the high-risk claims were re-checked by two adversarial verifiers (Part II) [AJ]. The product-level record, with every fact cell, score and tier, is `05_Data/products.xlsx` [AJ]. Each later quarterly edition is compared with this baseline, its previous edition, tier by tier and record by record, so that a reader can see what moved and why [AJ].
 
-## XII.2 Still sound
+## XII.2 Established in the baseline
 
-These elements of the popular stack diagram remain sound at the end of Q3 2026, sometimes under a new name [AJ]:
+These components hold their place in the baseline on firm evidence [AJ]:
 
-| Still sound | Why (tagged in the sections) |
+| Established | Why (tagged in the sections) |
 |---|---|
-| The nine-layer spine as a teaching device | It still maps the work; Part IV renames, splits and merges layers rather than discarding them [AJ] |
+| The nine-layer model, L1 → L9, under one control plane | It maps the work; Part IV defines each layer by responsibility, after the hypothesis verdicts in Part III [AJ] |
 | vLLM, Hugging Face (Hub), SGLang (conditional) | vLLM is Apache-2.0 and PyTorch Foundation-hosted [VF: A4-S009, A4-S146]; the Hub is the governed open-weight supply [VF: A4-S075] |
 | LangGraph | Workflows and agent loops in one graph, 1.x GA [VF: A4-S039, A4-S001] |
 | Docling, Unstructured | Docling: MIT, an LF AI & Data Graduate project since August 2026 [VF: V1-S091, A1-S057]; Unstructured: ACL-digest connectors [VF: A1-S094] |
@@ -1148,29 +1148,29 @@ These elements of the popular stack diagram remain sound at the end of Q3 2026, 
 | MCP and A2A | Now under a foundation; Strategic only behind a governed gateway (reader's decision, CP3) [VF: A3-S018, A3-S116]. MCP originated at Anthropic; the independent alternative is OpenAPI-described tools behind the same gateway [AJ] |
 | OpenAI, Anthropic, Gemini, Mistral, Gemma | The portfolio candidates, all Strategic, each with its route condition; Anthropic's tier was set by the reader at CP4 and is never the only qualified vendor [AJ] |
 
-## XII.3 Removed or demoted
+## XII.3 Excluded from the baseline, or below the line
 
-These tiles are not part of the enterprise stack at the end of Q3 2026, or sit below the line [Rec]:
+The baseline excludes the following, or places them below the line, on the evidence [Rec]:
 
-| Removed or demoted | Evidence |
+| Excluded or below the line | Evidence |
 |---|---|
 | EthicalAgents, Ragoos | Could not be verified; removed at CP1 [VF: A2-S079, A2-S080] |
-| "Gemma 2.9", "QI4", "Mistral Medium 3.1", unversioned "Mistral OCR" | Labels that do not exist or have been retired [VF: A5-S034, A5-S071, B-L1-S002, A1-S130] |
+| Unpinned, retired or non-existent model labels | The baseline names current, pinned versions: Gemma 4, Z.ai GLM-5.3, Mistral Medium 3.5 (Medium 3.1 retired on 31 August 2026) and Mistral OCR 4.1 [VF: A5-S034, A5-S071, B-L1-S002, A1-S130] |
 | TGI | Repository archived 21 March 2026 [VF: V1-S054] |
 | OpenRouter as "the" multi-provider layer | A model-access source behind the firm's gateway, not the gateway; owner changing [VF: A4-S111, V1-S059] |
-| Separate "Embeddings" and "RAG re-rankers" rows | One retrieval-optimisation responsibility [VF: A2-S012, A2-S010, A2-S029] |
+| Embeddings and reranking as separate layers | One retrieval-optimisation responsibility [VF: A2-S012, A2-S010, A2-S029] |
 | Memory as a separate infrastructure layer | Memory products are retrieval stacks with an extraction step [VF: A3-S053, A3-S003, A3-S005] |
-| "Agent SDK" tiles as peers of LangGraph | Model-vendor harnesses belong in sandboxed sub-steps; the Claude Agent SDK is Alpha and the OpenAI Agents SDK is pre-1.0 [VF: A4-S006, A4-S005] |
+| Model-vendor agent SDKs as peers of LangGraph | Model-vendor harnesses belong in sandboxed sub-steps; the Claude Agent SDK is Alpha and the OpenAI Agents SDK is pre-1.0 [VF: A4-S006, A4-S005] |
 | Ollama and LM Studio in the production picture | Developer tier only; LM Studio's terms exclude service use [VF: A4-S084, A4-S145] |
-| Evaluation drawn as the last box in the pipeline | It is the evidence plane for every layer [AJ] |
+| Evaluation as the last box in the pipeline | It is the evidence plane for every layer [AJ] |
 
-## XII.4 Added to the stack
+## XII.4 Components the baseline names explicitly
 
-The popular stack diagram has no place for the following; each is a named component of the stack at the end of Q3 2026 [AJ]:
+Each of the following is a named component of the baseline at the end of Q3 2026 [AJ]:
 
-| Added capability | Where it lives |
+| Component | Where it lives |
 |---|---|
-| AI traffic gateway (model, tool and agent calls) | C1, promoted to the control plane |
+| AI traffic gateway (model, tool and agent calls) | C1, in the control plane |
 | Guardrails, owned as policy and test sets | C2, invoked from the gateway |
 | DLP and PII protection at six enforcement points | C3 privacy service |
 | Agent identity, delegated authority and tool governance | C4 plus the L4 tool-governance sub-layer |
@@ -1183,19 +1183,19 @@ The popular stack diagram has no place for the following; each is a named compon
 | Ingestion control envelope (source register, lineage, ACLs, incremental indexing) | L8, built around replaceable parsers [VF: A1-S094, A7-S042] |
 | Hyperscaler agent stacks (AgentCore, Foundry, Agent Engine) | Per-cloud alternatives across L3–L5, C1, C2, C4 [VF: A3-S047, B-L3-S006, A4-S114] |
 
-## XII.5 Layer names: from the popular stack diagram to the end of Q3 2026
+## XII.5 How the hypotheses shaped each layer
 
-Part IV.1 sets out the nine layers as they stand. This table maps each one back to the popular stack diagram; the hypotheses (H1–H8) are argued in Part III [AJ].
+Part IV.1 sets out the nine layers and the control plane as they stand. This table records which hypothesis verdict (Part III) gave each one its shape [AJ].
 
-| # | In the popular stack diagram | Name at end of Q3 2026 | Change |
+| # | Name in the baseline | Hypothesis | Shape |
 |---|---|---|---|
-| L1 | LLMs | Foundation-model portfolio | Kept |
-| L2 | Inference | Inference and model access | Split (H1); routing moved to C1 |
-| L3 | Agent frameworks | Orchestration: workflows and agents | Split into three concerns (H2) |
-| L4 | Tools and protocols | Tools and connectivity, with a tool-governance sub-layer | Kept and split (H3) |
-| L5 | Memory | Memory service (logical component of L6) | Merged (H4) |
-| L6 | Vector DBs | Retrieval, knowledge and memory stores | Renamed (H5); absorbs L5 (H4) |
-| L7 | Embeddings; RAG re-rankers | Retrieval optimisation | Merged (H6) |
-| L8 | Data extraction | Ingestion and data preparation | Scope extended (H7); runtime web access moved to L4 |
-| L9 | Evals and observability | Evaluation and observability plane | Repositioned (H8) |
-| C1–C8 | (absent) | Control plane | Added |
+| L1 | Foundation-model portfolio | None assigned | A governed portfolio of tiers from at least two vendors, pinned and re-qualified |
+| L2 | Inference and model access | H1 | Serving, optional optimisation and model access; routing policy sits in C1 |
+| L3 | Orchestration: workflows and agents | H2 | Three stacked concerns: workflow orchestration, bounded agent steps, durable execution |
+| L4 | Tools and connectivity, with a tool-governance sub-layer | H3 | Connectivity plus a mandatory enforcement point bound to C1 and C4 |
+| L5 | Memory service (logical component of L6) | H4 | A governed logical component over the L6 stores, built last |
+| L6 | Retrieval, knowledge and memory stores | H5, H4 | A derived, entitlement-filtered, rebuildable index that also holds memory |
+| L7 | Retrieval optimisation | H6 | Embedding and reranking as one governed responsibility |
+| L8 | Ingestion and data preparation | H7 | A built control envelope around replaceable parsers; runtime web access sits in L4 |
+| L9 | Evaluation and observability plane | H8 | An evidence plane across every layer, joined with C8 |
+| C1–C8 | Control plane | H1, H3, H8 | Firm-owned policy and evidence for every call |

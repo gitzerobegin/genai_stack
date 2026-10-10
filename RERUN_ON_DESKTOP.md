@@ -11,7 +11,7 @@ A desktop with ordinary internet access removes both. Use it to:
 - **resume the pipeline** from the latest checkpoint
 - **re-run any stage from scratch**
 
-`MEMORY.md` records every step taken and `CONTEXT.md` is the project briefing; follow its **House conventions** (layer order L1 → L9, Veyan branding, Mermaid diagrams, the "view at end of Q3 2026" framing). All agent prompts are in `work/prompts/`.
+`MEMORY.md` records every step taken and `CONTEXT.md` is the project briefing; follow its **House conventions** (layer order L1 → L9, Veyan branding, Mermaid diagrams, the new-baseline framing, "the view at end of Q3 2026", with no diagram-relative content). All agent prompts are in `work/prompts/`.
 
 ## 1. Set-up (once)
 
@@ -44,7 +44,7 @@ When you start Claude Code in the repo root, it reads `CLAUDE.md`, which points 
 | 2.3 Primary-source gap-fill | In Claude Code, run prompt **G1** from `work/prompts/gapfill_desktop_prompts.md`, once per stream. Agents can run in parallel; there is no shared search cap. | Facts upgraded to `conf: high`, or corrected |
 | 2.4 Verifier leftovers | Prompt **G2** | Closes each verification log's §5 items |
 | 2.5 Unprofiled products | Prompt **G3** | ServiceNow, OneTrust, Daytona, Modal, Azure AI Search, Vertex Vector Search |
-| 2.6 Rebuild | `python3 -I tools/build_dataset.py .` then `python3 -I tools/build_what_changed.py . && python3 -I tools/build_cp1_what_changed.py .` | `products.json`/`.xlsx`, `bibliography.xlsx`, the "What changed" table, and the integrity report (expect 0 issues) |
+| 2.6 Rebuild | `python3 -I tools/build_dataset.py .`, then `python3 -I tools/diff_tiers.py . <previous-edition commit>` to list tier and score changes against the previous edition | `products.json`/`.xlsx`, `bibliography.xlsx`, the integrity report (expect 0 issues) and `work/refresh/tier_changes.md` |
 | 2.7 Re-score | Re-run the Stage B writers for any layer whose evidence changed (prompts in `work/prompts/stageA_prime_and_stageB_prompts.md`), then `python3 -I tools/score.py work/stageB/<L>/assessments.json --write` | Scores reflect the new evidence; the NPV cap is lifted where facts are now verified |
 | 2.8 Rebuild the deliverables | `bash tools/rebuild_all.sh` (everything, in order: dataset, tag check, diagrams, LinkedIn visuals, stack graphic, explorer, LinkedIn document, deck, master, print and Kindle edition, appendix, ZIP). `bash tools/rebuild_all.sh --quick` skips the PDFs. Update `tools/deck/tiers.json` and slide text first if tiers changed | Refreshed `01_Report` … `08_Graphic`, `01_Report/Print/` and the ZIP. The three PDF layouts take several minutes each |
 | 2.9 Update the synthesis and the views | If a tier changed, ask Claude Code to update `work/stageC/synthesis.md` (Parts I, VII and XI) and, after `python3 -I tools/build_views.py .`, the six view Parts (`work/stageE/views/<VIEW>/view.md`, prompt R4b in `work/prompts/refresh_prompts.md`) to match, run `python3 -I tools/check_tags.py . work/stageC/synthesis.md`, then repeat 2.8 | Report, explorer and deck agree with the new scores |
@@ -71,7 +71,7 @@ Every deliverable is generated, so edit the source and rebuild (`bash tools/rebu
 | Book title, author, ISBNs, blurb, trim, margins | `tools/print/book.json` | `python3 -I tools/build_print_edition.py .` (after `build_master.py`); read `01_Report/Print/Build_Summary.md` and `Publishing_Kit.md` |
 | Word styling and branding | `tools/make_reference_docx.py` (writes `tools/templates/reference.docx`) | rebuild the documents |
 
-Where each section lives (one home each): the LinkedIn series is only in `07_LinkedIn`; the tile-by-tile what-changed table is only in `05_Data/what_changed.xlsx` (summarised in Part XII); product fact sheets are only in `02_Appendix`.
+Where each section lives (one home each): the LinkedIn series is only in `07_LinkedIn`; product fact sheets are only in `02_Appendix`. The old tile-by-tile table against the original diagram is provenance only (`work/stageD/archive/diagram_provenance.xlsx`); it is not a deliverable and is not rebuilt in a re-run.
 
 ## 3. Resume the pipeline
 
@@ -89,7 +89,7 @@ inputs/Execution_Prompt_GenAI_Stack.md and the CP decisions recorded in checkpoi
 | 0 Baseline | `inputs/*` | Done by the lead. Files in `work/stage0/` 01–06 can be reused as they are. | `work/stage0/` |
 | A Research | `work/stage0/05_stageA_research_brief.md` | `work/prompts/stageA_research_prompts.md` (8 agents in parallel), then `stageA_followup_prompts.md` if any gaps remain | `work/stageA/<stream>/` |
 | A′ Verify | `work/stage0/06_stageA_prime_verify_brief.md` | `work/prompts/stageA_prime_and_stageB_prompts.md` (V1, V2) | `work/stageA_verify/V1`, `V2` |
-| Dataset / CP1 | | `tools/build_dataset.py`, `tools/build_what_changed.py`, `tools/build_cp1_what_changed.py` | `05_Data`, `06_References`, `checkpoints/CP1` |
+| Dataset / CP1 | | `tools/build_dataset.py`, `tools/diff_tiers.py` (provenance only: `tools/build_what_changed.py`, `tools/build_cp1_what_changed.py`) | `05_Data`, `06_References`, `work/refresh/` (provenance: `work/stageD/archive/`) |
 | B Write | `work/stage0/07_stageB_writer_brief.md`, `08_scoring_rubric.md` | `work/prompts/stageA_prime_and_stageB_prompts.md` (writer prompts) | `work/stageB/<layer>/` |
 | C, C2, D | Plan §12, §15, §14 | To be recorded in `MEMORY.md` as each stage runs | |
 | F LinkedIn book | `work/stage0/12_stageF_linkedin_book_brief.md`, `work/stageC2/linkedin_series.md`, `work/stageC2/worked_example_build.json` | `work/prompts/stageF_linkedin_book_prompts.md` (five chapter writers in parallel, five posts each) | `work/stageF/linkedin_book/chapters/ch00–ch32.md` (ch25–ch32 = Part IV, the seven-lenses posts, from the view chapters) → `python3 -I tools/build_linkedin_book.py .` → `07_LinkedIn/Book/` |

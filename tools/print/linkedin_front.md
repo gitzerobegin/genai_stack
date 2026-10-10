@@ -8,7 +8,7 @@ The view is deliberately narrow. It is written for people who must make GenAI wo
 
 Two things run through every chapter. The first is a conviction: the products will change every quarter, so the architecture that lasts is the control plane around them, owned by the firm. The second is one worked example: an agent that drafts the monthly performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft. It is generic and illustrative, and it grows a piece at a time as the chapters go on [AJ].
 
-The research behind the series was an independent review of 140 products and the regulation around them, completed in October 2026. It was carried out with the help of an AI model made by Anthropic. Anthropic's products are treated like every other vendor's here, and wherever one is named an independent alternative sits beside it [AJ].
+The research behind the series was an independent review of 140 products and the regulation around them, completed in October 2026. It sets a new baseline for the enterprise GenAI stack as it stands at the end of Q3 2026, and later quarterly editions are compared with it. It was carried out with the help of an AI model made by Anthropic. Anthropic's products are treated like every other vendor's here, and wherever one is named an independent alternative sits beside it [AJ].
 
 Facts carry footnotes with their sources and the date they were checked. Versions, prices, owners and regulatory dates move quickly; treat every fact as true on its date, and check it again before you rely on it [AJ].
 

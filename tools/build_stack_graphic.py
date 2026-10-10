@@ -186,9 +186,8 @@ h1{font-size:46px;margin-top:6px!important;letter-spacing:-.5px;margin:0;color:v
 .tags{display:flex;gap:4px;flex-wrap:wrap;min-height:0}
 .tag{font-size:9.5px;font-weight:700;letter-spacing:.4px;border-radius:4px;padding:1px 5px;margin-bottom:3px}
 .tile.s .tag{background:rgba(255,255,255,.18);color:#fff}
-.tag.new{background:#E3ECF8;color:#1E4E8C}.tag.acq{background:#FBEBDD;color:#9A4E12}.tag.ren{background:#ECE6F6;color:#5B3E8E}
 .tag.cloud{background:#E7F0EC;color:#245C46}.tag.pat{background:#EEF1F4;color:#4C5B69}
-.tile.s .tag.cloud,.tile.s .tag.new,.tile.s .tag.acq,.tile.s .tag.ren{background:rgba(255,255,255,.2);color:#fff}
+.tile.s .tag.cloud{background:rgba(255,255,255,.2);color:#fff}
 .eval{background:#F3F0FA;border:2px solid #5B4B9A}
 .eval .sh .t1{color:#3F3378}
 .plane{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:12px 16px 6px;margin-bottom:14px}
@@ -197,7 +196,6 @@ h1{font-size:46px;margin-top:6px!important;letter-spacing:-.5px;margin:0;color:v
 .ph + .row{border-top:0}
 .lab .code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:6px;padding:2px 8px;font-size:14px}
 .lab .ln{font-size:19px;font-weight:800;color:var(--navy);margin-top:5px;line-height:1.15}
-.lab .was{font-size:12.5px;color:var(--mute);margin-top:3px;font-style:italic}
 .lab .duty{font-size:13px;color:var(--teal);font-weight:600;margin-top:5px}
 .lab .fix{font-size:12px;color:var(--ink);margin-top:6px;line-height:1.3;border-left:3px solid var(--amber);padding-left:7px}
 .eval .row{border-top:0;padding:0}

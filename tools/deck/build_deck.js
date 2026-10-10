@@ -89,7 +89,7 @@ function table(s, rows, o) {
 
 // 1 Title
 let s = slide("TITLE", "The Enterprise GenAI Stack", "Opening");
-s.addText("The reference architecture, what a regulated asset manager should select, and what to deliberately not build yet.", { placeholder: "body" });
+s.addText("A new baseline for the enterprise GenAI stack, set by this research: the reference architecture, what to select, what to deliberately not build yet, and how the advice changes for seven kinds of reader.", { placeholder: "body" });
 T(s, "Reference architecture · 9 layers · 8 enterprise controls · 140 products · 1,255 sources", { x: 5.75, y: 6.2, w: 7.0, h: 0.4, fontSize: 11, color: C.accent5 });
 s.addNotes("Purpose: give the leadership team one decision-ready view of the 2026 GenAI stack. The full evidence (about 230,000 words, 1,255 sources) sits in the master document and appendix. Disclosure: researched and drafted with an Anthropic model; Anthropic items were scored on the same rubric, borderline calls resolved against them, and tiers set by the reader are marked.");
 
@@ -105,19 +105,19 @@ ans.forEach((a, i) => card(s, 0.6 + i * 4.1, 3.7, 3.9, 2.9, a[0], a[1], { bodySi
 s.addNotes("Source: synthesis Part I.2. Rationale for each point: Part I.1 findings 1, 2 and 4.");
 
 // 3 What we reviewed
-s = slide("CONTENT", "What we reviewed: from the popular stack diagram to the view at end of Q3 2026", "Opening");
-const stats = [["80", "tiles in the popular stack diagram", C.text2], ["39", "of 80 tiles out of date: acquired, renamed, mislabelled or unverifiable", C.accent6], ["140", "products profiled (80 tiles, 48 controls, 12 additions)", C.accent1], ["1,255", "sources logged with URL and access date", C.accent3]];
+s = slide("CONTENT", "A new baseline, set by this research", "Opening");
+const stats = [["17", "layers and controls: nine stack layers (L1–L9) and eight enterprise controls (C1–C8)", C.text2], ["140", "products profiled: 92 in the stack layers, 48 in the controls; 138 scored", C.accent1], ["192", "high-risk claims re-checked by two adversarial verifiers", C.accent6], ["1,255", "sources logged with URL and access date", C.accent3]];
 stats.forEach((st, i) => {
   const x = 0.6 + i * 3.08;
   T(s, st[0], { x, y: 1.7, w: 2.9, h: 1.3, fontSize: 60, bold: true, color: st[2], fontFace: THEME.headFontFace });
   T(s, st[1], { x, y: 3.0, w: 2.8, h: 1.0, fontSize: 14, color: C.text1 });
 });
 T(s, "How the work was done", { x: 0.6, y: 4.35, w: 12, h: 0.4, fontSize: 16, bold: true, color: C.text2 });
-T(s, [{ text: "Eight parallel research streams, primary sources first; two adversarial verifiers re-checked 192 high-risk claims (no fabrications found).", options: { bullet: true, breakLine: true } },
+T(s, [{ text: "Eight parallel research streams, primary sources first; two adversarial verifiers re-checked the high-risk claims (no fabrications found). The result is the baseline every later edition is measured against.", options: { bullet: true, breakLine: true } },
       { text: "Seventeen chapters on a 13-part template, each product scored 1–5 on eight criteria with generic and regulated-FS weights.", options: { bullet: true, breakLine: true } },
       { text: "Reader checkpoints decided the scoring rules and the contested tiers; every claim is labelled verified, reported, judgement or recommendation.", options: { bullet: true } }],
   { x: 0.6, y: 4.8, w: 12, h: 1.9, fontSize: 14, paraSpaceAfter: 6 });
-s.addNotes("Numbers from the dataset build (05_Data/products.json, bibliography.xlsx). Limitation: no vendor audit report was read; many facts come from dated search extracts because the research environment blocked direct fetching of most vendor sites.");
+s.addNotes("This review sets a new baseline: the stack as it stands at the end of Q3 2026, on its own terms, and the reference point for the next quarterly edition. Numbers from the dataset build (05_Data/products.json, bibliography.xlsx) and the verification logs (192 checks). Limitation: no vendor audit report was read; many facts come from dated search extracts because the research environment blocked direct fetching of most vendor sites.");
 
 // 4 Ten findings
 s = slide("CONTENT", "Ten findings that shape the stack", "The view at end of Q3 2026");
@@ -163,7 +163,7 @@ s.addNotes("Synthesis Part I.1 finding 9 and Part V; every date tagged to regula
 
 // 7 Section
 s = slide("SECTION", "The architecture", "The architecture");
-s.addText("Eight hypotheses tested; nine layers renamed, split or merged; one control plane added", { placeholder: "body" });
+s.addText("Eight hypotheses tested; nine stack layers under one firm-owned control plane of eight controls", { placeholder: "body" });
 
 // 8 Revised model
 s = slide("CONTENT", "Four planes under one firm-owned control plane", "The architecture");
@@ -176,20 +176,20 @@ planes.forEach((p, i) => { const y = 1.4 + i * 1.08;
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.6, y, w: 8.4, h: 0.95, rectRadius: 0.06, fill: { color: p[2] }, line: { color: p[2] } });
   T(s, p[0], { x: 0.8, y: y + 0.07, w: 8.0, h: 0.35, fontSize: 13, bold: true, color: p[3] });
   T(s, p[1], { x: 0.8, y: y + 0.42, w: 8.0, h: 0.5, fontSize: 12, color: p[3] }); });
-card(s, 9.3, 1.4, 3.4, 5.25, "How to read it", "The control plane governs every call and holds the evidence. Planes beneath it are built from replaceable products.\n\nLayer numbers are kept for traceability; names changed where the evidence required it.", { bodySize: 14 });
+card(s, 9.3, 1.4, 3.4, 5.25, "How to read it", "The control plane governs every call and holds the evidence. Planes beneath it are built from replaceable products.\n\nL1–L9 and C1–C8 are the baseline's identifiers in every document, the explorer and the dataset.", { bodySize: 14 });
 s.addNotes("Synthesis Part IV.1 (revised layer model and diagram).");
 
 // 9 Hypotheses
-s = slide("CONTENT", "Hypothesis verdicts: what the evidence did to the nine layers", "The architecture");
+s = slide("CONTENT", "Hypothesis verdicts: how evidence shaped the layers", "The architecture");
 table(s, [["#", "Hypothesis", "Verdict"],
-  ["H1", "Split inference; promote the gateway", "Split L2 into access, serving, optimisation; gateway becomes C1 (model, tool and agent traffic)"],
-  ["H2", "Agent framework is not one layer", "Split: deterministic workflows (default), bounded agent steps, durable execution"],
+  ["H1", "Inference is several jobs; the gateway is a control", "L2 covers model access, serving and optimisation; the gateway is C1 (model, tool and agent traffic)"],
+  ["H2", "Agent framework is not one layer", "L3 holds deterministic workflows (default), bounded agent steps and durable execution"],
   ["H3", "Identity and tool governance", "Keep: a tool-governance sub-layer in L4; C4 and C7 make the decisions"],
-  ["H4", "Memory vs retrieval", "Merge into the stores layer as a governed memory service; build it last"],
-  ["H5", "Rename vector databases", "Rename L6 'Retrieval, knowledge and memory stores'"],
-  ["H6", "Embeddings + reranking", "Merge into L7 'Retrieval optimisation'"],
+  ["H4", "Memory vs retrieval", "Memory is a governed service on the stores layer; build it last"],
+  ["H5", "Vector databases are retrieval stores", "L6 is 'Retrieval, knowledge and memory stores'"],
+  ["H6", "Embeddings + reranking", "Together they are L7 'Retrieval optimisation'"],
   ["H7", "Ingestion needs lineage, DLP, ACLs", "Keep, widened: a built ingestion envelope around replaceable parsers"],
-  ["H8", "Evaluation is cross-cutting", "Reposition L9 as an evidence plane; one evidence store with C8"]],
+  ["H8", "Evaluation is cross-cutting", "L9 is an evidence plane, sharing one evidence store with C8"]],
   { x: 0.6, y: 1.5, w: 12.1, colW: [0.7, 3.6, 7.8], fs: 16 });
 s.addNotes("Synthesis Part III, H1–H8, with evidence from the 17 chapters.");
 
@@ -257,15 +257,15 @@ T(s, [{ text: "Top tiers are gated and lifetimes are short: one Gemini Flash ver
 s.addNotes("Chapter 1 (foundation models) and synthesis Part I.3. Disclosure: the drafting model is Anthropic's; Anthropic was scored on the same rubric and its tier was set by the reader.");
 
 // 15 Keep/remove/missing
-s = slide("CONTENT", "What changed since the popular stack diagram", "What to select");
-const krm = [["Still sound", "The nine-layer spine as a teaching device · vLLM · LangGraph · Docling · pgvector, Qdrant, Milvus, Elasticsearch · Langfuse, LangSmith · MCP and A2A behind a governed gateway · the portfolio model vendors", C.accent1],
-             ["Removed or demoted", "Labels that do not exist (Gemma 2.9, QI4) · unverifiable tiles (EthicalAgents, Ragoos) · archived TGI · a router as 'the' access layer · memory as its own infrastructure layer · desktop runtimes in production", C.accent6],
-             ["Added", "AI traffic gateway · guardrails as policy · privacy service · agent identity and tool governance · configuration of record · FinOps · AI security · governance and evidence store · durable execution · ingestion envelope", C.accent3]];
+s = slide("CONTENT", "The new baseline: 17 layers and controls, 140 products", "What to select");
+const krm = [["Nine stack layers", "L1 models as a pinned portfolio · L2 access, serving, optimisation · L3 workflows and bounded agents · L4 tools behind a governed gateway · L5 memory as a governed record class · L6 retrieval stores · L7 retrieval optimisation · L8 ingestion envelope · L9 evaluation and observability", C.accent1],
+             ["Eight enterprise controls", "C1 AI traffic gateway · C2 guardrails as policy · C3 privacy service · C4 agent identity and authorisation · C5 configuration of record · C6 AI FinOps · C7 AI security · C8 model risk, governance and evidence store", C.text2],
+             ["Facts as at Q3 2026", "Current lines: Gemma 4, Z.ai GLM-5.x, Mistral Medium 3.5 · archived or closing: TGI, OpenAI Agent Builder; Helicone in maintenance · not verifiable: EthicalAgents, Ragoos · a router is not the access layer; desktop runtimes stay out of production", C.accent6]];
 krm.forEach((k, i) => { const x = 0.6 + i * 4.1;
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.4, w: 3.9, h: 0.6, rectRadius: 0.06, fill: { color: k[2] }, line: { color: k[2] } });
   T(s, k[0], { x: x + 0.2, y: 1.45, w: 3.5, h: 0.5, fontSize: 17, bold: true, color: C.background1, valign: "middle" });
-  T(s, k[1], { x: x + 0.1, y: 2.15, w: 3.7, h: 4.5, fontSize: 14 }); });
-s.addNotes("Synthesis Part XII (what changed since the popular stack diagram); tile-by-tile table in 05_Data/what_changed.xlsx.");
+  T(s, k[1].split(" · ").map((t, j, arr) => ({ text: t, options: { bullet: true, breakLine: j < arr.length - 1 } })), { x: x + 0.1, y: 2.15, w: 3.7, h: 4.6, fontSize: 14, paraSpaceAfter: 4 }); });
+s.addNotes("The baseline this review sets, stated on its own terms. Layer and control definitions: synthesis Part IV; product status (current, retired, renamed, acquired, unverifiable) in each record of 05_Data/products.json and the product technical appendix.");
 
 // 16 Avoid
 s = slide("CONTENT", "Deliberately not selected, on evidence", "What to select");
@@ -389,6 +389,105 @@ why.forEach((w, i) => { const col = i % 2, row = Math.floor(i / 2); const x = 0.
   dot(s, x + 0.1, y + 0.05, String(i + 1), C.accent1); T(s, w[0], { x: x + 0.8, y, w: 5.0, h: 0.6, fontSize: 18, bold: true, color: C.text2 }); T(s, w[1], { x: x + 0.8, y: y + 0.7, w: 5.0, h: 1.2, fontSize: 16 }); });
 s.addNotes("Synthesis Part X.3 (seven reasons, condensed to four).");
 
+// 27a-27i One stack, seven lenses (the seven views: FS = Parts I–XII; TS, SW, SU, AT, DV, AG = Parts XIII–XVIII)
+// Weights and core-candidate counts are read from 05_Data/views.json (tools/build_views.py); the decisions condense
+// each view Part's "In brief", findings (x.2) and checklist (x.11).
+const VJ = JSON.parse(require("fs").readFileSync(path.join(root, "Enterprise_GenAI_Stack_Oct2026/05_Data/views.json"), "utf8"));
+const VCORE = {}; VJ.views.forEach((v) => { VCORE[v.id] = VJ.products.filter((r) => r.fit[v.id] === "Core candidate").length; });
+const VSCORED = VJ.products.length;
+const VW = (id, k) => VJ.views.find((v) => v.id === id).weights[k];
+const PARTN = { FS: "Parts I–XII", TS: "Part XIII", SW: "Part XIV", SU: "Part XV", AT: "Part XVI", DV: "Part XVII", AG: "Part XVIII" };
+s = slide("SECTION", "One stack, seven lenses", "Seven lenses");
+s.addText(`The same ${VSCORED} scored products and criterion scores, re-weighted for six further readers (Parts XIII–XVIII)`, { placeholder: "body" });
+s.addNotes("The regulated-FS view (this deck so far, Parts I–XII) is one of seven. Each further view keeps every fact and criterion score and changes only the weights (architectural judgement, published in 05_Data/views.xlsx), then adds view-specific evidence on regulation, commercial terms and agent standards.");
+
+s = slide("CONTENT", "Seven readers, one stack, different weights", "Seven lenses");
+const lensRows = [
+  ["FS", "Regulated asset manager deploying GenAI for itself", `Security and compliance ${VW("FS", "security_compliance")}%`],
+  ["TS", "Runs GenAI inside services it operates for customers", `Reliability ${VW("TS", "reliability_maturity")}% and cost ${VW("TS", "cost_tco")}%; lock-in ${VW("TS", "lockin_portability")}%`],
+  ["SW", "Ships GenAI inside software customers install and run", `Deployment flexibility ${VW("SW", "deployment_flexibility")}%`],
+  ["SU", "Early-stage company building an AI-native product", `Technical ${VW("SU", "technical")}%, cost ${VW("SU", "cost_tco")}%`],
+  ["AT", "Start-up selling AI tools into the enterprise stack", `Technical ${VW("AT", "technical")}%; ecosystem ${VW("AT", "ecosystem")}%`],
+  ["DV", "Start-up selling agentic SDLC tools to developers", `Technical ${VW("DV", "technical")}%; ecosystem and cost ${VW("DV", "ecosystem")}% each`],
+  ["AG", "Start-up selling agents to enterprises", `Technical ${VW("AG", "technical")}%; enterprise, security, deployment, ecosystem ${VW("AG", "ecosystem")}% each`]];
+table(s, [["View", "Reader", "Weighted most", "Part"], ...lensRows.map((r) => [{ text: r[0], options: { bold: true, fontSize: 13, color: HEX.navy } }, r[1], r[2], PARTN[r[0]]])],
+  { x: 0.6, y: 1.4, w: 8.55, colW: [0.75, 3.55, 3.05, 1.2], fs: 12 });
+s.addChart(pres.charts.BAR, [{ name: "Core candidates", labels: lensRows.map((r) => r[0]), values: lensRows.map((r) => VCORE[r[0]]) }],
+  { x: 9.35, y: 1.3, w: 3.4, h: 4.45, barDir: "bar", chartColors: [HEX.teal], catAxisOrientation: "maxMin", valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" },
+    catAxisLabelColor: HEX.ink, catAxisLabelFontSize: 12, catAxisLabelFontFace: "+mn-lt", showValue: true, dataLabelPosition: "outEnd", dataLabelColor: HEX.navy, dataLabelFontSize: 12, valAxisMinVal: 0, valAxisMaxVal: 75,
+    showTitle: true, title: `Core candidates of ${VSCORED}`, titleFontSize: 13, titleColor: HEX.navy, titleFontFace: "+mn-lt", showLegend: false, barGapWidthPct: 60 });
+card(s, 0.6, 5.85, 12.1, 0.95, "Same facts and criterion scores; only the weights change",
+  null, { headSize: 15 });
+T(s, "A core candidate scores at least 3.6 under the view's weights, has no criterion at 1 and is not Experimental. The master tiers and their conditions still stand.", { x: 0.78, y: 6.3, w: 11.8, h: 0.45, fontSize: 13 });
+s.addNotes(`Weights and counts from 05_Data/views.json (tools/build_views.py): core candidates FS ${VCORE.FS}, TS ${VCORE.TS}, SW ${VCORE.SW}, SU ${VCORE.SU}, AT ${VCORE.AT}, DV ${VCORE.DV}, AG ${VCORE.AG} of ${VSCORED}. Weights are architectural judgement and sum to 100 per view; the fit is computed and indicative, not checkpoint-reviewed. Conflict of interest: under some views Anthropic's Claude family and MCP rise on the same criterion scores; each Part names the independent alternative beside them.`);
+
+const VIEWSLIDES = [
+  ["TS", "Service provider: tenant-aware, metered and sold",
+   "The same control plane as the regulated firm, but every element is tenant-aware, metered and sold. Tenant isolation, cost per call and service levels replace model-risk validation as the hardest problems.",
+   [["Write a tenancy standard first", "Tenant, user and agent in every token; filters injected server-side; every cache, index and store addressed by tenant; a cross-tenant leak test blocks every release."],
+    ["Design the margin in", "Every model call is cost of goods sold: batch, prompt caching and a small model in every feature; cost per call reported per tenant and feature against price."],
+    ["Make the second vendor a live capacity route", "Sized and drilled for real load, because discount tiers throttle and one tenant's misuse can suspend the whole service."],
+    ["Sell a service, not a pass-through model API", "Flow vendor terms down to tenants, list every model route as a subprocessor, and ship an AI assurance pack and NIS2 and CRA incident runbooks."]],
+   "Part XIII.2 findings 1–5 and 8, XIII.11 checklist."],
+  ["SW", "Software company: own the release plane",
+   "The vendor ships into many control planes it does not own. It is a manufacturer and provider: its product plugs into each customer's gateway, identity, telemetry and evidence tools.",
+   [["Publish a support matrix", "At least two unrelated hosted vendors, reached through the customer's own account or gateway, plus one Apache 2.0 or MIT model bundled for air-gapped sites."],
+    ["Route through the customer's gateway", "One configurable model endpoint; no provider SDKs in feature code; no vendor-run endpoint on the request path of a self-managed product."],
+    ["Gate every shipped component", "Redistribution, not use, decides what ships: a licence register and an AI-aware SBOM per release; signed, safetensors-only bundled weights."],
+    ["Treat the CRA and PLD as deadlines", "Vulnerability reporting since 11 September 2026; software a PLD product from 9 December 2026; CRA main obligations from 11 December 2027."]],
+   "Part XIV In brief, XIV.2 findings 1–5 and 8, XIV.11 checklist."],
+  ["SU", "Start-up: speed first, exits kept open cheaply",
+   "A fortnight, not a quarter, on the control plane. What is built in the first two weeks decides how cheaply the company can change its mind later.",
+   [["Build four things in the first fortnight", "One pinned gateway with a key and budget per customer; a tenant ID on every row, vector and trace; standard tracing; an evaluation set in Git with the prompts."],
+    ["Let credits pick the first vendor, not the last", "Credits mostly pay only for the credit-giver's models: qualify a second vendor on the same evaluation set, switchable by configuration."],
+    ["Isolation before model risk", "Keeping one customer's data out of another's answers is the first control problem; the users are customers' staff, so use customer identity, not a workforce directory."],
+    ["Two things do not bend", "Pin the gateway: a widely used open-source gateway shipped poisoned releases in March 2026. Keep evaluation sets and prompts as the company's own IP."]],
+   "Part XV.2 findings 1–3, 6 and 9, XV.11 checklist."],
+  ["AT", "AI-tools start-up: easy to adopt, easy to leave",
+   "The buyer's architecture already assigns the product's place: a replaceable call-out inside the buyer's control plane, running where the data is and writing evidence into the buyer's stores.",
+   [["Publish the integration contract", "Gateway hooks with a latency budget and typed outcomes; spans to the customer's OpenTelemetry collector; verdicts to its evidence store; usage in an open cost format."],
+    ["Run where the buyer's data is", "One build as EU SaaS, private-endpoint SaaS and a container in the customer's account; no hidden model dependency; policy as code, not console settings."],
+    ["Beat the free baseline on evidence", "Open tools and incumbents' bundles already ship the feature: win on recall, operations or evidence, never on having the feature."],
+    ["Pass diligence and plan for a change of owner", "Many 'neutral' tools were acquired: subprocessor list, DORA addendum, exit plan and change-of-control notice; the start-up's own CRA duties apply too."]],
+   "Part XVI In brief, XVI.2 findings 1–4, 6 and 7, XVI.11 checklist."],
+  ["DV", "Agentic SDLC: trust is earned in the pull request",
+   "The crown jewels are source code and the credentials that change it. Two questions decide the deal: where does our code go, and can we see everything the agent did?",
+   [["The customer's model endpoint by default", "Every call through the customer's gateway; two unrelated model vendors qualified per task; retention reported route by route, because it depends on the model."],
+    ["The pull request is the boundary", "Own branch, isolated sandbox with default-deny egress, short-lived repository-scoped tokens; the agent never merges, a named human does."],
+    ["Fill the audit gap", "An evidence record of every model call, tool call and command, written to the customer's store, with pinned OpenTelemetry spans."],
+    ["Sell depth, neutrality and evidence", "Incumbents ship breadth and the enterprise baseline. Win on one task done well; cache stable prefixes, the main cost lever."]],
+   "Part XVII In brief, XVII.2 findings 1, 2, 4, 5, 6 and 10, XVII.11 checklist."],
+  ["AG", "Agent start-up: an ungoverned agent is not bought",
+   "The buyer governs every agent through its own control and evidence plane. The start-up sells domain logic, a tested workflow and an evaluation suite, not a second identity plane, gateway or evidence store.",
+   [["Run under the customer's identity", "Registered in the customer's directory with a sponsor; on-behalf-of tokens per tool audience; no standing secrets; revocation within 15 minutes."],
+    ["Ship the strict profile of incomplete standards", "Tool authorisation on, signed agent cards, short-lived audience-bound tokens, no sub-delegation; tools read-only by default, through the customer's gateway."],
+    ["Keep nothing the customer must audit", "Model calls only to a customer-supplied endpoint; one evidence record per output in the customer's store; workflow, prompts and autonomy budget as files."],
+    ["Treat governance fit as the product", "Incumbents are building agent platforms. The test: an evidence pack for every output, revoke by one identity, switch model by one route."]],
+   "Part XVIII In brief, XVIII.2 findings 1–3 and 8, XVIII.11 checklist."]];
+VIEWSLIDES.forEach(([id, title, ribbon, decs, src]) => {
+  s = slide("CONTENT", title, "Seven lenses");
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.6, y: 1.4, w: 12.1, h: 1.0, rectRadius: 0.08, fill: { color: C.text2 }, line: { color: C.text2 } });
+  T(s, id, { x: 0.8, y: 1.52, w: 0.9, h: 0.76, fontSize: 28, bold: true, color: C.accent3, fontFace: THEME.headFontFace, valign: "middle" });
+  T(s, ribbon, { x: 1.75, y: 1.47, w: 10.8, h: 0.86, fontSize: 14, color: C.background1, valign: "middle" });
+  decs.forEach((d, i) => card(s, 0.6 + (i % 2) * 6.15, 2.6 + Math.floor(i / 2) * 1.85, 5.95, 1.7, d[0], d[1], { headSize: 16, bodySize: 14 }));
+  const fsCore = VCORE.FS, vCore = VCORE[id];
+  T(s, `Read more: ${PARTN[id]} of the master document · core candidates under this view: ${vCore} of ${VSCORED} (FS ${fsCore})`, { x: 0.6, y: 6.33, w: 12.1, h: 0.4, fontSize: 12, italic: true, color: C.accent4 });
+  s.addNotes(`Source: ${src} Each decision is tagged to its sources in the Part. Where a Claude model, MCP or Agent Skills appears in the Part, an independent alternative is named beside it (for example GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 for a Claude route; OpenAPI-described tools for MCP).`);
+});
+
+s = slide("CONTENT", "What holds across all seven lenses", "Seven lenses");
+const holds = [["A named person approves", "Anything consequential: a support reply, a merged pull request, a payment run. The model drafts; a person decides."],
+               ["Memory comes last", "Long-term memory of customer or client content waits; when built, it is a governed record class with erasure by person."],
+               ["Configuration in source control", "Prompts, model pins and policies released through review, in Git, as one manifest."],
+               ["An evidence record for every output", "Keyed by a trace ID, in a store the firm or its customer owns, never only in a vendor's."],
+               ["A pinned, signed supply chain", "A five-person team is as exposed to a poisoned package as a bank."],
+               ["Every model call through a gateway", "The firm's own or the customer's: one route to switch a model, enforce a budget and record the call."]];
+holds.forEach((h, i) => card(s, 0.6 + (i % 3) * 4.1, 1.4 + Math.floor(i / 3) * 2.0, 3.9, 1.85, h[0], h[1], { headSize: 16, bodySize: 14 }));
+s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.6, y: 5.5, w: 12.1, h: 1.25, rectRadius: 0.08, fill: { color: C.text2 }, line: { color: C.text2 } });
+T(s, "What changes is who owns the control plane, who pays for inference and which rulebook applies: deployer, operator, manufacturer, provider or supplier. Every lens keeps a second, unrelated model vendor qualified on the same evaluation set; only the reason for it changes.",
+  { x: 0.85, y: 5.58, w: 11.6, h: 1.1, fontSize: 14, color: C.background1, valign: "middle" });
+s.addNotes("Condensed from the checklists (x.11) of Parts XIII–XVIII against Part I.2 of the regulated-FS view. Fund the parts that never change first: they are what every customer, supervisor and acquirer asks about.");
+
 // 27 Decisions
 s = slide("CONTENT", "Decisions for the leadership team", "Close");
 const asks = [["Adopt the reference architecture", "Control plane first; Stack A as the target; the lock-in rules as design policy"], ["Name the accountable owner", "An SMF for GenAI model risk and a GenAI standard to SS1/23 quality"],
@@ -398,7 +497,7 @@ s.addNotes("Synthesis Part X Phase 0 scope and Part XI.7.");
 
 // 28 Close
 s = slide("TITLE", "Own the control plane. Rent the components.", "Close");
-s.addText("Full evidence: master document (Word/PDF), product technical appendix (138 scored products), offline explorer, dataset and source archive. Every claim is labelled and sourced. Researched and drafted with an Anthropic model; Anthropic items scored on the same rubric, with tiers set by the reader marked.", { placeholder: "body" });
+s.addText("Full evidence: master document (seven views, Parts I–XVIII), product technical appendix (138 scored products, fit by view), offline explorer with a view selector, dataset and source archive. Every claim is labelled and sourced. Researched and drafted with an Anthropic model; Anthropic items scored on the same rubric, with tiers set by the reader marked.", { placeholder: "body" });
 
 s = slide("BRAND", null, "Close");
 s.addNotes("Veyan. Truth, compounded. hello@veyan.ai");

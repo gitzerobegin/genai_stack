@@ -1,6 +1,6 @@
 ## 9. Evaluation and observability (cross-cutting)
 
-> **Executive summary.** This layer answers two questions for every GenAI system: is the output good enough to use, and what actually happened when it ran? Three things have changed since the popular stack diagram. First, ownership has consolidated. Dynatrace completed its acquisition of Arize (Phoenix and AX) on 1 October 2026 [VF: A1-S045, V1-S005]. ClickHouse announced it had acquired Langfuse on 16 January 2026 [VF: A1-S021, V2-S041]. OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A1-S024, V1-S006]. W&B Weave has been part of CoreWeave since 5 May 2025 [VF: A1-S131]. Second, OpenTelemetry has become the common ingest format [AJ], although the GenAI semantic conventions are still at "Development" status [VF: A1-S058]. Third, the products now reach across the stack into gateways, prompt management, guardrails and automated fix proposals [VF: A1-S043, A1-S039, A1-S067]. This layer is not a box at the end of the pipeline [AJ]. **Recommendation:** instrument once with OpenTelemetry GenAI conventions or OpenInference, and own the evaluation harness and the evidence store. Then pick one platform of record for traces and evals (self-hosted Langfuse, or MLflow where an ML platform already exists, or LangSmith for LangGraph estates). Run two CI eval and red-team tools, one of them independent of any model vendor [Rec].
+> **Executive summary.** This layer answers two questions for every GenAI system: is the output good enough to use, and what actually happened when it ran? Three things define the layer at the end of Q3 2026. First, ownership has consolidated. Dynatrace completed its acquisition of Arize (Phoenix and AX) on 1 October 2026 [VF: A1-S045, V1-S005]. ClickHouse announced it had acquired Langfuse on 16 January 2026 [VF: A1-S021, V2-S041]. OpenAI announced its acquisition of Promptfoo on 9 March 2026, with no closing date published [VF: A1-S024, V1-S006]. W&B Weave has been part of CoreWeave since 5 May 2025 [VF: A1-S131]. Second, OpenTelemetry has become the common ingest format [AJ], although the GenAI semantic conventions are still at "Development" status [VF: A1-S058]. Third, the products now reach across the stack into gateways, prompt management, guardrails and automated fix proposals [VF: A1-S043, A1-S039, A1-S067]. This layer is not a box at the end of the pipeline [AJ]. **Recommendation:** instrument once with OpenTelemetry GenAI conventions or OpenInference, and own the evaluation harness and the evidence store. Then pick one platform of record for traces and evals (self-hosted Langfuse, or MLflow where an ML platform already exists, or LangSmith for LangGraph estates). Run two CI eval and red-team tools, one of them independent of any model vendor [Rec].
 
 ### 9.1 Responsibility
 
@@ -43,7 +43,7 @@ The IOSCO supervisory toolkit names indicators for asset managers that include t
 The mechanics have three loops that share one trace and dataset store.
 
 1. **Instrumentation.** Each layer emits spans (model call, retrieval, tool execution, agent step) using the OpenTelemetry GenAI semantic conventions, still at "Development" status as of 7 October 2026 [VF: A1-S058]. Since semconv v1.42.0 these definitions live in a dedicated repository, `semantic-conventions-genai` [VF: A1-S060], covering client inference, agents, tool execution, retrieval, evaluation and MCP [VF: A1-S061]. It defines a `gen_ai.evaluation.result` event with name, score, label and explanation [VF: A1-S059], so a score can travel on the same pipe as the trace it judges [AJ]. OpenInference (Apache-2.0) is the alternative used by Phoenix and AX [VF: A1-S049, A1-S066].
-2. **Offline and CI evaluation.** Versioned datasets (golden cases, past failures, red-team cases) run against every change to model, prompt, retrieval configuration or tool, and results gate the merge. Six of the evaluation products in the popular stack diagram document a CI path: pytest plugins for LangSmith [VF: A1-S108], Phoenix [VF: A1-S106] and Opik [VF: A1-S067]; DeepEval's Pytest-like framework [VF: A1-S068]; Promptfoo with GitHub Actions, GitLab and Jenkins [VF: A1-S065]; and Braintrust's GitHub Action posting PR comments [VF: A1-S109].
+2. **Offline and CI evaluation.** Versioned datasets (golden cases, past failures, red-team cases) run against every change to model, prompt, retrieval configuration or tool, and results gate the merge. Six of the evaluation products assessed here document a CI path: pytest plugins for LangSmith [VF: A1-S108], Phoenix [VF: A1-S106] and Opik [VF: A1-S067]; DeepEval's Pytest-like framework [VF: A1-S068]; Promptfoo with GitHub Actions, GitLab and Jenkins [VF: A1-S065]; and Braintrust's GitHub Action posting PR comments [VF: A1-S109].
 3. **Online evaluation and feedback.** Evaluators score a sample of production traces, and reviewer edits and user ratings attach to traces as scores: Opik online evaluation rules [VF: A1-S072], Langfuse evaluators [VF: A1-S073], Datadog evaluations [VF: A1-S099]. Clustering groups recurring failures: LangSmith Engine [VF: A1-S039], Braintrust Topics [VF: A1-S043], AX Signal [VF: A1-S046]. Failing cases are promoted into the CI dataset, which closes the loop [AJ].
 
 ![L9 observability: one firm-owned telemetry pipeline and a closed evaluation loop](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/L9-1.png){width=100%}
@@ -150,7 +150,7 @@ The **firm-owned collector** is the key design choice. It applies redaction befo
 - *Avoid when:* you need roadmap certainty now [AJ].
 - *Competitors:* LangSmith, Datadog, Braintrust.
 - *FS note:* refresh third-party due diligence after the change of control [Rec].
-- **Tier: Tactical. Flags: Acquired, Duplicated** (the popular stack diagram shows Arize twice).
+- **Tier: Tactical. Flags: Acquired, Duplicated** (Phoenix and AX are two products from one vendor).
 
 **DeepEval (Confident AI).**
 - *What it is now:* an Apache-2.0 Python framework, "similar to Pytest but specialised for unit testing LLM apps" [VF: A1-S068, A1-S051]. Version 4.2.8 was released on 2 October 2026 [VF: A1-S005].
@@ -348,27 +348,27 @@ The tree is applied in four steps. Steps 0 and 4 are not product choices; step 4
 - discard or overwrite eval evidence when a vendor tier expires
 - score a release without recording which dataset and judge version produced the score
 
-### 9.13 What changed since the popular stack diagram
+### 9.13 Baseline position and hypothesis view
 
-| Popular stack diagram | End of Q3 2026 | Recommended |
+| Baseline entry | Position at end of Q3 2026 | Recommended |
 |---|---|---|
-| Downstream "evals and observability" layer with eight tiles | Products now include gateways (Braintrust, LangSmith, MLflow), guardrails (Opik), prompt management and fix proposals [VF: A1-S043, A1-S039, A1-S103, A1-S067] | A cross-cutting plane: firm-owned OTel Collector, one platform of record, CI eval and red-team harness, evidence archive in C8 [Rec] |
-| Langfuse "open source" | MIT core, enterprise-gated audit and RBAC; ClickHouse-owned [VF: A1-S033, A1-S021] | Strategic platform of record, self-hosted with Enterprise licence [Rec] |
-| LangSmith "trace & eval" | Agent platform (Engine, Fleet, Gateway, Deployment) [VF: A1-S039] | Strategic for LangGraph estates, dual-instrumented with OTel [Rec] |
-| Braintrust "evals platform" | Repositioned to "active observability for agents"; hybrid data plane [VF: A1-S043, A1-S041] | Tactical: eval-led teams [Rec] |
-| Phoenix "Atrace" | Arize Phoenix, ELv2, Dynatrace-owned [VF: A1-S048, A1-S045] | Tactical: validation sandboxes; OpenInference as portable instrumentation [Rec] |
-| Arize "RAG metrics" | Arize AX, full platform; duplicate vendor tile; Dynatrace-owned [VF: A1-S046, A1-S045] | Tactical; re-assess after the Dynatrace roadmap [Rec] |
-| DeepEval "LLM unit tests" | Accurate; agentic and trajectory metrics added [VF: A1-S068] | Tactical: default CI metric library [Rec] |
-| Promptfoo "red-teaming" | Evals plus red-teaming; OpenAI acquisition announced 9 March 2026, closing not published [VF: A1-S062, V2-S042] | Tactical: one of two red-team tools [Rec] |
-| Opik "comet" | Apache-2.0 full platform by Comet [VF: A1-S050] | Tactical: Apache-2.0 alternative with Comet Enterprise [Rec] |
-| (absent) | MLflow GenAI, Datadog Agent Observability, W&B Weave [VF: A1-S103, A1-S097, A1-S104] | MLflow Strategic where an ML platform exists; Datadog and Weave Tactical [Rec] |
+| **The layer as a whole** | Products now include gateways (Braintrust, LangSmith, MLflow), guardrails (Opik), prompt management and fix proposals [VF: A1-S043, A1-S039, A1-S103, A1-S067] | A cross-cutting plane: firm-owned OTel Collector, one platform of record, CI eval and red-team harness, evidence archive in C8 [Rec] |
+| Langfuse | MIT core, enterprise-gated audit and RBAC; ClickHouse-owned [VF: A1-S033, A1-S021] | Strategic platform of record, self-hosted with Enterprise licence [Rec] |
+| LangSmith | Agent platform (Engine, Fleet, Gateway, Deployment) [VF: A1-S039] | Strategic for LangGraph estates, dual-instrumented with OTel [Rec] |
+| Braintrust | Repositioned to "active observability for agents"; hybrid data plane [VF: A1-S043, A1-S041] | Tactical: eval-led teams [Rec] |
+| Arize Phoenix | Arize Phoenix, ELv2, Dynatrace-owned [VF: A1-S048, A1-S045] | Tactical: validation sandboxes; OpenInference as portable instrumentation [Rec] |
+| Arize AX | Full platform; same vendor as Phoenix; Dynatrace-owned [VF: A1-S046, A1-S045] | Tactical; re-assess after the Dynatrace roadmap [Rec] |
+| DeepEval | Agentic and trajectory metrics added [VF: A1-S068] | Tactical: default CI metric library [Rec] |
+| Promptfoo | Evals plus red-teaming; OpenAI acquisition announced 9 March 2026, closing not published [VF: A1-S062, V2-S042] | Tactical: one of two red-team tools [Rec] |
+| Opik (Comet) | Apache-2.0 full platform by Comet [VF: A1-S050] | Tactical: Apache-2.0 alternative with Comet Enterprise [Rec] |
+| MLflow, Datadog, W&B Weave | MLflow GenAI, Datadog Agent Observability, W&B Weave [VF: A1-S103, A1-S097, A1-S104] | MLflow Strategic where an ML platform exists; Datadog and Weave Tactical [Rec] |
 
 **H8 (evaluation and observability are cross-cutting, not a downstream layer). Provisional view; verdict in synthesis.**
 
 The evidence supports the hypothesis on four counts.
 
 - **The instrumentation standard spans the stack.** OTel GenAI conventions cover client inference, agents, tool execution, retrieval, evaluation and MCP. Evaluation results have their own event type [VF: A1-S061, A1-S059].
-- **Tools couple CI to production.** Six of the evaluation products in the popular stack diagram document a CI evaluation path [VF: A1-S108, A1-S106, A1-S067, A1-S068, A1-S065, A1-S109], and the platform products run evaluators over production traces [VF: A1-S072, A1-S073, A1-S046, A1-S099].
+- **Tools couple CI to production.** Six of the evaluation products assessed here document a CI evaluation path [VF: A1-S108, A1-S106, A1-S067, A1-S068, A1-S065, A1-S109], and the platform products run evaluators over production traces [VF: A1-S072, A1-S073, A1-S046, A1-S099].
 - **Vendors are pushing the layer sideways.** It is moving into gateways (C1), prompt management (C5), guardrails (C2) and security testing (C7) [VF: A1-S043, A1-S103, A1-S067, A1-S024].
 - **Ownership is consolidating into horizontal platforms.** The new owners are an APM vendor (Dynatrace), a database vendor (ClickHouse), a model vendor (OpenAI) and a GPU cloud (CoreWeave), and a second APM vendor (Datadog) sells its own module [VF: A1-S045, A1-S021, A1-S024, A1-S131, A1-S097].
 
