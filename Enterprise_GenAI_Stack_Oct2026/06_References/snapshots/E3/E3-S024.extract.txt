@@ -1,0 +1,11 @@
+SOURCE ID: E3-S024
+URL: https://developers.openai.com/codex/enterprise/chatgpt-work-cloud-security
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI Codex enterprise admin controls RBAC compliance API data retention
+========================================================================
+
+Search-tool summary of developers.openai.com/codex/enterprise/chatgpt-work-cloud-security and /codex/hipaa-configuration:
+- Retention for cloud work doesn't follow one universal retention schedule. Deleted chats are generally scheduled for permanent deletion within 30 days, subject to published security, legal and de-identification exceptions. Ending a task or deleting a chat doesn't immediately purge every related artifact. The local-plus-cloud mode does not provide strict zero data retention.
+- For ChatGPT Enterprise: no training on business data by default, encryption in transit and at rest, workspace-level access controls and supported audit logging. Enterprise Key Management can be used for supported stored content, including supported hosted execution snapshots, where customer-managed encryption is required.
+- A HIPAA configuration guide for Codex exists (developers.openai.com/codex/hipaa-configuration).

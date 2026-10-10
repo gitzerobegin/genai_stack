@@ -1,0 +1,757 @@
+[
+  {
+    "id": "R-EU-CRA",
+    "instrument": {
+      "v": "Regulation (EU) 2024/2847 (Cyber Resilience Act): horizontal cybersecurity requirements for products with digital elements",
+      "label": "Verified fact",
+      "src": [
+        "E1-S001",
+        "E1-S009"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "European Union (applies to products with digital elements made available on the EU market, wherever the manufacturer is established)",
+      "label": "Verified fact",
+      "src": [
+        "E1-S001",
+        "E1-S002"
+      ],
+      "conf": "medium"
+    },
+    "issuer": {
+      "v": "European Parliament and Council; Commission guidance (C(2026) 5252); ENISA runs the Single Reporting Platform; national market surveillance authorities and CSIRTs enforce",
+      "label": "Verified fact",
+      "src": [
+        "E1-S001",
+        "E1-S005",
+        "E1-S006"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "regulation",
+      "label": "Verified fact",
+      "src": [
+        "E1-S001"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "In force (twentieth day after OJ publication; EUR-Lex consolidated version dated 20 November 2024). Chapter IV (notification of conformity assessment bodies) applies from 11 June 2026. Article 14 reporting of actively exploited vulnerabilities and severe incidents applies from 11 September 2026; ENISA's Single Reporting Platform went live that day. All other obligations, including the essential requirements, conformity assessment and CE marking, apply from 11 December 2027; open-source software steward reporting (Article 24(3)) also from 11 December 2027. No retrospective reporting of exploitation known before 11 September 2026. Commission guidance C(2026) 5252 published 27 July 2026 (non-binding).",
+      "label": "Verified fact",
+      "src": [
+        "E1-S001",
+        "E1-S002",
+        "E1-S003",
+        "E1-S005",
+        "E1-S006",
+        "E1-S009"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "Scope: products with digital elements, including software, together with their 'remote data processing solutions': data processing at a distance whose software is designed and developed by or under the responsibility of the manufacturer and without which the product could not perform one of its functions (Article 3(2)). Cloud solutions are in scope only if they meet that definition (recital 12); a mobile app relying on a manufacturer-provided API or database is the recital 11 example",
+        "Standalone SaaS that is not the remote processing of a product is not itself a product with digital elements; the Commission's 2026 guidance turns Article 3(2) into a three-part test and, as reported, does not create a general SaaS exclusion",
+        "Manufacturer reporting (Article 14, from 11 September 2026): early warning within 24 hours of becoming aware of an actively exploited vulnerability or severe incident; notification within 72 hours; final report 14 days after a fix is available (vulnerability) or one month after the notification (incident); submitted once via the ENISA Single Reporting Platform to the coordinating CSIRT and ENISA",
+        "Support period (Article 13(8)): reflects expected use time, at least five years unless the product is expected to be in use for less; end date (at least month and year) stated at the time of purchase; vulnerability handling throughout",
+        "Components: identify and document components and vulnerabilities, including by drawing up a software bill of materials; the SBOM need not be made public",
+        "Conformity: carry out (or have carried out) conformity assessment, draw up the EU declaration of conformity and affix the CE marking before placing on the market (from 11 December 2027)",
+        "Open source: free and open-source software is in scope only when supplied in the course of a commercial activity; 'open-source software stewards' have lighter Article 24 duties and are not subject to administrative fines (Article 64(10))",
+        "High-risk AI (Article 12): a product that is also a high-risk AI system under AI Act Article 6 and meets CRA Annex I Parts I and II, with the protection level shown in the EU declaration of conformity, is deemed to meet the cybersecurity requirement of AI Act Article 15 (without prejudice to accuracy and robustness); the AI Act Article 43 conformity procedure applies, with a carve-back for important and critical CRA products",
+        "Penalties: up to 2.5% of worldwide annual turnover (EUR-Lex summary), with product bans or recalls; micro and small enterprises are not fined for missing the 24-hour early-warning deadline (Article 64(10))"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "E1-S001",
+        "E1-S002",
+        "E1-S003",
+        "E1-S004",
+        "E1-S005",
+        "E1-S006",
+        "E1-S007",
+        "E1-S008",
+        "E1-S009"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Field read for the Stage E views. TS (operator of a SaaS or managed service): the hosted service is not itself a CRA product unless it is the remote data processing of a product it also supplies (an installable agent, desktop or mobile client, SDK or on-premises connector); NIS2 and contracts are the main levers instead. SW (vendor of installed software with GenAI features): squarely a manufacturer; needs vulnerability reporting now (since 11 September 2026), and by 11 December 2027 a stated support period, SBOM, conformity assessment and CE marking for each EU release, including the bundled model runtime and any vendor-run inference endpoint the product depends on. SU: any start-up selling downloadable software or an SDK into the EU is a manufacturer from its first sale; the micro and small-enterprise relief covers only the 24-hour early-warning fine, not the duties. Open-weight models and open-source frameworks pulled into a commercial product become the manufacturer's components to document and patch.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "C7",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Vulnerability-handling policy and coordinated disclosure contact; ENISA SRP account (EU Login with MFA) and a 24/72-hour reporting runbook",
+        "SBOM per release (machine-readable), including model runtimes and bundled open-weight models",
+        "Published support-period end date per product version",
+        "Cybersecurity risk assessment and technical documentation; EU declaration of conformity and CE marking (from 11 December 2027)",
+        "For products that are also high-risk AI systems: declaration of conformity showing the AI Act Article 15 cybersecurity level"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "E1-S001",
+      "E1-S002",
+      "E1-S003",
+      "E1-S004",
+      "E1-S005",
+      "E1-S006",
+      "E1-S007",
+      "E1-S008",
+      "E1-S009"
+    ],
+    "stage_a_notes": "EUR-Lex, the Commission and ENISA were blocked to direct fetch; all facts are search-tool extracts. The exact allocation of the EUR 15m / 2.5% tier across Article 64(2) obligations was not confirmed from the official text (secondary sources differ). Article 12 detail rests on reproductions of the OJ text (E1-S008), labelled Reported where used alone. The Commission's guidance annex (C(2026) 5252) was not read in full: its precise line on SaaS and on support-period practice is NPV. A Commission Delegated Regulation (EU) 2026/881 under the CRA appeared in results but its content was not checked."
+  },
+  {
+    "id": "R-EU-PLD",
+    "instrument": {
+      "v": "Directive (EU) 2024/2853 on liability for defective products (repealing Council Directive 85/374/EEC)",
+      "label": "Verified fact",
+      "src": [
+        "E1-S010",
+        "E1-S011"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "European Union (national laws transposing the Directive)",
+      "label": "Verified fact",
+      "src": [
+        "E1-S011",
+        "E1-S012"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "European Parliament and Council; transposed and applied by Member States' courts",
+      "label": "Verified fact",
+      "src": [
+        "E1-S010",
+        "E1-S012"
+      ],
+      "conf": "medium"
+    },
+    "type": {
+      "v": "directive",
+      "label": "Verified fact",
+      "src": [
+        "E1-S010"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Transposition deadline 9 December 2026. Applies to products placed on the market or put into service from 9 December 2026; earlier products remain under Directive 85/374/EEC. One EUR-Lex rendering words Article 2 as 'after 8 December 2026', which is the same cut-over. The companion AI Liability Directive proposal (COM(2022) 496) was withdrawn (OJ notice C/2025/5423, 6 October 2025).",
+      "label": "Verified fact",
+      "src": [
+        "E1-S010",
+        "E1-S011",
+        "E1-S012",
+        "E1-S014"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "Software is a product for no-fault liability 'irrespective of the mode of its supply or usage' (installed, embedded, cloud or SaaS); information such as plain source code is not",
+        "Free and open-source software developed or supplied outside the course of a commercial activity is excluded; commercial products built on open-source components are covered",
+        "Manufacturers remain liable for defects arising after placing on the market from software or related services within their control, including a lack of security updates needed to maintain safety; the Directive itself imposes no duty to provide updates",
+        "Safety-relevant cybersecurity requirements are among the circumstances a court weighs when assessing defectiveness",
+        "Component manufacturers are liable where a defective component integrated into or inter-connected with a product within the manufacturer's control caused the defect (Article 8)",
+        "Disclosure (Article 9): on a plausible claim, courts may order the defendant to disclose relevant evidence, limited to what is necessary and proportionate, with protection for trade secrets; reciprocal right for the defendant",
+        "Presumptions (Article 10): defectiveness is presumed on failure to disclose, non-compliance with mandatory safety requirements, or an obvious malfunction; defectiveness or causation is presumed where technical or scientific complexity makes proof excessively difficult and the claimant shows it is likely",
+        "Substantial modifications within the manufacturer's control after placing on the market do not let the manufacturer rely on post-market timing to escape liability"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "E1-S010",
+        "E1-S011",
+        "E1-S012"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Field read for the Stage E views. The PLD compensates natural persons for death, personal injury, property damage and data loss, so business-to-business losses from a bad AI answer are mostly outside it; its effect is on consumer-facing and data-destroying failures. SW: every EU release from 9 December 2026 carries no-fault exposure, and model updates or retraining under the vendor's control count as within its control. TS: SaaS delivery does not escape the definition of software; agents that can delete or corrupt a person's data are the live risk. SU: open-source releases outside commercial activity are excluded, but the paid product is not. Disclosure orders and the complexity presumption make logs, evaluation records and version history the main defence for all three.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L3",
+      "L9",
+      "C2",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Release and model-version history tied to each shipped product version",
+        "Evaluation and safety-testing records retained for the liability period",
+        "Security-update records within the support period",
+        "Trade-secret handling plan for court disclosure orders"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "E1-S010",
+      "E1-S011",
+      "E1-S012",
+      "E1-S014"
+    ],
+    "stage_a_notes": "Article 15 (no contractual exclusion of liability towards the injured person) and the limitation periods were not confirmed from the extracts and are left out. That AI systems count as software is stated by commentary (E1-S015, Reported) and follows from the mode-of-supply wording; the recital text naming AI systems was not extracted."
+  },
+  {
+    "id": "R-EU-NIS2",
+    "instrument": {
+      "v": "Directive (EU) 2022/2555 (NIS2) on measures for a high common level of cybersecurity across the Union; Commission Implementing Regulation (EU) 2024/2690",
+      "label": "Verified fact",
+      "src": [
+        "E1-S016",
+        "E1-S019"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "European Union (national transposing laws); cloud, data-centre, CDN, managed service and managed security service providers fall under the Member State of their main EU establishment",
+      "label": "Verified fact",
+      "src": [
+        "E1-S016",
+        "E1-S017"
+      ],
+      "conf": "medium"
+    },
+    "issuer": {
+      "v": "European Parliament and Council; Commission (implementing acts, guidelines); national competent authorities and CSIRTs",
+      "label": "Verified fact",
+      "src": [
+        "E1-S016",
+        "E1-S017"
+      ],
+      "conf": "medium"
+    },
+    "type": {
+      "v": "directive",
+      "label": "Verified fact",
+      "src": [
+        "E1-S016"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Transposition deadline 17 October 2024; rules apply from 18 October 2024. Implementing Regulation (EU) 2024/2690 of 17 October 2024 sets the technical and methodological measures and significant-incident criteria for digital infrastructure and ICT service management providers. Commission proposals of 20 January 2026 (revised Cybersecurity Act, COM(2026) 11; targeted NIS2 amendments, COM(2026) 13) were not found adopted.",
+      "label": "Verified fact",
+      "src": [
+        "E1-S016",
+        "E1-S018",
+        "E1-S019"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "Scope (Annex I, high criticality): digital infrastructure (cloud computing service providers, data centre service providers, CDN providers, DNS, TLD registries, trust service providers) and ICT service management (business-to-business): managed service providers and managed security service providers",
+        "Size cap: medium-sized and large entities are in scope, small and micro entities generally excluded; large Annex I entities are essential, medium-sized ones important",
+        "Article 21 risk-management measures, appropriate and proportionate: risk analysis and information-system security policy, incident handling, business continuity and crisis management, supply-chain security including relationships with direct suppliers and service providers, among others",
+        "Article 20: management bodies approve and oversee the measures, can be held liable, and must follow training",
+        "Article 23 significant-incident reporting: early warning within 24 hours, incident notification within 72 hours, final report within one month",
+        "Article 34 fines: essential entities at least EUR 10m or 2% of worldwide turnover; important entities at least EUR 7m or 1.4%",
+        "Implementing Regulation (EU) 2024/2690 requires these providers to keep a supply-chain security policy governing relations with direct suppliers and service providers"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "E1-S016",
+        "E1-S017",
+        "E1-S018",
+        "E1-S019"
+      ],
+      "conf": "high"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Field read for the Stage E views. TS: a medium or large company that operates a cloud, hosted or managed service for business customers is very likely an Annex I digital-infrastructure or ICT-service-management entity in its own right, so the GenAI features inside that service sit within its Article 21 measures and Article 23 reporting; an AI incident that degrades the service can be a significant incident. SW and SU: a pure software vendor is not named in Annex I, but NIS2 customers must manage supply-chain security with their direct suppliers, so the duties arrive through contracts and questionnaires. Small and micro start-ups fall below the size cap unless they run a service type exempt from it.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L2",
+      "L4",
+      "L9",
+      "C1",
+      "C7",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Entity classification (essential or important) and main-establishment analysis",
+        "Article 21 measures mapped to the GenAI estate (gateway, model providers, vector stores, agent tools)",
+        "24-hour / 72-hour / one-month incident reporting runbook covering AI incidents",
+        "Supplier security clauses and register for direct suppliers, including model API providers",
+        "Board approval and training records"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "E1-S016",
+      "E1-S017",
+      "E1-S018",
+      "E1-S019"
+    ],
+    "stage_a_notes": "Per-Member-State transposition status was not checked. Final Article 26 wording rests on recitals and the Commission FAQ. The January 2026 amendment package (E1-S020, Reported) would, among other things, allow the Commission to mandate measures such as restricting outsourcing of operational control to MSPs; not adopted as far as found. The UK counterpart (Cyber Security and Resilience Bill) is recorded under R-UK-SOFTWARE."
+  },
+  {
+    "id": "R-EU-DATA-ACT",
+    "instrument": {
+      "v": "Regulation (EU) 2023/2854 (Data Act), Chapter VI: switching between data processing services",
+      "label": "Verified fact",
+      "src": [
+        "E1-S025",
+        "E1-S026"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "European Union (providers of data processing services offered to customers in the Union)",
+      "label": "Verified fact",
+      "src": [
+        "E1-S025",
+        "E1-S026"
+      ],
+      "conf": "medium"
+    },
+    "issuer": {
+      "v": "European Parliament and Council; Commission (FAQs, Legal Helpdesk); national competent authorities",
+      "label": "Verified fact",
+      "src": [
+        "E1-S025",
+        "E1-S026"
+      ],
+      "conf": "medium"
+    },
+    "type": {
+      "v": "regulation",
+      "label": "Verified fact",
+      "src": [
+        "E1-S025"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Applicable from 12 September 2025. Reduced switching charges (capped at directly linked cost) allowed from 11 January 2024 to 12 January 2027; from 12 January 2027 no switching charges, including data egress charges, may be imposed for the switching process. Chapter IV (unfair terms) extends to older long-term contracts from 12 September 2027. Digital Omnibus proposal COM(2025) 837 would carve out some custom-made non-IaaS services and lighten SME/SMC PaaS and SaaS duties under pre-12 September 2025 contracts; still a proposal (reported as stalled in Council, July 2026).",
+      "label": "Verified fact",
+      "src": [
+        "E1-S025",
+        "E1-S026",
+        "E1-S027",
+        "E1-S028"
+      ],
+      "conf": "high"
+    },
+    "key_obligations": {
+      "v": [
+        "Applies to all data processing (cloud and edge) service models: IaaS, PaaS and SaaS",
+        "Maximum notice period to initiate switching: two months (Article 25(2)(d))",
+        "Mandatory maximum transitional period of 30 calendar days to complete the switch, with reasonable assistance and continuity; if technically unfeasible, notify within 14 working days and propose an alternative of no more than seven months; the customer may extend once",
+        "Switching charges: reduced (cost-capped) until 12 January 2027, then none; egress may still be charged at cost for in-parallel use",
+        "IaaS providers facilitate functional equivalence for features both services offer independently (no duty to rebuild the service at the destination)",
+        "Non-IaaS (PaaS, SaaS) providers make open interfaces available free of charge to customers and destination providers and at a minimum export data in a machine-readable format"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "E1-S025",
+        "E1-S026"
+      ],
+      "conf": "high"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Field read for the Stage E views. TS: a SaaS or hosted GenAI platform is a data processing service, so its customer contracts need two-month notice, a 30-day transition, free export of customer data and digital assets through open interfaces, and no switching or egress charges from 12 January 2027; tenant data, embeddings, prompts and configuration should be exportable by design. The same rules protect TS, SW and SU as customers of model, vector-database and cloud providers, which lowers exit cost. SU: SaaS start-ups are covered from their first EU customer; the proposed SME relief is not law.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L2",
+      "L5",
+      "L6",
+      "C1",
+      "C6"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Switching and exit clauses in customer contracts (notice, transition, assistance)",
+        "Documented export of customer data and digital assets in machine-readable formats",
+        "Price list showing no switching or egress charges for switching from 12 January 2027"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "E1-S025",
+      "E1-S026",
+      "E1-S027",
+      "E1-S028"
+    ],
+    "stage_a_notes": "Whether model weights fine-tuned for a customer, embeddings or agent configurations count as 'exportable data' or 'digital assets' was not confirmed from the Commission FAQ (not read in full): NPV. Article numbering for the portability-duty list is as reported in the extracts."
+  },
+  {
+    "id": "R-EU-AIA-ROLES",
+    "instrument": {
+      "v": "Regulation (EU) 2024/1689 (AI Act), as amended by Regulation (EU) 2026/1744: value-chain, transparency and SME provisions (Articles 11, 25(4), 50, 58, 62, 99(6)); Commission GPAI guidelines C(2025) 5045; Article 50 guidelines C(2026) 5054; Code of Practice on Transparency of AI-generated Content",
+      "label": "Verified fact",
+      "src": [
+        "E1-S029",
+        "E1-S033",
+        "E1-S034",
+        "E1-S035",
+        "E1-S036",
+        "E1-S037"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "European Union (see R-EUAIA)",
+      "label": "Verified fact",
+      "src": [
+        "E1-S033"
+      ],
+      "conf": "medium"
+    },
+    "issuer": {
+      "v": "European Parliament and Council; Commission and AI Office (guidelines, codes of practice, model terms); Member States (sandboxes, fees)",
+      "label": "Verified fact",
+      "src": [
+        "E1-S029",
+        "E1-S033",
+        "E1-S034"
+      ],
+      "conf": "medium"
+    },
+    "type": {
+      "v": "regulation, with Commission guidelines and a voluntary code of practice",
+      "label": "Verified fact",
+      "src": [
+        "E1-S029",
+        "E1-S037"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Supplements R-EUAIA (which holds the dates and the Article 25(1) triggers). GPAI scope guidelines C(2025) 5045 of 18 July 2025. Article 50 guidelines C(2026) 5054 of 20 July 2026. Final Code of Practice on Transparency of AI-generated Content published after the 10 June 2026 closing plenary; about 190 signatories by the 2 August 2026 application date. The SMC extensions in Articles 11 and 99(6) come from the Digital Omnibus (in force 27 July 2026).",
+      "label": "Verified fact",
+      "src": [
+        "E1-S031",
+        "E1-S032",
+        "E1-S034",
+        "E1-S036",
+        "E1-S037"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "Article 25(4): the provider of a high-risk AI system and any third party supplying an AI system, tools, services, components or processes used in it must agree in writing the information, capabilities, technical access and assistance the provider needs to comply; not applicable to tools or components (other than GPAI models) made public under a free and open-source licence, and monetised components (including paid support) lose that exception; the AI Office may publish voluntary model contract terms",
+        "Downstream modifiers of a GPAI model become its provider only for a significant modification; the indicative criterion is modification compute above one third of the original model's training compute, and duties then cover the modification only (Commission guidelines C(2025) 5045). Fine-tuning below that leaves the integrator a provider of an AI system, not of a GPAI model",
+        "Article 50(1): providers design systems that interact with people so that people are informed they are dealing with an AI system unless obvious; the guidelines require explicit information on the non-human nature",
+        "Article 50(2): providers of systems (including GPAI systems) generating synthetic audio, image, video or text mark outputs machine-readably and make them detectable, as far as technically feasible; not for assistive editing that does not substantially alter input",
+        "Code of Practice on Transparency of AI-generated Content: Section 1 (providers: marking and detection), Section 2 (deployers: labelling deepfakes and AI-generated text); voluntary and accepted as an adequate way to show compliance",
+        "SMEs and start-ups (Article 62): priority access to sandboxes, tailored training, dedicated channels, help with standardisation, conformity-assessment fees reduced in proportion to size",
+        "Sandboxes (Article 58): SME and start-up participation prioritised and free of charge, save exceptional costs",
+        "Simplified technical documentation (Article 11): SMEs, start-ups and SMCs may provide the Annex IV elements in a simplified form on a Commission template",
+        "Penalty caps (Article 99(6)): for SMEs and start-ups each fine is capped at the lower of the percentage or fixed amount; for SMCs the lower-of rule applies to paragraphs 4 and 5 only"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "E1-S029",
+        "E1-S030",
+        "E1-S031",
+        "E1-S032",
+        "E1-S033",
+        "E1-S034",
+        "E1-S035",
+        "E1-S036",
+        "E1-S037"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Field read for the Stage E views. Role first: a company that puts its own name on an AI system it supplies (TS service, SW product, SU app) is the provider of that AI system even when the model comes from another vendor; the GPAI duties stay with the model vendor unless the integrator crosses the one-third compute threshold. TS and SU chat or generation features carry Article 50(1) and 50(2) duties as provider; their business customers carry the deployer duties. SW: where a customer builds a high-risk use on the vendor's component, Article 25(4) written agreements are what the customer's provider will ask for; open-source components are exempt only while not monetised. SU: sandboxes, simplified documentation and lower-of fines reduce cost but not the obligations themselves.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L1",
+      "L3",
+      "L4",
+      "C2",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Role analysis per product: provider of AI system, deployer, or GPAI downstream modifier (with compute estimate for fine-tunes)",
+        "Article 50 disclosure text in the UI and machine-readable marking of generated content (or Code of Practice signature)",
+        "Article 25(4) supply agreements with customers building high-risk systems on the product",
+        "SME status evidence for fee reductions and simplified documentation"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "E1-S029",
+      "E1-S030",
+      "E1-S031",
+      "E1-S032",
+      "E1-S033",
+      "E1-S034",
+      "E1-S035",
+      "E1-S036",
+      "E1-S037"
+    ],
+    "stage_a_notes": "Added because R-EUAIA holds the Article 25(1) triggers and a one-line Article 50 summary but not Article 25(4), the GPAI downstream-modifier test, the Article 50 guidelines and code, or the SME measures. Article 3(68) ('downstream provider') wording was not extracted. The fallback test when the original model's compute is unknown was truncated in the extract: NPV. Service Desk pages reflect the consolidated text as amended by Regulation (EU) 2026/1744."
+  },
+  {
+    "id": "R-US-STATE-AI",
+    "instrument": {
+      "v": "US state AI laws affecting developers and deployers: Colorado SB 24-205 as repealed and re-enacted by SB 26-189 (Automated Decision-Making Technology); Texas HB 149 (Responsible Artificial Intelligence Governance Act, TRAIGA); California SB 53 (Transparency in Frontier AI Act), AB 2013, SB 942 as amended by AB 853 (AI Transparency Act), CPPA ADMT regulations; federal Executive Order 14365",
+      "label": "Verified fact",
+      "src": [
+        "E1-S038",
+        "E1-S042",
+        "E1-S044",
+        "E1-S045",
+        "E1-S047",
+        "E1-S049"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "United States: Colorado, Texas, California (state law); federal executive action on preemption",
+      "label": "Verified fact",
+      "src": [
+        "E1-S038",
+        "E1-S042",
+        "E1-S044",
+        "E1-S049"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "State legislatures and governors; enforced by state Attorneys General (Colorado, Texas, California) and the California Privacy Protection Agency",
+      "label": "Verified fact",
+      "src": [
+        "E1-S038",
+        "E1-S039",
+        "E1-S042",
+        "E1-S044",
+        "E1-S047"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "state statutes and regulations; federal executive order",
+      "label": "Verified fact",
+      "src": [
+        "E1-S038",
+        "E1-S049"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Colorado: SB 24-205 was delayed to 30 June 2026 (SB 25B-004), then repealed and re-enacted by SB 26-189, signed 14 May 2026 (Chapter 131); main duties effective 1 January 2027 (some sections from 14 May 2026); AG rules filed 11 August 2026, interim draft 6 October 2026; a 27 April 2026 federal court order in X.AI LLC v. Weiser bars enforcement until rulemaking is complete and the court rules. Texas: TRAIGA in effect since 1 January 2026. California: SB 53 effective 1 January 2026; AB 2013 effective 1 January 2026 (reported); AI Transparency Act operative 2 August 2026, hosting-platform and large-platform duties from 1 January 2027; CPPA regulations effective 1 January 2026 with ADMT compliance from 1 January 2027; further AI bills signed in September 2026 (effective dates not checked). Federal: EO 14365 (11 December 2025) set up a DOJ AI Litigation Task Force (9 January 2026) to challenge state AI laws; no federal preemption statute found.",
+      "label": "Verified fact",
+      "src": [
+        "E1-S038",
+        "E1-S039",
+        "E1-S040",
+        "E1-S042",
+        "E1-S044",
+        "E1-S045",
+        "E1-S047",
+        "E1-S048",
+        "E1-S049"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "Colorado SB 26-189 (from 1 January 2027): covered ADMT used in consequential decisions (education, employment, housing, financial or lending services, insurance, health care, essential government services); developers give deployers technical documentation (intended uses, training-data categories, known limitations, instructions for appropriate use and human review); deployers give notice at the point of interaction and a plain-language explanation within 30 days of an adverse outcome; consumers may correct data and request meaningful human review; AG enforcement, 60-day cure before 1 January 2030, no private right of action",
+        "Colorado SB 26-189 drops the original Act's duty of reasonable care against algorithmic discrimination, risk-management programmes and impact assessments (reported)",
+        "Texas TRAIGA: prohibits developing or deploying AI intended to incite harm, to infringe constitutional rights, to discriminate unlawfully (disparate impact alone insufficient) or to produce unlawful sexual deepfakes or child sexual material; government social scoring and non-consensual government biometric identification barred; AG civil penalties USD 10,000-12,000 (curable), 80,000-200,000 (uncurable), 2,000-40,000 per day (continuing); DIR sandbox up to 36 months",
+        "California SB 53: large frontier developers (revenue above USD 500m with affiliates) publish and follow a frontier AI framework, review it annually, report critical safety incidents to the Office of Emergency Services within 15 days (24 hours if imminent risk of death or serious injury); AG civil penalties; whistleblower protections",
+        "California AI Transparency Act (SB 942 as amended by AB 853): covered providers of generative AI systems with over 1,000,000 monthly users offer a free AI-detection tool and disclose AI-generated image, video and audio content; hosting platforms from 1 January 2027",
+        "California AB 2013 (reported): developers of generative AI systems post training-data summaries",
+        "California CPPA regulations: businesses using ADMT for significant decisions comply from 1 January 2027; risk assessments from 1 January 2026 with attestation by 1 April 2028; cybersecurity audits phased 2027-2030"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "E1-S038",
+        "E1-S039",
+        "E1-S041",
+        "E1-S042",
+        "E1-S043",
+        "E1-S044",
+        "E1-S045",
+        "E1-S046",
+        "E1-S047"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Field read for the Stage E views. Most duties bite only where the product makes or assists consequential decisions about individuals (credit, employment, housing, insurance, health care) or is a consumer generative tool with very large reach. TS, SW and SU vendors are typically 'developers' toward business customers: from 1 January 2027 Colorado customers will ask for intended-use, training-data-category and limitation documentation plus human-review instructions; California customers using ADMT will need notices and review routes the product can support. SB 53 reaches only frontier-model developers above USD 500m revenue, not integrators. The legal picture is volatile: Colorado enforcement is stayed by court order, and federal preemption pressure continues.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L3",
+      "L9",
+      "C2",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Developer documentation pack per product (intended uses, training-data categories, limitations, human-review instructions)",
+        "Consequential-decision screen for each customer use case",
+        "Adverse-outcome explanation and human-review workflow that customers can switch on",
+        "Detection-tool and content-disclosure evidence for large consumer generative products"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "E1-S038",
+      "E1-S039",
+      "E1-S040",
+      "E1-S041",
+      "E1-S042",
+      "E1-S043",
+      "E1-S044",
+      "E1-S045",
+      "E1-S046",
+      "E1-S047",
+      "E1-S048",
+      "E1-S049"
+    ],
+    "stage_a_notes": "Most volatile record: re-verify every quarter. Effective dates of California's September 2026 AI bills (SB 947, SB 813, AB 1405, SB 1050 and others) were not checked: NPV. Whether the Commerce evaluation of 'onerous' state laws under EO 14365 was published was not found: NPV. Texas cure-period detail came from introduced or committee versions. AB 2013 rests on secondary sources."
+  },
+  {
+    "id": "R-UK-SOFTWARE",
+    "instrument": {
+      "v": "UK Software Security Code of Practice (DSIT and NCSC, voluntary); Product Security and Telecommunications Infrastructure Act 2022 Part 1 and the 2023 Regulations; Cyber Security and Resilience (Network and Information Systems) Bill (status only)",
+      "label": "Verified fact",
+      "src": [
+        "E1-S051",
+        "E1-S053",
+        "E1-S054",
+        "E1-S024"
+      ],
+      "conf": "high"
+    },
+    "jurisdiction": {
+      "v": "United Kingdom",
+      "label": "Verified fact",
+      "src": [
+        "E1-S051",
+        "E1-S054"
+      ],
+      "conf": "high"
+    },
+    "issuer": {
+      "v": "DSIT and NCSC (Code); Parliament, enforced by the Office for Product Safety and Standards (PSTI); Parliament (Bill)",
+      "label": "Verified fact",
+      "src": [
+        "E1-S051",
+        "E1-S053",
+        "E1-S024"
+      ],
+      "conf": "high"
+    },
+    "type": {
+      "v": "voluntary code of practice; statute and regulations; bill",
+      "label": "Verified fact",
+      "src": [
+        "E1-S051",
+        "E1-S054",
+        "E1-S024"
+      ],
+      "conf": "high"
+    },
+    "status_and_dates": {
+      "v": "Software Security Code of Practice launched 7 May 2025 (voluntary). PSTI product-security regime in force since 29 April 2024. Cyber Security and Resilience Bill introduced in the Commons 12 November 2025 and in the Lords 17 June 2026; Lords second reading 14 July 2026; Lords committee stage completed by early September 2026; report stage pending or under way; not yet law as of 9 October 2026.",
+      "label": "Verified fact",
+      "src": [
+        "E1-S051",
+        "E1-S052",
+        "E1-S053",
+        "E1-S023",
+        "E1-S024"
+      ],
+      "conf": "medium"
+    },
+    "key_obligations": {
+      "v": [
+        "Software Security Code of Practice: 14 principles software vendors are expected to implement as a baseline for software security and resilience; vendors self-assess against the Software Security Assurance Principles and Claims; customers can rely on self-assessment, audit or independent testing; no statutory force",
+        "PSTI Act 2022 Part 1: security requirements for consumer 'relevant connectable products' (internet- or network-connectable); desktops, laptops and non-cellular tablets excepted; requirements may relate to software installed on or used with the product; enterprise devices not available to consumers are out of scope; standalone software is not a connectable product",
+        "Cyber Security and Resilience Bill (when enacted): brings medium and large 'relevant managed service providers' into the NIS Regulations 2018 (registration with the Information Commissioner within three months of commencement); lets regulators designate 'critical suppliers'; data centres brought in (reported); detailed duties by secondary legislation"
+      ],
+      "label": "Verified fact",
+      "src": [
+        "E1-S051",
+        "E1-S053",
+        "E1-S054",
+        "E1-S021",
+        "E1-S022"
+      ],
+      "conf": "medium"
+    },
+    "relevance_to_genai_agents_asset_mgmt": {
+      "v": "Field read for the Stage E views. For SW and SU there is no UK statute equivalent to the CRA; the Code of Practice is what UK enterprise and public-sector buyers are likely to cite in procurement, so a self-assessment is cheap assurance. PSTI matters only for vendors shipping consumer connected devices. TS: once the Bill is enacted and commenced, a medium or large managed-service provider will need to register and meet NIS duties, and smaller suppliers can still be designated as critical suppliers.",
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "stack_layers_affected": [
+      "L4",
+      "C7",
+      "C8"
+    ],
+    "evidence_artefacts_expected": {
+      "v": [
+        "Self-assessment against the Software Security Code of Practice",
+        "Monitoring note on the Cyber Security and Resilience Bill and its commencement regulations"
+      ],
+      "label": "Architectural judgement",
+      "src": [],
+      "conf": "low"
+    },
+    "sources": [
+      "E1-S021",
+      "E1-S022",
+      "E1-S023",
+      "E1-S024",
+      "E1-S051",
+      "E1-S052",
+      "E1-S053",
+      "E1-S054"
+    ],
+    "stage_a_notes": "Included as material for UK sales. The exact current Lords stage of the Bill differs between sources (report stage 'yet to be scheduled' vs 'at report stage'); Royal Assent not found. Whether managed service providers face 24-hour/72-hour reporting under the Bill rests on commentary: NPV."
+  }
+]

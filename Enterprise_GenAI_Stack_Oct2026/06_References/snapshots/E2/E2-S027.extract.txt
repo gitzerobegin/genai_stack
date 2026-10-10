@@ -1,0 +1,13 @@
+SOURCE ID: E2-S027
+URL: https://theairankings.com/mistral/mistral-medium-3-5/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Mistral Modified MIT license Medium 3.5 revenue threshold commercial licence terms; huggingface mistralai Mistral-Medium-3.5 LICENSE Modified MIT text monthly revenue
+========================================================================
+
+Search tool summary (results: theairankings.com; bibigpt.co; aiproductivity.ai; conductatlas.com; letsdatascience.com; getdeploying.com; llmreference.com). The Hugging Face LICENSE file was not returned.
+- The AI Rankings: the Modified MIT grant does not extend to companies whose global consolidated monthly revenue exceeds about US$20 million; they must obtain a separate commercial licence from Mistral or use the hosted API; for individuals, start-ups, mid-market firms and most universities it behaves like ordinary MIT. Cites the Hugging Face LICENSE file.
+- BibiGPT: describes a revised MIT licence that permits commercial deployment, no revenue cap mentioned.
+- aiproductivity.ai: says the modified MIT licence prohibits commercial use (contradicts the others).
+- One source: "Licence | Modified MIT (open weights; revenue threshold for large firms)".
+- Conflicting secondary reports; primary licence text not read.

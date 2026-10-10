@@ -1,0 +1,14 @@
+SOURCE ID: E2-S023
+URL: https://ai.google.dev/gemma/terms
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Gemma Terms of Use redistribution ai.google.dev/gemma/terms distribute model derivatives notice prohibited use policy
+========================================================================
+
+Search tool summary (results: ai.google.dev/gemma/terms; ai.google.dev/gemma/terms-archive/terms_02_21_24; open.windriver.com licence list copy). The snippets did not show the full current Section 3.1; the archived February 2024 text was the most complete returned.
+- Notice requirement: distributions made outside a hosted service need a "Notice" text file stating that Gemma is provided under and subject to the Gemma Terms of Use at ai.google.dev/gemma/terms.
+- Modified files must carry prominent notices that they were changed.
+- Use restrictions in Section 3.2 must be carried as enforceable provisions into any agreement governing use or distribution, and recipients must be told those restrictions apply; recipients must receive a copy of the Agreement.
+- A distributor may add its own IP statement and different terms for its modifications, provided they do not conflict with the Agreement.
+- Use is barred for uses in the Gemma Prohibited Use Policy (incorporated by reference) and for uses violating applicable law; Google may restrict usage it reasonably believes violates the Agreement.
+- Google claims no rights in outputs; the user and its users are responsible for outputs. No trademark rights granted.

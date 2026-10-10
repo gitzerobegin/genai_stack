@@ -1,0 +1,13 @@
+SOURCE ID: E2-S026
+URL: https://openai.com/policies/services-agreement/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: OpenAI Services Agreement customer content output ownership develop models that compete resell restrictions business terms
+========================================================================
+
+Search tool summary (results: cdn.openai.com/osa/openai-services-agreement.pdf; openai.com/policies/services-agreement/; openai.com/policies/business-terms; archived aug-2023 and nov-2023 business terms; Carahsoft GSA-hosted copies). Direct fetch of openai.com and cdn.openai.com blocked by the research-environment proxy.
+- Ownership: as between Customer and OpenAI, and to the extent permitted by law, Customer retains all ownership rights in Input and owns all Output; OpenAI assigns to Customer its right, title and interest (if any) in Output.
+- Customer Content use: OpenAI will only use Customer Content as necessary to provide the Services, comply with applicable law, enforce the OpenAI Policies and prevent abuse. A government-reseller copy adds that OpenAI will not use it to train models except for fine-tuning, embeddings and similar activities solely for the Customer's benefit.
+- Competing models: restriction (e) bars using Output to develop models that compete with OpenAI, except for a Permitted Exception. Older business terms describe the carve-out as models primarily intended to categorise, classify or organise data (e.g. embeddings or classifiers) not distributed or made commercially available to third parties, plus fine-tuning models provided as part of the Services.
+- Resale: no general resale ban found in the results; the closest provision prohibits buying, selling or transferring API keys to or with a third party.
+- Caveat: results mix versions (current agreement PDF, 2023 business terms, reseller copies); wording differs in places.

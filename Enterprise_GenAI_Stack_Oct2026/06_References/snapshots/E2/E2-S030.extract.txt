@@ -1,0 +1,14 @@
+SOURCE ID: E2-S030
+URL: https://ai.google.dev/gemini-api/terms
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Gemini API Additional Terms of Service competing models under 18 not use API clients age restriction
+========================================================================
+
+Search tool summary (results: ai.google.dev/gemini-api/terms; ai.google.dev/terms in several languages; archives terms_05_02_24, terms_05_14_24, terms_10_07_25). Direct fetch of ai.google.dev blocked.
+- Current version effective 23 March 2026.
+- "You must be 18 years of age or older to use the APIs."
+- "You also will not use the Services as part of a website, application, or other service (collectively, 'API Clients') that is directed towards or is likely to be accessed by individuals under the age of 18."
+- "You may not use the Services to develop models that compete with the Services (e.g., Gemini API or Google AI Studio)"; also bars reverse engineering or extracting model components, including weights.
+- New in the current version: use of Google AI Studio and Gemini API is for developers building with Google AI models for professional or business purposes, not for consumer use.
+- The age and competing-model clauses also appear in the May 2024 archive.

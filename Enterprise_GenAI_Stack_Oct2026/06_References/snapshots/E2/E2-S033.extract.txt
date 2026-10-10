@@ -1,0 +1,14 @@
+SOURCE ID: E2-S033
+URL: https://openai.com/api-reserved-tier/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: OpenAI Scale Tier reserved capacity API enterprise committed throughput
+========================================================================
+
+Search tool summary (results: openai.com/api-reserved-tier/ and localised copies; third-party blog codex.danielvaughan.com).
+- Reserved Tier is the current product; the older Scale Tier still covers models released before GPT-5.6. Available to Enterprise customers via sales.
+- Pre-purchased throughput that sits on top of rate limits and stays available during peak demand.
+- Bought per model, measured in dollars per minute; can be spent across Standard and Fast modes, context lengths and regions.
+- Batch and Flex processing are not covered.
+- Usage above the reservation billed at pay-as-you-go rates (e.g. a US$2/minute reservation covers any minute with eligible usage of US$2 or less).
+- A third-party blog describes a "Guaranteed Capacity" programme (May 2026, 1-3 year commitments, tiered discounts): unconfirmed.

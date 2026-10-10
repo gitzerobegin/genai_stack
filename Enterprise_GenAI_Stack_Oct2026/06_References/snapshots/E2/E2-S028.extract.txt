@@ -1,0 +1,12 @@
+SOURCE ID: E2-S028
+URL: https://runtimewire.com/article/meta-open-sources-muse-glimmer-agent-model-under-apache-2-0
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Meta Muse Glimmer 30B license Apache 2.0 Hugging Face meta-models
+========================================================================
+
+Search tool summary (results: runtimewire.com; mer.vin; vktr.com; aiweekly.co; pasqualepillitteri.it; aimodels.substack.com; sovereignmagazine.com; thenote.app). Hugging Face model card not reached.
+- Muse-Glimmer-30B released 10 August 2026 under Apache 2.0; one outlet says it lacks the monthly-active-user cap that Llama models carried.
+- One source says the Hugging Face repository is not gated (no terms to accept before download).
+- 30B open-weight model for local agent work, distilled from Muse Spark; first open-weight Meta model since Llama 4.
+- Architecture reports differ (about 29.6B; or 2B vision encoder plus 28B decoder). Builds: BF16, GGUF, ExecuTorch, assistant variant.

@@ -1,0 +1,10 @@
+SOURCE ID: E3-S013
+URL: https://www.geekwire.com/2025/github-will-join-microsofts-coreai-group-with-departure-of-ceo-thomas-dohmke/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GitHub joins Microsoft CoreAI CEO Thomas Dohmke steps down 2025
+========================================================================
+
+Search-tool summary (GeekWire, with Channel Insider and Outlook Business agreeing):
+- Thomas Dohmke announced in August 2025 that he would step down as GitHub CEO by the end of 2025 to start a new company.
+- Microsoft will not fill the CEO role; GitHub is integrated into Microsoft's CoreAI organisation led by Jay Parikh; Julia Liuson (Developer Division) oversees GitHub revenue, engineering and support.
