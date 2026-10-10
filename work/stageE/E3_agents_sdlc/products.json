@@ -343,7 +343,7 @@
   },
   "strategic_direction": {
    "v": "Joint model training with SpaceX/xAI (Grok 4.5 trained alongside Cursor per SpaceX filing; Grok 4.6 cited); access to SpaceX GPU fleet",
-   "label": "Verified fact",
+   "label": "Reported",
    "src": [
     "E3-S029"
    ],
