@@ -1,0 +1,10 @@
+SOURCE ID: A5-S074
+URL: https://docs.mistral.ai/models/model-cards/mistral-medium-3-5-26-04
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral Medium 3.5 announcement open weights license Mistral Large 3 Apache 2.0 (allowed_domains mistral.ai, docs.mistral.ai, huggingface.co)
+========================================================================
+
+Search tool summary:
+- Mistral Medium 3.5: 128B dense flagship combining instruction-following, reasoning and coding; released 28 April 2026 as open weights under a modified MIT licence ("Modified MIT v26.04") with exceptions for companies with large revenue; API US$1.5 input / US$7.5 output per 1M.
+- Mistral Large 3 (announced December 2025 with Ministral 3): sparse MoE 41B active / 675B total; base and instruct released under Apache 2.0 ("All models are released under the Apache 2.0 license").

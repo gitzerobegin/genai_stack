@@ -1,0 +1,37 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L2 decision tree: choosing a serving route and capacity model</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L2 decision tree: choosing a serving route and capacity model</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  S0["STEP 0 [Rec] (not optional)&lt;br/&gt;Every route is called through the gateway (C1); the OpenAI-compatible API is the contract; each route records model, version, endpoint, processing region and retention setting; a fallback is qualified (L9) and in region."]
+
+  S0 --&gt; Q1{"STEP 1 [Rec]:&lt;br/&gt;What data will the&lt;br/&gt;route carry?"}
+  Q1 -- "public / non-confidential only" --&gt; PUB["Any approved managed API or router (OpenRouter, HF Inference Providers) with ZDR on; still through C1"]
+  Q1 -- "client, personal or confidential data" --&gt; Q2
+
+  Q2{"STEP 2 [Rec]: Is the model you need available, processed in your approved region, on your primary cloud's model service?"}
+  Q2 -- yes --&gt; MAN["MANAGED ACCESS (default): Bedrock geographic/in-Region profile, Foundry Data Zone or Regional deployment, or Vertex regional/multi-region endpoint.&lt;br/&gt;Confirm who operates the model (hyperscaler vs partner)."]
+  Q2 -- "no (model not in region, open-weight model needed, or exit route required)" --&gt; Q2a{"Is the requirement&lt;br/&gt;an open-weight model?"}
+  Q2a -- no --&gt; VEN["Use the model vendor's own regional API only if contracted (DPA, ZDR, region) and registered as a material third party; otherwise choose a different model (L1)"]
+  Q2a -- yes --&gt; Q2b{"Do you have, or will you fund, GPU capacity AND an SRE team that can patch engines monthly and run on-call?"}
+  Q2b -- no --&gt; VPC["PRIVATE-VPC MANAGED INFERENCE: Fireworks BYOC or EU dedicated deployment (Strategic, conditional: once its ISO certificates are confirmed); Together EU dedicated endpoint (Scale/Enterprise, ZDR on); HF Inference Endpoints in an approved region with PrivateLink"]
+  Q2b -- yes --&gt; OWN["OWN GPUs: vLLM (supported distribution if your operating model needs a vendor), weights from an internal mirror; SGLang qualified as the backup engine (Strategic, conditional: once CVE-2026-3059 is confirmed fixed in the deployed version)"]
+  OWN --&gt; Q2c{"Multi-node, high volume,&lt;br/&gt;Kubernetes standard?"}
+  Q2c -- yes --&gt; LLMD["Pilot llm-d (CNCF) or Dynamo (NVIDIA estates) as the optimisation layer; non-production first"]
+  Q2c -- no --&gt; VLLM["vLLM alone"]
+
+  PUB -- "go to STEP 3" --&gt; Q3
+  MAN -- "go to STEP 3" --&gt; Q3
+  Q3{"STEP 3 [Rec]: Capacity&lt;br/&gt;Is demand bursty but time-critical (month-end, quarter-end)?"}
+  Q3 -- yes --&gt; RES["Reserved / provisioned capacity sized for the peak (Foundry PTU, Vertex Provisioned Throughput with overflow pinned in region, Together PTU, Fireworks reserved), plus a qualified in-region fallback"]
+  Q3 -- no --&gt; STD["Standard / serverless in-region; batch APIs for non-interactive jobs"]
+
+  RES --&gt; S4
+  STD --&gt; S4
+  S4["STEP 4 [Rec]: Checks before go-live&lt;br/&gt;• Processing region evidenced per call?&lt;br/&gt;• ZDR / retention confirmed in the contract, not just the console?&lt;br/&gt;• Fallback in the same region and qualified?&lt;br/&gt;• Engine version pinned and on the advisory watch list (self-hosted)?&lt;br/&gt;• Exit drill: route moved to the alternative by gateway configuration only?&lt;br/&gt;• Developer runtimes (Ollama, LM Studio): cloud disabled, no client data?"]
+</pre><div class="c">Data class decides whether a router may be used, model availability in region decides between managed access and the other routes, GPU and SRE capacity decide between private-VPC managed inference and own GPUs, and demand shape decides reserved versus standard capacity before the go-live checks.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

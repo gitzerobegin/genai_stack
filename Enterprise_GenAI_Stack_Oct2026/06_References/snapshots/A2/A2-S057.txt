@@ -1,0 +1,1872 @@
+SOURCE ID: A2-S057
+URL: https://pypi.org/project/elasticsearch/
+FINAL URL: https://pypi.org/project/elasticsearch/
+TITLE: elasticsearch · PyPI
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+elasticsearch · PyPI
+
+Skip to main content
+
+Switch to mobile version
+
+elasticsearch 9.5.1
+
+Python client for Elasticsearch
+
+pip install elasticsearch
+
+Copy PIP instructions
+
+Elasticsearch Python Client
+
+The official Python client for Elasticsearch.
+
+Features
+
+Translating basic Python data types to and from JSON
+
+Configurable automatic discovery of cluster nodes
+
+Persistent connections
+
+Load balancing (with pluggable selection strategy) across available nodes
+
+Failed connection penalization (time based - failed connections won't be
+retried until a timeout is reached)
+
+Support for TLS and HTTP authentication
+
+Thread safety across requests
+
+Pluggable architecture
+
+Helper functions for idiomatically using APIs together
+
+Installation
+
+Download the latest version of Elasticsearch
+
+or
+
+sign-up
+
+for a free trial of Elastic Cloud.
+
+Refer to the 
+Installation section
+
+of the getting started documentation.
+
+Connecting
+
+Refer to the 
+Connecting section
+
+of the getting started documentation.
+
+Usage
+
+Creating an index
+
+Indexing a document
+
+Getting documents
+
+Searching documents
+
+Updating documents
+
+Deleting documents
+
+Deleting an index
+
+Compatibility
+
+Language clients are 
+forward compatible:
+ each client version works with equivalent and later minor versions of Elasticsearch without breaking.
+
+Compatibility does not imply full feature parity. New Elasticsearch features are supported only in equivalent client versions. For example, an 8.12 client fully supports Elasticsearch 8.12 features and works with 8.13 without breaking; however, it does not support new Elasticsearch 8.13 features. An 8.13 client fully supports Elasticsearch 8.13 features.
+
+Elasticsearch version
+
+elasticsearch-py branch
+
+main
+
+main
+
+9.x
+
+9.x
+
+9.x
+
+8.x
+
+8.x
+
+8.x
+
+Elasticsearch language clients are also 
+backward compatible
+ across minor versions — with default distributions and without guarantees.
+
+[!TIP]
+To upgrade to a new major version, first upgrade Elasticsearch, then upgrade the Python Elasticsearch client.
+
+If you need to work with multiple client versions, note that older versions are also released as 
+elasticsearch7
+ and 
+elasticsearch8
+.
+
+Documentation
+
+Documentation for the client is 
+available on elastic.co
+ and 
+Read the Docs
+.
+
+Try Elasticsearch and Kibana locally
+
+If you want to try Elasticsearch and Kibana locally, you can run the following command:
+
+curl
+
+-fsSL
+
+https://elastic.co/start-local
+
+|
+
+sh
+
+This will run Elasticsearch at 
+http://localhost:9200
+ and Kibana at 
+http://localhost:5601
+.
+
+More information is available 
+here
+.
+
+Contributing
+
+See 
+CONTRIBUTING.md
+
+License
+
+This software is licensed under the 
+Apache License 2.0
+. See 
+NOTICE
+.
+
+Project links
+
+Data verified by PyPI on Sep 9, 2026        
+
+Data provided by the project maintainers, verified at the time the release was uploaded to PyPI.        
+
+Homepage
+
+Issue Tracker
+
+Source Code
+
+Documentation
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    Sep 9, 2026
+
+Latest release
+
+3 maintainers  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+joshmock
+
+margaretjgu
+
+quentinp
+
+Credits
+
+Author/Maintainer:            
+
+Elastic Client Library Maintainers
+
+GitHub Statistics
+
+Data verified by PyPI on Sep 9, 2026
+
+The GitHub source repository was provided by the project maintainers and verified by PyPI at the time of upload. Stars, forks, and open issues/PRs are derived from that repository and have not been independently verified.
+
+Repository          
+
+Stars:
+
+Forks:
+
+Open issues:
+
+Open PRs:
+
+License expression      
+
+        Apache-2.0
+
+View SPDX License List
+
+Requires
+
+Python
+ >=3.10
+
+Provides Extra
+
+async
+
+dev
+
+docs
+
+orjson
+
+pyarrow
+
+requests
+
+vectorstore-mmr
+
+Tags
+
+REST
+
+client
+
+elastic
+
+elasticsearch
+
+index
+
+kibana
+
+mapping
+
+search
+
+Classifiers
+
+          Development Status
+
+                  5 - Production/Stable
+
+          Intended Audience
+
+                  Developers
+
+          License
+
+                  OSI Approved :: Apache Software License
+
+          Operating System
+
+                  OS Independent
+
+          Programming Language
+
+                  Python
+
+                  Python :: 3
+
+                  Python :: 3.10
+
+                  Python :: 3.11
+
+                  Python :: 3.12
+
+                  Python :: 3.13
+
+                  Python :: 3.14
+
+                  Python :: Implementation :: CPython
+
+                  Python :: Implementation :: PyPy
+
+Report project as malware
+
+Metadata
+
+Project links
+
+Data verified by PyPI on Sep 9, 2026        
+
+Data provided by the project maintainers, verified at the time the release was uploaded to PyPI.        
+
+Homepage
+
+Issue Tracker
+
+Source Code
+
+Documentation
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    Sep 9, 2026
+
+Latest release
+
+3 maintainers  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+joshmock
+
+margaretjgu
+
+quentinp
+
+Credits
+
+Author/Maintainer:            
+
+Elastic Client Library Maintainers
+
+GitHub Statistics
+
+Data verified by PyPI on Sep 9, 2026
+
+The GitHub source repository was provided by the project maintainers and verified by PyPI at the time of upload. Stars, forks, and open issues/PRs are derived from that repository and have not been independently verified.
+
+Repository          
+
+Stars:
+
+Forks:
+
+Open issues:
+
+Open PRs:
+
+License expression      
+
+        Apache-2.0
+
+View SPDX License List
+
+Requires
+
+Python
+ >=3.10
+
+Provides Extra
+
+async
+
+dev
+
+docs
+
+orjson
+
+pyarrow
+
+requests
+
+vectorstore-mmr
+
+Tags
+
+REST
+
+client
+
+elastic
+
+elasticsearch
+
+index
+
+kibana
+
+mapping
+
+search
+
+Classifiers
+
+          Development Status
+
+                  5 - Production/Stable
+
+          Intended Audience
+
+                  Developers
+
+          License
+
+                  OSI Approved :: Apache Software License
+
+          Operating System
+
+                  OS Independent
+
+          Programming Language
+
+                  Python
+
+                  Python :: 3
+
+                  Python :: 3.10
+
+                  Python :: 3.11
+
+                  Python :: 3.12
+
+                  Python :: 3.13
+
+                  Python :: 3.14
+
+                  Python :: Implementation :: CPython
+
+                  Python :: Implementation :: PyPy
+
+Report project as malware
+
+Release files for elasticsearch 9.5.1
+
+For a detailed explanation of source distributions (sdists) and built distributions (wheels), please see the 
+package formats documentation
+.    
+
+Source distribution (sdist)    
+
+Source distribution for elasticsearch 9.5.1
+
+File
+
+Size
+
+Uploaded
+
+elasticsearch-9.5.1.tar.gz
+
+930.4 kB
+
+    Sep 9, 2026
+
+Details
+
+Built distribution (wheel)  
+
+Table of built distributions (wheels) for elasticsearch 9.5.1
+
+File
+
+Interpreter        
+
+ABI        
+
+Platform        
+
+Reset
+
+elasticsearch-9.5.1-py3-none-any.whl
+
+1.0 MB
+
+    Sep 9, 2026
+
+              Python 3
+
+              none
+
+              any
+
+Details
+
+Total release size:
+ 1.9 MB
+
+Release files
+
+    / elasticsearch-9.5.1.tar.gz
+
+Download URL
+
+elasticsearch-9.5.1.tar.gz
+
+Size
+
+930.4 kB
+
+Tags
+
+Source
+
+SHA-256 checksum          
+
+How to use checksums
+
+98210cd96c256dd9936f58e1c762aba94da7db7d38d058bb0fbaf7e4b9567146
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+aab787bce7be89c822a63608e3c946a80d99fce1066ce9e9691bcb6b8ef57631
+
+Upload date
+
+    Sep 9, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 9, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/elastic/elasticsearch-py
+
+Publishing commit          
+
+github.com/elastic/elasticsearch-py/tree/891a79aeeff105423915af652b53f09667cf996a
+
+Workflow        
+
+Publishing configuration          
+
+github.com/elastic/elasticsearch-py/blob/891a79aeeff105423915af652b53f09667cf996a/.github/workflows/pypi-publish.yml
+
+Publishing logs          
+
+github.com/elastic/elasticsearch-py/actions/runs/33435694053/attempts/1
+
+Artifact
+
+Subject
+
+elasticsearch-9.5.1.tar.gz
+
+SHA-256 checksum
+
+98210cd96c256dd9936f58e1c762aba94da7db7d38d058bb0fbaf7e4b9567146
+
+Verifying attestations
+
+Release files
+
+    / elasticsearch-9.5.1-py3-none-any.whl
+
+Download URL
+
+elasticsearch-9.5.1-py3-none-any.whl
+
+Size
+
+1.0 MB
+
+Tags
+
+Python 3
+
+SHA-256 checksum          
+
+How to use checksums
+
+a980d8888ae70c03f0a1db6b2c5e3e39bf4e235abea737f522d2fd1d2d20bb99
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+786e047d517a64249abd0a1b5b8c9f8244e3bf48c6916d5a68e9c76c52fc266d
+
+Upload date
+
+    Sep 9, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 9, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/elastic/elasticsearch-py
+
+Publishing commit          
+
+github.com/elastic/elasticsearch-py/tree/891a79aeeff105423915af652b53f09667cf996a
+
+Workflow        
+
+Publishing configuration          
+
+github.com/elastic/elasticsearch-py/blob/891a79aeeff105423915af652b53f09667cf996a/.github/workflows/pypi-publish.yml
+
+Publishing logs          
+
+github.com/elastic/elasticsearch-py/actions/runs/33435694053/attempts/1
+
+Artifact
+
+Subject
+
+elasticsearch-9.5.1-py3-none-any.whl
+
+SHA-256 checksum
+
+a980d8888ae70c03f0a1db6b2c5e3e39bf4e235abea737f522d2fd1d2d20bb99
+
+Verifying attestations
+
+Release history
+
+Release notifications
+ |
+
+RSS feed 
+
+This release
+
+9.5.1
+
+This release
+
+    Sep 9, 2026
+
+ 2 release files
+
+9.5.0
+
+    Aug 4, 2026
+
+ 2 release files
+
+9.4.1
+
+    May 26, 2026
+
+ 2 release files
+
+9.4.0
+
+    May 6, 2026
+
+ 2 release files
+
+9.3.0
+
+    Feb 3, 2026
+
+ 2 release files
+
+9.2.1
+
+    Dec 23, 2025
+
+ 2 release files
+
+9.2.0
+
+    Oct 28, 2025
+
+ 2 release files
+
+9.1.3
+
+    Jan 5, 2026
+
+ 2 release files
+
+9.1.2
+
+    Oct 28, 2025
+
+ 2 release files
+
+9.1.1
+
+    Sep 12, 2025
+
+ 2 release files
+
+9.1.0
+
+    Jul 30, 2025
+
+ 2 release files
+
+9.0.5
+
+    Jan 5, 2026
+
+ 2 release files
+
+9.0.4
+
+    Sep 12, 2025
+
+ 2 release files
+
+9.0.3
+
+    Jul 30, 2025
+
+ 2 release files
+
+9.0.2
+
+    Jun 5, 2025
+
+ 2 release files
+
+9.0.1
+
+    Apr 28, 2025
+
+ 2 release files
+
+9.0.0
+
+    Apr 15, 2025
+
+ 2 release files
+
+8.19.3
+
+    Dec 23, 2025
+
+ 2 release files
+
+8.19.2
+
+    Oct 28, 2025
+
+ 2 release files
+
+8.19.1
+
+    Sep 12, 2025
+
+ 2 release files
+
+8.19.0
+
+    Jul 30, 2025
+
+ 2 release files
+
+8.18.1
+
+    Apr 29, 2025
+
+ 2 release files
+
+8.18.0
+
+    Apr 15, 2025
+
+ 2 release files
+
+8.17.2
+
+    Mar 4, 2025
+
+ 2 release files
+
+8.17.1
+
+    Jan 23, 2025
+
+ 2 release files
+
+8.17.0
+
+    Dec 16, 2024
+
+ 2 release files
+
+8.16.0
+
+    Nov 13, 2024
+
+ 2 release files
+
+8.15.1
+
+    Sep 10, 2024
+
+ 2 release files
+
+8.15.0
+
+    Aug 13, 2024
+
+ 2 release files
+
+8.14.0
+
+    Jun 6, 2024
+
+ 2 release files
+
+8.13.2
+
+    May 24, 2024
+
+ 2 release files
+
+8.13.1
+
+    May 3, 2024
+
+ 2 release files
+
+8.13.0
+
+    Mar 27, 2024
+
+ 2 release files
+
+8.12.1
+
+    Feb 22, 2024
+
+ 2 release files
+
+8.12.0
+
+    Jan 19, 2024
+
+ 2 release files
+
+8.11.1
+
+    Dec 8, 2023
+
+ 2 release files
+
+8.11.0
+
+    Nov 13, 2023
+
+ 2 release files
+
+8.10.1
+
+    Oct 13, 2023
+
+ 2 release files
+
+8.10.0
+
+    Sep 22, 2023
+
+ 2 release files
+
+8.9.0
+
+    Jul 27, 2023
+
+ 2 release files
+
+8.8.2
+
+    Jul 6, 2023
+
+ 2 release files
+
+8.8.1
+
+    Jul 6, 2023
+
+ 2 release files
+
+8.8.0
+
+    May 25, 2023
+
+ 2 release files
+
+8.7.0
+
+    Apr 6, 2023
+
+ 2 release files
+
+8.6.2
+
+    Feb 16, 2023
+
+ 2 release files
+
+8.6.1
+
+    Jan 27, 2023
+
+ 2 release files
+
+8.6.0
+
+    Jan 10, 2023
+
+ 2 release files
+
+8.5.3
+
+    Dec 8, 2022
+
+ 2 release files
+
+8.5.2
+
+    Nov 23, 2022
+
+ 2 release files
+
+8.5.1
+
+    Nov 21, 2022
+
+ 2 release files
+
+8.5.0
+
+    Nov 2, 2022
+
+ 2 release files
+
+8.4.3
+
+    Oct 6, 2022
+
+ 2 release files
+
+8.4.2
+
+    Sep 20, 2022
+
+ 2 release files
+
+8.4.1
+
+    Sep 6, 2022
+
+ 2 release files
+
+8.4.0
+
+    Aug 25, 2022
+
+ 2 release files
+
+8.3.3
+
+    Jul 28, 2022
+
+ 2 release files
+
+8.3.2
+
+    Jul 28, 2022
+
+ 2 release files
+
+8.3.1
+
+    Jun 30, 2022
+
+ 2 release files
+
+8.3.0
+
+    Jun 29, 2022
+
+ 2 release files
+
+8.2.3
+
+    Jun 15, 2022
+
+ 2 release files
+
+8.2.2
+
+    Jun 1, 2022
+
+ 2 release files
+
+8.2.1
+
+    Jun 1, 2022
+
+ 2 release files
+
+8.2.0
+
+    May 3, 2022
+
+ 2 release files
+
+8.1.3
+
+    Apr 26, 2022
+
+ 2 release files
+
+8.1.2
+
+    Mar 31, 2022
+
+ 2 release files
+
+8.1.1
+
+    Mar 22, 2022
+
+ 2 release files
+
+8.1.0
+
+    Mar 8, 2022
+
+ 2 release files
+
+8.0.1
+
+    Mar 1, 2022
+
+ 2 release files
+
+8.0.0
+
+    Feb 10, 2022
+
+ 2 release files
+
+Pre-release
+
+8.0.0b2
+
+    Feb 3, 2022
+
+ 2 release files
+
+Pre-release
+
+8.0.0b1
+
+    Jan 18, 2022
+
+ 2 release files
+
+Pre-release
+
+8.0.0a4
+
+    Jan 4, 2022
+
+ 2 release files
+
+Pre-release
+
+8.0.0a3
+
+    Dec 9, 2021
+
+ 2 release files
+
+Yanked
+
+8.0.0a2
+
+    Dec 3, 2021
+
+ 2 release files
+
+Yanked reason:
+ Contained a regression from 8.0.0a1
+
+Pre-release
+
+8.0.0a1
+
+    Nov 29, 2021
+
+ 2 release files
+
+7.17.13
+
+    Jan 12, 2026
+
+ 2 release files
+
+7.17.12
+
+    Sep 19, 2024
+
+ 2 release files
+
+7.17.9
+
+    Feb 2, 2023
+
+ 2 release files
+
+7.17.8
+
+    Dec 8, 2022
+
+ 2 release files
+
+7.17.7
+
+    Oct 26, 2022
+
+ 2 release files
+
+7.17.6
+
+    Aug 25, 2022
+
+ 2 release files
+
+7.17.5
+
+    Aug 25, 2022
+
+ 2 release files
+
+7.17.4
+
+    Jun 1, 2022
+
+ 2 release files
+
+7.17.3
+
+    Apr 26, 2022
+
+ 2 release files
+
+7.17.2
+
+    Mar 31, 2022
+
+ 2 release files
+
+7.17.1
+
+    Feb 28, 2022
+
+ 2 release files
+
+7.17.0
+
+    Feb 1, 2022
+
+ 2 release files
+
+7.16.3
+
+    Jan 13, 2022
+
+ 2 release files
+
+7.16.2
+
+    Dec 27, 2021
+
+ 2 release files
+
+7.16.1
+
+    Dec 13, 2021
+
+ 2 release files
+
+7.16.0
+
+    Dec 7, 2021
+
+ 2 release files
+
+7.15.2
+
+    Nov 10, 2021
+
+ 2 release files
+
+7.15.1
+
+    Oct 14, 2021
+
+ 2 release files
+
+7.15.0
+
+    Sep 22, 2021
+
+ 2 release files
+
+Pre-release
+
+7.15.0a1
+
+    Sep 9, 2021
+
+ 2 release files
+
+7.14.2
+
+    Sep 21, 2021
+
+ 2 release files
+
+7.14.1
+
+    Sep 1, 2021
+
+ 2 release files
+
+7.14.0
+
+    Aug 3, 2021
+
+ 2 release files
+
+Pre-release
+
+7.14.0a2
+
+    Jul 27, 2021
+
+ 2 release files
+
+Pre-release
+
+7.14.0a1
+
+    Jul 13, 2021
+
+ 2 release files
+
+7.13.4
+
+    Jul 20, 2021
+
+ 2 release files
+
+7.13.3
+
+    Jul 7, 2021
+
+ 2 release files
+
+Yanked
+
+7.13.2
+
+    Jun 21, 2021
+
+ 2 release files
+
+Yanked reason:
+ Contains regression for Python<3.5
+
+7.13.1
+
+    Jun 2, 2021
+
+ 2 release files
+
+7.13.0
+
+    May 25, 2021
+
+ 2 release files
+
+7.12.1
+
+    Apr 27, 2021
+
+ 2 release files
+
+7.12.0
+
+    Mar 23, 2021
+
+ 2 release files
+
+7.11.0
+
+    Feb 10, 2021
+
+ 2 release files
+
+Pre-release
+
+7.11.0b1
+
+    Feb 2, 2021
+
+ 2 release files
+
+7.10.1
+
+    Dec 9, 2020
+
+ 2 release files
+
+7.10.0
+
+    Nov 11, 2020
+
+ 2 release files
+
+Pre-release
+
+7.10.0a2
+
+    Oct 20, 2020
+
+ 2 release files
+
+Pre-release
+
+7.10.0a1
+
+    Oct 14, 2020
+
+ 2 release files
+
+7.9.1
+
+    Aug 20, 2020
+
+ 2 release files
+
+7.9.0
+
+    Aug 18, 2020
+
+ 2 release files
+
+Pre-release
+
+7.9.0a1
+
+    Jul 20, 2020
+
+ 2 release files
+
+7.8.1
+
+    Jul 30, 2020
+
+ 2 release files
+
+7.8.0
+
+    Jun 18, 2020
+
+ 2 release files
+
+Pre-release
+
+7.8.0a1
+
+    May 29, 2020
+
+ 2 release files
+
+7.7.1
+
+    May 26, 2020
+
+ 2 release files
+
+7.7.0
+
+    May 13, 2020
+
+ 2 release files
+
+Pre-release
+
+7.7.0a2
+
+    Apr 3, 2020
+
+ 2 release files
+
+Pre-release
+
+7.7.0a1
+
+    Apr 1, 2020
+
+ 2 release files
+
+7.6.0
+
+    Mar 19, 2020
+
+ 2 release files
+
+Pre-release
+
+7.6.0a1
+
+    Mar 16, 2020
+
+ 2 release files
+
+7.5.1
+
+    Jan 19, 2020
+
+ 2 release files
+
+7.1.0
+
+    Nov 14, 2019
+
+ 2 release files
+
+7.0.5
+
+    Oct 1, 2019
+
+ 2 release files
+
+7.0.4
+
+    Aug 22, 2019
+
+ 2 release files
+
+7.0.3
+
+    Aug 21, 2019
+
+ 2 release files
+
+7.0.2
+
+    May 28, 2019
+
+ 2 release files
+
+7.0.1
+
+    May 10, 2019
+
+ 2 release files
+
+7.0.0
+
+    Apr 11, 2019
+
+ 2 release files
+
+6.8.2
+
+    Mar 9, 2021
+
+ 2 release files
+
+6.8.1
+
+    Mar 31, 2020
+
+ 2 release files
+
+6.8.0
+
+    Mar 12, 2020
+
+ 2 release files
+
+6.4.0
+
+    May 28, 2019
+
+ 2 release files
+
+6.3.1
+
+    Aug 9, 2018
+
+ 2 release files
+
+6.3.0
+
+    Jun 20, 2018
+
+ 2 release files
+
+6.2.0
+
+    Mar 20, 2018
+
+ 2 release files
+
+6.1.1
+
+    Jan 6, 2018
+
+ 2 release files
+
+6.0.0
+
+    Nov 14, 2017
+
+ 2 release files
+
+5.5.3
+
+    Jun 22, 2018
+
+ 2 release files
+
+5.5.2
+
+    Jan 16, 2018
+
+ 2 release files
+
+5.5.1
+
+    Nov 10, 2017
+
+ 2 release files
+
+5.5.0
+
+    Nov 10, 2017
+
+ 2 release files
+
+5.4.0
+
+    May 18, 2017
+
+ 2 release files
+
+5.3.0
+
+    Mar 31, 2017
+
+ 2 release files
+
+5.2.0
+
+    Feb 12, 2017
+
+ 2 release files
+
+5.1.0
+
+    Jan 11, 2017
+
+ 2 release files
+
+5.0.1
+
+    Nov 2, 2016
+
+ 2 release files
+
+5.0.0
+
+    Oct 19, 2016
+
+ 2 release files
+
+2.4.1
+
+    Jan 3, 2017
+
+ 2 release files
+
+2.4.0
+
+    Aug 17, 2016
+
+ 2 release files
+
+2.3.0
+
+    Feb 29, 2016
+
+ 2 release files
+
+2.2.0
+
+    Jan 5, 2016
+
+ 2 release files
+
+2.1.0
+
+    Oct 19, 2015
+
+ 2 release files
+
+2.0.0
+
+    Oct 13, 2015
+
+ 2 release files
+
+1.9.0
+
+    Oct 19, 2015
+
+ 2 release files
+
+1.8.0
+
+    Oct 13, 2015
+
+ 2 release files
+
+1.7.0
+
+    Sep 21, 2015
+
+ 2 release files
+
+1.6.0
+
+    Jun 10, 2015
+
+ 2 release files
+
+1.5.0
+
+    May 18, 2015
+
+ 2 release files
+
+1.4.0
+
+    Feb 11, 2015
+
+ 2 release files
+
+1.3.0
+
+    Dec 31, 2014
+
+ 2 release files
+
+1.2.0
+
+    Aug 3, 2014
+
+ 2 release files
+
+1.1.1
+
+    Jul 4, 2014
+
+ 2 release files
+
+1.1.0
+
+    Jul 2, 2014
+
+ 2 release files
+
+1.0.0
+
+    Feb 11, 2014
+
+ 2 release files
+
+0.4.5
+
+    Feb 11, 2014
+
+ 2 release files
+
+0.4.4
+
+    Dec 23, 2013
+
+ 2 release files
+
+0.4.3
+
+    Oct 22, 2013
+
+ 1 release file
+
+0.4.2
+
+    Oct 8, 2013
+
+ 1 release file
+
+0.4.1
+
+    Sep 24, 2013
+
+ 1 release file
+
+Anthropic, PBC
+
+Visionary sponsor
+
+Bloomberg
+
+Visionary sponsor
+
+Hudson River Trading
+
+Visionary sponsor
+
+Meta
+
+Visionary sponsor
+
+NVIDIA
+
+Visionary sponsor
+
+Microsoft
+
+Sustainability sponsor
+
+Depot
+
+Continuous Integration
+
+AWS
+
+Cloud computing and Security Sponsor
+
+Datadog
+
+Monitoring
+
+Fastly
+
+CDN
+
+Google
+
+Download Analytics
+
+Sentry
+
+Error logging
+
+StatusPage
+
+Status page
+
+"PyPI", "Python Package Index", and the blocks logos are registered 
+trademarks
+ of the 
+Python Software Foundation
+.
+
+      © 2026 
+Python Software Foundation
+
+Site map
+
+Deployed from 
+14b79b4

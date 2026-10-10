@@ -1,0 +1,8 @@
+SOURCE ID: E1-S003
+URL: https://digital-strategy.ec.europa.eu/en/policies/cra-reporting
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cyber Resilience Act reporting obligations Commission page
+========================================================================
+
+Search-tool extract: Manufacturers must notify actively exploited vulnerabilities and severe incidents having an impact on the security of their product with digital elements. 'They need to submit an early warning within 24 hours of becoming aware, and a full notification within 72 hours.' The final report is due 14 days after a corrective or mitigating measure is available for an actively exploited vulnerability, or one month after the incident notification for a severe incident. Notifications go to the CSIRT designated as coordinator and ENISA via the Single Reporting Platform. 'In accordance with Article 71(2) of the CRA, open-source software stewards are subject to reporting obligations (Article 24(3)) from 11 December 2027.' Commission FAQs: a manufacturer is not required to retrospectively report an actively exploited vulnerability where it was already aware of the active exploitation before 11 September 2026.

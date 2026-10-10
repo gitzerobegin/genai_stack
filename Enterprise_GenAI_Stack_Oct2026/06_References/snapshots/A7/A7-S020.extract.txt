@@ -1,0 +1,8 @@
+SOURCE ID: A7-S020
+URL: https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-acquire-pangea-secure-every-layer-enterprise-ai
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pangea acquired CrowdStrike
+========================================================================
+
+CrowdStrike announced the agreement on September 16, 2025, at its Fal.Con event ("CrowdStrike to Acquire Pangea to Secure Every Layer of Enterprise AI"). Per the FY2026 Form 10-K, CrowdStrike acquired 100% of the equity interest of Pangea Cyber Corporation on September 26, 2025, for $212.1 million in cash, net of $9.4 million of cash and restricted cash acquired; reporters cited roughly $260 million. Pangea's technology supports CrowdStrike's AI Detection and Response (AIDR) offering.

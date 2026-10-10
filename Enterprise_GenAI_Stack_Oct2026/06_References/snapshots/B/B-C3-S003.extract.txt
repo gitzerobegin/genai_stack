@@ -1,0 +1,11 @@
+SOURCE ID: B-C3-S003
+URL: https://www.protegrity.com/blog/compliance-cheat-sheet-gdpr-vs-cpra-vs-hipaa-vs-soc/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed protegrity.com, docs.protegrity.com): Protegrity SOC 2 Type II ISO 27001:2022 certification trust
+========================================================================
+
+Search-tool summary of Protegrity pages (protegrity.com news, blog, AI Enterprise Edition page):
+- The only certification found is ISO/IEC 27001:2013 for Protegrity's ISMS, announced August 2023 (news: "Protegrity Awarded ISO 27001:2013 Certification").
+- No Protegrity SOC 2 Type II report or ISO/IEC 27001:2022 certificate was found on protegrity.com. SOC 2 references describe helping customers meet SOC 2 Trust Services Criteria; the AI Enterprise Edition page mentions dashboards for customer audits including SOC 2.
+- No trust-centre page was found in the index.

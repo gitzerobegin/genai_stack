@@ -1,0 +1,369 @@
+[
+  {
+    "id": "C7-lakera",
+    "assessment": {
+      "capabilities": "Runtime screening of prompts and responses through the Guard API for prompt attacks, data leakage (including PII), content violations and off-policy agent behaviour; AI Agent Security (early access from 10 April 2026) adds agent discovery and configuration risk assessment inside the Check Point AI Defense Plane [VF: A7-S025, A7-S026].",
+      "strengths": [
+        "Self-hostable on-premises or in a private cloud, with EU residency on SaaS [VF: A7-S023, A7-S024]",
+        "SOC 2 Type II stated in vendor docs; encryption at rest and in transit [VF: B-C7-S001]",
+        "SSO, RBAC and SIEM export on Enterprise [VF: A7-S023, A7-S024]",
+        "Free Community tier for evaluation (10,000 requests/month) [VF: A7-S023]"
+      ],
+      "limitations_risks": [
+        "Acquired by Check Point (completed 22 October 2025); naming in flux between Lakera and Check Point [VF: A7-S013, V2-S038, V2-S067]",
+        "Dashboard records all prompts and model outputs by default [VF: B-C7-S001]",
+        "No ISO 27001 certificate found [VF: B-C7-S001]",
+        "Proprietary Guard API; no supply-chain scanning or red-teaming in the product [VF: A7-S025] [AJ]"
+      ],
+      "choose_when": [
+        "You need a self-hostable runtime injection and leakage detector [AJ]",
+        "Check Point is already your security standard [AJ]"
+      ],
+      "avoid_when": [
+        "You need model scanning or red-teaming from the same product [AJ]",
+        "You cannot control the detector's own prompt logging and retention [AJ]"
+      ],
+      "competitors": [
+        "C7-prisma-airs",
+        "C7-hiddenlayer"
+      ],
+      "fs_note": "Self-host for client data or switch off default prompt logging and align retention to the records policy; refresh due diligence after the change of control [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired",
+        "Renamed"
+      ],
+      "rationale": "Focused, self-hostable runtime detector; acquisition, renaming, proprietary API and default prompt logging keep it a replaceable component [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Covers runtime injection, leakage and content screening and early-access agent discovery; no supply-chain scanning or red-teaming.",
+        "enterprise_readiness": "SSO, RBAC (three roles) and SIEM export verified on Enterprise (rule 7); no SCIM or SLA found, so 3.",
+        "security_compliance": "SOC 2 Type II stated in vendor docs plus encryption (B-C7-S001); no ISO 27001; anchor 3.",
+        "deployment_flexibility": "SaaS, self-hosted, private cloud and on-prem; air-gap not verified.",
+        "ecosystem": "REST API and SIEM export; broader integrations not verified.",
+        "reliability_maturity": "GA product; ownership change (Check Point, 22 October 2025) and naming in flux.",
+        "cost_tco": "Published free tier; Enterprise quote-based.",
+        "lockin_portability": "Proprietary Guard API (base 3), reduced by 1 for the 2025 acquisition (rule 3)."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.1,
+      "fs_total": 3.0
+    }
+  },
+  {
+    "id": "C7-prisma-airs",
+    "assessment": {
+      "capabilities": "AI security platform (3.0, 23 March 2026): AI Model Security (35+ formats, 25+ threat categories, local scans), AI Red Teaming (including agents), AI Runtime by API or network intercept, Agent Artifact Scanning (agent code, MCP servers, skills), AI Skill Security and AI Gateway (GA 16 July 2026) [VF: A7-S027, A7-S028, A7-S039, V2-S048].",
+      "strengths": [
+        "Broadest coverage across supply chain, red-teaming, runtime and gateway [VF: A7-S027, A7-S028] [AJ]",
+        "Registry integrations (JFrog Artifactory, GitLab Model Registry) and connectors for Microsoft Foundry, Copilot Studio and others [VF: A7-S028, A7-S031]",
+        "Tenant RBAC roles and audit trail of red-team verdict overrides; scan logs to SIEM [VF: B-C7-S003]",
+        "Private-cloud firewall deployment (ESXi, KVM, OpenShift, Rancher) [VF: A7-S031]"
+      ],
+      "limitations_risks": [
+        "Company-level SOC 2 Type II and ISO 27001:2022; Prisma AIRS scope not stated [VF: B-C7-S002]",
+        "Not FedRAMP; API intercept unavailable in FedRAMP environments [VF: A7-S120, A7-S031]",
+        "EU-Germany region routes some functions through the Netherlands; several modules Americas-only [VF: A7-S120]",
+        "Credit-based licensing, one-billion-token monthly minimum and proprietary SDK licence [VF: A7-S031, A7-S063]",
+        "Integration churn after Protect AI, Koi and Portkey acquisitions [VF: A7-S014, A7-S016] [AJ]"
+      ],
+      "choose_when": [
+        "Palo Alto Networks is already your network security platform [AJ]",
+        "You want one supplier for model scanning, red-teaming and runtime inspection [AJ]"
+      ],
+      "avoid_when": [
+        "You need all processing in one EU jurisdiction [AJ]",
+        "You do not want your AI gateway and AI security vendor to be the same company [AJ]"
+      ],
+      "competitors": [
+        "C7-hiddenlayer",
+        "C7-lakera",
+        "C7-model-supply-chain-scanning"
+      ],
+      "fs_note": "Map processing region per module before onboarding; if the AI Gateway is adopted, record gateway plus security as one concentration point in the register of information [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Strongest runtime platform technically, but product-scoped certification is unconfirmed and credit licensing plus a proprietary SDK create lock-in; Strategic candidate only in Palo Alto estates after due diligence [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Leading breadth across C7 research questions: supply chain, agent artefacts, red-teaming, runtime and gateway.",
+        "enterprise_readiness": "Tenant RBAC roles, AIRS API role and red-team override audit trail verified (B-C7-S003); AIRS-specific SSO and admin audit logs not documented, so 3.",
+        "security_compliance": "Company-level SOC 2 Type II and ISO 27001 with product scope not stated: one below the anchor of 4 (rule 8).",
+        "deployment_flexibility": "Managed SaaS, AWS Marketplace, private-cloud firewall and local scans; on-prem and air-gap not verified.",
+        "ecosystem": "Registry, cloud-AI-platform and agent-tool connectors.",
+        "reliability_maturity": "GA with monthly releases, but three acquisitions in ten months and conflicting region documentation.",
+        "cost_tco": "Published but complex pricing (token-metered credits, PAYG SKU).",
+        "lockin_portability": "Proprietary SDK licence and credit licensing tied to Strata Cloud Manager; Palo Alto is the acquirer, so no rule 3 reduction."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.6,
+      "fs_total": 3.35
+    }
+  },
+  {
+    "id": "C7-hiddenlayer",
+    "assessment": {
+      "capabilities": "Model supply-chain scanning for registries and storage (S3, EFS, container registries), AI Runtime Security for agents against prompt injection, secret exposure and unsafe commands, and Agent Harness Security for coding agents (3 August 2026) [VF: A7-S017, A7-S029].",
+      "strengths": [
+        "Independent; US$100m Series B on 2 September 2026 [VF: A7-S017, V2-S047]",
+        "ISO 27001 and SOC 2 Type 2 announced February 2025 [VF: A7-S030]",
+        "SAML SSO with RBAC and tenant user management [VF: B-C7-S004]",
+        "Deploys inside the customer's AWS environment with private networking [VF: A7-S029]; co-contributor to OpenSSF Model Signing [VF: A7-S040]"
+      ],
+      "limitations_risks": [
+        "Certification evidence dated February 2025; no trust centre found [VF: A7-S030]",
+        "SaaS and on-prem or air-gapped deployment rest on vendor text in a third-party listing [R: A7-S029]",
+        "No customer audit-log documentation found [VF: B-C7-S004]",
+        "Contract-only pricing [VF: A7-S029]"
+      ],
+      "choose_when": [
+        "You want an independent model-scanning and agent-runtime specialist outside a network-security suite [AJ]"
+      ],
+      "avoid_when": [
+        "You need verified on-prem or EU-region deployment today [AJ]"
+      ],
+      "competitors": [
+        "C7-prisma-airs",
+        "C7-lakera",
+        "C7-model-supply-chain-scanning"
+      ],
+      "fs_note": "Obtain current SOC 2 and ISO certificates and a change-of-control exit clause; independents in this market have tended to be acquired [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Capable independent specialist, but dated certification evidence, unverified deployment breadth and opaque pricing [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Model scanning plus agent runtime and coding-agent protection; red-teaming not evidenced.",
+        "enterprise_readiness": "SAML SSO and RBAC verified (B-C7-S004); audit logs not documented, so 3 (rule 7).",
+        "security_compliance": "ISO 27001 and SOC 2 Type 2 at company level, scope not stated and evidence 20 months old: one below anchor (rule 8).",
+        "deployment_flexibility": "Customer AWS VPC verified; SaaS and on-prem only reported.",
+        "ecosystem": "REST API, Python SDK, AWS Marketplace, Databricks Unity Catalog.",
+        "reliability_maturity": "Independent and funded; agentic modules launched in 2026.",
+        "cost_tco": "Contract-only pricing, not published.",
+        "lockin_portability": "Proprietary platform with Apache-2.0 SDK; independent ownership."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.1,
+      "fs_total": 3.1
+    }
+  },
+  {
+    "id": "C7-hashicorp-vault",
+    "assessment": {
+      "capabilities": "Secrets storage and brokerage, dynamic credentials and certificates, identity-based authorisation; agentic IAM (GA in Vault Enterprise 2.1, 1 September 2026) registers agents, validates IdP OAuth JWTs, enforces user, agent-ceiling and request-scoped authorisation, and records user and agent in audit logs [VF: A7-S034, A7-S061].",
+      "strengths": [
+        "Keeps credentials out of the model with short-lived, request-scoped issuance and dual attribution [VF: A7-S034] [AJ]",
+        "SOC 2 Type 2 and ISO 27001/27017/27018 with IBM Vault in scope; FIPS 140-2 for Enterprise [VF: A7-S035]",
+        "Namespaces, SCIM 2.0, policy ACLs and audit devices [VF: A7-S033, A7-S034]",
+        "IBM lifecycle: two years support plus extensions [VF: A7-S033]"
+      ],
+      "limitations_risks": [
+        "BUSL 1.1 (IBM licensor) restricts competing hosted or embedded offerings [VF: A7-S060]",
+        "Agentic IAM is Enterprise-only [VF: A7-S034]",
+        "Owned by IBM since 27 February 2025 [VF: A7-S032]",
+        "Version caveat: changelog stops at 2.1.1 but a v2.1.2 tag exists [VF: V2-S061]"
+      ],
+      "choose_when": [
+        "Multi-cloud or hybrid estate needing one broker for human, workload and agent credentials [AJ]"
+      ],
+      "avoid_when": [
+        "A single cloud's native secrets service suffices and agent delegation is not needed [AJ]"
+      ],
+      "competitors": [
+        "Cloud-native secrets managers",
+        "C4-entra-agent-id",
+        "C4-okta-auth0-ai-agents"
+      ],
+      "fs_note": "Use audit devices as the authoritative record of which agent obtained which credential on whose behalf; include IBM in concentration analysis if watsonx.governance is also chosen [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Strategic for secrets and agent credential brokerage, conditional on accepting BUSL and IBM ownership (lock-in 2) [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Leading depth in secrets and agent credential brokerage; not a prompt-injection or supply-chain control.",
+        "enterprise_readiness": "Policy ACLs, namespaces (multi-tenancy), SCIM 2.0, audit devices and IBM support lifecycle; human SSO and SLA not verified in the dataset.",
+        "security_compliance": "SOC 2 Type 2 and ISO 27001 with IBM Vault in scope (anchor 4); no CMK/BYOK, ISO 42001 or FedRAMP evidence for 5.",
+        "deployment_flexibility": "HCP Vault Dedicated plus self-managed on-prem; air-gap not verified.",
+        "ecosystem": "API, CLI, Terraform provider and validated IdPs (IBM Verify, Auth0, PingFederate, Entra, Okta).",
+        "reliability_maturity": "Years of production use and IBM lifecycle; IBM ownership change (February 2025) and 2.0 major-version transition noted.",
+        "cost_tco": "BUSL community use free; Enterprise needed for agentic IAM; HCP hourly pricing published.",
+        "lockin_portability": "Source-available BUSL (base 3), reduced by 1 for the 2025 acquisition (rule 3); licence risk under rule 4."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.8,
+      "fs_total": 3.65
+    }
+  },
+  {
+    "id": "C7-model-supply-chain-scanning",
+    "assessment": {
+      "capabilities": "Pattern: safe serialisation (safetensors) plus open-source scanners (ModelScan, picklescan, fickling) in CI and at registry promotion, complemented by Hugging Face Hub-side scanning [VF: A7-S082, A7-S083, A7-S064, A7-S007, A7-S037].",
+      "strengths": [
+        "safetensors removes pickle's code-execution risk ('Pickle: Unsafe, runs arbitrary code') [VF: B-C7-S006]",
+        "Free, local, CI-native and air-gap friendly [VF: A7-S002, A7-S006] [AJ]",
+        "ModelScan publishes a security policy with GitHub advisories [VF: B-C7-S007]"
+      ],
+      "limitations_risks": [
+        "picklescan only pattern-matches module names; scanning reduces but does not remove risk [VF: A7-S037]",
+        "ModelScan's owner Protect AI is now Palo Alto Networks; README directs users to Guardian; last release February 2026 [VF: A7-S014, A7-S082, A7-S002]",
+        "Most components pre-1.0 [VF: A7-S002, A7-S064, A7-S007]",
+        "Does not address package compromise (LiteLLM case) [VF: A6-S008] [AJ]"
+      ],
+      "choose_when": [
+        "Always, as the minimum gate for self-hosted weights [Rec]"
+      ],
+      "avoid_when": [
+        "Never as the only supply-chain control [AJ]"
+      ],
+      "competitors": [
+        "C7-prisma-airs",
+        "C7-hiddenlayer",
+        "C7-openssf-model-signing"
+      ],
+      "fs_note": "Record scan results and artefact hashes in the model inventory (C8) so validation evidence refers to the exact weights scanned [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Mandatory baseline pattern (safetensors by default plus scanning gate); ModelScan's owner was acquired [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 5,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Covers executable model formats competently; pattern-matching limits and no package or agent-artefact coverage.",
+        "enterprise_readiness": "Rule 2: CI libraries inherit host controls; no commercial support for the open tools (commercial successors are separate products).",
+        "security_compliance": "Rule 2 hygiene: security policy for ModelScan, clear licences; owner acquired and components pre-1.0.",
+        "deployment_flexibility": "Runs anywhere, including air-gapped CI.",
+        "ecosystem": "Hugging Face Hub uses picklescan; commercial platforms build on the same approach.",
+        "reliability_maturity": "Mostly pre-1.0; ModelScan cadence slowed after acquisition.",
+        "cost_tco": "Free open source with light operations.",
+        "lockin_portability": "Permissive licences and an open format (base 5), reduced by 1 because ModelScan is vendor-owned after a 2025 acquisition (rule 3)."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.65,
+      "fs_total": 3.6
+    }
+  },
+  {
+    "id": "C7-openssf-model-signing",
+    "assessment": {
+      "capabilities": "Open specification and Apache-2.0 library to sign and verify ML models of any format with a detached Sigstore bundle (DSSE/in-toto), using Sigstore, key pairs, certificates or PKCS#11 devices, with optional private Sigstore instances and a transparency log [VF: A7-S040, A7-S038, B-C7-S005].",
+      "strengths": [
+        "Vendor-neutral integrity and signer verification under OpenSSF (Linux Foundation) [VF: A7-S040]",
+        "HSM (PKCS#11) and private Sigstore support suit regulated key custody [VF: B-C7-S005]",
+        "Free [VF: A7-S038]"
+      ],
+      "limitations_risks": [
+        "Proves integrity and signer, not provenance or safety [AJ]",
+        "Hub and registry adoption not publicly verified [NPV]",
+        "No library release on PyPI since 1.1.1 (10 October 2025) [VF: A7-S038]; no security policy file found"
+      ],
+      "choose_when": [
+        "You fine-tune or distil models internally and must prove served weights equal validated weights [AJ]"
+      ],
+      "avoid_when": [
+        "You only consume hosted model APIs [AJ]"
+      ],
+      "competitors": [
+        "C7-model-supply-chain-scanning",
+        "C7-hiddenlayer"
+      ],
+      "fs_note": "Sign with a firm-controlled key or HSM and verify the signature at model-server start-up [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Right standard for internally produced weights, but narrow and with unverified adoption [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 2,
+        "reliability_maturity": 3,
+        "cost_tco": 5,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Does integrity and signer verification well; narrow scope by design.",
+        "enterprise_readiness": "Rule 2: library inherits host controls; PKCS#11 and private Sigstore enable enterprise key custody.",
+        "security_compliance": "Rule 2 hygiene: foundation-governed, Apache-2.0; no security policy file found.",
+        "deployment_flexibility": "Self-hosted library; offline key or certificate signing possible; private Sigstore supported.",
+        "ecosystem": "Adoption by hubs and registries not publicly verified.",
+        "reliability_maturity": "v1.0 spec (April 2025), library 1.1.1; no release in the last twelve months found.",
+        "cost_tco": "Free.",
+        "lockin_portability": "Open specification, Apache-2.0, neutral governance."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.35,
+      "fs_total": 3.5
+    }
+  }
+]

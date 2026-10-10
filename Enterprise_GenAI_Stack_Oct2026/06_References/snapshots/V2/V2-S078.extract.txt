@@ -1,0 +1,8 @@
+SOURCE ID: V2-S078
+URL: https://www.goodwinlaw.com/en/insights/publications/2026/08/alerts-technology-dpc-eu-ai-act-transparency-obligations-now-in-force
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Digital Omnibus AI Act Article 50(2) watermarking grace period 2 December 2026 transparency obligations 2 August 2026
+========================================================================
+
+Article 50(2) marking duty for providers of generative systems already placed on the market before 2 August 2026: effective deadline 2 December 2026 (transitional provision in new Article 111(4)). Systems placed on the market on or after 2 August 2026 get no extension. Chatbot disclosure, deepfake disclosure and emotion-recognition notices required since 2 August 2026. Two new prohibitions under Article 5(1)(ba) and (bb) (nudification apps; CSAM generators) apply from 2 December 2026. European AI Board's September 2026 plenary granted no further relief (later analysis). Mostly law-firm/compliance blogs.

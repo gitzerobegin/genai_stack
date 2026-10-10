@@ -1,0 +1,12 @@
+SOURCE ID: V2-S005
+URL: https://www.hklaw.com/en/insights/publications/2026/09/dc-circuit-upholds-exclusion-of-anthropic-from-dow-supply-chain
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: D.C. Circuit Anthropic supply chain risk FASCSA ruling September 2026
+========================================================================
+
+The D.C. Circuit upheld the Pentagon's supply chain risk designation of Anthropic on September 25, 2026. The court held 2-1 that the Pentagon's labeling of Anthropic as a supply chain risk and its immediate exclusion of Anthropic on that basis were permissible under FASCSA. The case is Anthropic PBC v. U.S. Department of War, No. 26-1049. The majority was Judges Katsas and Rao. Judge Henderson dissented.
+The majority read "supply chain risk" broadly ... the court did not require hostile or malicious intent by the supplier. The court also distinguished the narrower definition in 10 U.S.C. § 3252.
+The § 4713 ruling is stayed while Anthropic decides whether to seek en banc review. The separate § 3252 designation remains under a permanent injunction under the Northern District of California ruling. In that case, Judge Rita Lin granted summary judgment for Anthropic on all but one claim, finding the designation amounted to unconstitutional retaliation.
+Scope disputed: one commentary says Anthropic cannot sell Claude to the federal government; a law firm alert says the government may continue efforts to require contractors to cease use of Anthropic in performance of federal contracts; an earlier April stay ruling (ktslaw) said the designation bars Anthropic from select Department of War contracts but does not prevent commercial or other government work.
+Other results: Miller & Chevalier "DC Circuit Upholds Anthropic Supply Chain Risk Designation: Takeaways for Government Contractors"; CCIA "D.C. Circuit's Anthropic Decision Expands the Range of Activities Constituting a Supply Chain Risk"; governmentcontractsnavigator.com 28 Sep 2026.

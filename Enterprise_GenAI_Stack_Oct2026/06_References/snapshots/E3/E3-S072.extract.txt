@@ -1,0 +1,21 @@
+SOURCE ID: E3-S072
+URL: https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OWASP Top 10 for Agentic Applications 2026 ASI01-ASI10
+========================================================================
+
+Search-tool summaries (two searches) of genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/ and genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/:
+- Framework released 10 December 2025 (globally peer-reviewed).
+- ASI01 Agent Goal Hijack (example: EchoLeak).
+- ASI02 Tool Misuse (example: Amazon Q).
+- ASI03 Identity & Privilege Abuse (leaked credentials letting agents operate beyond intended scope).
+- ASI04 Agentic Supply Chain Vulnerabilities ("Dynamic MCP and A2A ecosystems revealed how easily runtime components could be poisoned").
+- ASI05 Unexpected Code Execution ("natural-language execution paths unlocked dangerous new avenues for remote code execution"; AutoGPT RCE example).
+- ASI06 Memory and Context Poisoning (named in OWASP Q3 2026 exploit roundup: "instructions persisted across sessions").
+- ASI07 Insecure Inter-Agent Communication ("Spoofed inter-agent messages misdirected entire clusters").
+- ASI08 Cascading Failures ("False signals cascaded through automated pipelines with escalating impact").
+- ASI09 Human-Agent Trust Exploitation (named in OWASP Q1 2026 exploit roundup).
+- ASI10 Rogue Agents (misalignment, concealment, self-directed action; Replit example).
+- OWASP Q3 2026 exploit roundup (genai.owasp.org/2026/10/08/) maps incidents to codes, e.g. a malicious PyPI package case tagged ASI04 and ASI05.
+- A separate OWASP Agentic Skills Top 10 project exists (owasp.org/projects/agentic-skills-top-10).

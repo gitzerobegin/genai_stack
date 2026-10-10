@@ -1,0 +1,9 @@
+SOURCE ID: A1-S121
+URL: https://www.confident-ai.com/docs/integrations/opentelemetry
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DeepEval OpenTelemetry tracing OTLP integration
+========================================================================
+
+Search result titles: "OpenTelemetry" (confident-ai.com/docs/integrations/opentelemetry); DeepEval changelog 2025/2026 (deepeval.com/changelog); integration pages for Strands, Pydantic AI, Google ADK, AWS AgentCore, Vercel AI SDK.
+Extracts: endpoint otel.confident-ai.com accepts OpenTelemetry traces in OTLP format; "Confident AI does not support GRPC for the OpenTelemetry endpoint"; HTTP exporter to /v1/traces with x-confident-api-key header; confident.* span attributes. "DeepEval provides a native ConfidentSpanExporter that directly exports traces to Confident AI observatory." Framework integrations register OTel span processors (Strands, Pydantic AI, Google ADK, AgentCore). Changelog: CONFIDENT_OTEL_URL to point to regional endpoints such as the EU collector; v3.5.0 added optional tracing for dataset evaluation runs via run_otel exporting to an OTLP endpoint; May 2026: skill to export raw OTel traces to Confident AI without the DeepEval package.

@@ -1,0 +1,13 @@
+SOURCE ID: B-REV-S018
+URL: https://www.mongodb.com/products/platform/ai-search-and-retrieval
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains mongodb.com, docs.voyageai.com, voyageai.com, trust.mongodb.com): Voyage AI by MongoDB Embedding and Reranking API Atlas access control SOC 2 trust compliance
+========================================================================
+
+MongoDB "Voyage AI: Embeddings and Rerankers" product page, MongoDB Docs "Accessing Voyage AI Models" and the Embedding and Reranking API launch blog, as summarised by the search tool:
+- Atlas product page lists "enterprise-grade security and compliance roadmap" as a feature.
+- Access to the Atlas Embedding and Reranking API is by model API keys managed in the Atlas console; MongoDB recommends a secret store rather than .env files in production.
+- The Embedding and Reranking API is in public preview; Native Reranking inside Atlas is also in public preview.
+- voyageai.com lists SOC 2 and HIPAA links under "Privacy and Compliance"; no report scope shown.
+- No documentation found of Atlas RBAC, SSO or audit logging applied to the Embedding and Reranking API, or of the SOC 2 report scope.

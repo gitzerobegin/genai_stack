@@ -1,0 +1,8 @@
+SOURCE ID: A4-S154
+URL: https://www.sec.gov/Archives/edgar/data/0002021728/000162828026056357/cbrs-20260630.htm
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cerebras OpenAI agreement compute deal 2026 inference capacity
+========================================================================
+
+SEC filings: master relationship agreement entered December 2025 under which OpenAI committed to purchase 750MW of AI inference compute capacity and related services, deployment in tranches 2026-2028; OpenAI option for an additional 1.25GW by end of 2030. Cerebras funded a ~$1.0 billion working-capital loan to OpenAI (January 2026) on which the initial tranche of a warrant issued to OpenAI vested. S-1: delivery of capacity to OpenAI began 23 January 2026; OpenAI Codex-Spark powered by Cerebras made public 12 February 2026. Q1 results release (23 June 2026) described the OpenAI deal as multi-year valued at more than $20 billion (company press material); Q2 results (12 August 2026): 600 MW of data-centre capacity under contract.

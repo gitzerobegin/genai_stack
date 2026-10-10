@@ -1,0 +1,8 @@
+SOURCE ID: V2-S045
+URL: https://launchdarkly.com/docs/api/agentcontrol
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LaunchDarkly AgentControl AI Configs renamed
+========================================================================
+
+"AgentControl was previously called AI Configs." Resources previously called "AI Configs" are now referred to as "AgentControl configs" or "configs." "This is not a breaking change to the API. Existing AI Configs API endpoints, paths, request/response bodies, and operation IDs are unchanged. Integrations that use those resources still work and do not need modification." Search results did not give the rename date.

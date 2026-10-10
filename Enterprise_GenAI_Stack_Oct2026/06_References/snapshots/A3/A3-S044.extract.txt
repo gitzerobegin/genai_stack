@@ -1,0 +1,8 @@
+SOURCE ID: A3-S044
+URL: https://devblogs.microsoft.com/all-things-azure/locking-down-mcp-create-a-private-registry-on-azure-api-center-and-enforce-it-in-github-copilot-and-vs-code/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MCP Registry general availability 2026 registry.modelcontextprotocol.io API v0.1 freeze
+========================================================================
+
+Search-tool result title and summary: 'Locking Down MCP: Create a Private Registry on Azure API Center and Enforce It in GitHub Copilot And VS Code' (Microsoft devblogs, All things Azure). Describes using Azure API Center as a private MCP registry and enforcing it in GitHub Copilot and VS Code.

@@ -1,0 +1,11 @@
+SOURCE ID: V2-S016
+URL: https://www.marktechpost.com/2026/08/26/z-ai-releases-glm-5-3-flash-a-320b-a18b-natively-multimodal-moe-with-a-1m-token-context/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Z.ai GLM-5.3 release GLM-5.3-Flash MIT license
+========================================================================
+
+GLM-5.3-Flash (August 26, 2026): open weights under MIT on Hugging Face; hosted API priced. MoE 320B total, 18B active per token. Context reported as 1,048,576 (one source 1,310,720). First natively multimodal GLM-5 model. Pricing reported $0.15 / $0.50 per 1M.
+GLM-5.3 flagship: API launched August 18, 2026. Weights on August 28 on Hugging Face under a bespoke licence tagged glm-5.3, not MIT; adds a Z.ai security review for AI service firms above $10 billion revenue.
+GLM-5.3-FlashX: one source gives 18 September 2026, unconfirmed.
+Mostly secondary blogs and aggregators.

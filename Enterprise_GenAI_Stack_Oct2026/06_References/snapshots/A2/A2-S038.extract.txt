@@ -1,0 +1,8 @@
+SOURCE ID: A2-S038
+URL: https://ai.google.dev/gemini-api/docs/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: gemini-embedding-2 pricing per 1M tokens Gemini API Vertex AI (allowed: ai.google.dev, cloud.google.com)
+========================================================================
+
+gemini-embedding-2 paid tier per 1M tokens: Text $0.20; Image $0.45 ($0.00012 per image); Audio $6.50 ($0.00016 per second); Video $12.00 ($0.00079 per frame). Free of charge on free tier. Batch: Text $0.10, Image $0.225, Audio $3.25, Video $6.00. Vertex AI pricing (https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) lists Gemini Embedding 2 text $0.20 per 1M tokens online, $0.10 batch; image $0.45 online.

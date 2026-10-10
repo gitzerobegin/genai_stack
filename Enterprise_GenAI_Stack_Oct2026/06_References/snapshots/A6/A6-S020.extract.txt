@@ -1,0 +1,20 @@
+SOURCE ID: A6-S020
+URL: https://learn.microsoft.com/en-us/azure/api-management/ai-gateway-overview
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Azure API Management AI gateway capabilities token limit policy semantic caching MCP server content safety policy 2026; "AI Gateway tier" API Management public preview (site:learn.microsoft.com, techcommunity.microsoft.com, azure.microsoft.com)
+========================================================================
+
+Related: https://techcommunity.microsoft.com/blog/integrationsonazureblog/ai-gateway-tier-of-api-management-now-in-public-preview/4540170 ; https://learn.microsoft.com/en-us/azure/api-management/ai-gateway-govern-secure-assets ; https://techcommunity.microsoft.com/blog/integrationsonazureblog/new-ai-gateway-capabilities-in-azure-api-management/4524604 ; https://techcommunity.microsoft.com/blog/integrationsonazureblog/whats-new-in-azure-api-management-at-microsoft-build-2026/4524683 ; https://techcommunity.microsoft.com/blog/integrationsonazureblog/ai-gateway-enhancements-llm-policies-real-time-api-support-content-safety-and-mo/4409828
+
+Extract as returned by search tool (two searches):
+Azure API Management now has two related AI gateway offerings: the established policy-based APIM gateway, and a newer AI Gateway tier that is still in preview.
+- Classic gateway: the llm-token-limit policy is generally available. "The GA release covers llm-token-limit, llm-emit-metric, llm-content-safety, and semantic caching policies, and they can be applied to models in the Foundry catalog as well as OpenAI-compatible models from third-party providers or your own infrastructure."
+- AI Gateway tier (preview) adds token rate limits per minute, hour, or day; limit counts against caller identity or caller IP address. Responses include remaining-tokens and consumed-tokens headers.
+- In Foundry, the AI Gateway can give each project its own token ceiling; when exceeded, the gateway returns 429.
+- Semantic caching is GA. Azure Managed Redis can serve as the cache backend.
+- MCP: The gateway can turn existing APIs into MCP servers and govern them. Internal and external MCP tools can be governed centrally with unified authentication, authorization, rate limiting, and other policies. The AI Gateway tier publishes approved MCP tools for agents. Its token limits apply only to models, while content safety, IP filters, and request limits apply to both models and MCP tools.
+- Content safety: The llm-content-safety policy now covers MCP and A2A traffic as well as LLM traffic, including MCP tool-call arguments, MCP response text, and A2A payloads. Messages longer than the Azure Content Safety limit of 10,000 characters are chunked. The AI Gateway tier offers per-category severity thresholds, Prompt Shields for jailbreak and prompt-injection detection, and blocklists.
+- Anthropic and Google Vertex AI models now work with the same policies and observability. Token metrics cover cached, reasoning, and thinking tokens via Application Insights. A2A API support is generally available.
+- AI Gateway tier is in public preview in two regions, East US 2 and Sweden Central. It is free during the preview ("available at no cost during public preview, and pricing will be shared separately"). The Tech Community launch post shows an "Updated Jul 27, 2026" stamp. "Availability is best effort with no service-level agreement, and APIs, portal workflows, telemetry, limits, regions, and pricing can change." Access in the quickstart is limited to Azure users who sign in with Microsoft Entra ID. A Microsoft Foundry post says Foundry's integration with API Management is coming in October with preview support for the new AI Gateway tier.
+- Some providers omit token counts in streaming or passthrough responses.

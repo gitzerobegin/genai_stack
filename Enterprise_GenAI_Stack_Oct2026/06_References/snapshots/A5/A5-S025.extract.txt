@@ -1,0 +1,12 @@
+SOURCE ID: A5-S025
+URL: https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic Pentagon supply chain risk designation lawsuit 2026
+========================================================================
+
+Links: ABC News, Federal appeals court upholds Pentagon designation of Anthropic as supply chain risk; TechCrunch 2026-08-28, Anthropic gets its first court win over the Pentagon's supply-chain risk label; CNBC 2026-09-25, U.S. appeals court upholds Pentagon designation of Anthropic as supply chain risk; Washington Post 2026-09-25; Axios 2026-03-09, Anthropic sues Pentagon over rare "supply chain risk" label.
+Search tool summary:
+- Anthropic filed two suits on March 9, 2026 (N.D. California and D.C. Circuit) challenging the designation. Dispute centres on DoD wanting unfettered military access for all lawful purposes; Anthropic wanted assurance its technology would not be used for fully autonomous weapons or domestic mass surveillance.
+- August 2026: a federal judge in California ruled the designation illegal.
+- September 25, 2026: D.C. Circuit upheld the designation 2-1; majority said the department had enough evidence that Claude's built-in restrictions and the unresolved contract dispute could make it unreliable for military operations. Judge Karen LeCraft Henderson dissented. Panel delayed effect to allow rehearing petition. Anthropic said it is considering all options.

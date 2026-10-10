@@ -1,0 +1,373 @@
+[
+  {
+    "id": "C4-entra-agent-id",
+    "assessment": {
+      "capabilities": "Agent identity platform in Microsoft Entra: agent identity blueprints, agent identities, agent users, owners/sponsors/managers; OAuth client_credentials for autonomous agents, jwt-bearer On-Behalf-Of, refresh_token for long-running delegated work, no interactive flows; Conditional Access, ID Governance access packages, ID Protection, network controls and sign-in/audit logs extended to agents; supports MCP, A2A and non-Microsoft agents via sidecar SDK or workload identity federation [VF: A6-S057, A6-S058, A6-S060]. GA April 2026 [VF: V2-S032].",
+      "strengths": [
+        "Agent identity in the same directory as the human principals, so OBO delegation and Conditional Access apply natively [AJ]",
+        "Explicit sponsor/owner model and access packages for agents [VF: A6-S057, A6-S058]",
+        "Standard OAuth flows; no interactive flows for agent entities [VF: A6-S060]",
+        "Entra ID in ISO 27001 and FedRAMP High scope [VF: B-C4-S008, A6-S056]"
+      ],
+      "limitations_risks": [
+        "Security features (Conditional Access, ID Protection, governance) for agents need Microsoft Agent 365 licences (included in E7; add-on to E5/A5/Business Premium) [VF: A6-S059, V2-S032]",
+        "Microsoft-specific constructs (blueprints, agent users) [VF: A6-S057]",
+        "Some admin-centre wizards still preview; registry converging into Agent 365 [VF: A6-S058]",
+        "Agent 365 list prices not verified [NPV]"
+      ],
+      "choose_when": [
+        "Entra is the workforce IdP [AJ]",
+        "Copilot Studio or Foundry agents are in the estate [AJ]"
+      ],
+      "avoid_when": [
+        "Okta is the workforce IdP and Entra would be a second identity plane [AJ]"
+      ],
+      "competitors": [
+        "C4-okta-auth0-ai-agents",
+        "C7-hashicorp-vault",
+        "Amazon Bedrock AgentCore Identity"
+      ],
+      "fs_note": "Register every agent with a named sponsor, use OBO for user-initiated work, and budget Agent 365 licensing before relying on Conditional Access for agents; platform controls presumed (CP2 Q1); confirm per service [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where Entra is the workforce IdP; FS 3.50 is below the usual 3.6 because deployment and cost score 2, accepted because agent identity must live in the same directory as the delegating humans [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 2,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Blueprints, agent identities, OBO and autonomous flows, Conditional Access, governance, ID Protection and audit for agents.",
+        "enterprise_readiness": "Hyperscaler presumption (CP2 Q1): platform controls presumed (CP2 Q1); confirm per service; access controls and audit logs for agents also verified (A6-S058).",
+        "security_compliance": "Entra ID in ISO 27001 (commercial) and FedRAMP High scope; commercial SOC 2 scope does not name it; Agent ID and Agent 365 not named separately (scope rule, 4).",
+        "deployment_flexibility": "Microsoft cloud service only.",
+        "ecosystem": "Guides for Bedrock and n8n agents, MCP and A2A, workload identity federation.",
+        "reliability_maturity": "GA April 2026; parts still preview.",
+        "cost_tco": "Agent 365 licence needed for security features; prices not verified.",
+        "lockin_portability": "Standard OAuth/OIDC tokens, but proprietary agent constructs and licensing."
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.55,
+      "fs_total": 3.5
+    }
+  },
+  {
+    "id": "C4-okta-auth0-ai-agents",
+    "assessment": {
+      "capabilities": "Auth0 for AI Agents (GA 19 November 2025: user authentication, Token Vault, asynchronous authorisation via CIBA, FGA for RAG; Auth for MCP and OBO Token Exchange GA May 2026); Okta for AI Agents (GA 30 April 2026: discover, onboard, protect, govern agent identities); Okta Agent SSO / Cross App Access (GA 24 August 2026), the MCP Enterprise-Managed Authorization extension [VF: A6-S097, A6-S100, A6-S099, V2-S035].",
+      "strengths": [
+        "Standards-based delegation: RFC 8693 token exchange, RFC 7523, ID-JAG, OpenID CIBA [VF: A6-S079, A6-S076]",
+        "Agents in Universal Directory with human owners and access-certification campaigns [VF: B-C4-S007]",
+        "XAA included in core Okta SSO; out-of-box support from Atlassian, Slack, Figma and others [VF: A6-S099]",
+        "Company-level ISO 27001:2022, SOC 2 Type II and FedRAMP authorisations [VF: B-C4-S006]"
+      ],
+      "limitations_risks": [
+        "Auth0 AI SDKs flagged 'under heavy development'; @auth0/ai at major version 6 within about 13 months [VF: A6-S078, A6-S077]",
+        "Okta Agent Gateway and Shadow AI Agent Discovery announced, not confirmed shipped [VF: A6-S100]",
+        "System Log records AI agent events and a dedicated AI agent administrator role exists [VF: B-REVB-S001]; System Log retention is 90 days per Okta support, so export agent events to the firm's SIEM [VF: B-REVB-S001]",
+        "Okta for AI Agents price not published; EU residency not verified [NPV]"
+      ],
+      "choose_when": [
+        "Okta is the workforce IdP [AJ]",
+        "Customer-facing or SaaS-integrated agents need Token Vault and CIBA approvals [AJ]"
+      ],
+      "avoid_when": [
+        "Entra is the workforce IdP [AJ]",
+        "You need a self-hosted IdP [AJ]"
+      ],
+      "competitors": [
+        "C4-entra-agent-id",
+        "C7-hashicorp-vault",
+        "C4-mcp-authorization"
+      ],
+      "fs_note": "Use XAA/ID-JAG for enterprise-managed MCP access, pin SDK versions, and confirm product scope of the SOC 2 and ISO certificates under NDA [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where Okta is the workforce IdP; FS 3.55 is below the usual 3.6 because deployment scores 2 (SaaS only), accepted because agent identities must live in the same directory as the delegating humans [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Delegation, token vaulting, async human approval, fine-grained RAG authorisation and enterprise-managed MCP access.",
+        "enterprise_readiness": "CP2 Q2 (rule 7): SSO (Agent SSO, core Okta SSO), a dedicated AI agent administrator role plus agent ownership and certification campaigns (RBAC), and System Log events for AI agents in reference documentation (audit), plus the System Log management API [VF: B-C4-S007, B-REVB-S001]; 4. Not 5: SLA and agent-specific SCIM not verified, and System Log retention is 90 days.",
+        "security_compliance": "ISO 27001:2022, SOC 2 Type II and FedRAMP at company level; product scope not stated (scope rule, 4).",
+        "deployment_flexibility": "SaaS only (Okta and Auth0 clouds); private deployment not verified.",
+        "ecosystem": "XAA adopted as the MCP extension with named SaaS support; SDKs for Python and JavaScript frameworks.",
+        "reliability_maturity": "Core GA November 2025 to August 2026; SDKs changing fast.",
+        "cost_tco": "XAA included in core SSO; Auth0 tiers published; Okta for AI Agents price not published.",
+        "lockin_portability": "Proprietary platforms on open standards (OAuth, OIDC, CIBA, ID-JAG)."
+      },
+      "evidence_caps_applied": [
+        "CP3 review: earlier CP2 Q2 cap (audit only on a training page) lifted; System Log coverage of AI agents and the AI agent administrator role are in Okta reference documentation (B-REVB-S001)"
+      ],
+      "generic_total": 3.65,
+      "fs_total": 3.55
+    }
+  },
+  {
+    "id": "C4-spiffe-spire",
+    "assessment": {
+      "capabilities": "SPIFFE specification and SPIRE runtime: attests running workloads and issues SPIFFE IDs and X.509/JWT SVIDs through the Workload API for mTLS or signed JWTs; Envoy SDS; SPIRE v1.15.3 (21 August 2026), Apache-2.0, CNCF graduated [VF: A6-S087, A6-S042, A6-S043, A6-S089].",
+      "strengths": [
+        "Removes static secrets for workload-to-workload trust [AJ]",
+        "CNCF graduated; Cure53 audit (2021) and CNCF security assessments [VF: A6-S087]",
+        "Security fixes for current and previous minor release series [VF: B-C4-S002]"
+      ],
+      "limitations_risks": [
+        "Machine identity only; carries no delegated user authority [VF: A6-S087]",
+        "No agent-specific SPIFFE profile verified [NPV]",
+        "Operating SPIRE servers and attestors is a platform-team commitment [AJ]"
+      ],
+      "choose_when": [
+        "Agents, gateways and MCP servers run on Kubernetes or mixed infrastructure and need workload identity without long-lived secrets [AJ]"
+      ],
+      "avoid_when": [
+        "A cloud-native workload identity already covers every runtime [AJ]"
+      ],
+      "competitors": [
+        "Cloud workload identity federation (Entra, AWS IAM)",
+        "C7-hashicorp-vault"
+      ],
+      "fs_note": "Use SVIDs for agent-runtime-to-gateway and gateway-to-tool mTLS; never as a substitute for the user's delegated token [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "The neutral workload-identity layer beneath agents and tools; mature, open and portable [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 4,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 5,
+        "cost_tco": 3,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Workload identity and attestation; one core C4 function, not delegation or authorisation.",
+        "enterprise_readiness": "Rule 2: enables estate-wide workload identity; commercial distributions not assessed.",
+        "security_compliance": "Rule 2 hygiene: security policy with supported versions (B-C4-S002), third-party audit, CNCF assessments.",
+        "deployment_flexibility": "Self-hosted anywhere including on-premises.",
+        "ecosystem": "Envoy SDS, Kubernetes and cloud node attestors.",
+        "reliability_maturity": "CNCF graduated with regular releases.",
+        "cost_tco": "Free, but server and attestor operations are material.",
+        "lockin_portability": "Open standard, Apache-2.0, CNCF governance."
+      },
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls"
+      ],
+      "generic_total": 3.85,
+      "fs_total": 4.05
+    }
+  },
+  {
+    "id": "C4-mcp-authorization",
+    "assessment": {
+      "capabilities": "Authorisation profile of OAuth 2.1 (still an IETF draft) for MCP: server as resource server with Protected Resource Metadata (RFC 9728), PKCE, audience-bound tokens via Resource Indicators (RFC 8707), token passthrough forbidden; 2026-07-28 adds RFC 9207 issuer validation and issuer-bound clients and deprecates Dynamic Client Registration; Enterprise-Managed Authorization (ID-JAG) extension Stable. Authorisation is OPTIONAL [VF: A6-S033, A6-S034, A6-S032, A6-S035, A6-S079].",
+      "strengths": [
+        "Audience binding and the ban on token passthrough address the confused-deputy problem [VF: A6-S034]",
+        "Enterprise IdP decides which MCP servers an employee can use (EMA/ID-JAG) [VF: A6-S035, A6-S079]",
+        "Implemented by AgentCore Gateway, Kong and Okta XAA [VF: A6-S021, A6-S017, A6-S099]",
+        "Hosted by the Agentic AI Foundation (Linux Foundation) since 9 December 2025 [VF: A3-S018]"
+      ],
+      "limitations_risks": [
+        "Authorisation is OPTIONAL in MCP [VF: A6-S033]",
+        "Frequent breaking revisions: 2025-03-26, 2025-06-18, 2025-11-25, 2026-07-28 [VF: A6-S033, A6-S021]",
+        "Several dependencies are IETF drafts, including OAuth 2.1 [VF: A6-S033, A6-S079]",
+        "Both Lead Maintainers are Anthropic staff [VF: A3-S082]; the author is an Anthropic model (conflict of interest)",
+        "Security policy states clients trust configured servers and that access control is the server developer's responsibility [VF: B-C4-S004]"
+      ],
+      "choose_when": [
+        "MCP is the firm's tool protocol [AJ]"
+      ],
+      "avoid_when": [
+        "Tools are exposed as REST/OpenAPI behind a gateway, where plain OAuth 2.0 resource-server patterns suffice [AJ]"
+      ],
+      "competitors": [
+        "Gateway-native tool auth (Kong, AgentCore Gateway, Azure APIM credential manager)",
+        "C4-okta-auth0-ai-agents",
+        "OAuth 2.0 resource-server pattern for REST tools"
+      ],
+      "fs_note": "Strategic, conditional, and mandatory wherever MCP is used (CP3 Q1): make authorisation mandatory by firm policy, pin the spec revision at the gateway, and require EMA so the corporate IdP mediates access; the durable controls are the IdP and the gateway PDP, which keep working if the tool protocol changes [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: only behind a gateway with mandatory authorisation, an allow-list and pinned tool definitions. Tier set by the reader at Checkpoint 3 (CP3 Q1): MCP (L4-mcp) and its authorisation profile are one decision. FS 3.45 and reliability 2 (IETF drafts, four breaking revisions) are why the condition includes pinning the specification revision at the gateway. Conflict of interest: MCP originated at Anthropic and the author is an Anthropic model [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Strong agent-to-tool contract (audience binding, PRM, issuer validation, EMA); optional and silent on fine-grained policy.",
+        "enterprise_readiness": "Rule 2: EMA lets the corporate IdP govern access; enterprise features come from implementations.",
+        "security_compliance": "Rule 2 hygiene: private advisory reporting and documented trust model (B-C4-S004); optional authorisation and draft dependencies keep it at 3.",
+        "deployment_flexibility": "Implementation-dependent; usable in self-hosted and managed gateways.",
+        "ecosystem": "Implemented by AWS AgentCore Gateway, Kong AI Gateway, Okta XAA and Azure API Management; MCP itself is the de facto tool protocol (L4 scores it 5), but authorisation is optional and adoption of the authorisation profile across servers is not publicly verified, so 4.",
+        "reliability_maturity": "Four breaking revisions in about 16 months; OAuth 2.1 still draft.",
+        "cost_tco": "Free specification; implementation and re-certification on each revision cost effort.",
+        "lockin_portability": "Open specification under Linux Foundation hosting; maintainer concentration at one vendor."
+      },
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls"
+      ],
+      "generic_total": 3.5,
+      "fs_total": 3.45
+    }
+  },
+  {
+    "id": "C4-opa",
+    "assessment": {
+      "capabilities": "Open Policy Agent: general-purpose policy engine evaluating Rego policies against JSON input for allow/deny or richer decisions, as library or sidecar/daemon, across services, APIs, Kubernetes and infrastructure; v1.21.1 (29 September 2026), Apache-2.0, CNCF graduated (February 2021) [VF: A6-S046, A6-S048, A6-S088].",
+      "strengths": [
+        "One policy engine for gateway, tool server and infrastructure decisions [VF: A6-S046]",
+        "CNCF graduated with a published security policy [VF: A6-S046, B-C4-S001]",
+        "Policies are code that can be unit-tested and versioned [AJ]"
+      ],
+      "limitations_risks": [
+        "No agent-specific features verified [NPV]",
+        "Reported 2025 move of the original maintainers to Apple not verified [NPV]",
+        "Rego is a learning curve [AJ]"
+      ],
+      "choose_when": [
+        "You want one vendor-neutral PDP across clouds and runtimes [AJ]"
+      ],
+      "avoid_when": [
+        "Your agent estate is AWS AgentCore and you want managed, automated-reasoning-checked policies [AJ]"
+      ],
+      "competitors": [
+        "C4-cedar",
+        "Gateway-native policy (Kong, AgentCore Policy)"
+      ],
+      "fs_note": "Evaluate every tool call at the gateway with principal, agent, tool and arguments as input; keep policies and their tests in Git under change control [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "The neutral, mature policy decision point for agent tool governance across clouds [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 4,
+        "deployment_flexibility": 5,
+        "ecosystem": 5,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "General ABAC/RBAC policy engine; agent semantics are the firm's to model.",
+        "enterprise_readiness": "Rule 2: enables central policy decisions in-estate; commercial support not verified.",
+        "security_compliance": "Rule 2 hygiene: security policy (B-C4-S001), CNCF graduated, Apache-2.0.",
+        "deployment_flexibility": "Library, sidecar or daemon; self-hosted and on-premises.",
+        "ecosystem": "Used across services, APIs, Kubernetes and infrastructure.",
+        "reliability_maturity": "Graduated since 2021 with regular releases; maintainer funding not verified.",
+        "cost_tco": "Free; Rego skills and policy testing are the cost.",
+        "lockin_portability": "Open source, Apache-2.0, CNCF governance."
+      },
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls"
+      ],
+      "generic_total": 4.15,
+      "fs_total": 4.2
+    }
+  },
+  {
+    "id": "C4-cedar",
+    "assessment": {
+      "capabilities": "Cedar policy language and engine (Apache-2.0; 4.13.0, 15 September 2026) for RBAC/ABAC with schema validation and automated-reasoning analysis; Amazon Verified Permissions (managed Cedar); Policy in Amazon Bedrock AgentCore (GA 3 March 2026, 13 Regions): deny-by-default evaluation of every gateway tool call on identity claims and arguments, denied tools filtered from tools/list, natural-language authoring, decisions logged to CloudWatch; policies now authored in Dogwood, an open-source Cedar superset [VF: A6-S044, A6-S045, A6-S026, A6-S104, V2-S033].",
+      "strengths": [
+        "Deny-by-default tool-call authorisation with partial evaluation of tools/list [VF: A6-S026]",
+        "Designed for automated reasoning over policy sets [VF: A6-S045]",
+        "Transparent per-request pricing: US$0.000025 per authorisation request [VF: A6-S021]",
+        "Security policy with 1-business-day acknowledgement and embargoed advisories [VF: B-C4-S003]"
+      ],
+      "limitations_risks": [
+        "Cedar cannot do external lookups at evaluation time; AWS recommends Lambda interceptors [VF: A6-S026]",
+        "AgentCore Policy enforcement is tied to AgentCore Gateway [VF: A6-S026]",
+        "Cedar 2 to 4 migration was breaking for Verified Permissions users [VF: A6-S104]",
+        "Dogwood governance and licence not checked [NPV]",
+        "AgentCore is in AWS SOC 1/2/3 scope and ISO/IEC 27001 programmes, but the ISO wording is partly garbled and FedRAMP status is unresolved [VF: B-C1-S005, B-C1-S006, B-L4-S002]"
+      ],
+      "choose_when": [
+        "The agent estate runs on AWS AgentCore Gateway [AJ]",
+        "You want analysable policies with a smaller language than Rego [AJ]"
+      ],
+      "avoid_when": [
+        "You need runtime external data lookups in policy [AJ]",
+        "You are multi-cloud and want one PDP (prefer OPA) [AJ]"
+      ],
+      "competitors": [
+        "C4-opa",
+        "Gateway-native policy (Kong)"
+      ],
+      "fs_note": "Review AI-generated policies before activation, keep the Cedar source in Git, and avoid Dogwood-only constructs where portability matters; platform controls presumed (CP2 Q1); confirm per service [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where AWS is your primary cloud and agents run on AgentCore Gateway (CP3 Q2, rubric rule 10). AgentCore Policy is AWS's lead managed policy service for agent tool calls, and its enforcement point (AgentCore Gateway) is now Strategic on the same condition in C1 and L4. OPA remains the cloud-neutral default; keep Cedar source in Git so policies stay portable [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Strong tool-call authorisation with partial evaluation and automated reasoning; no external lookups.",
+        "enterprise_readiness": "Hyperscaler presumption (CP2 Q1) for AgentCore Policy and Verified Permissions: platform controls presumed (CP2 Q1); confirm per service; Cedar library under rule 2.",
+        "security_compliance": "Cedar library hygiene verified (B-C4-S003); Amazon Bedrock AgentCore listed in AWS SOC 1/2/3 scope (GA features in scope unless excluded) and in ISO/IEC 27001 programmes [VF: B-C1-S005, B-C1-S006, B-L4-S002]; held at 4, not 5, for consistency with C1 and L4 (ISO wording partly garbled, FedRAMP unresolved).",
+        "deployment_flexibility": "Cedar library anywhere; AgentCore Policy in 13 AWS regions incl. Ireland and GovCloud.",
+        "ecosystem": "AWS services and CNCF (per AWS); narrower than OPA.",
+        "reliability_maturity": "Cedar 4.x regular releases; AgentCore Policy GA March 2026; Dogwood new.",
+        "cost_tco": "Cedar free; managed pricing transparent.",
+        "lockin_portability": "Cedar open source, but enforcement tied to AgentCore Gateway and authoring moving to Dogwood."
+      },
+      "evidence_caps_applied": [
+        "Rule 2 (self-hosted software / open specification): enterprise_readiness and security_compliance capped at 4; NPV cap not applied; inherits host controls (Cedar library part)",
+        "CP3 review: AgentCore Policy security re-based on the AgentCore SOC and ISO evidence already logged by C1 and L4 (B-C1-S005, B-C1-S006, B-L4-S002); 3 to 4"
+      ],
+      "generic_total": 3.75,
+      "fs_total": 3.7
+    }
+  }
+]

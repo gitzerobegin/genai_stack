@@ -1,0 +1,8 @@
+SOURCE ID: A2-S114
+URL: https://weaviate.io/products/byoc
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Weaviate Cloud pricing SOC 2 HIPAA ISO 27001 BYOC EU region trust
+========================================================================
+
+In BYOC, Weaviate manages the data plane inside the customer-managed VPC. No explicit statement found that BYOC is within SOC 2/ISO 27001/HIPAA scope.

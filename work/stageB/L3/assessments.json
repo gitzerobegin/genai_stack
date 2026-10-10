@@ -1,0 +1,714 @@
+[
+  {
+    "id": "L3-langgraph",
+    "assessment": {
+      "capabilities": "Low-level stateful graph runtime (MIT) combining deterministic code and LLM decisions in one graph, with checkpointed durable execution, interrupts for human-in-the-loop, time travel, memory and streaming; managed runtime is LangSmith Deployment (formerly LangGraph Platform) [VF: A4-S118, A4-S039, A4-S031].",
+      "strengths": [
+        "Covers every L3 research question in one GA (1.x) framework with a no-breaking-changes commitment until 2.0 [VF: A4-S033] [AJ]",
+        "Deployment range from library to SaaS, BYOC, self-hosted and on-prem Kubernetes [VF: A4-S036, A4-S037]"
+      ],
+      "limitations_risks": [
+        "Graph and checkpoint APIs are LangGraph-specific [VF: A4-S039]",
+        "Three checkpoint deserialisation advisories in 2025-26, all patched; the checkpoint store is a security boundary [VF: B-L3-S007]",
+        "LangSmith ISO 27001 claimed but scope unconfirmed [VF: A4-S034, A4-S035, A4-S149]",
+        "Full self-hosted platform needs the Enterprise plan [VF: A4-S037]"
+      ],
+      "choose_when": [
+        "You need deterministic workflow graphs with one or more LLM steps, durable checkpoints and approval interrupts [AJ]",
+        "Python or TypeScript teams standardising on one orchestration framework [AJ]"
+      ],
+      "avoid_when": [
+        "The workflow is a single model call that needs no framework [AJ]",
+        "You cannot restrict write access to the checkpoint database [AJ]"
+      ],
+      "competitors": [
+        "L3-microsoft-agent-framework",
+        "L3-pydantic-ai",
+        "L3-google-adk",
+        "L3-temporal"
+      ],
+      "fs_note": "Pin langgraph and langgraph-checkpoint, keep checkpoints in a firm-controlled Postgres with write access limited to the runtime, and export traces via OTel as well as LangSmith [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Deepest coverage of the L3 questions with a stable 1.x line; Renamed refers to LangGraph Platform -> LangSmith Deployment."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 5,
+        "ecosystem": 5,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Durable execution, interrupts, time travel, memory, deterministic plus LLM nodes, both Functional and Graph APIs [VF: A4-S118, A4-S039]",
+        "enterprise_readiness": "LangSmith Enterprise: SAML/OIDC SSO, SCIM, custom-role RBAC, audit logs on self-hosted [VF: A4-S038]",
+        "security_compliance": "LangSmith SOC 2 Type II and HIPAA; ISO 27001 claimed, scope unconfirmed, so 4 not 5 (rule 8); OSS advisories published and patched [VF: A4-S034, B-L3-S007]",
+        "deployment_flexibility": "Library anywhere; LangSmith Deployment SaaS, BYOC/hybrid, self-hosted and on-prem Kubernetes [VF: A4-S036, A4-S037]",
+        "ecosystem": "LangChain integrations, JS port, hosted by AgentCore and other runtimes [VF: A4-S118, A4-S116]",
+        "reliability_maturity": "1.0 GA October 2025, Production/Stable, frequent releases, stable API commitment [VF: A4-S001, A4-S033]",
+        "cost_tco": "OSS free; LangSmith seat and LSU pricing published [VF: A4-S036]",
+        "lockin_portability": "MIT, self-hostable, but graph/checkpoint APIs proprietary to LangGraph and deployment is proprietary [VF: A4-S001, A4-S039]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 4.4,
+      "fs_total": 4.2
+    }
+  },
+  {
+    "id": "L3-llamaindex",
+    "assessment": {
+      "capabilities": "MIT framework for RAG and agentic applications with Workflows, an event-driven, step-based engine with typed state and OpenTelemetry instrumentation; LlamaAgents deploys document agents on the proprietary LlamaParse platform (formerly LlamaCloud) [VF: A4-S117, A4-S041, A4-S042].",
+      "strengths": [
+        "Workflows is a clean deterministic step engine usable outside the LlamaIndex ecosystem [VF: A4-S041] [AJ]",
+        "Large integration catalogue for retrieval [VF: A4-S117]"
+      ],
+      "limitations_risks": [
+        "Vendor says its primary focus has shifted to LlamaParse [VF: A4-S117]",
+        "Framework still 0.x after three years [VF: A4-S002]",
+        "Human-in-the-loop and durable execution not evidenced in the fact base [NPV]"
+      ],
+      "choose_when": [
+        "Retrieval-heavy agents already built on LlamaIndex [AJ]",
+        "Document agents where LlamaParse is the chosen L8 parser [AJ]"
+      ],
+      "avoid_when": [
+        "You need a long-term orchestration standard with roadmap commitment [AJ]"
+      ],
+      "competitors": [
+        "L3-langgraph",
+        "L3-pydantic-ai",
+        "L8-llamaparse"
+      ],
+      "fs_note": "Treat as a retrieval toolkit inside a governed workflow rather than as the orchestration standard [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Capable but 0.x and no longer the vendor's focus; Renamed refers to LlamaCloud -> LlamaParse."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Workflows plus agents and RAG; HITL and durability not evidenced [VF: A4-S041] [NPV]",
+        "enterprise_readiness": "Library (rule 2); LlamaParse Enterprise SSO is one verified control [VF: A1-S115, A1-S116]",
+        "security_compliance": "Library hygiene not assessed; LlamaParse SOC 2 Type II and HIPAA BAA [VF: A1-S115]",
+        "deployment_flexibility": "Library anywhere; LlamaAgents managed or bring-your-own infrastructure [VF: A4-S042]",
+        "ecosystem": "Broad LLM and vector-store integrations [VF: A4-S117]",
+        "reliability_maturity": "0.x versioning after three years; vendor focus moved to LlamaParse [VF: A4-S002, A4-S117]",
+        "cost_tco": "Framework free (MIT) [VF: A4-S002]",
+        "lockin_portability": "MIT but Workflows API is LlamaIndex-specific [VF: A4-S041]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.25,
+      "fs_total": 3.15
+    }
+  },
+  {
+    "id": "L3-pydantic-ai",
+    "assessment": {
+      "capabilities": "Typed, model-agnostic Python agent loop with structured outputs and tools, pydantic_graph for graph control flow, and durable execution attached as a capability via Temporal, DBOS or Prefect [VF: A4-S119, A4-S044, A4-S045].",
+      "strengths": [
+        "Type-checked inputs and outputs suit numeric and structured tasks [AJ]",
+        "Delegates durability to established engines instead of inventing its own [VF: A4-S045] [AJ]"
+      ],
+      "limitations_risks": [
+        "v2 (June 2026) removed graph persistence; two majors in about ten months [VF: A4-S003, A4-S044]",
+        "Commercial support not publicly verified [NPV]",
+        "Small vendor: US$12.5M Series A is the only round found [VF: A4-S046]"
+      ],
+      "choose_when": [
+        "Python teams wanting a typed agent step inside a Temporal or DBOS workflow [AJ]"
+      ],
+      "avoid_when": [
+        "You need a vendor-supported platform with SLAs [AJ]"
+      ],
+      "competitors": [
+        "L3-langgraph",
+        "L3-openai-agents-sdk",
+        "L3-temporal"
+      ],
+      "fs_note": "Pin the major version; v1 receives security fixes for at least six months after v2 [VF: V1-S074] [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: for Python teams wanting type-safe agents, typically as the typed agent step inside a Temporal or DBOS workflow; pin the major version (breaking v2 ten months after v1) and note that commercial support is not verified. Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.55) [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Typed agent loop, graph control flow, durable capabilities via Temporal/DBOS/Prefect, MCP [VF: A4-S119, A4-S045]",
+        "enterprise_readiness": "Library (rule 2): enables controls in your estate; support not verified [NPV]",
+        "security_compliance": "Library hygiene: v1 security fixes promised for six months after v2 [VF: V1-S074]; inherits host controls",
+        "deployment_flexibility": "Library anywhere; no managed runtime [VF: A4-S003]",
+        "ecosystem": "Temporal, DBOS, Prefect integrations co-maintained; Logfire OTel [VF: A4-S045]",
+        "reliability_maturity": "Production/Stable, but breaking v2 ten months after v1 [VF: A4-S003, A4-S044]",
+        "cost_tco": "Free MIT; durability backend adds cost [VF: A4-S003] [AJ]",
+        "lockin_portability": "MIT, model-agnostic, durability on standard engines [VF: A4-S003, A4-S119]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.6,
+      "fs_total": 3.55
+    }
+  },
+  {
+    "id": "L3-crewai",
+    "assessment": {
+      "capabilities": "MIT multi-agent framework with two modes: Crews (autonomous role-based agents) and Flows (event-driven, stateful process definitions); commercial platform CrewAI AMP (earlier materials call it CrewAI Enterprise) [VF: A4-S004, A4-S050, A4-S049, V1-S075].",
+      "strengths": [
+        "Vendor itself recommends Flows as the outer process with Crews inside, which matches the H2 split [VF: A4-S050] [AJ]",
+        "AMP deploys to cloud, customer VPC or on-premises [VF: A4-S047, A4-S049]"
+      ],
+      "limitations_risks": [
+        "Crew and Flow abstractions are CrewAI-specific [AJ]",
+        "Durable execution and HITL not evidenced [NPV]",
+        "Funding confirmed only to about US$20M [VF: A4-S148]",
+        "Multi-agent Crews multiply LLM calls per task [AJ]"
+      ],
+      "choose_when": [
+        "Teams that want a packaged multi-agent platform with on-prem option [AJ]"
+      ],
+      "avoid_when": [
+        "The task is deterministic and does not need multiple autonomous agents [AJ]"
+      ],
+      "competitors": [
+        "L3-langgraph",
+        "L3-microsoft-agent-framework",
+        "L3-google-adk"
+      ],
+      "fs_note": "Use Flows for any regulated process and confine Crews to drafting or research sub-steps behind an approval gate [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Both modes available, but abstractions are proprietary and durability is unproven."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Crews plus Flows cover multi-agent and workflow modes; HITL/durability not evidenced [VF: A4-S050] [NPV]",
+        "enterprise_readiness": "AMP Enterprise SSO and RBAC verified; no SCIM, SLA or audit evidence, so 3 (rule 7) [VF: A4-S047]",
+        "security_compliance": "SOC 2 Type 2 report (June 2026) listed; HIPAA Type 1 only [VF: A4-S048]",
+        "deployment_flexibility": "SaaS, VPC on AWS/Azure/GCP, on-prem, OSS self-host; air-gap not verified [VF: A4-S047, A4-S049]",
+        "ecosystem": "crewai-tools, AMP, HPE partnership; hosted by AgentCore [VF: A4-S004, A4-S049, A4-S116]",
+        "reliability_maturity": "1.x since October 2025; very high release frequency [VF: A4-S004]",
+        "cost_tco": "Free tier 50 executions/month; Enterprise custom-priced [VF: A4-S047]",
+        "lockin_portability": "MIT framework, proprietary abstractions and AMP [VF: A4-S126, A4-S047]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.25,
+      "fs_total": 3.2
+    }
+  },
+  {
+    "id": "L3-openai-agents-sdk",
+    "assessment": {
+      "capabilities": "MIT, provider-agnostic multi-agent SDK: agents with tools, handoffs or agents-as-tools, input/output guardrails, sessions with resumable approvals, tracing, sandboxed agents; Temporal and DBOS integrations for durable runs. Distinct from the hosted Agents API (beta) and Agent Builder (shutting down 30 November 2026) [VF: A4-S120, A4-S052, A4-S053, A4-S055, A4-S054].",
+      "strengths": [
+        "Compact primitives with guardrails and approvals built in [VF: A4-S120] [AJ]",
+        "Works with 100+ non-OpenAI models [VF: A4-S120]"
+      ],
+      "limitations_risks": [
+        "Pre-1.0 (0.23.1) [VF: A4-S005]",
+        "Tracing defaults to OpenAI's dashboard [VF: A4-S052]",
+        "Adjacent OpenAI products are retired frequently [VF: A4-S056, A4-S054]",
+        "Hosted Agents API is US-only with no ZDR at launch [VF: A4-S055]"
+      ],
+      "choose_when": [
+        "An agent step inside a durable workflow, with a custom trace processor [AJ]"
+      ],
+      "avoid_when": [
+        "You would use the hosted Agents API for UK/EU client data [AJ]"
+      ],
+      "competitors": [
+        "L3-pydantic-ai",
+        "L3-langgraph",
+        "L3-claude-agent-sdk"
+      ],
+      "fs_note": "Replace the default trace exporter with a firm-owned OTel processor before any client data flows [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Good agent-step SDK, but pre-1.0 and surrounded by product churn."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Agent loop, handoffs, guardrails, sessions, approvals, tracing, sandboxes, Temporal/DBOS durability [VF: A4-S120, A4-S052, A4-S053]",
+        "enterprise_readiness": "Library (rule 2); enterprise support not verified [NPV]",
+        "security_compliance": "Library (rule 2); harness keeps credentials away from model-generated code [VF: A4-S053]; hygiene not assessed",
+        "deployment_flexibility": "Library anywhere; model calls to chosen provider [VF: A4-S005]",
+        "ecosystem": "MCP, sandbox partners, Temporal, DBOS, Bedrock Managed Agents [VF: A4-S053, A4-S055]",
+        "reliability_maturity": "Pre-1.0 versioning; neighbouring products sunset in 2026 [VF: A4-S005, A4-S054, A4-S056]",
+        "cost_tco": "Free MIT [VF: A4-S005]",
+        "lockin_portability": "MIT and provider-agnostic, but defaults favour OpenAI services [VF: A4-S120, A4-S052]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.45,
+      "fs_total": 3.3
+    }
+  },
+  {
+    "id": "L3-claude-agent-sdk",
+    "assessment": {
+      "capabilities": "Anthropic's agent harness SDK (formerly Claude Code SDK): embeds Claude Code's agent loop, built-in file/shell/web tools, hooks, subagents, MCP, permission modes and resumable/forkable sessions as a Python or TypeScript library; spawns one Claude Code CLI subprocess per session [VF: A4-S027, A4-S122, A4-S028]. Conflict of interest: Anthropic product scored by an Anthropic model.",
+      "strengths": [
+        "Permission modes and hooks give fine-grained tool approval [VF: A4-S027]",
+        "Strong fit for code- and file-centric autonomous tasks [AJ]"
+      ],
+      "limitations_risks": [
+        "Python package classified Alpha; 0.x versioning [VF: A4-S006]",
+        "Claude models only, via Claude API, Bedrock or Google Cloud [VF: A4-S006, A4-S122]",
+        "Use governed by Anthropic Commercial Terms despite the MIT repository licence [VF: A4-S092, V1-S048]",
+        "One long-lived subprocess per session; transcripts on local disk unless a SessionStore is configured [VF: A4-S122]",
+        "Claude Managed Agents is excluded from ZDR [VF: A4-S123]",
+        "No deterministic workflow engine [VF: A4-S027]"
+      ],
+      "choose_when": [
+        "A sandboxed autonomous sub-task (e.g. code or document manipulation) inside a firm-owned workflow, where Claude is already an approved model [AJ]"
+      ],
+      "avoid_when": [
+        "You need model portability or a deterministic workflow engine [AJ]",
+        "A regulated process would run on an Alpha-classified dependency [AJ]"
+      ],
+      "competitors": [
+        "L3-openai-agents-sdk",
+        "L3-langgraph",
+        "L3-pydantic-ai"
+      ],
+      "fs_note": "Run only in sandboxed containers with network controls, under a workflow engine that owns state and approvals; independent alternatives are LangGraph and Pydantic AI [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Alpha (the vendor's own PyPI classifier), single-model and subprocess-bound; stays Experimental. Maturity set to 2 by the reader at Checkpoint 4 (CP4-9), in line with the OpenAI Agents SDK; technical 3 and deployment 3 are the peer-consistent values (CP4 review C). Conflict of interest disclosed."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Rich autonomous harness, but no workflow engine or built-in durable execution [VF: A4-S027, A4-S122]; borderline 3/4 resolved down",
+        "enterprise_readiness": "Library (rule 2): permission modes and hooks; API-key auth; enterprise support not verified [VF: A4-S027] [NPV]",
+        "security_compliance": "Library (rule 2); inherits Claude API terms where ZDR is available, but Managed Agents excluded from ZDR [VF: A4-S123]",
+        "deployment_flexibility": "Self-hosted in containers/Kubernetes; model inference remains a cloud API; subprocess-per-session hosting [VF: A4-S122]; borderline 3/4 resolved down",
+        "ecosystem": "MCP, plugins and skills; Claude models only [VF: A4-S027]",
+        "reliability_maturity": "Alpha development status (PyPI 'Development Status: 3 - Alpha'), pre-1.0, renamed September 2025 [VF: A4-S006, A4-S029, B-REVC-S001]. Scored 2, the same as the pre-1.0 OpenAI Agents SDK, by the reader at Checkpoint 4 (CP4-9; previously 1 under a strict reading of the anchor). The Alpha label is recorded as a limitation and reflected in the Experimental tier.",
+        "cost_tco": "No SDK charge; compute scales with concurrent sessions [VF: A4-S122] [AJ]",
+        "lockin_portability": "Claude-only, bundled CLI binary, Commercial Terms [VF: A4-S027, A4-S092]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 2.85,
+      "fs_total": 2.75
+    }
+  },
+  {
+    "id": "L3-mistral-agents",
+    "assessment": {
+      "capabilities": "No distinct 'Mistral Agents SDK' exists. Mistral offers the Agents API (persistent agents, connectors incl. MCP, branchable stateful conversations, handoffs) through the general mistralai SDKs, and Mistral Workflows, a Temporal-based durable workflow SDK with Mistral-hosted control plane and customer-run workers [VF: A4-S057, A4-S058, A4-S061].",
+      "strengths": [
+        "EU hosting by default for the company's services [VF: A5-S075]",
+        "Workflows brings Temporal-grade durability with HITL decorators [VF: A4-S058]"
+      ],
+      "limitations_risks": [
+        "Agents API in beta namespace; Workflows Beta/Public Preview; breaking SDK majors March and September 2026 [VF: A4-S057, A4-S061, A4-S007, V1-S065]",
+        "State lives in Mistral cloud unless store=False [VF: A4-S057]",
+        "Access controls not publicly verified [NPV]",
+        "Pricing not publicly verified [NPV]"
+      ],
+      "choose_when": [
+        "An EU-hosted, Mistral-model estate wanting managed agents [AJ]"
+      ],
+      "avoid_when": [
+        "You need a portable framework or GA components [AJ]"
+      ],
+      "competitors": [
+        "L3-openai-agents-sdk",
+        "L3-temporal",
+        "L3-langgraph"
+      ],
+      "fs_note": "Run conversations with store=False and keep the workflow definition in the firm's own Temporal or framework code [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "Real products under a different name; beta status and proprietary hosted state. Tile relabelled 'Mistral Agents API (+ Workflows)'."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 3,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 2,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Hosted agents plus durable Workflows, but beta [VF: A4-S057, A4-S058]",
+        "enterprise_readiness": "SSO/RBAC/audit not publicly verified; capped at 2 [NPV]",
+        "security_compliance": "Company-level SOC 2 Type II, ISO 27001, ISO 27701; product scope not stated, so one below (rule 8) [VF: A4-S060]",
+        "deployment_flexibility": "SaaS; Workflows workers in customer Kubernetes, control plane Mistral-hosted [VF: A4-S058]",
+        "ecosystem": "MCP connectors; Temporal underneath [VF: A4-S057, A4-S058]",
+        "reliability_maturity": "Beta / Public Preview components; breaking SDK majors [VF: A4-S061, A4-S007]",
+        "cost_tco": "Pricing not publicly verified; customer-run worker infrastructure [NPV] [VF: A4-S058]",
+        "lockin_portability": "Proprietary hosted API, Mistral-model-centric [VF: A4-S057]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: access controls NPV"
+      ],
+      "generic_total": 2.6,
+      "fs_total": 2.55
+    }
+  },
+  {
+    "id": "L3-vercel-ai-sdk",
+    "assessment": {
+      "capabilities": "Apache-2.0 TypeScript toolkit (npm 'ai') for provider-agnostic generation, structured output, tool calling and ToolLoopAgent agents, with UI hooks for React, Svelte, Vue and Angular; companion Workflow SDK makes TS/JS functions durable [VF: A4-S069, A4-S071, A4-S106].",
+      "strengths": [
+        "Best fit for TypeScript front ends that stream agent output to the browser [AJ]",
+        "Workflow SDK can be self-hosted with Postgres [VF: A4-S071]"
+      ],
+      "limitations_risks": [
+        "Three major versions in about eleven months [VF: A4-S022]",
+        "Defaults to Vercel AI Gateway for model access [VF: A4-S069]",
+        "Vercel certifications not verified [NPV]"
+      ],
+      "choose_when": [
+        "The agent is part of a Next.js or TypeScript application tier [AJ]"
+      ],
+      "avoid_when": [
+        "Back-office regulated workflows owned by a Python data team [AJ]"
+      ],
+      "competitors": [
+        "L3-openai-agents-sdk",
+        "L3-langgraph",
+        "L3-microsoft-agent-framework"
+      ],
+      "fs_note": "Use direct provider packages or the firm's gateway, not the Vercel AI Gateway default, for client data [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Good TS application toolkit; fast-moving majors; not an orchestration standard."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Unified model API, tools, ToolLoopAgent, UI streaming; durability via separate Workflow SDK [VF: A4-S069, A4-S071]",
+        "enterprise_readiness": "Library (rule 2); enterprise support not verified [NPV]",
+        "security_compliance": "Library (rule 2); Apache-2.0 licence clear [VF: A4-S070]; hygiene not assessed",
+        "deployment_flexibility": "Any Node runtime [VF: A4-S069]",
+        "ecosystem": "Major UI frameworks and model providers [VF: A4-S069]",
+        "reliability_maturity": "Major version roughly every six months [VF: A4-S022]",
+        "cost_tco": "Free; gateway priced separately [VF: A4-S070]",
+        "lockin_portability": "Apache-2.0; optional gateway default [VF: A4-S069]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.25,
+      "fs_total": 3.15
+    }
+  },
+  {
+    "id": "L3-microsoft-agent-framework",
+    "assessment": {
+      "capabilities": "MIT framework (Python, .NET, Go) that separates Agents from graph-based Workflows (sequential, concurrent, handoff, group collaboration) with checkpointing, streaming, HITL and time travel; durable agents via Durable Task or Azure Durable Functions (beta); A2A, MCP, OTel; declared successor to Semantic Kernel and AutoGen; Foundry Hosted Agents for managed hosting [VF: A4-S066, A4-S012, A4-S101, A4-S102, B-L3-S006].",
+      "strengths": [
+        "Explicit agents-versus-workflows split is the clearest H2 implementation [VF: A4-S066] [AJ]",
+        "1.0 with stable APIs and a long-term support commitment [VF: A4-S012, A4-S068]",
+        ".NET first-class for Microsoft estates [VF: A4-S066]"
+      ],
+      "limitations_risks": [
+        "Durable extensions still beta [VF: A4-S101, A4-S102]",
+        "Foundry hosting integration package for Python prerelease [VF: B-L3-S006]",
+        "First-class integrations are Azure/Foundry [VF: A4-S066]",
+        "Young GA (April 2026) [VF: A4-S008]"
+      ],
+      "choose_when": [
+        "Microsoft/.NET estate, or Semantic Kernel/AutoGen code to migrate [AJ]"
+      ],
+      "avoid_when": [
+        "You need GA durable execution today without adding Temporal or Durable Task [AJ]"
+      ],
+      "competitors": [
+        "L3-langgraph",
+        "L3-google-adk",
+        "L3-aws-strands-agentcore"
+      ],
+      "fs_note": "Migrate Semantic Kernel and AutoGen workloads here; until durable packages are GA, back long-running workflows with a GA durable engine [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where Microsoft/Azure or .NET is the primary platform; supersedes Semantic Kernel and AutoGen."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Agents plus graph workflows, checkpointing, HITL, time travel, A2A/MCP; durability beta [VF: A4-S066, A4-S101]",
+        "enterprise_readiness": "Library (rule 2) with Microsoft long-term support commitment; Foundry Hosted Agents GA [VF: A4-S012, B-L3-S006]",
+        "security_compliance": "Library (rule 2); hygiene not assessed; Azure/Foundry certifications out of record scope [AJ]",
+        "deployment_flexibility": "Library anywhere; Foundry Hosted Agents and Azure Functions managed [VF: A4-S008, A4-S066]",
+        "ecosystem": "Foundry, Azure OpenAI, OpenAI, Copilot Studio, A2A, MCP, OTel [VF: A4-S066, A4-S008]",
+        "reliability_maturity": "GA April 2026 with LTS commitment; successor to two mature frameworks [VF: A4-S008, A4-S012]",
+        "cost_tco": "Free MIT; durable hosting extra [VF: A4-S067]",
+        "lockin_portability": "MIT, multi-provider, but Azure-first integrations [VF: A4-S066]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.8,
+      "fs_total": 3.65
+    }
+  },
+  {
+    "id": "L3-google-adk",
+    "assessment": {
+      "capabilities": "Apache-2.0 code-first agent framework (Python, Java, Kotlin, Go, TS); ADK 2.0 adds a graph-based Workflow Runtime (routing, fan-out/fan-in, loops, retry, state, HITL, nested workflows) and a Task API for agent-to-agent delegation; deploys to Cloud Run or Vertex AI Agent Engine [VF: A4-S114, A4-S017].",
+      "strengths": [
+        "Explicit deterministic Workflow Runtime alongside agents [VF: A4-S114] [AJ]",
+        "Tool-confirmation HITL and evaluation built in [VF: A4-S114]"
+      ],
+      "limitations_risks": [
+        "Two major versions in twelve months [VF: A4-S017]",
+        "Gemini-optimised; Google Cloud deployment targets [VF: A4-S114]",
+        "Security features and access controls not verified for the library [NPV]"
+      ],
+      "choose_when": [
+        "Google Cloud estates, especially with Agent Engine [AJ]"
+      ],
+      "avoid_when": [
+        "You need cross-cloud hosting parity [AJ]"
+      ],
+      "competitors": [
+        "L3-microsoft-agent-framework",
+        "L3-langgraph",
+        "L3-aws-strands-agentcore"
+      ],
+      "fs_note": "Treat Agent Engine as a hyperscaler service under CP2 Q1 and confirm its controls per service [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud (rule 10: ADK on Agent Engine is Google's lead agent framework and runtime, matching Strands/AgentCore on AWS and Microsoft Agent Framework on Azure); no criterion at 1; scored as a library under rule 2, so enterprise readiness and security stay at 3. Tier changed from Tactical by CP4 reviewer C for rule-10 parity. Confirmed by the reader at Checkpoint 4 (CP4-4)."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Workflow Runtime, multi-agent, A2A Task API, HITL, evaluation [VF: A4-S114]",
+        "enterprise_readiness": "Library (rule 2); no support commitment recorded [NPV]",
+        "security_compliance": "Library (rule 2); managed route on Agent Platform in ISO 42001 and SOC 2 scope [VF: A5-S028]",
+        "deployment_flexibility": "Library anywhere; Cloud Run and Agent Engine [VF: A4-S114]",
+        "ecosystem": "MCP, OpenAPI, A2A; broader ecosystem not verified [VF: A4-S114] [NPV]",
+        "reliability_maturity": "1.0 May 2025, 2.0 May 2026 [VF: A4-S017]",
+        "cost_tco": "Free Apache-2.0 [VF: A4-S114]",
+        "lockin_portability": "Apache-2.0 but Gemini-optimised and GCP-targeted [VF: A4-S114]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.45,
+      "fs_total": 3.35
+    }
+  },
+  {
+    "id": "L3-aws-strands-agentcore",
+    "assessment": {
+      "capabilities": "Strands Agents (Apache-2.0 model-driven agent SDK) plus Amazon Bedrock AgentCore, a framework-agnostic managed agent platform: Runtime with per-session microVM isolation (up to 8 hours per lifecycle), Memory, Gateway, Identity, Observability; hosts Strands, LangGraph, CrewAI, AutoGen or custom agents [VF: A4-S115, A4-S116, B-L3-S004].",
+      "strengths": [
+        "Per-session microVM isolation and VPC/PrivateLink [VF: B-L3-S004]",
+        "Runs any framework, so it separates runtime choice from framework choice [VF: A4-S116] [AJ]"
+      ],
+      "limitations_risks": [
+        "AWS-only, proprietary APIs [VF: A4-S116]",
+        "Session state ephemeral by default; Runtime is not a durable workflow engine [VF: B-L3-S004]",
+        "AgentCore SDK classified Alpha [VF: A4-S121]",
+        "Execution-role credentials reachable from code in the microVM [VF: B-L3-S004]",
+        "Runtime pricing not verified [NPV]"
+      ],
+      "choose_when": [
+        "AWS is the primary cloud and you need a managed, isolated runtime for framework-built agents [AJ]"
+      ],
+      "avoid_when": [
+        "Multi-cloud portability of the runtime is a requirement [AJ]"
+      ],
+      "competitors": [
+        "L3-microsoft-agent-framework",
+        "L3-google-adk",
+        "L3-langgraph"
+      ],
+      "fs_note": "Keep the workflow definition in a portable framework; scope execution roles tightly; platform controls presumed (CP2 Q1); confirm per service [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where AWS is your primary cloud (rule 10, lead AWS agent runtime); deployment and lock-in at 2 accepted under rule 11 as an existing platform commitment."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Isolated runtime, memory, gateway, identity, any framework; no deterministic durable workflow engine [VF: A4-S116, B-L3-S004]",
+        "enterprise_readiness": "Hyperscaler presumption (rule 6); platform controls presumed (CP2 Q1); confirm per service",
+        "security_compliance": "AgentCore in AWS SOC 1/2/3 and ISO 27001 scope, HIPAA eligible; SOC 2 type not stated, so 4 (rule 8) [VF: B-L5-S003]",
+        "deployment_flexibility": "AgentCore AWS-only; Strands portable [VF: A4-S116, A4-S018]",
+        "ecosystem": "Any framework, MCP gateway, AG-UI [VF: A4-S116]",
+        "reliability_maturity": "AgentCore GA 13 October 2025; Strands 1.0 July 2025; SDK Alpha [VF: V1-S087, A4-S018, A4-S121]",
+        "cost_tco": "Runtime pricing not retrieved [NPV]; consumption model assumed [AJ]",
+        "lockin_portability": "Proprietary AWS-only service APIs [VF: A4-S116]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.4,
+      "fs_total": 3.25
+    }
+  },
+  {
+    "id": "L3-temporal",
+    "assessment": {
+      "capabilities": "Durable execution engine: workflows whose activities are recorded so execution resumes after failure; used beneath Pydantic AI, the OpenAI Agents SDK and Mistral Workflows. MIT server, self-hosted or Temporal Cloud on AWS and GCP [VF: A4-S019, A4-S045, A4-S052, A4-S058, B-L3-S002].",
+      "strengths": [
+        "Separates reliability (retries, resume, timers, signals) from agent logic [AJ]",
+        "Same server in self-hosted and Cloud; moves without code changes [VF: B-L3-S002]",
+        "Cloud: SAML SSO, SCIM, roles, exportable audit logs [VF: B-L3-S003]"
+      ],
+      "limitations_risks": [
+        "Not an agent framework [AJ]",
+        "Self-hosting needs Kubernetes and persistence stores, sequential upgrades [VF: B-L3-S002]",
+        "No ISO 27001 found; certification evidence from search extracts [VF: B-L3-S001]",
+        "Workflow code becomes a hard dependency [AJ]",
+        "Cloud pricing not verified [NPV]"
+      ],
+      "choose_when": [
+        "Any regulated agent workflow that must resume without re-calling tools [AJ]"
+      ],
+      "avoid_when": [
+        "Short, stateless single-call tasks [AJ]"
+      ],
+      "competitors": [
+        "DBOS",
+        "Restate",
+        "L3-langgraph",
+        "L3-microsoft-agent-framework"
+      ],
+      "fs_note": "Encrypt payloads client-side so Temporal Cloud stores ciphertext, or self-host in-region [VF: B-L3-S001] [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic as the durable-execution substrate under deterministic workflows; independent of model vendors."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 4,
+        "cost_tco": 3,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Leading durability, retries and deterministic workflow semantics; no agent loop itself [VF: A4-S019, A4-S045]",
+        "enterprise_readiness": "SAML SSO, SCIM, roles and custom roles, audit logs, Cloud Ops API; SLA not verified [VF: B-L3-S003]",
+        "security_compliance": "SOC 2 Type 2, HIPAA BAA, GDPR DPA, client-side encryption; no ISO 27001 found [VF: B-L3-S001]",
+        "deployment_flexibility": "Temporal Cloud on 14 AWS and 6 GCP regions incl. Europe; MIT self-host anywhere [VF: B-L3-S002]",
+        "ecosystem": "Built into Pydantic AI, OpenAI Agents SDK, Mistral Workflows [VF: A4-S045, A4-S052, A4-S058]",
+        "reliability_maturity": "Python SDK since March 2022; long-established [VF: A4-S019]",
+        "cost_tco": "Cloud pricing not verified; self-host operations heavy [NPV] [VF: B-L3-S002]",
+        "lockin_portability": "MIT server; portable between self-host and Cloud; code is Temporal-specific [VF: B-L3-S002]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.9,
+      "fs_total": 3.9
+    }
+  }
+]

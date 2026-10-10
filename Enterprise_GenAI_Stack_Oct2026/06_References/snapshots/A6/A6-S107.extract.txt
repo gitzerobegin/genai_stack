@@ -1,0 +1,14 @@
+SOURCE ID: A6-S107
+URL: https://developer.meta.com/ai/docs/model-cards-and-prompt-formats/llama-guard-4/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Meta Llama Guard Prompt Guard LlamaFirewall new release 2026 (site:ai.meta.com, llama.com, huggingface.co, developer.meta.com, about.fb.com)
+========================================================================
+
+Related: https://www.llama.com/docs/model-cards-and-prompt-formats/prompt-guard/ ; https://www.llama.com/llama-protections/ ; https://ai.meta.com/research/publications/llamafirewall-an-open-source-guardrail-system-for-building-secure-ai-agents/
+
+Extract as returned by search tool:
+No evidence of a new Meta release for these tools in 2026. "Llama Guard 4 (12B) is the latest safeguard model, with improved inference for detecting problematic prompts and responses." It evaluates both the prompt text and the image together and has been optimized for English-language text.
+Prompt Guard 2: 86M trained on English and non-English attacks; 22M lighter option for resource-constrained, English-only use.
+LlamaFirewall: three guardrails include PromptGuard 2, Agent Alignment Checks, and CodeShield; designed to be agnostic to the agentic framework.
+Meta's LlamaCon page: "releasing Llama Guard 4, LlamaFirewall, and Llama Prompt Guard 2 for the open source community". Search metadata shows these pages as roughly 526 days old.

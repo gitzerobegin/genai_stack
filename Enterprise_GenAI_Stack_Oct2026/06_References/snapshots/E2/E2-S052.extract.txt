@@ -1,0 +1,12 @@
+SOURCE ID: E2-S052
+URL: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-saas.html
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: AWS PrivateLink SaaS provider endpoint service private connectivity SaaS customers VPC docs
+========================================================================
+
+Search tool summary (results: docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-saas.html; docs.aws.eu copy; docs.aws.amazon.com/whitepapers/latest/aws-privatelink/use-case-examples.html; third-party medium.com, k21academy, cloudoptimo, cloudthat, eweek not relied on). docs.aws.amazon.com direct fetch blocked.
+- The service provider creates an endpoint service and grants customers access; the service consumer creates an interface VPC endpoint to reach it.
+- A SaaS provider can use a Network Load Balancer targeting instances in its VPC as the endpoint service; customers in AWS are then granted access.
+- Best practice: create a PrivateLink endpoint in each Availability Zone in the region where the service is deployed.
+- SaaS products powered by AWS PrivateLink can be discovered, purchased and provisioned through AWS Marketplace.

@@ -1,0 +1,11 @@
+SOURCE ID: E3-S043
+URL: https://docs.devin.ai/admin/security
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Devin enterprise VPC deployment SOC 2 Cognition Windsurf
+========================================================================
+
+Search-tool summary of docs.devin.ai/admin/security, docs.devin.ai/enterprise/security-access/security/enterprise-security and docs.devin.ai/enterprise/overview:
+- "Cognition has been SOC 2 Type II certified since September 2024." The audit covered security policies, procedures, internal and third-party controls related to data security, privacy, processing integrity, confidentiality and availability.
+- Enterprise overview: for Enterprise customers with dedicated or on-prem deployments, all customer data is stored within the customer's tenant.
+- Cognition's homepage lists FedRAMP among security badges and the enterprise page lists FedRAMP High (enterprise page appears old); no FedRAMP authorisation letter or marketplace listing found.

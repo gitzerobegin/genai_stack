@@ -1,0 +1,17 @@
+SOURCE ID: A8-S001
+URL: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SR 26-2 revised guidance on model risk management supersedes SR 11-7 (allowed_domains federalreserve.gov)
+========================================================================
+
+Search result title: "The Fed - FRB: Supervisory Letter SR 26-2 on Revised Guidance on Model Risk Management -- April 17, 2026" (federalreserve.gov/supervisionreg/srletters/SR2602.htm; PDF SR2602.pdf)
+Search-tool extract:
+- SR 26-2, "Revised Guidance on Model Risk Management," dated April 17, 2026, supersedes SR 11-7. The Federal Reserve issued it jointly with the OCC and FDIC.
+- "The agencies issued the revised guidance, which supersedes and replaces SR letter 11-7, issued April 4, 2011, and SR letter 21-8, issued April 9, 2021."
+- The update reflects supervisory experience and industry feedback since the issuance of SR 11-7; aims to clarify principles and take a risk-based approach scaled to each institution's model risk profile and size and complexity.
+- "Model risk management practices appropriately vary among banking organizations based on their specific risk profiles and model usage."
+- Expected to be most relevant to banking organizations with over $30 billion in total assets regulated by the Federal Reserve; may still apply to smaller institutions with significant model risk exposure.
+- Model purpose and exposure together set materiality. Banks may treat some models as immaterial, in which case they mainly need to identify those models and monitor whether they could become material later. Higher-materiality models warrant more rigorous oversight.
+- Keeps core elements including effective challenge by qualified, independent reviewers and assessment of model risk both individually and in aggregate.
+- The Fed's copy: "the principles described in this guidance apply to traditional statistical and quantitative models and non-generative, non-agentic AI models." The agencies "plan to issue in the near future a request for information that addresses model risk management generally and considers, in particular, banks' use of AI, including generative AI and agentic AI and AI-based models."

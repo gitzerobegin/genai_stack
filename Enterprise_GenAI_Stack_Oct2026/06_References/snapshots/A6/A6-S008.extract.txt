@@ -1,0 +1,15 @@
+SOURCE ID: A6-S008
+URL: https://docs.litellm.ai/blog/security-update-march-2026
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LiteLLM v1.83.0 release post supply chain incident 1.82.7 1.82.8 (site:docs.litellm.ai)
+========================================================================
+
+Related results: https://docs.litellm.ai/blog/security-update-march-2026 ; https://docs.litellm.ai/blog/security-townhall-updates ; https://docs.litellm.ai/blog/security-hardening-april-2026 ; https://docs.litellm.ai/blog/mistral-supply-chain-attack-may-2026
+
+Extract as returned by search tool:
+The compromised packages were litellm 1.82.7 and 1.82.8. They were live on March 24, 2026 from 10:39 UTC for about 40 minutes before PyPI quarantined them. The project says v1.82.7 carried a malicious payload in the AI Gateway's proxy_server.py, and v1.82.8 also included a litellm_init.pth file. Both versions have already been removed from PyPI.
+Cause: The project believes the compromise started in its CI/CD security scanning workflow. It had an unpinned Trivy dependency, and a compromised Trivy package ran during the scan with access to environment variables, which let attackers obtain release credentials. Release credentials, including those for PyPI, GHCR, and Docker publishing, were available as static secrets in the environment.
+Scope: The project says its investigation found no evidence of lateral movement into internal corporate systems. Customers running the official LiteLLM Proxy Docker image were not impacted, because that path pins dependencies in requirements.txt.
+The team rotated potentially affected secrets, including PyPI, GitHub, and Docker credentials. Later, the team brought in Veria Labs to audit the proxy, and fixed several vulnerability reports from independent researchers.
+The root-cause explanation (Trivy) is described as the team's "current understanding" rather than a final finding.

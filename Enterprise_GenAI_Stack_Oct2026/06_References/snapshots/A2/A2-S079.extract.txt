@@ -1,0 +1,8 @@
+SOURCE ID: A2-S079
+URL: https://www.ethicalagentic.ai/privacy-policy
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: "Ethical Agents" OR "EthicalAgent" embedding API vector reranking product
+========================================================================
+
+Closest name match found: Ethical Agentic AI Inc., a Toronto company at ethicalagentic.ai; its site says it audits, evaluates, and certifies AI agents for safety, compliance, and governance. Auditing and certification business, not a model or retrieval API.

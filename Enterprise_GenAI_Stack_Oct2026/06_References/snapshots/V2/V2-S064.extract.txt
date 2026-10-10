@@ -1,0 +1,9 @@
+SOURCE ID: V2-S064
+URL: https://www.collibra.com/company/newsroom/press-releases/collibra-strengthens-ai-governance-leadership-with-iso-42001-certification-ai-pact-commitment
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Collibra ISO 42001 certification; Credo AI SOC 2 Type II report
+========================================================================
+
+Collibra press release January 22, 2025: "Collibra has achieved its ISO 42001 certification for AI Governance, signed on to the European Commission's AI Pact and launched its EU AI Act Assessment Tool"; performed by ANAB-accredited certification body Schellman. Certificate validity dates not seen.
+Credo AI: official SOC 2 Type II page (credo.ai/soc-2-type-ii) found but content cut off; third-party comparison says SOC 2 Type II certified with public Trust Center.

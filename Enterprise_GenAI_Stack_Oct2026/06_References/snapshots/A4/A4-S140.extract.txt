@@ -1,0 +1,8 @@
+SOURCE ID: A4-S140
+URL: https://investors.cerebras.ai/news-releases/news-release-details/cerebras-systems-accelerates-european-expansion-200mw-ai-compute
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cerebras inference pricing per million tokens developer plan enterprise; Cerebras data centers Europe
+========================================================================
+
+8 July 2026: first European data centre capacity to come online by end of 2026, build-out across France and the Nordics; 200 MW total by end of 2027, part expected to support OpenAI workloads. 31 August 2026: Cerebras and Compute Nordic Finland announce 165 MW AI data centre in Mikkeli, Finland (initial 50 MW phase under construction; seven-year contract). 20 August 2026: partnership with London-based Callosum (Cerebras capacity via Callosum APIs). Earlier: CS-3 cluster at University of Edinburgh; 2022 Green AI Cloud deployment in Sweden.

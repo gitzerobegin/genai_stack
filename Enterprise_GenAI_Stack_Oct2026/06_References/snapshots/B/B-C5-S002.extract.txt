@@ -1,0 +1,12 @@
+SOURCE ID: B-C5-S002
+URL: https://launchdarkly.com/docs/api/audit-log
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (launchdarkly.com, docs.launchdarkly.com): LaunchDarkly audit log docs who changed what history
+========================================================================
+
+- "LaunchDarkly keeps a record of changes to any resource in the system. You can access this history using the audit log API ... In the LaunchDarkly UI, this information appears on the Change history page."
+- Endpoints: list (GET /api/v2/auditlog with before, after, q, limit, member, token), search, counts, get single entry.
+- Entry identifies the member, access token or authorised application that made the change; single-entry representation includes previousVersion and currentVersion JSON snapshots and a delta (JSON patch, when applicable).
+- History tabs on account settings, flags, segments, team and member pages.
+- Older staging page (over four years old): unlimited audit log on Pro and Enterprise; Starter limited to last 30 days. Current plan limits not confirmed.

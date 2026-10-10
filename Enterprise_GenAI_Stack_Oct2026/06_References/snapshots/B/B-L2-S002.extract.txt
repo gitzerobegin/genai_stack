@@ -1,0 +1,8 @@
+SOURCE ID: B-L2-S002
+URL: https://docs.redhat.com/en/documentation/red_hat_ai/3/html/supported_product_and_hardware_configurations/llmd-supported-platforms_supported-configurations
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Red Hat AI Inference Server vLLM llm-d supported distribution 2026 (allowed: redhat.com, docs.redhat.com)
+========================================================================
+
+Chapter 7. Supported platforms for Distributed Inference with llm-d (Red Hat AI 3) (search-tool extract): Supported platforms for distributed inference with llm-d: OpenShift Container Platform 4.19+, Azure Kubernetes Service with Kubernetes 1.33+, CoreWeave Kubernetes Service with Kubernetes 1.33+. Distributed Inference with llm-d is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs) and Red Hat does not recommend using them in production. Chapter 8: supported accelerators NVIDIA H100, H200, B200, A100 and AMD MI300X; data center grade AI accelerators only.

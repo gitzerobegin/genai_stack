@@ -1,0 +1,15 @@
+SOURCE ID: A8-S055
+URL: https://www.fca.org.uk/news/press-releases/fca-announces-second-cohort-ai-live-testing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: FCA AI Live Testing cohort 2026 agentic AI statement (fca.org.uk)
+========================================================================
+
+Search results: FCA "FCA announces second cohort for AI Live Testing" (press release, April 2026); "FS25/5: AI Live Testing"; "AI Lab"; speech "Supporting fintech in the next phase of innovation" (Jessica Rusu, 21 April 2026); "AI in financial services: shaping our approach through industry engagement" (blog); "Review into the long-term impact of AI on retail financial services (The Mills Review)"
+Search-tool extract:
+- Second AI Live Testing cohort announced at UK FinTech Week on 21 April 2026: Aereve, Coadjute, Barclays, Experian, GoCardless, Lloyds Banking Group (Scottish Widows), UBS, Palindrome. First cohort: Gain Credit, Homeprotect, NatWest, Monzo, Santander, Scottish Widows, Snorkl.
+- Use cases include AI-enabled targeted support for investments, credit score insights, agentic payments, AML detection, KYC; models span "agentic AI and small language models to emerging solutions such as neurosymbolic AI".
+- Technical partner Advai. Testing began late April 2026, concludes by end of year; evaluation report Q1 2027.
+- Rusu: shift to "agentic commerce"; FCA's "principles-led, and outcome-focused approach to AI".
+- The FCA has said it is not going to introduce new regulations for AI, relying on existing frameworks including the Consumer Duty, SM&CR and governance and controls expectations.
+- Mills Review: agentic AI "may become capable of independent decision-making and continuous learning and is increasingly designed to act on behalf of the consumer".

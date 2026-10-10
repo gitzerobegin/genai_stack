@@ -1,0 +1,8 @@
+SOURCE ID: E1-S040
+URL: https://leg.colorado.gov/bill_files/115880/download
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SB 26-189 fiscal note X.AI LLC v. Weiser (leg.colorado.gov)
+========================================================================
+
+Search-tool extract: the bill 'repeals and reenacts the standards and requirements for the development and use of artificial intelligence (AI) systems initially created in Senate Bill 24-205'. On 27 April 2026 the Attorney General was ordered by the U.S. District Court 'to not initiate enforcement of SB 24-205 or any legislation amending SB 24-205 until rulemaking is complete and the court rules in the case captioned X.AI LLC v. Weiser'. Earlier fiscal note (SB 25B-004, 2025 extraordinary session): the bill 'delays the effective date for implementation of Senate Bill 24-205 from February 1, 2026, to June 30, 2026'.

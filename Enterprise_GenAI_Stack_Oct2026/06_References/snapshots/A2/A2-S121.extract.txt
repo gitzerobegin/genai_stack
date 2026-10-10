@@ -1,0 +1,8 @@
+SOURCE ID: A2-S121
+URL: https://zilliz.com/blog/zilliz-cloud-now-available-in-aws-europe-ireland
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Zilliz Cloud pricing BYOC SOC 2 ISO 27001 HIPAA GDPR EU regions trust center
+========================================================================
+
+EU regions: AWS eu-west-1 (Ireland), AWS eu-central-1 (Frankfurt), Google Cloud europe-west3 (Frankfurt), Azure Germany West Central (Frankfurt) and Azure North Europe (Ireland) (https://zilliz.com/blog/zilliz-cloud-now-available-in-azure-north-europe-ireland); keep vector data within EU borders.

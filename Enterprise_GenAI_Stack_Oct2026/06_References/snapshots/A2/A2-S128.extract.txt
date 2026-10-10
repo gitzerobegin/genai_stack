@@ -1,0 +1,8 @@
+SOURCE ID: A2-S128
+URL: https://www.trychroma.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Chroma Cloud pricing SOC 2 BYOC regions Chroma 1.x release (allowed: trychroma.com, docs.trychroma.com)
+========================================================================
+
+Starter: $0/month plus usage, $5 free credits; $2.50 per GiB written, $0.33 per GiB stored per month, $0.0075 per TiB queried, $0.09 per GiB returned. Team: $250/month plus usage, 100 databases, Slack support, SOC 2, volume discounts. Single-tenant clusters, BYOC clusters and SLAs: custom pricing. Docs pricing page (https://docs.trychroma.com/cloud/pricing): billing aggregated per account.

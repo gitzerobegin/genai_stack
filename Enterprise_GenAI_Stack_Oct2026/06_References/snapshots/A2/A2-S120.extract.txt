@@ -1,0 +1,8 @@
+SOURCE ID: A2-S120
+URL: https://zilliz.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Zilliz Cloud pricing BYOC SOC 2 ISO 27001 HIPAA GDPR EU regions trust center
+========================================================================
+
+Standard: Serverless from $0/month; Dedicated from $126/GB/month (as captured). Enterprise Dedicated from $197/month with 99.95% uptime SLA, audit logs, SSO, private endpoints. Business Critical adds CMEK and HIPAA eligibility. Late-2025 announcement: storage standardised at $0.04 per GB per month across providers from January 1, 2026 (https://zilliz.com/blog/zilliz-cloud-oct-2025-update). Search tool flagged pricing snapshot as possibly stale; BYOC pricing not published.

@@ -1,0 +1,13 @@
+SOURCE ID: B-C7-S001
+URL: https://docs.lakera.ai/docs/platform
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.lakera.ai, lakera.ai): docs.lakera.ai "SOC2 Type II" data encrypted at rest and in transit
+========================================================================
+
+Search-tool extract of the Lakera / Check Point "AI Guardrails Dashboard" docs page (docs.lakera.ai/docs/platform):
+- "We are SoC2 Type II certified, and all data processed or stored by us is encrypted at rest and in transit."
+- Prompt logging section: "By default, we record all prompts and model outputs from the screening request for display in the dashboard and for analysis."
+Related (same search): Self-hosting AI Guardrails page (docs.lakera.ai/docs/selfhosting) refers to "Check Point AI Guardrails"; deployable on-premises or in a private cloud for full control over data residency and network access; lists "Encrypted communication between components".
+Data Loss Prevention marketing page: "SOC2 and GDPR compliant" (no type stated).
+Earlier search (Lakera trust center SOC 2 ISO 27001): trust.lakera.ai exists (Vanta-powered; access on request); subprocessors include AWS, Auth0, Cloudflare; hosting options EU, US, Singapore. No ISO 27001 statement found for Lakera. trust.lakera.ai direct fetch blocked by egress proxy.

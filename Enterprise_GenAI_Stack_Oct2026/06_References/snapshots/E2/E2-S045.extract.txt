@@ -1,0 +1,17 @@
+SOURCE ID: E2-S045
+URL: https://fin.ai/learn/ai-credits-for-startups
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: OpenAI for Startups program API credits official openai.com startups 2026; Mistral AI for Startups program credits official mistral.ai startups
+========================================================================
+
+Search tool summary (results: fin.ai/learn/ai-credits-for-startups; fin.ai/learn/startup-credit-programs; guptadeepak.com; superscout.co; launchrock.com; dev.to; itbrief.com.au and cfotech.com.au 24 August 2026; roundfunded.com; creditforstartups.com; startupgrantsindia.com; services.google.com startup_perks_partner_models.pdf). Official openai.com/startups and mistral.ai pages not returned; one aggregator result (getaiperks.com) was disregarded.
+OpenAI:
+- fin.ai: OpenAI does not run a broad public self-serve start-up credits programme in 2026; another guide says API credits are distributed through its VC partner network.
+- Amounts conflict: up to US$5,000 for venture-backed start-ups (one guide), not published (another), about US$2,500 via the Ramp perks marketplace (a third).
+- Researcher Access: up to US$1,000 API credits for university, research lab or non-profit affiliates.
+- IT Brief Australia (24 August 2026): OpenAI reportedly provided more than AUD 5.5 million in API credits to Australian founders.
+Mistral:
+- Aggregators claim about EUR 30,000 La Plateforme credits plus a cohort (pre-seed to Series A).
+- fin.ai: the EUR 30,000 figure cannot be confirmed on mistral.ai; a programme called "Mistralship" existed but its application page returned 404 as of August 2026.
+- Google Cloud partner-model credits: start-ups in Google's Scale tier received US$10,000 credits usable toward partner models including Mistral (as of May 2025).

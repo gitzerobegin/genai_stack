@@ -1,0 +1,13 @@
+SOURCE ID: E2-S036
+URL: https://learn.microsoft.com/marketplace/private-offers-overview
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Microsoft Marketplace private offers Partner Center SaaS offer Azure consumption commitment eligible learn.microsoft.com
+========================================================================
+
+Search tool summary (results: learn.microsoft.com/marketplace/private-offers-overview; learn.microsoft.com/partner-center/marketplace/multiparty-private-offers-for-isvs; learn.microsoft.com/partner-center/marketplace/multiparty-private-offers-for-selling-partners; learn.microsoft.com manage-isv-customer-private-offers; microsoft.com/isv/marketplace; azure.microsoft.com blog; third-party dupple.com and clazar.io not relied on).
+- Private offers overview: 100% of purchases that are Azure benefit eligible count toward the customer's Azure cloud consumption commitment; negotiated, off-list pricing is a benefit.
+- Multiparty private offers (ISV page): for MACC customers every dollar counts toward the MACC commitment when the solution is Azure IP co-sell and MACC eligible.
+- Multiparty private offers can be built for SaaS, Azure Virtual Machines and Azure Applications offers; professional services and hardware excluded; partner needs a transactable offer with public plan(s).
+- Geography: one Microsoft ISV page says multiparty private offers are available to US customers; a September 2024 digest says UK and Canada too (conflict; check current).
+- Absolute-price private offers require the customer's market currency and billing account currency to match; discounted-price offers do not.

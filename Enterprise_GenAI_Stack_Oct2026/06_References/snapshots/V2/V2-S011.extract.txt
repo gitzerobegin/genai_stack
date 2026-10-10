@@ -1,0 +1,10 @@
+SOURCE ID: V2-S011
+URL: https://x.ai/news/xai-joins-spacex
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SpaceX xAI merger completed February 2026 SpaceXAI rebrand
+========================================================================
+
+SpaceX announced on February 2, 2026 that it had acquired xAI ("xAI joins SpaceX", x.ai/news; TechCrunch 2 Feb 2026). All-stock transaction; xAI a wholly owned subsidiary of SpaceX. Valuation reported: SpaceX $1 trillion, xAI $250 billion.
+SpaceXAI name: Wikipedia says xAI was rebranded as SpaceXAI in July; a Baidu wiki entry says renamed SpaceXAI on May 7, 2026 (conflict; neither primary).
+SpaceXSI: Musk said on X (October 4, 2026) that SpaceXAI would become SpaceXSI, following an executive order signed by President Trump on September 29 directing federal agencies to replace "artificial intelligence"/"AI" with "super intelligence"/"SI" in official communications (Forbes 4 Oct 2026; Euronews 5 Oct 2026; Seeking Alpha). As of the latest reports, the website and social accounts still say SpaceXAI; no timeline given. x.ai pages are titled "SpaceXAI API" and "SpaceXAI — Creators of Grok".

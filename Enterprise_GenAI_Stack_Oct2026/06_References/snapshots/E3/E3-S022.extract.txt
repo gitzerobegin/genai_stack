@@ -1,0 +1,12 @@
+SOURCE ID: E3-S022
+URL: https://developers.openai.com/codex/enterprise/admin-setup
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI Codex enterprise admin controls RBAC compliance API data retention
+========================================================================
+
+Search-tool summary of developers.openai.com/codex/enterprise/admin-setup and /codex/enterprise/work-admin-faq:
+- Built-in Enterprise roles are Owner, Admin, Member and Analytics Viewer; custom RBAC depends on plan and workspace. On eligible Enterprise and Edu plans that support custom member RBAC, ChatGPT Work capabilities can be scoped with workspace roles, identity groups and administrator-defined permissions. ChatGPT Business doesn't include custom member RBAC or SCIM group synchronisation.
+- Managed workspaces can control Codex local use and Codex cloud tasks separately. Codex Local covers the CLI, IDE extension and desktop workflows; Codex Cloud covers delegated cloud tasks. Managed configuration doesn't grant workspace access, replace RBAC, or revoke a user's workspace access.
+- When you sign in with ChatGPT, Codex usage follows ChatGPT workspace permissions, RBAC and ChatGPT Enterprise retention and residency settings; with an API key, usage follows the API organisation's retention and data-sharing settings.
+- The product is branded "ChatGPT Work" in several places of the docs.

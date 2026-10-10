@@ -1,0 +1,8 @@
+SOURCE ID: V1-S086
+URL: https://docs.trychroma.com/cloud/getting-started
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Chroma Cloud SOC 2 Type II pricing Team plan regions (allowed_domains trychroma.com)
+========================================================================
+
+Security page: Chroma Cloud has completed a SOC 2 Type II examination; runs on AWS across multiple AZs. Pricing: Team plan $250/month plus usage, $100 credits included, 100 databases, 30 team members; usage $2.50 per GiB written, $0.33 per GiB stored per month. Docs: multi-tenant regions AWS US East (aws-us-east-1) and GCP Europe West 1 Belgium (gcp-europe-west1). Homepage uses "Pro and Enterprise" naming vs pricing page Starter/Team.

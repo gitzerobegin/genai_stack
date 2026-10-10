@@ -1,0 +1,9 @@
+SOURCE ID: A7-S112
+URL: https://www.helicone.ai/blog
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Helicone acquired 2026
+========================================================================
+
+Helicone blog: "after three years and 14.2 trillion tokens, Helicone has been acquired by Mintlify." Announced March 3, 2026 (PitchBook lists transaction completed March 3, 2026, no amount). Founders Justin Torre and Cole Gottdank moved to Mintlify's San Francisco office to work on AI knowledge infrastructure. Mintlify announcement: Helicone served 16,000 organisations over three years; deal to strengthen Mintlify AI products with performance, analytics, routing and multi-provider failover.
+Product status: Helicone in maintenance mode - security fixes, bug fixes and new model support continue; standalone feature development wound down (DEV Community migration post, secondary). Rust AI Gateway separately licensed GPL-3.0; repository last pushed November 2025 (secondary).

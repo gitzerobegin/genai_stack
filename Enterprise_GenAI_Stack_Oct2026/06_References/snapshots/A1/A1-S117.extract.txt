@@ -1,0 +1,9 @@
+SOURCE ID: A1-S117
+URL: https://unstructured.io/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Unstructured platform SOC 2 Type 2 HIPAA GDPR in-VPC deployment pricing
+========================================================================
+
+Search result titles: "Pricing Plans for Data Processing" (unstructured.io/pricing); "Overview - Unstructured" (docs.unstructured.io/api-reference/overview); "Data Processing Addendum" (unstructured.io/data-processing-addendum); "On-Prem & Air-Gapped Document AI for Regulated Industries".
+Extracts: Business plan "dedicated instance or VPC deployment, multi-user access, full data isolation, dedicated technical support", custom pricing. Plans named Let's Go, Pay-As-You-Go and Business; some billed per page. API docs: dedicated instance runs in a VPC in Unstructured's cloud; in-VPC hosted within customer's own VPC on own cloud infrastructure. Pricing page lists HIPAA, SOC 2 Type 2, GDPR ("GDPR Compliant SaaS Hosted Product") and ISO 27001. FAQ: "SOC 2 Type 2 certified, HIPAA compliant and GDPR-ready". Logo: "SOC 2 Type II Qualified". DPA: copies of current certifications available through trust portal trust.unstructured.io. Older launch post said SOC 2 Type 1 completed with Type 2 in progress (outdated).

@@ -1,0 +1,3399 @@
+SOURCE ID: A2-S050
+URL: https://pypi.org/project/pgvector/
+FINAL URL: https://pypi.org/project/pgvector/
+TITLE: pgvector · PyPI
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+pgvector · PyPI
+
+Skip to main content
+
+Switch to mobile version
+
+pgvector 0.5.0
+
+pgvector support for Python
+
+pip install pgvector
+
+Copy PIP instructions
+
+pgvector-python
+
+pgvector
+ support for Python
+
+Supports 
+Django
+, 
+SQLAlchemy
+, 
+SQLModel
+, 
+Psycopg 3
+, 
+Psycopg 2
+, 
+asyncpg
+, 
+pg8000
+, and 
+Peewee
+
+Installation
+
+Run:
+
+pip
+
+install
+
+pgvector
+
+And follow the instructions for your database library:
+
+Django
+
+SQLAlchemy
+
+SQLModel
+
+Psycopg 3
+
+Psycopg 2
+
+asyncpg
+
+pg8000
+
+Peewee
+
+Or check out some examples:
+
+Retrieval-augmented generation
+ with Ollama
+
+Embeddings
+ with OpenAI
+
+Binary embeddings
+ with Cohere
+
+Sentence embeddings
+ with SentenceTransformers
+
+Hybrid search
+ with SentenceTransformers (Reciprocal Rank Fusion)
+
+Hybrid search
+ with SentenceTransformers (cross-encoder)
+
+Sparse search
+ with Transformers
+
+Late interaction search
+ with ColBERT
+
+Visual document retrieval
+ with ColPali
+
+Image search
+ with PyTorch
+
+Image search
+ with perceptual hashing
+
+Morgan fingerprints
+ with RDKit
+
+Topic modeling
+ with Gensim
+
+Implicit feedback recommendations
+ with Implicit
+
+Explicit feedback recommendations
+ with Surprise
+
+Recommendations
+ with LightFM
+
+Horizontal scaling
+ with Citus
+
+Bulk loading
+ with 
+COPY
+
+Django
+
+Create a migration to enable the extension
+
+from
+
+pgvector.django
+
+import
+
+VectorExtension
+
+class
+
+Migration
+(
+migrations
+.
+Migration
+):
+
+operations
+
+=
+
+[
+
+VectorExtension
+()
+
+]
+
+Add a vector field to your model
+
+from
+
+pgvector.django
+
+import
+
+VectorField
+
+class
+
+Item
+(
+models
+.
+Model
+):
+
+embedding
+
+=
+
+VectorField
+(
+dimensions
+=
+3
+)
+
+Also supports 
+HalfVectorField
+, 
+BitField
+, and 
+SparseVectorField
+
+Insert a vector
+
+item
+
+=
+
+Item
+(
+embedding
+=
+[
+1
+,
+
+2
+,
+
+3
+])
+
+item
+.
+save
+()
+
+Get the nearest neighbors to a vector
+
+from
+
+pgvector.django
+
+import
+
+L2Distance
+
+Item
+.
+objects
+.
+order_by
+(
+L2Distance
+(
+'embedding'
+,
+
+[
+3
+,
+
+1
+,
+
+2
+]))[:
+5
+]
+
+Also supports 
+MaxInnerProduct
+, 
+CosineDistance
+, 
+L1Distance
+, 
+HammingDistance
+, and 
+JaccardDistance
+
+Get the distance
+
+Item
+.
+objects
+.
+annotate
+(
+distance
+=
+L2Distance
+(
+'embedding'
+,
+
+[
+3
+,
+
+1
+,
+
+2
+]))
+
+Get items within a certain distance
+
+Item
+.
+objects
+.
+alias
+(
+distance
+=
+L2Distance
+(
+'embedding'
+,
+
+[
+3
+,
+
+1
+,
+
+2
+]))
+.
+filter
+(
+distance__lt
+=
+5
+)
+
+Average vectors
+
+from
+
+django.db.models
+
+import
+
+Avg
+
+Item
+.
+objects
+.
+aggregate
+(
+Avg
+(
+'embedding'
+))
+
+Also supports 
+Sum
+
+Add an approximate index
+
+from
+
+pgvector.django
+
+import
+
+HnswIndex
+,
+
+IvfflatIndex
+
+class
+
+Item
+(
+models
+.
+Model
+):
+
+class
+
+Meta
+:
+
+indexes
+
+=
+
+[
+
+HnswIndex
+(
+
+name
+=
+'my_index'
+,
+
+fields
+=
+[
+'embedding'
+],
+
+m
+=
+16
+,
+
+ef_construction
+=
+64
+,
+
+opclasses
+=
+[
+'vector_l2_ops'
+]
+
+),
+
+# or
+
+IvfflatIndex
+(
+
+name
+=
+'my_index'
+,
+
+fields
+=
+[
+'embedding'
+],
+
+lists
+=
+100
+,
+
+opclasses
+=
+[
+'vector_l2_ops'
+]
+
+)
+
+]
+
+Use 
+vector_ip_ops
+ for inner product and 
+vector_cosine_ops
+ for cosine distance
+
+Half-Precision Indexing
+
+Index vectors at half-precision
+
+from
+
+django.contrib.postgres.indexes
+
+import
+
+OpClass
+
+from
+
+django.db.models.functions
+
+import
+
+Cast
+
+from
+
+pgvector.django
+
+import
+
+HnswIndex
+,
+
+HalfVectorField
+
+class
+
+Item
+(
+models
+.
+Model
+):
+
+class
+
+Meta
+:
+
+indexes
+
+=
+
+[
+
+HnswIndex
+(
+
+OpClass
+(
+Cast
+(
+'embedding'
+,
+
+HalfVectorField
+(
+dimensions
+=
+3
+)),
+
+name
+=
+'halfvec_l2_ops'
+),
+
+name
+=
+'my_index'
+,
+
+m
+=
+16
+,
+
+ef_construction
+=
+64
+
+)
+
+]
+
+Note: Add 
+'django.contrib.postgres'
+ to 
+INSTALLED_APPS
+ to use 
+OpClass
+
+Get the nearest neighbors
+
+distance
+
+=
+
+L2Distance
+(
+Cast
+(
+'embedding'
+,
+
+HalfVectorField
+(
+dimensions
+=
+3
+)),
+
+[
+3
+,
+
+1
+,
+
+2
+])
+
+Item
+.
+objects
+.
+order_by
+(
+distance
+)[:
+5
+]
+
+SQLAlchemy
+
+Enable the extension
+
+session
+.
+execute
+(
+text
+(
+'CREATE EXTENSION IF NOT EXISTS vector'
+))
+
+Add a vector column
+
+from
+
+pgvector.sqlalchemy
+
+import
+
+VECTOR
+
+class
+
+Item
+(
+Base
+):
+
+embedding
+:
+
+Mapped
+[
+list
+[
+float
+]]
+
+=
+
+mapped_column
+(
+VECTOR
+(
+3
+))
+
+Also supports 
+HALFVEC
+, 
+BIT
+, and 
+SPARSEVEC
+
+Insert a vector
+
+item
+
+=
+
+Item
+(
+embedding
+=
+[
+1
+,
+
+2
+,
+
+3
+])
+
+session
+.
+add
+(
+item
+)
+
+session
+.
+commit
+()
+
+Get the nearest neighbors to a vector
+
+session
+.
+scalars
+(
+select
+(
+Item
+)
+.
+order_by
+(
+Item
+.
+embedding
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+]))
+.
+limit
+(
+5
+))
+
+Also supports 
+max_inner_product
+, 
+cosine_distance
+, 
+l1_distance
+, 
+hamming_distance
+, and 
+jaccard_distance
+
+Get the distance
+
+session
+.
+scalars
+(
+select
+(
+Item
+.
+embedding
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+])))
+
+Get items within a certain distance
+
+session
+.
+scalars
+(
+select
+(
+Item
+)
+.
+filter
+(
+Item
+.
+embedding
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+])
+
+<
+
+5
+))
+
+Average vectors
+
+from
+
+pgvector.sqlalchemy
+
+import
+
+avg
+
+session
+.
+scalars
+(
+select
+(
+avg
+(
+Item
+.
+embedding
+)))
+.
+first
+()
+
+Also supports 
+sum
+
+Add an approximate index
+
+index
+
+=
+
+Index
+(
+
+'my_index'
+,
+
+Item
+.
+embedding
+,
+
+postgresql_using
+=
+'hnsw'
+,
+
+postgresql_with
+=
+{
+'m'
+:
+
+16
+,
+
+'ef_construction'
+:
+
+64
+},
+
+postgresql_ops
+=
+{
+'embedding'
+:
+
+'vector_l2_ops'
+}
+
+)
+
+# or
+
+index
+
+=
+
+Index
+(
+
+'my_index'
+,
+
+Item
+.
+embedding
+,
+
+postgresql_using
+=
+'ivfflat'
+,
+
+postgresql_with
+=
+{
+'lists'
+:
+
+100
+},
+
+postgresql_ops
+=
+{
+'embedding'
+:
+
+'vector_l2_ops'
+}
+
+)
+
+index
+.
+create
+(
+engine
+)
+
+Use 
+vector_ip_ops
+ for inner product and 
+vector_cosine_ops
+ for cosine distance
+
+Half-Precision Indexing
+
+Index vectors at half-precision
+
+from
+
+pgvector.sqlalchemy
+
+import
+
+HALFVEC
+
+from
+
+sqlalchemy.sql
+
+import
+
+func
+
+index
+
+=
+
+Index
+(
+
+'my_index'
+,
+
+func
+.
+cast
+(
+Item
+.
+embedding
+,
+
+HALFVEC
+(
+3
+))
+.
+label
+(
+'embedding'
+),
+
+postgresql_using
+=
+'hnsw'
+,
+
+postgresql_ops
+=
+{
+'embedding'
+:
+
+'halfvec_l2_ops'
+}
+
+)
+
+Get the nearest neighbors
+
+order
+
+=
+
+func
+.
+cast
+(
+Item
+.
+embedding
+,
+
+HALFVEC
+(
+3
+))
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+])
+
+session
+.
+scalars
+(
+select
+(
+Item
+)
+.
+order_by
+(
+order
+)
+.
+limit
+(
+5
+))
+
+Binary Quantization
+
+Use expression indexing for binary quantization
+
+from
+
+pgvector.sqlalchemy
+
+import
+
+BIT
+
+from
+
+sqlalchemy.sql
+
+import
+
+func
+
+index
+
+=
+
+Index
+(
+
+'my_index'
+,
+
+func
+.
+cast
+(
+func
+.
+binary_quantize
+(
+Item
+.
+embedding
+),
+
+BIT
+(
+3
+))
+.
+label
+(
+'embedding'
+),
+
+postgresql_using
+=
+'hnsw'
+,
+
+postgresql_ops
+=
+{
+'embedding'
+:
+
+'bit_hamming_ops'
+}
+
+)
+
+Get the nearest neighbors by Hamming distance
+
+order
+
+=
+
+func
+.
+cast
+(
+func
+.
+binary_quantize
+(
+Item
+.
+embedding
+),
+
+BIT
+(
+3
+))
+.
+hamming_distance
+(
+func
+.
+binary_quantize
+(
+func
+.
+cast
+([
+3
+,
+
+-
+1
+,
+
+2
+],
+
+VECTOR
+(
+3
+))))
+
+session
+.
+scalars
+(
+select
+(
+Item
+)
+.
+order_by
+(
+order
+)
+.
+limit
+(
+5
+))
+
+Re-rank by the original vectors for better recall
+
+order
+
+=
+
+func
+.
+cast
+(
+func
+.
+binary_quantize
+(
+Item
+.
+embedding
+),
+
+BIT
+(
+3
+))
+.
+hamming_distance
+(
+func
+.
+binary_quantize
+(
+func
+.
+cast
+([
+3
+,
+
+-
+1
+,
+
+2
+],
+
+VECTOR
+(
+3
+))))
+
+subquery
+
+=
+
+session
+.
+query
+(
+Item
+)
+.
+order_by
+(
+order
+)
+.
+limit
+(
+20
+)
+.
+subquery
+()
+
+session
+.
+scalars
+(
+select
+(
+subquery
+)
+.
+order_by
+(
+subquery
+.
+c
+.
+embedding
+.
+cosine_distance
+([
+3
+,
+
+-
+1
+,
+
+2
+]))
+.
+limit
+(
+5
+))
+
+Arrays
+
+Add an array column
+
+from
+
+pgvector.sqlalchemy
+
+import
+
+VECTOR
+
+from
+
+sqlalchemy
+
+import
+
+ARRAY
+
+class
+
+Item
+(
+Base
+):
+
+embeddings
+:
+
+Mapped
+[
+list
+[
+list
+[
+float
+]]]
+
+=
+
+mapped_column
+(
+ARRAY
+(
+VECTOR
+(
+3
+),
+
+dimensions
+=
+1
+))
+
+And register the types with the underlying driver
+
+For Psycopg 3, use
+
+from
+
+pgvector.psycopg
+
+import
+
+register_vector
+
+from
+
+sqlalchemy
+
+import
+
+event
+
+@event
+.
+listens_for
+(
+engine
+,
+
+"connect"
+)
+
+def
+
+connect
+(
+dbapi_connection
+,
+
+connection_record
+):
+
+register_vector
+(
+dbapi_connection
+)
+
+For 
+async connections
+ with Psycopg 3, use
+
+from
+
+pgvector.psycopg
+
+import
+
+register_vector_async
+
+from
+
+sqlalchemy
+
+import
+
+event
+
+@event
+.
+listens_for
+(
+engine
+.
+sync_engine
+,
+
+"connect"
+)
+
+def
+
+connect
+(
+dbapi_connection
+,
+
+connection_record
+):
+
+dbapi_connection
+.
+run_async
+(
+register_vector_async
+)
+
+For Psycopg 2, use
+
+from
+
+pgvector.psycopg2
+
+import
+
+register_vector
+
+from
+
+sqlalchemy
+
+import
+
+event
+
+@event
+.
+listens_for
+(
+engine
+,
+
+"connect"
+)
+
+def
+
+connect
+(
+dbapi_connection
+,
+
+connection_record
+):
+
+register_vector
+(
+dbapi_connection
+)
+
+SQLModel
+
+Enable the extension
+
+session
+.
+exec
+(
+text
+(
+'CREATE EXTENSION IF NOT EXISTS vector'
+))
+
+Add a vector column
+
+from
+
+pgvector.sqlalchemy
+
+import
+
+VECTOR
+
+class
+
+Item
+(
+SQLModel
+,
+
+table
+=
+True
+):
+
+embedding
+:
+
+list
+[
+float
+]
+
+=
+
+Field
+(
+sa_type
+=
+VECTOR
+(
+3
+))
+
+Also supports 
+HALFVEC
+, 
+BIT
+, and 
+SPARSEVEC
+
+Insert a vector
+
+item
+
+=
+
+Item
+(
+embedding
+=
+[
+1
+,
+
+2
+,
+
+3
+])
+
+session
+.
+add
+(
+item
+)
+
+session
+.
+commit
+()
+
+Get the nearest neighbors to a vector
+
+session
+.
+exec
+(
+select
+(
+Item
+)
+.
+order_by
+(
+Item
+.
+embedding
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+]))
+.
+limit
+(
+5
+))
+
+Also supports 
+max_inner_product
+, 
+cosine_distance
+, 
+l1_distance
+, 
+hamming_distance
+, and 
+jaccard_distance
+
+Get the distance
+
+session
+.
+exec
+(
+select
+(
+Item
+.
+embedding
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+])))
+
+Get items within a certain distance
+
+session
+.
+exec
+(
+select
+(
+Item
+)
+.
+filter
+(
+Item
+.
+embedding
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+])
+
+<
+
+5
+))
+
+Average vectors
+
+from
+
+pgvector.sqlalchemy
+
+import
+
+avg
+
+session
+.
+exec
+(
+select
+(
+avg
+(
+Item
+.
+embedding
+)))
+.
+first
+()
+
+Also supports 
+sum
+
+Add an approximate index
+
+from
+
+sqlmodel
+
+import
+
+Index
+
+index
+
+=
+
+Index
+(
+
+'my_index'
+,
+
+Item
+.
+embedding
+,
+
+postgresql_using
+=
+'hnsw'
+,
+
+postgresql_with
+=
+{
+'m'
+:
+
+16
+,
+
+'ef_construction'
+:
+
+64
+},
+
+postgresql_ops
+=
+{
+'embedding'
+:
+
+'vector_l2_ops'
+}
+
+)
+
+# or
+
+index
+
+=
+
+Index
+(
+
+'my_index'
+,
+
+Item
+.
+embedding
+,
+
+postgresql_using
+=
+'ivfflat'
+,
+
+postgresql_with
+=
+{
+'lists'
+:
+
+100
+},
+
+postgresql_ops
+=
+{
+'embedding'
+:
+
+'vector_l2_ops'
+}
+
+)
+
+index
+.
+create
+(
+engine
+)
+
+Use 
+vector_ip_ops
+ for inner product and 
+vector_cosine_ops
+ for cosine distance
+
+Psycopg 3
+
+Enable the extension
+
+conn
+.
+execute
+(
+'CREATE EXTENSION IF NOT EXISTS vector'
+)
+
+Register the types with your connection
+
+from
+
+pgvector.psycopg
+
+import
+
+register_vector
+
+register_vector
+(
+conn
+)
+
+For 
+connection pools
+, use
+
+def
+
+configure
+(
+conn
+):
+
+register_vector
+(
+conn
+)
+
+pool
+
+=
+
+ConnectionPool
+(
+...
+,
+
+configure
+=
+configure
+)
+
+For 
+async connections
+, use
+
+from
+
+pgvector.psycopg
+
+import
+
+register_vector_async
+
+await
+
+register_vector_async
+(
+conn
+)
+
+Create a table
+
+conn
+.
+execute
+(
+'CREATE TABLE items (id bigserial PRIMARY KEY, embedding vector(3))'
+)
+
+Insert a vector
+
+from
+
+pgvector
+
+import
+
+Vector
+
+embedding
+
+=
+
+Vector
+([
+1
+,
+
+2
+,
+
+3
+])
+
+conn
+.
+execute
+(
+'INSERT INTO items (embedding) VALUES (
+%s
+)'
+,
+
+(
+embedding
+,))
+
+Get the nearest neighbors to a vector
+
+conn
+.
+execute
+(
+'SELECT * FROM items ORDER BY embedding <-> 
+%s
+ LIMIT 5'
+,
+
+(
+embedding
+,))
+.
+fetchall
+()
+
+Add an approximate index
+
+conn
+.
+execute
+(
+'CREATE INDEX ON items USING hnsw (embedding vector_l2_ops)'
+)
+
+# or
+
+conn
+.
+execute
+(
+'CREATE INDEX ON items USING ivfflat (embedding vector_l2_ops) WITH (lists = 100)'
+)
+
+Use 
+vector_ip_ops
+ for inner product and 
+vector_cosine_ops
+ for cosine distance
+
+Psycopg 2
+
+Enable the extension
+
+cur
+
+=
+
+conn
+.
+cursor
+()
+
+cur
+.
+execute
+(
+'CREATE EXTENSION IF NOT EXISTS vector'
+)
+
+Register the types with your connection or cursor
+
+from
+
+pgvector.psycopg2
+
+import
+
+register_vector
+
+register_vector
+(
+conn
+)
+
+Create a table
+
+cur
+.
+execute
+(
+'CREATE TABLE items (id bigserial PRIMARY KEY, embedding vector(3))'
+)
+
+Insert a vector
+
+from
+
+pgvector
+
+import
+
+Vector
+
+embedding
+
+=
+
+Vector
+([
+1
+,
+
+2
+,
+
+3
+])
+
+cur
+.
+execute
+(
+'INSERT INTO items (embedding) VALUES (
+%s
+)'
+,
+
+(
+embedding
+,))
+
+Get the nearest neighbors to a vector
+
+cur
+.
+execute
+(
+'SELECT * FROM items ORDER BY embedding <-> 
+%s
+ LIMIT 5'
+,
+
+(
+embedding
+,))
+
+cur
+.
+fetchall
+()
+
+Add an approximate index
+
+cur
+.
+execute
+(
+'CREATE INDEX ON items USING hnsw (embedding vector_l2_ops)'
+)
+
+# or
+
+cur
+.
+execute
+(
+'CREATE INDEX ON items USING ivfflat (embedding vector_l2_ops) WITH (lists = 100)'
+)
+
+Use 
+vector_ip_ops
+ for inner product and 
+vector_cosine_ops
+ for cosine distance
+
+asyncpg
+
+Enable the extension
+
+await
+
+conn
+.
+execute
+(
+'CREATE EXTENSION IF NOT EXISTS vector'
+)
+
+Register the types with your connection
+
+from
+
+pgvector.asyncpg
+
+import
+
+register_vector
+
+await
+
+register_vector
+(
+conn
+)
+
+or your pool
+
+async
+
+def
+
+init
+(
+conn
+):
+
+await
+
+register_vector
+(
+conn
+)
+
+pool
+
+=
+
+await
+
+asyncpg
+.
+create_pool
+(
+...
+,
+
+init
+=
+init
+)
+
+Create a table
+
+await
+
+conn
+.
+execute
+(
+'CREATE TABLE items (id bigserial PRIMARY KEY, embedding vector(3))'
+)
+
+Insert a vector
+
+from
+
+pgvector
+
+import
+
+Vector
+
+embedding
+
+=
+
+Vector
+([
+1
+,
+
+2
+,
+
+3
+])
+
+await
+
+conn
+.
+execute
+(
+'INSERT INTO items (embedding) VALUES ($1)'
+,
+
+embedding
+)
+
+Get the nearest neighbors to a vector
+
+await
+
+conn
+.
+fetch
+(
+'SELECT * FROM items ORDER BY embedding <-> $1 LIMIT 5'
+,
+
+embedding
+)
+
+Add an approximate index
+
+await
+
+conn
+.
+execute
+(
+'CREATE INDEX ON items USING hnsw (embedding vector_l2_ops)'
+)
+
+# or
+
+await
+
+conn
+.
+execute
+(
+'CREATE INDEX ON items USING ivfflat (embedding vector_l2_ops) WITH (lists = 100)'
+)
+
+Use 
+vector_ip_ops
+ for inner product and 
+vector_cosine_ops
+ for cosine distance
+
+pg8000
+
+Enable the extension
+
+conn
+.
+run
+(
+'CREATE EXTENSION IF NOT EXISTS vector'
+)
+
+Register the types with your connection
+
+from
+
+pgvector.pg8000
+
+import
+
+register_vector
+
+register_vector
+(
+conn
+)
+
+Create a table
+
+conn
+.
+run
+(
+'CREATE TABLE items (id bigserial PRIMARY KEY, embedding vector(3))'
+)
+
+Insert a vector
+
+from
+
+pgvector
+
+import
+
+Vector
+
+embedding
+
+=
+
+Vector
+([
+1
+,
+
+2
+,
+
+3
+])
+
+conn
+.
+run
+(
+'INSERT INTO items (embedding) VALUES (:embedding)'
+,
+
+embedding
+=
+embedding
+)
+
+Get the nearest neighbors to a vector
+
+conn
+.
+run
+(
+'SELECT * FROM items ORDER BY embedding <-> :embedding LIMIT 5'
+,
+
+embedding
+=
+embedding
+)
+
+Add an approximate index
+
+conn
+.
+run
+(
+'CREATE INDEX ON items USING hnsw (embedding vector_l2_ops)'
+)
+
+# or
+
+conn
+.
+run
+(
+'CREATE INDEX ON items USING ivfflat (embedding vector_l2_ops) WITH (lists = 100)'
+)
+
+Use 
+vector_ip_ops
+ for inner product and 
+vector_cosine_ops
+ for cosine distance
+
+Peewee
+
+Add a vector column
+
+from
+
+pgvector.peewee
+
+import
+
+VectorField
+
+class
+
+Item
+(
+BaseModel
+):
+
+embedding
+
+=
+
+VectorField
+(
+dimensions
+=
+3
+)
+
+Also supports 
+HalfVectorField
+, 
+FixedBitField
+, and 
+SparseVectorField
+
+Insert a vector
+
+item
+
+=
+
+Item
+.
+create
+(
+embedding
+=
+[
+1
+,
+
+2
+,
+
+3
+])
+
+Get the nearest neighbors to a vector
+
+Item
+.
+select
+()
+.
+order_by
+(
+Item
+.
+embedding
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+]))
+.
+limit
+(
+5
+)
+
+Also supports 
+max_inner_product
+, 
+cosine_distance
+, 
+l1_distance
+, 
+hamming_distance
+, and 
+jaccard_distance
+
+Get the distance
+
+Item
+.
+select
+(
+Item
+.
+embedding
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+])
+.
+alias
+(
+'distance'
+))
+
+Get items within a certain distance
+
+Item
+.
+select
+()
+.
+where
+(
+Item
+.
+embedding
+.
+l2_distance
+([
+3
+,
+
+1
+,
+
+2
+])
+
+<
+
+5
+)
+
+Average vectors
+
+from
+
+peewee
+
+import
+
+fn
+
+Item
+.
+select
+(
+fn
+.
+avg
+(
+Item
+.
+embedding
+)
+.
+coerce
+(
+True
+))
+.
+scalar
+()
+
+Also supports 
+sum
+
+Add an approximate index
+
+Item
+.
+add_index
+(
+'embedding vector_l2_ops'
+,
+
+using
+=
+'hnsw'
+)
+
+Use 
+vector_ip_ops
+ for inner product and 
+vector_cosine_ops
+ for cosine distance
+
+Reference
+
+Vectors
+
+Create a vector from a list
+
+vec
+
+=
+
+Vector
+([
+1
+,
+
+2
+,
+
+3
+])
+
+Or a NumPy array
+
+vec
+
+=
+
+Vector
+(
+np
+.
+array
+([
+1
+,
+
+2
+,
+
+3
+]))
+
+Get a list
+
+lst
+
+=
+
+vec
+.
+to_list
+()
+
+Get a NumPy array
+
+arr
+
+=
+
+vec
+.
+to_numpy
+()
+
+Half Vectors
+
+Create a half vector from a list
+
+vec
+
+=
+
+HalfVector
+([
+1
+,
+
+2
+,
+
+3
+])
+
+Or a NumPy array
+
+vec
+
+=
+
+HalfVector
+(
+np
+.
+array
+([
+1
+,
+
+2
+,
+
+3
+]))
+
+Get a list
+
+lst
+
+=
+
+vec
+.
+to_list
+()
+
+Get a NumPy array
+
+arr
+
+=
+
+vec
+.
+to_numpy
+()
+
+Sparse Vectors
+
+Create a sparse vector from a list
+
+vec
+
+=
+
+SparseVector
+([
+1
+,
+
+0
+,
+
+2
+,
+
+0
+,
+
+3
+,
+
+0
+])
+
+Or a NumPy array
+
+vec
+
+=
+
+SparseVector
+(
+np
+.
+array
+([
+1
+,
+
+0
+,
+
+2
+,
+
+0
+,
+
+3
+,
+
+0
+]))
+
+Or a SciPy sparse array
+
+arr
+
+=
+
+coo_array
+(([
+1
+,
+
+2
+,
+
+3
+],
+
+([
+0
+,
+
+2
+,
+
+4
+],)),
+
+shape
+=
+(
+6
+,))
+
+vec
+
+=
+
+SparseVector
+(
+arr
+)
+
+Or a dictionary of non-zero elements
+
+vec
+
+=
+
+SparseVector
+({
+0
+:
+
+1
+,
+
+2
+:
+
+2
+,
+
+4
+:
+
+3
+},
+
+6
+)
+
+Note: Indices start at 0
+
+Get the number of dimensions
+
+dim
+
+=
+
+vec
+.
+dimensions
+()
+
+Get the indices of non-zero elements
+
+indices
+
+=
+
+vec
+.
+indices
+()
+
+Get the values of non-zero elements
+
+values
+
+=
+
+vec
+.
+values
+()
+
+Get a list
+
+lst
+
+=
+
+vec
+.
+to_list
+()
+
+Get a NumPy array
+
+arr
+
+=
+
+vec
+.
+to_numpy
+()
+
+Get a SciPy sparse array
+
+arr
+
+=
+
+vec
+.
+to_coo
+()
+
+History
+
+View the 
+changelog
+
+Contributing
+
+Everyone is encouraged to help improve this project. Here are a few ways you can help:
+
+Report bugs
+
+Fix bugs and 
+submit pull requests
+
+Write, clarify, or fix documentation
+
+Suggest or add new features
+
+To get started with development:
+
+git
+
+clone
+
+https://github.com/pgvector/pgvector-python.git
+
+cd
+
+pgvector-python
+pip
+
+install
+
+--group
+
+dev
+createdb
+
+pgvector_python_test
+pytest
+
+To run an example:
+
+cd
+
+examples/loading
+pip
+
+install
+
+--group
+
+dev
+createdb
+
+pgvector_example
+python3
+
+example.py
+
+Project links
+
+Homepage
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    Jul 6, 2026
+
+Latest release
+
+1 maintainer  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+ankane
+
+Credits
+
+Author:            
+
+Andrew Kane
+
+License expression      
+
+        MIT
+
+View SPDX License List
+
+Requires
+
+Python
+ >=3.10
+
+Report project as malware
+
+Metadata
+
+Project links
+
+Homepage
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    Jul 6, 2026
+
+Latest release
+
+1 maintainer  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+ankane
+
+Credits
+
+Author:            
+
+Andrew Kane
+
+License expression      
+
+        MIT
+
+View SPDX License List
+
+Requires
+
+Python
+ >=3.10
+
+Report project as malware
+
+Release files for pgvector 0.5.0
+
+For a detailed explanation of source distributions (sdists) and built distributions (wheels), please see the 
+package formats documentation
+.    
+
+Source distribution (sdist)    
+
+Source distribution for pgvector 0.5.0
+
+File
+
+Size
+
+Uploaded
+
+pgvector-0.5.0.tar.gz
+
+35.2 kB
+
+    Jul 6, 2026
+
+Details
+
+Built distribution (wheel)  
+
+Table of built distributions (wheels) for pgvector 0.5.0
+
+File
+
+Interpreter        
+
+ABI        
+
+Platform        
+
+Reset
+
+pgvector-0.5.0-py3-none-any.whl
+
+31.0 kB
+
+    Jul 6, 2026
+
+              Python 3
+
+              none
+
+              any
+
+Details
+
+Total release size:
+ 66.1 kB
+
+Release files
+
+    / pgvector-0.5.0.tar.gz
+
+Download URL
+
+pgvector-0.5.0.tar.gz
+
+Size
+
+35.2 kB
+
+Tags
+
+Source
+
+SHA-256 checksum          
+
+How to use checksums
+
+07a9dcf735696879406983afc6eba9a787cef7c0cf6c367ca1a5779f036dee74
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+a7ec6eb80aebc728200f95229219882994c1b0585b956ca47da5edb9d062627a
+
+Upload date
+
+    Jul 6, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+No        
+
+Uploaded via
+
+uv/0.11.19 {"installer":{"name":"uv","version":"0.11.19","subcommand":["publish"]},"python":null,"implementation":{"name":null,"version":null},"distro":{"name":"Ubuntu","version":"26.04","id":"resolute","libc":null},"system":{"name":null,"release":null},"cpu":null,"openssl_version":null,"setuptools_version":null,"rustc_version":null,"ci":null}
+
+Release files
+
+    / pgvector-0.5.0-py3-none-any.whl
+
+Download URL
+
+pgvector-0.5.0-py3-none-any.whl
+
+Size
+
+31.0 kB
+
+Tags
+
+Python 3
+
+SHA-256 checksum          
+
+How to use checksums
+
+fedc9800894e6da2be51358d7b7c574bf34f247ca741a5a09513622135f5964f
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+5ce4a5573f2c579ca9ad133293bfb624148ba0893674ca4a6eeec85ced9a6a09
+
+Upload date
+
+    Jul 6, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+No        
+
+Uploaded via
+
+uv/0.11.19 {"installer":{"name":"uv","version":"0.11.19","subcommand":["publish"]},"python":null,"implementation":{"name":null,"version":null},"distro":{"name":"Ubuntu","version":"26.04","id":"resolute","libc":null},"system":{"name":null,"release":null},"cpu":null,"openssl_version":null,"setuptools_version":null,"rustc_version":null,"ci":null}
+
+Release history
+
+Release notifications
+ |
+
+RSS feed 
+
+This release
+
+0.5.0
+
+This release
+
+    Jul 6, 2026
+
+ 2 release files
+
+0.4.2
+
+    Dec 5, 2025
+
+ 2 release files
+
+0.4.1
+
+    Apr 26, 2025
+
+ 2 release files
+
+0.4.0
+
+    Mar 16, 2025
+
+ 2 release files
+
+0.3.6
+
+    Oct 27, 2024
+
+ 2 release files
+
+0.3.5
+
+    Oct 6, 2024
+
+ 2 release files
+
+0.3.4
+
+    Sep 27, 2024
+
+ 1 release file
+
+0.3.3
+
+    Sep 9, 2024
+
+ 1 release file
+
+0.3.2
+
+    Jul 17, 2024
+
+ 1 release file
+
+0.3.1
+
+    Jul 11, 2024
+
+ 1 release file
+
+0.3.0
+
+    Jun 26, 2024
+
+ 1 release file
+
+0.2.5
+
+    Feb 7, 2024
+
+ 1 release file
+
+0.2.4
+
+    Nov 24, 2023
+
+ 1 release file
+
+0.2.3
+
+    Sep 26, 2023
+
+ 1 release file
+
+0.2.2
+
+    Sep 8, 2023
+
+ 1 release file
+
+0.2.1
+
+    Aug 1, 2023
+
+ 1 release file
+
+0.2.0
+
+    Jul 24, 2023
+
+ 1 release file
+
+0.1.8
+
+    May 21, 2023
+
+ 1 release file
+
+0.1.7
+
+    May 11, 2023
+
+ 1 release file
+
+0.1.6
+
+    May 23, 2022
+
+ 1 release file
+
+0.1.5
+
+    Jan 14, 2022
+
+ 1 release file
+
+0.1.4
+
+    Oct 13, 2021
+
+ 1 release file
+
+0.1.3
+
+    Jun 23, 2021
+
+ 1 release file
+
+0.1.2
+
+    Jun 13, 2021
+
+ 1 release file
+
+0.1.1
+
+    Jun 12, 2021
+
+ 1 release file
+
+0.1.0
+
+    Jun 12, 2021
+
+ 1 release file
+
+Anthropic, PBC
+
+Visionary sponsor
+
+Bloomberg
+
+Visionary sponsor
+
+Hudson River Trading
+
+Visionary sponsor
+
+Meta
+
+Visionary sponsor
+
+NVIDIA
+
+Visionary sponsor
+
+Microsoft
+
+Sustainability sponsor
+
+Depot
+
+Continuous Integration
+
+AWS
+
+Cloud computing and Security Sponsor
+
+Datadog
+
+Monitoring
+
+Fastly
+
+CDN
+
+Google
+
+Download Analytics
+
+Sentry
+
+Error logging
+
+StatusPage
+
+Status page
+
+"PyPI", "Python Package Index", and the blocks logos are registered 
+trademarks
+ of the 
+Python Software Foundation
+.
+
+      © 2026 
+Python Software Foundation
+
+Site map
+
+Deployed from 
+b9dd37f

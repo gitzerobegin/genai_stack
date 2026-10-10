@@ -1,0 +1,9 @@
+SOURCE ID: A1-S033
+URL: https://langfuse.com/pricing-self-host
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Langfuse self-hosting enterprise edition features license key SCIM audit logs
+========================================================================
+
+Search result titles: "Self-Hosted Pricing - Langfuse" (langfuse.com/pricing-self-host); "Why is Langfuse Open Source?"; "Audit Logs - Langfuse"; "Doubling Down on Open Source" (blog 2025-06-04); "Self-host Langfuse"; "Langfuse for financial services".
+Extracts: "All product capabilities, including tracing, evaluations, prompt management, experiments, annotation, and the playground, are MIT licensed without any usage limits. Enterprise modules such as SCIM, audit logging, and data retention policies require a commercial license when you self-host Langfuse." "The Enterprise modules live in clearly marked /ee directories. These are shipped as source code, but require a license key to run." An Enterprise licence key unlocks project-level RBAC roles, data retention policies, audit logs, server-side ingestion masking, and SCIM. Audit logging "Available on the Self Hosted Enterprise Edition tier". Telemetry: self-hosted reports anonymised usage telemetry by default; TELEMETRY_ENABLED=false to opt out; instances running with an Enterprise Edition licence key always report telemetry. "The self-hosted Enterprise tier is bundled with ClickHouse Cloud, ClickHouse BYOC, or ClickHouse Private, and the Langfuse pricing is additive to your ClickHouse commercial plan." Can run fully offline or air-gapped.

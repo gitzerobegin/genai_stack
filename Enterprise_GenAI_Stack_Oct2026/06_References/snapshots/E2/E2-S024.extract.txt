@@ -1,0 +1,11 @@
+SOURCE ID: E2-S024
+URL: https://help.openai.com/en/articles/11870455
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: gpt-oss usage policy huggingface openai/gpt-oss-120b USAGE_POLICY
+========================================================================
+
+Search tool summary (results: help.openai.com/en/articles/11870455; huggingface.co/openai/gpt-oss-120b tree listings; huggingface.co/openai/gpt-oss-safeguard-120b commit):
+- OpenAI Help Center: Apache 2.0 allows broad use, modification and redistribution, including commercial use, "subject to our gpt-oss usage policy". The usage policy is an add-on to Apache 2.0, not part of the licence.
+- The openai/gpt-oss-120b Hugging Face repo lists a USAGE_POLICY file (about 201 bytes) alongside LICENSE and the model card; repo tagged Apache-2.0; arXiv 2508.10925. The text of that file was not returned.
+- Sibling repo openai/gpt-oss-safeguard-120b USAGE_POLICY is one line: OpenAI aims for its tools to be used safely, responsibly and democratically while maximising user control; using the models means agreeing to comply with all applicable law (different model's file; indirect evidence only).

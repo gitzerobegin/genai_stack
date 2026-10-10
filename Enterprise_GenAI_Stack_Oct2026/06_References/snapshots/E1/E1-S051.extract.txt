@@ -1,0 +1,8 @@
+SOURCE ID: E1-S051
+URL: https://www.gov.uk/government/publications/software-security-code-of-practice
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Software Security Code of Practice DSIT NCSC voluntary 14 principles (gov.uk, ncsc.gov.uk)
+========================================================================
+
+Search-tool extract: the Software Security Code of Practice is a voluntary code from DSIT and the NCSC. It 'consists of 14 principles software vendors are expected to implement to establish a consistent baseline of software security and resilience across the market'. Vendors can self-assess against the Software Security Assurance Principles and Claims document, which suggests remedial actions where they fall short. Customers can gain confidence through self-assessment, audit or independent testing. The 2024 government response said an attestation template and assurance regime would follow.

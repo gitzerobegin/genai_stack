@@ -1,0 +1,15 @@
+SOURCE ID: A5-S002
+URL: https://openai.com/index/gpt-6-astra/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GPT-6 release OpenAI (allowed_domains openai.com)
+========================================================================
+
+Links: Introducing GPT-6 Sol and Luna (https://openai.com/index/introducing-gpt-6-sol-and-luna/); GPT-6 Astra: A new generation of intelligence (https://openai.com/index/gpt-6-astra/); GPT-6 and Intelligent UI for everyone (https://openai.com/index/gpt-6-for-everyone/); ChatGPT Release Notes (help.openai.com/en/articles/6825453); GPT-6 is now rolling out to all ChatGPT users (community.openai.com); GPT-6 Astra System Card (deploymentsafety.openai.com/gpt-6-astra); Announcing GPT-6 Sol and GPT-6 Luna in the API, Codex and ChatGPT (community.openai.com); Introducing GPT-6-Astra: The most intelligent and aligned model in the world (community.openai.com); OpenAI Research index.
+Search tool summary:
+- GPT-6 Astra (early September): OpenAI's flagship. Release notes list it on September 3, though OpenAI's research index dates the announcement September 10. Access began with a limited set of organizations, and Astra is not yet generally available.
+- GPT-6 Sol and Luna (September 22): Two lower-cost models for Work and Codex. API prices for Sol and Luna cut by 50% compared with their GPT-5.6 promotional pricing. API names gpt-6-sol and gpt-6-luna.
+- GPT-6.1 Sol (September 29): improves on GPT-6 Sol in agentic coding, computer use, and professional work.
+- GPT-6 in ChatGPT Chat (October 7): rolling out to ChatGPT Plus, Pro, Business and Enterprise in Chat tab; Free and Go next day. Chat uses GPT-6 Sol for paid tiers and GPT-6 Luna for free ones.
+- Astra is gated; Enterprise administrators can enable Astra for their workspace; off by default at launch.
+- OpenAI says Astra is the first model to reach the Critical level of cybersecurity capability under its Preparedness Framework.

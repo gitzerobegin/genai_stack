@@ -1,0 +1,8 @@
+SOURCE ID: V2-S047
+URL: https://pulse2.com/hiddenlayer-raises-100-million-series-b-led-by-delta-v-capital/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: HiddenLayer Series B $100 million September 2026
+========================================================================
+
+HiddenLayer (Austin) announced on September 2, 2026 a $100 million Series B led by Delta-v Capital, with Ten Eleven Ventures, Morgan Stanley, M12 and Booz Allen's investment arm. Funds for Agentic Runtime Security and securing AI coding agents. ARR reportedly >10x; >50 platform customers added. Total funding over $155 million (citing SecurityWeek). Company-sourced figures.

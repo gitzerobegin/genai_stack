@@ -1,0 +1,10 @@
+SOURCE ID: E3-S059
+URL: https://openai.com/policies/service-terms/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic commercial terms indemnity; OpenAI service terms indemnification Copyright Shield
+========================================================================
+
+Search-tool summary of openai.com/policies/service-terms/ (with OpenAI DevDay 2023 Copyright Shield announcement):
+- Current Service Terms say OpenAI's indemnification obligations to ChatGPT Enterprise, Edu, Healthcare and Business customers include claims that the customer's use or distribution of Output infringes a third party's intellectual property right.
+- Copyright Shield (DevDay 2023): OpenAI defends customers and pays costs for copyright claims on generally available features of ChatGPT Enterprise and the developer platform. Exclusions include where the customer knew or should have known output was infringing, disabled safety or citation features, or modified outputs or combined them with non-OpenAI products.

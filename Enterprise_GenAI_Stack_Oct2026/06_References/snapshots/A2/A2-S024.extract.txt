@@ -1,0 +1,8 @@
+SOURCE ID: A2-S024
+URL: https://jina.ai/legal/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Jina AI acquired Elastic jina-embeddings-v5 jina-reranker latest
+========================================================================
+
+Jina AI GmbH is now part of Elastic; data processing for Jina AI products and services is now governed by Elastic's data processing terms. Jina policies on the site were written before the acquisition and may no longer reflect current practices. Jina AI models are available under a CC-BY-NC-4.0 license, so you are free to download them and try them out, but for commercial use, please contact Elastic sales.

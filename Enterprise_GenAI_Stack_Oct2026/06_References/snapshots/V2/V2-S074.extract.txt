@@ -1,0 +1,8 @@
+SOURCE ID: V2-S074
+URL: https://developers.cloudflare.com/ai-gateway/reference/pricing/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cloudflare AI Gateway pricing logs September 2026 unified billing fee (allowed_domains developers.cloudflare.com, blog.cloudflare.com, cloudflare.com)
+========================================================================
+
+Pricing page: "A 5% fee is applied to all credits purchased through Unified Billing. For example, a $100 credit purchase will result in a $105 charge. Inference pricing from providers is passed through with no markup." "Customers who create their first gateway on or after September 24, 2026 follow Workers Logs pricing and retention. Customers who created a gateway before September 24, 2026 use Legacy Logs" (free plan 100,000 logs total; paid 10 million logs per gateway). Changelog 2026-09-01: monthly usage invoices show single total cost per model. Observability blog: from December 1, 2026 unified per-GB pricing covering AI Gateway logs: $0.25 per GB ingested and $0.10 per GB-month stored after 50 GB / 10 GB-month included.

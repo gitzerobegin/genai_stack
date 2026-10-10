@@ -1,0 +1,8 @@
+SOURCE ID: A2-S077
+URL: https://www.mongodb.com/company/blog/product-release-announcements/introducing-the-embedding-and-reranking-api-on-mongodb-atlas
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Voyage AI latest embedding model voyage-4 MongoDB; "Ethical Agents" OR "EthicalAgent" embedding API vector reranking product
+========================================================================
+
+Embedding and Reranking API on Atlas gives direct access to Voyage AI's state-of-the-art retrieval models within the Atlas ecosystem. The API is available now in public preview.

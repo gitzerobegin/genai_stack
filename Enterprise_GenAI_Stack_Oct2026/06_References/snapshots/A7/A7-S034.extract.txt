@@ -1,0 +1,15 @@
+SOURCE ID: A7-S034
+URL: https://www.hashicorp.com/en/blog/hashicorp-vault-agentic-iam-is-now-generally-available
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: HashiCorp Vault agentic IAM generally available Vault Enterprise 2.1
+========================================================================
+
+Agentic IAM GA in Vault Enterprise 2.1 (2.1.0 dated September 1, 2026). Native AI agent support first announced May 2026 ("Announcing native AI agent support in HashiCorp Vault": trusted identities, delegated authorization, fine-grained controls, end-to-end tracing).
+- Agent Registry in the UI: agent identities, authentication activity, policies, namespace information in a single view; registration via API, CLI, Terraform Vault Provider.
+- Request-scoped authorisation: Vault requires authorization_details in the OAuth JWT by default.
+- Delegated (on-behalf-of): access evaluated as three-way intersection of user permissions, agent ceiling policies and authorization_details constraints.
+- Audit attribution: "Delegated tokens identify both the user and the agent", allowing tracing of an action to both.
+- Terraform resources vault_agent_registration and vault_oauth_resource_server_config_profile.
+- Validated identity providers: IBM Verify, Auth0, PingFederate, Microsoft Entra and Okta.
+- Requires a Vault Enterprise licence or HCP Vault Dedicated cluster.

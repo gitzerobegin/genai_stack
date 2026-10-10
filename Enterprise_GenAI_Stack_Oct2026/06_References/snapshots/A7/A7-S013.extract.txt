@@ -1,0 +1,9 @@
+SOURCE ID: A7-S013
+URL: https://cxotoday.com/press-release/check-point-software-technologies-completes-acquisition-of-lakera-to-secure-the-worlds-ai-transformation/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Check Point acquires Lakera completed
+========================================================================
+
+Check Point Software Technologies Completes Acquisition of Lakera to Secure the World's AI Transformation (press release republished, 11 November 2025): "Check Point Software Technologies has officially completed its acquisition of Lakera, the Zurich-based AI-native security pioneer."
+MarketScreener: "Check Point Software Technologies Ltd. completed the acquisition of Lakera AI AG" on October 22, 2025.

@@ -1,0 +1,9 @@
+SOURCE ID: A1-S025
+URL: https://www.promptfoo.dev/blog/promptfoo-joining-openai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Promptfoo acquisition OpenAI 2026
+========================================================================
+
+Search result title: "Promptfoo is joining OpenAI" (promptfoo.dev/blog/promptfoo-joining-openai/).
+Search-tool summary: Promptfoo's own post says the product will stay open source, and the team will keep serving users and customers.

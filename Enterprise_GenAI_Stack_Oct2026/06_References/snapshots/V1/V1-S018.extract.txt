@@ -1,0 +1,8 @@
+SOURCE ID: V1-S018
+URL: https://www.cooley.com/news/coverage/2025/2025-10-14-reducto-secures-$75-million-series-b
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Reducto Series B $75 million a16z (standard)
+========================================================================
+
+Reducto announced a $75 million Series B in October 2025, led by Andreessen Horowitz (a16z). Cooley dates the financing to October 14, 2025. Benchmark, First Round Capital, BoxGroup and Y Combinator participated. Total raised $108 million after a $24.5M Series A (April 2025). The Information reported a $600M valuation. A single source (revenuememo, citing Forge Global) reports a $51M Series B-1 in August 2026 at $1.04B, not confirmed by the company.

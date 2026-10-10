@@ -1,0 +1,27 @@
+SOURCE ID: A6-S072
+URL: https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/bedrock/2023-04-20/service-2.json
+ACCESSED: 2026-10-07
+TYPE: filtered extract of a direct fetch (AWS API model JSON published in the boto/botocore repository, develop branch; file too large for the snapshot tool, so the relevant fields are reproduced verbatim with HTML tags stripped)
+========================================================================
+
+CreateGuardrail operation documentation: Creates a guardrail to block topics and to implement safeguards for your generative AI applications. You can configure the following policies in a guardrail to avoid undesirable and harmful content, filter out denied topics and words, and remove sensitive information for privacy protection.    Content filters - Adjust filter strengths to block input prompts or model responses containing harmful content.    Denied topics - Define a set of topics that are undesirable in the context of your application. These topics will be blocked if detected in user queries or model responses.    Word filters - Configure filters to block undesirable words, phrases, and profanity. Such words can include offensive terms, competitor names etc.    Sensitive information filters - Block or mask sensitive information such as personally identifiable information (PII) or custom regex in user inputs and model responses.   In addition to the above policies, you can also configure the messages to be returned to the user if a user input or model response is in violation of the policies defined in the guardrail. For more information, see Amazon Bedrock Guardrails in the Amazon Bedrock User Guide.
+CreateGuardrailRequest.name: The name to give the guardrail.
+CreateGuardrailRequest.description: A description of the guardrail.
+CreateGuardrailRequest.topicPolicyConfig: The topic policies to configure for the guardrail.
+CreateGuardrailRequest.contentPolicyConfig: The content filter policies to configure for the guardrail.
+CreateGuardrailRequest.wordPolicyConfig: The word policy you configure for the guardrail.
+CreateGuardrailRequest.sensitiveInformationPolicyConfig: The sensitive information policy to configure for the guardrail.
+CreateGuardrailRequest.contextualGroundingPolicyConfig: The contextual grounding policy configuration used to create a guardrail.
+CreateGuardrailRequest.automatedReasoningPolicyConfig: Optional configuration for integrating Automated Reasoning policies with the new guardrail.
+CreateGuardrailRequest.crossRegionConfig: The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed. For more information, see the Amazon Bedrock User Guide.
+CreateGuardrailRequest.blockedInputMessaging: The message to return when the guardrail blocks a prompt.
+CreateGuardrailRequest.blockedOutputsMessaging: The message to return when the guardrail blocks a model response.
+CreateGuardrailRequest.kmsKeyId: The ARN of the KMS key that you use to encrypt the guardrail.
+CreateGuardrailRequest.tags: The tags that you want to attach to the guardrail. 
+CreateGuardrailRequest.clientRequestToken: A unique, case-sensitive identifier to ensure that the API request completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see Ensuring idempotency in the Amazon S3 User Guide.
+GuardrailContentFilterType enum: ['SEXUAL', 'VIOLENCE', 'HATE', 'INSULTS', 'MISCONDUCT', 'PROMPT_ATTACK']
+GuardrailPiiEntityType enum: ['ADDRESS', 'AGE', 'AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'CA_HEALTH_NUMBER', 'CA_SOCIAL_INSURANCE_NUMBER', 'CREDIT_DEBIT_CARD_CVV', 'CREDIT_DEBIT_CARD_EXPIRY', 'CREDIT_DEBIT_CARD_NUMBER', 'DRIVER_ID', 'EMAIL', 'INTERNATIONAL_BANK_ACCOUNT_NUMBER', 'IP_ADDRESS', 'LICENSE_PLATE', 'MAC_ADDRESS', 'NAME', 'PASSWORD', 'PHONE', 'PIN', 'SWIFT_CODE', 'UK_NATIONAL_HEALTH_SERVICE_NUMBER', 'UK_NATIONAL_INSURANCE_NUMBER', 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER', 'URL', 'USERNAME', 'US_BANK_ACCOUNT_NUMBER', 'US_BANK_ROUTING_NUMBER', 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER', 'US_PASSPORT_NUMBER', 'US_SOCIAL_SECURITY_NUMBER', 'VEHICLE_IDENTIFICATION_NUMBER']
+GuardrailSensitiveInformationAction enum: ['BLOCK', 'ANONYMIZE', 'NONE']
+GuardrailContentFiltersTierName enum: ['CLASSIC', 'STANDARD']
+GuardrailTopicsTierName enum: ['CLASSIC', 'STANDARD']
+Shapes containing AutomatedReasoning: 234

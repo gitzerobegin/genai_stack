@@ -1,0 +1,10 @@
+SOURCE ID: B-C6-S002
+URL: https://trust.cloudzero.com/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (cloudzero.com, docs.cloudzero.com): CloudZero SOC 2 Type II ISO 27001 security trust
+========================================================================
+
+- CloudZero Trust Center lists SOC 1 Type 2, SOC 2 Type 2, CCPA and GDPR; links a Security, Compliance & Privacy Whitepaper; SOC reports shared on request under NDA (cloudzero.com/security).
+- 2022 press release: SOC 1 Type 2 audit completed (30 March 2022).
+- No ISO 27001 certification for CloudZero found in results.

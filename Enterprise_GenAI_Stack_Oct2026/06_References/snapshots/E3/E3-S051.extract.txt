@@ -1,0 +1,11 @@
+SOURCE ID: E3-S051
+URL: https://junie.jetbrains.com/docs/junie-on-github.html
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Junie JetBrains coding agent CLI GitHub MCP AGENTS.md models
+========================================================================
+
+Search-tool summary of junie.jetbrains.com/docs/junie-on-github.html and junie.jetbrains.com/docs/junie-ide-plugin.html:
+- The Junie GitHub Action wraps the CLI, can be triggered from issues or PR comments, and runs entirely on the customer's GitHub runners; the instructions filename can be overridden by an input parameter.
+- Junie reads instructions from AGENTS.md in the project root; the IDE plugin's fallback order starts with .junie/AGENTS.md (preferred location).
+- The IDE plugin can use MCP servers; MCP servers that require SSO during configuration can only be configured through the CLI.

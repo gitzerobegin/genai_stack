@@ -1,0 +1,8 @@
+SOURCE ID: V1-S061
+URL: https://www.businesswire.com/news/home/20260526953416/en/OpenRouter-Raises-$113-Million-CapitalG-led-Series-B-as-Weekly-Volume-Explodes-to-25T-Tokens
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenRouter Series B $113 million CapitalG (extended)
+========================================================================
+
+OpenRouter announced a $113 million Series B on May 26, 2026, led by CapitalG; NVentures, ServiceNow Ventures, MongoDB Ventures, Snowflake Ventures, Databricks Ventures participated, plus Andreessen Horowitz and Menlo Ventures. Valuation not disclosed by the company; the New York Times reports about $1.3 billion post-money. 25 trillion tokens per week; 400+ models.

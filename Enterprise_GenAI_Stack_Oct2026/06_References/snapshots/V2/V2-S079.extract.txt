@@ -1,0 +1,8 @@
+SOURCE ID: V2-S079
+URL: https://developers.openai.com/api/docs/guides/your-data
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI data residency UK in-region storage processing Europe API eligibility (allowed_domains openai.com, help.openai.com, developers.openai.com)
+========================================================================
+
+Regional table: United Kingdom - storage Yes, regional processing No, MAM or ZDR required; domain gb.api.openai.com. "If the selected region does not support regional processing, OpenAI may also process and temporarily store Customer Content outside of the Region." Europe (EEA + Switzerland) - storage and processing Yes, MAM or ZDR required, eu.api.openai.com. GPT-6.1 Sol, GPT-6 Sol and GPT-6 Luna support EU data residency with Standard, Flex and Batch; GPT-6.1 Sol supports only US and EU data residency; Fast mode not available with EU residency for GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol, GPT-6 Luna. Residency covers customer content, not system data.

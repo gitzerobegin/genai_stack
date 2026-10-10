@@ -1,0 +1,9 @@
+SOURCE ID: A1-S036
+URL: https://docs.langchain.com/langsmith/regions-faq
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith trust center SOC 2 Type II HIPAA ISO 27001 GDPR EU region data residency
+========================================================================
+
+Search result titles: "regions faq" (docs.langchain.com/langsmith/regions-faq); "Regions FAQ" (docs.smith.langchain.com/reference/regions_faq); "eu data residency for langsmith" (changelog.langchain.com/announcements/eu-data-residency-for-langsmith); docs.langchain.com/langsmith/engine-security.md.
+Extracts: "We are also SOC 2 Type 2 certified and are HIPAA compliant." EU residency announcement: "LangSmith is GDPR compliant, as well as SOC 2 Type II and HIPAA compliant." "LangSmith complies with the General Data Protection Regulation (GDPR) and other laws and regulations applicable to the LangSmith service." "Host LangSmith in LangSmith's managed cloud with US or EU data residency." EU residency "available to LangSmith customers on all plan tiers, at no extra cost." Academy page: data stored in the United States for LangSmith U.S. and The Netherlands for LangSmith E.U. "If you would like to sign a Data Processing Addendum (DPA) with us, please contact support via support.langchain.com." "Please note we only enter into Business Associate Agreements (BAAs) with customers on our Enterprise plan." Trust centre: trust.langchain.com. ISO 27001 mentioned only in LangSmith Engine documentation ("runs under LangSmith's SOC 2 Type II and ISO 27001 controls"); no general ISO 27001 claim found for core platform.

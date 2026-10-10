@@ -1,0 +1,10 @@
+SOURCE ID: A1-S024
+URL: https://openai.com/index/openai-to-acquire-promptfoo/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Promptfoo acquisition OpenAI 2026
+========================================================================
+
+Search result titles: "OpenAI to acquire Promptfoo" (openai.com/index/openai-to-acquire-promptfoo/); "OpenAI on X: We're acquiring Promptfoo. Their technology ..."; TechCrunch "OpenAI acquires Promptfoo to secure its AI agents" (2026/03/09).
+Search-tool summary: OpenAI agreed to acquire Promptfoo, an AI security startup, on March 9, 2026. OpenAI's own announcement describes Promptfoo as a platform that helps companies find and fix vulnerabilities in AI systems during development. The closing of the acquisition is subject to customary closing conditions. After closing, OpenAI plans to fold Promptfoo's technology into OpenAI Frontier, its platform for building and running AI agents. Its post said the technology will let the agent platform run automated red-teaming, review agentic workflows for security issues, and monitor for risk and compliance needs. OpenAI did not disclose the value of the transaction. OpenAI has said it will keep developing the open-source offering ("expects to continue building out Promptfoo's open source offering").
+Founders: Ian Webster and Michael D'Angelo; reports that more than 25% of Fortune 500 companies use its products. Promptfoo raised about $23 million in total and was valued at $86 million after its July 2025 round, according to PitchBook (reported by TechCrunch).

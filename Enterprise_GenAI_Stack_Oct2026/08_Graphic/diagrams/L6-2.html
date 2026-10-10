@@ -1,0 +1,38 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L6 decision tree: whether a dedicated vector database is needed, and which</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L6 decision tree: whether a dedicated vector database is needed, and which</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  classDef step fill:#0B1B33,stroke:#0B1B33,color:#FFFFFF;
+  S0["&lt;b&gt;STEP 0 [Rec]: Non-negotiables, whatever the store&lt;/b&gt;&lt;br/&gt;• Source of truth for approved content lives in L8/C3, not in the store.&lt;br/&gt;• Entitlements from C4 are applied as filters INSIDE the search; no unfiltered fallback.&lt;br/&gt;• Every chunk carries doc_id, version, tenant ids, classification, region, retention_until and embed_model_version; raw text (or pointer) kept.&lt;br/&gt;• Rebuild-from-source is tested twice a year; it is the primary backup and exit route."]:::note
+  S0 --&gt; H1["STEP 1 [Rec]: Do you need a dedicated vector database at all?"]:::step
+  H1 --&gt; Q1{"Content already in, or&lt;br/&gt;naturally owned by,&lt;br/&gt;an operated database or&lt;br/&gt;search platform?"}
+  Q1 --&gt; O1["&lt;b&gt;PostgreSQL is a firm standard&lt;/b&gt;&lt;br/&gt;→ pgvector on the managed PostgreSQL service (UK/EU region), entitlement tables joined in SQL; track host pgvector version vs CVEs"]
+  Q1 --&gt; O2["&lt;b&gt;Elastic (or OpenSearch) is an operated platform, or the corpus is lexical-heavy&lt;/b&gt; (ISINs, tickers, fund codes, share-class names)&lt;br/&gt;→ Elasticsearch hybrid (BM25 + vectors, RRF) with document-level security (OpenSearch if licence policy requires Apache-2.0)"]
+  Q1 -- "none of these" --&gt; H2["STEP 2 [Rec]: Which trigger makes a dedicated engine necessary?"]:::step
+  Q1 --&gt; O3["&lt;b&gt;MongoDB is the system of record for these documents&lt;/b&gt;&lt;br/&gt;→ MongoDB Vector Search on dedicated Search Nodes (CMK), Voyage features off until GA and Geography-scoped"]
+  Q1 --&gt; O4["&lt;b&gt;AWS-centred, Bedrock Knowledge Bases, large or rarely queried corpus&lt;/b&gt;&lt;br/&gt;→ S3 Vectors as the cost tier; OpenSearch in front if hybrid or low latency is needed; CloudTrail data events on"]
+  H4["STEP 4 [Rec]: Prototypes and harnesses"]:::step --&gt; P4{"Notebook, evaluation&lt;br/&gt;harness, single-user tool,&lt;br/&gt;non-confidential data?"}
+  P4 -- "yes" --&gt; O11["Chroma (embedded) or pgvector in a local container. Never promoted to production without returning to STEP 1."]
+  O1 ~~~ H4
+  H2 --&gt; T2["(a) filtered p95 latency or filtered recall fails the budget in the existing platform&lt;br/&gt;(b) tenants must be isolated at scale (hundreds or more clients/funds with separate keys, quotas or deletion), beyond what schemas or indexes can manage cleanly&lt;br/&gt;(c) corpus size or write rate makes the existing platform's RAM or ops cost disproportionate"]
+  T2 --&gt; Q2{"At least one evidenced&lt;br/&gt;in a load test on&lt;br/&gt;your own data?"}
+  Q2 -- "no trigger" --&gt; O5["Stay in STEP 1"]
+  Q2 -- "yes" --&gt; H3["STEP 3 [Rec]: Dedicated engine, by where it must run"]:::step
+  H3 --&gt; Q3{"Must run in your own&lt;br/&gt;estate or air-gapped?"}
+  Q3 -- "yes" --&gt; O6["Qdrant (self-host or Private Cloud; collection-scoped JWT keys) or Milvus (Standalone/Distributed; LF AI &amp; Data governance) for very large corpora"]
+  Q3 -- "no" --&gt; Q4{"Data plane must be in&lt;br/&gt;your cloud account&lt;br/&gt;(BYOC)?"}
+  Q4 -- "yes" --&gt; O7["&lt;b&gt;Open-source engine preferred&lt;/b&gt; (exit by self-hosting)&lt;br/&gt;→ Qdrant Hybrid Cloud, or Zilliz Cloud BYOC (Milvus)"]
+  Q4 -- "yes" --&gt; O8["&lt;b&gt;Managed, proprietary, strongest control set&lt;/b&gt;&lt;br/&gt;→ Pinecone Enterprise BYOC (Dedicated Read Nodes only; Nexus is a separate decision)"]
+  Q4 -- "yes" --&gt; O9["&lt;b&gt;Very many tenants, object-storage economics, per-tenant keys&lt;/b&gt;&lt;br/&gt;→ turbopuffer BYOC (author conflict disclosed; alternative: Zilliz BYOC)"]
+  Q4 -- "no" --&gt; Q5{"Vendor-hosted SaaS&lt;br/&gt;acceptable (non-&lt;br/&gt;confidential corpora)?"}
+  Q5 -- "yes" --&gt; O10["Any of the above in a UK/EU region; Weaviate if hybrid plus ISO 27001 managed service matters and the licence position is settled"]
+  S5["&lt;b&gt;STEP 5 [Rec]: Checks before go-live&lt;/b&gt;&lt;br/&gt;• Leak test per tenant passes (zero)?&lt;br/&gt;• Filtered recall within tolerance?&lt;br/&gt;• Deletion canary within SLA?&lt;br/&gt;• Rebuild time inside exit-plan tolerance?&lt;br/&gt;• All copies (vectors, text, backups, caches) in approved regions?&lt;br/&gt;• Store recorded in the outsourcing / ICT register with an exit plan?"]:::note
+  O11 ~~~ S5
+</pre><div class="c">Start from the database or search platform you already operate, move to a dedicated engine only when a load test on your own data evidences a trigger, then choose that engine by where it must run and check it before go-live.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

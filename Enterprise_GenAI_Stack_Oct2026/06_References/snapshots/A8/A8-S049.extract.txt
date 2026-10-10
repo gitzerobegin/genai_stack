@@ -1,0 +1,16 @@
+SOURCE ID: A8-S049
+URL: https://handbook.fca.org.uk/handbook/sysc8/sysc8s1
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SYSC 8.1 outsourcing ...; FG16/5 cloud outsourcing guidance updated (fca.org.uk, handbook.fca.org.uk)
+========================================================================
+
+Search results: "FCA Handbook - SYSC 8.1 General outsourcing requirements" (handbook.fca.org.uk/handbook/sysc8/sysc8s1); "FG16/5: Guidance for firms outsourcing to the 'cloud' and other third party IT services" (fca.org.uk); "Reporting material third party arrangements" (fca.org.uk); "Outsourcing and operational resilience"
+Search-tool extract:
+- SYSC 8.1: "an operational function is regarded as critical or important if a defect or failure in its performance would materially impair the continuing compliance of a common platform firm" [with conditions of authorisation/obligations], or its financial performance or continuity of investment services.
+- Excluded functions include advisory, legal advice, staff training, billing, premises and personnel security, and standardised services such as market information and price feeds.
+- "the outsourcing must not result in the delegation by senior management of their responsibility"; care and competence through to termination (SYSC 8.1.7); provider capacity, ongoing performance review, in-house expertise to supervise (SYSC 8.1.8).
+- "the firm must be able to terminate the arrangement for the outsourcing where necessary, with immediate effect when this is in the interest of its clients"; regulator and auditors have effective access to data and premises.
+- Sub-outsourcing "only takes place with the firm's consent in writing" (SYSC 8.1.9). Notification of critical, important or material outsourcing (SYSC 8.1.12, SYSC 13.9.2). Common platform provisions seen dated 23/10/2025.
+- FG16/5: page last updated 18/03/2026 (adding link to new rules on reporting material third party arrangements); guidance PDF July 2016 (updated September 2019). Not binding. Cloud for important business functions is a form of (potentially material) outsourcing. Covers data location, effective access to data, concentration risk, supply chain and sub-contracting, exit plans. Firms subject to EBA outsourcing guidelines are excluded from FG16/5 scope.
+- FCA new notification regime for material third-party arrangements applies from 18 March 2027.

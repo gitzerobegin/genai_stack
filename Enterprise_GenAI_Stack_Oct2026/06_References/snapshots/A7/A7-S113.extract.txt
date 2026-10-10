@@ -1,0 +1,11 @@
+SOURCE ID: A7-S113
+URL: https://www.vantage.sh/blog/managed-ai-tags
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Vantage OpenAI Anthropic cost integration AI spend FOCUS (allowed_domains vantage.sh)
+========================================================================
+
+- Vantage Anthropic cost support GA September 2025; enabled with an Anthropic Admin API key; usage data includes token counts by model, workspace, API key and service tier. Anthropic costs count toward Vantage quota tiers; tax excluded. Admin API keys have revocable read-write access.
+- July 2026: Claude Enterprise coverage (Claude Code, Claude.ai) using a Claude Enterprise Analytics API key; Team and individual plans not supported. Claude via Bedrock or Vertex counted under AWS/GCP integrations.
+- OpenAI integration: token consumption by model and operation; costs allocated to teams or products via virtual tagging and hierarchical cost allocation.
+- Managed AI Tags: replaced mapping AI provider costs onto VQL, "a schema built for infrastructure costs that maps directly to the FinOps FOCUS schema", which "did not account for the way AI pricing models diverge dramatically from traditional cloud and infrastructure providers". New consistent "vntg:ai:" tags (model, model provider, token type) across Anthropic, OpenAI and cloud providers; no additional cost for accounts with supported AI integrations.

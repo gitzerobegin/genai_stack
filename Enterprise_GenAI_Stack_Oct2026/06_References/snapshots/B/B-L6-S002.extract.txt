@@ -1,0 +1,11 @@
+SOURCE ID: B-L6-S002
+URL: https://turbopuffer.com/docs/regions
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains turbopuffer.com): turbopuffer docs regions SSO SAML RBAC audit logs organization
+========================================================================
+
+Regions (https://turbopuffer.com/docs/regions): public regions across AWS, GCP and Azure, table includes Frankfurt, Oregon, Seoul, Virginia; dedicated single-tenancy clusters in other regions; BYOC in any region in customer VPC. "All customer data is hosted exclusively in the region you select"; data stays in region unless the customer requests otherwise via the API. Private networking: AWS PrivateLink, GCP Private Service Connect (https://turbopuffer.com/docs/private-networking).
+SSO (https://turbopuffer.com/docs/security): Single Sign-On for dashboard access on Scale and Enterprise plans, enabled on request. SAML not named.
+Permissions (https://turbopuffer.com/docs/permissions): "Permissions in turbopuffer currently have to be implemented at the user-level with filters, as turbopuffer doesn't provide built-in mechanisms for row/document-level RBAC"; recommended pattern: store user/group IDs on documents and filter by caller identity. No dashboard/organisation role documentation found. BYOC: all BYOC keys are admin keys for their organisation; multiple organisations recommended to isolate data.
+Audit (https://turbopuffer.com/docs/roadmap): "Audit logs with SIEM integration [opt-in, beta]" listed March 2026. Security page: all vendor access logged (accessor, resources, reason); paid add-on privileged access management adds multi-party approval and exposes the audit log to customers.

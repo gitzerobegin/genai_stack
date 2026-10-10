@@ -1,0 +1,8 @@
+SOURCE ID: V1-S032
+URL: https://www.techtarget.com/data-technologies/news/366640132/Qdrant-raises-50M-in-funding-to-fuel-vector-database-growth
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qdrant raises $50M Series B (standard)
+========================================================================
+
+Qdrant announced a $50M Series B on March 12, 2026. TechTarget: total funding $87.8 million, after a $28 million Series A in 2024. Led by AVP (formerly AXA Venture Partners) with Bosch Ventures, Unusual Ventures, Spark Capital and 42CAP. Pulse 2.0: Tripadvisor, HubSpot, OpenTable, Bazaarvoice, Bosch among users; over 250 million downloads.

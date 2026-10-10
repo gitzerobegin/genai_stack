@@ -1,0 +1,13 @@
+SOURCE ID: E3-S034
+URL: https://docs.cloud.google.com/gemini/docs/codeassist/security-privacy-compliance
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Google Jules Gemini Code Assist Enterprise data governance VPC-SC IP indemnification certifications
+========================================================================
+
+Search-tool summary of docs.cloud.google.com/gemini/docs/codeassist/security-privacy-compliance, /gemini/docs/discover/certifications, /gemini/docs/codeassist/faqs and codeassist.google/products/business:
+- Certifications listed for Gemini Code Assist: ISO 27001, 27017, 27018, 27701; SOC 1, 2 and 3. The general Gemini certifications page adds ISO 42001, HIPAA and PCI-DSS v4.0.1 for Gemini products generally.
+- VPC Service Controls supported for Gemini Code Assist, but not for Gemini Code Assist on GitHub.
+- Gemini Code Assist is listed as a Generative AI Indemnified Service (Google assumes certain responsibility if a customer is challenged on copyright grounds over generated content); the overview feature table lists IP indemnification as an Enterprise feature.
+- FAQ: Google doesn't use your data to train models without your permission.
+- The Gemini Enterprise compliance page's Antigravity limitations section excludes several certifications, including ISO 27001 and SOC 2, for Antigravity-based products.

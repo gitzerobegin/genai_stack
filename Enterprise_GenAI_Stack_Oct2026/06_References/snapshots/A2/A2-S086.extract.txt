@@ -1,0 +1,8 @@
+SOURCE ID: A2-S086
+URL: https://aws.amazon.com/about-aws/whats-new/2026/06/s3-vectors-supports-10000-search-results-per-query/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon S3 Vectors generally available limits pricing regions
+========================================================================
+
+June 2026: S3 Vectors can now return up to 10,000 similarity search results per query, a 100x increase from the previous limit. Results come back in pages; the first 512 KB of data returned per query is free.

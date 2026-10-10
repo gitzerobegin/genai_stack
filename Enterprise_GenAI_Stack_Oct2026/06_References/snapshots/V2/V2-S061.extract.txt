@@ -1,0 +1,14 @@
+SOURCE ID: V2-S061
+URL: https://proxy.golang.org/github.com/open-policy-agent/opa/@latest
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Direct fetch of proxy.golang.org/<module>/@latest and raw.githubusercontent.com/hashicorp/vault/main/CHANGELOG.md (direct fetch worked)
+========================================================================
+
+Direct fetch 2026-10-08:
+github.com/open-policy-agent/opa @latest: v1.21.1, 2026-09-29T19:10:43Z
+github.com/spiffe/spire @latest: v1.15.3, 2026-08-21T13:34:50Z
+github.com/agentgateway/agentgateway @latest: v1.6.0, 2026-10-02T15:33:56Z
+github.com/envoyproxy/ai-gateway @latest: v1.2.0, 2026-10-06T17:41:19Z
+github.com/hashicorp/vault @latest: v1.21.4 (2026-03-05) for the v1 module path; request for github.com/hashicorp/vault/v2@latest returned: "invalid version: go.mod has non-.../v2 module path ... at revision v2.1.2" - i.e. a git tag v2.1.2 exists in the repository.
+raw CHANGELOG.md (main) section headings: "## 2.1.1", "## 2.1.0", "## 2.0.4" ... (no 2.1.2 entry on main).

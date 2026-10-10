@@ -1,0 +1,8 @@
+SOURCE ID: A3-S093
+URL: https://www.letta.com/blog/our-next-phase/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Letta "Our Next Phase" blog Letta Code pivot (allowed_domains letta.com)
+========================================================================
+
+Search-tool summary: 'Letta's Next Phase' (dated March 2026 on blog index). Letta Code is described as a model-agnostic agent harness with persistent memory. Memory moves away from specialized tools that edit a database toward general tools like bash operating over git-backed files ('MemFS'). The Letta Code SDK is positioned as the way to deploy at scale. Deprecated/replaced: legacy server memory tools like core_memory_replace removed in favour of filesystem operations on git-backed context repositories; templates replaced by the versioned Letta Code SDK; server-side sleep-time agents replaced by a client-side subagent system; tool rules deprecated. Letta Code first launched December 2025; Letta Code app launched April 2026.

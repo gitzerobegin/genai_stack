@@ -1,0 +1,11 @@
+SOURCE ID: A5-S057
+URL: https://www.congress.gov/crs-product/IF13197
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: FY2026 NDAA section prohibition DeepSeek High-Flyer (allowed_domains congress.gov, armed-services.senate.gov, armedservices.house.gov, govinfo.gov)
+========================================================================
+
+Search tool summary:
+- CRS describes Section 1532 of the FY2026 NDAA (P.L. 119-60) as a ban on Pentagon use or acquisition of covered AI systems, naming DeepSeek and High Flyer, and covering systems from covered nations (DPRK, PRC, Russia, Iran) and certain AI companies. Secretary of Defense may grant case-by-case waivers (research, training, evaluation; certain national-security functions).
+- Section 6604 (intelligence authorisation) directs the DNI to issue guidelines requiring removal of DeepSeek or successors from intelligence community systems.
+- Whether s.1532 extends to DoD contractors was NOT confirmed (a secondary summary claimed it does).

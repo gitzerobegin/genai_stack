@@ -1,0 +1,8 @@
+SOURCE ID: A2-S139
+URL: https://www.mongodb.com/docs/atlas/security-kms-encryption/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MongoDB Atlas trust center SOC 2 ISO 27001 HIPAA customer key management encryption Vector Search dedicated search nodes pricing
+========================================================================
+
+Atlas data encrypted at rest with AES-256 by default. Customer key management with AWS KMS, Azure Key Vault, Google Cloud KMS (not for Free or Flex clusters). Customer-managed encryption does not apply to search indexes in default architecture; with dedicated Search Nodes, Search Node Data Encryption encrypts search indexes with the same customer-managed keys; enabling CMK rebuilds Search and Vector Search indexes.

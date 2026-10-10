@@ -1,0 +1,8 @@
+SOURCE ID: A4-S053
+URL: https://openai.com/index/the-next-evolution-of-the-agents-sdk/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: "The next evolution of the Agents SDK" OpenAI harness sandbox April 2026
+========================================================================
+
+April 15, 2026. Harness gains configurable memory, sandbox-aware orchestration, Codex-like filesystem tools, and standardised integrations with MCP, skills, AGENTS.md, shell and apply-patch. "Developers can bring their own sandbox or use built-in support for Blaxel, Cloudflare, Daytona, E2B, Modal, Runloop, and Vercel." Manifest abstraction describes the agent's workspace; data from AWS S3, GCS, Azure Blob, Cloudflare R2. Harness separate from compute keeps credentials away from model-generated code. "With built-in snapshotting and rehydration, the Agents SDK can restore the agent's state in a fresh container and continue from the last checkpoint if the original environment fails or expires." "The new harness and sandbox capabilities are launching first in Python, with TypeScript support planned for a future release." Changelog later (May 2026): "The updated Agents SDK is now available in TypeScript, with support for sandbox agents and an open-source harness built in."

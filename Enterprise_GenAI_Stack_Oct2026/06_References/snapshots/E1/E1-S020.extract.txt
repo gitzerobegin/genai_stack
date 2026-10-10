@@ -1,0 +1,8 @@
+SOURCE ID: E1-S020
+URL: https://www.insideprivacy.com/data-security/cybersecurity/european-commission-proposes-targeted-amendments-to-nis2-to-simplify-compliance-and-align-with-proposed-cybersecurity-act-2/
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Commission proposal 2026 amending NIS2 cybersecurity act revision
+========================================================================
+
+Search-tool extract (law-firm commentary, early 2026): on 20 January 2026 the Commission proposed a revised Cybersecurity Act (COM(2026) 11, repealing Regulation (EU) 2019/881) together with a directive amending NIS2 (COM(2026) 13). The NIS2 amendments widen scope (e.g. submarine cable infrastructure, European digital identity and European Business Wallet services) and are framed as simplification; Member States would have one year to transpose them once adopted. The package would let the Commission mandate risk-mitigation measures such as restricting outsourcing of operational control to managed service providers, and would allow certification of managed security services. No Parliament or Council adoption was found in the results.

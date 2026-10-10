@@ -1,0 +1,12 @@
+SOURCE ID: B-C7-S002
+URL: https://trust.paloaltonetworks.com/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains paloaltonetworks.com, docs.paloaltonetworks.com, trust.paloaltonetworks.com): Prisma AIRS SOC 2 Type II ISO 27001 compliance certification
+========================================================================
+
+Search-tool extract:
+- Palo Alto Networks Trust Center (trust.paloaltonetworks.com) lists SOC 2 Type II and ISO 27001:2022 among the company's compliance certifications ("Access and download any security certification..."); the snippet does not state which products are in scope.
+- Prisma Cloud for Government page: "we maintain SOC 2 certification for products across the platform" (refers to Prisma Cloud).
+- 2020 blog "Palo Alto Networks Extends ISO 27001 Certifications": product scope then listed Prisma Cloud, Prisma Access, Prisma SaaS; Prisma AIRS not listed (dated).
+- No source found confirming SOC 2 Type II or ISO 27001 scope specifically covering Prisma AIRS.

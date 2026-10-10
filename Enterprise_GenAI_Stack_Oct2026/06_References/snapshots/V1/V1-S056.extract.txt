@@ -1,0 +1,8 @@
+SOURCE ID: V1-S056
+URL: https://changelog.langchain.com/announcements/product-naming-changes-langsmith-deployment-and-langsmith-studio
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangGraph Platform renamed LangSmith Deployment (allowed_domains langchain.com etc.)
+========================================================================
+
+Changelog dated October 14, 2025: the product is now called LangSmith Deployment (formerly LangGraph Platform); LangGraph Studio is now LangSmith Studio; LangSmith has three services: Observability, Evaluation and Deployment. Naming change only; existing deployments, APIs, workflows, pricing, configurations and contracts unchanged.

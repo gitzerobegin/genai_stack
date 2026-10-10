@@ -1,0 +1,37 @@
+# CP4 rework log: L3, L2, L1
+
+**Date:** 9 October 2026
+**Basis:** `checkpoints/CP4/00_CP4_CP4b_Decisions.md` (the reader's CP4 answers); neutral-rubric values from `work/stageB/_review/CP4_review_C.md` (Q1, Q4, Q5, Q6); rubric `work/stage0/08_scoring_rubric.md`.
+**Files edited:** `work/stageB/{L1,L2,L3}/assessments.json` and `section.md`; `work/stageB/_review/all_scores.md` (regenerated). There were no web searches and no new sources.
+**Checks:** `python3 -I tools/score.py … --write` was run for L1, L2 and L3, and each x.8 table matches its output line for line. `python3 -I tools/check_tags.py` on the three sections found 0 unknown source IDs, 0 long untagged paragraphs and 0 banned words; the "American spellings" it lists are the proper nouns already accepted at review C.
+
+| Product | Change | Before | After | Decision |
+|---|---|---|---|---|
+| L1-anthropic | security_compliance | 4 ("borderline resolved against Anthropic": no first-party EU/UK inference; Fable ZDR conflict) | **5**: the neutral rubric value. The rule-8 test is met (product-scoped SOC 2 Type II, ISO 27001 and ISO 42001, plus CMEK); residency and ZDR are carried as tier conditions | CP4-1 (the user's decision) |
+| L1-anthropic | cost_tco | 3 (residency premium; dearer recommended default) | **4**: the neutral rubric value. List prices equal OpenAI's at every tier; the 10% regional premium does not hold Mistral or Grok at 3 | CP4-1 |
+| L1-anthropic | Totals | Generic 3.60 / FS 3.55 | Generic 3.85 / **FS 3.80** | CP4-1 |
+| L1-anthropic | Tier | Tactical | **Strategic, conditional**: consumed only through a hyperscaler EU or UK region, as one of two frontier and mid-tier vendors with a qualified non-Anthropic fallback, not as the sole frontier model (the same wording pattern as OpenAI and Mistral) | CP4-1 |
+| L1-anthropic | Technical and ecosystem rationales | "borderline 4/5 resolved against Anthropic" | Note added: review C found 4 is also the neutral value on peers. Scores unchanged | CP4-1 |
+| L1 (section) | Conflict-of-interest disclosure (top of L1 and the Anthropic deep dive) | Disclosure only | Disclosure kept, plus: "Tier and neutral scoring set by the reader at Checkpoint 4 (CP4-1); the author's pipeline had resolved three borderline scores against Anthropic." | CP4-1 |
+| L1 (section) | §1.7 tier line; §1.8 table row and scoring notes (conflict of interest, rule 8, rule 10); §1.13 Claude row | Tactical, FS 3.55, "reviewer to confirm"; "Gemini outranks Anthropic in tier" | Strategic, conditional, FS 3.80. Rule-8 note records Anthropic at 5. Rule-10 note now says Gemini is the lowest Strategic total in the layer | CP4-1 |
+| L1 (section) | Independent alternatives (§1.9, §1.12, §1.13) | Named in the Step 2 footer and the AWS rows; none beside the Google Cloud fallback to Claude | §1.9: "independent alternative: Mistral on Google Cloud" under the Google fallback, plus "Never Claude as the only qualified vendor". §1.12: Google fallback cell names Mistral; the closing note covers every Claude cell. §1.13 names GPT-6.1 Sol, Gemini 3.8 Flash and Mistral Medium 3.5 | CP4-1 |
+| L1-google-gemini | None | Strategic, conditional (rule 10), FS 3.35 | Unchanged; the rule-10 note cites CP4-2 | CP4-2 |
+| L1-deepseek | Enterprise readiness rationale; §1.7 tier line | 4 on the Foundry in-tenant route | 4 kept. The hosting caveat is stated beside the score: DeepSeek V4 is sold directly by Foundry and processed in-tenant in the customer's geography; on Azure, Kimi and GLM run on Fireworks outside the tenant [A5-S087] | CP4-3 |
+| L1-moonshot-kimi | Enterprise readiness rationale; §1.7 tier line | 4 on Bedrock cross-Region; "Foundry route is a third-party pass-through" | 4 kept. Explicit caveat: on Azure, Foundry's Kimi K3 runs on Fireworks outside the customer tenant, so the Azure route does not support the score | CP4-3 |
+| L1-zai-glm | Enterprise readiness rationale; §1.7 tier line | 4 on Bedrock (cross-Region not stated) | 4 kept. Bedrock GLM 5.3 is cross-Region only and GLM 5 is in-Region in London; on Azure, Foundry's GLM runs on Fireworks outside the tenant | CP4-3 |
+| L1 (section) | §1.8 rule-6 scoring note | "operated in-tenant by a hyperscaler (… Kimi and GLM, Bedrock cross-Region)" | "operated by a hyperscaler", plus a bold hosting caveat with [VF: A5-S087] | CP4-3 |
+| L3-google-adk | Tier (verified) | Strategic, conditional: Google Cloud primary (set by reviewer C) | Verified in the JSON, §3.7, §3.8, §3.13 and the executive summary. "Confirmed by the reader at Checkpoint 4 (CP4-4)" added to the JSON rationale, the §3.7 tier line and the §3.8 note | CP4-4 |
+| L2-sglang | Tier | Tactical (rule 11: security 2 with no platform condition), FS 3.65 | **Strategic, conditional: qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed** in the deployed version. Scores unchanged; security 2 carried as the condition. Updated in the JSON rationale and security rationale, the §2.7 tier line, the §2.8 table and tiers note, the §2.8 security note, the §2.9 tree and the §2.13 row | CP4-4 |
+| L2-fireworks-ai | Tier | Tactical; "candidate for Strategic after due diligence" (rule 13), FS 3.65 | **Strategic, conditional: managed open-model inference, once ISO certificates are confirmed**; EU dedicated or BYOC for client data. Scores unchanged. Updated in the JSON rationale, the §2.7 tier line, the §2.8 table and tiers note, the §2.9 tree and the §2.13 row | CP4-4 |
+| L3-pydantic-ai | Tier | Tactical (major-version churn; no verified support), FS 3.55 | **Strategic, conditional: for Python teams wanting type-safe agents**. Scores unchanged; churn and support are carried as conditions. Updated in the JSON rationale, the §3.7 tier line, the §3.8 table and "Tiers versus totals" note, the §3.9 tree and the §3.13 row | CP4-4 |
+| L3-claude-agent-sdk | reliability_maturity | 1 (strict pre-1.0/beta anchor because of the Alpha classifier) | **2**, the same as the OpenAI Agents SDK (which stays 2). The Alpha label is noted in the rationale, the deep dive and the scoring note [A4-S006, B-REVC-S001] | CP4-9 |
+| L3-claude-agent-sdk | Totals; tier | Generic 2.75 / FS 2.65; Experimental | Generic 2.85 / **FS 2.75**; **Experimental (unchanged)** | CP4-9 |
+| L3 (section) | Conflict-of-interest disclosure; §3.7 Claude Agent SDK; §3.8 table and conflict-of-interest note | "maturity (1, not 2) … put to the reader" | Records the reader's CP4-9 decision; technical 3 and deployment 3 noted as peer-consistent (review C) | CP4-9 |
+| All | `work/stageB/_review/all_scores.md` | 54 Strategic, 71 Tactical, 13 Experimental, 2 unscored | **58 Strategic, 67 Tactical, 13 Experimental, 2 unscored** (140 rows; sections ## L9 … ## L1, ## C1 … ## C8) | Task 5 |
+
+**Tier counts by section after this rework.**
+- L1: 5 Strategic, 5 Tactical, 1 Experimental.
+- L2: 4 Strategic, 5 Tactical, 2 Experimental.
+- L3: 6 Strategic, 4 Tactical, 2 Experimental.
+
+**Not changed.** No other criterion score was changed. Gemini (CP4-2) is unchanged. DeepSeek, Kimi and GLM keep enterprise readiness 4 (CP4-3). Hugging Face stays Strategic, conditional. The L1 Anthropic maturity rationale still includes "four models shipped in five weeks", which review C called weak (OpenAI shipped four GPT-6 models in four weeks); maturity 3 is defensible on the June 2026 suspension alone, and the score was not in scope for CP4-1. This step did not touch `MEMORY.md` and did not run `tools/build_dataset.py`. Git was used read-only (diff and log), and nothing was committed.

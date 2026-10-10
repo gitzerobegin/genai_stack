@@ -1,0 +1,8 @@
+SOURCE ID: E1-S029
+URL: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-62
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AI Act Article 62 SMEs start-ups sandboxes reduced fees (ai-act-service-desk.ec.europa.eu)
+========================================================================
+
+Search-tool extract: Member States give SMEs, including start-ups, with a registered office or branch in the Union priority access to AI regulatory sandboxes; organise tailored awareness and training activities; use or establish dedicated communication channels; facilitate participation in standardisation. The specific interests and needs of SME providers, including start-ups, are taken into account when setting fees for conformity assessment under Article 43, reducing those fees proportionately to their size, market size and other relevant indicators. The AI Office provides standardised templates and a single information platform.

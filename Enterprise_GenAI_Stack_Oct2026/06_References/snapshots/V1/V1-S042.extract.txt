@@ -1,0 +1,8 @@
+SOURCE ID: V1-S042
+URL: https://www.letta.com/blog/our-next-phase/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Letta blog next phase Letta Code server archive (extended, allowed_domains letta.com, docs.letta.com)
+========================================================================
+
+Blog index dates the post to March 2026. Letta is focusing on "the primitives that allow anyone to deploy stateful agents with real memory that isn't locked down to a single provider"; Letta Code ties together git-backed memory, skills, subagents and deployment across providers. Retiring: server-side memory tools (e.g. core_memory_replace) in favour of MemFS; templates replaced by the versioned Letta Code SDK; server-side MCP integrations give way to client-side skills; server-side sleep-time agents replaced by client-side subagents; tool rules deprecated. Migration guides and timelines promised. (Search results do not confirm a named "server archive" or shutdown date.) Letta Code release date December 16, 2025 (Terminal Trove); Apache-2.0 (Homebrew).

@@ -1,0 +1,8 @@
+SOURCE ID: A3-S034
+URL: https://geminicli.com/docs/cli/skills/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Gemini CLI agent skills SKILL.md support
+========================================================================
+
+Search-tool extract: 'Based on the Agent Skills open standard, a "skill" is a self-contained directory that packages instructions and assets into a discoverable capability. Unlike general context files (GEMINI.md), which provide persistent workspace-wide background, Skills represent on-demand expertise.' User skills: ~/.gemini/skills/ or the ~/.agents/skills/ alias. Workspace skills: .gemini/skills/ or the .agents/skills/ alias. 'Inspect the SKILL.md and scripts of any skill before installing it from an untrusted source.' Google Cloud also documents a Skill Registry overview for Gemini Enterprise Agent Platform (docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry).

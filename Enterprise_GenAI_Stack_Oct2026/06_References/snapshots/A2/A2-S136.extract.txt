@@ -1,0 +1,8 @@
+SOURCE ID: A2-S136
+URL: https://opensearch.org/releases/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenSearch 3.x release 2026 vector search hybrid OpenSearch Software Foundation latest version (allowed: opensearch.org, linuxfoundation.org)
+========================================================================
+
+OpenSearch 3.9.0 released September 29, 2026; 3.10.0 planned window November 3-17, 2026. 3.9 (https://opensearch.org/blog/get-to-know-opensearch-3-9/): neural sparse ANN on C++ engine, 2-bit and 4-bit scalar quantisation, half_float type. Hybrid search improvements across 3.0-3.7 (common filter, Z-score normalisation, RRF). 2026 roadmap: composable query pipelines combining hybrid, vector, cross-encoders and reranking. OpenSearch described as part of the Linux Foundation.

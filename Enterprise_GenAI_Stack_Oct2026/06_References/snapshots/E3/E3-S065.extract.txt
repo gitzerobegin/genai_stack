@@ -1,0 +1,13 @@
+SOURCE ID: E3-S065
+URL: https://www.cisa.gov/resources-tools/resources/careful-adoption-agentic-si-services
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: "Careful Adoption of Agentic AI Services" CISA
+========================================================================
+
+Search-tool summary of cisa.gov/resources-tools/resources/careful-adoption-agentic-si-services (URL slug as published), cyber.gov.au publication page and PDF (media.defense.gov/2026/Apr/30/2003922823/-1/-1/0/CAREFUL ADOPTION OF AGENTIC AI SERVICES_FINAL.PDF), and NCSC UK blog "Thinking carefully before adopting agentic AI":
+- Joint publication dated 1 May 2026, co-authored by Australia's ASD's ACSC, CISA, NSA, the Canadian Centre for Cyber Security, New Zealand's NCSC and the UK's NCSC.
+- Covers cybersecurity challenges and risks of introducing agentic AI into IT environments and best practices for securing those systems; mainly targets LLM-based agentic systems.
+- Recommends deploying incrementally, limiting agents to low-risk tasks and avoiding broad or unrestricted access to sensitive data or critical systems; strict privilege controls, continuous monitoring, strong identity management, human oversight and alignment with existing cyber-security frameworks.
+- Recommends building security in from design and using agentic AI risk taxonomies such as the OWASP GenAI Security Project and MITRE ATLAS.
+- Secondary (Mayer Brown, 10 June 2026): about 30 pages with more than 100 recommendations organised by lifecycle stage; described as the first Five Eyes cyber-security guidance specifically on agentic AI. No coding-assistant-specific content identified.

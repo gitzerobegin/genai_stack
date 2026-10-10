@@ -1,0 +1,8 @@
+SOURCE ID: A4-S152
+URL: https://docs.fireworks.ai/accounts/sso
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Fireworks AI enterprise SSO SAML RBAC audit logs BYOC private cloud deployment
+========================================================================
+
+Enterprise accounts can bring their own IdP via OIDC or SAML 2.0 (IdP-initiated SAML opt-in); coordinate with Fireworks representative. Role-based access controls for sharing models, data and deployments; data-residency setting changeable only by account Admins. Changelog: web app Audit Logs page (search/filter by status and timeframe) and CLI query; service accounts distinguish automated vs human actions. Customer-managed encryption key usage recorded in customer's cloud audit log. Hybrid BYOC: Fireworks inference engine runs in customer VPC; tied to enterprise reserved capacity tier (multi-region deployments, custom optimisations, BYOC compatibility). Fireworks Virtual Cloud GA.

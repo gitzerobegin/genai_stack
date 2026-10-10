@@ -1,0 +1,13 @@
+SOURCE ID: B-L3-S003
+URL: https://docs.temporal.io/cloud/manage-access
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed docs.temporal.io): Temporal Cloud SAML SSO SCIM user roles permissions audit logging
+========================================================================
+
+Search-tool summary of docs.temporal.io/cloud/scim, /cloud/manage-access, /cloud/users, /cloud/audit-logs, /cloud/manage-access/permissions-reference, /best-practices/security-controls:
+- SAML 2.0 integration with the organisation's identity provider for centralised authentication.
+- SCIM automatically creates, updates and removes users and groups based on IdP changes; requires SAML first; SCIM groups can be mapped to Temporal Cloud roles.
+- Account-level roles (Account Owner, Global Admin, Developer, Finance Admin, Read-Only) plus Namespace-level permissions (Namespace Admin, Write, Read); custom roles available. Role names differ across some pages.
+- Audit logs: viewing/configuring requires Account Owner or Global Admin; export integration with AWS Kinesis or GCP Pub/Sub; events include user, group, namespace and service-account changes and logins; authorisation failures captured, authentication failures not.
+- Security guidance recommends least privilege, SCIM, service accounts for non-human access, audit logs into a SIEM.

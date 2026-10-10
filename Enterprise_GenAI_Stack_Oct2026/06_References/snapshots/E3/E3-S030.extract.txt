@@ -1,0 +1,11 @@
+SOURCE ID: E3-S030
+URL: https://cursor.com/docs/enterprise/model-and-integration-management
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cursor docs models bring your own API key enterprise model access controls MCP
+========================================================================
+
+Search-tool summary of cursor.com/docs/enterprise/model-and-integration-management and cursor.com/help/models-and-usage/api-keys:
+- BYOK: keys can be added for OpenAI, Anthropic, Google, Azure or AWS Bedrock in Settings > Models. Custom API keys only work with chat models; Tab completion continues to use Cursor's built-in models. On Teams and Enterprise plans BYOK requests still incur a Cursor per-token charge. Cursor's Zero Data Retention policy does not apply when using your own API keys.
+- Enterprise model access controls under Team Settings > Models (Enterprise only); Enterprise teams can prevent members from using their own API keys with third-party providers. Group settings can only widen access, not narrow it. The Admin API (preview) can manage the team baseline.
+- Enterprise docs list MCP server trust management, an MCP allowlist and per-server tool and network controls (detail not public; docs point to sales).

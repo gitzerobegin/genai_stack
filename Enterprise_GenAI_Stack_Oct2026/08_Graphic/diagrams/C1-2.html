@@ -1,0 +1,51 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>C1 decision tree: choosing the gateway of record</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">C1 decision tree: choosing the gateway of record</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  S0["Step 0 [Rec], not optional:&lt;br/&gt;one gateway of record for ALL&lt;br/&gt;production LLM and MCP traffic;&lt;br/&gt;provider keys live only in&lt;br/&gt;the gateway's vault, C7;&lt;br/&gt;routing config in Git under C5;&lt;br/&gt;budgets and limits fail closed;&lt;br/&gt;fallback lists are residency-&lt;br/&gt;and qualification-checked"]:::note
+  subgraph ST1["Step 1 [Rec]: which gateway of record?"]
+    Q1{"Does the gateway see client or&lt;br/&gt;personal data that must stay&lt;br/&gt;in-estate or in UK/EU?"}
+    Q1a{"Do you already run an&lt;br/&gt;enterprise API gateway?"}
+    K["Kong AI Gateway,&lt;br/&gt;hybrid mode:&lt;br/&gt;customer data plane"]
+    AP["Apigee hybrid in a&lt;br/&gt;UK/EU region"]
+    AZ["APIM AI policies in&lt;br/&gt;existing GA tiers,&lt;br/&gt;not the preview tier"]
+    LL["LiteLLM self-hosted + Enterprise&lt;br/&gt;licence, pinned and signed&lt;br/&gt;alt: agentgateway + Solo&lt;br/&gt;Enterprise if MCP/A2A-led&lt;br/&gt;and Kubernetes-native"]
+    MG["Managed is acceptable:&lt;br/&gt;Cloudflare AI Gateway, BYOK,&lt;br/&gt;or Portkey SaaS, with a&lt;br/&gt;documented route back to a&lt;br/&gt;self-hosted gateway"]
+    Q1 -- yes --&gt; Q1a
+    Q1 -- no --&gt; MG
+    Q1a -- Kong --&gt; K
+    Q1a -- Apigee --&gt; AP
+    Q1a -- Azure APIM --&gt; AZ
+    Q1a -- None / mixed --&gt; LL
+  end
+  subgraph ST2["Step 2 [Rec]: tool and agent traffic"]
+    Q2a{"Agents on AWS with tools&lt;br/&gt;behind AgentCore?"}
+    AC["AgentCore Gateway for MCP&lt;br/&gt;+ AgentCore Policy;&lt;br/&gt;model traffic stays on the&lt;br/&gt;Step 1 gateway"]
+    Q2b{"Envoy Gateway already&lt;br/&gt;your platform?"}
+    AR["Agent Router for in-cluster&lt;br/&gt;routing, behind Step 1"]
+    OT["Otherwise: the Step 1 gateway's&lt;br/&gt;MCP endpoint, with per-caller&lt;br/&gt;tool exposure and token exchange"]
+    Q2a -- yes --&gt; AC
+    Q2a -- no --&gt; Q2b
+    Q2b -- yes --&gt; AR
+    Q2b -- no --&gt; OT
+  end
+  subgraph ST3["Step 3 [Rec]: security-vendor bundle?"]
+    Q3{"Already standardised&lt;br/&gt;on Prisma AIRS?"}
+    PR["Portkey/Prisma AIRS AI Gateway&lt;br/&gt;is a reasonable choice, but keep&lt;br/&gt;the open-source gateway config&lt;br/&gt;as the exit route"]
+    Q3 -- yes --&gt; PR
+  end
+  subgraph ST4["Step 4 [Rec]: checks before go-live"]
+    CK["Two independent deployments?&lt;br/&gt;Fail-closed tested: spend store&lt;br/&gt;down, guard timeout?&lt;br/&gt;Fallback model qualified, L9,&lt;br/&gt;and in the same region?&lt;br/&gt;Semantic cache off on&lt;br/&gt;client routes?&lt;br/&gt;Gateway logs retained per&lt;br/&gt;records policy, ≥ 6 months&lt;br/&gt;where AI Act Art. 26 applies,&lt;br/&gt;and in region?&lt;br/&gt;Exit drill: route switched to the&lt;br/&gt;alternative provider by&lt;br/&gt;configuration only?"]
+  end
+  S0 --&gt; ST1
+  ST1 --&gt; ST2
+  ST2 --&gt; ST3
+  ST3 --&gt; ST4
+</pre><div class="c">Fix one gateway of record first, then pick the product by data residency and existing API gateway, add tool and agent routing, and pass the go-live checks.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

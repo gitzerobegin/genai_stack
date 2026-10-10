@@ -1,0 +1,8 @@
+SOURCE ID: A4-S034
+URL: https://docs.langchain.com/langsmith/regions-faq
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangChain trust center SOC 2 Type II HIPAA ISO 27001 LangSmith EU region
+========================================================================
+
+"We are also SOC 2 Type 2 certified and are HIPAA compliant. You can request more information about our security policies and posture at trust.langchain.com." "organizations on eu.smith.langchain.com are in GCP EU, organizations on apac.smith.langchain.com are in GCP APAC, and organizations on aws.smith.langchain.com are in AWS US." Regional instances are available on all plans including free plans. "There may be a small delay between launches to each region depending on the feature." Moving an organization between regions is not supported; LangChain has no legal entity in the EU for customer contracting. "The terms are the same for the EU and US regions." "If you would like to sign a Data Processing Addendum (DPA) with us, please contact support via support.langchain.com. and we only enter into Business Associate Agreements (BAAs) with customers on our Enterprise plan."

@@ -1,0 +1,112 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>A prompt change is a production change</title>
+<!-- Generated from P14.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.wx{display:flex;align-items:center;gap:4px;margin:0 0 12px;white-space:nowrap}
+.wx .lb{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-right:auto;padding-right:10px;overflow:hidden;text-overflow:ellipsis}
+.wx .c{font-size:11.5px;font-weight:800;border-radius:6px;padding:3px 0;width:34px;text-align:center;border:1.5px solid var(--line);color:#8792A0;background:#fff;flex:none}
+.wx .c.done{background:var(--navy);border-color:var(--navy);color:#fff}.wx .c.now{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 14 · C5 Prompt and configuration management</div>
+  <div class="title">A prompt change is a production change</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.mf{background:#fff;border:2px solid var(--navy);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.mf .top{background:var(--navy);color:#fff;padding:14px 18px}
+.mf .top .nm{font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-weight:700;font-size:21px}
+.mf .top .ds{font-size:15px;color:var(--sky);margin-top:3px;letter-spacing:1px}
+.mf .kv{display:flex;flex-direction:column;justify-content:space-around;flex:1;padding:4px 18px 8px}
+.mf .it{padding:10px 0;border-top:1px solid #ECE6DA;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.mf .it:first-child{border-top:none}
+.mf .k{font-size:17px;color:var(--mute)}
+.mf .v{font-weight:800;font-size:18px;text-align:right}
+.mf .v small{display:block;font-weight:500;font-size:15px;color:var(--mute)}
+.pl{display:flex;flex-direction:column;gap:4px}
+.pl .st{background:#fff;border:2px solid var(--line);border-radius:12px;padding:9px 14px;display:flex;gap:12px;align-items:center}
+.pl .st .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.pl .st b{font-size:19px;display:block}
+.pl .st span.d{font-size:15px;color:var(--mute);display:block;line-height:1.25}
+.pl .st.gate{border-color:var(--amber);background:var(--amberbg)}.pl .st.gate .n{background:var(--amber)}
+.pl .st.lbl{border-color:var(--navy)}.pl .st.lbl .n{background:var(--navy)}
+.pl .arrow{font-size:22px;margin:-2px 0}
+</style>
+<div class="col" style="gap:16px">
+ <div class="row" style="gap:20px">
+  <div class="mf" style="width:470px">
+   <div class="top"><div class="lab" style="color:var(--gold)">Release manifest</div><div class="nm" style="margin-top:6px">commentary-release 2026.10</div><div class="ds">one per monthly cycle · illustrative values</div></div>
+   <div class="kv">
+    <div class="it"><span class="k">Prompt set</span><span class="v">v14</span></div>
+    <div class="it"><span class="k">Drafting model</span><span class="v">pinned, dated version<small>temperature 0</small></span></div>
+    <div class="it"><span class="k">Fallback model</span><span class="v">pinned, dated version</span></div>
+    <div class="it"><span class="k">Embedding and reranker</span><span class="v">match the index's<small>model-version tag</small></span></div>
+    <div class="it"><span class="k">Retrieval top-k</span><span class="v">8</span></div>
+    <div class="it"><span class="k">Tool list</span><span class="v">read-only<small>attribution engine, approved market notes</small></span></div>
+    <div class="it"><span class="k">Guardrail policy</span><span class="v">v6</span></div>
+    <div class="it"><span class="k">Eval threshold set</span><span class="v">v3</span></div>
+   </div>
+  </div>
+  <div class="pl grow">
+   <div class="lab" style="margin-bottom:6px">How a change reaches production</div>
+   <div class="st"><div class="n">1</div><div><b>Pull request</b><span class="d">diff of prompt text and every manifest field</span></div></div>
+   <div class="arrow d"></div>
+   <div class="st"><div class="n">2</div><div><b>Second approver</b><span class="d">investment risk; authors never approve their own change</span></div></div>
+   <div class="arrow d"></div>
+   <div class="st gate"><div class="n">3</div><div><b>Eval gate</b><span class="d">regression suite, numeric and style checks; a failure blocks the merge</span></div></div>
+   <div class="arrow d"></div>
+   <div class="st"><div class="n">4</div><div><b>Tagged release</b><span class="d">frozen for the month-end cycle</span></div></div>
+   <div class="arrow d"></div>
+   <div class="st lbl"><div class="n">5</div><div><b>Registry label moves</b><span class="d">only the pipeline moves "production"</span></div></div>
+   <div class="arrow d"></div>
+   <div class="st"><div class="n">6</div><div><b>Trace stamped</b><span class="d">every draft names the manifest and prompt version</span></div></div>
+  </div>
+ </div>
+ <div class="row">
+  <div class="box gold grow"><div class="lab" style="color:#8A6418">The signal</div><div class="h" style="margin-top:4px">Rollback time</div><div class="small">from the decision to revert to the previous approved version serving all traffic: <b>minutes, not a release cycle</b>. Drill it twice a year.</div></div>
+  <div class="box red grow"><div class="lab" style="color:var(--red)">Never</div><div class="h" style="margin-top:4px">A production prompt edited in a web console</div><div class="small">outside the pull-request path, written, approved and released by one person</div></div>
+ </div>
+</div>
+</div>
+ <div class="wx"><span class="lb">Worked example · step 14</span><span class="c done">L1</span><span class="c done">C6</span><span class="c done">L2</span><span class="c done">C1</span><span class="c done">L3</span><span class="c done">C2</span><span class="c done">L4</span><span class="c done">C4</span><span class="c done">L5</span><span class="c done">Reg</span><span class="c done">L6</span><span class="c done">C7</span><span class="c done">L7</span><span class="c now">C5</span><span class="c ">L8</span><span class="c ">C3</span><span class="c ">L9</span><span class="c ">C8</span></div>
+ <div class="ft"><div class="cap">Every setting that can change what a client reads goes into one pinned manifest; only the release pipeline moves the production label. Manifest values are illustrative.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: C5 §C5.12 and §C5.3</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

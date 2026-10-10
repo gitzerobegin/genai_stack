@@ -1,0 +1,8 @@
+SOURCE ID: A4-S047
+URL: https://crewai.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CrewAI AMP Agent Management Platform enterprise SOC 2 HIPAA on-premise pricing
+========================================================================
+
+Pricing page lists the Enterprise plan as custom-priced. Free tier includes 50 workflow executions/month. Enterprise adds SSO, RBAC, workload identity, PII redaction and policies; deployment on CrewAI cloud, your own VPC, or your own infrastructure; 45-day onboarding period. Forward-deployed engineering and training sold separately. (Page metadata suggests about a year old.)

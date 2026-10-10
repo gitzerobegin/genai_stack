@@ -1,0 +1,8 @@
+SOURCE ID: A2-S127
+URL: https://sacra.com/c/turbopuffer/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: turbopuffer funding raise 2026 customers
+========================================================================
+
+Sacra (May 2026) estimates $100M annualised revenue in March 2026 (up from $75M end-2025); <$1M total primary capital per CEO; customers include Bridgewater, TELUS, Harvey, Ramp, Atlassian. April 2026: four trillion documents in production and over 25,000 searches per second (reported).

@@ -1,0 +1,12 @@
+SOURCE ID: A8-S024
+URL: https://www.hsfkramer.com/notes/fsrandcorpcrime/2026-posts/hm-treasury-makes-first-designations-under-uk-ctp-regime
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: HM Treasury designates critical third parties regime first designation 2026
+========================================================================
+
+Search results (law-firm briefings): HSF Kramer "HM Treasury makes first designations under UK CTP regime" (2026); Lewis Silkin "UK designates first technology providers under the Critical Third Parties regime" (15 July 2026); Sullivan & Cromwell July 2026 memo
+Search-tool extract:
+- HM Treasury made the first designations under the UK CTP regime on 10 July 2026 [announcement], taking effect on 13 July 2026: Microsoft Ireland Operations Limited, Google Cloud EMEA Limited, Amazon Web Services EMEA SARL, Oracle Corporation UK Limited.
+- Each designated provider must file an initial self-assessment within three months of designation (practitioner estimate: around mid-October 2026).
+- Treasury Committee's January [2026] report on AI in financial services recommended that HM Treasury use its CTP powers to designate AI and cloud providers.

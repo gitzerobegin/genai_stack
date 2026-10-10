@@ -1,0 +1,8 @@
+SOURCE ID: E1-S005
+URL: https://digital-strategy.ec.europa.eu/en/library/commission-publishes-new-guidance-support-timely-cyber-resilience-act-implementation
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Commission guidance Cyber Resilience Act 2026 remote data processing open source support period C(2026)
+========================================================================
+
+Search-tool extract: The Commission published CRA guidance on 27 July 2026, catalogued as C(2026) 5252, comprising a Communication and an Annex containing the guidance. It clarifies 'when certain products fall within the scope of the Cyber Resilience Act, including remote data processing solutions and free and open source software', what counts as a substantial modification, how support periods apply, and how reporting and risk-assessment duties work. The guidance is non-binding; the Commission may issue further guidance under Article 26. It followed a draft published for feedback in March 2026.

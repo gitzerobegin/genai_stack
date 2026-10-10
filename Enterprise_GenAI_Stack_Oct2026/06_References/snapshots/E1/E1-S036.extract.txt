@@ -1,0 +1,8 @@
+SOURCE ID: E1-S036
+URL: https://ai-act-service-desk.ec.europa.eu/sites/default/files/2026-07/guidelines_on_the_implementation_of_the_transparency_obligations_for_certain_ai_systems_under_article_50_of_the_ai_act_bzptwqhk0ikg1dtlddap41psfy_131215.pdf
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Article 50 guidelines Commission C(2026) 5054
+========================================================================
+
+Search-tool extract: Commission guidelines dated 20.7.2026, C(2026) 5054 final, Annex. People must be explicitly told about the artificial, non-human nature of the system (Article 50(1)). Article 50(2) is split into marking in a machine-readable format and making outputs detectable as artificially generated or manipulated. (The extract was partly garbled in formatting.)

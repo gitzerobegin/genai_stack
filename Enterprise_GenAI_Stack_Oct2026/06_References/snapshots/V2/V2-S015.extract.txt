@@ -1,0 +1,12 @@
+SOURCE ID: V2-S015
+URL: https://huggingface.co/moonshotai/Kimi-K3
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Moonshot Kimi K3 launch July 2026 open weights license parameters
+========================================================================
+
+Most sources put the launch on July 16 (one says July 17). Weights shipped July 27 on Hugging Face (one outlet: July 26).
+Official model repository (as reported) describes Kimi K3 as MoE with 2.8 trillion total parameters and 104 billion active parameters; 16 of 896 routed experts plus two shared; context 1,048,576 tokens; text and images; MXFP4 quantisation-aware weights.
+License: Kimi K3 License, not MIT. MaaS business earning over $20 million in any 12 months needs a separate agreement; products with over 100 million monthly users must credit Moonshot. CryptoBriefing calls it Modified MIT (contradicted).
+Pricing listed by one source: $3/M in, $0.30/M cached, $15/M out.
+All secondary/aggregator; Hugging Face repo not opened (URL given is the repo cited by sources).

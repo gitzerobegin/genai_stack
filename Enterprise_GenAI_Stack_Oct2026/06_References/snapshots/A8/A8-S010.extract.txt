@@ -1,0 +1,10 @@
+SOURCE ID: A8-S010
+URL: https://www.bankofengland.co.uk/minutes/2026/june/ai-consortium-minutes-3-june-2026
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SS1/23 ... artificial intelligence (bankofengland.co.uk)
+========================================================================
+
+Search result title: "Artificial Intelligence Consortium minutes - 3 June 2026" (bankofengland.co.uk/minutes/2026/june/ai-consortium-minutes-3-june-2026)
+Search-tool extract:
+- In June 2026, AI Consortium members noted that GenAI systems are often classified as high risk under frameworks such as SS1/23, which may limit how proportionately controls can be applied. The workshop suggested mitigating factors and clearer boundaries as a way to apply the framework more nuancedly.

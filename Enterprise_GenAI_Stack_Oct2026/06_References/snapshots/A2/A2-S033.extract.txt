@@ -1,0 +1,8 @@
+SOURCE ID: A2-S033
+URL: https://investors.mongodb.com/news-releases/news-release-details/mongodb-announces-acquisition-voyage-ai-enable-organizations
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MongoDB acquires Voyage AI announcement February 2025 (allowed: mongodb.com, investors.mongodb.com)
+========================================================================
+
+Press release datelined February 24, 2025: MongoDB had acquired Voyage AI, a pioneer in state-of-the-art embedding and reranking models that power next-generation AI applications. Voyage AI's embedding and reranking models will remain available through voyage.ai, AWS Marketplace, and Azure Marketplace. MongoDB 10-K (https://www.sec.gov/Archives/edgar/data/1441816/000162828026016799/mdb-20260131.htm) puts acquisition date at February 17, 2025; fair value of purchase consideration $160.9 million (484,169 shares worth $141.4 million and $19.5 million cash).

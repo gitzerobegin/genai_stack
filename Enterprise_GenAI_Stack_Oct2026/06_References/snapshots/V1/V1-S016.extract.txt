@@ -1,0 +1,8 @@
+SOURCE ID: V1-S016
+URL: https://changelog.langchain.com/announcements/agent-builder-is-now-langsmith-fleet
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith Fleet renamed Agent Builder (allowed_domains langchain.com etc.)
+========================================================================
+
+Fleet documentation (docs.langchain.com/langsmith/fleet) notes that the product was previously called Agent Builder; existing agents, configurations and integrations keep working. LangChain's launch post: "LangSmith Fleet (formerly LangSmith Agent Builder)". March 2026 newsletter: rename brought agent identity, sharing and permissions. Self-hosted v0.15 upgrade guide: any agentBuilder* configuration value is renamed to the equivalent fleet* key. Agent Builder: private preview October 2025, public beta December 2025, later GA on all LangSmith plans.

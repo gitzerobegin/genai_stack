@@ -1,0 +1,15 @@
+SOURCE ID: A8-S043
+URL: https://www.nist.gov/itl/ai-risk-management-framework
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NIST AI RMF revised version released 2026 AI Action Plan revision AI 100-1 (nist.gov)
+========================================================================
+
+Search results: "AI Risk Management Framework" (nist.gov/itl/ai-risk-management-framework); "Artificial Intelligence Risk Management Framework (AI RMF 1.0)" (NIST AI 100-1); AIRC AI RMF pages; "Concept Note: AI RMF Profile on Trustworthy AI in Critical Infrastructure"
+Search-tool extract:
+- Current version is AI RMF 1.0 (NIST AI 100-1), dated January 26, 2023.
+- NIST's AI RMF page says the framework is being revised as part of the White House AI Action Plan; AIRC describes a revised version in progress. "The White House AI Action Plan (July 23, 2025) tasked NIST with several actions. Among the actions include revising the NIST AI RMF (1.0) to eliminate references to misinformation, Diversity, Equity, and Inclusion, and climate change."
+- "The Playbook will be updated after the AI RMF is revised." No published revised AI RMF found as of October 7, 2026.
+- April 7, 2026: concept note for an AI RMF Profile on Trustworthy AI in Critical Infrastructure (project page Ongoing, updated July 17, 2026).
+- July 29, 2026: initial public draft of AI documentation guidance, input by September 16, 2026.
+- Cyber AI Profile for the CSF in development (NIST IR 8596 initial preliminary draft, December 2025: "Draft NIST Guidelines Rethink Cybersecurity for the AI Era").

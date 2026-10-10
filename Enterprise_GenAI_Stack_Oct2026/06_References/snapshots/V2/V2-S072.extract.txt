@@ -1,0 +1,8 @@
+SOURCE ID: V2-S072
+URL: https://guardrailsai.com/guardrails/docs/migration-guides/0-11-migration
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Guardrails Hub hosted install remote inference retired August 2026 validators PyPI
+========================================================================
+
+The official 0.11.0 migration guide gives August 6, 2026 as the final cutoff for both the retired registry and the hosted inference endpoints. The repo's HUB_UPDATE.md sets a hard cutoff of August 25, 2026 for the guardrails hub install command, private registry and hosted inference servers. A Beri article reconciles: hosted inference servers down August 6 (citing remote-inference docs), install command and registry stopped August 25. Validators now public PyPI packages named guardrails-ai-<name>; no API key needed; use_local=True or validation_endpoint for self-hosted models.

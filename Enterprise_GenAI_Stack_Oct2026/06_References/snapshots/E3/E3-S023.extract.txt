@@ -1,0 +1,12 @@
+SOURCE ID: E3-S023
+URL: https://developers.openai.com/codex/enterprise/compliance-api
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI Codex enterprise admin controls RBAC compliance API data retention
+========================================================================
+
+Search-tool summary of developers.openai.com/codex/enterprise/compliance-api (with ChatGPT Enterprise release notes, help.openai.com):
+- Codex usage, including the CLI and IDE extension, is available in the Compliance API. These records don't establish a complete audit trail for every hosted file operation, shell command, browser interaction, tool invocation or approval.
+- The Compliance Logs Platform retains data for 30 days; OpenAI advises continuous export to an approved eDiscovery, DLP, SIEM or data-lake system where longer retention is required.
+- Release note dated 11 September 2026: changes made through the Codex Policies & Configurations interface are recorded in workspace audit logs, reviewable in the UI or via the Compliance API.
+- Docs state the authenticated Admin API reference is the source of truth for event coverage, schemas and retention.

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S115
+URL: https://github.com/weaviate/weaviate
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Weaviate license change 2026 BSD-3-Clause new license weaviate repository (allowed: weaviate.io, github.com, docs.weaviate.io)
+========================================================================
+
+Contributor docs list the Weaviate Database license as BSD 3-Clause. README: most of this repository is available under the BSD 3-Clause License; files in the wl/ folder are only available under a commercial license with a license key; Enterprise Docker image under enterprise license requiring a license key. PR #13360 (https://github.com/weaviate/weaviate/pull/13360): wl source copyrighted by Weaviate BV for 2026 onward, separate enterprise license, LICENSE-BSD unchanged; README drops 'open-source' from introduction (merge status not confirmed). Third-party issue: wl/ under separate Weaviate License since 2026-09.

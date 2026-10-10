@@ -1,0 +1,8 @@
+SOURCE ID: A2-S046
+URL: https://github.com/embeddings-benchmark
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MTEB leaderboard top embedding model 2026 (allowed: huggingface.co, github.com)
+========================================================================
+
+MTEB repositories show activity into September 2026; results repository (holds data for the MTEB leaderboard) updated Sep 21, 2026. Live leaderboard hosted at huggingface.co/spaces/mteb/leaderboard (not fetchable in this environment). Gemini Embedding reached highest overall performance on MTEB(Multilingual) as of March 10, 2025 (arXiv 2503.07891); Qwen3-Embedding-8B ranked No.1 on MTEB multilingual as of June 5, 2025 (70.58). Analysis of French MTEB found top 9 models statistically equivalent at p=0.05.

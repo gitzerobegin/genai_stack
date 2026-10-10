@@ -1,0 +1,12 @@
+SOURCE ID: A7-S110
+URL: https://www.modelop.com/ai-governance/ai-regulations-standards/sr-11-7
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Credo AI OR ModelOp OR Collibra SS1/23 OR SR 11-7 OR SR 26-2 (allowed_domains credo.ai, collibra.com, modelop.com)
+========================================================================
+
+- ModelOp SR 11-7 page: platform maps controls to SR 11-7 (SR 26-2 noted alongside), EU AI Act, NIST AI RMF and ISO 42001; lifecycle covers intake, validation, monitoring and decommissioning. SolluCIO partnership post: supports SR 11-7-aligned programmes for banks.
+- Collibra blog: dates a joint Fed, OCC and FDIC release (SR 26-2) to April and says it revises model risk standards for banks with more than $30 billion in assets and explicitly leaves out generative and agentic AI. Collibra blog "Collibra AI Governance and OSFI E-23": repository can serve as a model inventory meeting E-23 (risk classification, validation dates, monitoring results). Collibra BCBS 239 material covers risk data lineage.
+- Credo AI blog: SR 11-7 "guides a well-established approach focused on model-level validation, performance monitoring and traditional model risk controls"; positions AI governance as enterprise-wide incl. third-party vendors and agents. Credo lists Collibra integration.
+- ModelOp comparison/FAQ pages (vendor-authored): describes Collibra as a data governance tool and Credo as compliance-focused.
+- No PRA SS1/23 claims found on modelop.com, collibra.com or credo.ai in this search.

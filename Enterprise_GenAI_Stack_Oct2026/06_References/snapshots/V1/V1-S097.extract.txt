@@ -1,0 +1,8 @@
+SOURCE ID: V1-S097
+URL: https://huggingface.co/docs/inference-endpoints/en/security
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Hugging Face Inference Endpoints SOC 2 Type 2 HIPAA BAA Enterprise (allowed_domains huggingface.co)
+========================================================================
+
+Hugging Face guide: Hub, Inference Endpoints and Inference Providers hold SOC 2 Type II; report under NDA. Hub security docs: Business Associate Addendums available on an Enterprise Plan (Inference Endpoints not named). Inference Endpoints: private endpoints via AWS or Azure PrivateLink; payloads and tokens not stored; logs kept 30 days; TLS in transit.

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S041
+URL: https://docs.nvidia.com/nim/nemo-retriever/embedding/2.3/eula.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NeMo Retriever NIM license NVIDIA AI Enterprise production embedding NIM free developer program
+========================================================================
+
+NIM container governed by the NVIDIA Software License Agreement and Product-Specific Terms for AI Products; model governed by its own terms (NVIDIA Open Model License for the Llama-Nemotron embedding model). Other NVIDIA pages list MIT for NV-EmbedQA-E5-v5, Apache for Snowflake arctic-embed-l, Llama 3.2 community license for Llama-3.2-NV-EmbedQA-1B-v2. NGC collection page (https://catalog.ngc.nvidia.com/orgs/nim/-/collections/nemo-retriever/-) cites NVIDIA AI Product Agreement.

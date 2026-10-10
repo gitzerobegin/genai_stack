@@ -1,0 +1,9 @@
+SOURCE ID: A1-S119
+URL: https://www.confident-ai.com/docs/settings/data-residency
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Confident AI security SOC 2 HIPAA GDPR data residency EU self-hosted on-prem
+========================================================================
+
+Search result titles: "Data Residency" (confident-ai.com/docs/settings/data-residency); "Security & Compliance for Self-Hosted Deployments" (confident-ai.com/docs/self-hosting/security-and-compliance); "Data Handling" (confident-ai.com/docs/resources/data-handling); "Confident AI: Enterprise AI Evaluation & Observability Platform".
+Extracts: "All data processed and stored by Confident AI is encrypted at rest and protected by TLS in transit. We maintain SOC II and HIPAA compliance." "SOC II - Available for customers on the Team plan and above; HIPAA BAA - Available for customers on the Team plan and above." Data-handling page (conflict): "SOC II certifications are available for customers on the Enterprise plan" and "HIPAA Business Associate Agreements (BAAs) are available for customers on the Premium Plan as an add-on." GDPR handling applies to customers with data in EU region. Default US; "You can however login to EU (European Union) or AU (Australia)"; DeepEval page lists US (North Carolina) and EU (Frankfurt). Homepage: run the entire platform in your own VPC or on-prem; "self-hosting is available on our Enterprise plan". Self-hosting docs: Terraform module creates database, object storage and cluster in customer cloud account; Confident AI cannot read, copy or export data; SOC 2/HIPAA for self-hosted depend on customer environment.

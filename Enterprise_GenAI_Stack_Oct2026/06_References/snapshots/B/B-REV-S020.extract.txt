@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S020
+URL: https://www.braintrust.dev/docs/admin/access-control
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains braintrust.dev, www.braintrust.dev): Braintrust SSO SAML audit logs RBAC enterprise organization permissions
+========================================================================
+
+Braintrust docs "Access control", "Security" (braintrust.dev/docs/security) and "Administration", as summarised by the search tool:
+- Security docs: the UI supports SSO/SAML with Okta Workforce, Microsoft Entra ID and Google Workspace, plus OIDC for custom providers. Exact plan requirement for SSO not found in official docs.
+- Built-in groups: Owners, Engineers, Viewers, All AI Provider Access. Permissions can be set at organisation, project, organisation AI-provider or object level (experiment, dataset, prompt).
+- Custom permission groups, project groups, project-level and object-level permissions are Enterprise-only; Starter and Pro are limited to built-in groups.
+- "Manage access" is a super-user permission.

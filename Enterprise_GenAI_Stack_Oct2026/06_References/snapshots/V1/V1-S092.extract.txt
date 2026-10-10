@@ -1,0 +1,8 @@
+SOURCE ID: V1-S092
+URL: https://huggingface.co/blog/sentence-transformers-joins-hf
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Sentence Transformers moving to Hugging Face maintenance UKP Lab (allowed_domains huggingface.co, sbert.net)
+========================================================================
+
+Hugging Face announced that Sentence Transformers is transitioning from the UKP Lab at TU Darmstadt to Hugging Face. Tom Aarsen has maintained the library since late 2023 and will continue to lead it. Remains community-driven under Apache 2.0. Docs: "created by UKP Lab and being maintained by Hugging Face". Announcement roughly one year old at 8 October 2026 (exact date not in results).

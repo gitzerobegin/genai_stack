@@ -1,0 +1,12 @@
+SOURCE ID: V1-S006
+URL: https://openai.com/blog/openai-to-acquire-promptfoo
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI acquires Promptfoo (standard)
+========================================================================
+
+OpenAI announced the deal on March 9, 2026. OpenAI announced plans to acquire Promptfoo, an AI security and evaluation startup founded in 2024 by Ian Webster and Michael D'Angelo, for undisclosed terms.
+OpenAI's blog post says it will integrate Promptfoo's technology directly into OpenAI Frontier.
+OpenAI also said it plans to keep developing Promptfoo's open-source project.
+Closing status: One report says the deal still needs to meet standard closing conditions. No source confirming that the acquisition has closed was found.
+Price: OpenAI has not disclosed the financial terms.

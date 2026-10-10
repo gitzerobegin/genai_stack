@@ -1,0 +1,8 @@
+SOURCE ID: A3-S049
+URL: https://mem0.ai/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mem0 pricing plans 2026 Pro Enterprise graph memory
+========================================================================
+
+Search-tool summary: Mem0 has four tiers: a free Hobby plan, Starter at $19/month, Pro at $249/month, and a custom-priced Enterprise plan. Hobby (free): 10,000 add requests and 1,000 retrieval requests per month, with one project; 'The Hobby plan is permanently free - no credit card required.' Starter ($19/month): 50,000 add requests and 5,000 retrieval requests per month, one project. Pro ($249/month): 500,000 add requests and 50,000 retrieval requests per month, unlimited projects, advanced analytics, private Slack support, graph memory (entity linking), and Dream (memory consolidation). Enterprise (custom): unlimited requests and projects, plus on-prem deployment, audit logs, SSO, custom integrations, and SLA support. The site also mentions usage-based pricing as an option.

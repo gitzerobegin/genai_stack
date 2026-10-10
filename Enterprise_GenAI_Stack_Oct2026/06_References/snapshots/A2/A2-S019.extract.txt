@@ -1,0 +1,8 @@
+SOURCE ID: A2-S019
+URL: https://pymnts.com/startups/2026/ai-startup-cohere-targets-20-billion-dollar-valuation-funding-round/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere funding 2025 2026 valuation acquisition
+========================================================================
+
+The Globe and Mail reported on September 11, 2026 that Cohere was in advanced talks to raise $2 billion to $3 billion at a $20 billion valuation. The deal had not been finalized. Cohere said it does not comment on speculation but confirmed strong investor interest in its Series E process. September 2025 extension added $100 million, valuation $7 billion.

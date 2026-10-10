@@ -1,0 +1,8 @@
+SOURCE ID: A4-S049
+URL: https://crewai.com/agent-management-platform
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CrewAI AMP Agent Management Platform enterprise SOC 2 HIPAA on-premise pricing
+========================================================================
+
+AMP product page: "deployed securely on your own infrastructure — on-prem or private VPCs in AWS, Azure, or GCP." Docs: "CrewAI AMP - CrewAI Platform" (docs.crewai.com/en/enterprise/introduction). Blog: "CrewAI AMP - The Agent Management Platform" (product previously referred to as CrewAI Enterprise; one blog post used "AOP"). HPE partnership blog: hardware pre-installed with CrewAI Enterprise for on-prem.

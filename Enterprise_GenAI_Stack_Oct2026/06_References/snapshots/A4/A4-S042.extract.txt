@@ -1,0 +1,8 @@
+SOURCE ID: A4-S042
+URL: https://www.llamaindex.ai/blog/llamaagents-build-serve-and-deploy-document-agents
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LlamaIndex Workflows 1.0 agents LlamaCloud LlamaAgents announcement
+========================================================================
+
+LlamaAgents open preview (November 2025), focused on document extraction agents; combines LlamaParse document processing with Agent Workflows orchestration; templates for invoice processing, contract review, claims handling; managed cloud or bring-your-own infrastructure. llamactl CLI released to build, serve and deploy Agent Workflows; deployments viewable in the LlamaCloud UI or callable as headless API. Newsletter Feb 2026: LlamaAgents Builder launched — users describe the document processing agent in natural language and the builder generates Workflow code they can inspect, customise and deploy. Naming: LlamaCloud is now LlamaParse (per LlamaIndex 2026 newsletters).

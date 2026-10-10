@@ -1,0 +1,9 @@
+SOURCE ID: B-L2-S003
+URL: https://docs.nvidia.com/dynamo/dev/reference/enterprise/support-coverage
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: NVIDIA Dynamo NVIDIA AI Enterprise support production branch (allowed: nvidia.com, docs.nvidia.com, developer.nvidia.com)
+========================================================================
+
+Dynamo Support Coverage (search-tool extract): Dynamo Enterprise Support is an NVAIE Feature Branch and follows the NVIDIA AI Enterprise Lifecycle Policy under the terms for Application Layer Software. Each Feature Branch is supported for one month, and NVIDIA publishes a new Feature Branch monthly. Bug fixes and security updates ship in subsequent releases rather than as backports. An active NVIDIA AI Enterprise subscription is required to open commercial support cases and receive NVIDIA Enterprise Support. The software is available without an NVIDIA AI Enterprise subscription and at no charge for access and use in development or production. Only the exact -enterprise artifacts and versions listed in the Dynamo Enterprise collection are covered.
+Contrast (NVIDIA AI Enterprise docs): Production Branches deliver 9-month support with API stability and regular security updates; Dynamo not seen on the production-branch table.

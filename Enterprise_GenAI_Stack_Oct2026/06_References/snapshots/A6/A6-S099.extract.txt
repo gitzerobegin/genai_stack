@@ -1,0 +1,15 @@
+SOURCE ID: A6-S099
+URL: https://www.okta.com/newsroom/press-releases/okta-brings-first-class-identity-to-ai-agents-with-agent-sso/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Okta Cross App Access generally available Okta for AI Agents identity security fabric 2026 (site:okta.com, developer.okta.com, help.okta.com)
+========================================================================
+
+Related: https://support.okta.com/help/s/article/okta-introduces-agent-sso-for-cross-app-access-xaa?language=en_US ; https://help.okta.com/oie/en-us/content/topics/releasenotes/production.htm ; https://www.okta.com/newsroom/press-releases/ai-innovations-oktane-2026/
+
+Extract as returned by search tool:
+Cross App Access (XAA) is generally available, and ships through two Okta products: Agent SSO, which is included in core SSO, and Okta for AI Agents, which is a separate subscription.
+Agent SSO: Okta announced its general availability on August 24, 2026, "included in core Okta SSO at no additional cost. Okta for AI Agents is available as a separate subscription." Okta's support documentation describes Agent SSO as Generally Available and included in core workforce SSO plans. (One Okta press release says GA since May 2026 - dates conflict.)
+XAA: "an open, vendor-neutral protocol that allows identity security to follow agents dynamically across applications"; it "extends OAuth and is formally incorporated as the official Enterprise-Managed Authorization extension for the Model Context Protocol". Release notes say XAA removes the need for user consent at runtime. Help docs: all Okta orgs can use Cross App Access (XAA).
+Integration network support: Anthropic (Claude), Archestra.AI, Asana, Atlassian, Canva, Datadog, Figma, Glean, Granola, Linear, MintMCP, Notion, Slack, Supabase.
+Oktane 2026: Agent Gateway and Shadow AI Agent Discovery for Endpoints planned to be GA in Q3 (not confirmed).

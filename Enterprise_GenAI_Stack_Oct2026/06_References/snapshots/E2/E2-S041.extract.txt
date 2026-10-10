@@ -1,0 +1,11 @@
+SOURCE ID: E2-S041
+URL: https://investor.salesforce.com/news/news-details/2025/Salesforce-Launches-AgentExchange-the-Trusted-Marketplace-for-Agentforce/default.aspx
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Salesforce AgentExchange launch marketplace Agentforce partners security review listing
+========================================================================
+
+Search tool summary (results: investor.salesforce.com press release; businesswire.com 4 March 2025; salesforceben.com; destinationcrm.com; smallbiztrends.com; cyntexa.com; channeldrive.in).
+- Salesforce launched AgentExchange on 4 March 2025 as a marketplace and community built into Agentforce, drawing on the AppExchange model; partners, developers and the Agentblazer community build and monetise agentic AI components; customers discover, try and buy prebuilt partner actions, topics and templates.
+- Launched with more than 200 initial partners and hundreds of ready-made actions, topics and templates, which Salesforce said had passed "rigorous security and customer reviews". Early partners named include Google Cloud, Box, DocuSign and Workday.
+- Mechanics of the security review (criteria, process) not described in the results.

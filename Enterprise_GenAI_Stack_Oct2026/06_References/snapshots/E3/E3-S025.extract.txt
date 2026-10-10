@@ -1,0 +1,12 @@
+SOURCE ID: E3-S025
+URL: https://developers.openai.com/codex/config-advanced
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Codex CLI config model_providers custom provider Ollama Azure
+========================================================================
+
+Search-tool summary of developers.openai.com/codex/config-advanced and /codex/config-reference:
+- Custom providers are defined under [model_providers.<id>] and selected with model_provider. The docs' example includes a local Ollama entry (base_url http://localhost:11434/v1) and an Azure entry using the "responses" wire API.
+- Built-in provider IDs openai, ollama and lmstudio are reserved and cannot be overridden.
+- Project-level .codex/config.toml files ignore model_provider and model_providers; put provider, notification and telemetry keys in user-level config.
+- The --oss flag is the shortcut for local models; oss_provider picks the default local provider (lmstudio | ollama). Ollama's docs show `codex --oss -m gpt-oss:120b`.

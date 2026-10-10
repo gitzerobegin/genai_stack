@@ -1,0 +1,12 @@
+SOURCE ID: A6-S096
+URL: https://www.businesswire.com/news/home/20240328765469/en/Skyflow-Raises-$30-Million-led-by-Khosla-Ventures-for-Data-Privacy-in-AI-and-Global-Data-Residency
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: "Skyflow Raises $30 Million to Bring Data Privacy to Enterprise LLMs"
+========================================================================
+
+Related: https://www.skyflow.com/press/skyflow-raises-30-million-to-bring-data-privacy-to-enterprise-llms ; https://finovate.com/data-privacy-vault-skyflow-secures-30-million-in-new-funding/ ; https://ca.news.yahoo.com/skyflow-raises-30m-more-ai-180745781.html
+
+Extract as returned by search tool:
+Skyflow, a data privacy vault company, raised $30 million as an extension of its Series B. Khosla Ventures led the round, with prior investors Mouro Capital, Foundation Capital and Canvas Ventures also participating. Skyflow's own news page dates the headline to April 5, 2024, while the initial announcement circulated in late March 2024 (Business Wire 28 March 2024).
+The company reported revenue growth of more than 210%. A TechCrunch interview (via Yahoo) said LLM-related usage went from 0% to around 30% of revenue. Skyflow was founded in 2019. Prior Series B was $45 million in 2021. Crunchbase data cited by Finovate puts total equity capital at $100 million. Customers named: GoodRx, Lenovo, Hippocratic AI. Uses "polymorphic encryption".

@@ -1,0 +1,8 @@
+SOURCE ID: E1-S032
+URL: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AI Act Article 11 SMEs simplified technical documentation
+========================================================================
+
+Search-tool extract: 'SMEs, including start-ups, and SMCs, may provide the elements of the technical documentation specified in Annex IV in a simplified manner.' The Commission shall establish a simplified technical documentation form targeted at the needs of small and microenterprises (and SMCs), which notified bodies accept for conformity assessment.

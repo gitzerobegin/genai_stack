@@ -1,0 +1,14 @@
+SOURCE ID: A8-S019
+URL: https://digital-strategy.ec.europa.eu/en/faqs/general-purpose-ai-models-ai-act-questions-answers
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: General-purpose AI models obligations Article 53 Article 55 (Commission domains)
+========================================================================
+
+Search results: Commission "General-Purpose AI Models in the AI Act - Questions & Answers"; "Guidelines for providers of general-purpose AI models"; AI Act Service Desk Articles 53, 55, 111
+Search-tool extract:
+- Article 51: GPAI model with systemic risk if among the most advanced or equivalent impact; presumption where cumulative training compute greater than 10^25 FLOP; Commission may designate.
+- Article 53 (all GPAI providers): technical documentation for AI Office and authorities; information to downstream providers; copyright compliance policy; publish sufficiently detailed summary of training content using Commission template. Open-source exemption from documentation duties does not apply to models with systemic risk.
+- Article 55 (systemic risk): model evaluation with standardised protocols including adversarial testing; assess and mitigate systemic risks; report serious incidents; ensure cybersecurity.
+- Obligations applied from 2 August 2025. In first year AI Office works closely with providers. From 2 August 2026 Commission can enforce: request information, request model access for evaluations, require risk mitigation, fines up to 3% of global annual turnover, or require restriction/withdrawal/recall.
+- "Providers of general-purpose AI models that have been placed on the market before 2 August 2025 shall take the necessary steps in order to comply with the obligations laid down in this Regulation by 2 August 2027."

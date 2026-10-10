@@ -1,0 +1,8 @@
+SOURCE ID: A4-S054
+URL: https://developers.openai.com/api/docs/deprecations
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI winding down Agent Builder November 30 2026 Workspace Agents
+========================================================================
+
+Deprecations page: "June 3, 2026: Deprecation announced for Agent Builder. Nov 30, 2026: Agent Builder is scheduled to shut down." "See Migrate from Agent Builder to continue with the Agents SDK or ChatGPT Workspace Agents." AgentKit page: OpenAI began winding down Agent Builder and Evals in a June 3, 2026 update; from November 30, 2026 they will no longer be available on the OpenAI platform; for code-based workflows use the Agents SDK; for natural-language prompting use Workspace Agents in ChatGPT. ChatKit remains available.

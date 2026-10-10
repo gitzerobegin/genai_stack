@@ -1,0 +1,10 @@
+SOURCE ID: V1-S012
+URL: https://github.com/open-telemetry/semantic-conventions/releases/tag/v1.42.0
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenTelemetry semantic conventions gen_ai deprecated moved semantic-conventions-genai repository v1.42.0 (extended)
+========================================================================
+
+The core semantic-conventions v1.42.0 release lists under breaking changes: gen_ai.* attributes, metrics, events and spans (gen-ai, openai, mcp folders) are deprecated in the core repository and have moved to open-telemetry/semantic-conventions-genai. Instrumentations should refer to the new repository for the schema_url to use.
+opentelemetry.io/docs/specs/semconv/gen-ai/ is titled "Moved: Generative AI semantic conventions". The semconv landing page is titled "OpenTelemetry semantic conventions 1.44.0".
+The new repository has published no tagged release; GenAI conventions remain in Development; as of July 2026 no GenAI-specific span, event, metric or attribute is marked Stable (secondary: john-hodge.com, July 2026).

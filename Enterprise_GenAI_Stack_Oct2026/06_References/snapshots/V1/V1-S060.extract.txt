@@ -1,0 +1,8 @@
+SOURCE ID: V1-S060
+URL: https://www.cnbc.com/2026/08/19/stripe-openrouter-fintech-ai-model-marketplace-.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Stripe to acquire OpenRouter (extended)
+========================================================================
+
+Stripe and OpenRouter jointly confirmed the deal on 19 August 2026, after Bloomberg reported it three days earlier. Price not disclosed: Bloomberg "over $7 billion"; New York Times $7.5 billion; Axios cash-and-stock "above $8 billion"; Reuters slightly more than $8 billion. NYT: $1.5 billion allocated to founders. Less than three months earlier OpenRouter raised $113 million at about $1.3 billion. Deal expected to close within weeks, subject to customary conditions.

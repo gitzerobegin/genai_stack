@@ -1,0 +1,12 @@
+SOURCE ID: B-C4-S008
+URL: https://learn.microsoft.com/en-us/compliance/regulatory/offering-iso-27001
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed learn.microsoft.com): Azure compliance SOC 2 ISO/IEC 27001 in-scope services Microsoft Entra ID Microsoft Purview
+========================================================================
+
+Microsoft compliance offering pages, as reported by the search tool:
+- ISO/IEC 27001 (https://learn.microsoft.com/en-us/compliance/regulatory/offering-iso-27001): the Office 365 in-scope table lists Microsoft Entra ID and the Microsoft Purview portal for commercial, GCC, GCC High and DoD.
+- SOC 2 Type 2 (https://learn.microsoft.com/en-us/compliance/regulatory/offering-soc-2): the Office 365 table lists Microsoft Entra ID and the Microsoft Purview portal for GCC, GCC High and DoD; the commercial row names neither. Azure SOC 2 Type 2 report covers Azure, Dynamics 365, Power Platform and select Microsoft 365 services; reports issued semi-annually with bridge letters.
+- Microsoft's certifications do not confer certification on customer implementations.
+- Entra Agent ID, Microsoft Agent 365 and Purview DSPM are not named separately in the extract.

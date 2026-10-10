@@ -1,0 +1,8 @@
+SOURCE ID: A3-S043
+URL: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-registry
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MCP Registry general availability 2026 registry.modelcontextprotocol.io API v0.1 freeze
+========================================================================
+
+Search-tool summary: GitHub's Copilot documentation explains how to configure an MCP registry for an organization or enterprise; it says the registry launched using the v0 specification, [but] that version is now considered unstable and should not be implemented, and directs implementers to v0.1 instead. A Microsoft devblog describes creating a private MCP registry on Azure API Center and enforcing it in GitHub Copilot and VS Code ('Locking Down MCP').

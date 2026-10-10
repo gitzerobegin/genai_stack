@@ -1,0 +1,8 @@
+SOURCE ID: A4-S146
+URL: https://pytorch.org/blog/pytorch-foundation-welcomes-vllm/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: vLLM PyTorch Foundation hosted project joins
+========================================================================
+
+PyTorch Foundation expanded into an umbrella foundation on May 7, 2025; vLLM and DeepSpeed accepted as foundation-hosted projects by the Technical Advisory Council. Foundation-hosted projects adopt the foundation's open governance model and receive operational support (distinct from independently governed ecosystem projects; vLLM had earlier been a PyTorch ecosystem project). April 2026 Helion announcement lists foundation-hosted projects DeepSpeed, PyTorch, Ray and vLLM. Ray joined as hosted project (Sept/Oct 2025, sources differ).

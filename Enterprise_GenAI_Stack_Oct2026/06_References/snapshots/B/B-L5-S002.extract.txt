@@ -1,0 +1,14 @@
+SOURCE ID: B-L5-S002
+URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/storage-encryption.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.aws.amazon.com, aws.amazon.com): Amazon Bedrock AgentCore Memory encryption customer managed KMS key IAM CloudTrail
+========================================================================
+
+"Encrypt your Amazon Bedrock AgentCore Memory" (AgentCore Developer Guide), with related AWS pages, as reported by the search tool:
+- "Your data stored in AgentCore Memory is always encrypted at rest using AWS KMS keys. By default, encryption uses an AWS-owned and managed KMS key. You can optionally configure a customer-managed KMS key from your own AWS account."
+- Customer-managed key is chosen at creation (encryptionKeyArn; console "Customize encryption settings (advanced)"). The HarnessManagedMemoryConfiguration API reference says the key is not updatable after creation.
+- AWS Config managed rule bedrock-agentcore-memory-encryption-enabled is NON_COMPLIANT if AgentCore Memory does not have EncryptionKeyArn configured (limited Regions).
+- AWS Security Hub control BedrockAgentCore.3 fails if AgentCore Memory is not encrypted with a customer managed KMS key; key usage can be logged through AWS CloudTrail.
+- AWS Security Reference Architecture (Prescriptive Guidance, gen-auto-agents): "Encrypt memory resources with customer managed KMS keys and restrict IAM access to memory APIs (such as ListMemoryRecords, GetMemoryRecord, CreateMemoryRecord, and DeleteMemoryRecord) to authorized services only."
+- An AWS blog example configures CloudTrail advanced event selectors to capture GetMemoryRecord data events (sample setup, not an official requirement).

@@ -1,0 +1,8 @@
+SOURCE ID: A4-S147
+URL: https://www.morningstar.com/news/business-wire/20260505077157/radixark-launches-with-100-million-in-seed-funding-led-by-accel-to-grow-sglang-and-democratize-frontier-ai-infrastructure
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: RadixArk SGLang startup founded funding LMSYS relationship
+========================================================================
+
+Business Wire release (Palo Alto, 5 May 2026): RadixArk launched with $100 million seed funding at $400 million post-money valuation, led by Accel, co-led by Spark Capital; participants include NVentures (NVIDIA), AMD, MediaTek; angels include CEOs of Intel and Broadcom and co-founders of xAI and OpenAI. Founders Ying Sheng and Banghua Zhu. Company plans to steward SGLang while building a commercial end-to-end platform for training, fine-tuning, RL (Miles) and inference. LMSYS About: non-profit incorporated September 2024; "We developed SGLang, Chatbot Arena (now arena), and Vicuna"; SGLang originally developed at LMSYS, led by Ying Sheng and Lianmin Zheng. No source states transfer of SGLang code, trademark or governance from LMSYS to RadixArk.

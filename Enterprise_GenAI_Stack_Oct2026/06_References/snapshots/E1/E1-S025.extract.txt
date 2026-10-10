@@ -1,0 +1,13 @@
+SOURCE ID: E1-S025
+URL: https://eur-lex.europa.eu/eli/reg/2023/2854/oj/eng
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Data Act 2023/2854 switching charges 12 January 2027 Article 29 Article 25 Article 30 (eur-lex.europa.eu)
+========================================================================
+
+Search-tool extracts:
+- Article 29: 'From 12 January 2027, providers of data processing services shall not impose any switching charges on the customer for the switching process.' 'From 11 January 2024 to 12 January 2027, providers of data processing services may impose reduced switching charges' that shall not exceed the costs incurred by the provider directly linked to the switching process. Recitals: the withdrawal 'should specifically include data egress charges'; for in-parallel use, providers may charge data egress fees not exceeding costs incurred.
+- Article 25(2)(d): maximum notice period for initiating the switching process 'shall not exceed two months'. Mandatory maximum transitional period of 30 calendar days to complete the switch, during which the provider gives reasonable assistance and continuity. If technically unfeasible, the provider notifies within 14 working days, justifies it and proposes an alternative period that 'shall not exceed seven months'; burden of proof on the provider. The customer may extend the transitional period once.
+- Functional equivalence (Article 30(1)): applies to providers of IaaS-type services, only for features both source and destination offer independently; defined as re-establishing a minimum level of functionality on the basis of the customer's exportable data and digital assets; does not oblige the source provider to rebuild the service in the destination infrastructure.
+- Article 30(2): providers other than IaaS 'shall make open interfaces available to an equal extent to all their customers and the concerned destination providers ... free of charge to facilitate the switching process'.
+- Chapter IV (unfair contractual terms) applies to contracts concluded after 12 September 2025, and from 12 September 2027 to contracts concluded on or before 12 September 2025 that are open-ended or expire at least 10 years from 11 January 2024.

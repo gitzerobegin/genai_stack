@@ -1,0 +1,10 @@
+SOURCE ID: V2-S017
+URL: https://siliconangle.com/2026/10/06/mistral-launches-open-source-mistral-large-4-details-ai-roadmap/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral Large 4 public preview October 2026
+========================================================================
+
+Mistral opened a public preview of Mistral Large 4 on October 6, 2026, and says it will release the open weights before the end of October. Preview available only through Mistral's hosted API in Mistral Studio; weights not yet downloadable. Preview API price reported by one vendor-run page at $0.68 / $2.09 per 1M (unverified).
+Natively multimodal MoE; launch announcement cites 1 trillion parameters and 49 billion active; Mistral developer documentation lists 1.05 trillion total, 52 billion active. 1M-token context.
+VentureBeat: company plans to publish the model weights on Oct. 27 after a roughly three-week testing period; testing with cybersecurity leaders, vetted partners and state authorities.

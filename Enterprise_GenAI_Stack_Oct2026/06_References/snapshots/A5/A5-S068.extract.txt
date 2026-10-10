@@ -1,0 +1,12 @@
+SOURCE ID: A5-S068
+URL: https://www.alibabacloud.com/help/en/model-studio/model-pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qwen3.8 launch date Alibaba Qwen3.8-Max Qwen3.8-Flash Model Studio pricing announcement (allowed_domains alibabacloud.com, qwen.ai, alizila.com)
+========================================================================
+
+Search tool summary:
+- Model Studio console: Qwen3.8-2.4T-A95B is the open-source release of Qwen's latest flagship, launched August 2026; sparse MoE 2.4T total / ~95B active; hybrid attention; 1M context.
+- Alizila: Alibaba unveiled Qwen3.8-Flash, an open-weight multimodal MoE; weights on Hugging Face and ModelScope; API via Model Studio and Qwen Cloud (exact date not given; ~late August 2026).
+- qwen3.8-max (International scope): input US$2 / output US$6 per 1M, cached input US$0.25; Global scope US$1.65 / US$4.951; snapshot qwen3.8-max-0902; 1M context, 128K max output.
+- qwen3.8-flash: Singapore US$0.15 / US$0.47; Global/US (Virginia) US$0.113 / US$0.382.

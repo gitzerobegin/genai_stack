@@ -1,0 +1,13 @@
+SOURCE ID: A5-S022
+URL: https://platform.claude.com/docs/en/models/mythos-5-1/overview
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Claude Fable 5.1 introducing release Mythos (allowed_domains anthropic.com, claude.com); docs pages render client-side so direct snapshot returned no body
+========================================================================
+
+Links: Introducing Claude Fable 5.1 and Claude Mythos 5.1 (anthropic.com/claude-fable-and-mythos-5-1); What's new in Claude Fable 5.1 (platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1); Claude Mythos 5.1 (platform.claude.com/docs/en/models/mythos-5-1/overview); System Card: Claude Fable 5.1 & Claude Mythos 5.1 September 1, 2026 (www-cdn.anthropic.com PDF); Claude Fable 5.1 overview; Claude Mythos (anthropic.com/claude/mythos); Migrating to Claude Fable 5.1 and Claude Mythos 5.1; Release notes (support.claude.com).
+Search tool summary:
+- Fable 5.1 and Mythos 5.1 launched September 1, 2026; same underlying model with different safeguards. Fable 5.1 generally available; Mythos 5.1 limited to vetted organisations through trusted access programmes ("Project Glasswing" invite-only in docs).
+- 1M-token context window, 128k max output; $10 / $50 per million input/output tokens.
+- Fable 5.1 available on Claude API and on AWS, Google Cloud and Microsoft Azure, model ID claude-fable-5-1. Mythos 5.1 currently limited to a set of US organisations.
+- Customer quote: Rogo contract-redlining benchmark from 47.9 to 57.0 vs Fable 5 (vendor-selected).

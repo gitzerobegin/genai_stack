@@ -1,0 +1,11 @@
+SOURCE ID: E3-S048
+URL: https://trust-center.jetbrains.com/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: JetBrains Junie enterprise JetBrains AI Enterprise on-premises bring your own model data retention SOC 2
+========================================================================
+
+Search-tool summary of trust-center.jetbrains.com and jetbrains.com/help/ai/data-retention.html:
+- Trust Center lists a SOC 2 Type II report covering JetBrains AI, the IDEs and IDE Services, and a separate SOC 2 Type II report for Junie. The new SOC 2 Type II report for the 2024/25 period was published 20 November 2025.
+- No JetBrains ISO 27001 certification for its own products was found in the results.
+- Data retention help page: JetBrains does not persist any customer data unless a user opts in to Detailed Data Collection (described as Zero Data Retention); retention by the model provider is governed by that provider's own policy.

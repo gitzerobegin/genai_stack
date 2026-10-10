@@ -1,0 +1,8 @@
+SOURCE ID: V2-S041
+URL: https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ClickHouse acquires Langfuse
+========================================================================
+
+ClickHouse has acquired Langfuse; ClickHouse's announcement dated January 16, 2026. Price not disclosed. Announced alongside completion of a $400 million Series D. Founders Marc Klingen, Max Deichmann, Clemens Rawert and team joined ClickHouse. Langfuse announcement: roadmap stays the same, committed to open source and self-hosting, no planned changes to licensing. Orrick: Langfuse had more than 2,000 paying customers.

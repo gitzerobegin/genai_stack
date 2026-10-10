@@ -1,0 +1,8 @@
+SOURCE ID: A2-S043
+URL: https://cloud.google.com/vertex-ai/docs/general/vertexai-compliance
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Vertex AI generative AI compliance certifications SOC 2 ISO 27001 HIPAA FedRAMP Gemini models (allowed: cloud.google.com, docs.cloud.google.com)
+========================================================================
+
+Generative AI on Vertex AI (platform for Gemini models) covered by SOC 2, ISO 27001, HIPAA, and FedRAMP High. HIPAA support began June 2023 covering Model Garden and Generative AI Studio components. ISO/IEC 42001 page (https://cloud.google.com/security/compliance/iso-42001) lists Generative AI on the platform among in-scope products. FedRAMP High blog: https://cloud.google.com/blog/topics/public-sector/vertex-ai-search-and-generative-ai-with-gemini-achieve-fedramp-high. Scope can vary by product and feature.

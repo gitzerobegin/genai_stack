@@ -1,0 +1,8 @@
+SOURCE ID: E1-S044
+URL: https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SB 53 Transparency in Frontier Artificial Intelligence Act large frontier developer (leginfo.legislature.ca.gov, gov.ca.gov)
+========================================================================
+
+Search-tool extract: signed 29 September 2025. 'Large frontier developer' means a frontier developer that together with its affiliates collectively had annual gross revenues in excess of $500,000,000 in the preceding calendar year. Section 22757.12 requires a large frontier developer to write, implement, comply with, and clearly and conspicuously publish a frontier AI framework on its website, reviewed at least annually; material modifications published with justification within 30 days. Critical safety incidents are reported to the Office of Emergency Services within 15 days (24 hours where there is imminent risk of death or serious physical injury). Civil penalties enforced by the Attorney General; whistleblower protections. Secondary sources give the effective date as 1 January 2026 and penalties up to $1,000,000 per violation.

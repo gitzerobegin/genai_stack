@@ -1,0 +1,8 @@
+SOURCE ID: A4-S151
+URL: https://docs.together.ai/docs/sso
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Together AI Enterprise SSO SAML RBAC audit logs
+========================================================================
+
+SSO docs: SAML and OIDC supported (Google Workspace, Okta, Microsoft Entra, JumpCloud); available for Scale and Enterprise accounts; JIT provisioning via IdP; IdP deactivation revokes access. RBAC: organisation roles admin and developer, plus project level; "Role-based access control for fine-tuning, endpoints, serverless inference, and other products is still being rolled out. Today, all project collaborators (both admins and editors) have full access to these services." GPU clusters: external OIDC binding Kubernetes RBAC to user identities; per-user audit trails. Endpoint audit/lifecycle events via CLI. No standalone customer audit-log product found. Trust Center exists at trust.together.ai.

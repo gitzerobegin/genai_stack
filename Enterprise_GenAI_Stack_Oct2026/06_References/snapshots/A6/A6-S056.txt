@@ -1,0 +1,526 @@
+SOURCE ID: A6-S056
+URL: https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/azure-government/compliance/azure-services-in-fedramp-auditscope.md
+FINAL URL: https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/azure-government/compliance/azure-services-in-fedramp-auditscope.md
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+---
+title: Azure and other Microsoft cloud services compliance scope
+description: FedRAMP & DoD compliance scope for Azure, Dynamics 365, Microsoft 365, and Power Platform for Azure, Azure Government, & Azure Government Secret.
+author: Jain-Garima
+ms.author: eliotgra
+ms.topic: article
+ms.service: azure-government
+ms.custom: references_regions
+recommendations: false
+ms.date: 9/21/2026
+---
+
+# Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
+
+Microsoft Azure cloud environments meet demanding US government compliance requirements that produce formal authorizations, including:
+
+- [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP)
+- Department of Defense (DoD) Cloud Computing [Security Requirements Guide](https://public.cyber.mil/dccs/dccs-documents/) (SRG) Impact Level (IL) 2, 4, 5, and 6
+- [Joint Special Access Program (SAP) Implementation Guide (JSIG)](https://www.dcsa.mil/portals/91/documents/ctp/nao/JSIG_2016April11_Final_(53Rev4).pdf)
+
+**Azure** (also known as Azure Commercial, Azure Public, or Azure Global) maintains the following authorizations that pertain to all Azure public regions in the United States:
+
+- [FedRAMP High](/azure/compliance/offerings/offering-fedramp) Provisional Authorization to Operate (P-ATO) issued by the FedRAMP Joint Authorization Board (JAB)
+- [DoD IL2](/azure/compliance/offerings/offering-dod-il2) Provisional Authorization (PA) issued by the Defense Information Systems Agency (DISA)
+
+**Azure Government** maintains the following authorizations that pertain to Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions):
+
+- [FedRAMP High](/azure/compliance/offerings/offering-fedramp) P-ATO issued by the JAB
+- [DoD IL2](/azure/compliance/offerings/offering-dod-il2) PA issued by DISA
+- [DoD IL4](/azure/compliance/offerings/offering-dod-il4) PA issued by DISA
+- [DoD IL5](/azure/compliance/offerings/offering-dod-il5) PA issued by DISA
+
+For current Azure Government regions and available services, see [Products available by region](https://go.microsoft.com/fwlink/?linkid=2274941&clcid=0x409).
+
+> [!NOTE]
+>
+> - Some Azure services deployed in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
+> - For DoD IL5 PA compliance scope in Azure Government regions US DoD Central and US DoD East (US DoD regions), see **[US DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
+> - For full list of M365 GCC high services authorized for FedRAMP High, see **[Microsoft Office 365 GCC High FedRAMP Marketplace](https://marketplace.fedramp.gov/products/MSO365MT)**. Azure Communication Services operates under the same infrastructure that powers Microsoft Teams and obtained FedRAMP High accreditation as part of the M365 GCC-High service offering.
+
+**Azure Government Secret** maintains:
+
+- [DoD IL6](/azure/compliance/offerings/offering-dod-il6) PA issued by DISA
+- [JSIG PL3](/azure/compliance/offerings/offering-jsig) ATO (for authorization details, contact your Microsoft account representative)
+
+**Azure Government Top Secret** maintains:
+
+- [ICD 503](/azure/compliance/offerings/offering-icd-503) ATO with facilities at ICD 705 (for authorization details, contact your Microsoft account representative)
+- [JSIG PL3](/azure/compliance/offerings/offering-jsig) ATO (for authorization details, contact your Microsoft account representative)
+
+This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
+
+## Azure public services by audit scope
+*Last updated: February 2026*
+
+### Terminology used
+
+- FedRAMP High = FedRAMP High Provisional Authorization to Operate (P-ATO) in Azure
+- DoD IL2 = DoD SRG Impact Level 2 Provisional Authorization (PA) in Azure
+- ✅ = service is included in audit scope and has been authorized
+
+| Service | FedRAMP High | DoD IL2 |
+| ------- |:------------:|:-------:|
+| [Advisor](/azure/advisor/) | ✅ | ✅ |
+| [AI Builder](/ai-builder/) | ✅ | ✅ |
+| [Analysis Services](../../analysis-services/index.yml) | ✅ | ✅ |
+| [API Management](../../api-management/index.yml) | ✅ | ✅ |
+| [App Configuration](../../azure-app-configuration/index.yml) | ✅ | ✅ |
+| [App Service](../../app-service/index.yml) | ✅ | ✅ |
+| [Application Gateway](../../application-gateway/index.yml) | ✅ | ✅ |
+| [Automation](../../automation/index.yml) | ✅ | ✅ |
+| [Microsoft Entra ID (Free)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) *****| ✅ | ✅ |
+| [Microsoft Entra ID (P1 + P2)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | ✅ | ✅ |
+| [Azure Active Directory B2C](../../active-directory-b2c/index.yml) | ✅ | ✅ |
+| [Microsoft Entra Domain Services](../../active-directory-domain-services/index.yml) | ✅ | ✅ |
+| [Microsoft Entra provisioning service](../../active-directory/app-provisioning/how-provisioning-works.md)| ✅ | ✅ |
+| [Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | ✅ | ✅ |
+| [Azure Health Data Services](../../healthcare-apis/azure-api-for-fhir/index.yml) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Azure Arc-enabled servers](/azure/azure-arc/servers/) | ✅ | ✅ |
+| [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) | ✅ | ✅ |
+| [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview) | ✅ | ✅ |
+| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | ✅ | ✅ |
+| [Azure Cosmos DB (Including DocumentDB)](/azure/cosmos-db/) | ✅ | ✅ |
+| [Azure Container Apps](../../container-apps/index.yml) | ✅ | ✅ |
+| [Azure Database for MySQL](/azure/mysql/) | ✅ | ✅ |
+| [Azure Database for PostgreSQL](/azure/postgresql/) | ✅ | ✅ |
+| [Azure Databricks](/azure/databricks/) ****** | ✅ | ✅ |
+| [Azure Fluid Relay](../../azure-fluid-relay/index.yml) | ✅ | ✅ |
+| [Azure for Education](https://azureforeducation.microsoft.com/) | ✅ | ✅ |
+| [Azure Information Protection](/azure/information-protection/) | ✅ | ✅ |
+| [Azure Kubernetes Service (AKS)](/azure/aks/) | ✅ | ✅ |
+| [Azure Load Testing](/azure/load-testing/) | ✅ | ✅ |
+| [Azure Managed Grafana](../../managed-grafana/index.yml) | ✅ | ✅ |
+| [Azure Marketplace portal](https://azuremarketplace.microsoft.com/) | ✅ | ✅ |
+| [Azure Maps](../../azure-maps/index.yml) | ✅ | ✅ |
+| [Azure Monitor](/azure/azure-monitor/) (incl. [Application Insights](/azure/azure-monitor/app/app-insights-overview), [Log Analytics](/azure/azure-monitor/logs/data-platform-logs), and [Application Change Analysis](/azure/azure-monitor/app/change-analysis)) | ✅ | ✅ |
+| [Azure NetApp Files](../../azure-netapp-files/index.yml) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Azure OpenAI](/azure/ai-services/openai/) | ✅ | ✅ |
+| [Azure Policy](../../governance/policy/index.yml) | ✅ | ✅ |
+| [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | ✅ | ✅ |
+| [Azure Red Hat OpenShift](/azure/openshift/) | ✅ | ✅ |
+| [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | ✅ | ✅ |
+| [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | ✅ | ✅ |
+| [Azure Sign-up portal](https://signup.azure.com/) | ✅ | ✅ |
+| [Azure Sphere](/azure-sphere/) | ✅ | ✅ |
+| [Azure Spring Apps](../../spring-apps/index.yml) | ✅ | ✅ |
+| [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) ******* | ✅ | ✅ |
+| [Azure Local](/azure-stack/hci/) ******* | ✅ | ✅ |
+| [Azure Static WebApps](../../static-web-apps/index.yml) | ✅ | ✅ |
+| [Azure Update Manager](/azure/update-manager/) | ✅ | ✅ |
+| [Azure Video Indexer](/azure/azure-video-indexer/) | ✅ | ✅ |
+| [Azure Virtual Desktop](/azure/virtual-desktop/) (formerly Windows Virtual Desktop) | ✅ | ✅ |
+| [Azure VMware Solution](../../azure-vmware/index.yml) | ✅ | ✅ |
+| [Azure Web PubSub](../../azure-web-pubsub/index.yml) | ✅ | ✅ |
+| [Backup](../../backup/index.yml) | ✅ | ✅ |
+| [Bastion](../../bastion/index.yml) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Batch](../../batch/index.yml) | ✅ | ✅ |
+| [Blueprints](../../governance/blueprints/index.yml) | ✅ | ✅ |
+| [Bot Service](/azure/bot-service/) | ✅ | ✅ |
+| [Cloud Services](../../cloud-services/index.yml) | ✅ | ✅ |
+| [Cloud Services Extended Support](../../cloud-services-extended-support/index.yml) | ✅ | ✅ |
+| [Cloud Shell](../../cloud-shell/overview.md) | ✅ | ✅ |
+| [Azure AI Health Bot](/healthbot/) | ✅ | ✅ |
+| [Foundry: Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) | ✅ | ✅ |
+| [Foundry: Azure AI Anomaly Detector](/azure/ai-services/anomaly-detector/) | ✅ | ✅ |
+| [Foundry: Azure AI Computer Vision](/azure/ai-services/computer-vision/) | ✅ | ✅ |
+| [Foundry: Azure AI Content Moderator](/azure/ai-services/content-moderator/) | ✅ | ✅ |
+| [Foundry Tools: Containers](/azure/ai-services/cognitive-services-container-support) | ✅ | ✅ |
+| [Foundry: Azure AI Custom Vision](/azure/ai-services/custom-vision-service/) | ✅ | ✅ |
+| [Foundry: Azure AI Face](/azure/ai-services/computer-vision/overview-identity) | ✅ | ✅ |
+| [Foundry: Language Understanding (LUIS)](/azure/ai-services/luis/) 
+ (part of [Azure Language in Foundry Tools](/azure/ai-services/language-service/)) | ✅ | ✅ |
+| [Foundry: Azure AI Personalizer](/azure/ai-services/personalizer/) | ✅ | ✅ |
+| [Foundry: Azure AI QnA Maker](/azure/ai-services/qnamaker/) 
+ (part of [Language](/azure/ai-services/language-service/)) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Foundry: Azure Speech in Foundry Tools](/azure/ai-services/speech-service/) | ✅ | ✅ |
+| [Foundry Tools: Text Analytics](/azure/ai-services/language-service/concepts/migrate#do-i-need-to-migrate-to-the-language-service-if-i-am-using-text-analytics) 
+ (part of [Language](/azure/ai-services/language-service/)) | ✅ | ✅ |
+| [Foundry: Azure Translator in Foundry Tools](/azure/ai-services/translator/) | ✅ | ✅ |
+| [Container Instances](/azure/container-instances/) | ✅ | ✅ |
+| [Container Registry](/azure/container-registry/) | ✅ | ✅ |
+| [Content Delivery Network (CDN)](../../cdn/index.yml) | ✅ | ✅ |
+| [Cost Management and Billing](../../cost-management-billing/index.yml) | ✅ | ✅ |
+| [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | ✅ | ✅ |
+| [Data Box](../../databox/index.yml) ******* | ✅ | ✅ |
+| [Data Explorer](/azure/data-explorer/) | ✅ | ✅ |
+| [Data Factory](../../data-factory/index.yml) | ✅ | ✅ |
+| [Data Share](../../data-share/index.yml) | ✅ | ✅ |
+| [Database Migration Service](/azure/dms/) | ✅ | ✅ |
+| [Dataverse](/powerapps/maker/data-platform/) (incl. [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake)) | ✅ | ✅ |
+| [DDoS Protection](../../ddos-protection/index.yml) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Dedicated HSM](/azure/dedicated-hsm/) | ✅ | ✅ |
+| [DevTest Labs](../../devtest-labs/index.yml) | ✅ | ✅ |
+| [DNS](../../dns/index.yml) | ✅ | ✅ |
+| [Omnichannel for Customer Service (Formerly Dynamics 365 Chat and Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | ✅ | ✅ |
+| [Dynamics 365 Commerce](/dynamics365/commerce/)| ✅ | ✅ |
+| [Dynamics 365 Contact Center](/dynamics365/contact-center)| ✅ | ✅ |
+| [Dynamics 365 Customer Service](/dynamics365/customer-service/overview)| ✅ | ✅ |
+| [Dynamics 365 Field Service](/dynamics365/field-service/overview)| ✅ | ✅ |
+| [Dynamics 365 Finance](/dynamics365/finance/)| ✅ | ✅ |
+| [Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/)| ✅ | ✅ |
+| [Dynamics 365 Guides](/dynamics365/mixed-reality/guides/)| ✅ | ✅ |
+| [Dynamics 365 Sales](/dynamics365/sales/help-hub) | ✅ | ✅ |
+| [Dynamics 365 Human Resources](/dynamics365/human-resources/)| ✅ | ✅ |
+| [Dynamics 365 Intelligent Order Management](/dynamics365/intelligent-order-management/) | ✅ | ✅ |
+| [Dynamics 365 Project Operations](/dynamics365/project-operations/)| ✅ | ✅ |
+| [Dynamics 365 Sales Professional](/dynamics365/sales/overview#dynamics-365-sales-professional) | ✅ | ✅ |
+| [Dynamics 365 Sales Insights](/dynamics365/sales/digital-selling) | ✅ | ✅ |
+| [Dynamics 365 Supply Chain Management](/dynamics365/supply-chain/)| ✅ | ✅ |
+| [Event Grid](../../event-grid/index.yml) | ✅ | ✅ |
+| [Event Hubs](../../event-hubs/index.yml) | ✅ | ✅ |
+| [ExpressRoute](../../expressroute/index.yml) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [File Sync](../../storage/file-sync/index.yml) | ✅ | ✅ |
+| [Firewall](../../firewall/index.yml)  | ✅ | ✅ |
+| [Firewall Manager](../../firewall-manager/index.yml)  | ✅ | ✅ |
+| [Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/) | ✅ | ✅ |
+| [Front Door](../../frontdoor/index.yml) | ✅ | ✅ |
+| [Functions](../../azure-functions/index.yml) | ✅ | ✅ |
+| [Global Secure Access](/entra/global-secure-access/) | ✅ | ✅ |
+| [HDInsight](../../hdinsight/index.yml) | ✅ | ✅ |
+| [HPC Cache](../../hpc-cache/index.yml) | ✅ | ✅ |
+| [Immersive Reader](/azure/ai-services/immersive-reader/) | ✅ | ✅ |
+| [Import/Export](../../import-export/index.yml) | ✅ | ✅ |
+| [Internet Analyzer](../../internet-analyzer/index.yml) | ✅ | ✅ |
+| [IoT Hub](../../iot-hub/index.yml) | ✅ | ✅ |
+| [Key Vault](/azure/key-vault/) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Lab Services](../../lab-services/index.yml) | ✅ | ✅ |
+| [Lighthouse](/azure/lighthouse/) | ✅ | ✅ |
+| [Load Balancer](../../load-balancer/index.yml) | ✅ | ✅ |
+| [Logic Apps](../../logic-apps/index.yml) | ✅ | ✅ |
+| [Machine Learning](/azure/machine-learning/) | ✅ | ✅ |
+| [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | ✅ | ✅ |
+| [Media Services](/azure/media-services/) | ✅ | ✅ |
+| [Metrics Advisor](/azure/ai-services/metrics-advisor/) | ✅ | ✅ |
+| [Microsoft Azure Attestation](/azure/attestation/)| ✅ | ✅ |
+| [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| ✅ | ✅ |
+| [Microsoft Defender for Cloud](/azure/defender-for-cloud/) (formerly Azure Security Center) | ✅ | ✅ |
+| [Microsoft Defender for Cloud Apps](/defender-cloud-apps/) (formerly Microsoft Cloud App Security) | ✅ | ✅ |
+| [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | ✅ | ✅ |
+| [Microsoft Defender for Identity](/defender-for-identity/) (formerly Azure Advanced Threat Protection) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Microsoft Defender for IoT](/azure/defender-for-iot/) (formerly Azure Security for IoT) | ✅ | ✅ |
+| [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/) | ✅ | ✅ |
+| [Microsoft Defender Threat Intelligence](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti) | ✅ | ✅ |
+| [Microsoft Entra ID Governance](/entra/id-governance/) | ✅ | ✅ |
+| [Microsoft Fabric](/fabric/) | ✅ | ✅ |
+| [Microsoft Graph](/graph/) | ✅ | ✅ |
+| [Microsoft Intune](/mem/intune/) | ✅ | ✅ |
+| [Microsoft Managed Desktop](/previous-versions/managed-desktop/overview/service-plan) | ✅ | ✅ |
+| [Microsoft Pin Reset Service](/windows/security/identity-protection/hello-for-business/pin-reset) | ✅ | ✅ |
+| [Microsoft Purview](../../purview/index.yml) (incl. Data Map, Data Estate Insights, and governance portal) | ✅ | ✅ |
+| [Microsoft Secure Score](/defender-xdr/microsoft-secure-score/) | ✅ | ✅ |
+| [Microsoft Sentinel](/azure/sentinel/) (formerly Azure Sentinel) | ✅ | ✅ |
+| [Microsoft Security Copilot](/copilot/security/) | ✅ | ✅ |
+| [Microsoft Stream](/stream/) | ✅ | ✅ |
+| [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | ✅ | ✅ |
+| [Migrate](../../migrate/index.yml) | ✅ | ✅ |
+| [Network Watcher](../../network-watcher/index.yml) (incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)) | ✅ | ✅ |
+| [Notification Hubs](../../notification-hubs/index.yml) | ✅ | ✅ |
+| [Open Datasets](/azure/open-datasets/) | ✅ | ✅ |
+| [Peering Service](../../peering-service/index.yml) | ✅ | ✅ |
+| [Planned Maintenance for VMs](/azure/virtual-machines/maintenance-and-updates) | ✅ | ✅ |
+| [Power Apps](/powerapps/) | ✅ | ✅ |
+| [Power Pages](https://powerapps.microsoft.com/portals/) (formerly PowerApps Portal)| ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Power Automate](/power-automate/) (formerly Microsoft Flow) | ✅ | ✅ |
+| [Power BI](/power-bi/fundamentals/) | ✅ | ✅ |
+| [Power BI Embedded](/power-bi/developer/embedded/) | ✅ | ✅ |
+| [Power Data Integrator for Dataverse](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | ✅ | ✅ |
+| [Microsoft Copilot Studio](/power-virtual-agents/) | ✅ | ✅ |
+| [Private Link](../../private-link/index.yml) | ✅ | ✅ |
+| [Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | ✅ | ✅ |
+| [Resource Graph](../../governance/resource-graph/index.yml) | ✅ | ✅ |
+| [Resource Mover](../../resource-mover/index.yml) | ✅ | ✅ |
+| [Route Server](../../route-server/index.yml) | ✅ | ✅ |
+| [Scheduler](../../scheduler/index.yml) (replaced by [Logic Apps](../../logic-apps/index.yml)) | ✅ | ✅ |
+| [Service Bus](../../service-bus-messaging/index.yml) | ✅ | ✅ |
+| [Service Connector](/azure/service-connector/) | ✅ | ✅ |
+| [Service Fabric](/azure/service-fabric/) | ✅ | ✅ |
+| [Service Health](/azure/service-health/) | ✅ | ✅ |
+| [SignalR Service](../../azure-signalr/index.yml) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Site Recovery](../../site-recovery/index.yml) | ✅ | ✅ |
+| [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | ✅ | ✅ |
+| [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) | ✅ | ✅ |
+| [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | ✅ | ✅ |
+| [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | ✅ | ✅ |
+| [Storage: Blobs](../../storage/blobs/index.yml) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | ✅ | ✅ |
+| [Storage: Disks (incl. managed disks)](/azure/virtual-machines/managed-disks-overview) | ✅ | ✅ |
+| [Storage: Files](../../storage/files/index.yml) | ✅ | ✅ |
+| [Storage: Queues](../../storage/queues/index.yml) | ✅ | ✅ |
+| [Storage: Tables](../../storage/tables/index.yml) | ✅ | ✅ |
+| [StorSimple](../../storsimple/index.yml) | ✅ | ✅ |
+| [Stream Analytics](../../stream-analytics/index.yml) | ✅ | ✅ |
+| [Synapse Analytics](../../synapse-analytics/index.yml) | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** |
+| [Traffic Manager](../../traffic-manager/index.yml) | ✅ | ✅ |
+| [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) | ✅ | ✅ |
+| [Virtual Machines](/azure/virtual-machines/) | ✅ | ✅ |
+| [Virtual Network](../../virtual-network/index.yml) | ✅ | ✅ |
+| [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | ✅ | ✅ |
+| [Virtual WAN](../../virtual-wan/index.yml) | ✅ | ✅ |
+| [VM Image Builder](/azure/virtual-machines/image-builder-overview) | ✅ | ✅ |
+| [VPN Gateway](../../vpn-gateway/index.yml) | ✅ | ✅ |
+| [Web Application Firewall](../../web-application-firewall/index.yml) | ✅ | ✅ |
+| [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) | ✅ | ✅ |
+
+***** FedRAMP High and DoD SRG Impact Level 2 authorization for Microsoft Entra ID applies to Microsoft Entra External ID. To learn more about Entra External ID, refer to the documentation [here](/entra/)
+
+****** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
+
+******* FedRAMP High authorization for edge devices (such as Azure Data Box, Azure Stack Edge and Azure Local) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Data Box pod and disk service, which are the online software components supporting your Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
+
+## Azure Government services by audit scope
+*Last updated: February 2026*
+
+### Terminology used
+
+- Azure Government = Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions)
+- FedRAMP High = FedRAMP High Provisional Authorization to Operate (P-ATO) in Azure Government
+- DoD IL2 = DoD SRG Impact Level 2 Provisional Authorization (PA) in Azure Government
+- DoD IL4 = DoD SRG Impact Level 4 Provisional Authorization (PA) in Azure Government
+- DoD IL5WI = DoD SRG Impact Level 5 Workload Isolation (IL5WI) Provisional Authorization (PA) in Azure Government
+- DoD IL6 = DoD SRG Impact Level 6 Provisional Authorization (PA) in Azure Government Secret
+- ✅ = service is included in audit scope and has been authorized
+
+> [!NOTE]
+>
+> - For DoD IL5 via Workload Isolation (IL5WI) PA compliance scope in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions), services require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
+> - For DoD IL5 PA compliance scope in US DoD Central and US DoD East (US DoD regions), see **[US DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
+
+| Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5WI | DoD IL6 |
+| ------- |:------------:|:-------:|:-------:|:-------:|:-------:|
+| [Advisor](/azure/advisor/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [AI Builder](/ai-builder/) | ✅ | ✅ | ✅ | ✅| |
+| [Analysis Services](../../analysis-services/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [API Management](../../api-management/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [App Configuration](../../azure-app-configuration/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [App Service](../../app-service/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Application Gateway](../../application-gateway/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Automation](../../automation/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Microsoft Entra ID (Free)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Microsoft Entra ID (P1 + P2)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Microsoft Entra Domain Services](../../active-directory-domain-services/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Microsoft Entra ID Governance](/entra/) | ✅ | ✅ | | | |
+| [Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure Arc-enabled servers](/azure/azure-arc/servers/) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview) | ✅ | ✅ | |  |  |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure Container Apps](../../container-apps/index.yml) | ✅ | ✅ |  |  |  |
+| [Azure Cosmos DB (Including DocumentDB)](/azure/cosmos-db/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure CXP Nomination Portal](https://cxp.azure.com/nominationportal/nominationform/fasttrack) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure Database for MySQL](/azure/mysql/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure Database for PostgreSQL](/azure/postgresql/) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure Databricks](/azure/databricks/) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure Information Protection](/azure/information-protection/) ****** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure Kubernetes Service (AKS)](/azure/aks/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure Fluid Relay](../../azure-fluid-relay/index.yml) | ✅ | ✅ | |  |  |
+| [Azure Load Testing](/azure/load-testing/) | ✅ | ✅ | |  |  |
+| [Azure Managed Grafana](../../managed-grafana/index.yml) | ✅ | ✅ | |  |  |
+| [Azure Maps](../../azure-maps/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure Monitor](/azure/azure-monitor/) (incl. [Application Insights](/azure/azure-monitor/app/app-insights-overview) and [Log Analytics](/azure/azure-monitor/logs/data-platform-logs)) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure NetApp Files](../../azure-netapp-files/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure OpenAI](/azure/ai-services/openai/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure Policy](../../governance/policy/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure Red Hat OpenShift](/azure/openshift/) | ✅ | ✅ | ✅ | ✅ |  |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/) | ✅ | ✅ | |  |  |
+| [Azure Sign-up portal](https://signup.azure.com/) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure Stack](/azure-stack/operator/azure-stack-usage-reporting) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) ***** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure Local](/azure-stack/hci/)  ***** | ✅ | ✅ | ✅ | ✅ |  |
+| [Azure Update Manager](/azure/update-manager/) | ✅ | ✅ |  |  |  |
+| [Azure Video Indexer](/azure/azure-video-indexer/)  | ✅ | ✅ | ✅ | | |
+| [Azure Virtual Desktop](/azure/virtual-desktop/) (formerly Windows Virtual Desktop) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Azure VMware Solution](../../azure-vmware/index.yml) | ✅ | ✅ | ✅ | ✅ |  |
+| [Azure Web PubSub](../../azure-web-pubsub/index.yml) | ✅ | ✅ | |  |  |
+| [Backup](../../backup/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Bastion](../../bastion/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Batch](../../batch/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Blueprints](../../governance/blueprints/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Bot Service](/azure/bot-service/) | ✅ | ✅ | ✅ | ✅ | |
+| [Cloud Services](../../cloud-services/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Cloud Services Extended Support](../../cloud-services-extended-support/index.yml) | ✅ | ✅ |  |  |  |
+| [Cloud Shell](../../cloud-shell/overview.md) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Foundry: Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Foundry: Azure AI Computer Vision](/azure/ai-services/computer-vision/) | ✅ | ✅ | ✅ | ✅ | |
+| [Foundry: Azure AI Content Moderator](/azure/ai-services/content-moderator/) | ✅ | ✅ | ✅ | ✅ | |
+| [Azure AI containers](/azure/ai-services/cognitive-services-container-support) | ✅ | ✅ | ✅ | ✅ | |
+| [Foundry: Azure AI Custom Vision](/azure/ai-services/custom-vision-service/) | ✅ | ✅ | ✅ | ✅ | |
+| [Foundry: Azure AI Face](/azure/ai-services/computer-vision/overview-identity) | ✅ | ✅ | ✅ | ✅ | |
+| [Foundry: LUIS](/azure/ai-services/luis/)  (part of [Language](/azure/ai-services/language-service/)) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Foundry: Azure AI Personalizer](/azure/ai-services/personalizer/) | ✅ | ✅ | ✅ | ✅ | |
+| [Foundry: Azure AI QnA Maker](/azure/ai-services/qnamaker/) 
+ (part of [Language](/azure/ai-services/language-service/)) | ✅ | ✅ | ✅ | ✅ | |
+| [Foundry: Speech](/azure/ai-services/speech-service/) | ✅ | ✅ | ✅ | ✅ | |
+| [Foundry Tools: Text Analytics](/azure/ai-services/language-service/concepts/migrate#do-i-need-to-migrate-to-the-language-service-if-i-am-using-text-analytics) 
+ (part of [Language](/azure/ai-services/language-service/)) | ✅ | ✅ | ✅ | ✅ | |
+| [Foundry: Translator](/azure/ai-services/translator/) | ✅ | ✅ | ✅ | ✅ | |
+| [Foundry: Azure AI Content Safety](/azure/ai-services/content-safety/) | ✅ | ✅ |  |  | |
+| [Container Instances](/azure/container-instances/)| ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Container Registry](/azure/container-registry/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Content Delivery Network (CDN)](../../cdn/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Cost Management and Billing](../../cost-management-billing/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | ✅ | ✅ | ✅ | ✅ | |
+| [Data Box](../../databox/index.yml) ***** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Data Explorer](/azure/data-explorer/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Data Factory](../../data-factory/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Data Share](../../data-share/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Database Migration Service](/azure/dms/) | ✅ | ✅ | ✅ | ✅ | |
+| [Dataverse](/powerapps/maker/data-platform/) (formerly Common Data Service) | ✅ | ✅ | ✅ | ✅ | |
+| [DDoS Protection](../../ddos-protection/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Dedicated HSM](/azure/dedicated-hsm/) | ✅ | ✅ | ✅ | ✅ | |
+| [DevTest Labs](../../devtest-labs/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [DNS](../../dns/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Dynamics 365 Chat (Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | ✅ | ✅ | ✅ | ✅ | |
+| [Dynamics 365 Contact Center](/dynamics365/contact-center)| ✅ | ✅ | | | |
+| [Dynamics 365 Customer Insights](/dynamics365/customer-insights/) | ✅ | ✅ | ✅ | ✅ | |
+| [Dynamics 365 Customer Service](/dynamics365/customer-service/overview) | ✅ | ✅ | ✅ | ✅ | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Dynamics 365 Customer Voice](/dynamics365/customer-voice/about) (formerly Forms Pro) | ✅ | ✅ | ✅ | ✅ | |
+| [Dynamics 365 Field Service](/dynamics365/field-service/overview) | ✅ | ✅ | ✅ | ✅ | |
+| [Dynamics 365 Finance](/dynamics365/finance/) | ✅ | ✅ | ✅ | | |
+| [Dynamics 365 Project Service Automation](/dynamics365/project-operations/psa/overview) | ✅ | ✅ | ✅ | ✅ | |
+| [Dynamics 365 Project Operations](/dynamics365/project-operations/)| ✅ | ✅ | | | |
+| [Dynamics 365 Sales](/dynamics365/sales/help-hub) | ✅ | ✅ | ✅ | ✅ | |
+| [Dynamics 365 Supply Chain Management](/dynamics365/supply-chain/) | ✅ | ✅ | ✅ | | |
+| [Event Grid](../../event-grid/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Event Hubs](../../event-hubs/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [ExpressRoute](../../expressroute/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [File Sync](../../storage/file-sync/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Firewall](../../firewall/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Firewall Manager](../../firewall-manager/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Document Intelligence](/azure/ai-services/document-intelligence/) | ✅ | ✅ | ✅ | ✅ | |
+| [Front Door](../../frontdoor/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Functions](../../azure-functions/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [HDInsight](../../hdinsight/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [HPC Cache](../../hpc-cache/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Import/Export](../../import-export/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [IoT Hub](../../iot-hub/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Key Vault](/azure/key-vault/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Lab Services](../../lab-services/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Lighthouse](/azure/lighthouse/)| ✅ | ✅ | ✅ | ✅ | |
+| [Load Balancer](../../load-balancer/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Logic Apps](../../logic-apps/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Machine Learning](/azure/machine-learning/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Media Services](/azure/media-services/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Microsoft Azure portal](/azure/azure-portal/) | ✅ | ✅ | ✅| ✅ | ✅ |
+| [Microsoft Foundry portal](/azure/foundry/what-is-foundry#microsoft-foundry-portals) | ✅ | ✅ | |  |  |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Microsoft Azure Attestation](/azure/attestation/)| ✅ | ✅ | |  |  |
+| [Microsoft Azure Government portal](../documentation-government-get-started-connect-with-portal.md) | ✅ | ✅ | ✅| ✅ | |
+| [Microsoft Defender for Cloud](/azure/defender-for-cloud/) (formerly Azure Security Center) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Microsoft Defender for Cloud Apps](/defender-cloud-apps/) (formerly Microsoft Cloud App Security) | ✅ | ✅ | ✅ | ✅ | |
+| [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Microsoft Defender for Identity](/defender-for-identity/) (formerly Azure Advanced Threat Protection) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Microsoft Defender for IoT](/azure/defender-for-iot/) (formerly Azure Security for IoT) | ✅ | ✅ | ✅ | ✅ | |
+| [Microsoft Defender Vulnerability Management](/azure/defender-for-iot/) | ✅ | ✅ | ✅ |  | |
+| [Microsoft Graph](/graph/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Microsoft Intune](/mem/intune/) | ✅ | ✅ | ✅ | ✅ | |
+| [Microsoft Purview](../../purview/index.yml) (incl. Data Map, Data Estate Insights, and governance portal) | ✅ | ✅ | ✅ | | |
+| [Microsoft Secure Score](/defender-xdr/microsoft-secure-score/) | ✅ | ✅ | ✅ | | |
+| [Microsoft Sentinel](/azure/sentinel/) (formerly Azure Sentinel) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Microsoft Stream](/stream/) | ✅ | ✅ | ✅ | ✅ | |
+| [Migrate](../../migrate/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Network Watcher](../../network-watcher/index.yml) (incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Notification Hubs](../../notification-hubs/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Peering Service](../../peering-service/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Planned Maintenance for VMs](/azure/virtual-machines/maintenance-and-updates) | ✅ | ✅ | ✅ | ✅ | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Power Apps](/powerapps/) | ✅ | ✅ | ✅ | ✅ | |
+| [Power Pages](https://powerapps.microsoft.com/portals/) (formerly PowerApps Portal)| ✅ | ✅ | ✅ | ✅ | |
+| [Power Automate](/power-automate/) (formerly Microsoft Flow) | ✅ | ✅ | ✅ | ✅ | |
+| [Power BI](/power-bi/fundamentals/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Power BI Embedded](/power-bi/developer/embedded/) | ✅ | ✅ | ✅ | ✅ | |
+| [Power Data Integrator for Dataverse](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | ✅ | ✅ | ✅ | ✅ | |
+| [Microsoft Copilot Studio](/power-virtual-agents/) | ✅ | ✅ | ✅ | | |
+| [Private Link](../../private-link/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | ✅ | ✅ | ✅ | ✅ | |
+| [Resource Graph](../../governance/resource-graph/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Resource Mover](../../resource-mover/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Route Server](../../route-server/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Scheduler](../../scheduler/index.yml) (replaced by [Logic Apps](../../logic-apps/index.yml)) | ✅ | ✅ | ✅ | ✅ | |
+| [Service Bus](../../service-bus-messaging/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Service Fabric](/azure/service-fabric/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Service Health](/azure/service-health/) | ✅ | ✅ | ✅ | ✅ | |
+| [SignalR Service](../../azure-signalr/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Site Recovery](../../site-recovery/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) | ✅ | ✅ | ✅ | ✅ | |
+| [SQL Server Stretch Database](../../sql-server-stretch-database/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Storage: Archive](../../storage/blobs/access-tiers-overview.md) | ✅ | ✅ | ✅ | ✅ | |
+| [Storage: Blobs](../../storage/blobs/index.yml) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Storage: Disks (incl. managed disks)](/azure/virtual-machines/managed-disks-overview) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Storage: Files](../../storage/files/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Storage: Queues](../../storage/queues/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Storage: Tables](../../storage/tables/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [StorSimple](../../storsimple/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Stream Analytics](../../stream-analytics/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Synapse Analytics](../../synapse-analytics/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | ✅ | ✅ | ✅ | ✅ | |
+| [Traffic Manager](../../traffic-manager/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Virtual Machines](/azure/virtual-machines/) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Virtual Network](../../virtual-network/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+| [Virtual WAN](../../virtual-wan/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [VM Image Builder](/azure/virtual-machines/image-builder-overview) | ✅ | ✅ | ✅ |  |  |
+| [VPN Gateway](../../vpn-gateway/index.yml) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Web Application Firewall](../../web-application-firewall/index.yml) | ✅ | ✅ | ✅ | ✅ | |
+
+***** Authorizations for edge devices (such as Azure Data Box, Azure Stack Edge and Azure Local) apply only to Azure services that support on-premises, customer-managed devices. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
+
+****** Azure Information Protection (AIP) is part of the Microsoft Purview Information Protection solution - it extends the labeling and classification functionality provided by Microsoft 365. Before AIP can be used for DoD workloads at a given impact level (IL), the corresponding Microsoft 365 services must be authorized at the same IL.
+
+## Next steps
+
+- [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
+- [Azure Government overview](../documentation-government-welcome.md)
+- [Azure Government security](../documentation-government-plan-security.md)
+- [FedRAMP High](/azure/compliance/offerings/offering-fedramp)
+- [DoD Impact Level 2](/azure/compliance/offerings/offering-dod-il2)
+- [DoD Impact Level 4](/azure/compliance/offerings/offering-dod-il4)
+- [DoD Impact Level 5](/azure/compliance/offerings/offering-dod-il5)
+- [DoD Impact Level 6](/azure/compliance/offerings/offering-dod-il6)
+- [Azure Government isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md)
+- [Azure guidance for secure isolation](../azure-secure-isolation-guidance.md)
+
+## Federal Compliance Documentation
+
+Azure compliance programs maintain federal compliance documentation on an access controlled private Microsoft website to ensure secure and professional handling of compliance documentation.
+- To obtain access, stakeholders must provide information for one of the following sales channel:
+   - The full name and @microsoft.com email address of a Microsoft Point of Contact (POC) from Customer Service Account Management or a Cloud Solution Architect.
+   - The reseller company name if Azure Online Services were purchased through a reseller.
+   - The Microsoft Azure or M365 cloud tenant ID to confirm customer status.
+- Once sales channel information is validated, access will be granted on an individual basis. Please provide the following information to process and provision access requests:
+   - Cloud instance in use (e.g., Azure Commercial, Azure Government, Azure DoD IL4 & IL5)
+   - Include the full names and email addresses of all individuals requiring access. Individuals granted access must not download or share documents with other stakeholders. 
+You can send the requested information to the Azure Federal Documentation group email at AzFedDoc@microsoft.com.

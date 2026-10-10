@@ -1,0 +1,8 @@
+SOURCE ID: A2-S015
+URL: https://cohere.com/deployment-options
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere trust center SOC 2 ISO 27001 HIPAA private deployment
+========================================================================
+
+Deployment options include SaaS, cloud API (via cloud partners), on-prem or isolated VPC setups. Cohere security framework describes fully private deployments on-premises or in their own virtual private cloud, where Cohere has no access to customer data or computing environments.

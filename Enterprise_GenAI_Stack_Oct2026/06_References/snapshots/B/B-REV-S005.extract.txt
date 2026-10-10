@@ -1,0 +1,15 @@
+SOURCE ID: B-REV-S005
+URL: https://platform.openai.com/docs/guides/rbac
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains help.openai.com, platform.openai.com, developers.openai.com): OpenAI API platform organization SSO SAML projects role-based access control
+========================================================================
+
+Manage permissions in the OpenAI platform (RBAC guide), with "Managing projects in the API platform" (help.openai.com/en/articles/9186755), as summarised by the search tool:
+- Organization roles apply across all projects; project roles apply only inside one project.
+- Roles can be assigned to users or to groups; groups can be synced from the identity provider via SCIM.
+- Custom roles are built from individual permissions; the guide recommends least privilege.
+- Users can hold multiple roles; access is the union.
+- Built-in roles: organization Owner and Reader; project Owner and Member (the RBAC permissions table also lists a project viewer role).
+- Only organization owners can create projects; project resources (files, assistants, storage, threads) are scoped to the project.
+- The guide recommends separate projects for experiments, staging and production.

@@ -1,0 +1,9 @@
+SOURCE ID: B-L6-S006
+URL: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-logging.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.aws.amazon.com, aws.amazon.com): Amazon S3 Vectors CloudTrail data events logging; compliance validation HIPAA SOC
+========================================================================
+
+Logging with AWS CloudTrail for S3 Vectors: CloudTrail does not log data events by default; trails can be configured to log S3 Vectors data events by resource type AWS::S3Vectors::VectorBucket or AWS::S3Vectors::Index; logged operations PutVectors, GetVectors, DeleteVectors, ListVectors, QueryVectors; event source s3vectors.amazonaws.com; eventCategory distinguishes Management from Data events.
+Compliance validation for Amazon S3 (https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-compliance.html): S3 assessed under SOC, PCI DSS, FedRAMP, HIPAA; no S3 Vectors-specific statement found; AWS Services in Scope by Compliance Program is authoritative. HIPAA Eligible Services Reference excerpt lists Amazon S3; S3 Vectors not mentioned in retrieved excerpt.

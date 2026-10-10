@@ -1,0 +1,8 @@
+SOURCE ID: V1-S077
+URL: https://turbopuffer.com/docs/security
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: turbopuffer SOC 2 Type 2 HIPAA BAA CMEK BYOC (allowed_domains turbopuffer.com)
+========================================================================
+
+SOC 2 Type 2 covering security and availability; September 2025 changelog lists a 2025 audit report; latest SOC 2 report and pentest via Trust Center. Roadmap also has an undated "SOC2 Type 1 certification" line. HIPAA: BAA on request; pricing lists "HIPAA-ready BAA" on Scale and Enterprise tiers; ToS prohibit PHI without a BAA; HIPAA added July 2024. CMEK: Enterprise plan only, per-namespace keys (January 2025). BYOC: customer Kubernetes on AWS, GCP or Azure; Enterprise tier from $4,096/month with a 35% usage premium. Customers Atlassian and Legora use BYOC with CMEK.

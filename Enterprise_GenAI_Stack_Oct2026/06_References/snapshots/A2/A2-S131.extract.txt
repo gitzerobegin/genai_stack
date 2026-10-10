@@ -1,0 +1,8 @@
+SOURCE ID: A2-S131
+URL: https://docs.trychroma.com/docs/overview/migration
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Chroma Cloud pricing SOC 2 BYOC regions Chroma 1.x release
+========================================================================
+
+v1.0.0 migration log entry dated March 1, 2025: much of Chroma rewritten in Rust; breaking changes including no longer providing built-in authentication implementations. Launch post (https://www.trychroma.com/project/1.0.0): 4x faster local write and query; API-compatible. Homepage title: 'Chroma - open-source search infrastructure for AI'. $18M seed round (https://www.trychroma.com/company/seed).

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S069
+URL: https://docs.pinecone.io/guides/production/bring-your-own-cloud
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone 2026 news funding CEO acquisition dedicated read nodes BYOC
+========================================================================
+
+The data plane runs entirely in your cloud account within a dedicated VPC, while Pinecone manages the control plane. Pinecone does not need SSH, VPN, or inbound network access to your VPC, cluster, nodes, or workloads. BYOC supports AWS, GCP, and Azure for Enterprise users. BYOC supports dedicated read node indexes only. Billing: a flat platform fee and a rate for each dedicated read node you run, plus the customer's own cloud costs. BYOC deployments run FoundationDB inside your Kubernetes cluster to store cluster metadata. Blog: https://www.pinecone.io/blog/byoc/ 'Pinecone BYOC: Pinecone in your AWS, GCP, or Azure account, no vendor access'.

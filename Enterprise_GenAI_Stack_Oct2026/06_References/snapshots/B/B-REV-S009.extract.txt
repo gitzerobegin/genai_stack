@@ -1,0 +1,13 @@
+SOURCE ID: B-REV-S009
+URL: https://docs.cloud.google.com/vertex-ai/docs/core-release-notes
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com; direct fetch blocked: cloud.google.com now redirects to docs.cloud.google.com, denied by egress policy): generative AI data residency CMEK VPC Service Controls gemini-embedding regions europe-west2
+========================================================================
+
+Vertex AI release notes, Generative AI on Agent Platform quotas page and CMEK page, as summarised by the search tool:
+- Release-note entry dated August 2024: Generative AI on Vertex AI supports CMEK, VPC Service Controls and Data Residency.
+- Quota page lists gemini-embedding-001 and gemini-embedding-2 under global quotas (rate limits; says nothing about processing location).
+- CMEK keys must reside within a fixed geographic boundary; the global region cannot encrypt regional or multi-regional resources.
+- Release notes record a December 2024 vulnerability in the Vertex AI API serving Gemini multimodal requests that allowed bypass of VPC Service Controls (fix not shown in the snippet).
+- The search tool could not confirm that gemini-embedding models can be called on a europe-west2 endpoint, or that CMEK and VPC-SC apply to embedding calls in that region.

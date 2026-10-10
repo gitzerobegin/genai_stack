@@ -1,0 +1,8 @@
+SOURCE ID: A3-S118
+URL: https://www.letta.com/privacy-policy/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Letta security SOC 2 compliance data retention trust (allowed_domains letta.com, docs.letta.com)
+========================================================================
+
+Search-tool summary: No information found about Letta holding SOC 2 certification or publishing a trust center. Privacy policy: 'We generally discard information about you when it's no longer needed for the purposes for which we collect and use it'; 'We only retain information on model inputs/outputs when you use our hosted services.'; 'We do NOT collect data on any of your messages or prompts unless you are using our hosted services'. Docs: 'all state, includes memories, user messages, reasoning, tool calls, are all persisted in a database'; 'The Letta API stores all messages, so even after a compaction / eviction, an agent's old messages are still retrievable via the API'. Privacy policy states no specific retention periods.

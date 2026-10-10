@@ -1,0 +1,11 @@
+SOURCE ID: V2-S046
+URL: https://focus.finops.org/focus-1-5-release-scope/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: FOCUS 1.4 FinOps specification released AI token usage columns FOCUS 1.5 (allowed_domains finops.org, focus.finops.org)
+========================================================================
+
+"The FOCUS Steering Committee ratified the FOCUS version 1.4 specification on June 4, 2026." 1.4 adds Invoice Detail and Billing Period datasets; Contract Commitment dataset grows from 13 to 30 columns; Commitment Program Eligibility Details column; zero incompatible changes. Validator support for 1.4 expected later in Q3 2026.
+Introducing FOCUS 1.4: lays groundwork for 1.5, "which will bring unit and token economics into view by introducing the Price Sheet". One FinOps page: FOCUS 1.5 scoped to surface AI model identity and token consumption (input and output) in the Cost and Usage dataset.
+FOCUS 1.5 Release Scope page: FOCUS already has the columns to carry token consumption; the gap is guidance. Confirmed AI items: pricing dimensions (cached vs fresh tokens; global vs regional serving) as FOCUS-defined properties on SkuPriceDetails; four model properties (ModelDeveloper, ModelFamily, ModelId, ModelVersion), with no new columns; actor/identity addition to Cost and Usage. Token type (input vs output) as a first-class column is deferred, not rejected; currently carried via separate SKUs distinguished by SkuMeter. No 1.5 ratification date found.
+Current practice (FOCUS for AI): "there are not specific columns related to AI, but rather SKU IDs indicating Token charges, Consumed Units specifying Tokens, and Consumed Quantity of tokens".

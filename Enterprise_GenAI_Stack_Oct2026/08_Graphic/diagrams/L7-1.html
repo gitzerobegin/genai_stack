@@ -1,0 +1,31 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L7 embedding and reranking: one pinned model configuration on both paths</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L7 embedding and reranking: one pinned model configuration on both paths</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  subgraph QY["QUERY: L3 → L7/L6 → L3"]
+    direction TB
+    Q1["Query + caller identity"] --&gt; Q2["Embed query with SAME model_version&lt;br/&gt;as target index"]
+    Q2 --&gt; Q3["L6: entitlement filter FIRST&lt;br/&gt;acl, fund_id, client_id"]
+    Q3 --&gt; Q4["Dense ANN top-100"]
+    Q3 --&gt; Q5["BM25 / sparse top-100"]
+    Q4 --&gt; Q6["Fuse: RRF or weighted"]
+    Q5 --&gt; Q6
+    Q6 --&gt; Q7["Reranker&lt;br/&gt;model=R, version=r2&lt;br/&gt;on top-50 (already filtered)"]
+    Q7 --&gt; Q8["Top-5..10 with doc_id, scores, versions"]
+    Q8 --&gt; Q9["L3 / L1"]
+    Q8 --&gt; Q10["Trace to L9 and the C8 evidence pack"]
+  end
+  subgraph IN["INGESTION: L8 → L7 → L6"]
+    direction TB
+    I1["Chunk + lineage + ACL metadata"] --&gt; I2["Embedding service&lt;br/&gt;model=X, version=v3, dims=1024, quant=int8"]
+    I2 --&gt; I3["Dense vector + sparse terms&lt;br/&gt;+ model_version, chunk_hash, acl, fund_id"]
+    I3 --&gt; I4["Store index 'commentary_v3'&lt;br/&gt;raw text retained"]
+  end
+</pre><div class="c">Ingestion and query use the same embedding model version, entitlement filtering runs in L6 before the dense and lexical lists are fused and reranked, and the top results return with doc IDs, scores and versions while a trace goes to L9 and the C8 evidence pack.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

@@ -1,0 +1,13 @@
+SOURCE ID: A6-S090
+URL: https://learn.microsoft.com/en-us/purview/whats-new
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Microsoft Purview Data Security Posture Management for AI DSPM for AI generally available licensing (site:learn.microsoft.com, techcommunity.microsoft.com, microsoft.com)
+========================================================================
+
+Related: https://techcommunity.microsoft.com/blog/microsoft-security-blog/beyond-visibility-the-new-microsoft-purview-data-security-posture-management-dsp/4470984 ; https://techcommunity.microsoft.com/blog/microsoft-purview-blog/data-security-posture-management-for-ai/4484148
+
+Extract as returned by search tool:
+Microsoft's "What's new" page lists the new version of Data Security Posture Management as generally available as of May 2026. "The new version of Data Security Posture Management is now generally available. Partner solutions for non-Microsoft data sources remain in preview, as does the Data Security Posture Agent."
+An earlier Microsoft announcement: "Current solutions Purview DSPM and DSPM for AI will remain available until June, when the new Purview DSPM experience becomes the centralized solution."
+The "What's new" page doesn't explicitly say that the AI-specific "DSPM for AI" name is GA. The classic DSPM for AI documentation is still live.

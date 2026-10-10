@@ -1,0 +1,8 @@
+SOURCE ID: A3-S101
+URL: https://www.lw.com/en/news/2026/05/latham-advises-exa-in-series-c
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Exa AI raises Series B funding 2025 2026 valuation
+========================================================================
+
+Search-tool summary: 'Exa announced it has raised US$250 million in a Series C financing round at a US$2.2 billion to build the search engine for AI.' 'The funding round was led by a16z, with participation from existing investors, Benchmark, Lightspeed, and YC.' Bloomberg: the valuation more than triples since it raised $85 million at a value of $700 million last fall. Series B (September 2025): US$85 million led by Benchmark at a US$700 million valuation, with Lightspeed, Y Combinator and NVentures (Latham & Watkins, lw.com 2025/09). CB Insights dates Series B to Feb 28, 2025 (conflict); Salestools lists $550M valuation (conflict). Sacra estimated ~$10M annualised revenue Sep 2025 (estimate).

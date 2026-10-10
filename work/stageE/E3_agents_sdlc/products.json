@@ -1,0 +1,2680 @@
+[
+ {
+  "id": "DV-github-copilot",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "GitHub Copilot: IDE inline suggestions, chat and agent mode; Copilot CLI; GitHub Copilot app; Copilot cloud agent; Copilot code review; third-party coding agents (Anthropic Claude, OpenAI Codex; public preview); plans Free, Student, Pro, Pro+, Max, Business, Enterprise",
+   "label": "Verified fact",
+   "src": [
+    "E3-S001",
+    "E3-S003",
+    "E3-S008"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "GitHub (Microsoft); GitHub folded into Microsoft's CoreAI organisation after its CEO's departure was announced in August 2025",
+   "label": "Reported",
+   "src": [
+    "E3-S013"
+   ],
+   "conf": "low"
+  },
+  "category": {
+   "v": "AI coding assistant and coding-agent platform (IDE, CLI, cloud agent, PR review, automations)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S008"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Continuously updated SaaS; usage-based billing in AI credits with a per-seat allowance pooled across the enterprise; code completions and next edit suggestions are not billed in credits",
+   "label": "Verified fact",
+   "src": [
+    "E3-S001"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary commercial subscription",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Positions GitHub as a multi-agent hub: third-party agents run under the same protections as the cloud agent; automations and GitHub agentic workflows run agents on schedules or repository events; enterprise BYOK for custom models",
+   "label": "Verified fact",
+   "src": [
+    "E3-S003",
+    "E3-S008",
+    "E3-S002"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "August 2025: GitHub CEO departure announced; GitHub integrated into Microsoft CoreAI (reported)",
+    "25 March 2026: interaction-data training policy for Free/Pro/Pro+ effective 24 April 2026; Business and Enterprise excluded"
+   ],
+   "label": "Reported",
+   "src": [
+    "E3-S013",
+    "E3-S012"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "The cloud agent researches a repository, plans and implements changes in an ephemeral GitHub-hosted environment, runs tests and linters, and handles branches, commits and pull requests; code review comments on pull requests and suggests fixes; session logs remain visible to people with repository access",
+   "label": "Verified fact",
+   "src": [
+    "E3-S008",
+    "E3-S006"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Model choice: multi-vendor models hosted for GitHub (OpenAI and GitHub Azure; Anthropic via AWS, Anthropic and Google Cloud; Gemini on Google Cloud; xAI); local BYOK in VS Code, JetBrains, Xcode, CLI and SDK (can be disabled by policy); enterprise BYOK for custom models served through the Copilot API; FedRAMP Moderate model-restriction policy for US data residency",
+   "label": "Verified fact",
+   "src": [
+    "E3-S011",
+    "E3-S002",
+    "E3-S009"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "MCP in all plans, governed by an enterprise MCP policy with allowlists (managed settings file GA; custom MCP registry public preview with weaker enforcement); custom instructions incl. AGENTS.md, .github/copilot-instructions.md and prompt files; OpenTelemetry export of agent-session traces, metrics and events (content capture off by default)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S001",
+    "E3-S004",
+    "E3-S007",
+    "E3-S081"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "E3-S001"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes: GitHub Enterprise Cloud, including data residency (US FedRAMP-model policy)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S009"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No: Copilot is not available for GitHub Enterprise Server",
+    "label": "Verified fact",
+    "src": [
+     "E3-S001"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "No for the service; local BYOK clients can run without the Copilot API (suitable for air-gapped users)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S001",
+     "E3-S002"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Copilot Trust Center lists SOC 1, SOC 2 Type 2 (GitHub Enterprise Cloud and Copilot), SOC 3, ISO/IEC 27001:2013, CSA STAR Level 2, TISAX and ISO/IEC 42001:2023 (2026 certificate); FedRAMP Moderate model option",
+   "label": "Verified fact",
+   "src": [
+    "E3-S010",
+    "E3-S009"
+   ],
+   "conf": "high"
+  },
+  "gdpr_residency": {
+   "v": "No training on Copilot Business or Enterprise data; provider agreements exclude training; ZDR agreements with OpenAI, Anthropic (GA features) and xAI; Claude Fable 5 / 5.1 retain data by default for safety classifiers, with ZDR only via a time-bound exemption to the end of 2026; cloud-agent environments are ephemeral, session logs persist on GitHub",
+   "label": "Verified fact",
+   "src": [
+    "E3-S011",
+    "E3-S012",
+    "E3-S006"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Agent-written code (cloud and third-party agents) is scanned by CodeQL, secret scanning and the advisory database before the PR is finalised, without a GHAS licence; content exclusion; block suggestions matching public code",
+   "label": "Verified fact",
+   "src": [
+    "E3-S003",
+    "E3-S001"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Enterprise and organisation policies (AI controls) for features, agents, models, CLI and MCP; cloud-agent access per organisation and repository; audit logs (Business, Enterprise); 'Manage enterprise AI controls' custom role; policy changes visible in the audit log. SSO/SCIM come from the GitHub Enterprise account (not re-verified in this run)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S005",
+    "E3-S001",
+    "E3-S008"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "IP indemnity for Business and Enterprise outputs when the duplicate-detection filter is set to Block, or when cited licences of matching code are complied with; the filter does not apply to the coding agent",
+   "label": "Verified fact",
+   "src": [
+    "E3-S010"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Per granted seat per month (Business, Enterprise) with an AI-credit pool; usage beyond the pool charged per credit (price values are templated in the source)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S001"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Cloud and third-party agents consume GitHub Actions minutes and AI credits",
+   "label": "Verified fact",
+   "src": [
+    "E3-S003"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "IDEs incl. VS Code, Visual Studio, JetBrains and Xcode; Windows Terminal and mobile; third-party agents Claude and Codex",
+   "label": "Verified fact",
+   "src": [
+    "E3-S002",
+    "E3-S001",
+    "E3-S003"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Core plans GA; third-party agents and custom MCP registry enforcement in public preview",
+   "label": "Verified fact",
+   "src": [
+    "E3-S003",
+    "E3-S004"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "High: agent governance, scanning and billing are tied to GitHub as SCM and Actions",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Organisation change, not a sale: GitHub integrated into Microsoft CoreAI (2025)",
+    "label": "Reported",
+    "src": [
+     "E3-S013"
+    ],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Low (Microsoft)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Depends on third-party model hosts and their retention terms (OpenAI, Anthropic, Google, xAI)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S011"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Proprietary service; MCP and AGENTS.md reduce instruction and tool lock-in",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Mature core; agent features moving fast",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "E3-S001",
+   "E3-S002",
+   "E3-S003",
+   "E3-S004",
+   "E3-S005",
+   "E3-S006",
+   "E3-S007",
+   "E3-S008",
+   "E3-S009",
+   "E3-S010",
+   "E3-S011",
+   "E3-S012",
+   "E3-S013",
+   "E3-S081"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. SSO/SCIM, exact seat prices and cloud-agent retention period not verified (docs.github.com blocked; raw github/docs source used). A January 2026 community post claims 28-day retention for CLI prompts on Business/Enterprise: unofficial, not used.",
+  "last_verified": "2026-10-10"
+ },
+ {
+  "id": "DV-cursor",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "Cursor: AI code editor (Agent, Tab), Cursor CLI, Cloud Agents and Bugbot code review",
+   "label": "Verified fact",
+   "src": [
+    "E3-S031",
+    "E3-S028",
+    "E3-S032"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Anysphere, Inc. (Cursor), now part of SpaceX (acquisition completed per Cursor, 14 August 2026)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S029"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "AI-native IDE and coding-agent platform",
+   "label": "Verified fact",
+   "src": [
+    "E3-S027"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Proprietary commercial subscription",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Joint model training with SpaceX/xAI (Grok 4.5 trained alongside Cursor per SpaceX filing; Grok 4.6 cited); access to SpaceX GPU fleet",
+   "label": "Reported",
+   "src": [
+    "E3-S029"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "April 2026: partnership and acquisition option with SpaceX (US$60B, or US$10B break fee, per SpaceX SEC filings)",
+    "14 August 2026: Cursor announces it is now part of SpaceX (xAI had joined SpaceX on 2 February 2026)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "E3-S029"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Editor with agentic coding; CLI agent; cloud agents whose sessions are logged and whose commits and PRs are attributed in Git history; Bugbot reviews code against the repository's infrastructure",
+   "label": "Verified fact",
+   "src": [
+    "E3-S028",
+    "E3-S031",
+    "E3-S032"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Model choice: multi-vendor models served by Cursor; BYOK for OpenAI, Anthropic, Google, Azure and AWS Bedrock (chat models only; Tab uses Cursor's own models); Enterprise can block BYOK and set model allowlists; models whose provider retains data (e.g. Anthropic models with harm-review retention) need admin approval",
+   "label": "Verified fact",
+   "src": [
+    "E3-S030",
+    "E3-S032"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "MCP (mcp.json; Enterprise MCP allowlist with per-server tool and network controls); AGENTS.md and CLAUDE.md read as rules; Team Rules; Admin API (preview)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S030",
+    "E3-S031",
+    "E3-S027"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "E3-S027"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II; ISO/IEC 27001:2022; ISO/IEC 42001:2023; AIUC-1",
+   "label": "Verified fact",
+   "src": [
+    "E3-S026"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Privacy Mode (enforceable org-wide): no training on customer data; ZDR agreements with most model providers, except approved non-ZDR models; abuse-flagged content may be stored; ZDR does not apply to BYOK; Bugbot region follows repository location",
+   "label": "Verified fact",
+   "src": [
+    "E3-S032",
+    "E3-S030"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Customer-managed encryption keys for Cloud Agent data; Git attribution of agent commits",
+   "label": "Verified fact",
+   "src": [
+    "E3-S028"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "SSO enforcement and local-login disable; SCIM (Enterprise); Enterprise-only audit logs (authentication, membership, API keys, settings) exportable and streamable to SIEM, webhook or S3; enforced Privacy Mode; model and BYOK policies",
+   "label": "Verified fact",
+   "src": [
+    "E3-S027",
+    "E3-S030"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Admin API in preview; enterprise controls documented as current",
+   "label": "Verified fact",
+   "src": [
+    "E3-S030"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Medium: editor fork plus proprietary rules and cloud agents; AGENTS.md and MCP portable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Acquired by SpaceX (owner of xAI) in 2026",
+    "label": "Verified fact",
+    "src": [
+     "E3-S029"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Low after acquisition; ownership now concentrated with a model vendor",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Multi-vendor model supply; joint training with SpaceX/xAI",
+    "label": "Verified fact",
+    "src": [
+     "E3-S029",
+     "E3-S030"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Fast-moving",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "E3-S026",
+   "E3-S027",
+   "E3-S028",
+   "E3-S029",
+   "E3-S030",
+   "E3-S031",
+   "E3-S032"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. Self-hosting, IP indemnity and pricing not verified (cursor.com blocked; search extracts only). [AJ] After the SpaceX acquisition, watch whether model choice and ZDR terms stay vendor-neutral.",
+  "last_verified": "2026-10-10"
+ },
+ {
+  "id": "DV-claude-code",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "Claude Code: CLI, IDE extensions (VS Code, JetBrains), Desktop app, cloud sessions (web and mobile), GitHub Actions and GitLab CI/CD, Code Review, routines",
+   "label": "Verified fact",
+   "src": [
+    "E3-S079"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Anthropic PBC",
+   "label": "Verified fact",
+   "src": [
+    "E3-S016"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Agentic coding tool (terminal, IDE, desktop, browser)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S079"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "2.1.296 (npm, 9 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S080"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary; Commercial Terms (Team, Enterprise, API) or Consumer Terms; may be preinstalled in third-party products only unmodified and with end users' own credentials",
+   "label": "Verified fact",
+   "src": [
+    "E3-S016"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Enterprise deployment through Anthropic or cloud providers; self-hosted runners for cloud sessions; LLM-gateway routing",
+   "label": "Verified fact",
+   "src": [
+    "E3-S014",
+    "E3-S018",
+    "E3-S079"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [],
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Agentic coding tool that reads the codebase, edits files and runs commands from the terminal, IDE, desktop app or browser; cloud sessions run in isolated VMs (Anthropic-hosted or customer runners)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S079",
+    "E3-S015",
+    "E3-S018"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Model choice: Anthropic Claude models only; inference via Claude for Teams/Enterprise, Anthropic Console, Amazon Bedrock, Claude Platform on AWS, Google Cloud Agent Platform (formerly Vertex AI) or Microsoft Foundry; can route through a customer LLM gateway",
+   "label": "Verified fact",
+   "src": [
+    "E3-S014",
+    "E3-S079"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "MCP (managed-mcp.json, managedMcpServers, allowedMcpServers/deniedMcpServers); CLAUDE.md and AGENTS.md; skills, subagents, hooks and plugins with managed settings; OpenTelemetry monitoring",
+   "label": "Verified fact",
+   "src": [
+    "E3-S019",
+    "E3-S017",
+    "E3-S079"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Anthropic-hosted inference and cloud sessions)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S014"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes: via Amazon Bedrock, Claude Platform on AWS, Google Cloud Agent Platform, Microsoft Foundry",
+    "label": "Verified fact",
+    "src": [
+     "E3-S014"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Partial: CLI and IDE run locally; cloud sessions can run on customer-operated runners (public beta, Team/Enterprise, off by default); model inference stays hosted",
+    "label": "Verified fact",
+    "src": [
+     "E3-S018",
+     "E3-S014"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "No fully on-premises option: Claude models are only available as hosted services",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Anthropic: SOC 2 Type I and II, ISO 27001:2022, ISO/IEC 42001:2023, CSA STAR Level 2; BAA extends to Claude Code in a HIPAA configuration (CLI/Desktop local mode on Claude for Enterprise) or with ZDR",
+   "label": "Verified fact",
+   "src": [
+    "A5-S021",
+    "V2-S063",
+    "E3-S016"
+   ],
+   "conf": "high"
+  },
+  "gdpr_residency": {
+   "v": "Commercial users: no training on code or prompts unless opted in (e.g. Development Partner Program); standard 30-day retention; ZDR for qualified Claude for Enterprise organisations, enabled per organisation; local transcripts kept 30 days by default; /feedback transcripts kept 5 years; Claude Fable 5 / 5.1 retain data by default for safety classifiers (per GitHub's hosting notes)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S015",
+    "E3-S011"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Security guidance and Claude Security plugins; plugin trust controls; vulnerability reporting through HackerOne",
+   "label": "Verified fact",
+   "src": [
+    "E3-S079",
+    "E3-S016"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Claude for Teams: SSO, admin tools, server-managed settings; Enterprise adds domain capture, role-based permissions and compliance API; via cloud providers: IAM policies and CloudTrail, Cloud Audit Logs or Azure Monitor; managed MCP and plugin policies",
+   "label": "Verified fact",
+   "src": [
+    "E3-S014",
+    "E3-S019"
+   ],
+   "conf": "high"
+  },
+  "enterprise_support": {
+   "v": "IP indemnity: Anthropic Commercial Terms defend customers against copyright claims from authorised use and outputs (2024-era terms; current wording not re-checked)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S058"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Teams: per-seat subscription with PAYG; Enterprise: contact sales; cloud providers: PAYG",
+   "label": "Verified fact",
+   "src": [
+    "E3-S014"
+   ],
+   "conf": "high"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "GitHub Actions, GitLab CI/CD, GitHub Enterprise Server for cloud sessions, Chrome integration, LLM gateways",
+   "label": "Verified fact",
+   "src": [
+    "E3-S079"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "GA core; self-hosted environments in public beta",
+   "label": "Verified fact",
+   "src": [
+    "E3-S018"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "High at the model layer (Claude only); low at the instruction layer (AGENTS.md, MCP)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "No ownership event found in 2025-26",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Low",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Single model vendor, reachable through three hyperscalers",
+    "label": "Verified fact",
+    "src": [
+     "E3-S014"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Proprietary binary; terms restrict modification and resale of usage",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Fast release cadence",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S021",
+   "E3-S011",
+   "E3-S014",
+   "E3-S015",
+   "E3-S016",
+   "E3-S017",
+   "E3-S018",
+   "E3-S019",
+   "E3-S058",
+   "E3-S079",
+   "E3-S080",
+   "V2-S063"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. Conflict of interest: Anthropic product, author is an Anthropic model; recorded on the same evidence standard as competitors. Independent alternatives: OpenAI Codex CLI (open source), Gemini CLI (open source), JetBrains Junie, Tabnine (self-hosted). SCIM not verified.",
+  "last_verified": "2026-10-10"
+ },
+ {
+  "id": "DV-openai-codex",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "OpenAI Codex: Codex CLI (local agent), IDE extension (VS Code, Cursor, Windsurf), Codex app (desktop) and Codex Web / cloud tasks",
+   "label": "Verified fact",
+   "src": [
+    "E3-S020"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "OpenAI",
+   "label": "Verified fact",
+   "src": [
+    "E3-S020"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Coding agent (local CLI/IDE and cloud tasks)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S020"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Codex CLI 0.162.1 (npm, 9 October 2026)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S021"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Codex CLI open source (Apache-2.0); Codex cloud is a proprietary service within ChatGPT plans",
+   "label": "Verified fact",
+   "src": [
+    "E3-S020"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Enterprise packaging under ChatGPT business plans (docs partly rebranded 'ChatGPT Work'); separate admin control of local and cloud use",
+   "label": "Verified fact",
+   "src": [
+    "E3-S022"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "9 December 2025: OpenAI donates AGENTS.md to the Agentic AI Foundation",
+    "11 September 2026: Codex policy changes recorded in workspace audit logs"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "E3-S061",
+    "E3-S023"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Codex Local (CLI, IDE extension, desktop) runs the agent on the developer's machine; Codex Cloud runs delegated tasks in hosted environments",
+   "label": "Verified fact",
+   "src": [
+    "E3-S022",
+    "E3-S020"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Model choice: OpenAI models by default (ChatGPT sign-in or API key); custom model providers in config (Azure, local Ollama or LM Studio via --oss, other compatible endpoints)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S020",
+    "E3-S025"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "AGENTS.md (OpenAI-originated, now AAIF); Agent Skills; admin-managed configuration and hooks via requirements.toml",
+   "label": "Verified fact",
+   "src": [
+    "E3-S061",
+    "V1-S047",
+    "E3-S082"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Codex Cloud)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S022"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Partial: CLI runs locally and can use local models; cloud tasks are OpenAI-hosted",
+    "label": "Verified fact",
+    "src": [
+     "E3-S025",
+     "E3-S022"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Partial: local CLI with local models is possible; no on-premises cloud-task option found",
+    "label": "Verified fact",
+    "src": [
+     "E3-S025"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "OpenAI: SOC 2 Type 2 (API Platform), ISO/IEC 27001/27017/27018/27701 (API, ChatGPT Enterprise, Edu), ISO/IEC 42001; Codex-specific scope not stated",
+   "label": "Verified fact",
+   "src": [
+    "A5-S007",
+    "V2-S062"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "ChatGPT Enterprise: no training on business data by default; cloud work has no single retention schedule; deleted chats generally purged within 30 days with exceptions; local-plus-cloud mode is not strict ZDR; ChatGPT sign-in follows workspace retention and residency, API-key use follows API organisation settings",
+   "label": "Verified fact",
+   "src": [
+    "E3-S024",
+    "E3-S022"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Enterprise Key Management for supported stored content incl. hosted execution snapshots; HIPAA configuration guide; managed-hooks-only mode",
+   "label": "Verified fact",
+   "src": [
+    "E3-S024",
+    "E3-S082"
+   ],
+   "conf": "high"
+  },
+  "access_controls": {
+   "v": "Roles Owner, Admin, Member, Analytics Viewer; custom RBAC and SCIM groups on eligible Enterprise/Edu (not Business); separate controls for Codex Local and Cloud; Compliance API covers CLI and IDE usage but not every file operation or command; compliance logs kept 30 days",
+   "label": "Verified fact",
+   "src": [
+    "E3-S022",
+    "E3-S023"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "IP indemnity for ChatGPT Enterprise, Edu, Healthcare and Business customers covers output infringement claims, with exclusions",
+   "label": "Verified fact",
+   "src": [
+    "E3-S059"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Fast release cadence (CLI 0.16x; alpha channel 0.163)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S021"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Medium: open-source CLI and configurable providers; cloud tasks tie to ChatGPT workspace",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "No ownership event found",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Low",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Defaults to OpenAI models; other providers configurable",
+    "label": "Verified fact",
+    "src": [
+     "E3-S025"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "CLI open; cloud proprietary",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Fast-moving",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S007",
+   "E3-S020",
+   "E3-S021",
+   "E3-S022",
+   "E3-S023",
+   "E3-S024",
+   "E3-S025",
+   "E3-S059",
+   "E3-S061",
+   "E3-S082",
+   "V1-S047",
+   "V2-S062"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. developers.openai.com blocked: Codex enterprise facts are search extracts (conf medium). MCP support in Codex not re-verified in this run.",
+  "last_verified": "2026-10-10"
+ },
+ {
+  "id": "DV-google-ai-dev-tools",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "Google AI developer tools: Gemini Code Assist Standard/Enterprise (no new sales from 9 October 2026), Gemini CLI, Antigravity 2.0 and Antigravity CLI (in Gemini Enterprise); Jules (Google Labs) not verified",
+   "label": "Verified fact",
+   "src": [
+    "E3-S033",
+    "E3-S035",
+    "E3-S037"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Google",
+   "label": "Verified fact",
+   "src": [
+    "E3-S037"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "AI coding assistant, terminal agent and agentic IDE",
+   "label": "Verified fact",
+   "src": [
+    "E3-S037",
+    "E3-S035"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": "Gemini CLI 0.63.0 (npm, 6 October 2026); AI developer tools (Antigravity 2.0, Antigravity CLI, Android Studio) GA in Gemini Enterprise from 18 August 2026",
+   "label": "Verified fact",
+   "src": [
+    "E3-S036",
+    "E3-S037"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Gemini CLI open source (Apache-2.0); Code Assist and Antigravity proprietary",
+   "label": "Verified fact",
+   "src": [
+    "E3-S035"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Consolidating on Antigravity: Code Assist sales ended, individual tiers moved to Antigravity, Gemini Enterprise bundles AI developer tools",
+   "label": "Verified fact",
+   "src": [
+    "E3-S033",
+    "E3-S037",
+    "E3-S038"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "18 June 2026: Gemini CLI and Code Assist IDE extensions stop serving individual, AI Pro and AI Ultra tiers; move to Antigravity",
+    "18 August 2026: AI developer tools GA in Gemini Enterprise",
+    "17 September 2026: new Gemini Enterprise Standard/Plus subscriptions exclude Code Assist",
+    "9 October 2026: new Gemini Code Assist Standard/Enterprise subscriptions no longer sold; auto-renewal ends in 2027",
+    "8 October 2026: admins can enable Claude Opus 5.5 and Sonnet 5.5 in AI developer tools"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "E3-S033",
+    "E3-S037",
+    "E3-S039"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Gemini CLI is an open-source terminal agent with file, shell, web-fetch and search tools; Antigravity is an agentic IDE and CLI with enterprise policies",
+   "label": "Verified fact",
+   "src": [
+    "E3-S035",
+    "E3-S037"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Model choice: Gemini models; admins may enable Anthropic Claude Opus 5.5 and Sonnet 5.5 for AI developer tools; Gemini CLI can use the Gemini API or Vertex AI",
+   "label": "Verified fact",
+   "src": [
+    "E3-S039",
+    "E3-S035"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "MCP (Gemini CLI; Antigravity policies govern MCP server access); GEMINI.md context files; Agent Skills listed for Gemini CLI",
+   "label": "Verified fact",
+   "src": [
+    "E3-S035",
+    "E3-S037",
+    "A3-S061"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "E3-S037"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes: Google Cloud (Gemini Enterprise; VPC Service Controls for Code Assist)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S034",
+     "E3-S037"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Partial: Gemini CLI runs locally but calls hosted models; standalone Antigravity IDE not supported for enterprise deployment (extensions instead)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S035",
+     "E3-S037"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Gemini Code Assist: ISO 27001, 27017, 27018, 27701; SOC 1, 2, 3; Gemini products generally also ISO 42001; Antigravity-based products excluded from several certifications incl. ISO 27001 and SOC 2",
+   "label": "Verified fact",
+   "src": [
+    "E3-S034"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Google does not use customer data to train models without permission (Code Assist)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S034"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "VPC Service Controls (not for Code Assist on GitHub); Antigravity policies enforce workspace sandboxing",
+   "label": "Verified fact",
+   "src": [
+    "E3-S034",
+    "E3-S037"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Cloud OAuth/IAM sign-in for Antigravity CLI; admin feature controls; central audit logging",
+   "label": "Verified fact",
+   "src": [
+    "E3-S037",
+    "E3-S039"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Gemini Code Assist is a Generative AI Indemnified Service (Enterprise); indemnity for Antigravity not verified",
+   "label": "Verified fact",
+   "src": [
+    "E3-S034"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "In transition: Code Assist being wound down; Antigravity enterprise GA August 2026 with IDE extensions partly in preview",
+   "label": "Verified fact",
+   "src": [
+    "E3-S033",
+    "E3-S037"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Medium: product line in transition; Gemini CLI open source",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "No ownership event",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Low",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Gemini by default; Claude optional in AI developer tools",
+    "label": "Verified fact",
+    "src": [
+     "E3-S039"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary IDE and service",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Product churn: Code Assist end of sale 9 October 2026",
+    "label": "Verified fact",
+    "src": [
+     "E3-S033"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S061",
+   "E3-S033",
+   "E3-S034",
+   "E3-S035",
+   "E3-S036",
+   "E3-S037",
+   "E3-S038",
+   "E3-S039"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. docs.cloud.google.com blocked (extracts, conf medium). Jules enterprise status, pricing and certifications not verified (aggregator sources only, not used). Gemini CLI enterprise status after the Antigravity CLI transition: enterprise customers keep access [E3-S038].",
+  "last_verified": "2026-10-10"
+ },
+ {
+  "id": "DV-aws-kiro",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "Kiro (Kiro IDE, Kiro CLI, Kiro Web autonomous agent), successor to Amazon Q Developer",
+   "label": "Verified fact",
+   "src": [
+    "E3-S042",
+    "E3-S040"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Amazon Web Services",
+   "label": "Verified fact",
+   "src": [
+    "E3-S040"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Agentic IDE, CLI and autonomous coding agent",
+   "label": "Verified fact",
+   "src": [
+    "E3-S042"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Proprietary commercial subscription",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Replaces Q Developer; newest coding models exclusive to Kiro; usage metered in Kiro credits",
+   "label": "Verified fact",
+   "src": [
+    "E3-S040"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "15 May 2026: new Q Developer accounts and subscriptions closed",
+    "30 April 2027: Q Developer IDE plugins and paid subscriptions reach end of support"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "E3-S040"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Autonomous mode plans, delegates to sub-agents and opens a pull request; steering files guide the agent across IDE, CLI and Web",
+   "label": "Verified fact",
+   "src": [
+    "E3-S042"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Model choice: Auto routing over a model catalogue; Claude models such as Claude Opus 4.7 for Pro tiers and IAM Identity Center users; model fixed by the agent in autonomous mode",
+   "label": "Verified fact",
+   "src": [
+    "E3-S042"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "MCP (configuration in .kiro/); steering files (.kiro/steering); Agent Skills listed for Kiro",
+   "label": "Verified fact",
+   "src": [
+    "E3-S042",
+    "A3-S061"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "E3-S041"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Content from Q Developer Pro (via AWS account) and Kiro Pro tiers via IAM Identity Center not used for service improvement, and no telemetry; Free and individual sign-ins may have content used; customer-managed KMS keys for conversation history",
+   "label": "Verified fact",
+   "src": [
+    "E3-S041"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Sign-in via IAM Identity Center (also GitHub, Google, Builder ID); admin user-activity reports",
+   "label": "Verified fact",
+   "src": [
+    "E3-S041"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Kiro credits; no return to Q Developer Pro once upgraded",
+   "label": "Verified fact",
+   "src": [
+    "E3-S040"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Kiro is the forward product; Q Developer in wind-down",
+   "label": "Verified fact",
+   "src": [
+    "E3-S040"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Medium: AWS identity and billing; MCP portable",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "No ownership event",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Low",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Claude models available through Kiro",
+    "label": "Verified fact",
+    "src": [
+     "E3-S042"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Forced migration from Q Developer by 30 April 2027",
+    "label": "Verified fact",
+    "src": [
+     "E3-S040"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S061",
+   "E3-S040",
+   "E3-S041",
+   "E3-S042"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. kiro.dev and docs.aws.amazon.com blocked (extracts). Kiro certifications, IP indemnity, AGENTS.md support and retention period not verified.",
+  "last_verified": "2026-10-10"
+ },
+ {
+  "id": "DV-cognition-devin",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "Devin (Cognition): autonomous cloud coding agent; Devin Desktop (formerly Windsurf, renamed 2 June 2026) with the Devin Local agent and Agent Command Center",
+   "label": "Verified fact",
+   "src": [
+    "E3-S045",
+    "E3-S044"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Cognition (acquired Windsurf in 2025)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S045"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Autonomous coding agent and agentic IDE",
+   "label": "Verified fact",
+   "src": [
+    "E3-S045"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Proprietary commercial subscription",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [
+    "2025: Windsurf announces acquisition by Cognition (date not printed in extract)",
+    "2 June 2026: Windsurf renamed Devin Desktop; plans, pricing and settings carried over"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "E3-S045"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Devin runs coding tasks autonomously in Cognition-hosted environments; Devin Desktop is the IDE with Devin Local replacing Cascade as the local agent",
+   "label": "Verified fact",
+   "src": [
+    "E3-S044",
+    "E3-S045"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "E3-S044"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Partial: Customer Dedicated Deployment in a Cognition-hosted single-tenant VPC linked via AWS PrivateLink or IPSec",
+    "label": "Verified fact",
+    "src": [
+     "E3-S044"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II since September 2024; FedRAMP High claimed on marketing pages but no authorisation evidence found",
+   "label": "Verified fact",
+   "src": [
+    "E3-S043"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Vendor states ZDR with model providers, no training on enterprise data and custom retention (marketing page); dedicated and on-prem customers' data stored in their tenant",
+   "label": "Verified fact",
+   "src": [
+    "E3-S046",
+    "E3-S043"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "SSO via Okta, Microsoft Entra ID, SAML or OIDC; IdP groups; SCIM for Devin Desktop; enterprise audit logs via API",
+   "label": "Verified fact",
+   "src": [
+    "E3-S046"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Medium",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Windsurf absorbed into Cognition and rebranded",
+    "label": "Verified fact",
+    "src": [
+     "E3-S045"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Venture-funded (not verified)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not verified",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Product consolidation under way",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "E3-S043",
+   "E3-S044",
+   "E3-S045",
+   "E3-S046"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. docs.devin.ai blocked (extracts). Model choice, MCP, AGENTS.md, IP indemnity and on-premises availability not verified; enterprise overview mentions 'on-prem deployments' but deployment docs describe only Cognition-hosted dedicated VPC.",
+  "last_verified": "2026-10-10"
+ },
+ {
+  "id": "DV-jetbrains-junie",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "JetBrains AI (AI Assistant) and Junie coding agent: IDE plugin, Junie CLI (beta from March 2026), GitHub Action, Junie Local",
+   "label": "Verified fact",
+   "src": [
+    "E3-S050",
+    "E3-S051",
+    "E3-S049"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "JetBrains",
+   "label": "Verified fact",
+   "src": [
+    "E3-S047"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "IDE AI assistant and LLM-agnostic coding agent",
+   "label": "Verified fact",
+   "src": [
+    "E3-S050"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Proprietary commercial subscription",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "LLM-agnostic agent across IDE, terminal, CI/CD, GitHub and GitLab; on-device option (Junie Local)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S050",
+    "E3-S049"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "March 2026: Junie CLI beta",
+    "August 2026: Junie Local launched for Mac"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "E3-S050",
+    "E3-S049"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Junie runs coding tasks in the IDE, the terminal and CI; the GitHub Action runs on the customer's own runners from issue or PR comments",
+   "label": "Verified fact",
+   "src": [
+    "E3-S050",
+    "E3-S051"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Model choice: OpenAI, Anthropic, Google and Grok models; BYOK; AI Enterprise connects preferred providers; Junie Local uses one local model",
+   "label": "Verified fact",
+   "src": [
+    "E3-S050",
+    "E3-S047",
+    "E3-S049"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "MCP (IDE plugin and CLI); AGENTS.md (.junie/AGENTS.md preferred, root AGENTS.md); Agent Skills listed for Junie",
+   "label": "Verified fact",
+   "src": [
+    "E3-S051",
+    "A3-S061"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "E3-S047"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Yes: AI Enterprise cloud or hybrid",
+    "label": "Verified fact",
+    "src": [
+     "E3-S047"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes: AI Enterprise on-premises",
+    "label": "Verified fact",
+    "src": [
+     "E3-S047"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes: AI Enterprise on-premises; Junie Local runs on-device (Mac)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S047",
+     "E3-S049"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II reports for JetBrains AI, IDEs and IDE Services, and a separate one for Junie (2024/25 report published 20 November 2025); no ISO 27001 for JetBrains products found",
+   "label": "Verified fact",
+   "src": [
+    "E3-S048"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "JetBrains persists no customer data unless the user opts in to detailed data collection (ZDR); provider retention follows each provider's policy",
+   "label": "Verified fact",
+   "src": [
+    "E3-S048"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "AI Enterprise plan includes Junie and BYOK",
+   "label": "Verified fact",
+   "src": [
+    "E3-S047"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Low-medium: model-agnostic, on-prem option",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "No ownership event",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Low",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Multi-vendor models",
+    "label": "Verified fact",
+    "src": [
+     "E3-S050"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "CLI in beta",
+    "label": "Verified fact",
+    "src": [
+     "E3-S050"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A3-S061",
+   "E3-S047",
+   "E3-S048",
+   "E3-S049",
+   "E3-S050",
+   "E3-S051"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. jetbrains.com blocked (extracts). SSO/SCIM, audit logs, IP indemnity and air-gapped support not verified.",
+  "last_verified": "2026-10-10"
+ },
+ {
+  "id": "DV-amp",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "Amp coding agent (web threads executed in per-thread cloud machines; SDK)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S054"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Amp (spun out of Sourcegraph as an independent company, 'Amp Frontier Corporation')",
+   "label": "Verified fact",
+   "src": [
+    "E3-S053"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Coding agent",
+   "label": "Verified fact",
+   "src": [
+    "E3-S054"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Proprietary commercial service",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [
+    "Spin-out from Sourcegraph: Sourcegraph (code search, CEO Dan Adler) and Amp (Quinn Slack, Beyang Liu) become separate companies (date not printed in extract)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "E3-S053"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Runs agent threads that can execute in an 'orb' machine created per thread; reads repository instructions",
+   "label": "Verified fact",
+   "src": [
+    "E3-S054"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Model choice: vendor-selected mix (GPT-5.6, Claude Fable 5.1, fast models; Gemini 3 for review; GPT-5.4 'oracle'); BYOK not found",
+   "label": "Verified fact",
+   "src": [
+    "E3-S054"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "AGENTS.md (falls back to CLAUDE.md); MCP (stdio and HTTP via SDK)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S054"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "E3-S054"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Deleted thread data removed within 30 days; zero and minimal retention policy extended to all users and workspaces",
+   "label": "Verified fact",
+   "src": [
+    "E3-S054"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Enterprise SSO and directory sync (SCIM) via WorkOS, incl. Okta; SSO can be enforced",
+   "label": "Verified fact",
+   "src": [
+    "E3-S052"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": "Enterprise usage priced 50% above individual and Team usage, includes SSO",
+   "label": "Verified fact",
+   "src": [
+    "E3-S052"
+   ],
+   "conf": "medium"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Medium",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Spun out of Sourcegraph",
+    "label": "Verified fact",
+    "src": [
+     "E3-S053"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not verified",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Depends on several frontier-model vendors chosen by Amp",
+    "label": "Verified fact",
+    "src": [
+     "E3-S054"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Proprietary",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Young company",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "E3-S052",
+   "E3-S053",
+   "E3-S054"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. ampcode.com blocked (extracts). Certifications, IP indemnity, self-hosting and CLI/editor details not verified; spin-out date and legal name not confirmed.",
+  "last_verified": "2026-10-10"
+ },
+ {
+  "id": "DV-tabnine",
+  "layer": "DV",
+  "original_label": null,
+  "current_name": {
+   "v": "Tabnine enterprise AI coding platform (IDE assistant, agents, Tabnine CLI, Enterprise Context Engine)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S055",
+    "E3-S057"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Tabnine, acquired by Tricentis (announced 30 July 2026)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S056"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "AI coding assistant and agent platform with private deployment",
+   "label": "Verified fact",
+   "src": [
+    "E3-S055"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "licence_model": {
+   "v": "Proprietary commercial subscription",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Enterprise Context Engine to be integrated into the Tricentis Agentic Quality Engineering Platform",
+   "label": "Verified fact",
+   "src": [
+    "E3-S056"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "30 July 2026: Tricentis announces acquisition of Tabnine (reported as completed)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "E3-S056"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Code assistance and agents with a context engine over enterprise systems; provenance check flags output matching public code with its licence",
+   "label": "Verified fact",
+   "src": [
+    "E3-S057",
+    "E3-S056"
+   ],
+   "conf": "medium"
+  },
+  "stack_position": {
+   "v": "Agentic SDLC tooling (DV view): a developer-facing agent harness that consumes L1 models, uses L4 tool protocols (MCP) and needs C4 identity, C1 gateway and L9/C8 evidence controls; not a layer of the runtime stack itself",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "dependencies": {
+   "v": "Model choice: model-agnostic (any LLMs/SLMs in the customer environment), NVIDIA NIM; Tabnine's own models trained only on permissively licensed code",
+   "label": "Verified fact",
+   "src": [
+    "E3-S055",
+    "E3-S057"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (SaaS on AWS and GCP)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S057"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "vpc_byoc": {
+    "v": "Yes: VPC (Kubernetes in customer environment)",
+    "label": "Verified fact",
+    "src": [
+     "E3-S055"
+    ],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes: on-premises and fully air-gapped",
+    "label": "Verified fact",
+    "src": [
+     "E3-S055"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes: on-premises and air-gapped",
+    "label": "Verified fact",
+    "src": [
+     "E3-S055"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Trust Center: GDPR, ISO 9001:2015, ISO/IEC 27001, SOC 2 (Type 2 per vendor comparison page)",
+   "label": "Verified fact",
+   "src": [
+    "E3-S057"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "No storage, no training on customer code, no third-party sharing; zero data retention",
+   "label": "Verified fact",
+   "src": [
+    "E3-S057"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Provenance and attribution check; air-gapped metrics to Prometheus and logs to customer aggregator; Tabnine has no access to customer environment",
+   "label": "Verified fact",
+   "src": [
+    "E3-S057",
+    "E3-S055"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "IP indemnification subject to terms and conditions",
+   "label": "Verified fact",
+   "src": [
+    "E3-S057"
+   ],
+   "conf": "medium"
+  },
+  "pricing": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Low: runs in customer estate with customer-chosen models",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Acquired by Tricentis (2026); roadmap now tied to Tricentis quality-engineering platform",
+    "label": "Verified fact",
+    "src": [
+     "E3-S056"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Low after acquisition",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Customer-supplied models",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Proprietary",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Watch post-acquisition product focus",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "E3-S055",
+   "E3-S056",
+   "E3-S057"
+  ],
+  "stage_a_notes": "Field use in DV records: dependencies = model choice; integration_model = standards (MCP, AGENTS.md, OTel, etc.); enterprise_support = contractual protections incl. IP indemnity; gdpr_residency = data retention, ZDR and training on customer code; access_controls = SSO/SCIM, RBAC, audit logs, admin policy; status_events = ownership and product events 2025-26. tabnine.com blocked (extracts). MCP, AGENTS.md, SSO/SCIM and audit-log details not verified.",
+  "last_verified": "2026-10-10"
+ }
+]

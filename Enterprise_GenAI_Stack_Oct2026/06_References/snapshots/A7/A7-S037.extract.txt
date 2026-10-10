@@ -1,0 +1,13 @@
+SOURCE ID: A7-S037
+URL: https://huggingface.co/docs/hub/security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Hugging Face malware scanning pickle scanning Protect AI JFrog model scanning hub
+========================================================================
+
+Hugging Face "2024 Security Feature Highlights": automated pipeline uses ClamAV for known-signature malware scanning, picklescan for executable code in pickle files, and trufflehog for secret detection; malicious findings place a notice on the repo.
+Pickle Scanning docs: pickle files can run code when loaded; first check "extracts the list of imports referenced in a pickle file" via pickletools.genops, reading without executing.
+HF/JFrog blog: picklescan "only performs pattern matching on module names", cannot always confirm malicious usage. JFrog scanner added to reduce false positives; "All public model repositories are scanned by JFrog automatically as soon as files are pushed to the Hub."
+Third-party scanner: Protect AI docs: Guardian catches pickle, Keras and other exploits; public repositories' files are scanned by Guardian. Blog "4M Models Scanned: Protect AI + Hugging Face 6 Months In": as of April 1, 2025, 4.47 million unique model versions in 1.41 million repositories scanned; 352,000 unsafe/suspicious issues across 51,700 models.
+Transformers docs: "while the Hub includes malware scanning for every repository, you should still be careful to avoid inadvertently executing malicious code".
+Azure docs: Hugging Face collection models undergo ClamAV and third-party scanners (Protect AI, JFrog); weights required in Safetensors format.

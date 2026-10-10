@@ -1,0 +1,8 @@
+SOURCE ID: E1-S057
+URL: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ%3AL_202500532
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DORA subcontracting RTS conditions (eur-lex.europa.eu, eba.europa.eu)
+========================================================================
+
+Search-tool extract: the joint RTS on subcontracting (published in the Official Journal in 2025) sets conditions for subcontracting ICT services supporting critical or important functions: the provider identifies all subcontractors in the chain; the financial entity receives the same access and audit rights through the chain; the provider gives notice of material subcontracting changes early enough for the entity to object; the contract allows termination if the provider implements a material change despite the entity's objection.

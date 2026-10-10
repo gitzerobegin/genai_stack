@@ -1,0 +1,8 @@
+SOURCE ID: V2-S026
+URL: https://www.harvey.ai/blog/guardrails-ai-joins-harvey
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Harvey acquires Guardrails AI
+========================================================================
+
+Harvey bought Guardrails AI and announced it on September 9, 2026 ("Guardrails AI Joins Harvey", harvey.ai blog; Artificial Lawyer 9 Sep 2026). Deal on undisclosed terms; Harvey's fourth acquisition of 2026. Framework downloaded more than 250,000 times a month; also Snowglobe simulation environment. Co-founders Shreya Rajpal and Zayd Simjee joined Harvey's product and engineering organisation. Announced alongside $550m round at $15.6bn valuation (one outlet $15.5bn). Directory site reports the open-source framework remains on GitHub under Apache-2.0 (third-party claim).

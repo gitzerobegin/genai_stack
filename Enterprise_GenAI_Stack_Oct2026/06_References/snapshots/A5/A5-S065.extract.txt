@@ -1,0 +1,11 @@
+SOURCE ID: A5-S065
+URL: https://api-docs.deepseek.com/quick_start/pricing/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DeepSeek API models pricing deepseek-flash deepseek-v4-pro (allowed_domains api-docs.deepseek.com)
+========================================================================
+
+Search tool summary (per 1M tokens, USD):
+- deepseek-flash (DeepSeek-V4.1-Flash): input cache hit $0.006 peak / $0.003 off-peak; cache miss $0.30 peak / $0.15 off-peak; output $1.20 peak / $0.60 off-peak.
+- deepseek-v4-pro (DeepSeek-V4-Pro-0813): cache hit $0.044 / $0.022; cache miss $1.32 / $0.66; output $3.96 / $1.98.
+- Context 1M; max output 384K. New pricing effective 04:00 UTC 10 September 2026; off-peak = half of peak.

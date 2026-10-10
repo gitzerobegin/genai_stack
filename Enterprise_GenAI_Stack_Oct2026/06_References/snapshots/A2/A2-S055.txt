@@ -1,0 +1,13 @@
+SOURCE ID: A2-S055
+URL: https://pypi.org/project/weaviate-client/
+FINAL URL: https://pypi.org/project/weaviate-client/
+TITLE: Client Challenge
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Client Challenge
+
+      A required part of this site couldn’t load. This may be due to a browser
+      extension, network issues, or browser settings. Please check your
+      connection, disable any ad blockers, or try using a different browser.

@@ -1,0 +1,9 @@
+SOURCE ID: V2-S057
+URL: https://www.iso.org/standard/42006
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ISO/IEC 42005:2025 AI system impact assessment published; ISO/IEC 42006:2025 published July 2025 (allowed_domains iso.org)
+========================================================================
+
+ISO/IEC 42005:2025 - Information technology - Artificial intelligence (AI) - AI system impact assessment: Edition 1, 2025-05, published.
+ISO/IEC 42006:2025 - Requirements for bodies providing audit and certification of AI management systems: Edition 1, 2025-07; lifecycle record shows International Standard published 2025-07-07; builds on ISO/IEC 17021-1.

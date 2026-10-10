@@ -1,0 +1,8 @@
+SOURCE ID: V1-S087
+URL: https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon Bedrock AgentCore Memory generally available (allowed_domains aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+"Updated on October 13, 2025 - Amazon Bedrock AgentCore is now generally available" across nine AWS Regions; all AgentCore services support VPC, PrivateLink, CloudFormation and tagging. At GA Memory gained a self-managed strategy. Later: March 2026 resource-based policies and record streaming; April 2026 structured metadata filtering; August 2026 JSON payload type on CreateEvent and IngestData API; flexible namespace variables. FAQ: AgentCore available in fifteen AWS Regions. AgentCore harness GA mid-2026 (June 2026 What's New).

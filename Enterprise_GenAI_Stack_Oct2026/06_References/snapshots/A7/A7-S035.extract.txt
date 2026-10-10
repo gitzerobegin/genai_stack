@@ -1,0 +1,11 @@
+SOURCE ID: A7-S035
+URL: https://www.hashicorp.com/en/trust/compliance
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: HCP Vault Dedicated pricing SOC 2 ISO 27001 HashiCorp trust center
+========================================================================
+
+HashiCorp security page: SOC 2 Type 2 report, ISO 27001, ISO 27017 and ISO 27018 certifications (page roughly a year old).
+Compliance page: ISO 27001 scope covers "IBM Vault, IBM Vault Secrets" among other products. SOC 2 report available after signing an NDA with your account manager, then through customertrust@ibm.com.
+Vault Enterprise compliance list: "FIPS 140-2, ISO 27001, 27017, 27018, SOC 2".
+HCP shared responsibility: HashiCorp handles OS updates and patches; customer manages access management, MFA and ACL configuration.

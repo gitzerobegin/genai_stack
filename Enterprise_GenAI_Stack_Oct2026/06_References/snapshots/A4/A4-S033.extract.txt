@@ -1,0 +1,8 @@
+SOURCE ID: A4-S033
+URL: https://www.langchain.com/blog/langchain-langgraph-1dot0
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangChain Series B funding valuation 2025 LangGraph 1.0
+========================================================================
+
+Changelog/blog: "LangGraph 1.0 is the first stable major release in the durable agent framework space — a major milestone for production-ready AI systems." "These 1.0 releases mark our commitment to stability for our open source libraries and no breaking changes until 2.0." LangChain 1.0 added a new agent constructor, create_agent, "Built on the LangGraph runtime".

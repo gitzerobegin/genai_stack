@@ -1,0 +1,10 @@
+SOURCE ID: E3-S075
+URL: https://openid.net/wp-content/uploads/2025/10/Identity-Management-for-Agentic-AI.pdf
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenID Foundation AI Identity Management Community Group agentic AI; SPIFFE agents
+========================================================================
+
+Search-tool summary of openid.net/wp-content/uploads/2025/10/Identity-Management-for-Agentic-AI.pdf, openid.net/new-whitepaper-tackles-ai-agent-identity-challenges/ and openid.net/cg/artificial-intelligence-identity-management-community-group/:
+- The OpenID Foundation's AI Identity Management Community Group published "Identity Management for Agentic AI" on 7 October 2025: a strategic agenda covering agent authentication, authorisation and delegation; flags risks such as recursive delegation (agents spawning sub-agents create complex authorisation chains without clear scope-attenuation mechanisms).
+- The Community Group is a discussion space explicitly not designed to produce specifications; protocol work is deferred to a working group or liaison.

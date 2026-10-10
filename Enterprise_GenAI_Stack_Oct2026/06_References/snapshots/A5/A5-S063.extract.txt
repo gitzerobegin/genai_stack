@@ -1,0 +1,12 @@
+SOURCE ID: A5-S063
+URL: https://api-docs.deepseek.com/news/news260424/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DeepSeek V4 release news V4-Pro V4-Flash pricing context MIT license (allowed_domains api-docs.deepseek.com, deepseek.com, huggingface.co)
+========================================================================
+
+Search tool summary:
+- 24 April 2026 preview: DeepSeek-V4-Pro 1.6T total / 49B active parameters; DeepSeek-V4-Flash 284B total / 13B active; both 1M context, Thinking/Non-Thinking modes; API names deepseek-v4-pro, deepseek-v4-flash.
+- DeepSeek model card: DeepSeek-V4-Flash-0731 is the official release of V4-Flash, superseding the preview (31 July 2026).
+- V4-Pro model card README: "license: mit"; "this repository and the model weights are licensed under the MIT License".
+- 13 August 2026 changelog: peak/off-peak pricing, off-peak half of peak, effective 16 August 2026. "DeepSeek-V4-Pro GA Release" news 13 August 2026; HF repo DeepSeek-V4-Pro-0813 exists.

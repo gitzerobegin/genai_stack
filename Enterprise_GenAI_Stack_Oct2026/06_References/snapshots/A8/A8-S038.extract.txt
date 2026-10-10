@@ -1,0 +1,11 @@
+SOURCE ID: A8-S038
+URL: https://www.bankofengland.co.uk/-/media/boe/files/letter/2026/response-to-tsc-inquiry-report-on-ai-in-financial-services
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SS1/23 ... artificial intelligence (bankofengland.co.uk); HM Treasury designates critical third parties
+========================================================================
+
+Search result titles only (bankofengland.co.uk), surfaced in a search on SS1/23 and AI; contents not extracted by the search tool:
+- "Response to TSC report on AI in financial services" (bankofengland.co.uk/-/media/boe/files/letter/2026/response-to-tsc-inquiry-report-on-ai-in-financial-services) - 2026.
+- "Prudential Regulation Authority" letter from Sarah Breeden and Sam Woods to the Chancellor (bankofengland.co.uk/-/media/boe/files/letter/2026/letter-from-sarah-breeden-sam-woods-to-chancellor.pdf) - 2026.
+Related search-tool extract (from a separate CTP search, law-firm commentary): "the Treasury Committee's January report on the use of AI in financial services recommended that HM Treasury use its powers under the Critical Third Parties regime to designate AI and cloud providers."

@@ -1,0 +1,12 @@
+SOURCE ID: A5-S066
+URL: https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qwen3.8 release open-weight license Apache 2.0 (allowed_domains qwen.ai, qwenlm.github.io, huggingface.co, alibabacloud.com)
+========================================================================
+
+Search tool summary:
+- Alibaba: Qwen3.8-27B is the latest open-weight addition to the Qwen3.8 series, released under Apache 2.0, native 262K context extendable to 1M. HF card: license apache-2.0.
+- Alibaba released weights of the flagship Qwen3.8-2.4T-A95B on Hugging Face and ModelScope - first Qwen-Max-class open release. Licence of the 2.4T flagship not confirmed in results.
+- A Hugging Face "State of Open Models: Summer 2026" post says Kimi K3 and Qwen 3.8 2.4T are "starting to include some non-commercial restrictions and revenue share requirements" (unverified for Qwen).
+- Qwen-Image-2.1 reportedly under a research-only licence.

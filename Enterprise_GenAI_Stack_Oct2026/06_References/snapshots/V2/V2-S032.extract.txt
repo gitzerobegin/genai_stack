@@ -1,0 +1,9 @@
+SOURCE ID: V2-S032
+URL: https://learn.microsoft.com/en-us/entra/fundamentals/whats-new
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Microsoft Entra Agent ID generally available (allowed_domains learn.microsoft.com, techcommunity.microsoft.com, microsoft.com)
+========================================================================
+
+Microsoft's Entra release log lists the Agent ID platform's general availability under April 2026, describing it as an identity and authorization framework for AI agents ... authentication, authorization, and governance over standard protocols such as OAuth 2.0, MCP, and A2A. Entra blog: "Microsoft Entra Agent ID ... now generally available."
+Product docs: available for all Microsoft Entra customers. Extending Microsoft Entra security features to agents requires Microsoft Agent 365, which is included with Microsoft 365 E7 and is available as an add-on to Microsoft E5/A5/Business Premium (or Microsoft Defender Suite + Microsoft Purview Suite). Agents hub: Microsoft Agent 365 is now generally available. Copilot Studio: after May 2026, Copilot Studio automatically creates a Microsoft Entra Agent ID for each new agent. Preview originally announced at Microsoft Build (2025).

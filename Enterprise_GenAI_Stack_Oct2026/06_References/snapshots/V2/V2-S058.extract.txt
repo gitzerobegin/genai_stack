@@ -1,0 +1,8 @@
+SOURCE ID: V2-S058
+URL: https://www.ropesgray.com/en/insights/alerts/2025/06/sec-clears-unfinished-rulemakings-from-regulatory-agenda
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SEC withdraws predictive data analytics proposed rule June 2025
+========================================================================
+
+On June 12, 2025, the SEC formally withdrew 14 proposed rules for investment advisers, broker-dealers and public companies, including the predictive data analytics conflicts proposal (proposed July 2023). The SEC would need to issue entirely new proposed rules to regulate the area again. Came under Chair Paul Atkins.

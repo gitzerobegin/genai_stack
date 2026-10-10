@@ -1,0 +1,16 @@
+SOURCE ID: B-L1-S002
+URL: https://docs.mistral.ai/models
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.mistral.ai, mistral.ai): Mistral models deprecation retirement date legacy models
+========================================================================
+
+Search-tool summary of Mistral docs models overview (deprecated and retired models table), changelog (docs.mistral.ai/resources/changelogs) and Labs page (docs.mistral.ai/inference/labs):
+- The docs have a deprecated/retired models table with deprecation date, retirement date and recommended replacement.
+- Mistral Medium 3.1 (mistral-medium-2508) retirement 31 August 2026; replacement Mistral Medium 3.5.
+- Mistral Small 3.2 (mistral-small-2506) retirement 31 July 2026; replacement Mistral Small 4.
+- Devstral 2 (devstral-2512) retirement 31 July 2026; replacement Mistral Medium 3.5.
+- OCR 4.0 retirement 30 September 2026; replacement OCR 4.1.
+- Z.ai GLM 5.2 (zai-glm-5-2) on Mistral's platform deprecated, retires 31 October 2026; replacement zai-glm-5-3.
+- Labs models are experimental and may be deprecated or removed with 1 month's notice.
+- Caveat: table garbled in the extract; legal-center pages and the overview disagree on some dates.

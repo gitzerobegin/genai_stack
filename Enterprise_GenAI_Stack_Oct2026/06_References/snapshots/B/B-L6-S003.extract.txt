@@ -1,0 +1,8 @@
+SOURCE ID: B-L6-S003
+URL: https://docs.pinecone.io/release-notes/2026
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.pinecone.io, pinecone.io): Pinecone serverless cloud regions eu-west-1 europe-west4 Azure supported regions
+========================================================================
+
+2026 release notes: AWS serverless regions eu-central-1 (Frankfurt) and ap-southeast-1 (Singapore) added (Singapore announced 5 May 2026, https://www.pinecone.io/newsroom/Pinecone-Launches-First-Serverless-Region-in-Asia/). Builder tier regions listed: AWS us-west-2, eu-west-1 (Ireland), eu-central-1 (Frankfurt), ap-southeast-1; GCP us-central1, europe-west4 (Netherlands); Azure eastus2. Starter plan limited to AWS us-east-1; other regions need Builder, Standard or Enterprise. Docs cloud-regions page (https://docs.pinecone.io/troubleshooting/available-cloud-regions) table appears incomplete (eu-west-1, eastus2 only). Python SDK enum includes germanywestcentral (not corroborated).

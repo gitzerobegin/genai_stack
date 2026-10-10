@@ -1,0 +1,8 @@
+SOURCE ID: V2-S023
+URL: https://www.crossborderdataforum.org/generative-ai-and-gdpr-enforcement-in-europe-a-lot-of-noise-one-fine-zero-survivors/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Italy Garante DeepSeek 2026 decision fine OR ban update
+========================================================================
+
+The Garante ordered the restriction on January 30, 2025 ("as a matter of urgency and with immediate effect", limitation on processing of Italian users' data) and opened an investigation. A guide updated May 19, 2026 describes the measure as still in effect. Commentary describes the ban as continuing: "a Chinese AI service effectively excluded from the Italian market for failure to engage with GDPR requirements." No GDPR fine against DeepSeek found. The OpenAI EUR15m fine (Dec 2024) was reportedly annulled by the Court of Rome in March 2026 (single secondary source).

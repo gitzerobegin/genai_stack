@@ -1,0 +1,8 @@
+SOURCE ID: A2-S011
+URL: https://docs.cohere.com/docs/models
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere Embed v4 Rerank 4 release
+========================================================================
+
+Cohere's model overview lists embed-v5.0-pro and embed-v5.0-fast, both with a 128k context length, while embed-v4.0 is still listed. Embed v4 (changelog https://docs.cohere.com/changelog/embed-multimodal-v4): Matryoshka dimensions of 256, 512, 1024 and 1536, mixed-modality input, context length 128k; available on Cohere Platform, AWS SageMaker, Azure AI Foundry. Azure lists Rerank v4.0 Pro, Rerank v4.0 Fast, Rerank v3.5, Rerank v3 English, Rerank 3 Multilingual.

@@ -1,0 +1,290 @@
+SOURCE ID: A1-S093
+URL: https://raw.githubusercontent.com/reductoai/reducto-python-sdk/main/api.md
+FINAL URL: https://raw.githubusercontent.com/reductoai/reducto-python-sdk/main/api.md
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+# Shared Types
+
+```python
+from reducto.types import (
+    AdvancedCitationsConfig,
+    AdvancedProcessingOptions,
+    ArrayExtractConfig,
+    AsyncEditResponse,
+    AsyncExtractResponse,
+    AsyncParseResponse,
+    AsyncPipelineResponse,
+    AsyncSplitResponse,
+    BaseProcessingOptions,
+    ChartResponse,
+    Chunking,
+    ChunkingConfig,
+    ClassifyResponse,
+    DirectWebhookConfig,
+    DocumentProperties,
+    EditResponse,
+    EnrichConfig,
+    ErrorCode,
+    ErrorDetail,
+    ExperimentalProcessingOptions,
+    ExtractResponse,
+    FigureAgentic,
+    FigureSummaryConfig,
+    LargeTableChunkingConfig,
+    PageRange,
+    ParseResponse,
+    PipelineResponse,
+    SplitLargeTables,
+    SplitResponse,
+    SvixWebhookConfig,
+    TableAgentic,
+    TableSummaryConfig,
+    TextAgentic,
+    URLResult,
+    Upload,
+    WebhookConfigNew,
+)
+```
+
+# Reducto
+
+Types:
+
+```python
+from reducto.types import APIVersionResponse, ClientDeleteUploadResponse
+```
+
+Methods:
+
+- 
+client.
+api_version
+() -> str
+
+- 
+client.
+delete_upload
+(file_id) -> 
+ClientDeleteUploadResponse
+
+- 
+client.
+upload
+(\*\*
+params
+) -> 
+Upload
+
+# Parse
+
+Types:
+
+```python
+from reducto.types import (
+    AsyncConfigV3,
+    AsyncParseConfig,
+    Enhance,
+    Formatting,
+    Retrieval,
+    Settings,
+    Spreadsheet,
+    ParseRunResponse,
+)
+```
+
+Methods:
+
+- 
+client.parse.
+run
+(\*\*
+params
+) -> 
+ParseRunResponse
+
+- 
+client.parse.
+run_job
+(\*\*
+params
+) -> 
+AsyncParseResponse
+
+# Extract
+
+Types:
+
+```python
+from reducto.types import (
+    AsyncExtractConfig,
+    ExtractSettings,
+    ExtractUsage,
+    Instructions,
+    ParseOptions,
+    V3Extract,
+    ExtractRunResponse,
+)
+```
+
+Methods:
+
+- 
+client.extract.
+run
+(\*\*
+params
+) -> 
+ExtractRunResponse
+
+- 
+client.extract.
+run_job
+(\*\*
+params
+) -> 
+AsyncExtractResponse
+
+# Split
+
+Types:
+
+```python
+from reducto.types import DeepSplitPageEvidence, ParseUsage, SplitCategory, SplitTableOptions
+```
+
+Methods:
+
+- 
+client.split.
+run
+(\*\*
+params
+) -> 
+SplitResponse
+
+- 
+client.split.
+run_job
+(\*\*
+params
+) -> 
+AsyncSplitResponse
+
+# Edit
+
+Types:
+
+```python
+from reducto.types import BoundingBox, EditOptions, EditWidget
+```
+
+Methods:
+
+- 
+client.edit.
+run
+(\*\*
+params
+) -> 
+EditResponse
+
+- 
+client.edit.
+run_job
+(\*\*
+params
+) -> 
+AsyncEditResponse
+
+# Pipeline
+
+Types:
+
+```python
+from reducto.types import PipelineSettings
+```
+
+Methods:
+
+- 
+client.pipeline.
+run
+(\*\*
+params
+) -> 
+PipelineResponse
+
+- 
+client.pipeline.
+run_job
+(\*\*
+params
+) -> 
+AsyncPipelineResponse
+
+# Classify
+
+Methods:
+
+- 
+client.classify.
+run
+(\*\*
+params
+) -> 
+ClassifyResponse
+
+# Webhook
+
+Types:
+
+```python
+from reducto.types import WebhookRunResponse
+```
+
+Methods:
+
+- 
+client.webhook.
+run
+() -> str
+
+# Job
+
+Types:
+
+```python
+from reducto.types import JobDeleteResponse, JobGetResponse, JobGetAllResponse
+```
+
+Methods:
+
+- 
+client.job.
+cancel
+(job_id) -> object
+
+- 
+client.job.
+delete
+(job_id, \*\*
+params
+) -> 
+JobDeleteResponse
+
+- 
+client.job.
+get
+(job_id) -> 
+JobGetResponse
+
+- 
+client.job.
+get_all
+(\*\*
+params
+) -> 
+JobGetAllResponse

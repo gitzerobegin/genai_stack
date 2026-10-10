@@ -1,0 +1,8 @@
+SOURCE ID: E1-S019
+URL: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402690
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Implementing Regulation 2024/2690 NIS2 managed service providers (eur-lex.europa.eu)
+========================================================================
+
+Search-tool extract: Commission Implementing Regulation (EU) 2024/2690 of 17 October 2024 lays down the technical and methodological requirements of the cybersecurity risk-management measures referred to in NIS2 for DNS service providers, TLD registries, cloud computing service providers, data centre service providers, CDN providers, managed service providers, managed security service providers and certain digital providers, and specifies when an incident is significant for these entity types. Its supply-chain section requires 'a supply chain security policy which governs the relations with the direct suppliers and service providers'.

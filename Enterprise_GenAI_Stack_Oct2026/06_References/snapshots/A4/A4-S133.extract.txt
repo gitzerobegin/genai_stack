@@ -1,0 +1,8 @@
+SOURCE ID: A4-S133
+URL: https://trust.fireworks.ai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Fireworks AI SOC 2 Type II HIPAA ISO 27001 trust center security
+========================================================================
+
+Trust center lists: SOC 2 Type II, HIPAA (HIPAA Report of Compliance; update marked ~1022 days ago in cached page), GDPR, ISO 27001:2022, ISO 27701, ISO/IEC 42001:2023; certificate PDFs and Statement of Applicability linked. Blog "Fireworks.ai Achieves SOC 2 Type II and HIPAA Compliance": inference platform is SOC 2 Type II and HIPAA compliant. Blog "Fireworks Achieves Triple ISO Certification": ISO 27001, ISO 27701 and ISO 42001. Docs Certifications page lists SOC 2 Type II as certified; describes Fireworks as HIPAA compliant. Inference page says "HIPAA-ready". BAA availability and audit scope not shown.

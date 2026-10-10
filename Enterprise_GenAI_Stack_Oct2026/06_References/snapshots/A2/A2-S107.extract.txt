@@ -1,0 +1,8 @@
+SOURCE ID: A2-S107
+URL: https://qdrant.tech/blog/series-b-announcement/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qdrant funding Series B 2026 Apache 2.0 license vector search engine (allowed: qdrant.tech, github.com)
+========================================================================
+
+Dated March 12, 2026: $50 million Series B led by AVP, with participation from Bosch Ventures, Unusual Ventures, Spark Capital, and 42CAP. Earlier: $28M Series A led by Spark Capital; $7.5M seed. Canva quoted as customer. Qdrant describes itself as an open-source vector search engine written in Rust.

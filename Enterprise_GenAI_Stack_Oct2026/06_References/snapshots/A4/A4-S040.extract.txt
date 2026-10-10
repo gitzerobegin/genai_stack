@@ -1,0 +1,8 @@
+SOURCE ID: A4-S040
+URL: https://www.langchain.com/blog/interrupt-2026-overview
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangChain 2026 announcement LangGraph LangSmith new funding OR acquisition
+========================================================================
+
+At Interrupt 2026 (May 13-14, San Francisco), LangChain announced LangSmith Engine, Managed Deep Agents, SmithDB, Context Hub, LLM Gateway, and the general availability of Sandboxes. Engine watches production traces, clusters recurring failures into named issues, diagnoses root causes, and proposes fixes for review. Also launched LangChain Labs (continual learning research). (Related LangChain March 2026 newsletter: Agent Builder rebranded as LangSmith Fleet with enterprise permissions, credential management and centralised oversight.) No new LangChain funding round or acquisition announced in 2026 found in primary sources; most recent announced round is the $125M/$1.25B Series B (trackers date 20 Oct 2025). Secondary marketplace listing of a "Series C" $3.01B valuation (Sept 2026) is unannounced and unverified.

@@ -1,0 +1,8 @@
+SOURCE ID: E1-S048
+URL: https://www.gov.ca.gov/2026/09/30/californias-nation-leading-ai-framework-just-got-stronger-governor-newsom-signs-more-first-in-the-nation-worker-protections-and-more/
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Governor Newsom signs September 2026 AI bills (gov.ca.gov)
+========================================================================
+
+Search-tool extract: 30 September 2026 release lists SB 947 (employment and automated decision systems), SB 951 (technological displacement notice), AB 1331 and AB 1883 (workplace surveillance), AB 1979 and SB 503 (health care services and AI); the state is 'prohibiting employers from only relying on AI when making a disciplinary action or termination decision'. 9 September 2026 release: SB 813 establishes a framework for independent verification organisations that can assess AI systems and models for compliance with state law; AB 1405 creates a state registry for AI auditors. 16 September 2026: SB 1050 requires disclosure on video or audio advertisements using AI-generated performers. 10 September 2026: SB 1119 (companion chatbots for children) and SB 867 (toys with companion chatbots). Effective dates not given in the releases.

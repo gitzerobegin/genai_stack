@@ -1,0 +1,8 @@
+SOURCE ID: A2-S044
+URL: https://docs.voyageai.com/docs/aws-marketplace-model-package
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Voyage AI trust center SOC 2 HIPAA deployment AWS marketplace SageMaker private VPC (allowed: mongodb.com, voyageai.com, docs.voyageai.com, aws.amazon.com)
+========================================================================
+
+Voyage AI homepage (https://www.voyageai.com/) lists SOC 2 and HIPAA under a privacy and compliance section and offers SaaS and in-VPC customer tenant deployment; available through all major clouds and data platforms. Marketplace model packages run in the buyer's AWS account and VPC; AWS serves as your sub-processor; deployment requires SageMaker instance types such as ml.g5.xlarge. MongoDB docs: https://www.mongodb.com/docs/voyageai/management/aws-marketplace/

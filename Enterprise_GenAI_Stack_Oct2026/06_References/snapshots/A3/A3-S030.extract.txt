@@ -1,0 +1,8 @@
+SOURCE ID: A3-S030
+URL: https://a2a-protocol.org/latest/announcing-1.0/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: A2A specification v1.0 release signed agent cards what's new
+========================================================================
+
+Search-tool summary: A2A v1.0 is the first stable release of the protocol, and signed Agent Cards are one of its headline features. The official 'What's New' page covers the breaking changes, and the GitHub release log dates the 1.0.0 tag to March 12, 2026. A third-party implementer reports that v1.0.0 shipped on 2026-03-12 and v1.0.1 on 2026-05-28. Signed cards provide cryptographic verification of agent identity and metadata, establishing trust before interaction across organizational boundaries. Signing is optional: the spec says cards MAY be digitally signed using JSON Web Signature (JWS) as defined in RFC 7515, and cards carry a signatures array of AgentCardSignature entries. Canonicalize the resulting JSON using RFC 8785. Clients SHOULD verify signatures when present. The v1.0 release tightens specification behavior, which includes breaking changes in the interaction protocol, while AgentCard has evolved in a backward-compatible way, so agents can advertise both v0.3 and v1.0 support. Operations were renamed to verb-style names, for example message/send -> SendMessage. OAuth changed: the release added Device Code flow (RFC 8628), removed deprecated implicit/password flows, and added PKCE support. Multi-tenancy was added. Well-known discovery URI is /.well-known/agent-card.json.

@@ -1,0 +1,8 @@
+SOURCE ID: A3-S026
+URL: https://opensource.googleblog.com/2026/04/a-year-of-open-collaboration-celebrating-the-anniversary-of-a2a.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: A2A protocol Linux Foundation latest version 2026 Agent2Agent specification release
+========================================================================
+
+Search-tool summary: Google's open source blog says [A2A v1.0] came out in March 2026, describing it as the first stable, fully production-ready version of the standard.

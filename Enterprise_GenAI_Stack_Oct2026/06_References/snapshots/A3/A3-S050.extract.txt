@@ -1,0 +1,8 @@
+SOURCE ID: A3-S050
+URL: https://docs.mem0.ai/platform/features/graph-memory
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mem0 pricing plans 2026 Pro Enterprise graph memory
+========================================================================
+
+Search-tool summary: Mem0's documentation splits graph memory into two parts. Entity extraction, linking, and the retrieval boost are available on all plans and run automatically. The interactive dashboard view is restricted to Pro and Enterprise, where users can explore entities, trace how memories connect, and filter the graph.

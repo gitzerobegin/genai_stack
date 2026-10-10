@@ -1,0 +1,9 @@
+SOURCE ID: A1-S034
+URL: https://docs.langchain.com/langsmith/platform-setup
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith self-hosted hybrid BYOC deployment options enterprise
+========================================================================
+
+Search result titles: "Set up LangSmith - Docs by LangChain"; "Hybrid - Docs by LangChain"; "LangSmith BYOC is now generally available on AWS" (langchain.com/blog); "Bring Your Own Cloud (BYOC)"; "Self-host LangSmith on Kubernetes".
+Search-tool summary: LangSmith has three main deployment models (Cloud, BYOC, Self-hosted). Self-hosted and BYOC both require the Enterprise plan. BYOC: control plane in LangChain's cloud, data plane runs entirely in customer cloud; LangChain provisions and operates; GA announcement says BYOC available for Enterprise customers across 15 AWS regions in the US, EU and APAC. Self-hosted: LangChain ships container images, Helm charts and licence; customer provides Kubernetes, PostgreSQL, Redis; docs position it for data residency, regulatory constraints, custom networking or air-gapped requirements. Kubernetes minimum at least 16 vCPUs, 64GB memory; datastores PostgreSQL, Redis, ClickHouse, optional blob storage. Hybrid: LangChain hosts control plane, customer runs Agent Servers / data plane.

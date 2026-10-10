@@ -1,0 +1,8 @@
+SOURCE ID: V2-S077
+URL: https://www.iosco.org/publications/_public_reports.cfm
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: IOSCO supervisory toolkit artificial intelligence capital markets FR/02/2026
+========================================================================
+
+FR/02/2026 is IOSCO's Supervisory Toolkit for AI Use in Capital Markets, a Report of the Board dated 25 May 2026; OR/07/2026 standalone toolkit same day; survey responses by 26 June 2026. Non-binding; applies to all AI system types including GenAI and agentic AI. Three layers: areas of supervisory consideration; tools across governance and risk management, third-party and outsourcing risk, disclosure, recordkeeping and reporting; indicators and data sources.

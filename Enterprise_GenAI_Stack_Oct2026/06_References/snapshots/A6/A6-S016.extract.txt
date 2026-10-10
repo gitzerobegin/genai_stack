@@ -1,0 +1,18 @@
+SOURCE ID: A6-S016
+URL: https://konghq.com/blog/product-releases/kong-ai-gateway-2-0-ga
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: "Kong AI Gateway 2.0" GA announcement
+========================================================================
+
+Related: https://konghq.com/blog/product-releases/kong-ai-gateway-2-0-agentic-ai ; https://discuss.konghq.com/t/product-announcement-ai-gateway-goes-2-0-and-ga/14109
+
+Extract as returned by search tool:
+Kong announced that AI Gateway 2.0 reached general availability on September 1, 2026. Kong's own blog post says the release is production-supported, and it followed a July 2026 private beta announcement.
+"Kong AI Gateway 2.0 is now generally available, shipping with MCP Server Bundling, modality-aware cost governance, Kimi, Microsoft Foundry, and Amazon SageMaker support, plus principal-aware AI traffic policies."
+"MCP Server Bundling, which combines multiple MCP servers behind one route while using access-control policies to expose only authorized tools to each caller."
+"The release also integrates Kong Identity principals into AI Gateway policies" — identity-based rate limiting and cost attribution.
+"AI Gateway 2.0 adds a plugin-agnostic upstream authentication framework and AWS SigV4 signing for Bedrock AgentCore endpoints".
+The product runs on its own dedicated runtime and release cadence, separate from the standard API gateway release train: a dedicated runtime for AI traffic, governing LLM, MCP, and agent workloads with their own control plane, admin API, and cadence.
+Current AI Gateway plugin users can stay on Kong Gateway 3.x, where AI plugins are supported through the 3.14 LTS release. "Kong recommends migration before version 3.18 using kongctl, documentation, or assisted migration services."
+A Kong community forum post also lists semantic guardrails and token budgeting among the 2.0 capabilities.

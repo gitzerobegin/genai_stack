@@ -1,0 +1,13 @@
+SOURCE ID: A8-S056
+URL: https://www.bankofengland.co.uk/financial-policy-committee-record/2026/april-2026
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Bank of England FCA AI survey ... agentic AI Financial Policy Committee 2026 (bankofengland.co.uk)
+========================================================================
+
+Search results: Bank of England "Financial Policy Committee Record - April 2026" (meeting 27 March 2026); "Financial Stability Report - July 2026"; "Agents of change - speech by Sarah Breeden" (June 2026, ECB Forum); "Financial Stability in Focus: Artificial intelligence in the financial system" (April 2025); BoE response to TSC inquiry report on AI in financial services (1 April 2026); letter Breeden/Woods to Chancellor (2026)
+Search-tool extract:
+- 2026 BoE/FCA AI survey launched June 2026, voluntary, covering AI/ML including foundation models, generative AI and agentic AI; responses until 31 July; fourth edition of the biennial survey; July 2026 FSR: next iteration to be published later this year.
+- FSIF April 2025 (citing the then-latest survey): 55% of AI use cases have some form of autonomous decision-making; 2% fully autonomous.
+- FPC March 2026: participants have not yet adopted generative or agentic AI in a way that presents systemic risk; risks likely to increase, potentially rapidly; FPC asked the Bank and FCA to do further work on agentic AI focused on payments and financial markets; backed re-running the AI survey in 2026.
+- Breeden said the FPC would publish an updated assessment on 7 July [2026] (not retrieved). BoE response to the Treasury Committee AI inquiry dated 1 April 2026.

@@ -1,0 +1,11 @@
+SOURCE ID: E3-S052
+URL: https://ampcode.com/security
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Sourcegraph Amp enterprise SSO SCIM spin out
+========================================================================
+
+Search-tool summary of ampcode.com/security (and Amp pricing page):
+- Amp Enterprise supports Single Sign-On and Directory Sync through identity providers including Okta, via WorkOS; SSO can be the exclusive authentication method for a workspace; SCIM can be used for automatic provisioning and de-provisioning of users and groups.
+- Pricing: for Enterprise, usage is 50% more expensive than individual and Team usage, and includes SSO (Okta, SAML, etc.). Pricing page says Amp is built around today's frontier models without naming them.
+- No zero-data-retention statement and no named model list found in results.

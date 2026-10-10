@@ -1,0 +1,8 @@
+SOURCE ID: V2-S054
+URL: https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-third-party-risk-management
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: EBA final guidelines third-party risk management non-ICT services September 2026 replace outsourcing guidelines
+========================================================================
+
+The EBA issued its final Guidelines EBA/GL/2026/09 on 18 September 2026. They will repeal the 2019 outsourcing guidelines (EBA/GL/2019/02) once they apply; until then the 2019 guidelines remain in force. Final but awaiting translation into EU official languages. Scope: non-ICT services from third-party providers (ICT under DORA Chapter V); "third-party arrangement" replaces "outsourcing" as organising concept; widened to payment and e-money institutions. Enhanced obligations for arrangements supporting critical or important functions. Register required. Date of application not yet fixed (Arthur Cox: effective date to be confirmed); critical/important arrangements to be reviewed within two years of the date of application (commentary).

@@ -1,0 +1,12 @@
+SOURCE ID: E3-S037
+URL: https://cloud.google.com/blog/products/ai-machine-learning/expanding-google-antigravity-for-enterprise-customers
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Google Antigravity enterprise Google Cloud launch Antigravity CLI Jules
+========================================================================
+
+Search-tool summary of cloud.google.com/blog/products/ai-machine-learning/expanding-google-antigravity-for-enterprise-customers, antigravity.google/blog/google-antigravity-for-enterprises and antigravity.google/docs/enterprise:
+- Announced at I/O 2026 that Antigravity would come to Gemini Enterprise. "AI developer tools" is generally available for Gemini Enterprise Standard, Plus and Pay-as-you-go editions with an invoiced Cloud Billing account as of 18 August 2026, including Antigravity 2.0, Antigravity CLI and Android Studio.
+- Enterprise users of Antigravity CLI log in with Cloud OAuth and set their Agent Platform project ID and region.
+- Configurable security policies can enforce workspace sandboxing and MCP server access; central audit logging.
+- Enterprise docs: Antigravity IDE (standalone) is currently not supported for enterprise deployments; IDE support comes via extensions (VS Code GA; Visual Studio, JetBrains and Zed in preview).

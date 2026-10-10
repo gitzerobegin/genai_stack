@@ -1,0 +1,8 @@
+SOURCE ID: A3-S085
+URL: https://www.sec.gov/Archives/edgar/data/1513845/000110465926012492/tm265786d1_6k.htm
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Tavily joins acquisition announcement; Tavily acquired acquisition 2026
+========================================================================
+
+Search-tool summary: Nebius's SEC Form 6-K describes a merger in which a Merger Sub combines with Tavily, leaving Tavily as a wholly owned Nebius subsidiary. 'The Target operates under the business name "Tavily", and has wholly owned subsidiaries in Israel and the United Arab Emirates.' 'The boards of directors of both Nebius and Tavily have approved the transaction, and the transaction is not subject to the approval of the shareholders of Nebius.' Closing was expected to occur in the coming days, subject to customary conditions. The upfront consideration is payable in cash; transaction value not disclosed in the announcement.

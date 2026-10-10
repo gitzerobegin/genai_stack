@@ -1,0 +1,11 @@
+SOURCE ID: V2-S024
+URL: https://openai.com/index/introducing-gpt-6-sol-and-luna/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Introducing GPT-6 Sol and Luna GPT-6.1 Sol release date (allowed_domains openai.com)
+========================================================================
+
+OpenAI's developer forum post for the launch is dated September 22, 2026, and the OpenAI announcement page is tagged Sep 22, 2026: "GPT-6 Sol and Luna roll out today in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise, and Edu users." API: gpt-6-sol and gpt-6-luna.
+"GPT-6 and Intelligent UI for everyone": on October 7, 2026, GPT-6 expanded to a broader ChatGPT rollout; GPT-6 in ChatGPT powered by GPT-6 Sol for Plus, Pro, Business, Enterprise, and GPT-6 Luna for Free and Go.
+"Introducing GPT-6.1 Sol": upgrade to GPT-6 Sol that nearly matches GPT-6 Astra on agentic coding, computer use and professional work at one-fifth of Astra's standard token prices. API changelog dates release to Sep 29; gpt-6.1-sol; $2 input / $10 output per million tokens. GPT-6.1 Sol System Card addendum dated 2026-09-29.
+Conflict: a forum listing shows an "Announcing GPT-6 Sol and GPT-6 Luna" thread dated July 31, 2026 (likely erroneous).

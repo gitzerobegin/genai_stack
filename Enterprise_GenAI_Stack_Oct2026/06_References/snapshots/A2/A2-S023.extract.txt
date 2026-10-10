@@ -1,0 +1,8 @@
+SOURCE ID: A2-S023
+URL: https://ir.elastic.co/News--Events/news/news-details/2025/Elastic-Completes-Acquisition-of-Jina-AI-a-Leader-in-Frontier-Models-for-Multimodal-and-Multilingual-Search/default.aspx
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Elastic completes acquisition of Jina AI (allowed: elastic.co, ir.elastic.co, jina.ai)
+========================================================================
+
+Press release dated October 9, 2025: Elastic (NYSE: ESTC), the Search AI Company, has completed the acquisition of Jina AI, a pioneer in open source multimodal and multilingual embeddings, reranker, and small language models. Complements Elastic's ELSER model; brings rerankers for visual and long-context multilingual documents; small models for HTML-to-Markdown conversion; expands Elastic's AI research team. SEC filings give closing date October 7, 2025; FY2026 10-K purchase consideration $43.4 million for Conic AI Technology Limited (Jina AI).

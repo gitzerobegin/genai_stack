@@ -1,0 +1,13 @@
+SOURCE ID: A5-S032
+URL: https://ai.google.dev/gemini-api/docs/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Gemini 3.1 Pro generally available context window pricing Gemini API (allowed_domains ai.google.dev, blog.google, deepmind.google)
+========================================================================
+
+Search tool summary:
+- Pricing page still labels it "Gemini 3.1 Pro Preview"; model code gemini-3.1-pro-preview. Launch post said preview with GA later; no newer GA announcement found.
+- Input token limit 1,048,576; output 65,536.
+- Price per 1M tokens: input $2.00 (<=200k) / $4.00 (>200k); output $12.00 / $18.00. Batch $1.00/$2.00 input, $6.00/$9.00 output. Priority $3.60/$7.20 input, $21.60/$32.40 output. Cache read $0.20/$0.40 plus storage $4.50 per 1M tokens per hour.
+- No free tier for gemini-3.1-pro-preview in the API.
+- Pricing page lists "Used to improve our products": Yes for free tier, No for paid tier.

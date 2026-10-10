@@ -1,0 +1,414 @@
+SOURCE ID: E2-S011
+URL: https://www.microsoft.com/en-us/startups
+FINAL URL: https://www.microsoft.com/en-us/startups
+TITLE: Microsoft for Startups | Microsoft
+ACCESSED: 2026-10-10
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Microsoft for Startups | Microsoft
+
+   This is the Trace Id: f602ff195e7e78c32c3c37a70dc56ccf 
+
+Skip to main content
+
+Microsoft for Startups
+
+Support
+
+Blog
+
+Success Stories
+
+Investor information
+
+Specialty programs
+
+Get started
+
+Sign in
+
+Microsoft 365
+
+Azure
+
+Copilot
+
+Windows
+
+Surface
+
+XBOX
+
+Deals
+
+Small Business
+
+Support
+
+Windows Apps
+
+Outlook
+
+OneDrive
+
+Microsoft Teams
+
+OneNote
+
+Microsoft Edge
+
+Moving from Skype to Teams
+
+Computers
+
+Shop XBOX
+
+Accessories
+
+VR & mixed reality
+
+Certified Refurbished
+
+Trade-in for cash
+
+XBOX Game Pass Ultimate
+
+PC Game Pass
+
+XBOX games
+
+PC games
+
+Microsoft AI
+
+Microsoft Security
+
+Dynamics 365
+
+Microsoft 365 for business
+
+Microsoft Power Platform
+
+Windows 365
+
+Small Business
+
+Digital Sovereignty
+
+Azure
+
+Microsoft Developer
+
+Microsoft Learn
+
+Support for AI marketplace apps
+
+Microsoft Tech Community
+
+Microsoft Marketplace
+
+Software companies
+
+Visual Studio
+
+Microsoft Rewards
+
+Free downloads & security
+
+Education
+
+Gift cards
+
+Licensing
+
+Unlocked stories
+
+View Sitemap
+
+ Microsoft for Startups 
+
+For startups ready to build fast, scale smart, and sell more
+
+ Access cutting-edge AI models, developer tools, and 
+up to $150,000 in credits
+, backed by Microsoft’s global customer network, enterprise-grade security, and privacy you can trust. 
+
+Ready to start building?
+
+ Join thousands of startups innovating on Azure. Claim your benefits today: 
+
+Get started now
+
+Build like the best
+
+ Join the ranks of these startups that are scaling to the next level with Microsoft. 
+
+Read Success Stories
+
+ Startup spotlight 
+
+Launch the next big thing
+
+ See how startups are growing on Azure. 
+
+Unlock your Microsoft startups benefits
+
+ Tips, events and founder stories 
+
+Discover valuable insights into the startup journey
+
+ Explore articles, hear directly from founders and investors, and stay up to date with the latest news on Microsoft for Startups. 
+
+Check out the blog
+
+Previous Slide
+
+Next Slide
+
+Celebrating Women’s History Month with DeepSearch Labs
+
+ Join founder Maryam Fayaz-Torshizi as she shares her journey toward being a tech entrepreneur. 
+
+Read the blog
+
+Creating engaging customer experiences through real-time interactions
+
+ Learn how D-ID partnered with Azure to help its customers incorporate AI-powered avatars into their applications. 
+
+Read the blog
+
+Simplifying applications to help workers find their next role
+
+ Find out how AI-powered job platform Gigs partnered with Azure to keep job hunting from becoming a full-time job. 
+
+Read the blog
+
+Helping small businesses fight cybercriminals
+
+ Discover how Indominus Managed Security brought its three service pillars to life with Microsoft for Startups. 
+
+Read the blog
+
+Back to Tips, tricks, and true stories section
+
+A practical guide to using Startup credits across GitHub, Azure Kubernetes Service (AKS), and AI
+
+ Learn how startups are growing with Microsoft for Startups. 
+
+Learn more
+
+ Founder experiences 
+
+Hear directly from founders who are shaping the future of innovation
+
+ Learn why startup founders and leaders partner with Microsoft to build and grow their business. 
+
+Previous Slide
+
+Next Slide
+
+“Haut.AI’s entire AI ecosystem is built on Microsoft tools … providing the highest level of security, reliability, and scalability.”
+
+ Anastasia Georgievskaya, CEO and Co-Founder, Haut.AI 
+
+Read the story
+
+“This is my third venture and I have never seen such a beneficial go-to-market program for founders … especially in the enterprise segment.”
+
+ Thea Myhrvold, CEO and Founder, GetBee 
+
+“Snorkel AI is proud to partner with Microsoft to help organizations rapidly and cost-effectively harness the power of data and AI.”
+
+ Paroma Varma, Co-Founder and Head of Research, Snorkel AI 
+
+“By leveraging Azure … and the expert technical guidance from Microsoft for Startups, we accelerated the development of our product platform.”
+
+ Brent Poynton, CTO, Strolll 
+
+Read the story
+
+“The Microsoft for Startups program has enabled TruLite Health to accelerate our commercial success …”
+
+ Alan Roga, CEO and Founder, TruLite Health 
+
+Back to Founder experiences section
+
+ Free access to tools 
+
+Run more efficiently
+
+ Make the most of your Microsoft partnership with free access to best-in-class tools and platforms. 
+
+ Your partner in tech 
+
+Accelerate your path to success with innovation that scales
+
+ Build fast, scale smart, and sell more with the cutting-edge AI, global customer experience, and deep enterprise experience of Microsoft. 
+
+Get started today
+
+Build fast
+
+ Discover scalable AI tools that help cut costs and future-proof your business. 
+
+Scale smart
+
+ Deploy with peace of mind with a cloud designed for enterprise-ready scale and security. 
+
+Sell more
+
+ Boost go-to-market success with access to the Microsoft network of customers. 
+
+ Frequently asked questions 
+
+Expand all
+
+Collapse all
+
+01/
+
+What is Microsoft for Startups, and how do I apply?
+
+ Microsoft for Startups is a program that helps founders overcome common startup challenges by providing access to AI services, expert guidance, and essential technology. The program offers benefits like Startup credits, AI tools, and resources to help you build, scale, and sell your solutions. 
+
+02/
+
+What is the Microsoft for Startups portal?
+
+ The Microsoft for Startups portal supports startups by providing access to various resources, benefits, and programs. Startups can tap into pre-built marketing materials, industry-leading AI services, expert guidance, and essential technology to help build and scale their businesses. 
+
+03/
+
+What are Microsoft for Startups technical benefits?
+
+ Microsoft for Startups provides a range of technical benefits designed to help startups build and scale their businesses. These benefits include:
+
+Statup credits:
+ Credits can be applied across eligible Azure services to support your startup from early development through production workloads.
+
+Access to AI tools:
+ Startups can leverage industry-leading AI services and tools for software development, enabling them to create innovative and intelligent applications.
+
+Technical resources:
+ Startups have access to various resources that assist in building better products, scaling faster, and increasing sales. This includes documentation, guides, and support to help with replication and modernization journeys. 
+
+ Follow Microsoft for Startups 
+
+Surface Laptop Ultra
+
+Surface Pro
+
+Surface Laptop
+
+Surface RTX Spark Dev Box
+
+Explore Copilot
+
+Explore Microsoft products
+
+Windows 11 apps
+
+Account profile
+
+Download Center
+
+Microsoft Store support
+
+Returns
+
+Order tracking
+
+Certified Refurbished
+
+Why buy from Microsoft Store
+
+Flexible Payments
+
+Microsoft in education
+
+Devices for education
+
+Microsoft Teams for Education
+
+Microsoft 365 Education
+
+How to buy for your school
+
+Educator training and development
+
+Deals for students and parents
+
+AI for education
+
+Microsoft AI
+
+Microsoft Security
+
+Dynamics 365
+
+Microsoft 365
+
+Microsoft Power Platform
+
+Microsoft Teams
+
+Microsoft Copilot
+
+Small Business
+
+Azure
+
+Microsoft Developer
+
+Microsoft Learn
+
+Support for AI marketplace apps
+
+Microsoft Tech Community
+
+Microsoft Marketplace
+
+Software companies
+
+Visual Studio
+
+Careers
+
+About Microsoft
+
+Company news
+
+Privacy at Microsoft
+
+Investors
+
+Diversity and inclusion
+
+Accessibility
+
+Sustainability
+
+English (United States)
+
+Your Privacy Choices
+
+Consumer Health Privacy
+
+Sitemap
+
+Contact Microsoft
+
+Privacy 
+
+Manage cookies
+
+Terms of use
+
+Trademarks
+
+Safety & eco
+
+Recycling
+
+About our ads

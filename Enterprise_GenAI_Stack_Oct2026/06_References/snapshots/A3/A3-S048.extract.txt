@@ -1,0 +1,8 @@
+SOURCE ID: A3-S048
+URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon Bedrock AgentCore Gateway MCP Identity Memory generally available features
+========================================================================
+
+Search-tool summary: Gateway 3LO for MCP targets (April 2026): 'Gateways with MCP targets can now obtain user-specific tokens for different end users, enabling access to user-specific data from external services that require explicit user consent.' VPC egress for Gateway and Identity (April 2026): Gateway can now reach private resources inside a customer's VPC (example: EKS-hosted MCP servers). Harness GA: 'At GA, omitting memory on CreateHarness provisions a managed memory automatically, with sensible defaults.' The FAQ now lists fifteen AWS Regions, up from nine at GA.

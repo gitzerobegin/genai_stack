@@ -1,0 +1,12 @@
+SOURCE ID: A7-S023
+URL: https://platform.lakera.ai/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Lakera Guard pricing community plan SOC 2 GDPR data residency SSO RBAC
+========================================================================
+
+Pricing page (search-tool extract): Community $0 per month, 10k requests / month, 8k-token prompt limit, SaaS hosting, community support. "The default pricing plan (Community) provides free access to a limited number of requests." Enterprise: flexible, quote-based ("contact sales to update your plan and get access to advanced features"; "Talk to us").
+"Lakera is SOC2 and GDPR compliant" - listed for both tiers; encryption in transit and at rest.
+"Data residency: EU · EU/US" for Community and Enterprise respectively.
+"SSO Support: Not included in Community · Included in Enterprise"; same for role-based access control and SIEM integration.
+Careers page: "We offer Community, Pro, and Enterprise plans" (pricing page lists only Community and Enterprise).

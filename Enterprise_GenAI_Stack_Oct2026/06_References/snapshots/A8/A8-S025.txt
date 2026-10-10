@@ -1,0 +1,1296 @@
+SOURCE ID: A8-S025
+URL: https://cloud.google.com/security/compliance/dora
+FINAL URL: https://cloud.google.com/security/compliance/dora
+TITLE: EU DORA - Compliance | Google Cloud
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+EU DORA - Compliance | Google Cloud
+EU Digital Operational Resilience Act (DORA)
+European Union (EU) financial entities and their critical Information and Communications Technology (ICT) providers must comply with the 
+EU Digital Operational Resilience Act
+ (Regulation (EU) 2022/2554 - ‘DORA’). DORA standardizes how financial entities report cybersecurity incidents, test their digital operational resilience, and manage ICT third-party risk across the financial services sector and EU member states.
+In addition to establishing clear expectations for the role of ICT providers, DORA allows EU financial regulators to oversee critical ICT third party providers  (CTPPs) directly where certain criteria are met. Google Cloud EMEA Limited has been officially designated as a CTPP following a criticality assessment by the European Supervisory Authorities. This designation includes the following Google Cloud EMEA Limited subsidiaries: Google Cloud France SARL, Google Cloud Italy S.r.l, and Google Cloud Poland Sp. z o.o.
+Quick links
+Google Cloud EU DORA Mapping
+Workspace EU DORA Mapping
+DORA ICT Risk Management Customer Guide
+DORA Register of Information Customer Guide
+Google Cloud’s support for customers
+Google Cloud is committed to supporting our customers with resources that address the applicable DORA requirements, including:
+DORA FAQs
+Updated contract terms for Google Cloud, Google Workspace and SecOps Services to address the key contractual provisions in Article 30 of DORA and the RTS on Subcontracting. If you need DORA contract terms, please 
+contact
+ your Google Cloud representative for further details.
+Mappings to Article 30 of DORA for both 
+Google Cloud
+ and 
+Google Workspace
+ to help customers understand how our contracts, controls, and processes can support their DORA requirements.
+An 
+ICT Risk Management Customer Guide
+ to support compliance with DORA’s risk management requirements
+A 
+Register of Information Customer Guide
+ to provide the information you need from us to complete the relevant Register of Information templates for Google Cloud services.
+A
+
+Third-Party Risk Management Resource Center
+
+that
+
+provides information about how we select, manage, and monitor our subcontractors at Google Cloud, giving you insight into how we carefully manage your exposure to third-party risk.
+Key areas of the Digital Operational Resilience Act
+Expand all
+ICT risk management
+Considerations for EU financial entities: 
+Financial entities must establish an internal governance and control framework for ICT risk management and engage in ongoing monitoring of ICT risks. These ICT risk management and monitoring requirements extend to the use of ICT services provided by third party providers.
+Considerations for ICT providers:
+ ICT providers need to be able to support customers’ ICT risk management and monitoring, including where relevant systems and processes are managed by the provider. In addition, in the case of critical ICT providers, the new Lead Overseer will assess the provider’s risk management processes, including ICT risk management policies, ICT business continuity policy, and ICT response and recovery plans. 
+Google Cloud support:
+ Even before you are on Google Cloud, you can use our 
+Risk Assessment & Critical Asset Discovery solution
+ to evaluate your organization’s current IT risk, identify where your critical assets reside, and receive recommendations for improving your security posture and resilience. We’ve also published 
+guidance
+ on managing risk with controls and managing your assets. 
+Once on Google Cloud, you can leverage several tools to map and manage your cloud resources on an ongoing basis, including 
+Cloud Monitoring
+, 
+Resource Manager
+, 
+Infrastructure Manager
+ and 
+Cyber Insurance Hub
+. Information about Google’s approach to risk management is available in Google’s 
+certifications and audit reports
+. 
+If you would like additional assistance, Mandiant (now part of Google Cloud) offers Risk Management services including 
+Cyber Risk Management Operations Service
+, 
+Threat Modeling Security Service
+, 
+Cyber Security Due Diligence Service
+, and a 
+Cyber Security Program Assessment
+. Please also see our 
+ICT Risk Management Customer Guide
+ for additional guidance.
+ICT-related incident management, classification, and reporting
+Considerations for EU financial entities: 
+DORA consolidates financial sector incident reporting requirements under a single streamlined framework. This means financial entities operating in multiple sectors or EU member states should no longer need to navigate parallel, overlapping reporting regimes during what is necessarily a time-sensitive situation. 
+DORA also aims to address parallel incident reporting regimes like 
+NIS2
+. Together, these changes help get regulators the information they need while allowing financial entities to focus on other critical aspects of incident response. Financial entities must report incidents according to defined thresholds in specific templates and timelines as well as implement procedures for documenting root causes and improvements following incidents. 
+Considerations for ICT providers: 
+ICT providers need to be able to support customers’ incident reporting requirements. In addition, in the case of critical ICT providers, the Lead Overseer will directly assess the provider's processes for identification, monitoring, and prompt reporting of material ICT-related incidents to financial entities. 
+Google Cloud support: 
+Google will notify customers with our updated DORA contract terms of ICT-Related Incidents that impact their use of Google Cloud. We will provide these notifications at no additional cost via our existing notification channels (including email, 
+Personalized Service Health (PSH)
+, the 
+Service Health Dashboard
+, and the 
+Google Cloud Support Center
+). 
+We are committed to providing notice within the time frames and with the information financial entities need to facilitate their own assessment and reporting based on the DORA requirements.
+Digital operational resilience testing
+Considerations for EU financial entities: 
+Drawing on existing EU initiatives like 
+TIBER-EU
+, DORA establishes a EU-wide approach to testing digital operational resilience. For certain financial entities this includes advanced threat-led penetration testing (TLPT) every three years. By clarifying testing methodology and introducing mutual recognition of testing results, DORA helps financial entities continue to build and scale their testing capabilities in a way that works throughout the EU.  
+Considerations for ICT providers:
+ DORA directly addresses the role of the ICT provider in TLPT performed by financial entities. Notably, DORA permits pooled testing to manage the impact of testing on multi-tenant services like public clouds. In addition, in the case of critical ICT providers, the Lead Overseer will directly assess the provider’s own testing of ICT systems, infrastructure, and controls. 
+Google Cloud support: 
+Google will participate in TLPT by facilitating pooled testing by an external tester as described in Article 26(4) of DORA. We are confident that pooled testing is the best way to effectively test digital operational resilience of Google Cloud while managing the inherent risks to other customers of testing in a multi-tenant environment.
+Managing of ICT third-party risk
+Considerations for EU financial entities: 
+DORA builds on the strong foundation established by the European Supervisory Authorities’ respective outsourcing guidelines by further coordinating ICT third-party risk management requirements across sectors, including the requirements to implement an ICT third party risk management framework and for contracts with ICT providers. By helping to ensure that similar risks are addressed consistently across sectors and EU member states, DORA will enable financial entities to consolidate and enhance their ICT third-party risk management programs.
+Considerations for ICT providers:
+ ICT providers need to be able to support customers’ third party risk management requirements. In addition, DORA will allow the Lead Overseer to directly oversee critical ICT providers. This mechanism will create a direct communication channel between regulators and designated ICT providers via annual engagements, including oversight plans, inspections, and recommendations. 
+Google Cloud support: 
+Google offers financial entities updated contract terms for Google Cloud, Google Workspace and SecOps Services to address the key contractual provisions in Article 30. If you need DORA contract terms, please 
+contact
+ your Google Cloud representative for further details. We have also created mappings to Article 30 for both 
+Google Cloud
+ and 
+Google Workspace
+ to help you understand how our contracts, controls, and processes can support you with meeting the DORA requirements.
+Information-sharing arrangements
+Considerations for EU financial entities:
+ DORA outlines considerations for financial entities to voluntarily share cyber threat information and intelligence with other financial entities and regulators. 
+Considerations for ICT providers: 
+DORA contemplates ICT providers being involved in information-sharing arrangements that protect potentially sensitive information. However, these arrangements are yet to be defined. 
+
+Google Cloud support: 
+Google Cloud offers products and services to help customers proactively protect against cyber threats in line with DORA’s requirements. We publish a quarterly 
+Threat Horizons Report
+ to provide strategic intelligence about threats to our customers. Customers can also leverage 
+Mandiant’s
+ incident response, cyber risk management services, and offensive security services to guard against and prepare for cyber incidents.
+Applicability and Google Cloud’s responsibility
+DORA allows the European Supervisory Authorities (ESAs) to oversee critical ICT third-party service providers (CTPPs) directly where certain criteria are met. Google Cloud EMEA Limited has been officially designated as a CTPP following a criticality assessment by the ESAs. This designation includes the following Google Cloud EMEA Limited subsidiaries: Google Cloud France SARL, Google Cloud Italy S.r.l, and Google Cloud Poland Sp. z o.o. We proactively prepared for designation and intend to engage openly with the ESAs during direct oversight.
+Like existing ICT risk management requirements, DORA contains requirements about how financial entities in the EU should manage their ICT providers (including cloud services providers). Although these requirements don’t apply to ICT providers directly, Google Cloud recognises that we will need to enable our customers to address these expectations comprehensively to ensure their continued success while using our services. 
+Google Cloud continues to enhance our product and operational capabilities in each of DORA’s focus areas - see examples above. To support our customers, we have dedicated teams like our 
+Office of the CISO
+ that address customers' questions and feedback.
+FAQs
+Expand all
+What is the Digital Operational Resilience Act (DORA)?
+DORA is a EU regulation. It applies across the financial services sector in all EU member states. DORA updates existing rules and establishes an enhanced set of common requirements to mitigate ICT risks and enhance digital resilience in the European financial system. Importantly, DORA also introduces a framework for direct oversight of critical ICT providers by financial regulators in the EU, namely the European Banking Authority, the European Insurance and Occupational Pensions Authority and the European Securities and Markets Authority (together, the European Supervisory Authorities).
+What are the key requirements under DORA?
+DORA establishes an enhanced set of common requirements for financial entities in the EU to mitigate ICT risks and enhance digital resilience in the European financial system. In particular:
+DORA contains detailed requirements for financial entities about ICT risk management.
+DORA consolidates the financial sector incident reporting requirements under a single streamlined framework.
+Drawing on existing EU initiatives like 
+TIBER-EU
+, DORA establishes an EU-wide approach to testing digital operational resilience, including threat-led penetration testing.
+DORA builds on the strong foundation established by the European Supervisory Authorities’ respective outsourcing guidelines by further coordinating ICT third-party risk management requirements across sectors, including the requirements for contracts with ICT providers.
+DORA also allows the European Supervisory Authorities to directly oversee critical ICT providers. This mechanism creates a direct communication channel between regulators and designated ICT providers via annual engagements, including oversight plans, inspections, and recommendations.
+Which organizations does DORA apply to?
+DORA primarily applies to financial entities in the EU. However, part of DORA applies directly to ICT providers (including cloud services providers) who are designated “critical” by the European Supervisory Authorities following an official process. Designation is based on a number of factors, including the systemic impact of a failure of the ICT provider’s services and the systemic importance of the financial entities that rely on those services.
+What is the implementation deadline for DORA?
+DORA took effect on 17 January 2025 (2 years and 20 days after it was published in the Official Journal of the EU). 
+DORA only applies directly to critical ICT providers after they are designated “critical” by the European Supervisory Authorities. Therefore, the deadline for compliance for critical ICT providers depends on the timing of designation.
+Has Google Cloud been designated as a critical ICT provider?
+Google Cloud EMEA Limited has been officially designated as a critical ICT third-party service provider (CTPP). This designation includes the following Google Cloud EMEA Limited subsidiaries: Google Cloud France SARL, Google Cloud Italy S.r.l, and Google Cloud Poland Sp. z o.o.
+Why was Google Cloud EMEA Limited designated as a critical ICT provider?
+Google Cloud EMEA Limited has been designated as a critical ICT third-party service provider (CTPP) based on a criticality assessment performed by the European Supervisory Authorities (ESAs). To reach a conclusion about each CTPP, the ESAs consider the following criteria set out in DORA: (a) the systemic impact of a disruption of the CTPP’s ICT services on the financial sector, (b) the systemic importance of the financial entities using the CTPP’s ICT services, (c) the level of reliance of financial entities on the CTPP’s ICT services, and (d) the substitutability of the CTPP’s ICT services. The precise methodology for the ESA’s criticality assessment is set out in the 
+Delegated Regulation specifying the criteria for the designation of ICT third-party service providers as critical for financial entities
+.
+What will designation and oversight of Google Cloud EMEA Limited as a critical ICT provider involve?
+Google Cloud EMEA Limited will be directly overseen by an assigned Lead Overseer. The Lead Overseer will be one of the European Supervisory Authorities for the financial sector. The Lead Overseer will assess if Google Cloud EMEA Limited has comprehensive, sound and effective rules, procedures, mechanisms and arrangements to manage the information and communication technology (ICT) risk that it may pose to financial entities using its services. If you would like more information about how oversight of critical ICT third-party service providers (CTPPs) will work in practice, please refer to the 
+Guide to Oversight Activities
+ published by the European Supervisory Authorities.
+How will the designation of Google Cloud EMEA Limited as a critical ICT provider impact customers?
+Designation and oversight of Google Cloud EMEA Limited as a critical ICT third-party service provider (CTPP) does not affect a customer’s use of our services or alter the terms in your contract.
+If your organization is a financial entity subject to DORA, oversight of a CTPP does not in any way replace or reduce your organization’s own responsibilities under DORA, including for third party risk management.
+That said, by supplementing risk management by financial entities and creating a clear mechanism for information and learnings to flow between CTPPs and key EU and national supervisory stakeholders, we feel confident that customers and users will benefit from the oversight of CTPPs.
+What is Google Cloud’s opinion of direct regulatory oversight of critical ICT providers under DORA?
+The oversight framework for critical ICT providers under DORA creates a genuine opportunity to enhance understanding, transparency, and trust among ICT providers, financial entities, and financial regulators, and ultimately stimulate innovation in the financial sector in Europe. DORA will create a direct communication channel between regulators and designated ICT providers via annual engagements, including oversight plans, inspections, and recommendations. We’re confident that this structured dialogue will help to improve risk management and resilience across the sector.
+Is Google Cloud ready for direct regulatory oversight under DORA?
+Google Cloud is committed to enabling regulators to effectively supervise a financial entity’s use of our services. We grant information, audit and access rights to financial entities, their regulators and their appointees, and 
+support our customers
+ when they or their regulators choose to exercise those rights. We will approach a relationship with our Lead Overseer with the same commitment to ongoing transparency, collaboration, and assurance. 
+We are very focused on planning for direct oversight requirements and committed to ensuring that our direct oversight function effectively supports the regulator communication, efficient audits, and remediation plans within deadlines.
+Has Google Cloud updated its contracts with financial entities in the EU because of DORA?
+We offer financial entities updated contract terms for Google Cloud, Google Workspace and SecOps Services to address the key contractual provisions in Article 30. If you need DORA contract terms, please 
+contact
+ your Google Cloud Representative for further details. 
+We have also created mappings to Article 30 for both 
+Google Cloud
+ and 
+Google Workspace
+ to help you understand how our contracts, controls, and processes can support you with meeting the DORA requirements.
+Has Google Cloud further updated its contracts with financial entities to address the Regulatory Technical Standard (RTS) on Subcontracting?
+The 
+RTS on Subcontracting
+ contains additional contract requirements. Our updated contract terms for Google Cloud, Google Workspace and SecOps Services also address the contractual requirements in the RTS on Subcontracting. If you need DORA contract terms, please 
+contact
+ your Google Cloud Representative for further details.
+How can Google Cloud help customers or partners with their own customers who are financial entities in the EU?
+Where you use Google Cloud to provide your own ICT services to financial entities in the EU, we recognize that you need the right downstream contract terms in place with Google. To help, in this scenario we offer customers and partners equivalent contract terms to address the key contractual provisions in Article 30. If you need DORA contract terms, please 
+contact
+ your Google Cloud Representative for further details. 
+We have also created a mapping to Article 30 for 
+Google Cloud
+ to help you understand how our contracts, controls, and processes can support you with meeting the DORA requirements.
+Resources
+DORA ICT Risk Management Customer Guide
+DORA Register of Information Customer Guide
+Google Cloud EU DORA Mapping
+Workspace EU DORA Mapping
+Strengthening Operational Resilience Paper
+Data Incident Response Paper
+Google Cloud Compliance Resource Center
+Our latest blog post
+Related offerings
+European Banking Authority (EBA)
+Google Cloud’s contracts along with its products and policies help address EBA's requirements for regulated entities in the EU.
+European Securities and Markets Authority (ESMA)
+Google Cloud’s contracts along with its products and policies help address ESMA's requirements for regulated entities in the EU.
+EIOPA
+Google Cloud’s contracts along with its products and policies help address EIOPA's requirements for regulated entities in the EU.
+ISO/IEC 27017
+ISO/IEC 27017:2015 gives guidelines for information security controls. Google Cloud Platform and Google Workspace are ISO/IEC 27017 compliant.
+Take the next step
+Start building on Google Cloud with $300 in free credits and 20+ always free products.
+Get started for free
+Learn security best practices
+See our best practices
+Solve common problems
+Watch security use-case videos
+Work with a partner
+See our security partners
+menu
+Docs
+Support
+Console
+Sign in
+Incident Response Assistance
+Security
+Threat Intel
+SecOps
+Consulting
+Security resources
+Incident Response Assistance
+Contact us
+close
+Accelerate your digital transformation
+Whether your business is early in its journey or well on its way to digital transformation, Google Cloud can help solve your toughest challenges.
+Learn more
+Key benefits
+Why Google Cloud
+Top reasons businesses choose us.
+AI and Agents
+Get enterprise-ready AI.
+Multicloud
+Run your apps wherever you need them.
+Global infrastructure
+Build on the same infrastructure as Google.
+Data Cloud
+Make smarter decisions with unified data.
+Modern Infrastructure Cloud
+Next generation of cloud infrastructure.
+Security
+Protect your users, data, and apps.
+Productivity and collaboration
+Connect your teams with AI-powered apps.
+Reports and insights
+Executive insights
+Curated C-suite perspectives.
+Analyst reports
+Read what industry analysts say about us.
+Whitepapers
+Browse and download popular whitepapers.
+Customer stories
+Explore case studies and videos.
+close
+Industry Solutions
+Application Modernization
+Artificial Intelligence
+APIs and Applications
+Data Analytics
+Databases
+Infrastructure
+Productivity and Collaboration
+Security
+Startups and SMB
+See all solutions
+Industry Solutions
+Reduce cost, increase operational agility, and capture new market opportunities.
+Retail
+Analytics and collaboration tools for the retail value chain.
+Consumer Packaged Goods
+Solutions for CPG digital transformation and brand growth.
+Financial Services
+Computing, data management, and analytics tools for financial services.
+Healthcare and Life Sciences
+Advance research at scale and empower healthcare innovation.
+Media and Entertainment
+Solutions for content production and distribution operations.
+Telecommunications
+Hybrid and multi-cloud services to deploy and monetize 5G.
+Games
+AI-driven solutions to build and scale games faster.
+Manufacturing
+Migration and AI tools to optimize the manufacturing value chain.
+Supply Chain and Logistics
+Enable sustainable, efficient, and resilient data-driven operations across supply chain and logistics operations.
+Government
+Data storage, AI, and analytics solutions for government agencies.
+Education
+Teaching tools to provide more engaging learning experiences.
+Not seeing what you're looking for?
+See all industry solutions
+Application Modernization
+Assess, plan, implement, and measure software practices and capabilities to modernize and simplify your organization’s business application portfolios.
+CAMP
+Program that uses DORA to improve your software delivery capabilities.
+Modernize Traditional Applications
+Analyze, categorize, and get started with cloud migration on traditional workloads.
+Migrate from PaaS: Cloud Foundry, Openshift
+Tools for moving your existing containers into Google's managed container services.
+Migrate from Mainframe
+Automated tools and prescriptive guidance for moving your mainframe apps to the cloud.
+Modernize Software Delivery
+Software supply chain best practices - innerloop productivity, CI/CD and S3C.
+DevOps Best Practices
+Processes and resources for implementing DevOps in your org.
+SRE Principles
+Tools and resources for adopting SRE in your org.
+Platform Engineering
+Comprehensive suite of managed services and Golden Paths to build, manage, and scale IDPs.
+Architect for Multicloud
+Manage workloads across multiple clouds with a consistent platform.
+Artificial Intelligence
+Add intelligence and efficiency to your business with AI and machine learning.
+Gemini Enterprise for Customer Experience
+Build and manage agents that live across the entire customer lifecycle.
+Gemini Enterprise
+Unified agentic portfolio for your entire organization.
+AI Commerce Search
+Google-quality search and product recommendations for retailers.
+Google Cloud with Gemini
+AI assistants for application development, coding, and more.
+Physical AI
+Simulate, train, and operate the next generation of robots, autonomous vehicles, industrial devices, and machines.
+APIs and Applications
+Speed up the pace of innovation without coding, using APIs, apps, and automation.
+New Business Channels Using APIs
+Attract and empower an ecosystem of developers and partners.
+Unlocking Legacy Applications Using APIs
+Cloud services for extending and modernizing legacy apps.
+Open Banking APIx
+Simplify and accelerate secure delivery of open banking compliant APIs.
+Data Analytics
+Generate instant insights from data at any scale with a serverless, fully managed analytics platform that significantly simplifies analytics.
+Data Migration
+Migrate and modernize your data warehouse and data lakes with AI-powered migration services.
+Data Lakehouse
+Unify and govern your multimodal data with a high-performance and open data lakehouse.
+Real-time Analytics
+Insights from ingesting, processing, and analyzing event streams.
+Marketing Analytics
+Solutions for collecting, analyzing, and activating customer data.
+Datasets
+Data from Google, public, and commercial providers to enrich your analytics and AI initiatives.
+Business Intelligence
+Solutions for modernizing your BI stack and creating rich data experiences.
+Data Analytics Agents
+Built-in agents for data lifecycle and tools to build your own agents.
+Geospatial Analytics
+A comprehensive platform to solve for geospatial use cases at scale.
+Data Science
+Managed services and integrated workflows to build, manage, and scale data science.
+Databases
+Migrate and manage enterprise data with security, reliability, high availability, and fully managed data services.
+Database Migration
+Guides and tools to simplify your database migration life cycle.
+Database Modernization
+Upgrades to modernize your operational database infrastructure.
+Databases for Games
+Build global, live games with Google Cloud databases.
+Google Cloud Databases
+Database services to migrate, manage, and modernize data.
+Migrate Oracle workloads to Google Cloud
+Rehost, replatform, rewrite your Oracle workloads.
+Open Source Databases
+Fully managed open source databases with enterprise-grade support.
+SQL Server on Google Cloud
+Options for running SQL Server virtual machines on Google Cloud.
+Gemini for Databases
+Supercharge database development and management with AI.
+Infrastructure
+Migrate quickly with solutions for SAP, VMware, Windows, Oracle, and other workloads.
+Application Migration
+Discovery and analysis tools for moving to the cloud.
+SAP on Google Cloud
+Certifications for running SAP applications and SAP HANA.
+High Performance Computing
+Compute, storage, and networking options to support any workload.
+Windows on Google Cloud
+Tools and partners for running Windows workloads.
+Data Center Migration
+Migration solutions for VMs, apps, databases, and more.
+Active Assist
+Automatic cloud resource optimization and increased security.
+Virtual Desktops
+Remote work solutions for desktops and applications (VDI & DaaS).
+Rapid Migration and Modernization Program
+End-to-end migration program to simplify your path to the cloud.
+Backup and Disaster Recovery
+Ensure your business continuity needs are met.
+Red Hat on Google Cloud
+Google and Red Hat provide an enterprise-grade platform for traditional on-prem and custom applications.
+Cross-Cloud Network
+Simplify hybrid and multicloud networking, and secure your workloads, data, and users.
+AI Infrastructure
+Train, serve and operate your AI applications on the agent-native infrastructure powering Google.
+Productivity and Collaboration
+Change the way teams work with solutions designed for humans and built for impact.
+Google Workspace
+Collaboration and productivity tools for enterprises.
+Google Workspace Essentials
+Secure video meetings and modern collaboration for teams.
+Cloud Identity
+Unified platform for IT admins to manage user devices and apps.
+Chrome Enterprise
+ChromeOS, Chrome Browser, and Chrome devices built for business.
+Security
+Detect, investigate, and respond to online threats to help protect your business.
+Agentic SOC
+Delivering better security outcomes with AI agents.
+Web App and API Protection
+Threat and fraud protection for your web applications and APIs.
+Security and Resilience Framework
+Solutions for each phase of the security and resilience life cycle.
+Risk and compliance as code (RCaC)
+Solution to modernize your governance, risk, and compliance function with automation.
+Software Supply Chain Security
+Solution for improving end-to-end software supply chain security.
+Security Foundation
+Recommended products to help achieve a strong security posture.
+Google Cloud Cybershield™
+Strengthen nationwide cyber defense.
+Startups and SMB
+Accelerate startup and SMB growth with tailored solutions and programs.
+Startup Program
+Get financial, business, and technical support to take your startup to the next level.
+Small and Medium Business
+Explore solutions for web hosting, app development, AI, and analytics.
+Software as a Service
+Build better SaaS products, scale efficiently, and grow your business.
+close
+Featured Products
+AI and Machine Learning
+Business Intelligence
+Compute
+Containers
+Data Analytics
+Databases
+Developer Tools
+Distributed Cloud
+Hybrid and Multicloud
+Industry Specific
+Integration Services
+Management Tools
+Maps and Geospatial
+Media Services
+Migration
+Networking
+Operations
+Productivity and Collaboration
+Security and Identity
+Serverless
+Storage
+Web3
+See all products (100+)
+Featured Products
+Gemini Enterprise app
+Secure platform to discover, create, run, and govern AI agents for employees.
+Agent Platform
+Unified platform for ML models, generative AI, and agent building.
+Compute Engine
+Virtual machines running in Google’s data center.
+Cloud Storage
+Object storage that’s secure, durable, and scalable.
+BigQuery
+Autonomous data to AI platform for analytics and data science.
+Cloud Run
+Fully managed environment for running containerized apps.
+Google Kubernetes Engine
+Managed environment for running containerized apps.
+Looker
+Platform for BI, data applications, and embedded analytics.
+Apigee API Management
+Manage the full life cycle of APIs anywhere with visibility and control.
+Cloud SQL
+Relational database services for MySQL, PostgreSQL and SQL Server.
+Cloud CDN
+Content delivery network for delivering web and video.
+Not seeing what you're looking for?
+See all products (100+)
+AI and Machine Learning
+Gemini Enterprise Agent Platform
+Unified platform for ML models, generative AI, and agent building.
+Gemini Enterprise app
+Secure platform to discover, create, run, and govern AI agents for employees.
+Gemini Enterprise for Customer Experience
+Build and manage agents that live across the entire customer lifecycle.
+Model Garden
+Single place to discover over 200 models from Google and Google partners.
+Customer Experience Agent Studio
+Build conversational AI with both deterministic and gen AI functionality.
+Agent Search
+Build Google-quality search for your enterprise apps and experiences.
+Speech-to-Text
+Speech recognition and transcription across 125 languages.
+Text-to-Speech
+Speech synthesis in 220+ voices and 40+ languages.
+Translation AI
+Language detection, translation, and glossary support.
+Vision AI
+Custom and pre-trained models to detect emotion, text, and more.
+Contact Center as a Service
+Omnichannel contact center solution that is native to the cloud.
+Not seeing what you're looking for?
+See all AI and machine learning products
+Business Intelligence
+Looker
+Platform for BI, data applications, and embedded analytics.
+Data Studio
+Interactive data suite for dashboarding, reporting, and analytics.
+Compute
+Compute Engine
+Virtual machines running in Google’s data center.
+App Engine
+Serverless application platform for apps and back ends.
+Cloud GPUs
+GPUs for ML, scientific computing, and 3D visualization.
+Migrate to Virtual Machines
+Server and virtual machine migration to Compute Engine.
+Spot VMs
+Compute instances for batch jobs and fault-tolerant workloads.
+Batch
+Fully managed service for scheduling batch jobs.
+Sole-Tenant Nodes
+Dedicated hardware for compliance, licensing, and management.
+Bare Metal
+Infrastructure to run specialized workloads on Google Cloud.
+Recommender
+Usage recommendations for Google Cloud products and services.
+VMware Engine
+Fully managed, native VMware Cloud Foundation software stack.
+Cloud Run
+Fully managed environment for running containerized apps.
+Not seeing what you're looking for?
+See all compute products
+Containers
+Google Kubernetes Engine
+Managed environment for running containerized apps.
+Cloud Run
+Fully managed environment for running containerized apps.
+Cloud Build
+Solution for running build steps in a Docker container.
+Artifact Registry
+Package manager for build artifacts and dependencies.
+Cloud Code
+IDE support to write, run, and debug Kubernetes applications.
+Cloud Deploy
+Fully managed continuous delivery to GKE and Cloud Run.
+Migrate to Containers
+Components for migrating VMs into system containers on GKE.
+Deep Learning Containers
+Containers with data science frameworks, libraries, and tools.
+Knative
+Components to create Kubernetes-native cloud-based software.
+Data Analytics
+BigQuery
+Autonomous data to AI platform for analytics and data science.
+Managed Service for Apache Spark
+Zero-ops serverless or managed clusters, accelerated by Lightning Engine.
+Dataflow
+Real-time analytics for stream and batch processing.
+Looker
+Platform for BI, data applications, and embedded analytics.
+Lakehouse
+Open lakehouse platform with enterprise storage and performance capabilities.
+Pub/Sub
+Messaging service for event ingestion and delivery.
+Managed Service for Apache Airflow
+Workflow orchestration service built on Apache Airflow.
+Knowledge Catalog
+Always-on catalog for AI that provides universal context for agents.
+Data Analytics Agents
+Built-in agents for data lifecycle and tools to build your own agents.
+Data Analytics Migration Services
+Free-to-use, cloud-native and AI-powered data migration services.
+Managed Service for Apache Kafka
+Managed Kafka service to operate highly available Apache Kafka clusters.
+Not seeing what you're looking for?
+See all data analytics products
+Databases
+AlloyDB for PostgreSQL
+Fully managed, PostgreSQL-compatible database for enterprise workloads.
+Cloud SQL
+Fully managed database for MySQL, PostgreSQL, and SQL Server.
+Firestore
+Highly scalable and serverless NoSQL document database, with MongoDB compatibility.
+Spanner
+Cloud-native relational database with unlimited scale and 99.999% availability.
+Bigtable
+Cloud-native wide-column database for large-scale, low-latency workloads.
+Datastream
+Serverless change data capture and replication service.
+Database Migration Service
+Serverless, minimal downtime migrations to Cloud SQL.
+Bare Metal Solution
+Fully managed infrastructure for your Oracle workloads.
+Memorystore
+Fully managed Redis and Memcached for sub-millisecond data access.
+Developer Tools
+Artifact Registry
+Universal package manager for build artifacts and dependencies.
+Cloud Code
+IDE support to write, run, and debug Kubernetes applications.
+Cloud Build
+Continuous integration and continuous delivery platform.
+Cloud Deploy
+Fully managed continuous delivery to GKE and Cloud Run.
+Cloud Deployment Manager
+Service for creating and managing Google Cloud resources.
+Cloud SDK
+Command-line tools and libraries for Google Cloud.
+Cloud Scheduler
+Cron job scheduler for task automation and management.
+Cloud Source Repositories
+Private Git repository to store, manage, and track code.
+Infrastructure Manager
+Automate infrastructure management with Terraform.
+Cloud Workstations
+Managed and secure development environments in the cloud.
+Gemini Code Assist
+AI-powered assistant available across Google Cloud and your IDE.
+Not seeing what you're looking for?
+See all developer tools
+Distributed Cloud
+Google Distributed Cloud Connected
+Distributed cloud services for edge workloads.
+Google Distributed Cloud Air-gapped
+Distributed cloud for air-gapped workloads.
+Hybrid and Multicloud
+Google Kubernetes Engine
+Managed environment for running containerized apps.
+Apigee API Management
+API management, development, and security platform.
+Migrate to Containers
+Tool to move workloads and existing applications to GKE.
+Cloud Build
+Service for executing builds on Google Cloud infrastructure.
+Observability
+Monitoring, logging, and application performance suite.
+Cloud Service Mesh
+Fully managed service mesh based on Envoy and Istio.
+Google Distributed Cloud
+Fully managed solutions for the edge and data centers.
+Industry Specific
+Anti Money Laundering AI
+Detect suspicious, potential money laundering activity with AI.
+Cloud Healthcare API
+Solution for bridging existing care systems and apps on Google Cloud.
+Device Connect for Fitbit
+Gain a 360-degree patient view with connected Fitbit data on Google Cloud.
+Telecom Network Automation
+Ready to use cloud-native automation for telecom networks.
+Telecom Data Fabric
+Telecom data management and analytics with an automated approach.
+Telecom Subscriber Insights
+Ingests data to improve subscriber acquisition and retention.
+Spectrum Access System (SAS)
+Controls fundamental access to the Citizens Broadband Radio Service (CBRS).
+Integration Services
+Application Integration
+Connect to 3rd party apps and enable data consistency without code.
+Workflows
+Workflow orchestration for serverless products and API services.
+Apigee API Management
+Manage the full life cycle of APIs anywhere with visibility and control.
+Cloud Tasks
+Task management service for asynchronous task execution.
+Cloud Scheduler
+Cron job scheduler for task automation and management.
+Managed Service for Apache Spark
+Zero-ops serverless or managed clusters, accelerated by Lightning Engine.
+Cloud Data Fusion
+Data integration for building and managing data pipelines.
+Managed Service for Apache Airflow
+Workflow orchestration service built on Apache Airflow.
+Pub/Sub
+Messaging service for event ingestion and delivery.
+Eventarc
+Build an event-driven architecture that can connect any service.
+Management Tools
+Cloud Shell
+Interactive shell environment with a built-in command line.
+Cloud console
+Web-based interface for managing and monitoring cloud apps.
+Cloud Endpoints
+Deployment and development management for APIs on Google Cloud.
+Cloud IAM
+Permissions management system for Google Cloud resources.
+Cloud APIs
+Programmatic interfaces for  Google Cloud services.
+Service Catalog
+Service catalog for admins managing internal enterprise solutions.
+Cost Management
+Tools for monitoring, controlling, and optimizing your costs.
+Observability
+Monitoring, logging, and application performance suite.
+Carbon Footprint
+Dashboard to view and export Google Cloud carbon emissions reports.
+Config Connector
+Kubernetes add-on for managing Google Cloud resources.
+Active Assist
+Tools for easily managing performance, security, and cost.
+Not seeing what you're looking for?
+See all management tools
+Maps and Geospatial
+Earth Engine
+Geospatial platform for Earth observation data and analysis.
+Google Maps Platform
+Create immersive location experiences and improve business operations.
+Media Services
+Cloud CDN
+Content delivery network for serving web and video content.
+Live Stream API
+Service to convert live video and package for streaming.
+OpenCue
+Open source render manager for visual effects and animation.
+Transcoder API
+Convert video files and package them for optimized delivery.
+Video Stitcher API
+Service for dynamic or server side ad insertion.
+Migration
+Migration Center
+Unified platform for migrating and modernizing with Google Cloud.
+Application Migration
+App migration to the cloud for low-cost refresh cycles.
+Migrate to Virtual Machines
+Components for migrating VMs and physical servers to Compute Engine.
+Cloud Foundation Toolkit
+Reference templates for Deployment Manager and Terraform.
+Database Migration Service
+Serverless, minimal downtime migrations to Cloud SQL.
+Migrate to Containers
+Components for migrating VMs into system containers on GKE.
+Data Analytics Migration Services
+Streamlined data warehouse and data lake migration tooling and incentives.
+Rapid Migration and Modernization Program
+End-to-end migration program to simplify your path to the cloud.
+Transfer Appliance
+Storage server for moving large volumes of data to Google Cloud.
+Storage Transfer Service
+Data transfers from online and on-premises sources to Cloud Storage.
+VMware Engine
+Migrate and run your VMware workloads natively on Google Cloud.
+Networking
+Cloud Armor
+Security policies and defense against web and DDoS attacks.
+Cloud CDN and Media CDN
+Content delivery network for serving web and video content.
+Cloud DNS
+Domain name system for reliable and low-latency name lookups.
+Cloud Load Balancing
+Service for distributing traffic across applications and regions.
+Cloud NAT
+NAT service for giving private instances internet access.
+Cloud Connectivity
+Connectivity options for VPN, peering, and enterprise needs.
+Network Connectivity Center
+Connectivity management to help simplify and scale networks.
+Network Intelligence Center
+Network monitoring, verification, and optimization platform.
+Network Service Tiers
+Cloud network options  based on performance, availability, and cost.
+Virtual Private Cloud
+Single VPC for an entire organization, isolated within projects.
+Private Service Connect
+Secure connection between your VPC and services.
+Not seeing what you're looking for?
+See all networking products
+Operations
+Cloud Logging
+Google Cloud audit, platform, and application logs management.
+Cloud Monitoring
+Infrastructure and application health with rich metrics.
+Error Reporting
+Application error identification and analysis.
+Managed Service for Prometheus
+Fully-managed Prometheus on Google Cloud.
+Cloud Trace
+Tracing system collecting latency data from applications.
+Cloud Profiler
+CPU and heap profiler for analyzing application performance.
+Cloud Quotas
+Manage quotas for all Google Cloud services.
+Productivity and Collaboration
+AppSheet
+No-code development platform to build and extend applications.
+AppSheet Automation
+Build automations and applications on a unified platform.
+Gemini Enterprise app
+Secure platform to discover, create, run, and govern AI agents for employees.
+Google Workspace
+Collaboration and productivity tools for individuals and organizations.
+Google Workspace Essentials
+Secure video meetings and modern collaboration for teams.
+Cloud Identity
+Unified platform for IT admins to manage user devices and apps.
+Chrome Enterprise
+ChromeOS, Chrome browser, and Chrome devices built for business.
+Security and Identity
+Cloud IAM
+Permissions management system for Google Cloud resources.
+Sensitive Data Protection
+Discover, classify, and protect your valuable data assets.
+Mandiant Managed Defense
+Find and eliminate threats with confidence 24x7.
+Google Threat Intelligence
+Know who’s targeting you.
+Security Command Center
+Platform for defending against threats to your Google Cloud assets.
+Cloud Key Management
+Manage encryption keys on Google Cloud.
+Mandiant Incident Response
+Minimize the impact of a breach.
+Chrome Enterprise Premium
+Get secure enterprise browsing with extensive endpoint visibility.
+Assured Workloads
+Compliance and security controls for sensitive workloads.
+Google Security Operations
+Detect, investigate, and respond to cyber threats.
+Mandiant Consulting
+Get expert guidance before, during, and after an incident.
+Not seeing what you're looking for?
+See all security and identity products
+Serverless
+Cloud Run
+Fully managed environment for running containerized apps.
+Cloud Functions
+Platform for creating functions that respond to cloud events.
+App Engine
+Serverless application platform for apps and back ends.
+Workflows
+Workflow orchestration for serverless products and API services.
+API Gateway
+Develop, deploy, secure, and manage APIs with a fully managed gateway.
+Storage
+Cloud Storage
+Object storage that’s secure, durable, and scalable.
+Block Storage
+High-performance storage for AI, analytics, databases, and enterprise applications.
+Filestore
+File storage that is highly scalable and secure.
+Persistent Disk
+Block storage for virtual machine instances running on Google Cloud.
+Cloud Storage for Firebase
+Object storage for storing and serving user-generated content.
+Local SSD
+Block storage that is locally attached for high-performance needs.
+Storage Transfer Service
+Data transfers from online and on-premises sources to Cloud Storage.
+Google Cloud Managed Lustre
+High performance managed parallel file service.
+Google Cloud NetApp Volumes
+File storage service for NFS, SMB, and multi-protocol environments.
+Backup and DR Service
+Service for centralized, application-consistent data protection.
+Web3
+Blockchain Node Engine
+Fully managed node hosting for developing on the blockchain.
+Blockchain RPC
+Enterprise-grade RPC for building on the blockchain.
+close
+Save money with our transparent approach to pricing
+Google Cloud's pay-as-you-go pricing offers automatic savings based on monthly usage and discounted rates for prepaid resources. Contact us today to get a quote.
+Request a quote
+Pricing overview and tools
+Google Cloud pricing
+Pay only for what you use with no lock-in.
+Pricing calculator
+Calculate your cloud savings.
+Google Cloud free tier
+Explore products with free monthly usage.
+Cost optimization framework
+Get best practices to optimize workload costs.
+Cost management tools
+Tools to monitor and control your costs.
+Product-specific Pricing
+Compute Engine
+Cloud SQL
+Google Kubernetes Engine
+Cloud Storage
+BigQuery
+See full price list with 100+ products
+close
+Learn & build
+Google Cloud Free Program
+$300 in free credits and 20+ free products.
+Solution Generator
+Get AI generated solution recommendations.
+Quickstarts
+Get tutorials and walkthroughs.
+Blog
+Read our latest product news and stories.
+Learning Hub
+Grow your career with role-based training.
+Google Cloud certification
+Prepare and register for certifications.
+Cloud computing basics
+Learn more about cloud computing basics.
+Cloud Architecture Center
+Get reference architectures and best practices.
+Connect
+Innovators
+Join Google Cloud's developer program.
+Developer Center
+Stay in the know and stay connected.
+Events and webinars
+Browse upcoming and on demand events.
+Google Cloud Community
+Ask questions, find answers, and connect.
+Consulting and Partners
+Google Cloud Consulting
+Work with our experts on cloud projects.
+Google Cloud Marketplace
+Deploy ready-to-go solutions in a few clicks.
+Find a partner
+Explore the benefits of working with a partner.
+Google Cloud partners
+Learn about the ecosystem and resources.
+close
+Overview
+arrow_forward
+Solutions
+arrow_forward
+Products
+arrow_forward
+Pricing
+arrow_forward
+Resources
+arrow_forward
+Docs
+Support
+Console
+Security
+Threat Intel
+SecOps
+Consulting
+Security resources
+Accelerate your digital transformation
+Learn more
+Key benefits
+Why Google Cloud
+AI and Agents
+Multicloud
+Global infrastructure
+Data Cloud
+Modern Infrastructure Cloud
+Security
+Productivity and collaboration
+Reports and insights
+Executive insights
+Analyst reports
+Whitepapers
+Customer stories
+Industry Solutions
+Retail
+Consumer Packaged Goods
+Financial Services
+Healthcare and Life Sciences
+Media and Entertainment
+Telecommunications
+Games
+Manufacturing
+Supply Chain and Logistics
+Government
+Education
+See all industry solutions
+See all solutions
+Application Modernization
+CAMP
+Modernize Traditional Applications
+Migrate from PaaS: Cloud Foundry, Openshift
+Migrate from Mainframe
+Modernize Software Delivery
+DevOps Best Practices
+SRE Principles
+Platform Engineering
+Architect for Multicloud
+Artificial Intelligence
+Gemini Enterprise for Customer Experience
+Gemini Enterprise
+AI Commerce Search
+Google Cloud with Gemini
+Physical AI
+APIs and Applications
+New Business Channels Using APIs
+Unlocking Legacy Applications Using APIs
+Open Banking APIx
+Data Analytics
+Data Migration
+Data Lakehouse
+Real-time Analytics
+Marketing Analytics
+Datasets
+Business Intelligence
+Data Analytics Agents
+Geospatial Analytics
+Data Science
+Databases
+Database Migration
+Database Modernization
+Databases for Games
+Google Cloud Databases
+Migrate Oracle workloads to Google Cloud
+Open Source Databases
+SQL Server on Google Cloud
+Gemini for Databases
+Infrastructure
+Application Migration
+SAP on Google Cloud
+High Performance Computing
+Windows on Google Cloud
+Data Center Migration
+Active Assist
+Virtual Desktops
+Rapid Migration and Modernization Program
+Backup and Disaster Recovery
+Red Hat on Google Cloud
+Cross-Cloud Network
+AI Infrastructure
+Productivity and Collaboration
+Google Workspace
+Google Workspace Essentials
+Cloud Identity
+Chrome Enterprise
+Security
+Agentic SOC
+Web App and API Protection
+Security and Resilience Framework
+Risk and compliance as code (RCaC)
+Software Supply Chain Security
+Security Foundation
+Google Cloud Cybershield™
+Startups and SMB
+Startup Program
+Small and Medium Business
+Software as a Service
+Featured Products
+Gemini Enterprise app
+Agent Platform
+Compute Engine
+Cloud Storage
+BigQuery
+Cloud Run
+Google Kubernetes Engine
+Looker
+Apigee API Management
+Cloud SQL
+Cloud CDN
+See all products (100+)
+AI and Machine Learning
+Gemini Enterprise Agent Platform
+Gemini Enterprise app
+Gemini Enterprise for Customer Experience
+Model Garden
+Customer Experience Agent Studio
+Agent Search
+Speech-to-Text
+Text-to-Speech
+Translation AI
+Vision AI
+Contact Center as a Service
+See all AI and machine learning products
+Business Intelligence
+Looker
+Data Studio
+Compute
+Compute Engine
+App Engine
+Cloud GPUs
+Migrate to Virtual Machines
+Spot VMs
+Batch
+Sole-Tenant Nodes
+Bare Metal
+Recommender
+VMware Engine
+Cloud Run
+See all compute products
+Containers
+Google Kubernetes Engine
+Cloud Run
+Cloud Build
+Artifact Registry
+Cloud Code
+Cloud Deploy
+Migrate to Containers
+Deep Learning Containers
+Knative
+Data Analytics
+BigQuery
+Managed Service for Apache Spark
+Dataflow
+Looker
+Lakehouse
+Pub/Sub
+Managed Service for Apache Airflow
+Knowledge Catalog
+Data Analytics Agents
+Data Analytics Migration Services
+Managed Service for Apache Kafka
+See all data analytics products
+Databases
+AlloyDB for PostgreSQL
+Cloud SQL
+Firestore
+Spanner
+Bigtable
+Datastream
+Database Migration Service
+Bare Metal Solution
+Memorystore
+Developer Tools
+Artifact Registry
+Cloud Code
+Cloud Build
+Cloud Deploy
+Cloud Deployment Manager
+Cloud SDK
+Cloud Scheduler
+Cloud Source Repositories
+Infrastructure Manager
+Cloud Workstations
+Gemini Code Assist
+See all developer tools
+Distributed Cloud
+Google Distributed Cloud Connected
+Google Distributed Cloud Air-gapped
+Hybrid and Multicloud
+Google Kubernetes Engine
+Apigee API Management
+Migrate to Containers
+Cloud Build
+Observability
+Cloud Service Mesh
+Google Distributed Cloud
+Industry Specific
+Anti Money Laundering AI
+Cloud Healthcare API
+Device Connect for Fitbit
+Telecom Network Automation
+Telecom Data Fabric
+Telecom Subscriber Insights
+Spectrum Access System (SAS)
+Integration Services
+Application Integration
+Workflows
+Apigee API Management
+Cloud Tasks
+Cloud Scheduler
+Managed Service for Apache Spark
+Cloud Data Fusion
+Managed Service for Apache Airflow
+Pub/Sub
+Eventarc
+Management Tools
+Cloud Shell
+Cloud console
+Cloud Endpoints
+Cloud IAM
+Cloud APIs
+Service Catalog
+Cost Management
+Observability
+Carbon Footprint
+Config Connector
+Active Assist
+See all management tools
+Maps and Geospatial
+Earth Engine
+Google Maps Platform
+Media Services
+Cloud CDN
+Live Stream API
+OpenCue
+Transcoder API
+Video Stitcher API
+Migration
+Migration Center
+Application Migration
+Migrate to Virtual Machines
+Cloud Foundation Toolkit
+Database Migration Service
+Migrate to Containers
+Data Analytics Migration Services
+Rapid Migration and Modernization Program
+Transfer Appliance
+Storage Transfer Service
+VMware Engine
+Networking
+Cloud Armor
+Cloud CDN and Media CDN
+Cloud DNS
+Cloud Load Balancing
+Cloud NAT
+Cloud Connectivity
+Network Connectivity Center
+Network Intelligence Center
+Network Service Tiers
+Virtual Private Cloud
+Private Service Connect
+See all networking products
+Operations
+Cloud Logging
+Cloud Monitoring
+Error Reporting
+Managed Service for Prometheus
+Cloud Trace
+Cloud Profiler
+Cloud Quotas
+Productivity and Collaboration
+AppSheet
+AppSheet Automation
+Gemini Enterprise app
+Google Workspace
+Google Workspace Essentials
+Cloud Identity
+Chrome Enterprise
+Security and Identity
+Cloud IAM
+Sensitive Data Protection
+Mandiant Managed Defense
+Google Threat Intelligence
+Security Command Center
+Cloud Key Management
+Mandiant Incident Response
+Chrome Enterprise Premium
+Assured Workloads
+Google Security Operations
+Mandiant Consulting
+See all security and identity products
+Serverless
+Cloud Run
+Cloud Functions
+App Engine
+Workflows
+API Gateway
+Storage
+Cloud Storage
+Block Storage
+Filestore
+Persistent Disk
+Cloud Storage for Firebase
+Local SSD
+Storage Transfer Service
+Google Cloud Managed Lustre
+Google Cloud NetApp Volumes
+Backup and DR Service
+Web3
+Blockchain Node Engine
+Blockchain RPC
+Save money with our transparent approach to pricing
+Request a quote
+Pricing overview and tools
+Google Cloud pricing
+Pricing calculator
+Google Cloud free tier
+Cost optimization framework
+Cost management tools
+Product-specific Pricing
+Compute Engine
+Cloud SQL
+Google Kubernetes Engine
+Cloud Storage
+BigQuery
+See full price list with 100+ products
+Learn & build
+Google Cloud Free Program
+Solution Generator
+Quickstarts
+Blog
+Learning Hub
+Google Cloud certification
+Cloud computing basics
+Cloud Architecture Center
+Connect
+Innovators
+Developer Center
+Events and webinars
+Google Cloud Community
+Consulting and Partners
+Google Cloud Consulting
+Google Cloud Marketplace
+Find a partner
+Google Cloud partners

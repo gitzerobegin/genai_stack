@@ -1,0 +1,8 @@
+SOURCE ID: A4-S041
+URL: https://www.llamaindex.ai/blog/announcing-workflows-1-0-a-lightweight-framework-for-agentic-systems
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LlamaIndex Workflows 1.0 agents LlamaCloud LlamaAgents announcement
+========================================================================
+
+Workflows 1.0 released as a standalone framework, dated June 30, 2025: "a lightweight framework for building complex, multi-step agentic AI applications in Python and Typescript". Now lives in its own packages and repositories, separate from llama_index; llama_index and LlamaIndexTS re-export the new libraries through old import paths. New features: typed state in both languages, resource injection and optional observability in Python; llama-index-instrumentation lets you instrument workflows with OpenTelemetry, Arize Phoenix and more. "While the underlying architecture hasn't changed significantly, this release makes it easier to use Workflows outside the LlamaIndex ecosystem."

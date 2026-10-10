@@ -1,0 +1,8 @@
+SOURCE ID: A1-S133
+URL: https://apify.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Apify pricing plans Free Starter Scale Business compute unit price per month
+========================================================================
+
+Free: $0/month with $5 prepaid usage, CUs $0.20 each, community support. Starter: $19/month (annual $17/month), CUs $0.20; 32 concurrent runs. Scale: $199/month (annual $179/month), CUs $0.16; 128 concurrent runs. Business: $999/month, CUs $0.13, includes $999 prepaid usage; 256 concurrent runs. Compute unit = 1 GB RAM for 1 hour. Overage billed at plan CU rate; maximum usage limits $100 (Starter), $1,000 (Scale), $5,000 (Business). Free plan cannot exceed $5 credit.

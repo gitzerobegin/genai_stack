@@ -1,0 +1,9 @@
+SOURCE ID: A7-S024
+URL: https://docs.lakera.ai/docs/platform
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Lakera Guard pricing community plan SOC 2 GDPR data residency SSO RBAC
+========================================================================
+
+docs.lakera.ai/docs/platform: "Role-based Access Control (RBAC), log export for SIEM integration, and organization configuration settings are only available to our Enterprise customers. Once enabled, RBAC has three roles..."
+docs.lakera.ai/docs/selfhosting ("Self-hosting AI Guardrails"): "AI Guardrails can be deployed on-premises or in a private cloud, giving you full control over data residency and network access." The self-hosting docs refer to "Check Point AI Guardrails" and "AI Guardrails", not "Lakera Guard".

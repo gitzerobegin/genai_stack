@@ -1,0 +1,27 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>C5 decision tree: choosing prompt and configuration management</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">C5 decision tree: choosing prompt and configuration management</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  S0["STEP 0 (not optional):&lt;br/&gt;Git is the system of record.&lt;br/&gt;One release manifest per system&lt;br/&gt;pins prompt, model id@date,&lt;br/&gt;embedding model@version,&lt;br/&gt;reranker@version, retrieval params,&lt;br/&gt;tool list, fallback route&lt;br/&gt;and guardrail policy.&lt;br/&gt;PR with second approver;&lt;br/&gt;L9 eval gate in CI."]:::note
+  S0 --&gt; Q1{"STEP 1: Do you need&lt;br/&gt;run-time delivery&lt;br/&gt;(change without&lt;br/&gt;redeploying the&lt;br/&gt;application)?"}
+  Q1 -- "no" --&gt; O1["Prompts as code only&lt;br/&gt;(Prompty or Dotprompt files,&lt;br/&gt;loaded at build or start-up)"]
+  Q1 -- "yes" --&gt; Q1b{"Which L9 platform of&lt;br/&gt;record did you choose?"}
+  Q1b -- "Langfuse" --&gt; O2["Langfuse prompts,&lt;br/&gt;Enterprise licence,&lt;br/&gt;protected 'production' label"]
+  Q1b -- "LangSmith" --&gt; O3["LangSmith prompts,&lt;br/&gt;owners-only mode,&lt;br/&gt;GitHub sync on"]
+  Q1b -- "Other / none" --&gt; Q1c{"Must prompt text&lt;br/&gt;stay in-estate?"}
+  Q1c -- "yes" --&gt; O4["PromptLayer in your&lt;br/&gt;AWS account (after SOC 2&lt;br/&gt;report review), or&lt;br/&gt;self-hosted Langfuse&lt;br/&gt;used only as a registry"]
+  Q1c -- "no" --&gt; O5["PromptLayer SaaS or the&lt;br/&gt;L9 platform's own registry"]
+  O1 &amp; O2 &amp; O3 &amp; O4 &amp; O5 --&gt; Q2{"STEP 2: Do you need&lt;br/&gt;segment rollout, A/B&lt;br/&gt;or kill switches for&lt;br/&gt;model/prompt variants?"}
+  Q2 -- "LaunchDarkly is the firm's&lt;br/&gt;feature-flag standard" --&gt; P1["AgentControl, selecting&lt;br/&gt;only between approved,&lt;br/&gt;pinned variants"]
+  Q2 -- "PromptLayer chosen in step 1" --&gt; P2["Release labels /&lt;br/&gt;dynamic release labels"]
+  Q2 -- "otherwise" --&gt; P3["Registry labels per segment,&lt;br/&gt;or gateway (C1) weighted routing&lt;br/&gt;between pinned models"]
+  Q2 -- "no" --&gt; S3
+  P1 &amp; P2 &amp; P3 --&gt; S3["STEP 3: Checks before go-live&lt;br/&gt;Production label movable only&lt;br/&gt;by the release identity?&lt;br/&gt;Version ID on every trace?&lt;br/&gt;Cached or code-side default&lt;br/&gt;is an approved version?&lt;br/&gt;Rollback drilled?&lt;br/&gt;Embedding/reranker versions&lt;br/&gt;in the manifest, matching the&lt;br/&gt;index's model_version tag (L7)?"]:::note
+</pre><div class="c">Git as the system of record and the go-live checks apply whatever is chosen; run-time delivery, the L9 platform of record and the need for segment rollout decide the product.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

@@ -1,0 +1,14 @@
+SOURCE ID: V2-S008
+URL: https://openai.com/index/gpt-6-astra/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GPT-6 Astra release generally available (allowed_domains openai.com)
+========================================================================
+
+Astra debuted on September 3, 2026. OpenAI's release notes said access was rolling out to a limited set of organizations and Astra was not yet generally available. Broader availability was planned over the coming days.
+OpenAI said Astra would reach all ChatGPT Plus, Pro, Business, and Enterprise users, as well as through the OpenAI API, Microsoft Azure, and AWS Bedrock. A staff reply in the OpenAI developer forum later said Astra is now rolled out to all Plus and Business users too.
+Developers can use it in the OpenAI API as gpt-6-astra, priced at $10 per million input tokens and $50 per million output tokens.
+GPT-6 Pro, powered by GPT-6 Astra, is available in ChatGPT for Pro $100, Pro $200, Business and Enterprise plans. Enterprise administrators can enable Astra for their workspace; access is off by default at launch.
+Access to Astra for advanced cybersecurity workflows will initially be available to a small group of alpha testers, with access through Daybreak Blue expanding afterward.
+On September 29, OpenAI introduced a $500/month Pro 500 plan with access to Astra Ultrafast in ChatGPT Work and Codex. A separate OpenAI update from the same date points readers to GPT-6.1 Sol as the latest model.
+Result titles: "GPT-6 Astra: A new generation of intelligence" (openai.com/index/gpt-6-astra/); "GPT-6 Astra Model" (developers.openai.com/api/docs/models/gpt-6-astra); "Path to Astra: critical capabilities and frontier safeguards"; "Safety overview: GPT-6 Astra"; "Introducing GPT-6 Sol and Luna"; "GPT-5.6 and GPT-6 Pro in ChatGPT".

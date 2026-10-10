@@ -1,0 +1,13 @@
+SOURCE ID: E3-S042
+URL: https://kiro.dev/docs/cli/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Kiro docs models auto Claude MCP steering Kiro CLI autonomous agent
+========================================================================
+
+Search-tool summary of kiro.dev/docs/cli/, kiro.dev/docs/web/autonomous-mode/, kiro.dev/docs/how-kiro-works/ and the Kiro changelog:
+- Kiro surfaces: Kiro IDE, Kiro CLI and Kiro Web (autonomous agent). Autonomous mode builds a plan, delegates work to specialised sub-agents, and opens a pull request automatically when work is complete.
+- In autonomous mode on Kiro Web the agent selects the model automatically; Kiro CLI uses the Auto agent. Kiro's models documentation covers a model catalogue, Auto routing and reasoning effort. Changelog: Claude Opus 4.7 available for Pro, Pro+ and Power subscribers and IAM Identity Center users in the Kiro IDE and CLI.
+- Steering files live in .kiro/steering/ and work the same across Kiro IDE, CLI and Web.
+- MCP is supported; the CLI reads steering files and MCP configurations from the project's .kiro/ folder.
+- No AGENTS.md statement and no formal SOC 2 attestation for Kiro found in results (a Planview customer case study describes using Kiro CLI for SOC 2 evidence collection).

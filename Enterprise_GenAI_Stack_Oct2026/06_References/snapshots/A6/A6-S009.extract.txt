@@ -1,0 +1,11 @@
+SOURCE ID: A6-S009
+URL: https://docs.litellm.ai/release_notes/v1.83.0/v1-83-0
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LiteLLM v1.83.0 release post supply chain incident 1.82.7 1.82.8 (site:docs.litellm.ai)
+========================================================================
+
+Extract as returned by search tool:
+The LiteLLM project released v1.83.0 on March 30, 2026, as a clean replacement for the two compromised PyPI packages.
+The release notes describe it as the first LiteLLM release built and published through the new CI/CD v2 pipeline. Releases were paused for one week while a forensic review was completed with Mandiant and Veria Labs, the release pipeline was rebuilt with isolated environments and ephemeral credentials, and the codebase was checked for indicators of compromise.
+Starting from v1.83.0-nightly, all LiteLLM Docker images published to GHCR are signed with cosign. Several vulnerability reports from independent researchers were all fixed in v1.83.0.

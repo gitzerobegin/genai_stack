@@ -1,0 +1,8 @@
+SOURCE ID: V1-S067
+URL: https://docs.fireworks.ai/guides/security_compliance/data_security
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Fireworks AI trust center ISO 42001 ISO 27701 SOC 2 Type II HIPAA (standard)
+========================================================================
+
+One Fireworks data security page says it has achieved ISO 27001, ISO 27701 and ISO 42001, with certificate PDFs downloadable from its Trust Center (trust.fireworks.ai); Fireworks blog "fireworks-triple-iso-certification-enterprise-trust" announces the triple certification. A second version of the data security page (fireworks.ai/docs/...) lists "ISO 27001 / ISO 27701 / ISO 42001 (in progress)". Docs list SOC 2 Type II; blog "Fireworks AI achieves SOC 2 Type II and HIPAA compliance"; FAQ says "SOC 2 Type II and HIPAA Certified".

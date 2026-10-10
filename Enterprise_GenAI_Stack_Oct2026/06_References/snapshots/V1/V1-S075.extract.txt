@@ -1,0 +1,8 @@
+SOURCE ID: V1-S075
+URL: https://docs.crewai.com/en/enterprise/introduction
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CrewAI AMP formerly CrewAI Enterprise (allowed_domains crewai.com, docs.crewai.com, blog.crewai.com)
+========================================================================
+
+Docs describe CrewAI AMP as a platform for deploying, monitoring and scaling crews and agents in production. No source found that explicitly says AMP was formerly called CrewAI Enterprise. Indirect signs: AMP introduction still says "deploy your crew to the Enterprise platform"; docs sit under /enterprise/ paths; "Enterprise-specific support"; blog related-news labels "Crew AI Enterprise". Acronym varies: "Agent Management Platform" vs older "Agent Operations Platform".

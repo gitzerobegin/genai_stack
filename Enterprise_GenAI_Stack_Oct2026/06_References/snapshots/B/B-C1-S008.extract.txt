@@ -1,0 +1,10 @@
+SOURCE ID: B-C1-S008
+URL: https://learn.microsoft.com/en-us/azure/compliance/offerings/offering-soc-2
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains learn.microsoft.com): Azure compliance offerings ISO 27001 SOC 2 in scope API Management Azure AI Content Safety
+========================================================================
+
+Search-tool extract (SOC 2 Type 2 - Azure Compliance):
+- The SOC 2 Type 2 attestation covers Azure, Dynamics 365, Microsoft 365 and Power Platform; trust services criteria security, availability, processing integrity and confidentiality.
+- Per-service scope not named on this page. A Microsoft Q&A community answer says API Management is in the Azure SOC 2 Type II report (community answer, not relied on). No source found naming Azure AI Content Safety in ISO 27001 or SOC 2 scope.

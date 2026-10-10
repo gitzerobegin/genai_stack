@@ -1,0 +1,9 @@
+SOURCE ID: A7-S109
+URL: https://www.modelop.com/blog/modelop-now-available-on-aws-marketplace
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ModelOp Center deployment SaaS on-premises Kubernetes AWS Marketplace security SSO (allowed_domains modelop.com, aws.amazon.com)
+========================================================================
+
+ModelOp blog: "ModelOp is now available for purchase directly in AWS Marketplace"; IT teams can "deploy, scale, and manage ModelOp using standard Kubernetes orchestration tools they already trust" (Amazon EKS named); connects to SageMaker and data stores such as Amazon S3, Redshift and DocumentDB.
+ModelOp homepage: operating environment listed as "Cloud, On-Premise, Hybrid". No statement found on a fully managed SaaS option, SSO, RBAC, encryption or SOC 2.

@@ -1,0 +1,10 @@
+SOURCE ID: V1-S007
+URL: https://clickhouse.com/blog/clickhouse-acquires-langfuse-open-source-llm-observability
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ClickHouse acquires Langfuse (standard)
+========================================================================
+
+ClickHouse acquired Langfuse, and the deal was announced on January 16, 2026. ClickHouse's blog post describes Langfuse as the leading open-source platform for LLM observability, evaluations, and prompt management. The price was not disclosed.
+Langfuse's own announcement (langfuse.com/blog/announcing-acquisition) says its roadmap is unchanged; it plans to keep Langfuse open source and self-hostable, with no planned changes to licensing.
+Orrick (seller's law firm, January 2026) said Langfuse had more than 2,000 paying customers at the time of the deal.

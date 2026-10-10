@@ -1,0 +1,9 @@
+SOURCE ID: A6-S062
+URL: https://proxy.golang.org/github.com/agentgateway/agentgateway/@latest
+FINAL URL: https://proxy.golang.org/github.com/agentgateway/agentgateway/@latest
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+{"Version":"v1.6.0","Time":"2026-10-02T15:33:56Z","Origin":{"VCS":"git","URL":"https://github.com/agentgateway/agentgateway","Hash":"ea5608642b9d5c94c5baf5fd9f2f9849b808e963","Ref":"refs/tags/v1.6.0"}}

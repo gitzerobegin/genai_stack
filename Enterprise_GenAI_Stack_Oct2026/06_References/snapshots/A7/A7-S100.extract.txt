@@ -1,0 +1,8 @@
+SOURCE ID: A7-S100
+URL: https://www.collibra.com/company/newsroom/press-releases/collibra-strengthens-ai-governance-leadership-with-iso-42001-certification-ai-pact-commitment
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Collibra AI Governance ISO 42001 (allowed_domains collibra.com)
+========================================================================
+
+Collibra press release (January 2025): Collibra "was part of the inaugural class of organizations receiving an ISO 42001 certification for AI Governance"; certification "performed by ANAB-accredited certification body Schellman" - a certification of Collibra's own AI management and governance programmes. Collibra is a signatory to the European Commission's AI Pact. EU AI Act Assessment Tool "offers a practical solution for organizations looking to triage their AI use cases and understand what requirements of the EU AI Act apply to them". Release refers to "the EU AI Act's full enforcement in August 2026"; a separate Collibra blog says the Act has been "in full effect since August, 2024" (conflicting vendor statements).

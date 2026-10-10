@@ -1,0 +1,10 @@
+SOURCE ID: B-C1-S006
+URL: https://aws.amazon.com/bedrock/agentcore/faqs/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains aws.amazon.com, docs.aws.amazon.com): Amazon Bedrock AgentCore compliance validation SOC ISO services in scope
+========================================================================
+
+Search-tool extract (Amazon Bedrock AgentCore FAQs):
+- Programs AWS has assessed AgentCore against: "ISO (ISO/IEC 27001, 27017, 18, 27701, 22301, 20000, 9001), CSA STAR, MTCS, OSPAR, PCI, Pinakes, PiTuKri, and SOC" (text partly garbled in extract).
+- Amazon Bedrock AgentCore is HIPAA eligible and is pursuing FedRAMP compliance.

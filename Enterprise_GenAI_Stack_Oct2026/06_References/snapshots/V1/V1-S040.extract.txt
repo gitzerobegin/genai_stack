@@ -1,0 +1,8 @@
+SOURCE ID: V1-S040
+URL: https://the-decoder.com/anthropic-publishes-agent-skills-as-an-open-standard-for-ai-platforms/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Agent Skills open standard agentskills.io announcement December 2025 (extended)
+========================================================================
+
+Anthropic released Agent Skills as an independent open standard on December 18, 2025, publishing the specification at agentskills.io with a reference SDK and a validation library (skills-ref). Introduced October 2025, previously documented only in Anthropic product docs. Governance: one secondary source says Anthropic "stewards it through the Agentic AI Foundation"; another says it is governed as a cross-platform specification at agentskills.io without naming the foundation. Adoption counts conflict (40+, 26+, 16+ platforms) across secondary blogs.

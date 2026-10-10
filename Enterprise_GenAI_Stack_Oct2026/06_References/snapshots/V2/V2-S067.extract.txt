@@ -1,0 +1,8 @@
+SOURCE ID: V2-S067
+URL: https://www.checkpoint.com/downloads/company/check-point-ai-guardrails-lakera-guard-privacy-datasheet.pdf
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Check Point AI Defense Plane Lakera Guard renamed Check Point AI Guardrails (allowed_domains checkpoint.com, lakera.ai, docs.lakera.ai)
+========================================================================
+
+Check Point privacy datasheet titled "Check Point AI Guardrails (Lakera Guard)": "Check Point AI Guardrails is an AI-powered security layer ... to protect their use of large language model (LLM) applications from prompt injections, data leakage, policy bypass attempts". Lakera docs: Guard API endpoint is the integration point for LLM applications "using Check Point AI Guardrails". Check Point announced the AI Defense Plane on 23 March 2026, built on its AI Security platform with ThreatCloud AI and the Lakera and Cyata acquisitions. AI Guardrails is the runtime layer of AI Agent Security; also sold standalone. No dated rename announcement found.

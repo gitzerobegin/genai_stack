@@ -1,0 +1,11 @@
+SOURCE ID: B-C6-S005
+URL: https://learn.microsoft.com/en-us/azure/foundry/concepts/manage-costs
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (learn.microsoft.com): Azure OpenAI plan and manage costs cost analysis tags Foundry
+========================================================================
+
+- "Plan and manage costs - Microsoft Foundry": Azure OpenAI is token-metered; rate varies by model, deployment type and meter; Flex processing gives discounted rates for delay-tolerant workloads.
+- Cost analysis from Foundry or Azure portal; filter Service tier: Azure OpenAI; group by meter. Portal estimates are near-real-time; reconcile with Microsoft Cost Management and invoices. Set budgets after validating at least one billing cycle.
+- Project-level cost attribution (preview): each Foundry project automatically tagged on underlying usage; filter cost analysis by project tag; supports models sold by Azure including Azure OpenAI, not Marketplace models. Deployment tags and user-defined tags can segment costs by deployment.
+- Monitoring page: about five-hour delay from billing event to cost analysis.

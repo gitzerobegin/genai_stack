@@ -1,0 +1,14 @@
+SOURCE ID: B-C8-S003
+URL: https://dataplatform.cloud.ibm.com/docs/content/wsj/openpages/wxgov-aws-iam.html?context=wx
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains ibm.com, dataplatform.cloud.ibm.com, cloud.ibm.com): watsonx.governance roles access control IAM audit trail Governance console OpenPages user roles
+========================================================================
+
+Search-tool extract:
+- "Managing IAM access for watsonx.governance as a Service on AWS": "Access to watsonx.governance as a Service on AWS service instances for users in your account is controlled by Identity and Access Management (IAM). Further access controls are managed within Governance console."
+- watsonx platform docs: administrators "manage users and roles for your organization to control access to your projects or deployment spaces".
+- Factsheets automatically capture model facts; "Users can download factsheets or send them as attachments to stakeholders or to support audits."
+- Enforcement Tracking announcement: results "are recorded directly in watsonx.governance, providing AI governance teams, compliance leaders and auditors with a single, continuously updated source of evidence."
+- 2024 IBM newsroom (watsonx.governance on AWS): customisable risk assessment and model approval workflows "providing an audit trail in both watsonx and Amazon SageMaker".
+- Agent Identity in watsonx Orchestrate: private preview; ties each agent action to agent and originating user.

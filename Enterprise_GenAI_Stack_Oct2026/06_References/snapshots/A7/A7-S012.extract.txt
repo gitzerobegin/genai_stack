@@ -1,0 +1,14 @@
+SOURCE ID: A7-S012
+URL: https://blog.checkpoint.com/security/check-point-to-acquire-lakera-redefining-security-for-the-ai-era/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Check Point acquires Lakera completed
+========================================================================
+
+Search-tool summary of results (Check Point blog, CXOtoday press release, MarketScreener):
+- Announced September 16, 2025. Check Point Software Technologies Ltd. (NasdaqGS:CHKP) entered into an agreement to acquire Lakera AI AG in a transaction valued at approximately $300 million. [price: "The value of the deal was not disclosed, but it is estimated at $300 million" - Calcalist]
+- Closed October 22, 2025, per MarketScreener. The company completed the acquisition of Lakera AI AG on October 22, 2025.
+- Completion press release, November 11, 2025 (CXOtoday republished): "Check Point Software Technologies has officially completed its acquisition of Lakera, the Zurich-based AI-native security pioneer."
+- Lakera is intended to form the foundation of Check Point's Global Center of Excellence for AI Security.
+- Check Point's pitch is that the combination yields "the world's first end-to-end AI Security Platform, protecting the full AI lifecycle".
+- Lakera's Zurich office is set to become the company's global AI security R&D center.

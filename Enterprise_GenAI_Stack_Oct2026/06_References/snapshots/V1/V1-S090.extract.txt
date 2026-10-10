@@ -1,0 +1,8 @@
+SOURCE ID: V1-S090
+URL: https://docs.unstructured.io/api-reference/overview
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Unstructured platform SOC 2 Type 2 ISO 27001 HIPAA (allowed_domains unstructured.io etc.)
+========================================================================
+
+API docs: "Adherence to security and SOC 2 Type 1, SOC 2 Type 2, HIPAA, GDPR, ISO 27001, FedRAMP, and CMMC 2.0 Level 2 compliance standards. For details, see the Unstructured Trust Portal." Pricing page: HIPAA, SOC 2 Type 2, GDPR, ISO 27001. Blog (c. November 2025): CMMC 2.0 Level 2 certification with 110/110 score. Elsewhere: "SOC 2 Type II Qualified". No FedRAMP authorisation evidence beyond the word "adherence".

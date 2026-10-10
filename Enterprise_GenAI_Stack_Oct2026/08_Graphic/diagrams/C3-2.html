@@ -1,0 +1,51 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>C3 decision tree: choosing detection and transformation behind one privacy API</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">C3 decision tree: choosing detection and transformation behind one privacy API</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  S0["Step 0 [Rec], not optional:&lt;br/&gt;one firm-owned privacy-service&lt;br/&gt;API: detect / transform /&lt;br/&gt;re-identify; one policy: entity&lt;br/&gt;classes → action per destination;&lt;br/&gt;keys in the firm's KMS/HSM or&lt;br/&gt;Vault, C7; called at E1 ingestion,&lt;br/&gt;E2 prompt, E3 tool results,&lt;br/&gt;E4 output, E5 memory writes,&lt;br/&gt;E6 trace export"]:::note
+  subgraph ST1["Step 1 [Rec]: detection engine behind the API"]
+    Q1{"May raw client text&lt;br/&gt;leave the estate&lt;br/&gt;for inspection?"}
+    PN["Presidio in-estate + firm&lt;br/&gt;recognisers: client codes,&lt;br/&gt;account numbers; second&lt;br/&gt;detector on samples for&lt;br/&gt;residual-leakage KPI"]
+    Q1b{"Is Google Cloud&lt;br/&gt;the data platform?"}
+    SDP["Sensitive Data Protection:&lt;br/&gt;pinned region, KMS-wrapped&lt;br/&gt;keys; Presidio as the in-estate&lt;br/&gt;pre-filter for 'must not leave'&lt;br/&gt;classes"]
+    PO["Presidio; or the cloud guardrail's&lt;br/&gt;PII filter where already in the&lt;br/&gt;gateway path, e.g. Bedrock&lt;br/&gt;Guardrails on AWS, behind&lt;br/&gt;the same API"]
+    Q1 -- no --&gt; PN
+    Q1 -- yes --&gt; Q1b
+    Q1b -- yes --&gt; SDP
+    Q1b -- no --&gt; PO
+  end
+  subgraph ST2["Step 2 [Rec]: transformation"]
+    Q2{"Does anyone need the&lt;br/&gt;original value back&lt;br/&gt;after the model call?"}
+    RD["Redact / mask / bucket&lt;br/&gt;in the privacy service"]
+    Q2b{"Volume and number&lt;br/&gt;of applications?"}
+    CP["Consistent per-conversation&lt;br/&gt;placeholders; map held in the&lt;br/&gt;firm's store, keys in KMS;&lt;br/&gt;deterministic check before&lt;br/&gt;re-identification"]
+    PT["Protegrity policies and&lt;br/&gt;tokens: core platform;&lt;br/&gt;AI Team Edition only after GA"]
+    SK["Skyflow, EU vault"]
+    Q2 -- no --&gt; RD
+    Q2 -- yes --&gt; Q2b
+    Q2b -- "One or few apps" --&gt; CP
+    Q2b -- "Already a Protegrity&lt;br/&gt;customer" --&gt; PT
+    Q2b -- "Many apps, per-region&lt;br/&gt;vaults acceptable&lt;br/&gt;as a processor" --&gt; SK
+  end
+  subgraph ST3["Step 3 [Rec]: posture over SaaS AI: Copilot, ChatGPT Enterprise"]
+    Q3{"Microsoft 365 E5 /&lt;br/&gt;Purview Suite&lt;br/&gt;already licensed?"}
+    PV["Purview DSPM"]
+    CS["CASB/SSE tooling, outside&lt;br/&gt;this control's scope,&lt;br/&gt;plus usage policy"]
+    Q3 -- yes --&gt; PV
+    Q3 -- "no: otherwise" --&gt; CS
+  end
+  subgraph ST4["Step 4 [Rec]: checks before go-live"]
+    CK["Recall per class ≥ target on&lt;br/&gt;the firm's test set?&lt;br/&gt;Output inspection on?&lt;br/&gt;Collector redaction on?&lt;br/&gt;Erasure runbook covers memory,&lt;br/&gt;traces, eval sets, caches?"]
+  end
+  S0 --&gt; ST1
+  ST1 --&gt; ST2
+  ST2 --&gt; ST3
+  ST3 --&gt; ST4
+</pre><div class="c">Build one firm-owned privacy-service API first, then choose the detection engine by whether raw text may leave the estate, the transformation by whether values must come back, the posture tool by existing licences, and pass the go-live checks.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

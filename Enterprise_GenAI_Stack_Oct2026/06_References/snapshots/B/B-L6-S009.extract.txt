@@ -1,0 +1,8 @@
+SOURCE ID: B-L6-S009
+URL: https://docs.weaviate.io/deploy/configuration/configuring-rbac
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains weaviate.io, docs.weaviate.io): Weaviate RBAC roles OIDC authentication audit logging documentation
+========================================================================
+
+Weaviate RBAC: predefined root and viewer roles; custom roles from permissions assigned to users. Authentication (https://docs.weaviate.io/deploy/configuration/authentication): API keys and OIDC (any issuer implementing OpenID Connect Discovery), both can be enabled; OIDC users and groups can hold roles. Logging (https://docs.weaviate.io/deploy/configuration/logging): RBAC audit logging automatic when RBAC enabled (successful authorisations at info, denials at error; user, action, decision, source IP, resource); role creation/deletion logged. Note in docs: "RBAC access will be available in WCD in a future release" (Weaviate Cloud console).

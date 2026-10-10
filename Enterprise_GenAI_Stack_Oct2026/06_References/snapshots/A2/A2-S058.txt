@@ -1,0 +1,790 @@
+SOURCE ID: A2-S058
+URL: https://pypi.org/project/opensearch-py/
+FINAL URL: https://pypi.org/project/opensearch-py/
+TITLE: opensearch-py · PyPI
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+opensearch-py · PyPI
+
+Skip to main content
+
+Switch to mobile version
+
+opensearch-py 3.2.0
+
+Python client for OpenSearch
+
+pip install opensearch-py
+
+Copy PIP instructions
+
+OpenSearch Python Client
+
+Welcome!
+
+User Guide
+
+API Doc
+
+Compatibility with OpenSearch
+
+Project Resources
+
+Code of Conduct
+
+License
+
+Copyright
+
+Welcome!
+
+opensearch-py
+ is 
+a community-driven, open source fork
+
+of elasticsearch-py licensed under the 
+Apache v2.0 License
+.
+For more information, see 
+opensearch.org
+ and the 
+API Doc
+.
+
+User Guide
+
+To get started with the OpenSearch Python Client, see 
+User Guide
+. This repository also contains 
+working samples
+ and 
+benchmarks
+.
+
+Compatibility with OpenSearch
+
+See 
+Compatibility
+.
+
+Project Resources
+
+Project Website
+
+Downloads
+
+Documentation
+
+Need help? Try 
+Forums
+
+Project Principles
+
+Contributing to OpenSearch
+
+Maintainer Responsibilities
+
+Release Management
+
+Admin Responsibilities
+
+Security
+
+Code of Conduct
+
+This project has adopted the
+
+Amazon Open Source Code of Conduct
+.
+For more information see the 
+Code of Conduct FAQ
+, or contact
+
+opensource-codeofconduct@amazon.com
+ with any additional questions or comments.
+
+License
+
+This project is licensed under the
+
+Apache v2.0 License
+.
+
+Copyright
+
+Copyright OpenSearch Contributors. See
+
+NOTICE
+ for details.
+
+Project links
+
+Data verified by PyPI on Apr 27, 2026        
+
+Data provided by the project maintainers, verified at the time the release was uploaded to PyPI.        
+
+Homepage
+
+Issue Tracker
+
+Source Code
+
+Documentation
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    Apr 27, 2026
+
+Latest release
+
+1 maintainer  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+OpenSearch
+
+Credits
+
+Author/Maintainer:            
+
+Aleksei Atavin, Denis Zalevskiy, Rushi Agrawal, Shephali Mittal
+
+GitHub Statistics
+
+Data verified by PyPI on Apr 27, 2026
+
+The GitHub source repository was provided by the project maintainers and verified by PyPI at the time of upload. Stars, forks, and open issues/PRs are derived from that repository and have not been independently verified.
+
+Repository          
+
+Stars:
+
+Forks:
+
+Open issues:
+
+Open PRs:
+
+License
+
+Apache Software License (Apache-2.0)
+
+Requires
+
+Python
+ <4, >=3.10
+
+Provides Extra
+
+develop
+
+docs
+
+async
+
+kerberos
+
+Classifiers
+
+          Development Status
+
+                  5 - Production/Stable
+
+          Intended Audience
+
+                  Developers
+
+          License
+
+                  OSI Approved :: Apache Software License
+
+          Operating System
+
+                  OS Independent
+
+          Programming Language
+
+                  Python
+
+                  Python :: 3.10
+
+                  Python :: 3.11
+
+                  Python :: 3.12
+
+                  Python :: Implementation :: CPython
+
+                  Python :: Implementation :: PyPy
+
+Report project as malware
+
+Metadata
+
+Project links
+
+Data verified by PyPI on Apr 27, 2026        
+
+Data provided by the project maintainers, verified at the time the release was uploaded to PyPI.        
+
+Homepage
+
+Issue Tracker
+
+Source Code
+
+Documentation
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    Apr 27, 2026
+
+Latest release
+
+1 maintainer  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+OpenSearch
+
+Credits
+
+Author/Maintainer:            
+
+Aleksei Atavin, Denis Zalevskiy, Rushi Agrawal, Shephali Mittal
+
+GitHub Statistics
+
+Data verified by PyPI on Apr 27, 2026
+
+The GitHub source repository was provided by the project maintainers and verified by PyPI at the time of upload. Stars, forks, and open issues/PRs are derived from that repository and have not been independently verified.
+
+Repository          
+
+Stars:
+
+Forks:
+
+Open issues:
+
+Open PRs:
+
+License
+
+Apache Software License (Apache-2.0)
+
+Requires
+
+Python
+ <4, >=3.10
+
+Provides Extra
+
+develop
+
+docs
+
+async
+
+kerberos
+
+Classifiers
+
+          Development Status
+
+                  5 - Production/Stable
+
+          Intended Audience
+
+                  Developers
+
+          License
+
+                  OSI Approved :: Apache Software License
+
+          Operating System
+
+                  OS Independent
+
+          Programming Language
+
+                  Python
+
+                  Python :: 3.10
+
+                  Python :: 3.11
+
+                  Python :: 3.12
+
+                  Python :: Implementation :: CPython
+
+                  Python :: Implementation :: PyPy
+
+Report project as malware
+
+Release files for opensearch-py 3.2.0
+
+For a detailed explanation of source distributions (sdists) and built distributions (wheels), please see the 
+package formats documentation
+.    
+
+Source distribution (sdist)    
+
+Source distribution for opensearch-py 3.2.0
+
+File
+
+Size
+
+Uploaded
+
+opensearch_py-3.2.0.tar.gz
+
+259.9 kB
+
+    Apr 27, 2026
+
+Details
+
+Built distribution (wheel)  
+
+Table of built distributions (wheels) for opensearch-py 3.2.0
+
+File
+
+Interpreter        
+
+ABI        
+
+Platform        
+
+Reset
+
+opensearch_py-3.2.0-py3-none-any.whl
+
+387.3 kB
+
+    Apr 27, 2026
+
+              Python 3
+
+              none
+
+              any
+
+Details
+
+Total release size:
+ 647.2 kB
+
+Release files
+
+    / opensearch_py-3.2.0.tar.gz
+
+Download URL
+
+opensearch_py-3.2.0.tar.gz
+
+Size
+
+259.9 kB
+
+Tags
+
+Source
+
+SHA-256 checksum          
+
+How to use checksums
+
+f40fb3a295275422df2ad6d9459f667af94472d5a9e567072e9ecf163eb22613
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+829ee77844cb2d625ca32331bfdd28930113b3778399c01dd5f1c350ceb55e65
+
+Upload date
+
+    Apr 27, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/6.1.0 CPython/3.13.12
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Apr 27, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/opensearch-project/opensearch-py
+
+Publishing commit          
+
+github.com/opensearch-project/opensearch-py/tree/8991792d3fcdfc221c9aef62d7e82c3d15ff0206
+
+Workflow        
+
+Publishing configuration          
+
+github.com/opensearch-project/opensearch-py/blob/8991792d3fcdfc221c9aef62d7e82c3d15ff0206/.github/workflows/release-drafter.yml
+
+Publishing logs          
+
+github.com/opensearch-project/opensearch-py/actions/runs/25011915083/attempts/1
+
+Artifact
+
+Subject
+
+opensearch_py-3.2.0.tar.gz
+
+SHA-256 checksum
+
+f40fb3a295275422df2ad6d9459f667af94472d5a9e567072e9ecf163eb22613
+
+Verifying attestations
+
+Release files
+
+    / opensearch_py-3.2.0-py3-none-any.whl
+
+Download URL
+
+opensearch_py-3.2.0-py3-none-any.whl
+
+Size
+
+387.3 kB
+
+Tags
+
+Python 3
+
+SHA-256 checksum          
+
+How to use checksums
+
+721a0d3b13fbed9e82278aed748285cf63a1855354ab7e73e3d4992d1b93418b
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+ef637abb96bf2e3619acbd27de99e60619bfacfb7c55b68c4792a258e6d92871
+
+Upload date
+
+    Apr 27, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/6.1.0 CPython/3.13.12
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Apr 27, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/opensearch-project/opensearch-py
+
+Publishing commit          
+
+github.com/opensearch-project/opensearch-py/tree/8991792d3fcdfc221c9aef62d7e82c3d15ff0206
+
+Workflow        
+
+Publishing configuration          
+
+github.com/opensearch-project/opensearch-py/blob/8991792d3fcdfc221c9aef62d7e82c3d15ff0206/.github/workflows/release-drafter.yml
+
+Publishing logs          
+
+github.com/opensearch-project/opensearch-py/actions/runs/25011915083/attempts/1
+
+Artifact
+
+Subject
+
+opensearch_py-3.2.0-py3-none-any.whl
+
+SHA-256 checksum
+
+721a0d3b13fbed9e82278aed748285cf63a1855354ab7e73e3d4992d1b93418b
+
+Verifying attestations
+
+Release history
+
+Release notifications
+ |
+
+RSS feed 
+
+This release
+
+3.2.0
+
+This release
+
+    Apr 27, 2026
+
+ 2 release files
+
+3.1.0
+
+    Nov 20, 2025
+
+ 2 release files
+
+3.0.0
+
+    Jun 17, 2025
+
+ 2 release files
+
+2.8.0
+
+    Nov 29, 2024
+
+ 2 release files
+
+2.7.1
+
+    Aug 22, 2024
+
+ 2 release files
+
+2.7.0
+
+    Aug 20, 2024
+
+ 2 release files
+
+2.6.0
+
+    May 28, 2024
+
+ 2 release files
+
+2.5.0
+
+    Mar 25, 2024
+
+ 2 release files
+
+2.4.2
+
+    Nov 19, 2023
+
+ 2 release files
+
+2.4.1
+
+    Nov 16, 2023
+
+ 2 release files
+
+2.4.0
+
+    Nov 15, 2023
+
+ 2 release files
+
+2.3.2
+
+    Oct 9, 2023
+
+ 2 release files
+
+2.3.1
+
+    Aug 21, 2023
+
+ 2 release files
+
+2.3.0
+
+    Jul 27, 2023
+
+ 2 release files
+
+2.2.0
+
+    Mar 1, 2023
+
+ 2 release files
+
+2.1.1
+
+    Jan 24, 2023
+
+ 2 release files
+
+2.1.0
+
+    Jan 23, 2023
+
+ 2 release files
+
+2.0.1
+
+    Nov 29, 2022
+
+ 2 release files
+
+2.0.0
+
+    May 31, 2022
+
+ 2 release files
+
+1.1.0
+
+    Mar 22, 2022
+
+ 2 release files
+
+1.0.0
+
+    Sep 20, 2021
+
+ 2 release files
+
+Anthropic, PBC
+
+Visionary sponsor
+
+Bloomberg
+
+Visionary sponsor
+
+Hudson River Trading
+
+Visionary sponsor
+
+Meta
+
+Visionary sponsor
+
+NVIDIA
+
+Visionary sponsor
+
+Microsoft
+
+Sustainability sponsor
+
+Depot
+
+Continuous Integration
+
+AWS
+
+Cloud computing and Security Sponsor
+
+Datadog
+
+Monitoring
+
+Fastly
+
+CDN
+
+Google
+
+Download Analytics
+
+Sentry
+
+Error logging
+
+StatusPage
+
+Status page
+
+"PyPI", "Python Package Index", and the blocks logos are registered 
+trademarks
+ of the 
+Python Software Foundation
+.
+
+      © 2026 
+Python Software Foundation
+
+Site map
+
+Deployed from 
+47b3476

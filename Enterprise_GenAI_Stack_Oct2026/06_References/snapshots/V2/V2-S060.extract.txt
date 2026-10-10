@@ -1,0 +1,8 @@
+SOURCE ID: V2-S060
+URL: https://www.nist.gov/itl/ai-risk-management-framework
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NIST AI RMF revision 2026 AI 100-1 revised draft (allowed_domains nist.gov)
+========================================================================
+
+NIST AI RMF page: "the AI RMF 1.0 is being revised as part of the White House AI Action Plan." AIRC: "A revised version is in progress." Playbook to be updated after the AI RMF is revised. April 7, 2026: concept note for an AI RMF Profile on Trustworthy AI in Critical Infrastructure. July 29, 2026: initial public draft "Guidance and Templates for Public-Facing AI Documentation: An AI Standards 'Zero Draft'" (input by September 16, 2026). No revised AI 100-1 draft found. NIST page title "Super Intelligence Standards" (nist.gov/artificial-intelligence/ai-standards).

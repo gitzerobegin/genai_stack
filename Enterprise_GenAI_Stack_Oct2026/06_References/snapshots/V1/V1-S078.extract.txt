@@ -1,0 +1,8 @@
+SOURCE ID: V1-S078
+URL: https://security.pinecone.io/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone SOC 2 Type II ISO 27001 HIPAA security trust (allowed_domains pinecone.io, security.pinecone.io)
+========================================================================
+
+Trust Center lists CCPA, GDPR, HIPAA, ISO/IEC 27001 and SOC 2; hosts SOC 2 Report, HIPAA Report, Pentest Report. 2025 SOC 2 Type II audit (security, availability, confidentiality) with zero deviations. Annual ISO 27001:2022 surveillance audit completed (page c. 56 days old). Security page: HIPAA compliant, BAA on request, GDPR-ready. HIPAA across AWS, Azure and Google Cloud (blog). Encryption: AES-256 at rest; FAQ says TLS 1.2, legal security-measures PDF says TLS 1.3.

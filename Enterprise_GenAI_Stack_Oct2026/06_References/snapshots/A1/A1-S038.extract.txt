@@ -1,0 +1,9 @@
+SOURCE ID: A1-S038
+URL: https://www.langchain.com/blog/series-b
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangChain raises Series B valuation LangSmith announcement
+========================================================================
+
+Search result titles: "Company Announcements" (langchain.com/blog/series-b); SiliconANGLE 20 Oct 2025 "AI agent tooling provider LangChain raises $125M at $1.25B valuation"; Fortune 20 Oct 2025 "Exclusive: early AI darling LangChain is now a unicorn with a fresh $125 million in funding".
+Search-tool summary: LangChain announced a $125M Series B at a $1.25B valuation on October 20, 2025. Fortune reported IVP led; existing investors Sequoia, Benchmark, Amplify participated; CapitalG and Sapphire Ventures new; others included ServiceNow Ventures, Workday Ventures, Cisco Investments, Datadog, Databricks. The company's own post paired the funding news with LangChain and LangGraph 1.0 releases, a new Insights Agent, and a no-code agent builder.

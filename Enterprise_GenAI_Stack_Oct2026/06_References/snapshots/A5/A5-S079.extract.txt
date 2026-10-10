@@ -1,0 +1,12 @@
+SOURCE ID: A5-S079
+URL: https://x.ai/news/grok-4-7
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: xAI Grok 4.7 release models pricing (allowed_domains x.ai, docs.x.ai)
+========================================================================
+
+Search tool summary:
+- Grok 4.7 launched 21 September 2026; xAI now branded SpaceXAI.
+- grok-4.7: US$2 input / US$6 output per 1M (<=200K); >200K: US$4 input, US$1 cached, US$12 output; cached input US$0.50 below 200K; 500K context; reasoning effort low/medium/high/xhigh.
+- US regional endpoint at 1.1x standard rates. Grok 4.7 Fast (2x rates) only via Cursor and Grok Build.
+- Available via OpenRouter, Vercel, Cloudflare and cloud platforms.

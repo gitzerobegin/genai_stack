@@ -1,0 +1,11 @@
+SOURCE ID: E3-S027
+URL: https://cursor.com/docs/enterprise/compliance-and-monitoring
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cursor enterprise security docs privacy mode SOC 2 SCIM audit logs cloud agents
+========================================================================
+
+Search-tool summary of cursor.com/docs/enterprise/compliance-and-monitoring, /docs/enterprise/security-hardening and /help/security-and-privacy/privacy:
+- Privacy Mode: Teams and Enterprise admins can enforce it organisation-wide so members cannot disable it. Privacy Mode does not suppress audit events; audit payloads carry identifiers and setting values rather than prompts or generated code.
+- SCIM provisioning is an Enterprise feature. Admins can enforce SSO, disable local login and provision/deprovision users with SCIM.
+- Audit logs are Enterprise-only: authentication, team/membership changes, API key actions, privacy-mode and settings changes; filterable by application, CSV export; stream to SIEM, webhooks or S3. The Admin API appears as an application type in the log.

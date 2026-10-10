@@ -1,0 +1,13 @@
+SOURCE ID: E2-S031
+URL: https://openai.com/api-priority-processing/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: OpenAI API flex processing priority processing scale tier pricing discount docs
+========================================================================
+
+Search tool summary (results: openai.com/api-priority-processing/; openai.com/es-ES/api-fast-mode/; openai.com/pt-BR/api-priority-processing/; openai.com/api/pricing/; secondary: ain.ua, maginative.com, datablist.com, routeway and Optimizely gateway docs).
+- Priority processing page lists per-token prices, e.g. GPT-5.5 US$12.50 input / US$75.00 output per 1M tokens (excluding long context), with a 99.9% uptime SLA; accessed pay-as-you-go without advance provisioning.
+- OpenAI Spanish-language page: Priority processing renamed "Fast mode" on 30 July 2026; service_tier: priority or service_tier: fast both accepted.
+- Flex processing: discounted tier for supported models; Flex tokens use Batch API rates (e.g. 50% below Standard for gpt-5.4-mini); may return 429 Resource Unavailable when Flex capacity is unavailable; per a secondary source, such requests are not charged.
+- Pricing page: Batch API saves 50% on inputs and outputs; separate Priority and Flex sections (rates not shown in snippet).
+- Scale Tier: not mentioned in these results.

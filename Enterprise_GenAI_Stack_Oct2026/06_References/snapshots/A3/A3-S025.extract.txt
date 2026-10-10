@@ -1,0 +1,8 @@
+SOURCE ID: A3-S025
+URL: https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: A2A protocol Linux Foundation latest version 2026 Agent2Agent specification release
+========================================================================
+
+Search-tool summary: The latest stable release found is A2A v1.0, the project's first stable specification. Governance: The Linux Foundation has hosted the project since June 2025, when Google handed it over. The Agent2Agent project was founded with AWS, Cisco, Google, Microsoft, Salesforce, SAP and ServiceNow. What v1.0 added: multi-protocol support, multi-tenancy for enterprises, updated security flows, and a migration path for early adopters. It also introduced Signed Agent Cards for verifying an agent's cryptographic identity. Adoption: The Linux Foundation's one-year announcement on April 9, 2026 reported more than 150 organizations supporting the standard, and the core repository has surpassed 22,000 GitHub stars. Specification and SDKs published at a2a-protocol.org under Apache 2.0. Conflicting release dates: The Linux Foundation press release and several secondary sites date it to April 9, 2026. Google's open source blog says it came out in March 2026.

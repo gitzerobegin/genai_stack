@@ -1,0 +1,8 @@
+SOURCE ID: E1-S027
+URL: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0837
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Digital Omnibus COM(2025) 837 Data Act switching custom-made services SMEs
+========================================================================
+
+Search-tool extract: the Commission's Digital Omnibus proposal (19 November 2025) would exempt from the switching provisions 'custom-made services other than Infrastructure-as-a-Service (IaaS)' under contracts concluded on or before 12 September 2025, and create a lighter regime for PaaS and SaaS provided by SMEs and small mid-caps under such contracts. It proposes repeal of Regulation (EU) 2018/1807 (free flow of non-personal data) as switching is addressed in the Data Act. Status: proposal.

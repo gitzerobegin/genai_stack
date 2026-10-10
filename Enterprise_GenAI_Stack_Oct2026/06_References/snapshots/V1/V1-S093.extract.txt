@@ -1,0 +1,8 @@
+SOURCE ID: V1-S093
+URL: https://huggingface.co/papers/2601.04720
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qwen3-VL-Embedding Qwen3-VL-Reranker release (allowed_domains qwen.ai, huggingface.co etc.)
+========================================================================
+
+Qwen released Qwen3-VL-Embedding and Qwen3-VL-Reranker in early January 2026 (paper page dated January 8, 2026; arXiv 2601.04720); 2B and 8B sizes; 30+ languages; 32k input; MRL dimensions. Follows text-only Qwen3-Embedding and Qwen3-Reranker open-sourced June 2025. Weights on Hugging Face (Qwen organisation).

@@ -1,0 +1,13 @@
+SOURCE ID: B-L5-S004
+URL: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com): Agent Engine Memory Bank CMEK VPC Service Controls data residency compliance
+========================================================================
+
+Google Cloud "Scale your agents" page, "Set up Memory Bank" (https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/setup), Gemini Enterprise Agent Platform release notes and Google Cloud data residency terms (https://cloud.google.com/terms/data-residency), as reported by the search tool:
+- The enterprise security table marks VPC Service Controls, customer-managed encryption keys (CMEK) and data residency (DRZ) at rest as available for Memory Bank.
+- "CMEK cannot be used if your Memory Bank is configured to use the global endpoint."
+- Release notes, 17 June 2026: Memory Bank and Sessions support for multi-regional and global endpoints is GA; CMEK cannot be used with the global endpoint.
+- The Google Cloud data residency terms page lists Memory Bank among Agent Platform exclusions from general data residency coverage, which conflicts with the feature table.
+- Memory Bank is not supported in every region (check supported locations page).

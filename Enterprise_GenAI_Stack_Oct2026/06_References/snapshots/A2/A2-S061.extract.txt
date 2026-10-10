@@ -1,0 +1,8 @@
+SOURCE ID: A2-S061
+URL: https://www.postgresql.org/about/news/pgvector-087-released-3392/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: pgvector 0.8 release latest version 2026 PostgreSQL (allowed: postgresql.org, github.com)
+========================================================================
+
+News post dated October 5, 2026 announces pgvector 0.8.7 is now available. Patches a memory overflow in IVFFlat index construction that could allow arbitrary code execution (CVE identifier as given by search tool: CVE-2026-103484; linked GitHub issue pgvector/pgvector#1036). Search tool flagged the CVE number as unusually long; not independently confirmed. GitHub CHANGELOG still listed 0.8.7 as unreleased at time of indexing.

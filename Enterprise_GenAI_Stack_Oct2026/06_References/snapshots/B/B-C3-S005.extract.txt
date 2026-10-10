@@ -1,0 +1,12 @@
+SOURCE ID: B-C3-S005
+URL: https://www.skyflow.com/security
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed skyflow.com, docs.skyflow.com, trust.skyflow.com): Skyflow trust center SOC 2 Type II report ISO 27001 certified PCI DSS Level 1 service provider
+========================================================================
+
+Skyflow pages, as reported by the search tool:
+- Security page (https://www.skyflow.com/security) lists ISO 27001:2022, SOC 2 Type II and PCI DSS Level 1 certifications, plus GDPR, HIPAA and Visa/Mastercard registrations.
+- Blog "Skyflow Achieves PCI Level 1 Service Provider Certification" (https://www.skyflow.com/post/skyflow-achieves-pci-level-1-service-provider-certification): describes Skyflow as a PCI Level 1 Service Provider ("first PCI Level 1 Data Privacy Vault"); post roughly 14 months old.
+- Blog "Skyflow is Certified SOC 2 Compliant": first announced Type 1, edited to state SOC 2 Type 2.
+- The reports and certificates themselves were not found publicly.

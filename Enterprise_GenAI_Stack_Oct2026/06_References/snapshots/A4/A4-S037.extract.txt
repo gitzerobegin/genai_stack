@@ -1,0 +1,8 @@
+SOURCE ID: A4-S037
+URL: https://docs.langchain.com/langsmith/deployment
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith Deployment self-hosted hybrid BYOC options SSO SAML SCIM RBAC audit logs
+========================================================================
+
+Self-hosted with control plane: you run the Deployment control plane and Agent Servers in your own Kubernetes cluster, next to self-hosted LangSmith; requires the Enterprise plan with LangSmith Deployment enabled. Hybrid: LangChain runs the control plane, while Agent Servers and their data plane sit in your infrastructure; traces flow to LangSmith Cloud or self-hosted LangSmith. BYOC: data stays in your VPC while LangChain manages the infrastructure. Self-hosted and BYOC are available on the Enterprise plan.

@@ -1,0 +1,8 @@
+SOURCE ID: A3-S089
+URL: https://www.getzep.com/pricing/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Zep SOC 2 Type II HIPAA security BYOC pricing (allowed_domains getzep.com)
+========================================================================
+
+Search-tool summary: Flex: $125/month for 50,000 included credits, cloud only; comparison table shows no SOC 2 or HIPAA coverage on this tier. Flex Plus: $375/month for 200,000 included credits, also cloud-only with no SOC 2 or HIPAA listed. Enterprise: custom pricing with negotiated credit rates, a guaranteed SLA, and SOC 2 Type II plus HIPAA BAA; offers cloud, cloud with your own keys (BYOK), or your own VPC (BYOC) deployment. Pricing FAQ: HIPAA BAA only with the Enterprise plan. 'feature availability and service levels may change over time'.

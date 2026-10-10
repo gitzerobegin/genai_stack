@@ -1,0 +1,11 @@
+SOURCE ID: V2-S049
+URL: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SR 26-2 model risk management guidance supersedes SR 11-7 generative AI out of scope (allowed_domains federalreserve.gov, occ.gov, fdic.gov)
+========================================================================
+
+The Fed - FRB: Supervisory Letter SR 26-2 on Revised Guidance on Model Risk Management -- April 17, 2026. "The agencies are issuing the attached Revised Guidance on Model Risk Management, which supersedes and replaces SR letter 11-7." Also replaces SR 21-8. Expected to be most relevant to banking organizations with over $30 billion in total assets; may be relevant to those of $30 billion or less with significant exposure to model risk.
+Footnote 3: "generative AI and agentic AI models are novel and rapidly evolving. As such, they are not within the scope of this guidance." Principles apply to traditional statistical and quantitative models and non-generative, non-agentic AI models. "a banking organization's risk management and governance practices should guide the determination of appropriate governance and controls."
+Model definition: "a complex quantitative method, system, or approach that applies statistical, economic, or financial theories to process input data into quantitative estimates"; excludes simple arithmetic and deterministic rule-based processes and software.
+OCC Bulletin 2026-13a "Supervisory Guidance on Model Risk Management".

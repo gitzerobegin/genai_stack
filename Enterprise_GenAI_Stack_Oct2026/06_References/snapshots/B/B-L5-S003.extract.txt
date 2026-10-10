@@ -1,0 +1,13 @@
+SOURCE ID: B-L5-S003
+URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/compliance-validation.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains aws.amazon.com, docs.aws.amazon.com): AWS services in scope by compliance program Amazon Bedrock AgentCore SOC ISO
+========================================================================
+
+"Compliance validation for Amazon Bedrock AgentCore" and AWS "Services in Scope by Compliance Program" pages (SOC: https://aws.amazon.com/compliance/services-in-scope/SOC/ ; ISO: https://aws.amazon.com/compliance/iso-certified/), as reported by the search tool:
+- AgentCore is listed in scope for SOC 1, 2 and 3 reports (AgentCore release notes, July 2026: officially listed on the AWS Compliant Services in Scope page).
+- AgentCore appears on AWS's ISO and CSA STAR scope list (ISO/IEC 27001:2022, 27017:2015, 27018:2019, 27701:2019, 22301:2019, 20000-1:2018, 9001:2015; CSA STAR CCM v4.0); February 2026 release notes state AgentCore achieved ISO and CSA STAR compliance.
+- Compliance validation page states AgentCore is HIPAA eligible; FedRAMP wording on that page is unclear (page carries an age stamp of about 449 days).
+- AWS: "Unless specifically excluded, generally available features of each of the services are considered in scope"; the ISO list excludes nothing for AgentCore.
+- SOC 2 report type is not stated in the extract; Memory is not named separately (covered as a GA feature of AgentCore).

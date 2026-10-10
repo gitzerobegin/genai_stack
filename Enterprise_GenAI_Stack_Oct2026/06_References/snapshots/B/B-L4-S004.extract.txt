@@ -1,0 +1,10 @@
+SOURCE ID: B-L4-S004
+URL: https://docs.browserbase.com/account/team/sso
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains browserbase.com, docs.browserbase.com, trust.browserbase.com): Browserbase enterprise SSO role-based access audit logs organization members
+========================================================================
+
+Browserbase docs, SSO (single sign-on) with SAML: SAML 2.0 SSO through a corporate IdP; available only on Enterprise plans (pricing page lists it under Scale - inconsistent naming). Setup handled with Browserbase support: customer sends IdP sign-on URL, entity ID and signing certificate; Browserbase returns ACS URL, audience URI and metadata URL; required assertion attributes email, first name, last name.
+Browserbase docs, Enterprise security (docs.browserbase.com/account/enterprise/security): session logs and replay recordings, which can be disabled; on Enterprise plans recordings route to the customer's own S3 bucket under the customer's retention policy. Full security documentation including auditor attestations available on request.
+A Browserbase blog lists SSO/SAML and RBAC among security features without detail. No documented admin/member activity audit log found (search result, 8 October 2026).

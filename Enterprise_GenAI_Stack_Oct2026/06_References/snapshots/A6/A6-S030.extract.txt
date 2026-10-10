@@ -1,0 +1,16 @@
+SOURCE ID: A6-S030
+URL: https://huggingface.co/meta-llama/Llama-Guard-4-12B
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Meta Llama Guard 4 Prompt Guard 2 LlamaFirewall Llama Protections latest release; Llama Guard 4 licence
+========================================================================
+
+Related: https://huggingface.co/meta-llama/Llama-Guard-4-12B/blob/main/LICENSE ; https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M ; https://huggingface.co/blog/llama-guard-4 ; https://build.nvidia.com/meta/llama-guard-4-12b/modelcard
+(Direct fetch of huggingface.co failed in this environment: ProxyError.)
+
+Extract as returned by search tool:
+Llama Guard 4: a 12-billion-parameter multimodal safety classifier that handles both text and images, pruned from the Llama 4 Scout model; combines the capabilities of Llama Guard 3-8B and Llama Guard 3-11B-vision. Available through the Llama API's moderations endpoint; can screen prompts, responses, or both.
+Llama Prompt Guard 2: two sizes, 86M (trained on English and non-English attacks) and 22M (smaller, faster, mostly English). Both target prompt injection and jailbreaks. "Llama Prompt Guard 2 22M reduces latency and compute costs by 75%, with minimal performance trade-offs." 512-token context window.
+The Hugging Face model pages show the Llama Guard 4 and Prompt Guard 2 checkpoints last updated on April 29, 2025.
+Licence: covered by the Llama 4 Community License Agreement, effective date April 5, 2025. Requires attribution and compliance with Meta's Acceptable Use Policy; licensees whose products exceed 700 million monthly active users must request a licence from Meta. NVIDIA's hosted listing is governed by the NVIDIA Community Model License with the Llama 4 Community Model License as additional information.
+No Llama Guard 5, Prompt Guard 3 or 2026 LlamaFirewall update was found in these results.

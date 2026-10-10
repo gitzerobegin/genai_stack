@@ -1,0 +1,8 @@
+SOURCE ID: A3-S121
+URL: https://exa.ai/docs/reference/security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Exa enterprise SSO data residency EU DPA GDPR (allowed_domains exa.ai)
+========================================================================
+
+Search-tool summary: Enterprise pricing lists Custom MSA and DPA, along with SSO and SCIM for Exa Dashboard. Enterprise plans offer zero data retention, HIPAA with a BAA, SSO and SCIM, and a custom MSA and DPA. DPA between Exa Labs, Inc. and the business customer relies on EU standard contractual clauses (Commission Decision 2021/914, Module 2, and Module 3) with a UK Addendum. Exa states it honors GDPR and CCPA data-subject rights. Systems audited under SOC 2 Type II for security, confidentiality, and availability. Security page directs customers to sales@exa.ai for Zero Data Retention, HIPAA compliance, or other customized data security solutions. No statement of EU data residency or processing location found.

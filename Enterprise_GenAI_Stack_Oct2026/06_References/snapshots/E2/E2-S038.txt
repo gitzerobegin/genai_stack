@@ -1,0 +1,91 @@
+SOURCE ID: E2-S038
+URL: https://cloud.google.com/blog/topics/partners/enhancing-google-cloud-marketplace-private-offers/
+FINAL URL: https://cloud.google.com/blog/topics/partners/enhancing-google-cloud-marketplace-private-offers/
+TITLE: Enhancing Google Cloud Marketplace private offers | Google Cloud Blog
+ACCESSED: 2026-10-10
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Enhancing Google Cloud Marketplace private offers | Google Cloud Blog
+Jump to Content
+Cloud
+Blog
+Contact sales 
+Get started for free 
+Cloud
+Blog
+Contact sales 
+Get started for free 
+Partners
+Google Cloud Marketplace private offer enhancements unlock enterprise and AI use cases
+October 16, 2024
+Sakshi Goel
+Group Product Manager, Google Cloud
+Steve Holden
+Business Development Manager, Google Cloud Marketplace
+Try Gemini today
+The front door to AI in the workplace
+Try now 
+When it comes to purchasing technology for different departments and business units that operate across the globe, enterprise customers need flexibility and choice. This needs to extend to the technology, including generative AI solutions, that integrate with a customer’s Google Cloud environment and that are procured through Google Cloud Marketplace.
+
+Google Cloud Marketplace 
+offers a high-quality catalog of innovative ISV solutions, provides flexible ways to try and buy them, and maximizes the value of cloud investments by allowing purchases of ISV solutions to draw down on Google Cloud commitments. 
+By 
+bringing much of the traditional IT sales process online, we help streamline transactions between customers, technology vendors, and 
+channel partners
+, whether through public listings or through custom, negotiated private offers. 
+
+Private offers are an effective way for customers and partners to align on terms and payment structures that match an enterprise’s specific needs. Today, we are excited to announce additional private offer enhancements, and the enterprise use cases they unlock.
+
+Support for enterprise AI purchasing models
+
+Google Cloud Marketplace supports the buying and selling of generative AI SaaS solutions and key foundational models that are deployable to Vertex AI. These ground-breaking solutions are helping enterprises deliver innovative business applications ranging from high-quality code generation and summarizing large documents to generating content for products and services. Google Cloud Marketplace private offers make it possible for customers to transact third-party foundational models and LLMs through a variety of transaction models including committed use discounts (CUDs), usage-based discounts, and, now, 
+provisioned throughput
+, a fixed-cost subscription service that reserves throughput for supported generative AI models on Vertex AI. 
+
+We designed provisioned throughput to provide customers and partners the flexibility to transact and use any model from a partner-specified model family based on the capacity purchased. Provisioned throughput is suitable for customers that are building real-time generative AI applications such as chatbots and customer agents; enabling critical workloads that require consistently high throughput; and maintaining deterministic costs with control of overages. At the same time, customers can continue to take advantage of the spending optimization that procuring through Google Cloud Marketplace provides, such as the ability to draw down on Google Cloud commitments by spending on ISV solutions, including generative AI models.
+Tailor offers and payment schedules with multiple orders
+
+When purchasing an ISV’s SaaS solution on Google Cloud Marketplace, each individual business unit within an enterprise now has the flexibility to get different subscriptions and payment schedules based on their cost center’s needs. This capability allows customers to have multiple orders for the same product, which is particularly useful for large enterprises with different departments, subsidiaries, or international branches. Furthermore, each unit can have customized subscription plans for the same technology solution. This feature is generally available for fixed-fee SaaS solutions via private offer today. To enable this, partners can turn on multiple orders for their applicable products in Google Cloud Marketplace. Check out a video demo of how this works.
+Customers and ISV partners are already enabling enterprise use cases and seeing the value this new feature unlocks.
+
+“Support for multiple orders of the same product in Google Cloud Marketplace has been a game-changer for Quantum Metric and our customers. With multiple order support we've been able to meet the needs of our enterprise customers who require fast upsells as well as separate subscriptions to our analytics platform across different business units. This has enabled Quantum Metric to expand our footprint in our joint accounts and increase revenue, while providing an even higher level of customer support during the procurement cycle.” 
+- Russell Efird, Head of NA Partnerships, Quantum Metric
+
+“Spoon Guru's integration with Google Cloud Marketplace has helped accelerate business growth, enabling us to rapidly expand our customer base and deliver exceptional value. The ability to offer multiple orders for our Nutrition Intelligence product has been instrumental in meeting the diverse needs of our enterprise clients, from fast-paced upsells to tailored subscriptions across different business units. This feature has not only accelerated revenue growth but also strengthened customer satisfaction by providing greater flexibility and support throughout the procurement process.” 
+- Markus Stripf, Co-Founder, Spoon Guru
+
+“Tackle exists to make things easier for our Cloud GTM customers. We're constantly evolving our roadmap to help ISVs sell through and with Google Cloud Marketplace in a more flexible, streamlined, and effective way. That's why we're so happy to be a launch partner for Google Cloud Marketplace's multiple orders for a single customer functionality. Greater flexibility for Google Cloud Marketplace customers helps them accelerate their Cloud GTM journey, accommodate the needs of customers, and grow revenue.” 
+- John Jahnke, CEO, Tackle.io
+
+Partners can also take advantage of 
+simplified payment schedules for ISV-directed and reseller-initiated private offers
+ to better deliver flexible payment options to end-customers. Google Cloud Marketplace private offers support monthly, quarterly, annual, and custom installment payment schedules, including prorated payments. This enhancement simplifies the user experience for managing variable payment schedules.
+
+Upfront payments and extended contract lengths
+
+In addition, customers have improved flexibility over how they manage their spend by making upfront payments for critical technology solutions up to five years in advance. The ability to make 
+multi-year upfront payments
+ is available for private offers and lets customers draw down on their Google Cloud commitment on an annual amortized basis. Furthermore, we are also introducing contract lengths of up to 7 years. These capabilities provide more flexible spend management for customers and improved control over financials for our partners.
+Learn more about how customers can easily discover, try, and streamline procurement of innovative solutions from our partner ecosystem on 
+Google Cloud Marketplace
+.
+Partners
+Google Cloud Marketplace now lets customers buy ISV solutions from channel partners
+The new Google Cloud Marketplace Channel Private Offers lets customers buy ISV solutions from channel partners of choice.
+By Dai Vu • 5-minute read
+Posted in
+Partners
+Related articles
+Data Analytics
+Modernizing Unstructured Data Workflows: Alteryx Live Query meets Google Cloud BigQuery
+By Kira Droganova • 7-minute read
+Partners
+How Box is unlocking multimodal enterprise agents with Gemini Embeddings 2
+By Sandhya Patil • 6-minute read
+Partners
+Accelerating automotive innovation with C4A-metal and Panasonic Automotive vSkipGen
+By Yarden Halperin • 5-minute read
+AI & Machine Learning
+Claude at scale on Google Cloud: Frontier AI, built for enterprise production
+By Schneider Larbi • 7-minute read

@@ -1,0 +1,10 @@
+SOURCE ID: V2-S036
+URL: https://learn.microsoft.com/en-us/purview/whats-new
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Microsoft Purview Data Security Posture Management generally available DSPM for AI unified 2026 (allowed_domains learn.microsoft.com, techcommunity.microsoft.com)
+========================================================================
+
+Microsoft's "What's new" page lists the new DSPM version as generally available under its May 2026 entry. Partner solutions for non-Microsoft data sources remain in preview, as does the Data Security Posture Agent. Support for administrative units added to match the classic versions of DSPM and DSPM for AI.
+DSPM for AI and DSPM have converged into a single solution; older products labelled DSPM for AI (classic) and DSPM (classic).
+Licensing: a Microsoft Q&A thread (March 2026) has conflicting replies on whether the Purview Suite for Business Premium add-on includes DSPM for AI; earlier guidance requires Microsoft 365 E5 for prompts and responses in DSPM for AI.

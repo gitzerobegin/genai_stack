@@ -1,0 +1,8 @@
+SOURCE ID: A3-S092
+URL: https://www.hpcwire.com/bigdatawire/this-just-in/letta-emerges-from-stealth-with-10m-to-build-ai-agents-with-advanced-memory/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Letta funding seed raised MemGPT startup Felicis
+========================================================================
+
+Search-tool summary: Letta came out of stealth in late September 2024 with the $10M seed, which Felicis headed. Sunflower Capital and Essence VC also participated. Press release dated September 24, 2024. One profile puts the round at a $70 million post-money valuation. Letta is a spinout from UC Berkeley's AI research lab; co-founders Charles Packer and Sarah Wooders. Angels include Jeff Dean and Clem Delangue. No later round found in results.

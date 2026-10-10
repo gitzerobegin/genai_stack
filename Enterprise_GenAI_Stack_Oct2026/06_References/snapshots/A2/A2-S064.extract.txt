@@ -1,0 +1,8 @@
+SOURCE ID: A2-S064
+URL: https://www.tigerdata.com/docs/about/latest/changelog
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: pgvectorscale Timescale Tiger Data latest release; pgvecto.rs deprecated VectorChord
+========================================================================
+
+Changelog points readers to the pgvectorscale release notes for details. TimescaleDB 2.26.0 was released on March 24, 2026, and is available on GitHub and on Tiger Cloud as of March 30, 2026. Company statement: Our vector extension is still pgvectorscale. pgvectorscale 0.6 (March 2025): store vectors up to 16,000 dimensions (vs. 2K in pgvector). No newer pgvectorscale version number found.

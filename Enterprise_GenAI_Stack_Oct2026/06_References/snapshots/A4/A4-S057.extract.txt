@@ -1,0 +1,8 @@
+SOURCE ID: A4-S057
+URL: https://mistral.ai/news/agents-api/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral "Agents API" launch blog build AI agents persistent memory connectors handoffs
+========================================================================
+
+Launch post positions the Agents API as a dedicated framework alongside the Chat Completion API for agentic use cases. Built-in connectors: code execution, web search, image generation, document library (built-in RAG), and MCP tools. "Each conversation retains its context"; developers can continue any conversation or branch new paths from any point; store=False means history not stored on Mistral's cloud. Handoffs: create agents, then declare which may pass tasks to others (finance agent delegating to web search / calculator agents). Docs: handoff_execution parameter has two modes, server (default; runs on Mistral's cloud) or client. Python SDK example uses client.beta.agents.create. "You can start and continue conversations without creating Agents ... you can use the model parameter instead of agent_id." Le Chat (now Vibe) agents created in Chat cannot be used programmatically; API agents via Studio > Agents or REST API. Connectors post: built-in and custom MCP connectors in Studio usable through API and SDK, with human-in-the-loop approval flows; tool_configuration restricts tools without changing the connector. Docs mention "Durable agents" in Mistral Workflows (Public Preview).

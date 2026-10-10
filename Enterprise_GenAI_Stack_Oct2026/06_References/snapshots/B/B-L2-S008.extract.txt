@@ -1,0 +1,8 @@
+SOURCE ID: B-L2-S008
+URL: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/data-residency
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Vertex AI provisioned throughput generative AI reserved capacity regional endpoint data residency (allowed: cloud.google.com, docs.cloud.google.com)
+========================================================================
+
+Data residency / Deployments and endpoints / Single Zone Provisioned Throughput - Vertex AI (search-tool extract): Regional endpoints keep ML processing inside the multi-region or country jurisdiction of that region. Multi-region endpoints (aiplatform.us.rep.googleapis.com, aiplatform.eu.rep.googleapis.com) keep processing inside a jurisdiction. Requests sent to the global endpoint may be processed in any Google Cloud location and carry no data residency guarantees. Data at rest stays in the chosen location. Provisioned Throughput reserves capacity; traffic exceeding PT quota uses the global endpoint by default unless overridden; Single Zone PT processes all requests in the purchased region, including overflow billed at pay-as-you-go, and is excluded from the Gemini online inference SLA. For partner models (e.g. Claude) PT is supported on regional endpoints only.

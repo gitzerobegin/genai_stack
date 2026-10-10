@@ -1,0 +1,10 @@
+SOURCE ID: V2-S019
+URL: https://developers.meta.com/blog/meta-connect-recap/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Meta Connect 2026 Meta Model API generally available developers; Meta Muse Spark 1.3 Meta Model API general availability Muse Glimmer Apache 2.0
+========================================================================
+
+Meta developer recap: "Meta Model API is now generally available globally, with support and compliance for enterprise workloads through our first-party API and third-party partners." Connect ran September 23-24, 2026 (developer day 24 September). "Muse Spark 1.3 is now available through Oracle Cloud AI Platform, with availability on Google Cloud in private preview." Lineup includes muse-spark-1.3 and a contributor variant with discounted pricing in exchange for Meta using prompts to train future models. OpenAI-compatible Chat Completions and Responses, plus Anthropic-compatible Messages endpoint.
+Meta developer landing page snapshot (pre-Connect) still labelled "Public preview".
+Introducing Muse Spark 1.3 (research.meta.ai): released September 2, 2026, available in Muse Code and Meta Model API. Reported pricing Standard $1.25/$4.25 per 1M; Contributor $0.10/$0.20 (Meta uses Contributor prompts and completions to improve its products). Muse Spark is closed/API-only; open-weights Muse Spark release a roadmap item without date. Muse Glimmer: 30B, Apache 2.0, distilled from Muse Spark (secondary).

@@ -1,0 +1,13 @@
+SOURCE ID: B-REVA-S003
+URL: https://www.elastic.co/docs/deploy-manage/api-keys/elastic-cloud-api-keys
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains elastic.co): Elastic Cloud organization API keys roles SCIM user provisioning
+========================================================================
+
+Elastic docs "Elastic Cloud API keys", "User roles and privileges - Cloud organization" and "Manage users", as summarised by the search tool:
+- Elastic Cloud API keys belong to the organization; Organization owners and users who can manage workload credentials create and manage them; owners can view and revoke every key.
+- Keys carry the same types of roles that are assigned to users; up to 500 active keys per organization; default expiry three months, up to one year or never.
+- The Cloud API exposes organization information and member invitations with role assignments in the request body.
+- Organization-level SSO is SAML.
+- No Elastic Cloud SCIM documentation was found in the results.

@@ -1,0 +1,8 @@
+SOURCE ID: A4-S045
+URL: https://pydantic.dev/docs/ai/capabilities/durable_execution/overview/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pydantic AI V2 release graph durable execution Temporal DBOS Prefect
+========================================================================
+
+Temporal, DBOS and Prefect listed as core durable-execution integrations; AWS Lambda, Absurd and Step Persistence are Harness packages. Overview lists eight engines, the first five co-maintained with the vendor teams (homepage says five durable execution solutions). Temporal: attach TemporalDurability; call agent.run() inside a Temporal workflow executed on a worker; model requests, tool calls and MCP traffic run as Temporal activities; outside a workflow the agent runs non-durably. DBOS: "lightweight durable execution library natively integrated with Pydantic AI"; pass DBOSDurability() and wrap the run in @DBOS.workflow(); runs in-process and checkpoints into a database you already have. Prefect: PrefectDurability() and wrap agent.run() in a @flow; tool tasks get retries and result caching.

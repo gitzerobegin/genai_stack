@@ -1,0 +1,8 @@
+SOURCE ID: A4-S055
+URL: https://developers.openai.com/api/docs/changelog
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI API changelog September 2026 Agents API public beta managed harness durable sessions
+========================================================================
+
+Changelog: "Released the Agents API in public beta. Build agents with a managed Codex harness while OpenAI handles session orchestration, context compaction, and recovery." Durable sessions to continue work across turns, stream progress, connect own tools and MCP servers. "Run agents in OpenAI-hosted sandboxes or connect a sandbox from your own infrastructure or a supported provider." Pricing: hosted sandboxes at standard container rates; model usage billed separately. Sep 29: computer use added. Agents API docs: currently supports data residency only in the United States and does not support Zero Data Retention (ZDR). DevDay 2026 recap: OpenAI worked with Amazon on Bedrock Managed Agents to bring Agents API capabilities natively into AWS. Separate from the open-source Agents SDK.

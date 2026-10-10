@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S024
+URL: https://docs.firecrawl.dev/enterprise
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.firecrawl.dev, firecrawl.dev): Firecrawl enterprise team roles permissions audit logs SSO
+========================================================================
+
+Firecrawl docs "Enterprise", "SIEM Audit Logging" (docs.firecrawl.dev/features/siem) and "Dashboard", as summarised by the search tool:
+- Team roles: Admin and Member (built-in); no custom roles found. Admins control invitations, removal, role changes, billing, webhook-secret regeneration and team deletion.
+- Enterprise plans support SAML and OIDC SSO (Okta, Entra ID, Google Workspace) and SCIM directory sync.
+- SIEM Audit Logging pushes per-scrape events (request metadata and outcomes, not page content) to Microsoft Sentinel; gated per organisation via the account team. The docs do not say whether team-management actions are logged.
+- Dashboard Activity Logs show recent API requests; IP restrictions and per-key restrictions are available.

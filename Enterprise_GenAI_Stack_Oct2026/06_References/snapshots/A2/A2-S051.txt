@@ -1,0 +1,2680 @@
+SOURCE ID: A2-S051
+URL: https://pypi.org/project/pinecone/
+FINAL URL: https://pypi.org/project/pinecone/
+TITLE: pinecone · PyPI
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+pinecone · PyPI
+
+Skip to main content
+
+Switch to mobile version
+
+pinecone 10.0.0
+
+Pinecone Python SDK
+
+pip install pinecone
+
+Copy PIP instructions
+
+Pinecone Python SDK
+
+The Pinecone Python SDK provides a client for the 
+Pinecone
+ vector database. Use it to create and manage indexes, upsert and query records, and run inference operations from Python.
+
+Requires Python 3.10+.
+
+Upgrading from 9.x? 
+create
+ and 
+configure
+ moved from 
+spec=
+/
+dimension=
+ to 
+schema=
+/
+deployment=
+; see the 
+v10 migration guide
+ for the field-by-field mapping.
+
+Installation
+
+pip
+
+install
+
+pinecone
+
+Quick start
+
+An index declares its fields as a schema. Declaring a schema makes it a document
+index: you read and write it through 
+index.documents
+, and each record is a JSON
+document whose fields you named yourself.
+
+from
+
+pinecone
+
+import
+
+DenseVectorQuery
+,
+
+Pinecone
+
+pc
+
+=
+
+Pinecone
+(
+api_key
+=
+"your-api-key"
+)
+
+# or omit and set PINECONE_API_KEY
+
+# Create an index. This blocks until the index is ready.
+
+pc
+.
+indexes
+.
+create
+(
+
+name
+=
+"movie-recommendations"
+,
+
+schema
+=
+{
+"fields"
+:
+
+{
+"embedding"
+:
+
+{
+"type"
+:
+
+"dense_vector"
+,
+
+"dimension"
+:
+
+3
+,
+
+"metric"
+:
+
+"cosine"
+}}},
+
+deployment
+=
+{
+"deployment_type"
+:
+
+"managed"
+,
+
+"cloud"
+:
+
+"aws"
+,
+
+"region"
+:
+
+"us-east-1"
+},
+
+)
+
+# Get a data-plane handle for that index
+
+index
+
+=
+
+pc
+.
+index
+(
+"movie-recommendations"
+)
+
+# Upsert documents. Each one needs an `_id`; every other key is either a field
+
+# you declared in the schema or arbitrary metadata.
+
+index
+.
+documents
+.
+upsert
+(
+
+namespace
+=
+"movies-en"
+,
+
+documents
+=
+[
+
+{
+"_id"
+:
+
+"movie-001"
+,
+
+"embedding"
+:
+
+[
+0.1
+,
+
+0.2
+,
+
+0.3
+],
+
+"title"
+:
+
+"Arrival"
+},
+
+{
+"_id"
+:
+
+"movie-002"
+,
+
+"embedding"
+:
+
+[
+0.4
+,
+
+0.5
+,
+
+0.6
+],
+
+"title"
+:
+
+"Interstellar"
+},
+
+],
+
+)
+
+# Search. `score_by` names the field to compare against.
+
+results
+
+=
+
+index
+.
+documents
+.
+search
+(
+
+namespace
+=
+"movies-en"
+,
+
+top_k
+=
+5
+,
+
+score_by
+=
+[
+DenseVectorQuery
+(
+field
+=
+"embedding"
+,
+
+values
+=
+[
+0.1
+,
+
+0.2
+,
+
+0.3
+])],
+
+include_fields
+=
+[
+"title"
+],
+
+)
+
+for
+
+doc
+
+in
+
+results
+.
+matches
+:
+
+print
+(
+doc
+.
+id
+,
+
+doc
+.
+score
+)
+
+Upserts apply asynchronously, so a document may not be visible to the next search
+immediately.
+
+Two other data-plane interfaces exist, and the way the index was created decides
+which one applies: an index created with the deprecated top-level vector
+arguments answers on 
+index.upsert
+ / 
+index.query
+, and one created with
+
+pc.indexes.create_for_model(...)
+ embeds text server-side and answers on
+
+index.upsert_records
+ / 
+index.search
+. See the
+
+quickstart
+ and
+the rest of the 
+documentation
+ for the full
+picture.
+
+Async usage
+
+The SDK provides an async client for use with 
+asyncio
+. Its 
+index()
+ is a
+coroutine, and the handle it returns is a context manager:
+
+import
+
+asyncio
+
+from
+
+pinecone
+
+import
+
+AsyncPinecone
+,
+
+DenseVectorQuery
+
+async
+
+def
+
+main
+():
+
+async
+
+with
+
+AsyncPinecone
+(
+api_key
+=
+"your-api-key"
+)
+
+as
+
+pc
+:
+
+index
+
+=
+
+await
+
+pc
+.
+index
+(
+"movie-recommendations"
+)
+
+async
+
+with
+
+index
+:
+
+results
+
+=
+
+await
+
+index
+.
+documents
+.
+search
+(
+
+namespace
+=
+"movies-en"
+,
+
+top_k
+=
+5
+,
+
+score_by
+=
+[
+DenseVectorQuery
+(
+field
+=
+"embedding"
+,
+
+values
+=
+[
+0.1
+,
+
+0.2
+,
+
+0.3
+])],
+
+include_fields
+=
+[
+"title"
+],
+
+)
+
+for
+
+doc
+
+in
+
+results
+.
+matches
+:
+
+print
+(
+doc
+.
+id
+,
+
+doc
+.
+score
+)
+
+asyncio
+.
+run
+(
+main
+())
+
+Configuration
+
+API key
+
+Pass the API key directly or set the 
+PINECONE_API_KEY
+ environment variable:
+
+from
+
+pinecone
+
+import
+
+Pinecone
+
+# Explicit API key
+
+pc
+
+=
+
+Pinecone
+(
+api_key
+=
+"your-api-key"
+)
+
+# From environment variable (PINECONE_API_KEY)
+
+pc
+
+=
+
+Pinecone
+()
+
+Custom host
+
+Connect to a specific control plane host:
+
+pc
+
+=
+
+Pinecone
+(
+api_key
+=
+"your-api-key"
+,
+
+host
+=
+"https://api.pinecone.io"
+)
+
+Timeout
+
+Configure request timeouts in seconds:
+
+pc
+
+=
+
+Pinecone
+(
+api_key
+=
+"your-api-key"
+,
+
+timeout
+=
+30
+)
+
+Debug logging
+
+Enable debug logging by setting the 
+PINECONE_DEBUG
+ environment variable:
+
+export
+
+PINECONE_DEBUG
+=
+1
+
+Development
+
+Clone the repository and install the dev dependency group with
+
+uv
+, which is what CI does:
+
+uv
+
+sync
+
+--group
+
+dev
+
+uv
+
+run
+
+pytest
+
+tests/unit/
+
+-x
+
+-v
+
+# tests
+
+uv
+
+run
+
+mypy
+
+--strict
+
+pinecone/
+
+# type checking
+
+uv
+
+run
+
+ruff
+
+check
+
+--fix
+
+# linting
+
+uv
+
+run
+
+ruff
+
+format
+
+# formatting
+
+The unit suite must leave the working tree clean: 
+git status
+ is expected to report
+no changes after a bare 
+uv run pytest tests/unit
+. Use 
+tmp_path
+ /
+
+tmp_path_factory
+ if a test genuinely needs a file on disk.
+
+Some suites are opt-in because they hit a real backend and cost money. The live
+retry/throttle smoke tests in 
+tests/integration/test_retry_smoke.py
+ need
+
+PINECONE_API_KEY
+ plus 
+PINECONE_RETRY_SMOKE=1
+; run them before any release that
+touches retry logic, HTTP transport, the AIMD adaptive-concurrency limiter, or the
+batch-upsert path. Each module documents its own gate and cost.
+
+License
+
+Apache-2.0. See 
+LICENSE
+ for details.
+
+Project links
+
+Data verified by PyPI on Sep 3, 2026        
+
+Data provided by the project maintainers, verified at the time the release was uploaded to PyPI.        
+
+Issues
+
+Source
+
+Changelog
+
+Documentation
+
+Homepage
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    Sep 3, 2026
+
+Latest release
+
+1 maintainer  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+pinecone
+
+Credits
+
+Author:            
+
+Pinecone Systems, Inc.
+
+GitHub Statistics
+
+Data verified by PyPI on Sep 3, 2026
+
+The GitHub source repository was provided by the project maintainers and verified by PyPI at the time of upload. Stars, forks, and open issues/PRs are derived from that repository and have not been independently verified.
+
+Repository          
+
+Stars:
+
+Forks:
+
+Open issues:
+
+Open PRs:
+
+License expression      
+
+        Apache-2.0
+
+View SPDX License List
+
+Requires
+
+Python
+ >=3.10
+
+Provides Extra
+
+docs
+
+Tags
+
+Pinecone
+
+vector
+
+database
+
+cloud
+
+RAG
+
+AI
+
+Classifiers
+
+          Development Status
+
+                  5 - Production/Stable
+
+          Intended Audience
+
+                  Developers
+
+                  Information Technology
+
+                  Science/Research
+
+                  System Administrators
+
+          Operating System
+
+                  OS Independent
+
+          Programming Language
+
+                  Python :: 3.10
+
+                  Python :: 3.11
+
+                  Python :: 3.12
+
+                  Python :: 3.13
+
+                  Python :: 3.14
+
+          Topic
+
+                  Database
+
+                  Software Development
+
+                  Software Development :: Libraries
+
+                  Software Development :: Libraries :: Application Frameworks
+
+                  Software Development :: Libraries :: Python Modules
+
+Report project as malware
+
+Metadata
+
+Project links
+
+Data verified by PyPI on Sep 3, 2026        
+
+Data provided by the project maintainers, verified at the time the release was uploaded to PyPI.        
+
+Issues
+
+Source
+
+Changelog
+
+Documentation
+
+Homepage
+
+Key dates
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+Released:
+
+    Sep 3, 2026
+
+Latest release
+
+1 maintainer  
+
+PyPI data
+
+Data sourced directly from PyPI's database.
+
+pinecone
+
+Credits
+
+Author:            
+
+Pinecone Systems, Inc.
+
+GitHub Statistics
+
+Data verified by PyPI on Sep 3, 2026
+
+The GitHub source repository was provided by the project maintainers and verified by PyPI at the time of upload. Stars, forks, and open issues/PRs are derived from that repository and have not been independently verified.
+
+Repository          
+
+Stars:
+
+Forks:
+
+Open issues:
+
+Open PRs:
+
+License expression      
+
+        Apache-2.0
+
+View SPDX License List
+
+Requires
+
+Python
+ >=3.10
+
+Provides Extra
+
+docs
+
+Tags
+
+Pinecone
+
+vector
+
+database
+
+cloud
+
+RAG
+
+AI
+
+Classifiers
+
+          Development Status
+
+                  5 - Production/Stable
+
+          Intended Audience
+
+                  Developers
+
+                  Information Technology
+
+                  Science/Research
+
+                  System Administrators
+
+          Operating System
+
+                  OS Independent
+
+          Programming Language
+
+                  Python :: 3.10
+
+                  Python :: 3.11
+
+                  Python :: 3.12
+
+                  Python :: 3.13
+
+                  Python :: 3.14
+
+          Topic
+
+                  Database
+
+                  Software Development
+
+                  Software Development :: Libraries
+
+                  Software Development :: Libraries :: Application Frameworks
+
+                  Software Development :: Libraries :: Python Modules
+
+Report project as malware
+
+Release files for pinecone 10.0.0
+
+For a detailed explanation of source distributions (sdists) and built distributions (wheels), please see the 
+package formats documentation
+.    
+
+Source distribution (sdist)    
+
+Source distribution for pinecone 10.0.0
+
+File
+
+Size
+
+Uploaded
+
+pinecone-10.0.0.tar.gz
+
+525.1 kB
+
+    Sep 3, 2026
+
+Details
+
+Built distributions (wheels)  
+
+Search wheels
+
+Table of built distributions (wheels) for pinecone 10.0.0
+
+File
+
+Interpreter
+
+Interpreter
+
+CPython 3.10
+
+ABI
+
+ABI
+
+abi3
+
+Platform
+
+Platform
+
+macOS 10.12+ x86-64
+
+macOS 11.0+ ARM64
+
+Linux glibc 2.17+ ARM64
+
+Linux glibc 2.17+ x86-64
+
+Linux musl 1.2+ ARM64
+
+Linux musl 1.2+ x86-64
+
+Windows x86-64
+
+Reset
+
+pinecone-10.0.0-cp310-abi3-win_amd64.whl
+
+2.9 MB
+
+    Sep 3, 2026
+
+              CPython 3.10
+
+              abi3
+
+              Windows x86-64
+
+Details
+
+pinecone-10.0.0-cp310-abi3-musllinux_1_2_x86_64.whl
+
+3.6 MB
+
+    Sep 3, 2026
+
+              CPython 3.10
+
+              abi3
+
+              Linux musl 1.2+ x86-64
+
+Details
+
+pinecone-10.0.0-cp310-abi3-musllinux_1_2_aarch64.whl
+
+3.5 MB
+
+    Sep 3, 2026
+
+              CPython 3.10
+
+              abi3
+
+              Linux musl 1.2+ ARM64
+
+Details
+
+pinecone-10.0.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+3.3 MB
+
+    Sep 3, 2026
+
+              CPython 3.10
+
+              abi3
+
+              Linux glibc 2.17+ x86-64
+
+Details
+
+pinecone-10.0.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+
+3.4 MB
+
+    Sep 3, 2026
+
+              CPython 3.10
+
+              abi3
+
+              Linux glibc 2.17+ ARM64
+
+Details
+
+pinecone-10.0.0-cp310-abi3-macosx_11_0_arm64.whl
+
+3.1 MB
+
+    Sep 3, 2026
+
+              CPython 3.10
+
+              abi3
+
+              macOS 11.0+ ARM64
+
+Details
+
+pinecone-10.0.0-cp310-abi3-macosx_10_12_x86_64.whl
+
+3.1 MB
+
+    Sep 3, 2026
+
+              CPython 3.10
+
+              abi3
+
+              macOS 10.12+ x86-64
+
+Details
+
+Total release size:
+ 23.4 MB
+
+Release files
+
+    / pinecone-10.0.0.tar.gz
+
+Download URL
+
+pinecone-10.0.0.tar.gz
+
+Size
+
+525.1 kB
+
+Tags
+
+Source
+
+SHA-256 checksum          
+
+How to use checksums
+
+6066bbe9a7ae1d667cde08d262deb6fbea6feb35deb9177dd47141b55bbd9833
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+a597f04b682e5d65d4cd09b76afd691f8834cf2c28d82bc942ad637a2c15c74d
+
+Upload date
+
+    Sep 3, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 3, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/pinecone-io/python-sdk
+
+Publishing commit          
+
+github.com/pinecone-io/python-sdk/tree/c089fe83184dabe4d88e961e6870eace8c6584f3
+
+Workflow        
+
+Publishing configuration          
+
+github.com/pinecone-io/python-sdk/blob/c089fe83184dabe4d88e961e6870eace8c6584f3/.github/workflows/release-prod.yaml
+
+Publishing logs          
+
+github.com/pinecone-io/python-sdk/actions/runs/33766061762/attempts/1
+
+Artifact
+
+Subject
+
+pinecone-10.0.0.tar.gz
+
+SHA-256 checksum
+
+6066bbe9a7ae1d667cde08d262deb6fbea6feb35deb9177dd47141b55bbd9833
+
+Verifying attestations
+
+Release files
+
+    / pinecone-10.0.0-cp310-abi3-win_amd64.whl
+
+Download URL
+
+pinecone-10.0.0-cp310-abi3-win_amd64.whl
+
+Size
+
+2.9 MB
+
+Tags
+
+CPython 3.10
+
+Windows x86-64
+
+abi3
+
+SHA-256 checksum          
+
+How to use checksums
+
+2f4e3200ee3562d195802b363487dd7fe6039a8c13630fc25fa3e8726c7a8654
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+bd5d93d123cfcf458ccc2defa4c0363be5fb7aabfcd375cd2414a3e944e7f55a
+
+Upload date
+
+    Sep 3, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 3, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/pinecone-io/python-sdk
+
+Publishing commit          
+
+github.com/pinecone-io/python-sdk/tree/c089fe83184dabe4d88e961e6870eace8c6584f3
+
+Workflow        
+
+Publishing configuration          
+
+github.com/pinecone-io/python-sdk/blob/c089fe83184dabe4d88e961e6870eace8c6584f3/.github/workflows/release-prod.yaml
+
+Publishing logs          
+
+github.com/pinecone-io/python-sdk/actions/runs/33766061762/attempts/1
+
+Artifact
+
+Subject
+
+pinecone-10.0.0-cp310-abi3-win_amd64.whl
+
+SHA-256 checksum
+
+2f4e3200ee3562d195802b363487dd7fe6039a8c13630fc25fa3e8726c7a8654
+
+Verifying attestations
+
+Release files
+
+    / pinecone-10.0.0-cp310-abi3-musllinux_1_2_x86_64.whl
+
+Download URL
+
+pinecone-10.0.0-cp310-abi3-musllinux_1_2_x86_64.whl
+
+Size
+
+3.6 MB
+
+Tags
+
+CPython 3.10
+
+Linux musl 1.2+ x86-64
+
+abi3
+
+SHA-256 checksum          
+
+How to use checksums
+
+3ab0c843b4fb04fbac22f1b8455e389063208a50f6a95d7a90627939968198de
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+7fa411795c174225b9dea5054618c91b956d0a26b3d7167a5d3531e167712e83
+
+Upload date
+
+    Sep 3, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 3, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/pinecone-io/python-sdk
+
+Publishing commit          
+
+github.com/pinecone-io/python-sdk/tree/c089fe83184dabe4d88e961e6870eace8c6584f3
+
+Workflow        
+
+Publishing configuration          
+
+github.com/pinecone-io/python-sdk/blob/c089fe83184dabe4d88e961e6870eace8c6584f3/.github/workflows/release-prod.yaml
+
+Publishing logs          
+
+github.com/pinecone-io/python-sdk/actions/runs/33766061762/attempts/1
+
+Artifact
+
+Subject
+
+pinecone-10.0.0-cp310-abi3-musllinux_1_2_x86_64.whl
+
+SHA-256 checksum
+
+3ab0c843b4fb04fbac22f1b8455e389063208a50f6a95d7a90627939968198de
+
+Verifying attestations
+
+Release files
+
+    / pinecone-10.0.0-cp310-abi3-musllinux_1_2_aarch64.whl
+
+Download URL
+
+pinecone-10.0.0-cp310-abi3-musllinux_1_2_aarch64.whl
+
+Size
+
+3.5 MB
+
+Tags
+
+CPython 3.10
+
+Linux musl 1.2+ ARM64
+
+abi3
+
+SHA-256 checksum          
+
+How to use checksums
+
+0e05956a3201b1fbb54a1861277df919318a4941797f2d87fd558ac5ec232151
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+04ef705e49608eac5803b9b55b6cfae2cac736c0395e709f7668f52c89afc99b
+
+Upload date
+
+    Sep 3, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 3, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/pinecone-io/python-sdk
+
+Publishing commit          
+
+github.com/pinecone-io/python-sdk/tree/c089fe83184dabe4d88e961e6870eace8c6584f3
+
+Workflow        
+
+Publishing configuration          
+
+github.com/pinecone-io/python-sdk/blob/c089fe83184dabe4d88e961e6870eace8c6584f3/.github/workflows/release-prod.yaml
+
+Publishing logs          
+
+github.com/pinecone-io/python-sdk/actions/runs/33766061762/attempts/1
+
+Artifact
+
+Subject
+
+pinecone-10.0.0-cp310-abi3-musllinux_1_2_aarch64.whl
+
+SHA-256 checksum
+
+0e05956a3201b1fbb54a1861277df919318a4941797f2d87fd558ac5ec232151
+
+Verifying attestations
+
+Release files
+
+    / pinecone-10.0.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+Download URL
+
+pinecone-10.0.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+Size
+
+3.3 MB
+
+Tags
+
+CPython 3.10
+
+Linux glibc 2.17+ x86-64
+
+abi3
+
+SHA-256 checksum          
+
+How to use checksums
+
+94d4c64779f3213a5cc538d3bd10a873da192cb9b0039db56690e556ba00b55c
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+223550e23cac1d73c921b8cc2eb02c9ad2691f62e8b906db49237bcf85f90676
+
+Upload date
+
+    Sep 3, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 3, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/pinecone-io/python-sdk
+
+Publishing commit          
+
+github.com/pinecone-io/python-sdk/tree/c089fe83184dabe4d88e961e6870eace8c6584f3
+
+Workflow        
+
+Publishing configuration          
+
+github.com/pinecone-io/python-sdk/blob/c089fe83184dabe4d88e961e6870eace8c6584f3/.github/workflows/release-prod.yaml
+
+Publishing logs          
+
+github.com/pinecone-io/python-sdk/actions/runs/33766061762/attempts/1
+
+Artifact
+
+Subject
+
+pinecone-10.0.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+
+SHA-256 checksum
+
+94d4c64779f3213a5cc538d3bd10a873da192cb9b0039db56690e556ba00b55c
+
+Verifying attestations
+
+Release files
+
+    / pinecone-10.0.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+
+Download URL
+
+pinecone-10.0.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+
+Size
+
+3.4 MB
+
+Tags
+
+CPython 3.10
+
+Linux glibc 2.17+ ARM64
+
+abi3
+
+SHA-256 checksum          
+
+How to use checksums
+
+d482ed27a805cbd4aca2660da212008dd6e41d87d255279f405ff13b725970e2
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+8a3e3b9dba42741ed8faf011d7bce8e1fd10f45dd0503e2888eceafa6be33424
+
+Upload date
+
+    Sep 3, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 3, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/pinecone-io/python-sdk
+
+Publishing commit          
+
+github.com/pinecone-io/python-sdk/tree/c089fe83184dabe4d88e961e6870eace8c6584f3
+
+Workflow        
+
+Publishing configuration          
+
+github.com/pinecone-io/python-sdk/blob/c089fe83184dabe4d88e961e6870eace8c6584f3/.github/workflows/release-prod.yaml
+
+Publishing logs          
+
+github.com/pinecone-io/python-sdk/actions/runs/33766061762/attempts/1
+
+Artifact
+
+Subject
+
+pinecone-10.0.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+
+SHA-256 checksum
+
+d482ed27a805cbd4aca2660da212008dd6e41d87d255279f405ff13b725970e2
+
+Verifying attestations
+
+Release files
+
+    / pinecone-10.0.0-cp310-abi3-macosx_11_0_arm64.whl
+
+Download URL
+
+pinecone-10.0.0-cp310-abi3-macosx_11_0_arm64.whl
+
+Size
+
+3.1 MB
+
+Tags
+
+CPython 3.10
+
+abi3
+
+macOS 11.0+ ARM64
+
+SHA-256 checksum          
+
+How to use checksums
+
+0994270c514b16c72ec94dd6c29ff2708b81d30ff8467e19de192a28a7c86b7e
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+ec78d73c0aa1030931a1b28151c4ff727b793e443a4531521bc89a1d4c3124a0
+
+Upload date
+
+    Sep 3, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 3, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/pinecone-io/python-sdk
+
+Publishing commit          
+
+github.com/pinecone-io/python-sdk/tree/c089fe83184dabe4d88e961e6870eace8c6584f3
+
+Workflow        
+
+Publishing configuration          
+
+github.com/pinecone-io/python-sdk/blob/c089fe83184dabe4d88e961e6870eace8c6584f3/.github/workflows/release-prod.yaml
+
+Publishing logs          
+
+github.com/pinecone-io/python-sdk/actions/runs/33766061762/attempts/1
+
+Artifact
+
+Subject
+
+pinecone-10.0.0-cp310-abi3-macosx_11_0_arm64.whl
+
+SHA-256 checksum
+
+0994270c514b16c72ec94dd6c29ff2708b81d30ff8467e19de192a28a7c86b7e
+
+Verifying attestations
+
+Release files
+
+    / pinecone-10.0.0-cp310-abi3-macosx_10_12_x86_64.whl
+
+Download URL
+
+pinecone-10.0.0-cp310-abi3-macosx_10_12_x86_64.whl
+
+Size
+
+3.1 MB
+
+Tags
+
+CPython 3.10
+
+abi3
+
+macOS 10.12+ x86-64
+
+SHA-256 checksum          
+
+How to use checksums
+
+995c06e905940b10bb2aefe653225340b5a3f56f3efb373fe07f4e57b5043705
+
+BLAKE2b-256 checksum          
+
+How to use checksums
+
+0fc79d61f9a4adaaa6e315a0425c2127b449bda64633a9c50bc533ff71c0c894
+
+Upload date
+
+    Sep 3, 2026
+
+Uploaded using Trusted Publishing?          
+
+What is trusted publishing?
+
+Yes        
+
+Uploaded via
+
+twine/7.0.0 CPython/3.13.14
+
+Provenance
+
+Provenance
+ describes where a file came from. On PyPI, provenance is shared via 
+attestations
+, which provide a verifiable record of the build or publishing details. 
+View details, limitations and caveats.
+
+PyPI Publish          
+
+Attestation      
+
+PyPI verified that this artifact, at this checksum, originated from the publisher listed below.      
+
+Signed by GitHub Actions, verified by PyPI on Sep 3, 2026.        
+
+Transparency log
+
+Identity
+
+Publishing platform        
+
+          GitHub Actions
+
+Publishing repository          
+
+github.com/pinecone-io/python-sdk
+
+Publishing commit          
+
+github.com/pinecone-io/python-sdk/tree/c089fe83184dabe4d88e961e6870eace8c6584f3
+
+Workflow        
+
+Publishing configuration          
+
+github.com/pinecone-io/python-sdk/blob/c089fe83184dabe4d88e961e6870eace8c6584f3/.github/workflows/release-prod.yaml
+
+Publishing logs          
+
+github.com/pinecone-io/python-sdk/actions/runs/33766061762/attempts/1
+
+Artifact
+
+Subject
+
+pinecone-10.0.0-cp310-abi3-macosx_10_12_x86_64.whl
+
+SHA-256 checksum
+
+995c06e905940b10bb2aefe653225340b5a3f56f3efb373fe07f4e57b5043705
+
+Verifying attestations
+
+Release history
+
+Release notifications
+ |
+
+RSS feed 
+
+Pre-release
+
+10.1.0rc1
+
+    Oct 7, 2026
+
+ 8 release files
+
+This release
+
+10.0.0
+
+This release
+
+    Sep 3, 2026
+
+ 8 release files
+
+Pre-release
+
+10.0.0rc1
+
+    Aug 26, 2026
+
+ 8 release files
+
+9.1.0
+
+    Jun 3, 2026
+
+ 8 release files
+
+9.0.1
+
+    May 19, 2026
+
+ 8 release files
+
+Pre-release
+
+9.0.1rc1
+
+    May 18, 2026
+
+ 8 release files
+
+9.0.0
+
+    May 4, 2026
+
+ 8 release files
+
+Pre-release
+
+9.0.0rc2
+
+    May 4, 2026
+
+ 8 release files
+
+Pre-release
+
+9.0.0rc1
+
+    May 4, 2026
+
+ 8 release files
+
+Pre-release
+
+8.2.0rc2
+
+    May 4, 2026
+
+ 8 release files
+
+Yanked
+
+8.2.0rc1
+
+    May 4, 2026
+
+ 7 release files
+
+Yanked reason:
+ troubleshooting release workflow
+
+8.1.2
+
+    Apr 8, 2026
+
+ 2 release files
+
+8.1.1
+
+    Apr 2, 2026
+
+ 2 release files
+
+8.1.0
+
+    Feb 19, 2026
+
+ 2 release files
+
+Pre-release
+
+8.1.0rc1
+
+    Feb 17, 2026
+
+ 2 release files
+
+8.0.1
+
+    Feb 11, 2026
+
+ 2 release files
+
+8.0.0
+
+    Nov 18, 2025
+
+ 2 release files
+
+Pre-release
+
+7.3.1a1
+
+    Oct 3, 2025
+
+ 2 release files
+
+Pre-release
+
+7.3.1.dev8
+
+    Oct 1, 2025
+
+ 2 release files
+
+Pre-release
+
+7.3.1.dev7
+
+    Oct 1, 2025
+
+ 2 release files
+
+Pre-release
+
+7.3.1.dev6
+
+    Oct 1, 2025
+
+ 2 release files
+
+Pre-release
+
+7.3.1.dev5
+
+    Oct 1, 2025
+
+ 2 release files
+
+Pre-release
+
+7.3.1.dev4
+
+    Sep 30, 2025
+
+ 2 release files
+
+Pre-release
+
+7.3.1.dev3
+
+    Sep 25, 2025
+
+ 2 release files
+
+Pre-release
+
+7.3.1.dev2
+
+    Sep 24, 2025
+
+ 2 release files
+
+Pre-release
+
+7.3.1.dev1
+
+    Sep 24, 2025
+
+ 2 release files
+
+7.3.0
+
+    Jun 27, 2025
+
+ 2 release files
+
+7.2.0
+
+    Jun 18, 2025
+
+ 2 release files
+
+7.1.0
+
+    Jun 16, 2025
+
+ 2 release files
+
+Pre-release
+
+7.1.0rc1
+
+    Jun 16, 2025
+
+ 2 release files
+
+7.0.2
+
+    May 28, 2025
+
+ 2 release files
+
+Pre-release
+
+7.0.2.dev1
+
+    May 27, 2025
+
+ 2 release files
+
+7.0.1
+
+    May 21, 2025
+
+ 2 release files
+
+Pre-release
+
+7.0.1.dev1
+
+    May 21, 2025
+
+ 2 release files
+
+7.0.0
+
+    May 20, 2025
+
+ 2 release files
+
+Pre-release
+
+7.0.0.dev3
+
+    May 16, 2025
+
+ 2 release files
+
+Pre-release
+
+7.0.0.dev2
+
+    May 15, 2025
+
+ 2 release files
+
+Pre-release
+
+7.0.0.dev1
+
+    May 15, 2025
+
+ 2 release files
+
+Pre-release
+
+6.0.3.dev1
+
+    May 21, 2025
+
+ 2 release files
+
+6.0.2
+
+    Mar 13, 2025
+
+ 2 release files
+
+Pre-release
+
+6.0.2.dev1
+
+    Mar 13, 2025
+
+ 2 release files
+
+6.0.1
+
+    Feb 10, 2025
+
+ 2 release files
+
+Pre-release
+
+6.0.1.dev1
+
+    Feb 10, 2025
+
+ 2 release files
+
+6.0.0
+
+    Feb 7, 2025
+
+ 2 release files
+
+Pre-release
+
+6.0.0rc2
+
+    Oct 22, 2024
+
+ 2 release files
+
+Pre-release
+
+6.0.0rc1
+
+    Oct 21, 2024
+
+ 2 release files
+
+Pre-release
+
+6.0.0.dev9
+
+    Feb 3, 2025
+
+ 2 release files
+
+Pre-release
+
+6.0.0.dev8
+
+    Jan 31, 2025
+
+ 2 release files
+
+Pre-release
+
+6.0.0.dev7
+
+    Jan 30, 2025
+
+ 2 release files
+
+Pre-release
+
+6.0.0.dev6
+
+    Dec 17, 2024
+
+ 2 release files
+
+Pre-release
+
+6.0.0.dev5
+
+    Dec 17, 2024
+
+ 2 release files
+
+Pre-release
+
+6.0.0.dev4
+
+    Dec 13, 2024
+
+ 2 release files
+
+Pre-release
+
+6.0.0.dev3
+
+    Oct 25, 2024
+
+ 2 release files
+
+Pre-release
+
+6.0.0.dev2
+
+    Oct 25, 2024
+
+ 2 release files
+
+Pre-release
+
+6.0.0.dev1
+
+    Oct 18, 2024
+
+ 2 release files
+
+5.4.2
+
+    Dec 9, 2024
+
+ 2 release files
+
+5.4.1
+
+    Nov 26, 2024
+
+ 2 release files
+
+5.4.0
+
+    Nov 13, 2024
+
+ 2 release files
+
+Pre-release
+
+5.4.0.dev5
+
+    Nov 13, 2024
+
+ 2 release files
+
+Pre-release
+
+5.4.0.dev4
+
+    Oct 25, 2024
+
+ 2 release files
+
+Pre-release
+
+5.4.0.dev3
+
+    Oct 25, 2024
+
+ 2 release files
+
+Pre-release
+
+5.4.0.dev2
+
+    Oct 25, 2024
+
+ 2 release files
+
+Pre-release
+
+5.4.0.dev1
+
+    Oct 22, 2024
+
+ 2 release files
+
+5.3.1
+
+    Sep 19, 2024
+
+ 2 release files
+
+5.3.0
+
+    Sep 18, 2024
+
+ 2 release files
+
+5.2.0
+
+    Sep 17, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev10
+
+    Sep 17, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev9
+
+    Sep 17, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev8
+
+    Sep 17, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev7
+
+    Sep 9, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev6
+
+    Sep 6, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev5
+
+    Sep 5, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev4
+
+    Sep 5, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev3
+
+    Sep 5, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev2
+
+    Aug 30, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev1
+
+    Aug 30, 2024
+
+ 2 release files
+
+Pre-release
+
+5.2.0.dev0
+
+    Aug 30, 2024
+
+ 2 release files
+
+5.1.0
+
+    Aug 29, 2024
+
+ 2 release files
+
+Pre-release
+
+5.1.0rc1
+
+    Aug 28, 2024
+
+ 2 release files
+
+Pre-release
+
+5.1.0.dev1
+
+    Aug 29, 2024
+
+ 2 release files
+
+5.0.1
+
+    Aug 12, 2024
+
+ 2 release files
+
+5.0.0
+
+    Jul 31, 2024
+
+ 2 release files
+
+4.1.2
+
+    Jul 31, 2024
+
+ 2 release files
+
+4.1.1
+
+    Jul 31, 2024
+
+ 2 release files
+
+4.1.0
+
+    Jul 31, 2024
+
+ 2 release files
+
+4.0.0
+
+    May 3, 2024
+
+ 2 release files
+
+3.2.2
+
+    Jul 31, 2024
+
+ 2 release files
+
+3.2.1
+
+    Jul 31, 2024
+
+ 2 release files
+
+3.2.0
+
+    Jul 31, 2024
+
+ 2 release files
+
+3.1.0
+
+    Jul 31, 2024
+
+ 2 release files
+
+3.0.3
+
+    Jul 31, 2024
+
+ 2 release files
+
+3.0.2
+
+    Jul 31, 2024
+
+ 2 release files
+
+3.0.1
+
+    Jul 31, 2024
+
+ 2 release files
+
+3.0.0
+
+    Jul 31, 2024
+
+ 2 release files
+
+2.2.4
+
+    Jul 31, 2024
+
+ 2 release files
+
+2.2.3
+
+    Jul 31, 2024
+
+ 2 release files
+
+2.2.2
+
+    Jul 31, 2024
+
+ 2 release files
+
+0.1.0
+
+    Mar 23, 2015
+
+Anthropic, PBC
+
+Visionary sponsor
+
+Bloomberg
+
+Visionary sponsor
+
+Hudson River Trading
+
+Visionary sponsor
+
+Meta
+
+Visionary sponsor
+
+NVIDIA
+
+Visionary sponsor
+
+Microsoft
+
+Sustainability sponsor
+
+Depot
+
+Continuous Integration
+
+AWS
+
+Cloud computing and Security Sponsor
+
+Datadog
+
+Monitoring
+
+Fastly
+
+CDN
+
+Google
+
+Download Analytics
+
+Sentry
+
+Error logging
+
+StatusPage
+
+Status page
+
+"PyPI", "Python Package Index", and the blocks logos are registered 
+trademarks
+ of the 
+Python Software Foundation
+.
+
+      © 2026 
+Python Software Foundation
+
+Site map
+
+Deployed from 
+47b3476

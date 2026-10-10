@@ -1,0 +1,11 @@
+SOURCE ID: A6-S010
+URL: https://www.trendmicro.com/en_us/research/26/c/inside-litellm-supply-chain-compromise.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LiteLLM PyPI package compromised supply chain attack 2026
+========================================================================
+
+Extract as returned by search tool (combined summary of Trend Micro, InfoQ, Cycode results):
+The LiteLLM incident was a March 2026 compromise of the PyPI package, attributed to the TeamPCP threat group. Attackers pushed malicious versions 1.82.7 and 1.82.8 straight to PyPI, skipping the project's usual GitHub release path.
+Trend Micro reports that the campaign spanned PyPI, npm, Docker Hub, GitHub Actions, and OpenVSX in a single coordinated operation. It harvested secrets: Trend Micro lists the targets as system information, environment variables, SSH keys, cloud provider credentials, and more.
+InfoQ reports that the compromised version drew over 40 thousand downloads, and that PyPI quarantined the package about 40 minutes after it was reported. Download volume: InfoQ cites about 3 million downloads per day, while Trend Micro cites 3.4 million per day.

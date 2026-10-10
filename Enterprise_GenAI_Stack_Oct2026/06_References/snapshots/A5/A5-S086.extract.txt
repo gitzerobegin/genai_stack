@@ -1,0 +1,13 @@
+SOURCE ID: A5-S086
+URL: https://aws.amazon.com/blogs/machine-learning/introducing-kimi-k3-on-amazon-bedrock/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon Bedrock Kimi K3 DeepSeek V4 Qwen3 GLM-5 available fully managed open weight models regions (allowed_domains aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+Search tool summary:
+- Kimi K3 on Bedrock: US geographic, India geographic and global cross-Region inference profiles; in-Region invocation not supported; global profile spans commercial Regions incl. Europe.
+- GLM 5.3 (Z.ai): model launch date 5 October 2026; 1M context, 128K output; cross-Region only (us.zai.glm-5.3 or global.zai.glm-5.3); eligible enterprise customers only.
+- GLM 5: launched 11 February 2026; 200K context; in-Region in us-east-1, us-west-2, eu-west-2 (London), ap-northeast-1, ap-south-1, sa-east-1.
+- DeepSeek: Bedrock lists DeepSeek V3.2 (added February 2026), V3.1, R1; no DeepSeek V4 found on Bedrock.
+- Qwen3 (since September 2025): Qwen3-Coder-480B (US West, Mumbai, Tokyo, London, Stockholm), Qwen3-235B, Qwen3-32B, Qwen3-Coder-30B (incl. Ireland, Milan); Qwen3 Coder Next added later; no newer Qwen generation on Bedrock.

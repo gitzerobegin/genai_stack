@@ -1,0 +1,8 @@
+SOURCE ID: A2-S099
+URL: https://docs.pinecone.io/guides/manage-cost/understanding-cost
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone pricing Standard Enterprise minimum read units write units storage per GB (allowed: pinecone.io, docs.pinecone.io)
+========================================================================
+
+Monthly minimum commitment of $50/month for Standard and $500/month for Enterprise. Serverless billing covers reads, writes, storage, and egress. A query uses 1 RU for every 1 GB of namespace size, minimum 0.25 RUs per query. Storage billed per GB per month.

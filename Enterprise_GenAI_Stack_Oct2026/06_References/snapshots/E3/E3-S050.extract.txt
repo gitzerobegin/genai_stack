@@ -1,0 +1,11 @@
+SOURCE ID: E3-S050
+URL: https://blog.jetbrains.com/junie/2026/03/junie-cli-the-llm-agnostic-coding-agent-is-now-in-beta/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Junie JetBrains coding agent CLI GitHub MCP AGENTS.md models
+========================================================================
+
+Search-tool summary of blog.jetbrains.com/junie/2026/03/junie-cli-the-llm-agnostic-coding-agent-is-now-in-beta/ and junie.jetbrains.com:
+- Junie runs from the terminal (Junie CLI, beta from March 2026), in IDEs, in CI/CD, and on GitHub or GitLab; described as "LLM-agnostic".
+- JetBrains says Junie supports top-performing models from OpenAI, Anthropic, Google and Grok; bring-your-own-key available, with BYOK pricing letting users use their own model keys without additional platform charges.
+- Junie Local option exists (local model).

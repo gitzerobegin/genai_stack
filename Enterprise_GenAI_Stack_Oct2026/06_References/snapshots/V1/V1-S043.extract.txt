@@ -1,0 +1,8 @@
+SOURCE ID: V1-S043
+URL: https://docs.mem0.ai/migration/oss-v2-to-v3
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mem0 v2.0.0 removed graph store...; mem0 open source graph memory entity linking v2 changelog enableGraph removed (allowed_domains docs.mem0.ai)
+========================================================================
+
+SDK changelog: "enableGraph removed (OSS): Config option removed: graph memory no longer available in OSS (#4776)". "External Graph Store Removed (OSS): mem0/memory/graph_memory.py, memgraph_memory.py, kuzu_memory.py, apache_age_memory.py, and mem0/graphs/ (Neo4j / Memgraph / Kuzu / Apache AGE / Neptune drivers) deleted, about 4,000 lines." "graph memory now runs natively as built-in entity linking (#4805)". Migration guide: graph memory is a Mem0 Platform feature, built in and always on. Highlights page: removed in v2.0.0 (2026-04-14); SDK changelog places detailed deletions under v2.0.1 and TypeScript removal under v0.1.102.

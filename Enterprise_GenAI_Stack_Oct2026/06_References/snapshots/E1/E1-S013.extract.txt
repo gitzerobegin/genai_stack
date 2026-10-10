@@ -1,0 +1,8 @@
+SOURCE ID: E1-S013
+URL: https://www.freshfields.com/en/our-thinking/briefings/2026/01/the-disclosure-obligation-under-the-new-product-liability-directive-balancing-evidentiary-hardship-and-the-protection-of-corporate-information
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Product Liability Directive Article 9 disclose relevant evidence plausibility
+========================================================================
+
+Search-tool extract (law-firm briefing, January 2026): a court can order the defendant to hand over evidence once the claimant has shown a plausible claim, a reduced burden on the injured party; non-compliance with a disclosure order can result in a presumption of defectiveness under Article 10; courts must protect trade secrets and confidential information, although the PLD lays down no procedure for this.

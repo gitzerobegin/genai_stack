@@ -1,0 +1,13 @@
+SOURCE ID: A5-S033
+URL: https://ai.google.dev/gemini-api/terms
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Gemini API paid tier data not used to improve products; Vertex AI zero data retention training restriction (allowed_domains ai.google.dev, cloud.google.com, docs.cloud.google.com)
+========================================================================
+
+Search tool summary:
+- Gemini API Additional Terms: for paid services Google does not use prompts, system instructions, cached content, files or responses to improve its products; processed under the Data Processing Addendum. Paid prompts/responses logged for a limited period solely for detecting Prohibited Use Policy violations; may be stored transiently or cached in any country where Google maintains facilities.
+- Unpaid usage: Google uses content to improve products; human reviewers may read API input/output.
+- EEA/UK/Switzerland: paid-service data terms apply to all Services including unpaid quota.
+- Vertex AI (docs.cloud.google.com/vertex-ai/generative-ai/docs/vertex-ai-zero-data-retention): Google won't use your data to train or fine-tune any AI/ML models without prior permission or instruction. Gemini API ZDR page: if workload requires guaranteed ZDR or enterprise DPAs, use Vertex AI. Request-response logging off by default; session resumption stores data up to 24h; abuse-monitoring prompt logging applies only to customers without invoiced billing account, exception available; Grounding with Google Search storage cannot be disabled; in-memory caching 24h TTL can be disabled at project level.
+- Vertex AI renamed "Gemini Enterprise Agent Platform" in some page titles.

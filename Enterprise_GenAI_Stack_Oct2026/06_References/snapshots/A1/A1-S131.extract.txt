@@ -1,0 +1,9 @@
+SOURCE ID: A1-S131
+URL: https://investors.coreweave.com/news/news-details/2025/CoreWeave-Completes-Acquisition-of-Weights--Biases/default.aspx
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CoreWeave completes acquisition of Weights & Biases
+========================================================================
+
+Search result titles: "CoreWeave - CoreWeave Completes Acquisition of Weights & Biases" (investors.coreweave.com, 2025); "CoreWeave Acquires Weights & Biases" (coreweave.com/blog); "Weights & Biases is now part of CoreWeave" (coreweave.com/companies/weights-and-biases); "Acquiring AI Developer Platform Weights & Biases" (coreweave.com/news, announcement).
+Search-tool summary: CoreWeave (Nasdaq: CRWV) completed its acquisition of Weights & Biases on May 5, 2025; agreement announced March 4, 2025. Weights & Biases now operates as part of CoreWeave, Inc. and continues as a named product within CoreWeave Forge; current contracts and pricing not changing; platform remains cloud-agnostic. June 2025 Fully Connected conference: first joint product release. One secondary listing puts the price at about $1.7B (unverified).

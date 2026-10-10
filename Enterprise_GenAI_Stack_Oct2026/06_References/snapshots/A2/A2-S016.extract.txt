@@ -1,0 +1,8 @@
+SOURCE ID: A2-S016
+URL: https://docs.cohere.com/docs/how-does-cohere-pricing-work
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere pricing embed rerank per million tokens
+========================================================================
+
+Our Rerank models are priced based on the quantity of searches, and our Embedding models are priced based on the number of tokens embedded. Up-to-date prices on the dedicated pricing page. Standard Vault Pricing (https://docs.cohere.com/docs/model-vault/standard/pricing): Embed 5 Pro Small is $3.00/hour or $2,000/month, and Rerank 4 Pro Large is $10.00/hour or $6,500/month, per instance.

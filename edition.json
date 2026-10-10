@@ -1,0 +1,14 @@
+{
+  "_comment": "The current edition. Every build tool reads this file; start a new edition with tools/new_edition.py, never by editing tools. Text fields are used as written.",
+  "package": "Enterprise_GenAI_Stack_Oct2026",
+  "month_year": "October 2026",
+  "quarter": "Q3 2026",
+  "view_label": "The view at end of Q3 2026",
+  "as_at": "at the end of Q3 2026",
+  "evidence_date": "9 October 2026",
+  "evidence_iso": "2026-10-09",
+  "edition": "First edition, October 2026",
+  "edition_number": 1,
+  "roadmap_start": "October 2026",
+  "previous": null
+}

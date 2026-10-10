@@ -1,0 +1,9 @@
+SOURCE ID: A1-S128
+URL: https://www.firecrawl.dev/blog/firecrawl-v2-series-a-announcement
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Firecrawl raises Series A funding announcement
+========================================================================
+
+Search result titles: "We just raised our Series A and shipped /v2" (firecrawl.dev/blog/firecrawl-v2-series-a-announcement); "Firecrawl Announces $14.5 Million in Series A Funding to Put Web Data on Tap for AI Agents" (press release via natlawreview.com).
+Search-tool summary: $14.5 million Series A announced August 19, 2025, led by Nexus Venture Partners with participation from Y Combinator, Shopify CEO Tobias Lutke and new investors; press release says total funding $16.2MM. Blog: more than 350,000 developers signed up; open-source project crossed 48k GitHub stars. Plans: sub-second API response globally, advanced extraction, semantic crawling, monitoring, team growth, licensed partnerships for paywalled content owners. API /v2 shipped with the announcement.

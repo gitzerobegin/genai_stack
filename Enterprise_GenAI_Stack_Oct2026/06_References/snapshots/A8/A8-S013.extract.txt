@@ -1,0 +1,15 @@
+SOURCE ID: A8-S013
+URL: https://lawandtechnology.eu/en/ai-literacy-digital-omnibus-article-4-ai-act/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Digital Omnibus AI final text Article 4 AI literacy obligation
+========================================================================
+
+Search results (independent commentary on Article 4 as amended): dastra.eu; lawandtechnology.eu; vaia.be; Gibson Dunn "EU AI Act Omnibus Agreement — Postponed High-Risk Deadlines and Other Key Changes"
+Search-tool extract:
+- The Omnibus did not postpone Article 4, which has applied since 2 February 2025. Amended Article 4 took effect on entry into force of the Omnibus, 27 July 2026.
+- Original text required providers and deployers to "ensure, to their best extent, a sufficient level" of AI literacy; amended text requires them to take measures to support the development of AI literacy (obligation of means).
+- New clarification: the obligation does not oblige providers or deployers to guarantee any specific literacy level for any individual.
+- Commission and Member States must support and facilitate efforts of providers and deployers, particularly SMEs.
+- The Commission originally proposed removing the binding obligation; the final text kept a lighter duty.
+- Council formally adopted 29 June; European Parliament voted 16 June [2026].

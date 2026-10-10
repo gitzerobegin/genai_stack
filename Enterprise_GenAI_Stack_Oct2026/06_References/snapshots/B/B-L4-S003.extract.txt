@@ -1,0 +1,11 @@
+SOURCE ID: B-L4-S003
+URL: https://docs.e2b.dev/sandbox/lifecycle-events-api
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains e2b.dev): E2B enterprise SSO SAML RBAC audit logs team roles
+========================================================================
+
+E2B docs (lifecycle events API): lifecycle events cover sandbox creation, pausing, resuming, updating, snapshotting and killing; sandbox lifecycle events are retained for 7 days by default.
+E2B Enterprise page (about 437 days old): "SSO, SCIM, and RBAC are planned. Ask about timelines." Enterprise: OTLP metrics and logs, signed lifecycle webhooks (best-effort delivery). BYOC comparison: customer's own IAM role, VPC, storage and cloud audit log.
+E2B changelog: team access through workspaces; members can be added to a workspace (all its projects) or to individual projects; billing per project. Roles not described.
+No SAML configuration guide, list of RBAC roles, or per-user audit-log export found on e2b.dev (search result, 8 October 2026).

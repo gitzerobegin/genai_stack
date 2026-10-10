@@ -1,0 +1,8 @@
+SOURCE ID: A2-S012
+URL: https://docs.cohere.com/changelog/embed-v5
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere Embed 5 embed-v5.0 announcement (allowed: cohere.com, docs.cohere.com)
+========================================================================
+
+Cohere announced Embed 5 on September 30, 2026. Model IDs embed-v5.0-pro and embed-v5.0-fast. Pro aimed at highest retrieval accuracy, especially offline indexing; Fast targets low latency and high query volume (interactive search, agent loops). Both tiers map into the same embedding space; Cohere recommends indexing with Pro and querying with Fast. Embed text, images, and mixed text-and-image inputs (such as PDF pages) into one vector; over 100 languages; 128k-token context window; Matryoshka outputs 256 to 2048 dimensions; float, int8, and binary formats. Available through Cohere's API and Model Vault, Microsoft Foundry, and Amazon SageMaker; Model Vault covers single-tenant deployments.

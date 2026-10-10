@@ -1,0 +1,8 @@
+SOURCE ID: E1-S041
+URL: https://www.dwt.com/blogs/privacy--security-law-blog/2026/05/colorado-ai-act-repeal-new-transparency-law
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Colorado SB 26-189 replaces AI Act duty of care impact assessments
+========================================================================
+
+Search-tool extract (several law-firm summaries agree): SB 26-189 eliminates several core duties of the original Colorado AI Act, including the duty of reasonable care to prevent algorithmic discrimination, deployer risk-management programmes and annual impact assessments, replacing them with advance notice, post-decision disclosure and consumer rights for 'covered ADMT'. Effective 1 January 2027 for consequential decisions made on or after that date. xAI sued in April 2026 and the DOJ intervened; on 27 April 2026 a magistrate judge entered a stipulated order; the Attorney General does not intend to enforce SB 24-205 or legislation replacing it, including SB 26-189, until rulemaking concludes.

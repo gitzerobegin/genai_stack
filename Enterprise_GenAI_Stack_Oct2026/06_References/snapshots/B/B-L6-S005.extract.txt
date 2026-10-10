@@ -1,0 +1,10 @@
+SOURCE ID: B-L6-S005
+URL: https://learn.microsoft.com/en-us/azure/postgresql/extensions/how-to-use-pgvector
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains learn.microsoft.com, cloud.google.com, docs.cloud.google.com): pgvector Azure Database for PostgreSQL flexible server; Cloud SQL; AlloyDB
+========================================================================
+
+Azure Database for PostgreSQL flexible server: extension 'vector' must be allowlisted then CREATE EXTENSION; IVFFlat, HNSW and DiskANN (DiskANN Azure-only); vectors over 2,000 dimensions stored but not indexed; release notes (May 2025) list pgvector 0.8.0; Azure maintains extension versions (customers cannot update/downgrade).
+Cloud SQL for PostgreSQL (https://docs.cloud.google.com/sql/docs/postgres/generate-manage-vector-embeddings): pgvector supported; PostgreSQL 13+ supports pgvector 0.8.5; release notes 27 August 2026 record upgrade 0.8.1 to 0.8.5.
+AlloyDB (https://docs.cloud.google.com/alloydb/docs/ai/vector-search-overview): uses a customised pgvector extension ('vector'); HNSW plus ScaNN index (alloydb_scann).

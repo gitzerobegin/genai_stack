@@ -1,0 +1,93 @@
+{
+  "_comment": "Book metadata for the print and ebook editions (tools/build_print_edition.py). Fill in the ISBNs once assigned; confirm author and price before publishing. See 01_Report/Print/Publishing_Kit.md. Update the counts in blurb, back_points and cover_facts at each quarterly refresh.",
+  "title": "The Enterprise GenAI Stack",
+  "subtitle": "{VIEW_LABEL_TC}: Reference Architecture and Product Assessment for Regulated Financial Services, Technology Companies, Start-ups and the Vendors Who Sell to Them",
+  "short_subtitle": "{VIEW_LABEL}",
+  "author": "Bing Zhang",
+  "publisher": "Veyan",
+  "copyright_holder": "Bing Zhang",
+  "year": "{YEAR}",
+  "edition": "{EDITION}",
+  "evidence_date": "{EVIDENCE_DATE}",
+  "isbn_paperback": "",
+  "isbn_hardcover": "",
+  "isbn_ebook": "",
+  "language": "en-GB",
+  "trim_in": [
+    8.5,
+    11.0
+  ],
+  "margins_in": {
+    "top": 0.75,
+    "bottom": 0.7,
+    "inside": 0.875,
+    "outside": 0.6
+  },
+  "paper_spine_in_per_page": {
+    "white": 0.002252,
+    "cream": 0.0025,
+    "premium_colour": 0.002347
+  },
+  "paper": "white",
+  "bleed_in": 0.125,
+  "blurb": [
+    "Most enterprise GenAI maps are shelves of product logos, and the logos move every quarter. This book sets a new baseline instead: the enterprise GenAI stack as it stands {AS_AT}, built from {N_SOURCES} logged sources and checked by two adversarial verifiers.",
+    "This book takes a different route. It asks what a regulated asset manager needs to run GenAI safely in production, and answers with a reference architecture: nine layers, from foundation models to evaluation, under a firm-owned control plane of eight components (gateway, guardrails, privacy, identity, configuration, FinOps, security and model risk). It then re-reads the same stack through six further views: technology service providers, software product companies and start-ups that use GenAI, and start-ups that sell AI tools, agentic software-development tools and agents into enterprises.",
+    "Every layer and control gets its own chapter: how it works, design principles, selection criteria, product deep dives, a decision tree, lock-in classification, the regulated financial-services lens and a worked example. 140 products are assessed on one rubric, every claim is labelled and every fact traces to a dated source."
+  ],
+  "back_points": [
+    "A reference architecture for regulated firms, layer by layer (L1 to L9) and control by control (C1 to C8)",
+    "140 products assessed on one rubric, with Strategic, Tactical and Experimental tiers and their conditions",
+    "Four reference stacks, a build-versus-buy view, lock-in by layer and an 18-month roadmap",
+    "EU AI Act, DORA, the UK critical third-party regime and model-risk rules applied to GenAI",
+    "Six further views: technology service providers, software companies, start-ups, and vendors of AI tools, coding agents and enterprise agents",
+    "One worked example throughout: an agent drafting a fund's monthly attribution commentary"
+  ],
+  "kdp_checks": {
+    "_source": "KDP help pages via web-search extracts, 9 Oct 2026 (Trim size G201834560; margins GVBQ3CMEQW3W2VL6; cover G201953020). Verify on kdp.amazon.com before upload.",
+    "gutter_min_in_by_pages": [
+      [
+        24,
+        150,
+        0.375
+      ],
+      [
+        151,
+        300,
+        0.5
+      ],
+      [
+        301,
+        500,
+        0.625
+      ],
+      [
+        501,
+        700,
+        0.75
+      ],
+      [
+        701,
+        828,
+        0.875
+      ]
+    ],
+    "outside_min_in_no_bleed": 0.25,
+    "spine_text_min_pages": 80,
+    "max_pages": {
+      "black_white": 828,
+      "standard_colour": 600,
+      "premium_colour": 590
+    }
+  },
+  "cover_facts": [
+    "9 layers",
+    "8 controls",
+    "140 products assessed",
+    "7 views"
+  ],
+  "made_note": "The research and drafting were carried out with Claude, an AI model made by Anthropic, under the author's direction, with the author's decisions recorded at five review checkpoints. Anthropic's products are assessed on the same rubric as every other vendor's; the disclosure after the contents explains how the conflict of interest was handled.",
+  "cover_tagline": "Reference architecture, product assessment and the regulated financial-services view, with six further views",
+  "back_title": "Run GenAI like the regulated system it is",
+  "front_md": "tools/print/master_front.md"
+}

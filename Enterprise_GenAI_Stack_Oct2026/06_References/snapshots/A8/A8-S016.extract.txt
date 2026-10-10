@@ -1,0 +1,18 @@
+SOURCE ID: A8-S016
+URL: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AI Act Article 26 obligations of deployers ... Article 25 (Service Desk, EUR-Lex)
+========================================================================
+
+Search results: AI Act Service Desk "Article 26: Obligations of deployers of high-risk AI systems"; "Article 25: Responsibilities along the AI value chain"; consolidated text EUR-Lex 02024R1689-20260727
+Search-tool extract:
+- Art 26: "Deployers of high-risk AI systems shall take appropriate technical and organisational measures to ensure they use such systems in accordance with the instructions for use"; "Deployers shall assign human oversight to natural persons who have the necessary competence, training and authority, as well as the necessary support."
+- Input data: "to the extent the deployer exercises control over the input data, that deployer shall ensure that input data is relevant and sufficiently representative".
+- Logs: keep automatically generated logs "for a period appropriate to the intended purpose of the high-risk AI system, of at least six months"; financial institutions "shall maintain the logs as part of the documentation kept pursuant to the relevant Union financial service law."
+- Monitoring (Art 26(5)): monitor operation on the basis of instructions for use; inform provider; if risk, "inform the provider or distributor and the relevant market surveillance authority, and shall suspend the use of that system"; serious incidents "immediately inform first the provider, and then the importer or distributor and the relevant market surveillance authorities".
+- Employers: "Before putting into service or using a high-risk AI system at the workplace, deployers who are employers shall inform workers' representatives and the affected workers". Annex III deployers making or assisting decisions on natural persons "shall inform the natural persons that they are subject to the use of the high-risk AI system."
+- Art 25: deployer etc. treated as provider (Art 16 obligations) if it puts its name/trademark on a high-risk system, makes a substantial modification such that it remains high-risk, or modifies the intended purpose of an AI system "including a general-purpose AI system, which has not been classified as high-risk" so it becomes high-risk. Initial provider "shall no longer be considered to be a provider of that specific AI system ... shall closely cooperate with new providers".
+- GPAI FAQ: downstream modifier becomes provider of the modified GPAI model "only if the modification leads to a significant change in the model's generality, capabilities, or systemic risk. An indicative criterion for this is that the training compute used for the modification is greater than a third of the training compute of the original model."
+- An operator that builds and uses its own system "will be considered both the provider and the deployer of that system".
+- Article 19 / 12: provider logging capabilities "shall enable the recording of events relevant for" identifying risks/substantial modifications, post-market monitoring and Article 26(5) monitoring.

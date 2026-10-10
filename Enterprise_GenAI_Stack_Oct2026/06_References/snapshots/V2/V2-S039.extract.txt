@@ -1,0 +1,8 @@
+SOURCE ID: V2-S039
+URL: https://investors.paloaltonetworks.com/news-releases/news-release-details/palo-alto-networks-completes-acquisition-protect-ai/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Palo Alto Networks completes acquisition Protect AI July 2025
+========================================================================
+
+Palo Alto Networks (NASDAQ: PANW) said on July 22, 2025 it had completed the acquisition of Protect AI. Protect AI's technology and team form a core part of Prisma AIRS (model scanning, posture management, AI red teaming, runtime protection, AI agent security). Ian Swanson became VP of Product for Prisma AIRS. Price not in results.

@@ -1,0 +1,12 @@
+SOURCE ID: B-C8-S001
+URL: https://www.modelop.com/ai-governance-software/integrations
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains modelop.com): ModelOp SOC 2 Type II certification security single sign-on role-based access
+========================================================================
+
+Search-tool extract:
+- ModelOp "AI Governance Software Integrations" page: the platform integrates with enterprise identity providers "using OAuth2, SAML, and other authentication standards", which "ensures secure, role-based access across business, risk, and technical teams".
+- Other ModelOp pages: "self-service, role-based workflows orchestrate every stakeholder team and system" (workflow organisation, not a documented permission model).
+- No source found stating ModelOp holds SOC 2 Type II or ISO 27001. The only SOC 2 mention concerns a partner (SolluCIO Partners) offering "SOC 2 readiness, vCISO services".
+- No ModelOp documentation found on audit logs, encryption or data residency.

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S090
+URL: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-data-encryption.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: S3 Vectors encryption SSE-KMS IAM CloudTrail compliance HIPAA eligible PrivateLink (allowed: aws.amazon.com, docs.aws.amazon.com)
+========================================================================
+
+By default, all new vectors in S3 Vectors vector buckets use SSE-S3. SSE-KMS can be set at bucket level or per index; index inherits bucket encryption if not specified; encryption settings for a vector index can't be changed after creation. Encryption applies to vector data and all associated metadata. KMS keys must be specified by full ARN. Service principal indexing.s3vectors.amazonaws.com needs kms:Decrypt. CMKs allow monitoring key usage through AWS CloudTrail. HIPAA eligibility of S3 Vectors not confirmed by the search tool.

@@ -1,0 +1,110 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>Build memory last, on purpose</title>
+<!-- Generated from P09.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.wx{display:flex;align-items:center;gap:4px;margin:0 0 12px;white-space:nowrap}
+.wx .lb{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-right:auto;padding-right:10px;overflow:hidden;text-overflow:ellipsis}
+.wx .c{font-size:11.5px;font-weight:800;border-radius:6px;padding:3px 0;width:34px;text-align:center;border:1.5px solid var(--line);color:#8792A0;background:#fff;flex:none}
+.wx .c.done{background:var(--navy);border-color:var(--navy);color:#fff}.wx .c.now{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 9 · L5 Memory</div>
+  <div class="title">Build memory last, on purpose</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.tl{display:grid;grid-template-columns:repeat(8,1fr);position:relative;font-size:17px;line-height:1.2}
+.tl:before{content:"";position:absolute;left:6%;right:6%;top:23px;height:4px;background:var(--sky)}
+.tl .ph{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 4px;position:relative}
+.tl .dot{width:50px;height:50px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;border:4px solid var(--warm)}
+.tl .nm{font-weight:700;margin-top:10px;min-height:66px;font-size:18px}
+.tl .why{font-size:16px;color:var(--mute);margin-top:5px;font-style:italic}
+.tl .ph.mem .dot{background:var(--gold);color:var(--navy);width:58px;height:58px;margin-top:-4px;font-size:22px}
+.tl .ph.mem{background:#FBF4E4;border:2px solid var(--gold);border-radius:14px;padding:6px 4px 10px;margin-top:-10px}
+.tl .ph.mem .nm{font-size:21px;font-weight:800;min-height:57px}
+.tl .ph.opt .dot{background:#fff;color:var(--navy);border:3px dashed var(--navy)}
+.wp{display:grid;grid-template-columns:1fr 34px 1.25fr 34px 1fr;align-items:stretch}
+.wp .arrow{display:flex;align-items:center;justify-content:center}
+.wp .box{padding:18px 16px}
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.fg .t{display:flex;flex-direction:column;justify-content:center;background:#fff;border:2px solid var(--red);border-radius:12px;padding:14px 8px;text-align:center;font-weight:700;font-size:18px}
+.fg .t span{display:block;font-weight:500;font-size:15px;color:var(--mute)}
+</style>
+<div class="col" style="gap:36px">
+ <div class="lab">Recommended build order · phases 0 to 7</div>
+ <div class="tl">
+  <div class="ph"><div class="dot">0</div><div class="nm">Governance</div></div>
+  <div class="ph"><div class="dot">1</div><div class="nm">Evaluation and observability</div><div class="why">to measure memory's effect</div></div>
+  <div class="ph"><div class="dot">2</div><div class="nm">Model access</div><div class="why"><b style="font-style:normal;color:var(--navy)">gateway first</b>: extraction is a model call</div></div>
+  <div class="ph"><div class="dot">3</div><div class="nm">Retrieval</div><div class="why">memory is stored and recalled with it</div></div>
+  <div class="ph"><div class="dot">4</div><div class="nm">Workflows</div><div class="why">decide when to remember</div></div>
+  <div class="ph"><div class="dot">5</div><div class="nm">Tools</div><div class="why">figures come from tools, never memory</div></div>
+  <div class="ph mem"><div class="dot">6</div><div class="nm">Memory</div><div class="why" style="color:#8A6418;font-weight:700;font-style:normal">built last, on purpose</div></div>
+  <div class="ph opt"><div class="dot">7</div><div class="nm">Optimisation</div></div>
+ </div>
+ <div class="box dash" style="padding:20px 20px;background:#fff">
+  <div class="lab" style="margin-bottom:10px">Inset · the memory write path</div>
+  <div class="wp">
+   <div class="box center col" style="gap:2px"><span class="h" style="font-size:20px">Agent proposes</span><span class="small" style="color:var(--mute)">a memory write</span></div>
+   <div class="arrow r"></div>
+   <div class="box gold"><div class="h" style="font-size:20px">Policy gate</div>
+    <div style="margin-top:6px"><span class="chip">DLP screen</span><span class="chip">allow-list</span><span class="chip">human approval</span></div></div>
+   <div class="arrow r"></div>
+   <div class="box navy center col" style="gap:2px"><span class="h" style="font-size:20px">Memory store</span><span class="sub" style="font-size:15px;margin:0">provenance · retention class · scope on every record</span></div>
+  </div>
+  <div class="row" style="margin-top:20px;align-items:center;gap:12px">
+   <div class="box blue center" style="flex:none;width:200px;padding:16px 12px"><span class="h" style="font-size:20px">Subject index</span></div>
+   <div class="col" style="flex:none;gap:0;align-items:center"><span class="small" style="color:var(--red);font-weight:700">forget-by-subject</span><span class="arrow r" style="color:var(--red)"></span></div>
+   <div class="fg grow">
+    <div class="t">Store</div><div class="t">Vectors</div><div class="t">Revisions</div><div class="t">Backups<span>"beyond use"</span></div>
+   </div>
+  </div>
+ </div>
+ <div class="row">
+  <div class="box grow"><div class="lab">First question</div><div class="h" style="margin-top:4px;font-size:21px">Does this use case need long-term memory at all?</div><div class="small" style="font-size:17px;margin-top:4px">Often session state plus retrieval of approved knowledge is enough. Style and terminology belong in a versioned file a person approves.</div></div>
+  <div class="box gold grow"><div class="lab" style="color:#8A6418">The signal</div><div class="h" style="margin-top:4px;font-size:21px">Erasure completion time</div><div class="small" style="font-size:17px;margin-top:4px">request to deletion confirmed across store, indexes, revisions and backups: within the one-month statutory window, with an internal target well inside it</div></div>
+ </div>
+</div>
+</div>
+ <div class="wx"><span class="lb">Worked example · step 9</span><span class="c done">L1</span><span class="c done">C6</span><span class="c done">L2</span><span class="c done">C1</span><span class="c done">L3</span><span class="c done">C2</span><span class="c done">L4</span><span class="c done">C4</span><span class="c now">L5</span><span class="c ">Reg</span><span class="c ">L6</span><span class="c ">C7</span><span class="c ">L7</span><span class="c ">C5</span><span class="c ">L8</span><span class="c ">C3</span><span class="c ">L9</span><span class="c ">C8</span></div>
+ <div class="ft"><div class="cap">Memory comes after everything it depends on, is written only through a policy gate, and is erased from every copy. Generic: no vendor names.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: L5 §5.3, §5.5, §5.9 and §5.12</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

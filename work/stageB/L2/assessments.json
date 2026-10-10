@@ -1,0 +1,660 @@
+[
+  {
+    "id": "L2-vllm",
+    "assessment": {
+      "capabilities": "Apache-2.0 LLM inference and serving engine (0.31.0, 5 October 2026), PyTorch Foundation-hosted since 7 May 2025, with PagedAttention, continuous batching, prefix caching, quantisation (FP8, MXFP4, NVFP4, INT4/8, GPTQ/AWQ, GGUF), speculative decoding (n-gram, suffix, EAGLE, DFlash), disaggregated prefill/decode/encode, OpenAI-compatible and Anthropic Messages APIs, 200+ architectures and multi-vendor hardware [VF: A4-S009, A4-S063, A4-S146]. A commercially supported distribution exists (Red Hat AI Inference) [VF: B-L2-S001].",
+      "strengths": [
+        "Broadest optimisation feature set inside one engine [VF: A4-S063] [AJ]",
+        "Neutral foundation governance and Apache-2.0 [VF: A4-S146, A4-S009]",
+        "De-facto substrate: under Hugging Face Endpoints, llm-d and Dynamo [VF: A4-S081, A4-S089, A4-S090]"
+      ],
+      "limitations_risks": [
+        "Pre-1.0 with roughly fortnightly releases (28 in 2026) [VF: A4-S009]",
+        "A run of 2026 code-execution advisories, including critical CVE-2026-22778, mostly via untrusted model files or media inputs [VF: B-L2-S004]",
+        "No identity, audit or tenancy of its own; inherits host and gateway controls [AJ]"
+      ],
+      "choose_when": [
+        "You self-host open-weight models on your own or private-cloud GPUs [AJ]",
+        "You want the default engine with the widest model and hardware coverage [AJ]"
+      ],
+      "avoid_when": [
+        "You cannot run a monthly patch cadence and model-provenance controls [AJ]",
+        "You have no GPU capacity or SRE capability; use managed access instead [AJ]"
+      ],
+      "competitors": [
+        "L2-sglang",
+        "TensorRT-LLM",
+        "L2-hugging-face"
+      ],
+      "fs_note": "Run behind the gateway (C1), load only allow-listed, scanned weights with trust_remote_code off, pin versions and track advisories [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Default serving engine for any self-hosted route; neutral governance; conditional on patch and model-provenance discipline"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 5,
+        "ecosystem": 5,
+        "reliability_maturity": 4,
+        "cost_tco": 4,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Leading depth: quantisation, speculative decoding, prefix caching, disaggregation, multi-hardware [VF: A4-S063]",
+        "enterprise_readiness": "Rule 2: enables in-estate serving; inherits host controls; commercial support via Red Hat AI Inference lifts the 4 cap [VF: B-L2-S001]",
+        "security_compliance": "Rule 2 hygiene: published advisory process with fixed versions [VF: A4-S063, B-L2-S004], but several 2026 RCE advisories, one critical",
+        "deployment_flexibility": "Self-host, private cloud, on-prem, and managed via third parties [VF: A4-S063, A4-S081]",
+        "ecosystem": "De-facto standard with OpenAI-compatible API; 2,000+ contributors [VF: A4-S063]",
+        "reliability_maturity": "Foundation-hosted since May 2025 [VF: A4-S146]; held at 4 for pre-1.0 versioning and fast cadence [VF: A4-S009]",
+        "cost_tco": "Free; cost is GPU hours and operations [AJ]",
+        "lockin_portability": "Apache-2.0, open APIs, neutral governance [VF: A4-S009, A4-S146]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 4.35,
+      "fs_total": 4.3
+    }
+  },
+  {
+    "id": "L2-sglang",
+    "assessment": {
+      "capabilities": "Apache-2.0 serving framework (0.5.21, 1 October 2026) hosted by the LMSYS non-profit, with RadixAttention prefix caching, PD disaggregation, speculative decoding, FP4/FP8 quantisation, TPU and multi-vendor hardware support and day-0 support for new open models; RadixArk (US$100M seed, May 2026) is its commercial steward [VF: A4-S010, A4-S065, A4-S147, V1-S063].",
+      "strengths": [
+        "Prefix-cache-heavy and agentic workloads (RadixAttention) [VF: A4-S010] [AJ]",
+        "Fast day-0 model support [VF: A4-S065]",
+        "Apache-2.0, OpenAI-compatible [VF: A4-S128, A4-S010]"
+      ],
+      "limitations_risks": [
+        "CVE-2026-3059 (critical, unauthenticated RCE via ZMQ broker, <=0.5.9): the GitHub advisory lists no patched version, while NVD references a fix in v0.5.10 and OSV a fixed commit; an earlier fix (CVE-2025-10164) has an unanswered bypass report [VF: B-L2-S009, B-REVC-S002]",
+        "Pre-1.0; governance with a non-profit plus a VC-backed steward, no formal transfer found [VF: A4-S010, A4-S147]",
+        "No verified commercial support offer [NPV]"
+      ],
+      "choose_when": [
+        "Second engine where prefix reuse or a model's day-0 support matters [AJ]",
+        "TPU serving [VF: A4-S010]"
+      ],
+      "avoid_when": [
+        "The engine port could be reachable beyond a locked-down serving namespace [AJ]",
+        "You need a vendor-supported distribution today [AJ]"
+      ],
+      "competitors": [
+        "L2-vllm",
+        "TensorRT-LLM",
+        "L2-nvidia-dynamo"
+      ],
+      "fs_note": "Qualify as the alternative engine in the exit plan; isolate internal ports and confirm CVE-2026-3059 status for the deployed version before use [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: as the qualified backup engine to vLLM, once CVE-2026-3059 is confirmed fixed in the deployed version (NVD and OSV reference a fix in 0.5.10; the GitHub advisory lists none), with internal ports isolated; not the default engine. Upgraded from Tactical by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.65), with security 2 carried as the tier condition [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Leading depth: RadixAttention, PD disaggregation, speculative decoding, quantisation [VF: A4-S010]",
+        "enterprise_readiness": "Rule 2: inherits host controls; no verified commercial support, so the 4 cap applies; scored 3 [AJ]",
+        "security_compliance": "Rule 2 hygiene: critical unauthenticated RCE (fix evidenced only by NVD/OSV references to v0.5.10; GitHub advisory lists none), disclosure-response concerns and a reported bypass of an earlier fix [VF: B-L2-S009, B-REVC-S002]; kept at 2 at Checkpoint 4 (CP4-4 changed the tier only; a confirmed fix is the tier condition)",
+        "deployment_flexibility": "Self-host, VPC, on-prem; managed via Hugging Face Endpoints [VF: A4-S065, A4-S081]",
+        "ecosystem": "OpenAI-compatible; Dynamo backend; RL frameworks [VF: A4-S010, A4-S090, A4-S065]",
+        "reliability_maturity": "0.x since January 2024; new commercial steward in May 2026 [VF: A4-S010, A4-S147]",
+        "cost_tco": "Free; GPU and operations cost [AJ]",
+        "lockin_portability": "Apache-2.0, but governance is a non-profit plus VC-backed steward rather than a neutral foundation [VF: A4-S128, A4-S147]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 4 (rule 2, no verified commercial support); not binding at 3"
+      ],
+      "generic_total": 3.8,
+      "fs_total": 3.65
+    }
+  },
+  {
+    "id": "L2-nvidia-dynamo",
+    "assessment": {
+      "capabilities": "Apache-2.0 distributed inference orchestration layer above vLLM, SGLang and TensorRT-LLM: disaggregated serving, KV-aware routing, multi-tier KV block manager, SLA-based planner and autoscaling, a Kubernetes Gateway API Inference Extension plugin; ai-dynamo 1.5.1 (7 October 2026, PyPI classifier Beta) [VF: A4-S090, A4-S098]. Enterprise support is an NVIDIA AI Enterprise feature branch [VF: B-L2-S003].",
+      "strengths": [
+        "Explicit optimisation sub-layer that does not replace the engine [VF: A4-S090]",
+        "Engine-agnostic across three backends; integrates LMCache [VF: A4-S090, A4-S091]"
+      ],
+      "limitations_risks": [
+        "Beta classifier on PyPI while the README calls 1.0 production-ready (conflict) [VF: A4-S098, A4-S090]",
+        "Support is a one-month feature branch with no backports and needs a subscription [VF: B-L2-S003]",
+        "NVIDIA-led and NVIDIA-GPU-optimised [VF: A4-S090]"
+      ],
+      "choose_when": [
+        "You run multi-node NVIDIA GPU serving at a scale where disaggregation pays [AJ]"
+      ],
+      "avoid_when": [
+        "Single-node or modest volumes; vLLM alone is enough [AJ]",
+        "You need long-term-support releases [VF: B-L2-S003] [AJ]"
+      ],
+      "competitors": [
+        "L2-llm-d",
+        "L2-vllm",
+        "L2-sglang"
+      ],
+      "fs_note": "Treat as an optimisation layer you can remove: keep the engine's OpenAI-compatible API as the contract to the gateway [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "Clear H1 evidence and real capability, but beta packaging and month-long support windows make it unsuitable as a critical dependency today"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Disaggregation, KV-aware routing, KV offload, SLA planner [VF: A4-S090]",
+        "enterprise_readiness": "Rule 2: commercial support exists (NVAIE feature branch) [VF: B-L2-S003]; inherits host controls; 3",
+        "security_compliance": "Rule 2 hygiene: security policy and CVE handling not verified [NPV]; fixes only in new releases [VF: B-L2-S003]",
+        "deployment_flexibility": "Self-host on Kubernetes, VPC, on-prem; guides for EKS, GKE, AKS [VF: A4-S090]",
+        "ecosystem": "Three engine backends, GAIE plugin, LMCache [VF: A4-S090, A4-S091]",
+        "reliability_maturity": "Beta classifier; 1.0 claim conflicts; one-month support windows [VF: A4-S098, A4-S090, B-L2-S003]",
+        "cost_tco": "Free; heavy Kubernetes and GPU operations, subscription for support [VF: B-L2-S003] [AJ]",
+        "lockin_portability": "Apache-2.0 but NVIDIA-led and NVIDIA-optimised [VF: A4-S090]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.1,
+      "fs_total": 3.0
+    }
+  },
+  {
+    "id": "L2-llm-d",
+    "assessment": {
+      "capabilities": "Apache-2.0 Kubernetes-native distributed inference stack above vLLM and SGLang: prefix-cache- and load-aware routing, tiered KV-cache management, PD disaggregation, wide expert parallelism and SLO-aware autoscaling; CNCF sandbox project (March 2026) founded by Red Hat, Google Cloud, IBM Research, CoreWeave and NVIDIA; v0.7 in May 2026 [VF: A4-S089, A4-S062]. Red Hat supports it only as a Technology Preview [VF: B-L2-S002].",
+      "strengths": [
+        "Neutral governance (CNCF) and multi-vendor founders [VF: A4-S089]",
+        "Builds on the Kubernetes Gateway API Inference Extension rather than a private router [VF: A4-S062]"
+      ],
+      "limitations_risks": [
+        "Pre-1.0 (v0.7) and sandbox stage [VF: A4-S089]",
+        "Vendor support is Technology Preview, not covered by production SLAs [VF: B-L2-S002]",
+        "Needs Kubernetes and data-centre accelerators [VF: A4-S089, B-L2-S002]"
+      ],
+      "choose_when": [
+        "Kubernetes is your platform standard and you are building a multi-model internal inference service [AJ]"
+      ],
+      "avoid_when": [
+        "You need production-supported software now [VF: B-L2-S002] [AJ]",
+        "Volumes do not justify multi-replica routing [AJ]"
+      ],
+      "competitors": [
+        "L2-nvidia-dynamo",
+        "L2-vllm",
+        "KServe"
+      ],
+      "fs_note": "Pilot in non-production with Red Hat or GKE; revisit at 1.0 and at Red Hat GA support [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "The neutral-governance option for the optimisation sub-layer, but pre-1.0 and only Technology Preview support"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 5
+      },
+      "rationale": {
+        "technical": "Prefix-cache-aware routing, tiered KV cache, PD disaggregation, wide EP [VF: A4-S089]",
+        "enterprise_readiness": "Rule 2: inherits Kubernetes controls; Red Hat offer is Technology Preview, so the 4 cap applies; 3 [VF: B-L2-S002]",
+        "security_compliance": "Rule 2 hygiene: security policy, CVE handling and signing not verified [NPV]",
+        "deployment_flexibility": "Self-host, VPC, private cloud, on-prem on Kubernetes; no SaaS [VF: A4-S089]",
+        "ecosystem": "vLLM, SGLang, KServe, Gateway API Inference Extension; broad founding coalition [VF: A4-S089, A4-S062]",
+        "reliability_maturity": "CNCF sandbox, v0.7; Technology Preview support [VF: A4-S089, B-L2-S002]",
+        "cost_tco": "Free; heavy Kubernetes and GPU operations [AJ]",
+        "lockin_portability": "Apache-2.0 under CNCF neutral governance [VF: A4-S089]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 4 (rule 2, support is Technology Preview only); not binding at 3"
+      ],
+      "generic_total": 3.3,
+      "fs_total": 3.35
+    }
+  },
+  {
+    "id": "L2-ollama",
+    "assessment": {
+      "capabilities": "MIT-licensed local LLM runtime and model packager, plus Ollama Cloud, a hosted service for larger models with OpenAI- and Anthropic-compatible APIs; cloud features can be disabled; usage-based cloud plans from 31 August 2026 [VF: A4-S084, A4-S085, A4-S086, V1-S066]. Binds 127.0.0.1:11434 by default [VF: B-L2-S007].",
+      "strengths": [
+        "Simplest local runtime for laptops and disconnected prototyping [AJ]",
+        "MIT runtime, portable models [VF: A4-S086]",
+        "Cloud can be switched off (OLLAMA_NO_CLOUD) [VF: A4-S085]"
+      ],
+      "limitations_risks": [
+        "No longer local-only: cloud models change the data-flow assumption [VF: A4-S084]",
+        "Ollama Cloud certifications, SSO and audit not publicly verified [NPV]",
+        "Built-in API authentication not documented; exposure relies on a proxy [VF: B-L2-S007] [AJ]"
+      ],
+      "choose_when": [
+        "Developer workstations and offline evaluation with cloud disabled [AJ]"
+      ],
+      "avoid_when": [
+        "Any shared or production serving [AJ]",
+        "Client data on Ollama Cloud [AJ]"
+      ],
+      "competitors": [
+        "L2-lm-studio",
+        "llama.cpp",
+        "L2-vllm"
+      ],
+      "fs_note": "Allow on managed desktops only with OLLAMA_NO_CLOUD enforced and localhost binding; never as a production endpoint [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Useful developer runtime; Ollama Cloud is an unverified third-party processor"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Covers local serving competently; not a multi-tenant production engine [VF: A4-S084] [AJ]",
+        "enterprise_readiness": "No SSO, RBAC or audit verified for Cloud; NPV cap [NPV]",
+        "security_compliance": "Cloud certifications NPV (cap); local runtime has no documented authentication [VF: B-L2-S007] [NPV]",
+        "deployment_flexibility": "Local, on-prem and SaaS; no VPC [VF: A4-S084, A4-S085]",
+        "ecosystem": "Large community integrations; OpenAI/Anthropic-compatible APIs [VF: A4-S084]",
+        "reliability_maturity": "Server version and maturity not verified; cloud pricing changed 31 August 2026 [VF: V1-S066] [NPV]",
+        "cost_tco": "Runtime free; Cloud plans published [VF: V1-S066]",
+        "lockin_portability": "MIT runtime and portable models; Cloud proprietary [VF: A4-S086]"
+      },
+      "evidence_caps_applied": [
+        "enterprise_readiness capped at 2: SSO/RBAC/audit NPV",
+        "security_compliance capped at 2: Ollama Cloud certifications NPV"
+      ],
+      "generic_total": 3.0,
+      "fs_total": 2.95
+    }
+  },
+  {
+    "id": "L2-lm-studio",
+    "assessment": {
+      "capabilities": "Proprietary desktop app for downloading and running local models with a local API server, MIT lms CLI and SDKs; free for personal and internal business use since about July 2025; may not be redistributed or offered as a service; a paid Enterprise plan adds SSO and model/MCP gating [VF: A4-S087, A4-S088, A4-S145, V1-S076].",
+      "strengths": [
+        "Low-friction desktop evaluation of open models [AJ]",
+        "Enterprise plan gating of models and MCP servers [VF: A4-S145]"
+      ],
+      "limitations_risks": [
+        "Proprietary app terms forbid offering it as a service [VF: A4-S145]",
+        "Security features, support, versioning and maturity largely not publicly verified [NPV]",
+        "Python SDK last released August 2025 [VF: A4-S016]"
+      ],
+      "choose_when": [
+        "Managed developer desktops where a GUI and model gating help adoption [AJ]"
+      ],
+      "avoid_when": [
+        "Any server or shared use [VF: A4-S145] [AJ]"
+      ],
+      "competitors": [
+        "L2-ollama",
+        "llama.cpp"
+      ],
+      "fs_note": "Permit only via the Enterprise plan on managed devices with an approved-model list; exclude client data [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Desktop-only tool; not part of the serving architecture"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 2,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 2,
+        "ecosystem": 2,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Desktop runtime only; missing production-serving functions [VF: A4-S087] [AJ]",
+        "enterprise_readiness": "SSO on Enterprise verified at low confidence (rule 7 allows up to 3); no audit or support evidence, so 2 [VF: A4-S145]",
+        "security_compliance": "Desktop software, proprietary; security features NPV [NPV]",
+        "deployment_flexibility": "Desktop on-prem only; no server, VPC or SaaS [VF: A4-S087]",
+        "ecosystem": "Integrations largely NPV beyond CLI and SDKs [VF: A4-S087, A4-S016]",
+        "reliability_maturity": "Maturity NPV; SDK last release August 2025 [VF: A4-S016]",
+        "cost_tco": "Free for internal business use [VF: A4-S145]",
+        "lockin_portability": "Proprietary app, but models and the OpenAI-style local API are portable [AJ]"
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: security features and certifications NPV"
+      ],
+      "generic_total": 2.25,
+      "fs_total": 2.25
+    }
+  },
+  {
+    "id": "L2-hugging-face",
+    "assessment": {
+      "capabilities": "Four products under one tile: the Hub (model and dataset distribution with SSO, SCIM, RBAC, audit logs and EU storage on Team/Enterprise), Inference Providers (OpenAI-compatible router to partner clouds with pass-through pricing), Inference Endpoints (managed dedicated serving on AWS, Azure or GCP with vLLM, SGLang, TGI, llama.cpp or TEI, SOC 2 Type 2, AWS PrivateLink) and TGI (maintenance mode; repository archived 21 March 2026) [VF: A4-S074, A4-S075, A4-S080, A4-S081, A4-S082, V1-S054].",
+      "strengths": [
+        "The de-facto open-weight distribution point, with enterprise identity controls [VF: A4-S075, A4-S080] [AJ]",
+        "Endpoints let you choose the engine and the cloud region [VF: A4-S081, A4-S083]",
+        "No markup on routed provider calls [VF: A4-S076]"
+      ],
+      "limitations_risks": [
+        "TGI archived; Endpoints customers on TGI must migrate [VF: V1-S054]",
+        "Inference Providers inherits each partner's security and retention [VF: A4-S077]",
+        "BAA not explicitly tied to Inference Endpoints; no ISO 27001 found [VF: V1-S097]"
+      ],
+      "choose_when": [
+        "You need a governed source of open weights and a managed dedicated endpoint in a chosen cloud region [AJ]"
+      ],
+      "avoid_when": [
+        "Routing client data through Inference Providers to partners you have not assessed [AJ]"
+      ],
+      "competitors": [
+        "L2-together-ai",
+        "L2-fireworks-ai",
+        "Amazon SageMaker / Azure ML model catalogues"
+      ],
+      "fs_note": "Use the Hub (Enterprise, EU storage) as the governed model supply with scanning and an internal mirror; use Endpoints only in an approved region with PrivateLink [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Duplicated",
+        "Deprecated"
+      ],
+      "rationale": "Strategic, conditional: as the governed open-weight supply source (Enterprise plan); Endpoints Tactical; Inference Providers not for client data"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 3,
+        "ecosystem": 5,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Hub, router and dedicated serving with engine choice [VF: A4-S075, A4-S081]",
+        "enterprise_readiness": "SSO (SAML/OIDC), SCIM, RBAC and audit logs on Team/Enterprise (rule 7) [VF: A4-S080, A4-S079]",
+        "security_compliance": "SOC 2 Type 2 covering Hub and Endpoints; no ISO 27001 found [VF: A4-S074, A4-S082]",
+        "deployment_flexibility": "SaaS plus managed endpoints on three clouds with PrivateLink; not BYOC [VF: A4-S083, A4-S082]",
+        "ecosystem": "De-facto distribution standard; OpenAI-compatible router; many partners [VF: A4-S075]",
+        "reliability_maturity": "Hub mature since 2020, but TGI archived and Endpoints instance deprecations [VF: A4-S014, V1-S054, A4-S083]",
+        "cost_tco": "Pass-through pricing; per-minute instance billing [VF: A4-S076, A4-S083]",
+        "lockin_portability": "Models portable, open engines, OpenAI-compatible routing [VF: A4-S076, A4-S075]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.7,
+      "fs_total": 3.6
+    }
+  },
+  {
+    "id": "L2-openrouter",
+    "assessment": {
+      "capabilities": "Hosted multi-provider model router with budgets, model and provider allowlists, ZDR enforcement, EU/US in-region routing (Business and Enterprise), SSO and SCIM (Enterprise); SOC 2 Type 2, no HIPAA BAA; 5.5% fee on credit purchases; Stripe agreed to acquire it (announced 19 August 2026, pending as of 8 October 2026) [VF: A4-S111, A4-S109, A4-S110, A4-S142, A4-S144, V1-S062, V1-S059].",
+      "strengths": [
+        "Fastest way to evaluate many models behind one OpenAI-compatible API [VF: A4-S113] [AJ]",
+        "In-region routing fails rather than falling back out of region [VF: A4-S109, A4-S150]"
+      ],
+      "limitations_risks": [
+        "Third-party SaaS in the data path; Batch API, web search and fetch not region-resident [VF: A4-S150]",
+        "Billing intermediation (5.5% Standard, 8% Business) [VF: V1-S062, A4-S144]",
+        "Ownership change pending; deal value is press-reported only [VF: V1-S059]",
+        "No numeric uptime target published [VF: A4-S150]"
+      ],
+      "choose_when": [
+        "Model exploration and non-confidential workloads, behind the firm's gateway [AJ]"
+      ],
+      "avoid_when": [
+        "Client or personal data without ZDR and in-region routing contractually enforced [AJ]",
+        "As the firm's gateway of record (see C1) [AJ]"
+      ],
+      "competitors": [
+        "L2-hugging-face",
+        "C1-litellm",
+        "C1-portkey"
+      ],
+      "fs_note": "Treat as a model-access source behind C1, not as C1; reassess terms and data-processing roles when the Stripe acquisition closes [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Acquired"
+      ],
+      "rationale": "Useful router for evaluation; third-party SaaS with billing intermediation and a pending change of owner"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 2,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Routing, fallback, provider selection, budgets, allowlists, ZDR, regions [VF: A4-S111, A4-S113]",
+        "enterprise_readiness": "SSO, SCIM, org roles on Enterprise; contractual SLA on Enterprise (rule 7 to 4) [VF: A4-S110, A4-S112, A4-S150]",
+        "security_compliance": "SOC 2 Type 2 (report on request); no BAA; no ISO 27001 found [VF: A4-S142]",
+        "deployment_flexibility": "SaaS only, with EU/US processing regions on higher plans [VF: A4-S107, A4-S109]",
+        "ecosystem": "OpenAI-compatible; many providers [VF: A4-S109, A4-S112]",
+        "reliability_maturity": "Operating at scale but no published SLA figure; Stripe acquisition pending (rule 3 mention) [VF: A4-S150, V1-S059]",
+        "cost_tco": "Provider prices passed through plus 5.5-8% platform fee [VF: V1-S062, A4-S144]",
+        "lockin_portability": "OpenAI-compatible (3) but proprietary guardrails and billing; reduced by 1 for ownership change (rule 3) [VF: A4-S111, V1-S059]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.25,
+      "fs_total": 3.05
+    }
+  },
+  {
+    "id": "L2-together-ai",
+    "assessment": {
+      "capabilities": "AI-native cloud: serverless and dedicated inference for open-weight models, Provisioned Throughput with SLA, fine-tuning and GPU clusters; SOC 2 Type 2 and ISO 27001:2022 (vendor-stated); ZDR available but off by default; EU dedicated endpoints only on Scale and Enterprise; US$800M Series C on 1 July 2026 [VF: A4-S131, A4-S129, A4-S130, V1-S079, V1-S057].",
+      "strengths": [
+        "Broad open-model catalogue plus dedicated and reserved capacity [VF: A4-S131]",
+        "EU and US cluster sites [VF: A4-S130]"
+      ],
+      "limitations_risks": [
+        "Default storage of prompts and responses, with possible product-improvement use, unless ZDR is enabled [VF: A4-S130]",
+        "Serverless has no region selection [VF: A4-S130]",
+        "Product-level RBAC still being rolled out [VF: A4-S151]",
+        "HIPAA wording inconsistent; customer BAA not confirmed [VF: V1-S079]"
+      ],
+      "choose_when": [
+        "Open-weight models on dedicated EU endpoints with ZDR on, under a Scale or Enterprise contract [AJ]"
+      ],
+      "avoid_when": [
+        "Serverless use with client data, or any use with ZDR left at default [AJ]"
+      ],
+      "competitors": [
+        "L2-fireworks-ai",
+        "L2-hugging-face",
+        "Hyperscaler model catalogues (Bedrock, Foundry, Vertex)"
+      ],
+      "fs_note": "Contract ZDR on, EU dedicated endpoints and the PTU SLA; confirm certification scope from the trust centre [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Capable open-model cloud; unsafe defaults (ZDR off) and partial RBAC keep it Tactical"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Serverless, dedicated, PTU, fine-tuning, GPU clusters [VF: A4-S131]",
+        "enterprise_readiness": "SSO on Scale/Enterprise; partial RBAC; audit trails for GPU clusters only (rule 7) [VF: A4-S151]",
+        "security_compliance": "SOC 2 Type 2 and ISO 27001 vendor-stated without product scope: one below anchor (rule 8) [VF: A4-S129, V1-S079]",
+        "deployment_flexibility": "SaaS, dedicated, VPC deployments incl. EU, reserved capacity; no self-host [VF: A4-S130, A4-S131]",
+        "ecosystem": "Hugging Face partner; NVIDIA partner [VF: A4-S075, A4-S132]",
+        "reliability_maturity": "GA services; PTU SLA but serverless none; RBAC still rolling out [VF: A4-S131, A4-S151]",
+        "cost_tco": "Transparent per-token and per-hour pricing; one H100 price conflict [VF: A4-S131]",
+        "lockin_portability": "Open-weight models and standard usage; contractual capacity [VF: A4-S131]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.5,
+      "fs_total": 3.5
+    }
+  },
+  {
+    "id": "L2-fireworks-ai",
+    "assessment": {
+      "capabilities": "Managed inference and fine-tuning for open models (serverless, on-demand and reserved dedicated, batch, RFT), hybrid BYOC in the customer VPC, customer-managed keys, SSO (OIDC/SAML), RBAC and audit logs; ZDR by default for open models except the Response API (30-day storage by default); SOC 2 Type II, while ISO 27001/27701/42001 claims conflict across its own pages [VF: A4-S135, A4-S152, A4-S134, A4-S133, V1-S067].",
+      "strengths": [
+        "ZDR by default and BYOC data plane [VF: A4-S134, A4-S152]",
+        "Customer-managed keys logged in the customer's cloud audit log [VF: A4-S152]",
+        "Microsoft Foundry partnership [VF: A4-S134]"
+      ],
+      "limitations_risks": [
+        "ISO claims conflict ('achieved' vs 'in progress') [VF: V1-S067]",
+        "Self-serve data-residency setting lists US only; EU via sales [VF: A4-S134]",
+        "Revenue concentration reported [VF: A4-S141]",
+        "Response API exception to ZDR [VF: A4-S134]"
+      ],
+      "choose_when": [
+        "Dedicated or BYOC open-model serving where you want a managed engine without running GPUs [AJ]"
+      ],
+      "avoid_when": [
+        "The Response API for client data without store=False [VF: A4-S134] [AJ]",
+        "ISO certificates are a hard gate before you have seen them [AJ]"
+      ],
+      "competitors": [
+        "L2-together-ai",
+        "L2-hugging-face",
+        "Hyperscaler model catalogues"
+      ],
+      "fs_note": "Request ISO certificates and BAA terms from the trust centre; prefer BYOC or EU dedicated deployments; disable Response API storage [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: for managed open-model inference, once its ISO 27001, 27701 and 42001 certificates are confirmed (trust-centre and docs pages conflict); the strongest controls among the independent inference clouds. For client data use EU dedicated or BYOC deployments, because the self-serve residency setting is US-only. Upgraded from Tactical ('candidate for Strategic after due diligence') by the reader at Checkpoint 4 (CP4-4); scores unchanged (FS 3.65) [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 4
+      },
+      "rationale": {
+        "technical": "Serverless, dedicated, batch, fine-tuning/RFT, BYOC, FireRouter [VF: A4-S135, A4-S152]",
+        "enterprise_readiness": "SSO, RBAC and audit logs with CLI (rule 7 to 4); audit logs are recent [VF: A4-S152]",
+        "security_compliance": "SOC 2 Type II, CMK, ZDR default; ISO claims not relied on (V1 section 4), so 3 [VF: A4-S133, V1-S067]",
+        "deployment_flexibility": "SaaS, dedicated, reserved, BYOC; no on-prem [VF: A4-S152]",
+        "ecosystem": "OpenAI-compatible; Microsoft Foundry; Hugging Face partner [VF: A4-S134, A4-S075]",
+        "reliability_maturity": "GA, well funded; revenue concentration reported [VF: A4-S141]",
+        "cost_tco": "Transparent but GPU rates higher than peers; batch at 50% [VF: A4-S135]",
+        "lockin_portability": "Open models portable; BYOC reduces data-plane lock-in [VF: A4-S152]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.65,
+      "fs_total": 3.65
+    }
+  },
+  {
+    "id": "L2-cerebras",
+    "assessment": {
+      "capabilities": "Chip and system vendor (WSE-3, CS-3) that also runs an OpenAI-compatible inference cloud and sells on-premise systems; IPO priced 13 May 2026 (Nasdaq: CBRS); 750MW OpenAI agreement; SOC 2 Type 2, GDPR and CCPA listed, HIPAA not; EU capacity targeted for end-2026 [VF: A4-S095, A4-S137, A4-S154, A4-S138, A4-S140, V1-S095].",
+      "strengths": [
+        "Very low-latency inference as a design point [VF: A4-S095] [AJ]",
+        "On-premise CS-3 option [VF: A4-S095]"
+      ],
+      "limitations_risks": [
+        "No SSO documented; console roles only [VF: A4-S153]",
+        "Data may be processed outside the US unless otherwise agreed; no EU capacity yet [VF: A4-S153, A4-S140]",
+        "ZDR evidence is privacy-policy and blog level [VF: A4-S153, A4-S138]",
+        "Customer concentration in the OpenAI agreement [VF: A4-S154]"
+      ],
+      "choose_when": [
+        "Latency-critical, non-confidential workloads on supported open models [AJ]"
+      ],
+      "avoid_when": [
+        "Client data until EU capacity and contractual ZDR exist [AJ]"
+      ],
+      "competitors": [
+        "L2-together-ai",
+        "L2-fireworks-ai",
+        "Groq"
+      ],
+      "fs_note": "Re-assess when EU capacity is live and SSO and contractual ZDR are documented [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Distinctive speed but thin enterprise controls and no EU processing yet"
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Fast inference on a smaller catalogue; on-prem systems [VF: A4-S095, A4-S139]",
+        "enterprise_readiness": "Console roles verified (rule 7 lifts the cap to 3); no SSO or audit documented [VF: A4-S153]",
+        "security_compliance": "SOC 2 Type 2 listed in the trust centre without product scope (rule 8) [VF: A4-S138, V1-S095]",
+        "deployment_flexibility": "SaaS, dedicated, on-prem systems; no EU region yet [VF: A4-S139, A4-S095, A4-S140]",
+        "ecosystem": "OpenAI-compatible; AWS Marketplace; Hugging Face partner [VF: A4-S139, A4-S075]",
+        "reliability_maturity": "Public company; inference cloud since 2024; customer concentration [VF: A4-S137, A4-S154]",
+        "cost_tco": "Transparent per-token pricing; enterprise flat pricing [VF: A4-S139]",
+        "lockin_portability": "OpenAI-compatible API, proprietary hardware [VF: A4-S139, A4-S095]"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 2.85,
+      "fs_total": 2.8
+    }
+  }
+]

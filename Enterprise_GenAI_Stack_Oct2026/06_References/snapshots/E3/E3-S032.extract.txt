@@ -1,0 +1,13 @@
+SOURCE ID: E3-S032
+URL: https://cursor.com/docs/enterprise/privacy-and-data-governance
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cursor privacy mode zero data retention training Bugbot
+========================================================================
+
+Search-tool summary of cursor.com/docs/enterprise/privacy-and-data-governance and cursor.com/data-use:
+- With Privacy Mode on, Customer Data will not be used for training by Cursor. With it off, Cursor may use and store codebase data, prompts, editor actions and code snippets to improve AI features and train models.
+- Most models run under Cursor's ZDR agreements with providers (providers do not store inputs/outputs or train on data). A few models require data retention with the provider and fall outside these agreements; these non-ZDR models need admin approval. The docs name Anthropic models that store inputs and outputs for automatic and human harm-prevention reviews; requests fail until that model's data-retention policy is approved from the dashboard for Enterprise or Privacy Mode customers.
+- Even under ZDR, prompts that trigger abuse detectors may be stored for investigation.
+- Bugbot / code review runs against the repository's infrastructure, so its region depends on where repositories are located.
+- Legacy Privacy Mode is not supported for Cloud Agents; standard Privacy Mode should be enforced org-wide.

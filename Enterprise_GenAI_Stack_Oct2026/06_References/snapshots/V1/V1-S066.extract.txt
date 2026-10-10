@@ -1,0 +1,8 @@
+SOURCE ID: V1-S066
+URL: https://ollama.com/pricing
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Ollama Cloud pricing plans cloud models (allowed_domains ollama.com)
+========================================================================
+
+August 31, 2026 pricing announcement replaced the earlier model. Free ($0) small monthly usage for starter models plus pay-as-you-go credits; Pro $20/month ($200/yr) includes $60 monthly usage; Max $100/month includes $300; Team $500/month includes $1,000 shared usage, unlimited users, centralised billing, priority support. Usage metered in tokens at per-model rates; no hourly or weekly caps; off-peak discounts. Requests run on dedicated compute in the US and Europe (plus Singapore for some Qwen models) with zero data retention. The older Cloud product page still mentions hourly and weekly limits.

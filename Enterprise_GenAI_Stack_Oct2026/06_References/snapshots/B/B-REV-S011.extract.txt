@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S011
+URL: https://docs.cloud.google.com/document-ai/docs/cmek
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com; direct fetch blocked: cloud.google.com now redirects to docs.cloud.google.com, denied by egress policy): Document AI IAM roles audit logging CMEK regional endpoints eu processor location
+========================================================================
+
+Document AI "Customer-managed encryption keys (CMEK)" page and release notes, as summarised by the search tool:
+- The key location must match the processor location: e.g. a processor in europe-west2 needs a key in europe-west2; for the us and eu multi-regions the key must be in us-central1 and europe-west4 respectively.
+- Release notes dated 21 September 2026: CMEK is not fully supported in all regions, and support requires allowlisting.
+- Batch output written to Cloud Storage is encrypted with the bucket's key, which can differ from the processor key.
+- The Document AI service agent must be granted encrypter/decrypter on the key.

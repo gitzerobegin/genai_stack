@@ -1,0 +1,8 @@
+SOURCE ID: A2-S100
+URL: https://www.pinecone.io/pricing/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone pricing Standard Enterprise minimum read units write units storage per GB
+========================================================================
+
+Committed-use table (unit prices vary by cloud and region): Standard storage $0.33/GB/mo, writes $4-$4.50 per million, reads $16-$18 per million; Enterprise storage $0.33/GB/mo, writes $6-$6.75 per million, reads $24-$27 per million. Page also shows $0.25 per GB (bulk import rate). Search tool flagged page metadata as possibly stale. Pinecone Assistant $3/GB per month.

@@ -1,0 +1,8 @@
+SOURCE ID: E1-S037
+URL: https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Code of Practice transparency AI-generated content Article 50 final 2026
+========================================================================
+
+Search-tool extract: the Code has two sections: Section 1, providers (rules for marking and detection of AI-generated and manipulated content); Section 2, deployers (labelling of deepfakes and AI-generated and manipulated text). The Commission and the AI Board consider it an adequate voluntary tool to demonstrate compliance; signing is optional and non-signatories must show compliance by other adequate means. Timeline: closing plenary 10 June 2026 and publication of the final code; draft guidelines published 8 May 2026. 'About 190 organisations signed the code of practice ahead of the entry into application of the legal obligations.' Deepfakes generated and made available before 2 August 2026 do not need retroactive labelling.

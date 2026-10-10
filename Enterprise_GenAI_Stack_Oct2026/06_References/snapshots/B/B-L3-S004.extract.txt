@@ -1,0 +1,14 @@
+SOURCE ID: B-L3-S004
+URL: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-sessions.html
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed docs.aws.amazon.com, aws.amazon.com): Amazon Bedrock AgentCore Runtime session isolation microVM long-running 8 hours VPC
+========================================================================
+
+Search-tool summary of docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html, runtime-sessions.html, runtime-security-best-practices.html, bedrock-agentcore-limits.html, runtime-instances-how-it-works.html and AWS blogs:
+- "Each user session in AgentCore Runtime receives its own dedicated microVM with isolated compute, memory, and filesystem resources." After session completion the microVM is terminated and memory sanitised.
+- Shared responsibility: AWS covers microVM isolation; code in the microVM can reach execution-role credentials via the metadata endpoint (MMDS), so scope the execution role tightly.
+- Session stops on inactivity (default 15 minutes), max compute lifetime (default 8 hours), StopRuntimeSession, or unhealthy compute; async job maximum 8 hours.
+- Runtime Instances (EC2 in customer account) allow sessions up to 14 days, VPC-only networking.
+- "All AgentCore services now have support for Virtual Private Cloud (VPC), AWS PrivateLink, AWS CloudFormation, and resource tagging."
+- Session state is ephemeral by default and "should not be used for long-term durability (use AgentCore Memory for context durability)"; optional session storage mount persists across stop/resume (described as public preview in one blog).

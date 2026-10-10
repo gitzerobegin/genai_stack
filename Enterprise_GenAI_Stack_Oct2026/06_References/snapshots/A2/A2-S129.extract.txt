@@ -1,0 +1,8 @@
+SOURCE ID: A2-S129
+URL: https://docs.trychroma.com/cloud/getting-started
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Chroma Cloud pricing SOC 2 BYOC regions Chroma 1.x release
+========================================================================
+
+Multi-tenant Chroma Cloud regions: AWS US East (N. Virginia, aws-us-east-1) and GCP Europe West 1 (Belgium, gcp-europe-west1); each database stays within the chosen region. BYOC is single-tenant, runs in customer cloud account with a fixed minimum cost (https://www.trychroma.com/engineering/distributed-chroma-byoc).

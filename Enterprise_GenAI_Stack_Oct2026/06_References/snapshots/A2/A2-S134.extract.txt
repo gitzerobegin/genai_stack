@@ -1,0 +1,8 @@
+SOURCE ID: A2-S134
+URL: https://www.elastic.co/docs/deploy-manage/security/encrypt-deployment-with-customer-managed-encryption-key
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Elastic Cloud security bring your own key encryption at rest SAML SSO RBAC audit logging PrivateLink regions Europe UK (allowed: elastic.co)
+========================================================================
+
+Elastic Cloud Hosted and Serverless encrypted at rest by default. Customer-managed keys (AWS KMS, Azure Key Vault, Google Cloud KMS) for Elastic Cloud Hosted, Enterprise subscription only; BYOK for existing deployments GA; key cannot be removed once set; revocation locks deployment within 30 minutes. Serverless BYOK on roadmap. PrivateLink (AWS), Azure Private Link, GCP Private Service Connect supported including London regions. Elastic Stack SAML SSO into Kibana; self-managed pricing (https://www.elastic.co/pricing/self-managed) lists SSO, LDAP/AD, field/document-level security and audit logging in Platinum tier.

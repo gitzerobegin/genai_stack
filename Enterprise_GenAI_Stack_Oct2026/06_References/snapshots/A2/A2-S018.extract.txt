@@ -1,0 +1,8 @@
+SOURCE ID: A2-S018
+URL: https://cohere.com/blog/cohere-and-aleph-alpha-sign-agreement
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere Aleph Alpha acquisition announcement (allowed: cohere.com, aleph-alpha.com)
+========================================================================
+
+April 24, 2026: the two companies announced plans to join forces, subject to approval by shareholders as well as competent authorities. September 16, 2026: signed definitive business combination agreement; remains subject to final regulatory approvals. Schwarz Group committed EUR500M (approx. $600M) in structured financing. Combined headcount >1,000; headquartered in Berlin and Toronto. Aleph Alpha continues to operate independently until closing. Earlier announcement: https://cohere.com/blog/cohere-alephalpha-join-forces

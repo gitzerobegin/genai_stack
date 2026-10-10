@@ -1,0 +1,8 @@
+SOURCE ID: A3-S032
+URL: https://www.ibm.com/think/topics/agent-communication-protocol
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: IBM Agent Communication Protocol ACP merges with A2A Linux Foundation
+========================================================================
+
+Search-tool summary: IBM's Agent Communication Protocol (ACP) has merged into Google's Agent2Agent (A2A) protocol under the Linux Foundation. The merger was announced in August 2025, and ACP is no longer developed as a separate standard. IBM's own explainer warns that its content may be outdated, since ACP has merged with A2A under the Linux Foundation umbrella. Users are directed to IBM's migration guidance for moving to A2A ('IMPORTANT UPDATE - ACP is now part of A2A under the Linux Foundation!'). Kate Blair (IBM Research, who led ACP) joined the A2A Technical Steering Committee, which also includes representatives from Google, Microsoft, AWS, Cisco, Salesforce, ServiceNow, and SAP. One source reports the GitHub repository (i-am-bee/acp) is archived. One gives August 29, 2025 as the specific date (not confirmed against an official release).

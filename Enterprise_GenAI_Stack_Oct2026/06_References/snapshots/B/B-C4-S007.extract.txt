@@ -1,0 +1,13 @@
+SOURCE ID: B-C4-S007
+URL: https://help.okta.com/OIE/en-us/content/topics/ai-agents/ai-agent-add-manually.htm
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed help.okta.com, okta.com, developer.okta.com): Okta for AI Agents admin console agent identities owner System Log audit access policies
+========================================================================
+
+Okta help and blog pages (Add AI agents manually; Configure imported AI agents; Update AI agents; blog "Resource Access Certifications for AI Agents"), as reported by the search tool:
+- AI agents are managed under Directory > AI Agents in the Admin Console; manual registration requires a profile, platform identifier and external ID that keeps each agent unique.
+- Discovered agents are registered into Universal Directory alongside workforce users, with explicit human ownership, business purpose and cryptographic credentials.
+- Owners can be individual admins (up to five) or a group (at least two members); Okta recommends at least two owners.
+- Identity Governance > Access Certifications supports campaigns with "AI Agents" as identity type and resource owners as reviewers.
+- System Log: only a training page states an agent's identifier can be used to locate its activity in the Okta System Log (not reference documentation).

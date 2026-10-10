@@ -1,0 +1,12 @@
+SOURCE ID: B-L3-S002
+URL: https://github.com/temporalio/temporal
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed temporal.io, docs.temporal.io, github.com): Temporal server open source MIT license self-hosted deployment Temporal Cloud regions
+========================================================================
+
+Search-tool summary of github.com/temporalio/temporal, docs.temporal.io/production-deployment, docs.temporal.io/cloud/overview, docs.temporal.io/self-hosted-guide/production-checklist:
+- Temporal server repository is MIT-licensed; project free to use and host in your own environment.
+- Production deployment: Temporal Cloud (fully managed) or self-hosting. Self-hosting requires the team to create and maintain infrastructure (e.g. Kubernetes) and persistence data stores; Temporal does not ship an open-source control plane for multi-cluster management. Upgrade sequentially without skipping minor versions.
+- Temporal Cloud runs on AWS and GCP: docs list 14 AWS regions (North America, Europe, Asia Pacific, South America) and 6 GCP regions (North America, Europe, Asia Pacific); replication across regions or across the two providers for disaster recovery.
+- Cloud runs the same server as the open-source distribution; applications move between self-hosted and Cloud without code changes.

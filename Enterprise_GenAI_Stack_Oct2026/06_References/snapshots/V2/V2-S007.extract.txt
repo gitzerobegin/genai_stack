@@ -1,0 +1,8 @@
+SOURCE ID: V2-S007
+URL: https://www.authorsalliance.org/2026/07/21/bartz-v-anthropic-settlement-receives-final-approval/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Bartz v. Anthropic settlement final approval July 2026
+========================================================================
+
+The court gave final approval to the $1.5 billion settlement on July 20, 2026. Judge Araceli Martínez-Olguín of the Northern District of California approved the settlement and entered final judgment, calling it "fair, reasonable, and adequate". She overruled all 53 objections. Fee award $101,561,111 (about 6.8% of the fund) instead of the 12.5% requested. Class members release only claims relating to past acquisition and copying through August 25, 2025; claims based on AI outputs are not released. Anthropic must destroy files torrented from LibGen or PiLiMi.

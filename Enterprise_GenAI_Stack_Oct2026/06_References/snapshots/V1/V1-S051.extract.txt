@@ -1,0 +1,8 @@
+SOURCE ID: V1-S051
+URL: https://developers.openai.com/api/docs/deprecations
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI Agent Builder deprecation shutdown November 30 2026 (extended, allowed_domains openai.com, developers.openai.com)
+========================================================================
+
+OpenAI's deprecations page lists June 3, 2026 as the announcement date and November 30, 2026 as the scheduled shutdown for Agent Builder. AgentKit announcement: the product will no longer be available on the OpenAI platform from November 30, 2026. ChatKit remains available. Recommended replacements: the Agents SDK for workflows that should live as code; Workspace Agents in ChatGPT for natural-language use cases. Evals dashboard and API also shut down November 30, 2026 (existing evals read-only from October 31); v1/prompts API and reusable prompt objects share the November 30 date.

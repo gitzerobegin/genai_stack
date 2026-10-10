@@ -1,0 +1,117 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>One stack, seven lenses</title>
+<!-- Generated from P25.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.wx{display:flex;align-items:center;gap:4px;margin:0 0 12px;white-space:nowrap}
+.wx .lb{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-right:auto;padding-right:10px;overflow:hidden;text-overflow:ellipsis}
+.wx .c{font-size:11.5px;font-weight:800;border-radius:6px;padding:3px 0;width:34px;text-align:center;border:1.5px solid var(--line);color:#8792A0;background:#fff;flex:none}
+.wx .c.done{background:var(--navy);border-color:var(--navy);color:#fff}.wx .c.now{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 25 · One stack, seven lenses: who builds it, runs it or sells into it</div>
+  <div class="title">One stack, seven lenses</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.w7{display:grid;grid-template-columns:286px repeat(8,52px) 74px 1fr;gap:4px;align-items:stretch;font-size:15px;line-height:1.2}
+.w7 .hh{font-size:14px;font-weight:800;color:var(--blue);text-align:center;align-self:end;line-height:1.1;padding-bottom:4px}
+.w7 .hh.l{text-align:left}
+.w7 .v{background:#fff;border:2px solid var(--line);border-radius:12px;padding:7px 10px;display:flex;flex-direction:column;justify-content:center}
+.w7 .v.fs{border-color:var(--navy)}
+.w7 .v b{font-size:17px}.w7 .v .code{font-size:14px;padding:1px 7px;margin-right:6px}
+.w7 .v span.s{font-size:14px;color:var(--mute);margin-top:2px}
+.w7 .c{border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+.w7 .c5{background:#F3F1EC;color:#8792A0}.w7 .c10{background:var(--bluebg);color:var(--blue)}
+.w7 .c15{background:#C9D9EA;color:var(--navy)}.w7 .c20{background:var(--navy);color:#fff}.w7 .c25{background:var(--navy);color:#fff}
+.w7 .c.top{background:var(--gold);color:var(--navy);box-shadow:inset 0 0 0 2px #A87C22}
+.w7 .n{background:#fff;border:2px solid var(--line);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.w7 .n b{font-size:22px}.w7 .n span{font-size:14px;color:var(--mute)}
+.w7 .r{border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:15px;padding:4px}
+.w7 .r.dep{background:var(--navy);color:#fff}.w7 .r.op{background:var(--bluebg);color:var(--blue);border:2px solid var(--blue)}
+.w7 .r.man{background:var(--amberbg);color:#7A5410;border:2px solid var(--amber)}.w7 .r.pro{background:var(--greenbg);color:var(--green);border:2px solid var(--green)}
+.w7 .r.sup{background:#FBF4E4;color:#8A6418;border:2px solid var(--gold)}
+.w7 .sep{grid-column:1 / -1;font-size:14px;letter-spacing:3px;text-transform:uppercase;font-weight:800;color:#8A6418;margin:6px 0 0}
+</style>
+<div class="col" style="gap:14px">
+<div class="w7">
+ <div class="hh l">View · who it is for</div><div class="hh">Tech&shy;nical</div><div class="hh">Enter&shy;prise</div><div class="hh">Secur&shy;ity</div><div class="hh">De&shy;ploy</div><div class="hh">Eco&shy;system</div><div class="hh">Relia&shy;bility</div><div class="hh">Cost</div><div class="hh">Lock-in</div><div class="hh">Core of 138</div><div class="hh">Role</div>
+
+ <div class="v fs"><b><span class="code">FS</span>Regulated financial firm</b><span class="s">uses GenAI itself; the master view</span></div>
+ <div class="c c15">15</div><div class="c c15">15</div><div class="c top">20</div><div class="c c15">15</div><div class="c c5">5</div><div class="c c10">10</div><div class="c c5">5</div><div class="c c15">15</div>
+ <div class="n"><b>45</b><span>baseline</span></div><div class="r dep">Deployer</div>
+
+ <div class="sep">Adopters: GenAI inside what they sell</div>
+ <div class="v"><b><span class="code g">TS</span>Service provider</b><span class="s">runs GenAI in services customers pay for</span></div>
+ <div class="c c15">15</div><div class="c c15">15</div><div class="c c15">15</div><div class="c c10">10</div><div class="c c10">10</div><div class="c top">15</div><div class="c top">15</div><div class="c c5">5</div>
+ <div class="n"><b>48</b><span>+3</span></div><div class="r op">Operator</div>
+
+ <div class="v"><b><span class="code g">SW</span>Software product company</b><span class="s">ships GenAI customers install and run</span></div>
+ <div class="c c15">15</div><div class="c c10">10</div><div class="c c15">15</div><div class="c top">20</div><div class="c c10">10</div><div class="c c10">10</div><div class="c c5">5</div><div class="c c15">15</div>
+ <div class="n"><b>48</b><span>+3</span></div><div class="r man">Manu&shy;facturer</div>
+
+ <div class="v"><b><span class="code g">SU</span>Start-up</b><span class="s">AI-native product, small team, runway</span></div>
+ <div class="c top">25</div><div class="c c5">5</div><div class="c c10">10</div><div class="c c5">5</div><div class="c c15">15</div><div class="c c10">10</div><div class="c c20">20</div><div class="c c10">10</div>
+ <div class="n"><b>57</b><span>+12</span></div><div class="r pro">Provider</div>
+
+ <div class="sep">Vendors: start-ups selling into the enterprise stack</div>
+ <div class="v"><b><span class="code g">AT</span>AI-tools start-up</b><span class="s">a component of the buyer's control plane</span></div>
+ <div class="c top">20</div><div class="c c10">10</div><div class="c c15">15</div><div class="c c15">15</div><div class="c c15">15</div><div class="c c5">5</div><div class="c c10">10</div><div class="c c10">10</div>
+ <div class="n"><b>56</b><span>+11</span></div><div class="r sup">Supplier</div>
+
+ <div class="v"><b><span class="code g">DV</span>Agentic-SDLC start-up</b><span class="s">coding, review, test and migration agents</span></div>
+ <div class="c top">25</div><div class="c c10">10</div><div class="c c15">15</div><div class="c c10">10</div><div class="c c15">15</div><div class="c c5">5</div><div class="c c15">15</div><div class="c c5">5</div>
+ <div class="n"><b>63</b><span>+18</span></div><div class="r sup">Supplier</div>
+
+ <div class="v"><b><span class="code g">AG</span>Agent-provider start-up</b><span class="s">agents that work inside a customer's business</span></div>
+ <div class="c top">20</div><div class="c c15">15</div><div class="c c15">15</div><div class="c c15">15</div><div class="c c15">15</div><div class="c c5">5</div><div class="c c5">5</div><div class="c c10">10</div>
+ <div class="n"><b>56</b><span>+11</span></div><div class="r sup">Supplier</div>
+</div>
+<div class="row" style="gap:12px">
+ <div class="box gold grow" style="padding:11px 16px"><div class="lab" style="color:#8A6418">Gold cell</div><div class="small" style="margin-top:3px">each view's heaviest weight (TS: five tie at 15, gold marks the two it raises). Weights are % of the score</div></div>
+ <div class="box grow" style="padding:11px 16px"><div class="lab">Never changes</div><div class="small" style="margin-top:3px">the evidence: 138 scored products, eight criterion scores, the master tiers</div></div>
+ <div class="box navy grow" style="padding:11px 16px"><div class="lab" style="color:var(--gold)">Name your lens</div><div class="small" style="margin-top:3px;color:var(--sky)">who owns the control plane, who pays for inference, who audits you</div></div>
+</div>
+</div>
+</div>
+ <div class="wx"><span class="lb">Seven lenses · the opener</span><span class="c done">FS</span><span class="c done">TS</span><span class="c done">SW</span><span class="c done">SU</span><span class="c done">AT</span><span class="c done">DV</span><span class="c done">AG</span></div>
+ <div class="ft"><div class="cap">The same 138 scored products and the same eight criterion scores, re-weighted for each reader. The weights are architectural judgement; the role is what moves most.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: Weights per view; Parts XIII–XVIII §1 and §3</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

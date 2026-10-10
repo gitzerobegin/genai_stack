@@ -1,0 +1,10 @@
+SOURCE ID: A7-S039
+URL: https://www.paloaltonetworks.com/ai-security/ai-model-security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Protect AI Guardian ModelScan now Prisma AIRS AI Model Security
+========================================================================
+
+Palo Alto product page (branded for Prisma AIRS 3.0): Prisma AIRS AI Model Security inspects each layer of an AI model - architecture, weights, operators and embedded code - for hidden vulnerabilities and malicious payloads; analyses 35+ model file types including PyTorch, ONNX and TensorFlow for 25+ threat categories. Scans run locally, "so sensitive data never leaves your control".
+Third-party 2026 explainers (secondary) state that Protect AI Guardian now sits inside Prisma AIRS; no Palo Alto page naming Guardian was found in results.
+ModelScan GitHub README (github.com/protectai/modelscan): "an open source project from Protect AI that scans models to determine if they contain unsafe code"; supports H5, Pickle and SavedModel; points users to Guardian for comprehensive AI security.

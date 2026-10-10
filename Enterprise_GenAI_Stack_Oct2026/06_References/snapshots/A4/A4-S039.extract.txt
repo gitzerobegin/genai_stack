@@ -1,0 +1,8 @@
+SOURCE ID: A4-S039
+URL: https://docs.langchain.com/oss/python/langgraph/durable-execution
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangGraph durable execution checkpointer human-in-the-loop interrupt workflows vs agents
+========================================================================
+
+"Checkpointers persist a thread's graph state as checkpoints, for short-term, thread-scoped memory" — uses: short-term memory, human-in-the-loop, time travel, fault tolerance. "Graph execution gets suspended at the exact point where interrupt is called, and state is saved using the checkpointer so execution can be resumed later." Durable checkpointer recommended in production. "You can combine hand-coded, deterministic logic with LLM-driven decisions in a single graph." "LangChain's agents provide prebuilt architectures for common LLM and tool-calling loops, which are recommended for those just getting started." Functional API (@entrypoint, @task): "When the workflow is resumed, it executes from the very start, but because the result of the task was already saved, the task result is loaded from the checkpoint." "If you're building a workflow that requires human intervention, you MUST use tasks to encapsulate any randomness, such as API calls." Durability modes: exit (saves only on exit; "you cannot recover from system failures mid-execution"), async (default; background checkpoint writes), sync.

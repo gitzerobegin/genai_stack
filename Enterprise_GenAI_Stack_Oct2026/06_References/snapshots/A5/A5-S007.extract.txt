@@ -1,0 +1,13 @@
+SOURCE ID: A5-S007
+URL: https://trust.openai.com/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI SOC 2 Type 2 ISO 27001 ISO 42001 certification API trust portal (allowed_domains openai.com, trust.openai.com)
+========================================================================
+
+Search tool summary:
+- Enterprise privacy FAQ: API Platform audited for SOC 2 Type 2. Most recent report covers July 1, 2025 to June 30, 2026, available to authenticated users on the Trust Portal.
+- ISMS certified by Schellman to ISO/IEC 27001, 27017, 27018, 27701. 27001 certificate covers API, ChatGPT Enterprise and ChatGPT Edu (ISO/IEC 27001:2022).
+- Pricing comparison marks ISO certifications as No for Business plan, Yes for Enterprise.
+- Security page: OpenAI maintains an ISO/IEC 42001:2023 AI Management System covering consumer and business AI products and models as AI producer and AI provider.
+- Trust Portal also lists SOC 3, PCI DSS v4.0.1 (ChatGPT delegated payment components), CSA STAR Level One self-assessment, GDPR, CCPA.

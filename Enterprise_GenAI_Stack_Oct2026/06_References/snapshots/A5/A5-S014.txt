@@ -1,0 +1,9 @@
+SOURCE ID: A5-S014
+URL: https://platform.claude.com/docs/en/models/specialized-models
+FINAL URL: https://platform.claude.com/docs/en/models/specialized-models
+TITLE: Documentation | Claude Platform
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Documentation | Claude Platform

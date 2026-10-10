@@ -1,0 +1,8 @@
+SOURCE ID: A2-S135
+URL: https://www.elastic.co/docs/reference/cloud/cloud-hosted/regions
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Elastic Cloud security bring your own key encryption at rest SAML SSO RBAC audit logging PrivateLink regions Europe UK
+========================================================================
+
+EU/UK hosted regions: AWS Frankfurt, Zurich, Stockholm, Milan, Ireland, London, Paris; GCP Finland, Belgium, London, Frankfurt, Netherlands, Paris; Azure North Europe (Ireland), UK South (London), West Europe (Netherlands). Serverless: AWS eu-central-1, eu-west-1, eu-west-2 (London) plus Azure/GCP regions. EIS region and hosting page: https://www.elastic.co/docs/explore-analyze/elastic-inference/eis-region-and-hosting.

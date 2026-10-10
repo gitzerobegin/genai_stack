@@ -1,0 +1,12 @@
+SOURCE ID: B-C5-S001
+URL: https://launchdarkly.com/docs/guides/account/sso
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (launchdarkly.com, docs.launchdarkly.com): LaunchDarkly SAML SSO custom roles audit log documentation
+========================================================================
+
+- LaunchDarkly implements SSO with the SAML 2.0 protocol; the IdP can manage member login and member roles, or login only (guide "Using SSO with LaunchDarkly"; "Configure SAML SSO").
+- IdP-specific guides: Okta, Entra ID, Google Workspace, OneLogin, ADFS. Entra Security Groups can be assigned LaunchDarkly custom roles.
+- Custom roles are assigned via a customRole SAML attribute (list of role keys, case-sensitive); custom roles supersede the base role.
+- "Custom roles is an Enterprise feature." Custom Roles API exists (launchdarkly.com/docs/api/custom-roles).
+- Caveat: page metadata indicates the retrieved pages are roughly 950-1,175 days old.

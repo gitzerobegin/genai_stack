@@ -1,0 +1,8 @@
+SOURCE ID: V1-S068
+URL: https://docs.langchain.com/langsmith/engine-security
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LangSmith SOC 2 Type II ISO 27001 HIPAA BAA trust (allowed_domains langchain.com etc.)
+========================================================================
+
+Shared responsibility docs: "We maintain SOC 2 Type II, GDPR, and HIPAA compliance and undergo annual third-party audits and penetration testing." Engine security page: "Engine operates under LangSmith's control environment, which is audited annually under SOC 2 Type II and certified to ISO 27001." Regions FAQ: SOC 2 Type 2 certified and HIPAA compliant; trust.langchain.com for details. BAA on Enterprise plan per an older LangChain Academy FAQ.

@@ -1,0 +1,14 @@
+SOURCE ID: E2-S032
+URL: https://aws.amazon.com/bedrock/pricing/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Amazon Bedrock pricing batch inference 50% discount prompt caching provisioned throughput service tiers priority flex
+========================================================================
+
+Search tool summary (results: aws.amazon.com/bedrock/pricing/; docs.aws.eu/bedrock/latest/userguide/service-tiers-inference.html; third-party guides bacancytechnology.com, manageengine.com, flexprice.io, avahi.ai, cloudburn.io). Direct fetch of aws.amazon.com and docs.aws.eu blocked.
+- AWS: Bedrock offers four service tiers for model inference, Reserved, Priority, Standard and Flex, chosen per request.
+- AWS pricing page: Priority tier pricing is at a 75% premium to Standard tier pricing; Flex is at a 50% discount to Standard (supported models only).
+- AWS: select foundation models from providers including Anthropic, Meta, Mistral AI and Amazon are available for batch inference at a 50% lower price than on-demand inference.
+- Reserved tier: capacity bought per tokens-per-minute for a 1- or 3-month term; minimums 100,000 input TPM and 10,000 output TPM; arranged through the AWS account team; overflow goes to Standard; cache writes count toward reserved TPM.
+- Prompt caching "up to 90%" input saving appears only in third-party sources in these results (not confirmed on AWS pages).
+- Provisioned Throughput billed hourly per model unit; a third-party analysis notes hourly rates are published only for some older models.

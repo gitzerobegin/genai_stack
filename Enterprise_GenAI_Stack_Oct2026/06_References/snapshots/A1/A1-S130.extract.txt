@@ -1,0 +1,9 @@
+SOURCE ID: A1-S130
+URL: https://docs.mistral.ai/models/ocr-4-1
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral OCR latest model version mistral-ocr pricing per 1000 pages
+========================================================================
+
+Search result titles: "OCR 4.1 - Mistral AI" (docs.mistral.ai/models/ocr-4-1); "Mistral OCR 4 : SOTA OCR for Document Intelligence" (mistral.ai/news/ocr-4/); "Pricing" (docs.mistral.ai/inference/pricing); "Changelog" (docs.mistral.ai/resources/changelogs); "OCR 3 - Mistral AI" (docs.mistral.ai/models/model-cards/ocr-3-25-12); "Introducing Mistral OCR 3".
+Search-tool summary: current model OCR 4.1; changelog says mistral-ocr-latest and mistral-ocr-4 now point to it. Docs: "Our latest OCR service powering our Document AI stack", with native paragraph-level bounding box extraction, structural block labels and block-level confidence scores. Pricing page: $4 /1000 Pages input; cached input $0.4 /1000 Pages; model page: $5/1000 Annotated Pages. OCR 4 announcement: 50% Batch-API discount brings cost to $2 per 1,000 pages. Document AI (no-code) $5 per 1,000 pages. OCR 4.0 retires September 30, 2026 (move to 4.1 at same price). OCR 3 priced $2/1000 pages ($3 annotated), remains available for existing integrations. Original Mistral OCR no longer maintained. Conflict: docs say 4.1 launched July 16, 2026; changelog says July 26, 2026.

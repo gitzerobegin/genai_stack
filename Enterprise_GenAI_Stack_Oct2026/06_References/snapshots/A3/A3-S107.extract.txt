@@ -1,0 +1,8 @@
+SOURCE ID: A3-S107
+URL: https://help.getzep.com/governance
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Zep EU region data residency GDPR DPA SSO SAML RBAC audit logs (allowed_domains getzep.com, help.getzep.com)
+========================================================================
+
+Search-tool summary: A programme page says the default is US hosting, with EU residency available on request; no dedicated EU-region document found. Pricing FAQ: Zep signs Data Processing Agreements with EU customers and customers with EU presence; terms of service: signed DPA governs processing of Personal Data. Zep blog ('Announcing Zep Archive: Records Retention and Right To Be Forgotten'): archiving message histories, executing Right To Be Forgotten requests, and time-based retention through timestamping and purge. Governance page: make your identity provider the source of truth for member sign-in (SAML not named). Dashboard access uses account- and project-scoped roles (RBAC); data-level access uses attribute-based policies applied to reads and writes (ABAC). Audit logging help page (help.getzep.com/audit-logging): audit logs track member actions in the web application only; API requests and SDK calls are not included; lists authentication events, RBAC bindings created or deleted, permission denied events. Marketing pages describe detailed logs of every request (conflict). Enterprise tier keeps audit and API logs for 1 year.

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S082
+URL: https://aws.amazon.com/blogs/aws/amazon-s3-vectors-now-generally-available-with-increased-scale-and-performance/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon S3 Vectors generally available limits pricing regions; S3 Vectors Bedrock Knowledge Bases OpenSearch integration
+========================================================================
+
+Index size is now 2 billion vectors, up from 50 million during preview; up to 20 trillion vectors in a vector bucket. (Opening summary of same post says 'up to 1 billion vectors per index' - conflict; 2 billion used per What's New.) Pricing dimensions: PUT pricing based on logical GB of vectors uploaded; storage based on total logical storage across indexes; query charges include a per-API charge plus a $/TB charge based on index size (excluding non-filterable metadata); lower $/TB once an index grows beyond 100,000 vectors.

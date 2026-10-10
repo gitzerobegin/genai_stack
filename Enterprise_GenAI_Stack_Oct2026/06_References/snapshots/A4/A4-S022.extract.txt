@@ -1,0 +1,21 @@
+SOURCE ID: A4-S022
+URL: https://registry.npmjs.org/ai
+ACCESSED: 2026-10-07
+TYPE: direct-fetch excerpt of registry JSON (selected fields extracted verbatim by script; not the full document)
+FOUND VIA: direct fetch of npm registry JSON; fields extracted by script
+========================================================================
+
+npm registry excerpt (direct fetch of https://registry.npmjs.org/ai; fields extracted verbatim)
+name: ai
+description: AI SDK by Vercel - build apps like ChatGPT, Claude, Gemini, and more with a single interface for any model using the Vercel AI Gateway or go direct to OpenAI, Anthropic, Google, or any other model provider.
+license: Apache-2.0
+dist-tags.latest: 7.0.131 published 2026-10-07T18:31:25.101Z
+created: 2014-02-21T22:09:35.189Z
+major 1.0.0 published 2014-08-15T17:13:59.190Z
+major 2.0.0 published 2023-06-14T18:57:33.649Z
+major 3.0.0 published 2024-02-29T21:25:53.049Z
+major 4.0.0 published 2024-11-18T17:39:25.902Z
+major 5.0.0 published 2025-07-31T15:38:00.033Z
+major 6.0.0 published 2025-12-22T17:11:49.521Z
+major 7.0.0 published 2026-06-25T12:47:23.880Z
+homepage: https://ai-sdk.dev/docs

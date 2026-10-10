@@ -1,0 +1,13 @@
+SOURCE ID: B-C4-S001
+URL: https://raw.githubusercontent.com/open-policy-agent/opa/main/SECURITY.md
+FINAL URL: https://raw.githubusercontent.com/open-policy-agent/opa/main/SECURITY.md
+TITLE: 
+ACCESSED: 2026-10-08
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+# Security Policy
+
+Please refer to the [OPA Security Policy](https://www.openpolicyagent.org/security)
+for details on how to report security issues, our disclosure policy, and how to
+receive notifications about security issues.

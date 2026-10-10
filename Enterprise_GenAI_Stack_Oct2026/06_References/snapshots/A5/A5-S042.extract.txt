@@ -1,0 +1,25 @@
+SOURCE ID: A5-S042
+URL: https://pypi.org/project/ktransformers/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: PyPI JSON API https://pypi.org/pypi/ktransformers/json
+========================================================================
+
+PyPI package ktransformers version 0.7.0.post4 README excerpt (direct fetch of PyPI JSON API; excerpted):
+## 🔥 Updates
+* **Aug 26, 2026**: Added native support for **GLM-5.3-flash**, bringing 1M-token context and multimodal input to consumer GPUs. ([Tutorial](./doc/en/kt-kernel/GLM-5.3-Flash-Tutorial.md))
+* **Aug 25, 2026**: Uploaded a new easy-to-use [KTransformers × LlamaFactory MoE Fine-Tuning Cookbook](./doc/en/SFT/KTransformers-Fine-Tuning_Cookbook.md), covering hardware checks, installation, BF16/FP8/INT8 recipes, LoRA and full fine-tuning, resource planning, and troubleshooting.
+* **Aug 17, 2026**: LoRA fine-tuning now supports compatible AVX512 x86 CPUs, including AMD servers, without requiring AMX. ([v0.7.0 Release Notes](https://github.com/kvcache-ai/ktransformers/releases/tag/v0.7.0))
+* **Aug 16, 2026**: DeepSeek-V4-Flash on a single Ascend NPU with CPU expert offload. ([Tutorial](./doc/en/DeepSeek-V4-Flash_tutorial_for_Ascend_NPU.md))
+* **Aug 5, 2026**: Introduced native block-FP8 LoRA fine-tuning, loading FP8 routed-expert weights directly from the checkpoint without materializing a complete BF16 copy. ([PR #2141](https://github.com/kvcache-ai/ktransformers/pull/2141))
+* **July 23, 2026**: Added end-to-end BF16 full-parameter fine-tuning for MoE models, including complete checkpoint saving. ([PR #2094](https://github.com/kvcache-ai/ktransformers/pull/2094))
+* **June 21, 2026**: MiniMax-M3 Day0 Support! ([Tutorial](./doc/en/kt-kernel/MiniMax-M3-Tutorial.md))
+* **June 17, 2026**: GLM-5.2 Day0 Support! ([Tutorial](./doc/en/kt-kernel/GLM-5.2-Tutorial.md))
+* **May 6, 2026**: KTransformers at [GOSIM Paris 2026](https://paris2026.gosim.org/zh/schedule/) — "Agentic AI on Edge" track. We'll present KT's inference performance on consumer hardware.
+* **May 02, 2026**: DeepSeek-V4-Flash Support! ([Tutorial](./doc/en/DeepSeek-V4-Flash.md))
+* **Apr 30, 2026**: KTransformers v0.6.1 refreshes kt-kernel inference and SFT docs with separate [Inference](./kt-kernel/README.md) and [SFT Quick Start](./doc/en/SFT/KTransformers-Fine-Tuning_Quick-Start.md) entry points.
+* **Mar 26, 2026**: Support AVX2-only CPU backend for KT-Kernel inference. ([Tutorial](./doc/en/kt-kernel/AVX2-Tutorial.md))
+* **Feb 13, 2026**: MiniMax-M2.5 Day0 Support! ([Tutorial](./doc/en/MiniMax-M2.5.md))
+* **Feb 12, 2026**: GLM-5 Day0 Support! ([Tutorial](./doc/en/kt-kernel/GLM-5-Tutorial.md))
+* **Jan 27, 2026**: Kimi-K2.5 Day0 Support! ([Tutorial](./doc/en/Kimi-K2.5.md)) ([SFT Tutorial](./doc/en/SFT_Installation_Guide_KimiK2.5.md))
+* **

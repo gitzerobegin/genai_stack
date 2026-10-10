@@ -1,0 +1,8 @@
+SOURCE ID: V1-S057
+URL: https://www.businesswire.com/news/home/20260701243402/en/Together-AI-Raises-$800-Million-at-$8.3-Billion-Valuation-to-Make-Frontier-AI-Accessible-to-All
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Together AI Series C $800 million $8.3 billion (extended)
+========================================================================
+
+Announced July 1, 2026: $800 million Series C at an $8.3 billion post-money valuation. Aramco Ventures led; Vista Equity Partners, General Catalyst, Emergence Capital, NVIDIA, March Capital, Pegatron and S Ventures participated. TechCrunch: last raised at $3.3 billion in early 2025. Pulse 2.0: annual bookings crossed $1.15 billion last quarter.

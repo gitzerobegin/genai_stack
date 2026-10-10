@@ -1,0 +1,8 @@
+SOURCE ID: A2-S095
+URL: https://security.pinecone.io/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone trust center SOC 2 ISO 27001 HIPAA GDPR CMEK private endpoints SSO RBAC audit logs (allowed: pinecone.io, docs.pinecone.io, security.pinecone.io)
+========================================================================
+
+Trust Center lists CCPA, GDPR, HIPAA, ISO/IEC 27001, and SOC 2. Pinecone recently completed its annual ISO 27001:2022 surveillance audit (certificate checkable in IAF CertSearch). Most recent SOC 2 report is a 2025 Type II audit covering security, availability, and confidentiality with zero deviations.

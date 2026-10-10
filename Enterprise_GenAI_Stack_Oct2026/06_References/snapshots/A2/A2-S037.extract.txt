@@ -1,0 +1,8 @@
+SOURCE ID: A2-S037
+URL: https://openai.com/index/introducing-data-residency-in-europe/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI API data residency Europe SOC 2 ISO 27001 trust portal enterprise privacy
+========================================================================
+
+Eligible customers can enable European data residency by creating a new Project in the API Platform dashboard and selecting Europe as the region. API requests initiated through these Projects will be handled in-region with zero data retention. Existing Projects cannot be updated to European data residency after creation. Enterprise privacy page (https://openai.com/enterprise-privacy/): API inputs/outputs may be retained up to 30 days; not trained on by default; AES-256 at rest, TLS 1.2+ in transit; DPA available.

@@ -1,0 +1,9 @@
+SOURCE ID: A1-S122
+URL: https://trust.comet.com/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Comet Opik security SOC 2 Type II HIPAA GDPR ISO 27001 trust
+========================================================================
+
+Search result titles: "Comet Trust Center" (trust.comet.com); "Comet" (comet.com/site/pricing/); "Enterprise - Comet ML"; "Opik vs. Langfuse: Side-by-Side Comparison - Comet".
+Extracts: Trust Center lists ISO 9001:2015, ISO/IEC 27001:2022, and SOC 2 Type 2 under Compliance. Completed questionnaires can be provided upon request. Pricing/product pages: Enterprise plan includes flexible deployments, single sign-on, dedicated support and SLAs, and SOC 2, ISO 27001, ISO 9001, HIPAA, and GDPR compliance; Opik enterprise plan lists unlimited spans and members, SSO, SOC 2, ISO 27001, ISO 9001, HIPAA, GDPR; Enterprise adds service accounts. Trust Center also says "We are working on our security compliance."

@@ -1,0 +1,12 @@
+SOURCE ID: B-C5-S003
+URL: https://docs.promptlayer.com/features/faq
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (promptlayer.com, docs.promptlayer.com): PromptLayer SOC 2 Type II compliance security
+========================================================================
+
+- PromptLayer FAQ: "Yes, we have achieved SOC 2 Type 2 certification. Please contact us for the report."
+- Pricing/integration pages: "PromptLayer maintains SOC2 Type 2, GDPR, HIPAA, and CCPA certifications."
+- Self-hosted docs: self-hosted "inherits the same SOC 2, HIPAA, and GDPR compliance standards as our cloud offering".
+- DPA (dashboard.promptlayer.com/DPA.pdf, 2026): annual independent external auditor reviews "including SOC 2 Type II certification audits"; annual penetration testing with summary on request; audit trail for all production datastore access; PromptLayer may share a summary of audit results rather than the full report.
+- No audit report seen; claims are vendor statements. Trust Center referenced.

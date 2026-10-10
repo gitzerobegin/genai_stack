@@ -1,0 +1,508 @@
+[
+  {
+    "id": "L5-mem0",
+    "assessment": {
+      "capabilities": "Open-core agent memory layer: extracts facts from conversations and agent actions, scopes them by user_id, agent_id and run_id, retrieves with semantic + BM25 + entity signals; add/search/get/update/delete/delete_all and per-memory history in OSS and Platform; storage in SQL + third-party vector store + entity store [VF: A3-S001, A3-S080, A3-S053].",
+      "strengths": [
+        "Supports 14+ vector stores incl. PGVector, Elasticsearch, OpenSearch, MongoDB, so the canonical record can sit in the firm's L6 store [VF: A3-S080, A3-S053]",
+        "Apache-2.0 OSS server with authentication on by default [VF: A3-S001]",
+        "Platform has org/project roles and a project-wide event feed of add/search/delete events usable for audit [VF: A3-S080]",
+        "Largest community in the layer (66,777 GitHub stars, 7 October 2026) [VF: A3-S054]"
+      ],
+      "limitations_risks": [
+        "SOC 2 status conflicts on vendor pages (Type I; Type II in progress; Type II for Enterprise); trust-centre report not seen [VF: A3-S051, A3-S106]",
+        "No managed EU region found [VF: A3-S106]",
+        "OSS v2.0.0 (14 April 2026) removed external graph stores; graph memory, decay, temporal reasoning, Dream, webhooks and export are Platform-only [VF: A3-S081, V1-S043, A3-S080]",
+        "ADD-only OSS extraction: memories accumulate unless pruned [VF: A3-S081]",
+        "Vendor benchmark figures (LoCoMo 92.5, LongMemEval 94.4) are vendor-reported only [R: A3-S081]"
+      ],
+      "choose_when": [
+        "You want a framework-neutral memory API self-hosted on your own approved vector store, behind your own policy gate [AJ]"
+      ],
+      "avoid_when": [
+        "You would put regulated data on the managed Platform before a SOC 2 Type II report is obtained [AJ]",
+        "You need a queryable graph in open source [AJ]"
+      ],
+      "competitors": [
+        "L5-zep",
+        "L5-supermemory",
+        "L5-aws-agentcore-memory",
+        "L5-cognee"
+      ],
+      "fs_note": "Self-host the OSS server against the approved vector store, implement the subject index and write gate in a firm-owned wrapper, and obtain the SOC 2 report before any Platform use [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Broad, store-agnostic memory API useful behind a firm-owned wrapper; certification evidence and OSS/Platform divergence keep it off the Strategic tier [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Covers extraction, scoping, hybrid recall, deletion and history; graph and decay only on Platform",
+        "enterprise_readiness": "Enterprise plan lists SSO, audit logs and SLA support (A3-S049); Platform org/project member roles and an event feed (A3-S080): all three controls plus SLA reach 4 under rule 7 (CP3 review A, consistent with Firecrawl and Mistral OCR); condition: evidence is a pricing page and OSS has no org concept",
+        "security_compliance": "SOC 2 Type I confirmed by vendor; Type II claims conflict; no report seen; HIPAA and BYOK vendor-stated",
+        "deployment_flexibility": "SaaS, self-host and on-prem verified; VPC and air-gap are vendor claims from a marketing guide",
+        "ecosystem": "Wide vector-store support, LangGraph and CrewAI integrations; MCP repository archived",
+        "reliability_maturity": "Two years of releases but breaking changes in April 2026 (ADD-only, graph removed from OSS); no acquisition found",
+        "cost_tco": "Apache-2.0 OSS; published tiers (Starter US$19, Pro US$249 per month); self-host cost is LLM + embedder + vector store",
+        "lockin_portability": "Apache-2.0 OSS on standard stores, but key features (incl. export) Platform-only"
+      },
+      "evidence_caps_applied": [
+        "security_compliance at 2: SOC 2 Type II status conflicting on vendor pages, only Type I confirmed (treated as below the 3 anchor)"
+      ],
+      "generic_total": 3.55,
+      "fs_total": 3.35
+    }
+  },
+  {
+    "id": "L5-zep",
+    "assessment": {
+      "capabilities": "Zep Cloud managed context-graph platform on a proprietary Context Graph Engine, with Graphiti (Apache-2.0) as the open-source temporal knowledge-graph framework: entities, facts with validity windows, episodes with provenance, communities; invalidation rather than deletion; hybrid semantic, keyword and graph retrieval [VF: A3-S003, A3-S059].",
+      "strengths": [
+        "Bi-temporal facts and per-episode provenance suit audit and how-facts-changed questions [VF: A3-S003]",
+        "SOC 2 Type II, HIPAA BAA, BYOK and BYOC on Enterprise [VF: A3-S089, A3-S090]",
+        "Right-to-be-forgotten and time-based retention purge (Zep Archive); EU residency on request; DPAs [VF: A3-S107]",
+        "Integrations with ADK, Microsoft Agent Framework, LangGraph, Strands and others; Graphiti MCP server [VF: A3-S059, A3-S003]"
+      ],
+      "limitations_risks": [
+        "Community Edition deprecated; Graphiti is the only OSS path [VF: A3-S059, V1-S044]",
+        "Compliance only on Enterprise, not Flex or Flex Plus [VF: A3-S089]",
+        "Audit logs cover web-app member actions, not API or SDK calls [VF: A3-S107]",
+        "Graphiti pre-1.0; zep-cloud SDK 4.0 in beta [VF: A3-S003, A3-S002]",
+        "Proprietary graph engine in Zep Cloud; migration path to Graphiti not documented [VF: A3-S003] [NPV]"
+      ],
+      "choose_when": [
+        "Temporal validity and provenance of memory matter (mandate or terminology changes over time) [AJ]",
+        "Graphiti self-hosted on Neo4j or Neptune for in-estate data [AJ]"
+      ],
+      "avoid_when": [
+        "You need API-level audit logs from the vendor, ISO 27001, or a supported self-hosted full platform [AJ]"
+      ],
+      "competitors": [
+        "L5-mem0",
+        "L5-cognee",
+        "L5-gcp-vertex-memory-bank"
+      ],
+      "fs_note": "Prefer self-hosted Graphiti on an approved graph store and test that erasure removes invalidated facts and episodes; use Zep Cloud only on Enterprise with EU residency requested [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [
+        "Deprecated"
+      ],
+      "rationale": "Technically the strongest memory model for audit and temporal reasoning; tier-gated compliance, a proprietary managed engine and pre-1.0 Graphiti keep it Tactical [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 5,
+        "enterprise_readiness": 4,
+        "security_compliance": 3,
+        "deployment_flexibility": 4,
+        "ecosystem": 4,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Bi-temporal graph, episodes with provenance, hybrid retrieval, users and threads: leading depth on the layer's memory-type questions",
+        "enterprise_readiness": "IdP sign-in, RBAC + ABAC and audit logs with one-year retention, plus a guaranteed SLA on Enterprise (A3-S107, A3-S089): rule 7 allows 4 (CP3 review A, consistent with Mistral OCR); condition: audit logs cover web-app actions only, not API or SDK calls",
+        "security_compliance": "SOC 2 Type II + HIPAA + BYOK on Enterprise; no ISO 27001 found (same calibration as Braintrust in L9)",
+        "deployment_flexibility": "SaaS and BYOC (AWS/GCP/Azure); Graphiti self-host; no supported self-host of Zep itself",
+        "ecosystem": "Broad framework integrations; Graphiti 31,529 stars; MCP server",
+        "reliability_maturity": "Graphiti pre-1.0 with frequent releases; SDK 4.0 beta; Community Edition deprecated; no acquisition found",
+        "cost_tco": "Published credit pricing (Flex US$125, Flex Plus US$375 per month); Graphiti cost is graph DB + LLM ingestion",
+        "lockin_portability": "Zep Cloud proprietary engine and API; Graphiti (Apache-2.0) is a partial exit with no documented migration"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.75,
+      "fs_total": 3.5
+    }
+  },
+  {
+    "id": "L5-letta",
+    "assessment": {
+      "capabilities": "Stateful agent harness (Letta Code) with memory blocks and all context tracked in a git-backed memory filesystem (MemFS) that can sync to GitHub; Letta Cloud default backend or self-hosted 'letta server'; not a standalone memory layer [VF: A3-S073, A3-S060, A3-S093].",
+      "strengths": [
+        "Memory as version-controlled files: every change is a reviewable diff [VF: A3-S073]",
+        "Model-agnostic; works with OpenAI, Anthropic, Z.ai and local models [VF: A3-S073]",
+        "Enterprise RBAC and SAML/OIDC SSO [VF: A3-S091]",
+        "Apache-2.0 licence [VF: A3-S004, A3-S077]"
+      ],
+      "limitations_risks": [
+        "Pivot in March 2026: server memory tools, templates, server-side sleep-time agents and tool rules deprecated; V1 server retired [VF: A3-S093, A3-S060]",
+        "AgentFile export/import removed [VF: A3-S073]",
+        "No SOC 2 or trust centre found; privacy policy states no specific retention periods [VF: A3-S118]",
+        "Pre-1.0 with very rapid releases (eight in six days) [VF: A3-S077, A3-S004]",
+        "Git history retains deleted content unless rewritten, complicating erasure [AJ]"
+      ],
+      "choose_when": [
+        "Evaluating a stateful coding or operations agent outside regulated client data [AJ]"
+      ],
+      "avoid_when": [
+        "You need a memory service for an existing LangGraph, ADK or Strands workflow [AJ]",
+        "Certifications are a gate [AJ]"
+      ],
+      "competitors": [
+        "L5-langmem",
+        "L5-aws-agentcore-memory",
+        "L5-gcp-vertex-memory-bank"
+      ],
+      "fs_note": "Copy the git-backed memory idea for governed style memory in the firm's own repository; do not adopt the product as a regulated-workflow dependency today [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [
+        "Superseded"
+      ],
+      "rationale": "Repositioned as an agent harness with changing architecture and no certification; belongs with L3 harness evaluation [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 3,
+        "ecosystem": 3,
+        "reliability_maturity": 2,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Memory blocks and MemFS within its own harness; not usable as a memory layer for other frameworks",
+        "enterprise_readiness": "RBAC and SAML/OIDC SSO on Enterprise (two of three); audit logs NPV; dedicated support",
+        "security_compliance": "No certification found",
+        "deployment_flexibility": "Letta Cloud SaaS and self-hosted server; on-prem and VPC NPV",
+        "ecosystem": "Model-agnostic; skills ecosystem; but a harness rather than an integration point",
+        "reliability_maturity": "Pre-1.0 Letta Code launched October 2025; architecture changed twice; no acquisition found",
+        "cost_tco": "Apache-2.0; Pro US$20 per month; free with own model keys",
+        "lockin_portability": "Apache-2.0 and git-backed memory files are portable, but agent state defaults to Letta Cloud and AgentFile export was removed"
+      },
+      "evidence_caps_applied": [
+        "security_compliance capped at 2: certifications NPV (none found, A3-S118)"
+      ],
+      "generic_total": 2.85,
+      "fs_total": 2.75
+    }
+  },
+  {
+    "id": "L5-cognee",
+    "assessment": {
+      "capabilities": "Open-source memory platform building knowledge graphs plus vectors from documents, code and conversations; remember, recall, improve and forget; retrieval selects graph, vector or code context; local small-model extraction; MCP server [VF: A3-S005].",
+      "strengths": [
+        "Runs fully in-estate or air-gapped with zero external API calls [VF: A3-S095]",
+        "Backs onto Postgres/pgvector, Neo4j or Neptune [VF: A3-S005]",
+        "EU company with GDPR process audit, DPA, erasure and portability support; BYOC in customer EU cloud account [VF: A3-S095]",
+        "Enterprise SSO, SLAs and dedicated support engineer [VF: A3-S095]"
+      ],
+      "limitations_risks": [
+        "States it holds no SOC 2, ISO 27001 or equivalent certification [VF: A3-S095]",
+        "Production Postgres graph store is a licensed product [VF: A3-S005]",
+        "RBAC and audit logs not documented [NPV]",
+        "Seed-stage funding; aggregators disagree on amount [R: A3-S094]"
+      ],
+      "choose_when": [
+        "Memory or graph-backed knowledge must be fully in-estate or air-gapped in the EU and you can supply the controls [AJ]"
+      ],
+      "avoid_when": [
+        "You want a managed service to carry certification evidence [AJ]"
+      ],
+      "competitors": [
+        "L5-zep",
+        "L5-mem0",
+        "L5-supermemory"
+      ],
+      "fs_note": "Self-host only, on an approved Postgres or Neo4j, behind the firm's identity proxy and audit logging; treat Cognee Cloud as out of scope for client data until certified [Rec]."
+    },
+    "classification": {
+      "tier": "Tactical",
+      "flags": [],
+      "rationale": "Credible in-estate graph-plus-vector memory with strong deployment options; no certification and seed-stage funding limit it to scoped, self-hosted use [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 5,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Graph + vector memory with remember/recall/improve/forget and local extraction",
+        "enterprise_readiness": "Rule 2 basis: authenticated multi-tenant users, Enterprise SSO, SLAs and a dedicated support engineer (A3-S005, A3-S095); one verified control gives 3 under rule 7 (CP3 review A, consistent with LlamaParse and Browserbase); RBAC and audit logs NPV",
+        "security_compliance": "Scored as self-hosted software (vendor-recommended) under rule 2: encryption, private mode, air-gap verified; security policy and signed releases NPV. Cognee Cloud alone would score 1 (no certification by vendor statement)",
+        "deployment_flexibility": "Cloud, BYOC, self-host, on-prem and air-gap",
+        "ecosystem": "MCP server and community plugins; 31,561 stars; optional standard graph and vector stores",
+        "reliability_maturity": "Post-1.0 (1.6.x), 178 releases since March 2024; seed-stage company; no acquisition found",
+        "cost_tco": "Free OSS locally; Cloud US$1 per 1M tokens; production Postgres graph licensed",
+        "lockin_portability": "Apache-2.0 core on standard stores, but production Postgres graph is licensed"
+      },
+      "evidence_caps_applied": [
+        "Rule 2 applied (self-hosted software; inherits host controls): security_compliance and enterprise_readiness scored on self-hosted basis, capped at 4",
+        "enterprise_readiness: NPV cap lifted to 3 by verified SSO (rule 7)"
+      ],
+      "generic_total": 3.35,
+      "fs_total": 3.25
+    }
+  },
+  {
+    "id": "L5-supermemory",
+    "assessment": {
+      "capabilities": "Memory and context engine API: fact extraction, user profiles, temporal and contradiction handling, automatic forgetting, hybrid search over documents and memories, connectors and file processing; v5 namespace-first API [VF: A3-S064, A3-S012].",
+      "strengths": [
+        "Explicit forget operations: forget, forget_matching, namespace delete, automatic expiry [VF: A3-S012, A3-S064]",
+        "Wide deployment range incl. customer-cloud dedicated deployments and air-gapped Enterprise [VF: A3-S122, A3-S096]",
+        "Many framework wrappers and an MCP server [VF: A3-S064]"
+      ],
+      "limitations_risks": [
+        "Self-hosted server binary not open source; hosted API proprietary [VF: A3-S066, A3-S096]",
+        "SOC 2 report type not confirmed on pricing page; no managed EU region found [VF: A3-S096, A3-S122]",
+        "SSO protocols undocumented; RBAC and audit logs not documented [VF: A3-S096] [NPV]",
+        "v5 breaking API change on 6 October 2026 [VF: A3-S012]",
+        "Bundles memory and knowledge behind one API, blurring owner-curated and agent-written content [AJ]",
+        "Benchmark leadership is a vendor claim [R: A3-S064]"
+      ],
+      "choose_when": [
+        "A team prototype needs memory plus RAG quickly, outside regulated data [AJ]"
+      ],
+      "avoid_when": [
+        "Memory and knowledge need different owners, approvals and retention, or you need a stable API [AJ]"
+      ],
+      "competitors": [
+        "L5-mem0",
+        "L5-zep",
+        "L5-cognee"
+      ],
+      "fs_note": "Not for client or personal data until SOC 2 report type, audit logging and EU residency are confirmed [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [],
+      "rationale": "Fast-moving combined memory-and-RAG API with a proprietary server, seed funding and an API that changed major version this week [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 3,
+        "security_compliance": 2,
+        "deployment_flexibility": 5,
+        "ecosystem": 4,
+        "reliability_maturity": 2,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Memory, profiles, forgetting and hybrid RAG in one API",
+        "enterprise_readiness": "SSO on Enterprise verified (protocols undocumented) (A3-S096): one verified control lifts the cap to 3 under rule 7 (CP3 review A, consistent with LlamaParse and Browserbase); RBAC and audit logs NPV",
+        "security_compliance": "SOC 2 claimed from Scale tier with report type unconfirmed; HIPAA Enterprise; DPA",
+        "deployment_flexibility": "SaaS, dedicated, customer cloud, self-host (Scale+), air-gap (Enterprise)",
+        "ecosystem": "Framework wrappers, MCP, coding-agent plugins",
+        "reliability_maturity": "SDK first released April 2025; v5 breaking change 6 October 2026; seed only; no acquisition found",
+        "cost_tco": "Published tiers (Pro US$19 to Scale US$399 per month); self-hosting only on higher tiers",
+        "lockin_portability": "Proprietary server binary and API; namespace API just changed"
+      },
+      "evidence_caps_applied": [
+        "security_compliance at 2: SOC 2 report type not confirmed (pricing page only)",
+        "enterprise_readiness: NPV cap lifted to 3 by verified SSO (rule 7)"
+      ],
+      "generic_total": 3.3,
+      "fs_total": 3.05
+    }
+  },
+  {
+    "id": "L5-langmem",
+    "assessment": {
+      "capabilities": "MIT library of memory utilities for LangGraph: extraction, hot-path memory tools, background memory manager and prompt refinement (procedural memory); persists via LangGraph BaseStore [VF: A3-S006].",
+      "strengths": [
+        "Clear example of procedural memory (prompt refinement) and background consolidation [VF: A3-S006]",
+        "No service to operate; MIT licence [VF: A3-S006]"
+      ],
+      "limitations_risks": [
+        "0.0.30, no PyPI release since 27 October 2025 [VF: A3-S006]",
+        "Tied to LangGraph store abstractions; InMemoryStore loses data on restart [VF: A3-S006]",
+        "Whether LangChain has superseded it is not verified [NPV]",
+        "Security and access control inherit entirely from the store and platform [AJ]"
+      ],
+      "choose_when": [
+        "Already on LangGraph and want reference patterns, accepting you may maintain the code [AJ]"
+      ],
+      "avoid_when": [
+        "You need a supported dependency [AJ]"
+      ],
+      "competitors": [
+        "L5-mem0",
+        "L5-zep",
+        "L5-letta"
+      ],
+      "fs_note": "Never let automatic prompt refinement change production prompts; route proposals through C5 change control [Rec]."
+    },
+    "classification": {
+      "tier": "Experimental",
+      "flags": [
+        "Not publicly verified"
+      ],
+      "rationale": "Pre-1.0 and apparently stalled; useful as patterns, not as a dependency [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 3,
+        "enterprise_readiness": 2,
+        "security_compliance": 2,
+        "deployment_flexibility": 4,
+        "ecosystem": 3,
+        "reliability_maturity": 1,
+        "cost_tco": 4,
+        "lockin_portability": 3
+      },
+      "rationale": {
+        "technical": "Extraction, consolidation and procedural memory, but no lifecycle or erasure features documented",
+        "enterprise_readiness": "Rule 2: enables memory inside LangGraph; no commercial support for LangMem itself verified",
+        "security_compliance": "Rule 2: security policy, CVE handling and signed releases NPV",
+        "deployment_flexibility": "Library runs wherever LangGraph and its store run, incl. in-estate",
+        "ecosystem": "LangGraph and LangChain only",
+        "reliability_maturity": "Pre-1.0 (0.0.x) with no release for about 11 months",
+        "cost_tco": "MIT and free; cost is store plus extraction LLM; a stalled library may need in-house maintenance",
+        "lockin_portability": "MIT, but bound to LangGraph store abstractions"
+      },
+      "evidence_caps_applied": [
+        "Rule 2 applied (self-hosted library; inherits host controls): security_compliance and enterprise_readiness capped at 4"
+      ],
+      "generic_total": 2.75,
+      "fs_total": 2.65
+    }
+  },
+  {
+    "id": "L5-aws-agentcore-memory",
+    "assessment": {
+      "capabilities": "Managed memory in Amazon Bedrock AgentCore: short-term raw session events; long-term records via semantic, summary, user-preference, episodic or custom strategies, grouped by namespaces and retrieved by semantic search; self-managed strategy; record streaming; JSON-payload extraction (August 2026) [VF: A3-S111, A3-S047, V1-S087].",
+      "strengths": [
+        "Detailed lifecycle documentation incl. per-user namespace erasure, batch delete and AWS guidance on retention policies [VF: A3-S111]",
+        "KMS encryption with optional customer-managed key; AWS Config rule and Security Hub control flag memories without CMK [VF: B-L5-S002]",
+        "AgentCore in AWS scope for SOC 1/2/3 and ISO/IEC 27001; HIPAA eligible [VF: B-L5-S003]",
+        "VPC and PrivateLink [VF: A3-S047]"
+      ],
+      "limitations_risks": [
+        "No built-in TTL for long-term records; firm must build a pruner [VF: A3-S111]",
+        "Harness-managed memory cannot be deleted via the Memory APIs [VF: A3-S111]",
+        "Customer-managed key cannot be changed after creation for harness-managed memory [VF: B-L5-S002]",
+        "AWS-only proprietary API [VF: A3-S047]; memory pricing changed on 6 October 2026 (short-term now per GB) [VF: B-REVA-S005]; EU Region availability for Memory not individually verified [VF: A3-S048] [NPV]"
+      ],
+      "choose_when": [
+        "The agent runs on AgentCore or Strands in AWS [AJ]"
+      ],
+      "avoid_when": [
+        "You need memory portable across clouds, or the runtime is elsewhere [AJ]"
+      ],
+      "competitors": [
+        "L5-gcp-vertex-memory-bank",
+        "L5-mem0",
+        "L5-zep"
+      ],
+      "fs_note": "Set a customer-managed key at creation, deploy the pruner on day one, confirm the Region list for UK/EU data, and keep a periodic export to the firm's store; platform controls presumed (CP2 Q1), confirm per service [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [],
+      "rationale": "Strategic, conditional: where AWS is your primary cloud and the agent runtime is AgentCore (CP3 Q2, rubric rule 10). AWS's lead managed agent memory service with good lifecycle documentation; a customer-managed key at creation and a pruner from day one are part of the condition, and deployment and lock-in at 2 are accepted under rule 11 [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Short- and long-term memory with multiple extraction strategies, namespaces and self-managed pipelines",
+        "enterprise_readiness": "Hyperscaler presumption (CP2 Q1): AWS IAM, SSO federation and CloudTrail; AWS guidance on restricting memory APIs. Platform controls presumed (CP2 Q1); confirm per service",
+        "security_compliance": "Service-level SOC 1/2/3 and ISO 27001 scope plus CMK; SOC 2 report type not stated and Memory not named separately, so 4 not 5 (rule 8)",
+        "deployment_flexibility": "AWS managed only, with VPC/PrivateLink connectivity; no self-host",
+        "ecosystem": "Strands SDK and AgentCore APIs; wider ecosystem NPV",
+        "reliability_maturity": "GA October 2025 with steady feature additions",
+        "cost_tco": "Published unit pricing for short- and long-term memory (B-REVA-S005), changed on 6 October 2026; extraction LLM cost on top; transparent, so 3 (consistent with Memory Bank)",
+        "lockin_portability": "Proprietary AWS API; records listable for export; hyperscaler lock-in"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.3,
+      "fs_total": 3.2
+    }
+  },
+  {
+    "id": "L5-gcp-vertex-memory-bank",
+    "assessment": {
+      "capabilities": "Managed long-term memory in Google's agent platform: Gemini-based asynchronous extraction of facts and preferences, consolidation with contradiction resolution, exact-scope retrieval with optional similarity search; TTL optional; revisions; purge by filter [VF: A3-S108, A3-S109].",
+      "strengths": [
+        "Immutable scope with exact-scope retrieval [VF: A3-S109]",
+        "Consolidation resolves contradictions; purge by filter with dry run [VF: A3-S109]",
+        "Transparent unit pricing: US$0.25 per 1,000 stored, US$0.50 per 1,000 retrieved (LLM billed separately) [VF: V1-S088]",
+        "VPC-SC, CMEK and data residency at rest listed for Memory Bank [VF: B-L5-S004]"
+      ],
+      "limitations_risks": [
+        "CMEK not available on the global endpoint; data residency terms list Memory Bank as excluded, conflicting with the feature table [VF: B-L5-S004]",
+        "TTL default none; memory revisions kept 365 days by default [VF: A3-S109]",
+        "Memories deleted with the Agent Runtime instance; extraction depends on Gemini [VF: A3-S109, A3-S108]",
+        "Platform certifications (SOC 2, ISO 27001, ISO 42001) stated per product or feature; Memory Bank inclusion not stated [VF: A2-S043] [NPV]"
+      ],
+      "choose_when": [
+        "The agent runs on ADK or Agent Engine in Google Cloud [AJ]"
+      ],
+      "avoid_when": [
+        "You need cross-cloud portability or confirmed UK/EU at-rest residency before Google confirms it in writing [AJ]"
+      ],
+      "competitors": [
+        "L5-aws-agentcore-memory",
+        "L5-mem0",
+        "L5-zep"
+      ],
+      "fs_note": "Use a regional endpoint with CMEK, set TTL and a shorter revision retention, and obtain written residency confirmation; platform controls presumed (CP2 Q1), confirm per service [Rec]."
+    },
+    "classification": {
+      "tier": "Strategic",
+      "flags": [
+        "Renamed"
+      ],
+      "rationale": "Strategic, conditional: where Google Cloud is your primary cloud and the agent runtime is Agent Engine (CP3 Q2, rubric rule 10). Google's lead managed agent memory service with a strong scope model; written confirmation of data residency (the feature table and residency terms conflict) and a regional CMEK endpoint are part of the condition [AJ]."
+    },
+    "scores": {
+      "criteria": {
+        "technical": 4,
+        "enterprise_readiness": 4,
+        "security_compliance": 4,
+        "deployment_flexibility": 2,
+        "ecosystem": 3,
+        "reliability_maturity": 3,
+        "cost_tco": 3,
+        "lockin_portability": 2
+      },
+      "rationale": {
+        "technical": "Extraction, consolidation, scoping, TTL and revisions",
+        "enterprise_readiness": "Hyperscaler presumption (CP2 Q1): Google Cloud IAM, Cloud Audit Logs and SSO federation. Platform controls presumed (CP2 Q1); confirm per service",
+        "security_compliance": "Platform-level SOC 2, ISO 27001, ISO 42001 with product scope not stated (rule 8: one below the anchor of 5), plus CMEK and VPC-SC; residency conflict noted",
+        "deployment_flexibility": "Google Cloud managed only; no self-host",
+        "ecosystem": "ADK, LangGraph and CrewAI samples",
+        "reliability_maturity": "Preview July 2025, GA December 2025, billing from January 2026; rebranding under way",
+        "cost_tco": "Published per-memory pricing; extraction LLM billed separately",
+        "lockin_portability": "Proprietary API; memories tied to Agent Runtime instance; Gemini dependency"
+      },
+      "evidence_caps_applied": [],
+      "generic_total": 3.3,
+      "fs_total": 3.2
+    }
+  }
+]

@@ -1,0 +1,8 @@
+SOURCE ID: V2-S037
+URL: https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Vertex AI renamed Gemini Enterprise Agent Platform (allowed_domains cloud.google.com, blog.google)
+========================================================================
+
+Vertex AI release notes: "Vertex AI's services are now part of Gemini Enterprise Agent Platform. See the most up-to-date information in the Agent Platform documentation." Google blog calls it "our new developer platform and evolution of Vertex AI". Name changes: Vertex AI Studio -> Agent Studio on Gemini Enterprise Agent Platform; Vertex AI Agent Engine -> Agent Runtime; Vertex AI Search -> Agent Search. April 22, 2026 release notes: "The table below lists all of the features that have been transitioned from Vertex AI and what their new names are in Agent Platform." Vertex AI Vision deprecated June 15, 2026, End of Life September 30, 2026. Vertex AI Extensions deprecated, shut down after November 26, 2026.

@@ -1,0 +1,50 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>C2 decision tree: layering guardrails after autonomy and authorisation</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">C2 decision tree: layering guardrails after autonomy and authorisation</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  subgraph ST0["Step 0 [Rec], not optional: decide the workflow's autonomy FIRST, L3"]
+    Q0{"Can the task be a&lt;br/&gt;deterministic workflow&lt;br/&gt;with read-only tools&lt;br/&gt;and a human gate?"}
+    Y0["Build it that way;&lt;br/&gt;guardrails are the second line"]
+    N0["Document why; tool&lt;br/&gt;authorisation, C4, and&lt;br/&gt;approval gates come&lt;br/&gt;before guardrails"]
+    Q0 -- yes --&gt; Y0
+    Q0 -- no --&gt; N0
+  end
+  subgraph ST1["Step 1 [Rec]: deterministic checks, always, in-house"]
+    D1["Business invariants: numbers,&lt;br/&gt;signs, terms, forbidden phrases,&lt;br/&gt;identifiers → rules/comparators&lt;br/&gt;coded by the firm, run inline&lt;br/&gt;as blocking output guards&lt;br/&gt;and in L9 CI"]
+  end
+  subgraph ST2["Step 2 [Rec]: managed or self-hosted detectors for injection, harm and PII?"]
+    direction TB
+    Q2{"Where does the&lt;br/&gt;model run?"}
+    AWS["Bedrock Guardrails&lt;br/&gt;Classic tier / region-pinned&lt;br/&gt;for client data,&lt;br/&gt;via ApplyGuardrail"]
+    AZR["Azure AI Content Safety&lt;br/&gt;Prompt Shields on user input&lt;br/&gt;AND documents, via APIM"]
+    GCP["Model Armor&lt;br/&gt;strict residency on,&lt;br/&gt;EU template, via Apigee"]
+    NM["NeMo Guardrails server, pinned,&lt;br/&gt;orchestrating: Prompt Guard 2,&lt;br/&gt;22M, on every retrieved chunk&lt;br/&gt;+ a second, independent&lt;br/&gt;detector: a managed service&lt;br/&gt;above, or Check Point&lt;br/&gt;AI Guardrails, C7"]
+    Q2 -- AWS --&gt; AWS
+    Q2 -- Azure --&gt; AZR
+    Q2 -- Google Cloud --&gt; GCP
+    Q2 -- "Multi-cloud or&lt;br/&gt;in-estate required" --&gt; NM
+  end
+  subgraph ST3["Step 3 [Rec]: model-based judges?"]
+    J["Only where no rule or classifier&lt;br/&gt;can decide, e.g. tone, policy&lt;br/&gt;nuance; never as the sole check&lt;br/&gt;on numbers; calibrated against&lt;br/&gt;human labels, L9, before it&lt;br/&gt;blocks anything"]
+  end
+  subgraph ST4["Step 4 [Rec]: agent tool use"]
+    T1["Tool calls → C4 authorisation,&lt;br/&gt;deny by default, first"]
+    T2["Task-alignment checks:&lt;br/&gt;Azure Task Adherence,&lt;br/&gt;LlamaFirewall AlignmentCheck,&lt;br/&gt;only as extra signal"]
+    T1 --&gt; T2
+  end
+  subgraph ST5["Step 5 [Rec]: checks before go-live"]
+    CK["Attack set: OWASP LLM and&lt;br/&gt;Agentic 2026, multilingual,&lt;br/&gt;and benign set both passed?&lt;br/&gt;Guards fail closed on timeout?&lt;br/&gt;Guard inference in the&lt;br/&gt;approved region?&lt;br/&gt;Override path governed?"]
+  end
+  ST0 --&gt; ST1
+  ST1 --&gt; ST2
+  ST2 --&gt; ST3
+  ST3 --&gt; ST4
+  ST4 --&gt; ST5
+</pre><div class="c">Decide autonomy first, always code deterministic business checks in-house, choose detectors by where the model runs, use model judges only where nothing else can decide, put C4 authorisation ahead of tool-use signals, and pass the go-live checks.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

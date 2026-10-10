@@ -1,0 +1,13 @@
+SOURCE ID: E2-S025
+URL: https://scmp.com/tech/tech-trends/article/3363927/alibaba-adds-commercial-restrictions-open-weight-qwen38-max-ai-model
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Qwen3.8-Max License open weights terms Model-as-a-Service revenue separate license attribution
+========================================================================
+
+Search tool summary (results: scmp.com article 3363927; codersera.com; letsdatascience.com; silicon.co.uk; sqmagazine.co.uk; howaiworks.ai; runtimewire.com):
+- Qwen3.8-Max licence: users or affiliates running a "model as a service" or "AI work assistant" business with aggregate revenue above US$50 million over any 12 consecutive months need a separate Qwen licence.
+- Internal use is exempt as long as the software, its outputs and its underlying model capabilities are not made available to third parties.
+- Covered commercial products or services above 100 million monthly active users or US$20 million monthly revenue must prominently display the model name (one source).
+- The 2.4T flagship (Qwen3.8-2.4T-A95B) uses the separate Qwen3.8-Max License, not Apache 2.0; Qwen3.8-27B is Apache 2.0.
+- Conflicts: release date reported as 12 August or 17 August 2026; one report says licence terms were unresolved in materials reviewed. Licence file on Hugging Face not read.

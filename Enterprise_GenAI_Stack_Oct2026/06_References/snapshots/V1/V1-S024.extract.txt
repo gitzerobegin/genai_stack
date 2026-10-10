@@ -1,0 +1,9 @@
+SOURCE ID: V1-S024
+URL: https://blog.voyageai.com/2026/09/30/rerank-3/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Voyage AI rerank-3 release voyage-4 family (extended, allowed_domains mongodb.com, voyageai.com)
+========================================================================
+
+Voyage announcement dated September 30, 2026: rerank-3 and rerank-3-lite succeed rerank-2.5; same API, 32K context, same price ($0.05 per million tokens rerank-3, $0.02 rerank-3-lite). Blog says both are available now. MongoDB's lifecycle page (mongodb.com/docs/voyageai/models/lifecycle/) lists them as Preview, with a changelog entry dated September 1, 2026.
+Voyage 4 family introduced January 15, 2026 (blog.voyageai.com/2026/01/15/voyage-4/): voyage-4-large (MoE), voyage-4, voyage-4-lite, open-weight voyage-4-nano under Apache 2.0; shared embedding space. MongoDB later announced the Voyage 4 family GA at MongoDB.local San Francisco 2026.

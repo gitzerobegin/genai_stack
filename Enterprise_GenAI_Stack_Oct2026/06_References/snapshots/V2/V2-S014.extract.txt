@@ -1,0 +1,11 @@
+SOURCE ID: V2-S014
+URL: https://www.scmp.com/tech/article/3362738/alibabas-ai-model-qwen38-max-made-widely-accessible-ahead-open-weights-release
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qwen3.8 Max release Alibaba Qwen3.8 open weights licence
+========================================================================
+
+Alibaba launched Qwen3.8-Max as a hosted model on August 3, 2026 (MarkTechPost 3 Aug 2026; Quartz), and released its open weights on August 12 as Qwen3.8-2.4T-A95B under a custom license, not Apache 2.0. 2.4 trillion parameter MoE, 95B active, 1M context, native text, image and video input. Previewed at WAIC Shanghai in July as Qwen3.8-Max-Preview.
+Open weights version reportedly limited to text input/output and not the full 1M context.
+Qwen3.8-27B: Hugging Face Qwen/Qwen3.8-27B under Apache 2.0, 262k native context (The Decoder: "Alibaba's Qwen team releases Qwen 3.8 models with open weights under the Apache 2.0 license").
+Licence for 2.4T flagship: "Qwen3.8-Max License" - MaaS or AI Work Assistant business with aggregate revenue above $50M TTM needs a separate license; attribution/display requirement for >100M MAU or >$20M monthly revenue. Sources disagree on characterisation (modified-MIT-style vs commercial-restricted). Secondary sources only; LICENSE file not read.

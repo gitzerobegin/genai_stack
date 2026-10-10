@@ -1,0 +1,16 @@
+SOURCE ID: A6-S028
+URL: https://www.harvey.ai/blog/guardrails-ai-joins-harvey
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Harvey acquires Guardrails AI announcement September 2026
+========================================================================
+
+Related: https://guardrailsai.com/blog/guardrails-ai-joins-harvey ; https://www.lw.com/en/news/2026/09/Latham%20Advises%20Harvey%20on%20Acquisition%20of%20Guardrails ; https://www.artificiallawyer.com/2026/09/09/harvey-raises-550m-at-15-5bn-val-buys-guardrails-ai/ ; https://thenextweb.com/news/harvey-550m-round-15-6bn-guardrails-acquisition ; https://www.unite.ai/harvey-acquires-guardrails-ai-its-fourth-acquisition-of-2026/
+
+Extract as returned by search tool:
+Harvey announced on September 9, 2026 that it had acquired Guardrails AI, a San Francisco company that builds security tooling for AI agents. The deal was Harvey's fourth acquisition of 2026. "Harvey today announced its acquisition of San Francisco-based Guardrails AI, an AI security platform for agents."
+Harvey describes Guardrails as "a pioneer of AI reliability and simulation infrastructure. They created the first open-source AI guardrails that help teams find where their agents stray from intended behavior and manage agent risk in real time." Harvey says the framework is downloaded more than 250,000 times a month.
+Co-founders Shreya Rajpal and Zayd Simjee, along with their team, will join Harvey's product and engineering organization. Price was not disclosed.
+Harvey announced a $550m funding round at a $15.5B valuation, co-led by Diffusion and Lightspeed Venture Partners (other outlets: $15.6bn).
+Guardrails announced on July 6, 2026 that it would retire the guardrails hub install command, its private validator registry and its free hosted remote-inference servers on August 25, 2026, moving validators to standard PyPI packages. One source notes that the open-source Guardrails framework remains on GitHub under Apache-2.0 and is still being updated.
+Guardrails' own blog post is dated September 8, 2026. Latham & Watkins notice dated September 10, 2026.

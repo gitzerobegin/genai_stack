@@ -1,0 +1,9 @@
+SOURCE ID: B-C2-S005
+URL: https://docs.cloud.google.com/model-armor/release-notes
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com): Model Armor locations regional endpoints europe data residency floor settings
+========================================================================
+
+Search-tool extract (Model Armor release notes):
+- 8 July 2026: Model Armor supports data residency in-use and in-transit compliance in Japan (asia-northeast1) and the United Kingdom (europe-west2), with limited feature support. Conflicts with the floor-settings table that still shows London as not enforced in use / in transit.

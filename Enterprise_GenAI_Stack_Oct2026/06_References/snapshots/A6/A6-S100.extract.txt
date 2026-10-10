@@ -1,0 +1,11 @@
+SOURCE ID: A6-S100
+URL: https://www.okta.com/blog/ai/okta-for-ai-agents-general-availability/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Okta Cross App Access generally available Okta for AI Agents identity security fabric 2026 (site:okta.com, developer.okta.com, help.okta.com)
+========================================================================
+
+Related: https://www.okta.com/newsroom/press-releases/showcase-2026/ ; https://www.okta.com/blog/ai/okta-ai-agents-early-access-announcement/ ; https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agents-home.htm
+
+Extract as returned by search tool:
+Okta for AI Agents: Okta's blog says the product gives AI agents "a first-class identity so you can discover, onboard, protect, and govern them across any agent framework, cloud, or SaaS environment." Okta's earlier blueprint announcement set its general availability date as April 30, 2026. It was earlier introduced in Early Access (EA). Okta for AI Agents is available as a separate subscription.

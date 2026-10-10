@@ -1,0 +1,8 @@
+SOURCE ID: V1-S089
+URL: https://docs.apify.com/security
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Apify SOC 2 Type II data location AWS us-east-1 (allowed_domains apify.com etc.)
+========================================================================
+
+"The Apify platform is SOC 2 Type II compliant" (security, availability, confidentiality); auditor Prescient Security (blog); report via Trust Center. Shared responsibility page: Apify runs its platform on AWS in us-east-1. 2020 whitepaper: core servers, storage and MongoDB Atlas user-data cluster in us-east-1; no user data stored outside the United States.

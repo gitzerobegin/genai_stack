@@ -1,0 +1,13 @@
+SOURCE ID: E2-S046
+URL: https://www.bsigroup.com/globalassets/localfiles/en-au/ISO 27001/documents/iso-iec-27001-transition-guide.pdf
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: ISO/IEC 27001:2022 transition deadline 31 October 2025 ISO 27001:2013 certificates withdrawn IAF
+========================================================================
+
+Search tool summary (results: bsigroup.com ISO/IEC 27001 transition guide PDF; presencis.com timeline and FAQ; dqsglobal.com transition note; brightdefense.com; sprinto.com). bsigroup.com direct fetch blocked; no IAF primary document returned.
+- BSI transition guide: "All ISO/IEC 27001:2013 certificates shall expire or be withdrawn no later than 31st October 2025."
+- IAF set a three-year transition period, all transitions to be completed by 31 October 2025.
+- From 1 May 2024 all new initial certifications and recertifications had to be against ISO/IEC 27001:2022.
+- Presencis: after the deadline certification bodies must withdraw remaining 2013 certificates; certification is now against the 2022 edition only.
+- Brightdefense (secondary): Global Accreditation Cooperation Incorporated began operations on 1 January 2026, taking over international accreditation functions previously handled by IAF and ILAC (not verified).

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S066
+URL: https://vectorchord.ai/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: pgvectorscale Timescale Tiger Data latest release; pgvecto.rs deprecated VectorChord
+========================================================================
+
+VectorChord: PostgreSQL extension designed for scalable, high-performance, and disk-efficient vector similarity search, and serves as the successor to pgvecto.rs. GitHub (https://github.com/tensorchord/VectorChord): 'Scalable, fast, and disk-friendly vector search in Postgres, the successor of pgvecto.rs.'

@@ -1,0 +1,9 @@
+SOURCE ID: A1-S129
+URL: https://www.firecrawl.dev/blog/introducing-alexandria-series-b
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Firecrawl Series B Alexandria announcement
+========================================================================
+
+Search result titles: "Introducing Alexandria and our $75M Series B" (firecrawl.dev/blog/introducing-alexandria-series-b); "Changelog" (firecrawl.dev/changelog); secondary: Fundraise Insider, WOWTALE (2026/09/23), hedgeco.net.
+Extracts: "We raised a $75M Series B led by Smash Capital, with participation by Altos Ventures, Nexus Venture Partners, Y Combinator, Freestyle, and Offline Ventures." Alexandria "brings official data providers, custom connectors and Firecrawl's own indexes together with the live web, so your AI agent has one way to find a source, see what it holds and pull from it." Named after the Library of Alexandria. Existing data-provider agreements include Wikimedia Enterprise. Blog dated September 22, 2026 (changelog lists entry under Aug 20, 2026 - conflict). Changelog 6 Oct 2026: Alexandria available in ChatGPT and Codex via Firecrawl plugin, and in Claude and Claude Code. Company internal evaluation: agents using Alexandria scored 21% higher on answer quality than built-in web tools. Secondary reports: more than 1.5 million developers; founded 2023 by Caleb Peffer, Eric Ciarla, Nicolas Silberstein Camara.

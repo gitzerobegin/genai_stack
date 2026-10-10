@@ -1,0 +1,8 @@
+SOURCE ID: A2-S116
+URL: https://siliconangle.com/2023/04/21/weaviate-reels-50m-ai-optimized-vector-database/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Weaviate funding 2025 2026 Series C OR acquisition
+========================================================================
+
+April 2023: Weaviate B.V. secured $50 million Series B led by Index Ventures; total outside funding $67.7 million. No 2025-2026 round or acquisition confirmed (an aggregator 'Series C' page conflicts and appears unreliable).

@@ -1,0 +1,8 @@
+SOURCE ID: V1-S038
+URL: https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Agentic AI Foundation Linux Foundation MCP donated founding members (allowed_domains linuxfoundation.org, aaif.io)
+========================================================================
+
+The Linux Foundation formed the Agentic AI Foundation (AAIF) on December 9, 2025, with Anthropic's Model Context Protocol (MCP), Block's goose and OpenAI's AGENTS.md as founding projects. Platinum members: AWS, Anthropic, Block, Bloomberg, Cloudflare, Google, Microsoft, OpenAI. Membership: 146 (March 2026), 190 (May 2026), 247 (August 2026). aaif.io blog "A2A joins AAIF's open agentic stack". Agentgateway also listed among projects. September 2026: Gates Foundation joined.

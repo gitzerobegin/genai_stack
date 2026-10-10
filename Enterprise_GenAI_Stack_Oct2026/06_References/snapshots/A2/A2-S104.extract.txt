@@ -1,0 +1,8 @@
+SOURCE ID: A2-S104
+URL: https://qdrant.tech/documentation/private-cloud/changelog/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qdrant 1.16 OR 1.17 OR 1.18 release server latest version 2026
+========================================================================
+
+Private cloud changelog 4 September entry lists 1.19.0 as the latest validated Qdrant version.

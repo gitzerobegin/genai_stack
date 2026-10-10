@@ -1,0 +1,8 @@
+SOURCE ID: A4-S052
+URL: https://openai.github.io/openai-agents-python/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI Agents SDK sessions handoffs guardrails tracing Temporal durable; AgentKit Agent Builder
+========================================================================
+
+Sessions: a persistent memory layer for maintaining working context within an agent loop; best default for durable memory, resumable approval flows, or storage your application controls. Handoffs: when a handoff occurs, the delegated agent receives the conversation history and takes over; manager-style alternative where a central agent calls sub-agents as tools. Guardrails run checks/validations on user input in parallel to the agent and on the agent's output; separate input and output guardrails. Tracing on by default (handoff_span, guardrail_span); can be disabled globally/per run or sent to custom trace processors. Running Agents docs list a Temporal integration "to run durable, long-running workflows, including human-in-the-loop tasks", and other durable options including DBOS.

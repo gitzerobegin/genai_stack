@@ -1,0 +1,8 @@
+SOURCE ID: V2-S055
+URL: https://www.hunton.com/privacy-and-cybersecurity-law-blog/european-commission-renews-uk-data-adequacy-decisions
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: European Commission renews UK adequacy decisions December 2025 valid until 2031
+========================================================================
+
+On 19 December 2025 the Commission renewed the two UK adequacy decisions first adopted in 2021 (GDPR and Law Enforcement Directive). Sunset clause: expires on 27 December 2031 unless extended. Technical six-month extension in June 2025 bridged the period from 27 December 2025. Positive EDPB opinion and comitology approval. Review after four years. Scope now covers transfers for UK immigration control purposes.

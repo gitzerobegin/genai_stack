@@ -1,0 +1,9 @@
+SOURCE ID: V1-S036
+URL: search-tool-null-result (no URL)
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: "EthicalAgents" embeddings; "Ragoos" reranker (extended)
+========================================================================
+
+Query "EthicalAgents" embeddings (extended): no result contains the exact phrase; nearest results are USPTO patents, Stanford Embedded Ethics, arXiv papers on ethical pluralism and normative RL. No product or vendor named EthicalAgents offering embeddings.
+Query "Ragoos" reranker (extended): no result mentions the name; results are generic reranker explainers (Medium, Analytics Vidhya, MongoDB, AWS).

@@ -1,0 +1,14 @@
+SOURCE ID: B-L1-S001
+URL: https://developers.openai.com/api/docs/deprecations
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains platform.openai.com, openai.com, developers.openai.com): OpenAI API deprecations policy model shutdown notice
+========================================================================
+
+Search-tool summary of OpenAI deprecations page (developers.openai.com/api/docs/deprecations; mirror platform.openai.com/docs/deprecations):
+- Notice periods by model type: generally available models at least 6 months' notice; specialised variants of GA models (chat, Codex, deep research) at least 3 months; preview models (identified by "preview" in the name) may be retired with much shorter notice, such as 2 weeks.
+- Each entry lists a shutdown date and a recommended replacement.
+- GPT-5.3-Codex, GPT-5.1 and GPT-5.4-Nano deprecated and removed from the API on 1 April 2027, with six months' notice; replacements gpt-6-sol and gpt-6-luna.
+- Several 2025-dated snapshots (gpt-5-2025-08-07, o3-2025-04-16 among others) scheduled for shutdown on 11 December 2026 (a forum post says 10 December 2026: conflict).
+- Past: gpt-4.5-preview API access ended 14 July 2025; dall-e-2 and dall-e-3 removed 12 May 2026.
+- The developers.openai.com and platform.openai.com versions show different sets of entries.

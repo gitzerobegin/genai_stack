@@ -1,0 +1,14 @@
+SOURCE ID: B-REV-S006
+URL: https://help.openai.com/en/articles/9687866-admin-and-audit-logs-api-for-the-api-platform
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains help.openai.com, platform.openai.com, developers.openai.com): OpenAI API audit logs Admin API organization
+========================================================================
+
+Admin and Audit Logs API for the API Platform (help.openai.com), with developers.openai.com Admin APIs guide and changelog, as summarised by the search tool:
+- Admin API manages invitations, users, projects, project memberships, service accounts, API keys and admin keys; only organization owners can create organization admin keys.
+- Audit logs record administrative and configuration events (API key changes, invitations, user and service-account lifecycle, failed logins and logouts, organization setting updates, project changes). They do not include the content of API requests and responses.
+- An owner enables audit logging under organization settings (Data controls > Data retention); once enabled it can only be turned off via OpenAI Support.
+- Endpoint GET /organization/audit_logs.
+- No fixed retention period for audit logs; kept on a best-effort basis; organizations with retention or eDiscovery requirements should export copies. ZDR does not change audit-log availability.
+- Admin and Audit Log APIs launched August 2024; May 2026 update added Admin API support for spend alerts, model allowlists, data retention settings and billing line items.

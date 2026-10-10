@@ -1,0 +1,8 @@
+SOURCE ID: V2-S070
+URL: https://therecord.media/grok-sexually-explicit-images-eu-formal-investigation
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: European Commission DSA formal proceedings X Grok January 2026 sexualised images
+========================================================================
+
+On 26 January 2026, the European Commission opened a new formal investigation into X under the DSA over Grok's sexualised images, and extended the December 2023 recommender-system case to cover X's switch to a Grok-based recommender. Potential breaches of Articles 34(1) and (2), 35(1) and 42(2) DSA; fines up to 6% of global turnover. Opening does not prejudge outcome. Similar probes in the UK and France; California AG statement (16 January). One source claims 6 January (unconfirmed).

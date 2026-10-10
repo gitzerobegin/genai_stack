@@ -1,0 +1,8 @@
+SOURCE ID: A2-S085
+URL: https://aws.amazon.com/about-aws/whats-new/2026/03/s3-vectors-expands-17-regions/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amazon S3 Vectors generally available limits pricing regions
+========================================================================
+
+March 2026: expansion added 17 additional AWS Regions, bringing the total to 31 AWS Regions.

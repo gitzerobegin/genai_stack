@@ -1,0 +1,3493 @@
+[
+ {
+  "id": "L1-openai",
+  "layer": "L1",
+  "original_label": "OpenAI – GPT-6",
+  "current_name": {
+   "v": "OpenAI GPT model family (GPT-6: Astra, Sol, Luna; GPT-6.1 Sol), plus GPT-5.6 Sol/Terra/Luna and open-weight gpt-oss",
+   "label": "Verified fact",
+   "src": [
+    "A5-S002",
+    "A5-S004",
+    "A5-S005"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "OpenAI",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047",
+    "A5-S002"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Frontier model vendor: proprietary API models (reasoning, multimodal input, coding) plus Apache-2.0 open-weight models",
+   "label": "Verified fact",
+   "src": [
+    "A5-S002",
+    "A5-S005"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": [
+    "flagship: GPT-6 Astra, introduced 3 September 2026 per ChatGPT release notes (limited organisations first; \"Path to Astra\" post of 1 September explains a several-week hold for cyber safeguards); OpenAI forum post says API and Pro/Enterprise access on 4 September; Bedrock model card lists 8 September (AWS GA date). Gated: enterprise admins must enable; first OpenAI model rated \"Critical\" for cybersecurity. 1,050,000-token context, 128K output, knowledge cut-off 30 April 2026. [A5-S083, A5-S002, A5-S003, A5-S008]",
+    "mid: GPT-6 Sol (22 September 2026) and GPT-6.1 Sol (29 September 2026; now the default Sol on the pricing page and in Microsoft Foundry). [A5-S002, A5-S004, A5-S009]",
+    "small: GPT-6 Luna (22 September 2026), for high-volume summarisation, extraction, classification and routing. [A5-S002, A5-S008]",
+    "previous_generation_still_offered: GPT-5.6 Sol (flagship), Terra (balanced), Luna (fast/low-cost): GA 9 July 2026; still GA on Bedrock. [A5-S001, A5-S008]",
+    "reasoning: All GPT-6 tiers are reasoning models (Microsoft lists them under Azure OpenAI reasoning models). [A5-S009]",
+    "multimodal: GPT-6 Astra/Sol: text and image input, text output. [A5-S003, A5-S009]",
+    "coding: GPT-6 Sol/Luna targeted at Work and Codex; GPT-6.1 Sol improves agentic coding and computer use. [A5-S002]",
+    "specialist: Daybreak Red / Daybreak Blue cybersecurity models in limited availability on Bedrock. [A5-S008]",
+    "open_weight: gpt-oss-120b and gpt-oss-20b (5 August 2025, Apache 2.0); gpt-oss-safeguard 120b/20b (29 October 2025, research preview). No newer open-weight release found. [A5-S005]",
+    "graphic_label_check: \"GPT-6\" is CORRECT as a family label as of 7 October 2026, but incomplete: GPT-6 is a tiered family (Astra/Sol/Luna) and GPT-6.1 Sol already exists. Brief example \"GPT-6 Astra/Sol/Luna\" is verified."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S001",
+    "A5-S002",
+    "A5-S003",
+    "A5-S004",
+    "A5-S005",
+    "A5-S008",
+    "A5-S009",
+    "A5-S083",
+    "V2-S008",
+    "V2-S024"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary, API-only for GPT-6 and GPT-5.6 (closed weights; fine-tuning not supported for Astra). Open weights for gpt-oss under Apache 2.0 plus gpt-oss usage policy.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S003",
+    "A5-S005"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Generation number plus capability-tier naming (Sol/Terra/Luna introduced with GPT-5.6, July 2026) so tiers can advance on separate cadences; staged, gated releases for cyber-capable models (Daybreak trusted-access programme); rapid price cuts (GPT-6 Sol/Luna 50% below GPT-5.6 promotional pricing); distribution through AWS Bedrock and Microsoft Foundry.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S001",
+    "A5-S002",
+    "A5-S008",
+    "A5-S009"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "9 July 2026: GPT-5.6 Sol/Terra/Luna GA",
+    "30 July 2026: GPT-5.6 Luna -80% and Terra -20% price cuts",
+    "3 September 2026: GPT-6 Astra introduced (limited organisations); API from 4 September; Bedrock GA 8 September",
+    "22 September 2026: GPT-6 Sol and Luna",
+    "29 September 2026: GPT-6.1 Sol",
+    "7 October 2026: GPT-6 rolled out to ChatGPT Chat"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S001",
+    "A5-S002",
+    "A5-S083",
+    "V2-S024"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "General-purpose large language models served through the OpenAI API (Responses and Chat Completions), ChatGPT, Codex and partner clouds; tiers trade capability against cost and latency.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S002",
+    "A5-S008"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L1 foundation model. Placement in the graphic is correct; OpenAI also appears at L3 (Agents SDK) and L7 (embeddings).",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Hosted service on OpenAI infrastructure (Astra trained on >100,000 GPUs at Stargate, Texas) or partner clouds (AWS Bedrock, Microsoft Foundry). gpt-oss runs on own GPUs (120b fits one H100) via vLLM, Ollama, llama.cpp.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S003",
+    "A5-S005",
+    "A5-S008",
+    "A5-S009"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "REST API (Responses, Chat Completions, Batch), official SDKs (openai Python 3.26.0, Apache-2.0, 6 October 2026); also via Bedrock (bedrock-mantle and bedrock-runtime endpoints) and Microsoft Foundry deployments.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047",
+    "A5-S008",
+    "A5-S009"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A5-S004"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (AWS Bedrock; Microsoft Foundry)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S008",
+     "A5-S009"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes, gpt-oss only",
+    "label": "Verified fact",
+    "src": [
+     "A5-S005"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes, gpt-oss only",
+    "label": "Verified fact",
+    "src": [
+     "A5-S005"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type 2 (API Platform; latest report 1 July 2025 to 30 June 2026); ISO/IEC 27001:2022, 27017, 27018, 27701 (Schellman; API, ChatGPT Enterprise, Edu; not ChatGPT Business); ISO/IEC 42001:2023 AI management system (scope wording covers consumer and business AI products and models; the API Platform is not named explicitly); SOC 3; CSA STAR Level 1 self-assessment.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S007",
+    "V2-S062"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "DPA available. API: no training on API data by default; inputs/outputs may be retained up to 30 days unless Zero Data Retention (approval required; some endpoints not ZDR-eligible). EU residency: eu.api.openai.com, storage and processing in region, new projects only, requires Modified Abuse Monitoring or ZDR. UK: gb.api.openai.com storage only, processing not in UK. Microsoft Foundry offers EU Data Zone deployments; Bedrock Astra in-region only in us-east-1/us-west-2 (Mantle).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S006",
+    "A5-S009",
+    "A5-S008",
+    "V2-S079"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Private Safety Processing option (customer-controlled storage under ZDR) in phased rollout; other controls (CMK, private networking) not verified in this run.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S006"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "gpt-6-astra: US$10 input / US$50 output per 1M tokens (<=272K input); US$20 / US$75 above 272K; batch 50% off",
+    "gpt-6.1-sol / gpt-6-sol: US$2 input / US$10 output per 1M",
+    "gpt-6-luna: US$0.10 input / US$0.50 output per 1M",
+    "gpt-5.6-sol (promotional to at least 21 November 2026): US$4 / US$20 per 1M",
+    "Microsoft Foundry GPT-6 Sol Global Standard: US$2 / US$10 per 1M (Data Zone slightly higher)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S004",
+    "A5-S001",
+    "A5-S009",
+    "V2-S008",
+    "V2-S024"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "gpt-oss-120b (117B total, 5.1B active parameters) fits a single H100; gpt-oss-20b targets local use.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S005"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "AWS Bedrock (GPT-6 Astra/Sol/Luna, GPT-5.6, gpt-oss), Microsoft Foundry (GPT-6 family, 28 Global regions, US/EU Data Zones), Google Cloud (gpt-oss-120b/20b only).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S008",
+    "A5-S009",
+    "A5-S027"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "GPT-6 Sol/Luna GA in API and partner clouds; GPT-6 Astra gated, not generally available per OpenAI release notes, though AWS lists it GA on Bedrock (conflict recorded).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S002",
+    "A5-S008"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Proprietary API and closed weights for frontier tiers; open-weight gpt-oss is a portability option.",
+    "label": "Verified fact",
+    "src": [
+     "A5-S003",
+     "A5-S005"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Available on two non-OpenAI hyperscalers (AWS, Microsoft).",
+    "label": "Verified fact",
+    "src": [
+     "A5-S008",
+     "A5-S009"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Yes for GPT-6/GPT-5.6",
+    "label": "Verified fact",
+    "src": [
+     "A5-S003"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Three model generations/tiers released between July and October 2026; tier renaming in July 2026.",
+    "label": "Verified fact",
+    "src": [
+     "A5-S001",
+     "A5-S002"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S001",
+   "A5-S002",
+   "A5-S003",
+   "A5-S004",
+   "A5-S005",
+   "A5-S006",
+   "A5-S007",
+   "A5-S008",
+   "A5-S009",
+   "A5-S027",
+   "A5-S047",
+   "A5-S083",
+   "V2-S008",
+   "V2-S024",
+   "V2-S062",
+   "V2-S079"
+  ],
+  "stage_a_notes": "CONFLICT 1 (caller hypothesis vs evidence): the caller indicated GPT-6 Astra might rest on thin sources. An openai.com-restricted search returned openai.com pages (gpt-6-astra, introducing-gpt-6-sol-and-luna, introducing-gpt-6-1-sol, pricing, system card) and independent corroboration exists (AWS What's New and Bedrock model card, Microsoft Foundry blog, CNBC and Axios 3 September 2026). Treated as verified; openai.com could not be fetched directly, so wording rests on search extracts. CONFLICT 2 RESOLVED (gap pass): launch date is 3 September 2026 (ChatGPT release notes \"Introducing GPT-6 Astra\" [A5-S083]; CNBC same day); 4 September = API/Pro availability (forum post); 8 September = AWS Bedrock GA; 10 September = OpenAI research-index entry date only. CONFLICT 3: OpenAI says Astra not yet generally available; AWS says GA on Bedrock. CONFLICT 4: GPT-6 Sol cached-input price US$0.20 (launch post) vs US$0.10 (pricing page, GPT-6.1 Sol). There is no GPT-6 \"Terra\" tier; Astra sits above Sol. Aggregator claim that Astra ties GPT-5.6 Sol on an intelligence index and trails Claude Fable 5.1 is low-confidence and vendor-neutral only in source, not verified. [V2 verification 8 October 2026] GPT-6 Astra (3 September 2026, staged; OpenAI said 'not yet generally available' at launch, later broadened to Plus/Pro/Business/Enterprise and API), Sol/Luna (22 September), 6.1 Sol (29 September, US$2/US$10) and the 7 October ChatGPT rollout re-confirmed [V2-S008, V2-S024]. Residency (EU storage+processing with MAM/ZDR; UK storage only) re-confirmed [V2-S079]. Check the ISO 42001 scope on the Product Compliance Status page before citing it for the API [V2-S062].",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-anthropic",
+  "layer": "L1",
+  "original_label": "Claude – Opus 5.5",
+  "current_name": {
+   "v": "Anthropic Claude model family (Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5; restricted Claude Mythos 5.1)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S010",
+    "A5-S012"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Anthropic, PBC (public benefit corporation; confidentially submitted draft S-1 for proposed IPO on 1 June 2026)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S024"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Frontier model vendor: proprietary API models (reasoning, vision input, coding/agentic)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S010"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": [
+    "flagship: Claude Fable 5.1, GA 1 September 2026, \"for demanding reasoning and long-horizon agentic work\"; Claude Mythos 5.1 is the same model with more permissive cyber/biology safeguards, available only via trusted-access programmes (limited US organisations). [A5-S016, A5-S022, A5-S010]",
+    "default_recommended: Claude Opus 5.5, 22 September 2026, first model of the Claude 5.5 family; Anthropic docs recommend it as the starting point for most workloads. [A5-S019, A5-S010]",
+    "mid: Claude Sonnet 5.5, 28 September 2026. [A5-S012, A5-S010]",
+    "small: Claude Haiku 5.5, 7 October 2026 (Haiku 4.5 still listed as current). [A5-S020, A5-S010]",
+    "reasoning: All current models have adaptive thinking (always on for Fable 5.1 and Opus 5.5). [A5-S010]",
+    "multimodal: All current models: text and image input, text output. No image/audio generation. [A5-S010]",
+    "context: 1M-token context and 128K max output for all four current models; reliable knowledge cut-off June 2026. [A5-S010]",
+    "open_weight: None. [A5-S010]",
+    "graphic_label_check: \"Opus 5.5\" is CORRECT and current (22 September 2026) but it is not the top tier: Fable 5.1 sits above it, and Mythos 5.1 above that for vetted users."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S010",
+    "A5-S012",
+    "A5-S016",
+    "A5-S019",
+    "A5-S020",
+    "A5-S022",
+    "V2-S001",
+    "V2-S003",
+    "V2-S004",
+    "V2-S066"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary; API and partner-cloud access only; no open weights.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S010",
+    "V2-S001"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Tiered safeguards (Fable vs Mythos; Cyber and Life Sciences Verification Programmes); Enterprise Frontier Safeguards (customer-controlled data storage) phased from autumn 2026; price cuts (Opus 5.5 inputs/outputs 20% below Opus 5; cache reads cheaper); multi-cloud distribution; stated \"pacing the frontier\" policy; IPO preparation.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S016",
+    "A5-S019",
+    "A5-S020",
+    "A5-S024"
+   ],
+   "conf": "high"
+  },
+  "status_events": {
+   "v": [
+    "4 September 2025: sales barred to entities controlled from unsupported regions such as China",
+    "US Department of Defense/War \"supply chain risk\" designation: Anthropic sued 9 March 2026; the DoD relied on two designations litigated separately - N.D. California (Judge Rita F. Lin, No. 3:26-cv-01996) granted Anthropic summary judgment on 27 August 2026 that the 10 U.S.C. s.3252 designation was unlawful (First Amendment retaliation, due process, arbitrary and capricious); D.C. Circuit (No. 26-1049, Katsas and Rao; Henderson dissenting) upheld the other under FASCSA on 25 September 2026, effect stayed pending rehearing petition (court opinion via search extract)",
+    "1 June 2026: draft S-1 confidentially submitted",
+    "20 July 2026: N.D. Cal. (Judge Araceli Martinez-Olguin) granted final approval of US$1.5bn Bartz v. Anthropic class settlement over pirated books (preliminary approval 25 September 2025; Judge Alsup had held training itself fair use but pirated-library acquisition not)",
+    "9 June 2026: Claude Fable 5 (fifth model generation) launched",
+    "12 June 2026: Claude Fable 5 access made unavailable (service disruption); access restored and Fable 5 rolled out again from 1 July 2026",
+    "1 September 2026: Fable 5.1 / Mythos 5.1",
+    "22 September 2026: Opus 5.5",
+    "28 September 2026: Sonnet 5.5",
+    "7 October 2026: Haiku 5.5"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S045",
+    "A5-S025",
+    "A5-S024",
+    "A5-S026",
+    "A5-S016",
+    "A5-S019",
+    "A5-S012",
+    "A5-S020",
+    "A5-S084",
+    "A5-S085",
+    "V2-S004",
+    "V2-S005",
+    "V2-S006",
+    "V2-S007",
+    "V2-S068"
+   ],
+   "conf": "high"
+  },
+  "what_it_does": {
+   "v": "General-purpose LLMs for coding, agentic work and knowledge work, served via the Claude API, Claude apps and partner clouds.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S010",
+    "A5-S019"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L1 foundation model. Placement correct; Anthropic also appears at L3 (Claude Agent SDK) and originated L4 standards (MCP, Agent Skills).",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Hosted service only (Anthropic first-party, Claude Platform on AWS, Amazon Bedrock, Google Cloud, Microsoft Foundry).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S010",
+    "A5-S018"
+   ],
+   "conf": "high"
+  },
+  "integration_model": {
+   "v": "Messages API, Batch API, Models API; OpenAI SDK compatibility endpoint; official SDKs (anthropic Python 1.12.0, MIT, 7 October 2026); model IDs published for Bedrock, Google Cloud, Microsoft Foundry and Claude Platform on AWS.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S010",
+    "A5-S013",
+    "A5-S047"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A5-S010"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (Bedrock, Google Cloud, Microsoft Foundry, Claude Platform on AWS)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S010"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A5-S010"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A5-S010"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type I and Type II, ISO 27001:2022, ISO/IEC 42001:2023 (Schellman), HIPAA-ready configuration, CSA STAR Level 2; scope covers API, Claude Enterprise/Team, Claude in Bedrock and Google Cloud; Claude in Microsoft Foundry hosted on Anthropic is in scope; the Foundry deployment hosted on Azure is listed \"In-Process Q4 2026\"; Claude for Government listed N/A. SOC 2 bridge letters dated August and October 2026.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S021",
+    "A5-S017",
+    "V2-S063"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Commercial/API data not used for training without express permission; consumer plans (Free/Pro/Max) opt-in training with 5-year retention since 28 August 2025 (commercial and API excluded). ZDR on request per organisation; Fable 5.1/Mythos 5.1/Fable 5/Mythos 5 are \"Covered Models\" requiring 30-day retention and not ZDR unless expressly authorised (conflicts with launch post saying eligible customers may use Fable 5.1 with ZDR until EFS ships). First-party inference_geo supports only \"global\" or \"us\"; workspace (storage) geo only \"us\"; no first-party EU/UK inference option documented. EU processing available via Google Cloud EU multi-region and regional endpoints and Bedrock regional endpoints (10% premium).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S018",
+    "A5-S023",
+    "A5-S013",
+    "A5-S011",
+    "A5-S027",
+    "A5-S016",
+    "V2-S075",
+    "V2-S066"
+   ],
+   "conf": "high"
+  },
+  "security_features": {
+   "v": "Admin console lists Encryption keys (CMEK), Access Transparency, Inference hooks, Compliance API, Workload Identity Federation (documentation sections).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S013"
+   ],
+   "conf": "medium"
+  },
+  "access_controls": {
+   "v": "Workspaces, Admin API, user management, Workload Identity Federation, Compliance API / Activity Feed (6-year retention) documented.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S013",
+    "A5-S018"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "Claude Fable 5.1: US$10 input / US$50 output per 1M (cache read US$0.25)",
+    "Claude Opus 5.5: US$4 / US$20 per 1M (cache read US$0.20)",
+    "Claude Sonnet 5.5: US$2 / US$10 per 1M",
+    "Claude Haiku 5.5: US$0.10 / US$0.50 per 1M for prompts up to 100K tokens; US$0.50 / US$2.50 above",
+    "modifiers: Batch API 50% off; US-only inference_geo 1.1x; full 1M context at standard price except Haiku 5.5"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S011",
+    "A5-S010",
+    "V2-S002"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable (no self-hosting).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S010"
+   ],
+   "conf": "high"
+  },
+  "ecosystem": {
+   "v": "Amazon Bedrock, Google Cloud (Vertex AI / Gemini Enterprise Agent Platform), Microsoft Foundry, Claude Platform on AWS; Claude Code, Cowork.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S010",
+    "A5-S027"
+   ],
+   "conf": "high"
+  },
+  "adoption_signals": {
+   "v": "Anthropic-announced customers include Barclays (1 October 2026); Millennium cited in Fable 5.1 launch (vendor-selected).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S012",
+    "A5-S016"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "Four GA tiers released 1 September to 7 October 2026; published retirement commitments (\"not sooner than\" September/October 2027).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S010"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Proprietary API, no open weights.",
+    "label": "Verified fact",
+    "src": [
+     "A5-S010"
+    ],
+    "conf": "high"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "IPO preparation (draft S-1, 1 June 2026).",
+    "label": "Verified fact",
+    "src": [
+     "A5-S024"
+    ],
+    "conf": "high"
+   },
+   "ecosystem_dependency": {
+    "v": "Available on all three major hyperscalers.",
+    "label": "Verified fact",
+    "src": [
+     "A5-S010"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A5-S010"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Rapid cadence: four models in five weeks; dual-tier safeguards (Fable/Mythos) gate some capabilities.",
+    "label": "Verified fact",
+    "src": [
+     "A5-S012",
+     "A5-S016"
+    ],
+    "conf": "high"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S010",
+   "A5-S011",
+   "A5-S012",
+   "A5-S013",
+   "A5-S016",
+   "A5-S017",
+   "A5-S018",
+   "A5-S019",
+   "A5-S020",
+   "A5-S021",
+   "A5-S022",
+   "A5-S023",
+   "A5-S024",
+   "A5-S025",
+   "A5-S026",
+   "A5-S027",
+   "A5-S045",
+   "A5-S047",
+   "A5-S084",
+   "A5-S085",
+   "V2-S001",
+   "V2-S003",
+   "V2-S004",
+   "V2-S066",
+   "V2-S002",
+   "V2-S005",
+   "V2-S006",
+   "V2-S007",
+   "V2-S068",
+   "V2-S063",
+   "V2-S075",
+   "V2-S022"
+  ],
+  "stage_a_notes": "Conflict-of-interest: researched by an Anthropic model; all Anthropic facts come from anthropic.com / platform.claude.com snapshots or independent press, and controversies are recorded. US public-sector risk: US DoD supply-chain-risk designation upheld by D.C. Circuit 25 September 2026 - now sourced to the court opinion (cadc.uscourts.gov, via search extract, A5-S084) plus CNBC/Bloomberg; the separate N.D. Cal. ruling against the other designation stands; Bartz final approval sourced to the settlement administrator site and Washington Post (A5-S085) in place of third-party SEC filings (A5-S026 retained as corroboration) - relevant to any firm with US defence-contract exposure. Retention conflict: Fable 5.1 launch post says eligible customers may use Fable 5.1 with ZDR until EFS is available; the API data-retention doc says Covered Models (incl. Fable 5.1) require 30-day retention unless expressly authorised. No first-party EU inference geography documented (only global/us) - EU residency depends on Bedrock/Google Cloud regional endpoints. Benchmarks in launch posts are vendor-reported. Anthropic publicly alleges distillation of Claude by DeepSeek, Moonshot and MiniMax (23 February 2026) - a competitor allegation, not an adjudicated finding. [V2 verification 8 October 2026] Lineup, prices, retirement dates and the Fable/Mythos 'same model, different safeguards' statement re-read directly from platform.claude.com and anthropic.com (V2-S001 to V2-S004, V2-S066). Added the omitted June 2026 Fable 5 access suspension (12 June) and restoration (1 July) [V2-S004]: a material availability event for any firm relying on the top tier. N.D. Cal. ruling date (27 August 2026) and Bartz judge corrected [V2-S068, V2-S007]. D.C. Circuit ruling (25 September 2026) corroborated by law-firm alerts only; the practical scope (DoW contracts vs all federal work) is disputed between sources [V2-S005]. Benchmarks in the Fable 5.1 post are vendor-reported. Conflict of interest: verifier is also an Anthropic model; all Anthropic claims were re-checked against Anthropic's own pages plus independent press, and none were upgraded on Anthropic's word alone.",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-google-gemini",
+  "layer": "L1",
+  "original_label": "Gemini – Gemini",
+  "current_name": {
+   "v": "Google Gemini model family (Gemini 3.x: 3.1 Pro, 3.8 Flash, 3.5 Flash-Lite; Gemini 4 Argon in limited release)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S030",
+    "A5-S031",
+    "A5-S027"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Google (Google DeepMind / Google LLC)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047",
+    "A5-S031"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Frontier model vendor: proprietary API models (reasoning, native multimodal input, live audio, TTS, image)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S030",
+    "A5-S027"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": [
+    "frontier_restricted: Gemini 4 Argon, announced 30 September 2026; rolling out first to trusted cyber defenders (Fairwind Program); paid API and AI Ultra \"next\", no date; 1M-token output limit claimed. Not on Vertex AI at launch. [A5-S031, A5-S036]",
+    "pro: Gemini 3.1 Pro, preview since 19 February 2026, still labelled preview (gemini-3.1-pro-preview); 1,048,576 input / 65,536 output tokens. Gemini 3 Pro retired 9 March 2026. Gemini 3.5 Pro never released (reported cancelled). [A5-S030, A5-S032, A5-S036]",
+    "mid_flash: Gemini 3.8 Flash GA 2 September 2026 (\"most intelligent Flash\", long-horizon coding/agents), 1M context, 64K output; 3.7 Flash, 3.6 Flash, 3.5 Flash (19 May 2026) still listed; Gemini 3.8 Flash Cyber variant. [A5-S030, A5-S027]",
+    "small: Gemini 3.5 Flash-Lite (21 July 2026); Gemini 3.1 Flash-Lite GA 7 May 2026, shutdown 7 May 2027. [A5-S030]",
+    "multimodal: Gemini 3.8 Live and Live Extended Thinking (GA 15 September 2026), 3.8 Flash TTS / Flash-Lite TTS (GA 22 September 2026), Gemini 3 Pro Image / 3.1 Flash Image (Nano Banana). [A5-S030, A5-S027]",
+    "open_weight: Gemma (separate record L1-google-gemma).",
+    "graphic_label_check: Graphic gives no version: UNVERIFIABLE as drawn. Current production lineup is Gemini 3.x; brief example \"Gemini 3.x\" verified; Gemini 4 (Argon) exists but is restricted."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S027",
+    "A5-S030",
+    "A5-S031",
+    "A5-S032",
+    "A5-S036",
+    "V2-S009",
+    "V2-S010"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Proprietary, API-only.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S032"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Fast Flash cadence (3.5 to 3.8 between May and September 2026) with introductory pricing; Pro tier stalled at 3.1 preview; new Gemini 4 naming with Argon; cyber-specialised variants (3.5/3.8 Flash Cyber); Vertex AI renamed Gemini Enterprise Agent Platform.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S030",
+    "A5-S031",
+    "A5-S027",
+    "A5-S028"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "9 March 2026: Gemini 3 Pro shut down (replaced by 3.1 Pro)",
+    "18 September 2026: Gemini 2.5 access limited to recent users",
+    "30 September 2026: Gemini 4 Argon announced (limited)",
+    "April 2026: Vertex AI renamed Gemini Enterprise Agent Platform (renames listed in 22 April 2026 release notes)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S030",
+    "A5-S031",
+    "A5-S028",
+    "V2-S009",
+    "V2-S037"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Natively multimodal LLMs (text, image, video, audio input) via the Gemini Developer API / AI Studio and Google Cloud (Gemini Enterprise Agent Platform, formerly Vertex AI).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S027",
+    "A5-S033"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L1 foundation model; Google also appears at L7 (Gemini Embedding) and owns the Gemma open-weight family.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Hosted on Google infrastructure only.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S027"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Gemini API (google-genai SDK 2.29.0, Apache-2.0, 7 October 2026), Interactions API, Live API, Google Cloud endpoints (global, multi-region, regional).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047",
+    "A5-S030",
+    "A5-S027"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A5-S032"
+    ],
+    "conf": "high"
+   },
+   "managed_cloud": {
+    "v": "Yes (Google Cloud only)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S027"
+    ],
+    "conf": "high"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A5-S032"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Google Cloud generative AI services (Gemini Enterprise Agent Platform) in scope for ISO/IEC 42001:2023 and SOC 2; Gemini in Workspace and Gemini app FedRAMP High.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S028",
+    "A5-S037"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Paid Gemini API: prompts/responses not used to improve products, processed under Google DPA, logged for a limited period for abuse detection and may be cached in any country. Free tier content used for improvement (except EEA/UK/Switzerland, where paid terms apply). Vertex/Agent Platform: no training without permission; ZDR achievable by disabling logging, session resumption and caching and avoiding Search grounding. Data-at-rest residency for generative AI in UK, Netherlands, France, Germany, Belgium etc. (2023 commitment); non-global endpoints priced 10% higher from 1 July 2026.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S033",
+    "A5-S032",
+    "A5-S029",
+    "A5-S027"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "Gemini 3.1 Pro Preview: US$2 input / US$12 output per 1M (<=200K); US$4 / US$18 above",
+    "Gemini 3.8 Flash: US$0.75 / US$3.75 per 1M introductory to 31 December 2026; US$1.50 / US$7.50 from 1 January 2027",
+    "Gemini 3.5 Flash-Lite: US$0.30 / US$2.50 per 1M",
+    "Gemini 4 Argon: Not publicly verified"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S027",
+    "A5-S032",
+    "A5-S030",
+    "V2-S010"
+   ],
+   "conf": "high",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not applicable (no self-hosting).",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "ecosystem": {
+   "v": "Google Cloud Gemini Enterprise Agent Platform (200+ models in Model Garden), AI Studio, Antigravity agent runtime defaults to 3.8 Flash.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S027",
+    "A5-S030"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Flash tiers GA; Pro tier preview only (3.1 Pro); frontier (Argon) restricted.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S030",
+    "A5-S032",
+    "A5-S031"
+   ],
+   "conf": "high"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Proprietary API on Google infrastructure only; not available on AWS or Azure (no evidence found).",
+    "label": "Verified fact",
+    "src": [
+     "A5-S027"
+    ],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not applicable (Google first-party).",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Not applicable (Google first-party).",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "high"
+   },
+   "ecosystem_dependency": {
+    "v": "Google Cloud only.",
+    "label": "Verified fact",
+    "src": [
+     "A5-S027"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A5-S032"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Pro tier has been in preview since February 2026; 3.5 Pro reportedly cancelled.",
+    "label": "Verified fact",
+    "src": [
+     "A5-S032",
+     "A5-S036"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S027",
+   "A5-S028",
+   "A5-S029",
+   "A5-S030",
+   "A5-S031",
+   "A5-S032",
+   "A5-S033",
+   "A5-S036",
+   "A5-S037",
+   "A5-S047",
+   "V2-S009",
+   "V2-S010",
+   "V2-S037"
+  ],
+  "stage_a_notes": "Gemini 3.5 Pro \"cancellation\" rests on 9to5Google (secondary); Google only said it was testing 3.5 Pro. Gemini 4 Argon benchmarks (DeepSWE 77.9% vs Opus 5.5 74.2%, GPT-6 Astra 74.1%) are Google-reported; a third-party table shows Argon below Opus 5.5 on other indices. Vertex pricing tables show both \"Gemini 3.1 Pro\" and \"Gemini 3.1 Pro Preview\" rows; ai.google.dev labels it preview. Direct fetch of ai.google.dev and blog.google blocked; Google Cloud pricing page fetched directly. [V2 verification 8 October 2026] Gemini 3.8 Flash GA 2 September 2026 and 3.1 Pro still preview re-confirmed [V2-S010]. Gemini 4 Argon restricted rollout via Fairwind confirmed from Google's announcement; Google describes the 1M-token figure inconsistently (token limit vs output limit) [V2-S009]. Vertex AI rename dated to April 2026 [V2-S037].",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-xai-grok",
+  "layer": "L1",
+  "original_label": "Grok",
+  "current_name": {
+   "v": "xAI Grok model family (Grok 4.7 flagship; 4.6, 4.5, 4.3, 4.20; Grok 4.1 Fast; grok-code-fast-1 / Grok Build)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S079",
+    "A5-S038",
+    "A5-S027"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "xAI, acquired by SpaceX in an all-stock deal announced and closed 2 February 2026 (wholly owned subsidiary); the AI unit was rebranded SpaceXAI in mid-2026 (July per Wikipedia, 7 May per another reference; no primary source for the date); on 4 October 2026 Elon Musk said SpaceXAI will be renamed SpaceXSI, which had not taken effect as of 5 October 2026 reports",
+   "label": "Reported",
+   "src": [
+    "A5-S081",
+    "A5-S079",
+    "V2-S011"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Frontier model vendor: proprietary API models (reasoning and non-reasoning variants, vision, coding, image/video generation)",
+   "label": "Reported",
+   "src": [
+    "A5-S038"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": [
+    "flagship: Grok 4.7, launched 21 September 2026; 500K context; configurable reasoning effort (low to xhigh). [A5-S079]",
+    "previous_flagships: Grok 4.6 (Bedrock incl. US GovCloud, Azure, Google Cloud; xAI SDK README example), Grok 4.5. [A5-S038, A5-S027, A5-S047]",
+    "mid_reasoning: Grok 4.20 Reasoning / Non-Reasoning / Multi-agent (model ID suffix 0309), Grok 4.3; 1M context. [A5-S038, A5-S027]",
+    "small_fast: Grok 4.1 Fast Reasoning / Non-Reasoning. [A5-S027]",
+    "coding: grok-code-fast-1; grok-build. [A5-S038]",
+    "multimodal: Grok Imagine image 2.0 and video 1.5; voice transcription. [A5-S038]",
+    "open_weight: Not publicly verified in this run.",
+    "graphic_label_check: Graphic gives no version: UNVERIFIABLE as drawn. Current flagship Grok 4.7 (21 September 2026) verified from x.ai."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S038",
+    "A5-S027",
+    "A5-S047",
+    "A5-S079",
+    "V2-S012"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Proprietary API (open-weight status of older Grok models not verified).",
+   "label": "Reported",
+   "src": [
+    "A5-S038"
+   ],
+   "conf": "low"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [
+    "2 February 2026: SpaceX acquired xAI (all-stock; xAI became a wholly owned SpaceX subsidiary)",
+    "mid-2026 (July per Wikipedia; 7 May per another reference): rebranded SpaceXAI (Grok names unchanged)",
+    "21 September 2026: Grok 4.7",
+    "January-February 2026: EU Commission DSA proceedings (26 January), Ofcom (12 January), ICO (3 February) and Irish DPC (17 February) investigations into X over Grok-generated sexualised images; no outcomes found as of spring 2026",
+    "4 October 2026: Musk announced SpaceXAI will be renamed SpaceXSI (following a 29 September 2026 US executive order on \"super intelligence\" terminology); not yet effected"
+   ],
+   "label": "Reported",
+   "src": [
+    "A5-S081",
+    "A5-S079",
+    "A5-S082",
+    "V2-S011",
+    "V2-S070"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "General-purpose reasoning LLMs and multi-agent variants via the xAI API and partner clouds.",
+   "label": "Reported",
+   "src": [
+    "A5-S038"
+   ],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "L1 foundation model; placement correct.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "xAI API; official xai-sdk (Python 1.20.0, Apache-2.0, 24 September 2026).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes (Google Cloud; Amazon Bedrock incl. US GovCloud; Microsoft Foundry)",
+    "label": "Reported",
+    "src": [
+     "A5-S027",
+     "A5-S038"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II (per xAI API FAQ and business pages; Trust Center under NDA); HIPAA-eligible deployments with BAA. ISO certifications not found.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S080"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "API inputs/outputs not used for training without explicit permission; default 30-day encrypted retention for abuse auditing; team-level Zero Data Retention (deleted within one hour; disables stateful APIs). Enterprise terms let xAI create and own de-identified/aggregated derived data except under ZDR. US regional endpoint (us.api.x.ai) available; default endpoint gives no region guarantee; EU residency mentioned only on voice/imagine product pages. Grok on Google Cloud follows Google Cloud data terms.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S080"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Team-level admin settings and audit logs of administrative events (content excluded under ZDR).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S080"
+   ],
+   "conf": "medium"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "Grok 4.7 (xAI API): US$2 input / US$6 output per 1M (<=200K); US$4 / US$12 above 200K; cached US$0.50; US regional endpoint 1.1x",
+    "Grok 4.20 / 4.3 (Google Cloud): US$1.25 / US$2.50 per 1M",
+    "Grok 4.1 Fast (Google Cloud): US$0.20 / US$0.50 per 1M"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S079",
+    "A5-S027",
+    "V2-S012"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Google Cloud (Grok 4.7, 4.6, 4.20, 4.3, 4.1 Fast), Amazon Bedrock (Grok 4.6 global/US/US-Gov), Microsoft Foundry (Grok 4.6, 4.3, 4.20, 4.1 Fast, code-fast-1).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S027",
+    "A5-S038"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Proprietary API.",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Acquired: merged into SpaceX (February 2026); brand changed to SpaceXAI (July 2026).",
+    "label": "Reported",
+    "src": [
+     "A5-S081"
+    ],
+    "conf": "medium"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Available on all three major hyperscalers.",
+    "label": "Reported",
+    "src": [
+     "A5-S027",
+     "A5-S038"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Yes",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S027",
+   "A5-S038",
+   "A5-S047",
+   "A5-S079",
+   "A5-S080",
+   "A5-S081",
+   "A5-S082",
+   "V2-S011",
+   "V2-S070",
+   "V2-S012"
+  ],
+  "stage_a_notes": "Gap pass: lineup, pricing, security/retention now from x.ai/docs.x.ai via search extracts (direct fetch blocked). Ownership change (SpaceX merger, SpaceXAI rebrand) rests on secondary reporting. Grok image-generation investigations concern X/Grok consumer features (EU DSA, Ofcom, ICO, Irish DPC); no decisions found. Open-weight status of older Grok models still not verified. [V2 verification 8 October 2026] Merger confirmed from xAI's own post plus TechCrunch [V2-S011]. The SpaceXAI rebrand date is unverified (sources give July or 7 May 2026). The SpaceXSI rename was announced on 4 October 2026 but not effected [V2-S011]. Grok 4.7 date, context and two-tier pricing re-confirmed from docs.x.ai [V2-S012]. EU DSA formal investigation (26 January 2026) re-confirmed [V2-S070].",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-deepseek",
+  "layer": "L1",
+  "original_label": "DeepSeek – V4",
+  "current_name": {
+   "v": "DeepSeek V4 family (DeepSeek-V4-Pro; DeepSeek-V4.1-Flash, which replaced V4-Flash in the API)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S063",
+    "A5-S064",
+    "A5-S065"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "DeepSeek (Hangzhou DeepSeek AI; PRC). Open Platform terms governed by laws of mainland PRC; US bills name High Flyer as owner.",
+   "label": "Reported",
+   "src": [
+    "A5-S062",
+    "A5-S055",
+    "A5-S049"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Open-weight model vendor with hosted API (reasoning, coding; Flash vision experimental)",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S041"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": [
+    "flagship: DeepSeek-V4-Pro: preview 24 April 2026 (1.6T total / 49B active); GA 13 August 2026 (V4-Pro-0813); 1M context, 384K output. The planned phase-out (routing V4-Pro calls to V4.1-Flash from 14 September 2026) was reversed: the pricing-page footnote updated 17 September 2026 says the V4-Pro API continues with billing unchanged (the 10 September news post still carries the phase-out wording). [A5-S063, A5-S064, A5-S065]",
+    "small_fast: DeepSeek-V4.1-Flash: released 10 September 2026; 552B MoE, 8B/16B active; native vision; API name deepseek-flash; replaces V4-Flash (preview 24 April; official -0731 on 31 July 2026). [A5-S064, A5-S063]",
+    "reasoning: Thinking / Non-Thinking dual modes in V4. [A5-S063]",
+    "open_weight: Yes, MIT licence (V4-Pro model card); V4-Flash-0731, V4-Pro-0813 and V4.1-Flash repos on Hugging Face. [A5-S063, A5-S064]",
+    "previous: V3.2, V3.1, R1-0528 remain on Google Cloud and Bedrock. [A5-S027, A5-S086]",
+    "graphic_label_check: \"V4\" is correct at generation level but stale at point-release level: V4.1-Flash (10 September 2026) verified from DeepSeek; no V4.1-Pro yet. Brief example \"DeepSeek V4.1\" verified only for the Flash tier."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S063",
+    "A5-S064",
+    "A5-S065",
+    "A5-S027",
+    "A5-S086",
+    "V2-S013"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Open weights under MIT licence; also hosted API.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S063"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [
+    "24 April 2026: V4 preview (Pro, Flash)",
+    "31 July 2026: V4-Flash-0731 official",
+    "13 August 2026: V4-Pro GA; peak/off-peak pricing from 16 August",
+    "10 September 2026: V4.1-Flash; price cuts; V4-Pro phase-out announced, then reversed on 17 September 2026 (V4-Pro API continues)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S063",
+    "A5-S064",
+    "V2-S013"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Large mixture-of-experts LLMs released as open weights and served via DeepSeek's own API and third-party clouds.",
+   "label": "Reported",
+   "src": [
+    "A5-S044",
+    "A5-S038"
+   ],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "L1 foundation model; open weights also make it an L2 self-hosting candidate.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Self-hosting requires large multi-GPU clusters (V4-Pro ~1.6T parameters); V4-Flash demonstrated on single Ascend NPU with CPU expert offload (KTransformers).",
+   "label": "Reported",
+   "src": [
+    "A5-S044",
+    "A5-S042"
+   ],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "DeepSeek API (OpenAI-compatible model IDs per aggregator); open weights served by SGLang, vLLM-class engines, KTransformers, LMDeploy.",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S039",
+    "A5-S042",
+    "A5-S044"
+   ],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (DeepSeek API, data stored in PRC)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S062",
+     "A5-S065"
+    ],
+    "conf": "medium"
+   },
+   "managed_cloud": {
+    "v": "Yes: Microsoft Foundry sells V4-Pro/V4-Flash directly by Azure (customer geography, Global or DataZone processing); Bedrock and Google Cloud offer only V3.x/R1 (Bedrock V3.2 includes EU profile)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S087",
+     "A5-S086",
+     "A5-S027",
+     "A5-S038"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (open weights)",
+    "label": "Reported",
+    "src": [
+     "A5-S041",
+     "A5-S042"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (open weights)",
+    "label": "Reported",
+    "src": [
+     "A5-S041",
+     "A5-S042"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "DeepSeek states it collects, processes and stores personal data in the PRC (consumer and Open Platform policies); Open Platform terms under mainland PRC law; consumer data may be used for training with opt-out; API training position not stated. No EU/UK residency option. Non-China processing only via third-party hosting (e.g. Microsoft Foundry) or self-hosted weights.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S062",
+    "A5-S087"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "deepseek-v4-pro (peak): US$1.32 input (cache miss) / US$3.96 output per 1M; off-peak half",
+    "deepseek-flash = V4.1-Flash (peak): US$0.30 / US$1.20 per 1M; off-peak US$0.15 / US$0.60",
+    "Microsoft Foundry V4-Pro: US$1.74 / US$3.48 per 1M (aggregator)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S065",
+    "A5-S038"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "V4-Pro ~1.6T and V4-Flash ~284B total parameters (LMDeploy); quantised V4-Flash runs on a single Ascend NPU with CPU offload (KTransformers).",
+   "label": "Reported",
+   "src": [
+    "A5-S044",
+    "A5-S042"
+   ],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Day-0 support in SGLang; supported by LMDeploy, KTransformers, Xinference, Unsloth; hosted by Microsoft Foundry, Alibaba Model Studio, Together, Fireworks, Nebius, Databricks, OpenRouter.",
+   "label": "Reported",
+   "src": [
+    "A5-S039",
+    "A5-S044",
+    "A5-S042",
+    "A5-S041",
+    "A5-S043",
+    "A5-S038"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Open weights reduce model lock-in.",
+    "label": "Reported",
+    "src": [
+     "A5-S041"
+    ],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Government-use restrictions in Italy (processing limitation), Australia, Taiwan, several US states and US DoD/IC.",
+    "label": "Verified fact",
+    "src": [
+     "A5-S048",
+     "A5-S054",
+     "A5-S059",
+     "A5-S056",
+     "A5-S057"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "No for self-hosted weights; yes for DeepSeek API.",
+    "label": "Reported",
+    "src": [
+     "A5-S038",
+     "A5-S041"
+    ],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S027",
+   "A5-S038",
+   "A5-S039",
+   "A5-S041",
+   "A5-S042",
+   "A5-S043",
+   "A5-S044",
+   "A5-S046",
+   "A5-S048",
+   "A5-S049",
+   "A5-S050",
+   "A5-S053",
+   "A5-S054",
+   "A5-S055",
+   "A5-S056",
+   "A5-S057",
+   "A5-S058",
+   "A5-S059",
+   "A5-S060",
+   "A5-S061",
+   "A5-S062",
+   "A5-S063",
+   "A5-S064",
+   "A5-S065",
+   "A5-S086",
+   "A5-S087",
+   "V2-S013",
+   "V2-S023",
+   "V2-S069",
+   "V2-S022"
+  ],
+  "stage_a_notes": "Regulatory facts (DeepSeek-specific unless stated): Italy Garante urgent limitation of DeepSeek processing of Italian users' data, 30 January 2025 (Arts 6, 31, 32, Chapter III GDPR; data stored in PRC) [A5-S048]; Korea PIPC suspended new downloads 15 February 2025 and found unconsented transfers of prompts and device data to four overseas firms (24 April 2025) [A5-S053]; Berlin DPA reported DeepSeek app to Apple/Google as illegal content under DSA Art. 16, 27 June 2025 [A5-S058]; Australia PSPF Direction 001-2025 (4 February 2025) bars DeepSeek on Commonwealth systems [A5-S054]; Taiwan bars government agencies (February 2025); Taiwan NSB flagged DeepSeek and Tongyi/Qwen among five PRC apps (November 2025) [A5-S059]; US: FY2026 NDAA s.1532 bars DoD use/acquisition of DeepSeek/High Flyer AI (waivers possible) and s.6604 requires removal from intelligence-community systems [A5-S057]; No DeepSeek on Government Devices Act (H.R.1121/S.765) still in committee [A5-S055]; Texas, New York, Virginia, Iowa state-device bans (early 2025) [A5-S056]; no US ban on private-sector use found as of October 2026, but congressional probes and possible executive action reported [A5-S060]; UK: no government-wide ban; HL4479 answer notes DeepSeek data \"will be sent to China\"; DWP bars DeepSeek on its devices [A5-S061]; CAISI (US Commerce/NIST): September 2025 DeepSeek evaluation found greater agent-hijacking and jailbreak susceptibility and censorship [A5-S049]; V4 Pro ~8 months behind frontier (May 2026) [A5-S050]. Hosted API vs self-hosting: DeepSeek's own API stores data in the PRC [A5-S062]; Microsoft Foundry's direct-from-Azure V4 keeps processing in the customer's Azure geography/data zone [A5-S087]; MIT weights allow self-hosting [A5-S063]. Anthropic (competitor; CoI) alleged distillation of Claude by DeepSeek (23 February 2026) [A5-S046]. [V2 verification 8 October 2026] V4-Pro status conflict resolved: DeepSeek reversed the 14 September phase-out; pricing-page footnote of 17 September says service continues [V2-S013; DeepSeek news page plus secondary analysis]. No V4.1-Pro date published. Regulatory position re-checked: no Garante fine or lifting of the 30 January 2025 limitation found, and the restriction was described as continuing in May 2026 [V2-S023]. FY2026 NDAA (P.L. 119-60) s.1532 reportedly took effect about 17 January 2026 for DoD and its contractors when performing DoD contracts, with case-by-case waivers (tracker summary; statute not read) [V2-S069]. Anthropic's distillation allegation against DeepSeek, Moonshot and MiniMax (about 24,000 accounts, over 16 million exchanges) is confirmed as Anthropic's published claim only; it is unadjudicated, it comes from a competitor, and the verifier is an Anthropic model [V2-S022].",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-alibaba-qwen",
+  "layer": "L1",
+  "original_label": "Qwen – 3.8",
+  "current_name": {
+   "v": "Alibaba Qwen model family (Qwen3.8: Max, Flash, Omni-Flash API; open-weight Qwen3.8-27B, Qwen3.8-2.4T-A95B, Qwen3.8-Flash-Next)",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S040",
+    "A5-S041"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Alibaba Cloud (Qwen team); official dashscope SDK published by Alibaba Cloud",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-weight and API model vendor (general, reasoning, coding, omni-modal, embeddings)",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S040"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": [
+    "flagship_api: qwen3.8-max (snapshot qwen3.8-max-0902), 1M context, 128K output; US$2 / US$6 per 1M (International scope). [A5-S068, A5-S038]",
+    "small_api: qwen3.8-flash and qwen3.8-omni-flash, ~992K context. [A5-S038]",
+    "open_weight: Qwen3.8-2.4T-A95B flagship weights (hosted Qwen3.8-Max launched 3 August 2026; weights 12 August 2026; ~95B active; open weights reportedly text-only and without the full 1M context; custom Qwen3.8-Max License), Qwen3.8-27B (Apache 2.0, 262K native context), Qwen3.8-Flash (open-weight multimodal MoE, ~late August 2026), Qwen3.8-Flash-Next. [A5-S066, A5-S068, A5-S040, A5-S041]",
+    "previous: Qwen3.7 Max/Plus/Flash, Qwen3.6 (27B, 35B-A3B open), Qwen3.5 (0.8B to 397B, February 2026), Qwen3-Next-80B, Qwen3-Coder-480B (on Google Cloud and Bedrock). [A5-S038, A5-S044, A5-S027]",
+    "coding: Qwen3-Coder-480B-A35B, qwen3-coder-next (Bedrock incl. eu-west-1, eu-west-2 London, eu-central-1). [A5-S027, A5-S038]",
+    "graphic_label_check: \"3.8\" is CORRECT as the current generation (August-September 2026), verified from Alibaba Cloud pages."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S038",
+    "A5-S040",
+    "A5-S041",
+    "A5-S044",
+    "A5-S027",
+    "A5-S066",
+    "A5-S068",
+    "V2-S014"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Mixed: Qwen3.8-27B Apache 2.0; Qwen3.8-2.4T-A95B (open weights 12 August 2026) under a custom \"Qwen3.8-Max License\": Model-as-a-Service or AI-assistant businesses with over US$50m trailing revenue need a separate licence, with attribution duties for very large products (Reported; licence file not read); Max/Plus API tiers proprietary; Qwen-Image-2.1 reportedly research-only.",
+   "label": "Reported",
+   "src": [
+    "A5-S066",
+    "V2-S014"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [
+    "February 2026: Qwen3.5 (LMDeploy support)",
+    "26 August 2026: Qwen3.8-Flash-Next (ms-swift day-0)",
+    "3 August 2026: Qwen3.8-Max hosted launch (Reported)",
+    "12 August 2026: Qwen3.8-2.4T-A95B open weights under Qwen3.8-Max License (Reported)"
+   ],
+   "label": "Reported",
+   "src": [
+    "A5-S044",
+    "A5-S040",
+    "V2-S014"
+   ],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Family of dense and MoE LLMs, multimodal and coding variants, offered as open weights and via Alibaba Cloud Model Studio (DashScope) API.",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S041"
+   ],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "L1 foundation model; Qwen3 embeddings also appear at L7.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Self-hosting: model sizes range from 27B to 2.4T total parameters (Qwen3.8).",
+   "label": "Reported",
+   "src": [
+    "A5-S041"
+   ],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "DashScope API (dashscope SDK 1.27.7, Apache 2.0, 24 September 2026); open weights via Hugging Face/ModelScope served by vLLM, SGLang, LMDeploy, Xinference.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047",
+    "A5-S041"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Alibaba Cloud Model Studio)",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Yes (Google Cloud Qwen3 models; Amazon Bedrock Qwen3 family incl. EU/UK regions); Qwen3.8 not listed on hyperscalers",
+    "label": "Reported",
+    "src": [
+     "A5-S027",
+     "A5-S038"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (open-weight sizes)",
+    "label": "Reported",
+    "src": [
+     "A5-S041"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (open-weight sizes)",
+    "label": "Reported",
+    "src": [
+     "A5-S041"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Alibaba says it never uses customer data for model training (Model Studio FAQ). Region-bound storage: Frankfurt region supports an EU deployment scope (workspace-dedicated endpoint), Singapore \"International\" scope, US (Virginia) US scope, Beijing mainland scope; static data remains in the selected region. Bedrock-hosted Qwen3 available in London, Ireland, Stockholm, Milan regions.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S067",
+    "A5-S086"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "qwen3.8-max (International): US$2 input / US$6 output per 1M; cached US$0.25",
+    "qwen3.8-flash (Singapore): US$0.15 / US$0.47 per 1M; Global/US US$0.113 / US$0.382",
+    "Google Cloud Qwen3-235B-A22B-2507: US$0.22 / US$0.88 per 1M"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S068",
+    "A5-S027"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Qwen3.8 open sizes 27B (single-GPU class with quantisation) to 2.4T-A95B (multi-node).",
+   "label": "Reported",
+   "src": [
+    "A5-S041",
+    "A5-S043"
+   ],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Google Cloud, Amazon Bedrock (Qwen3 incl. eu-west-2 London), Together, DeepInfra, Groq, OpenRouter; Unsloth, ms-swift, LLaMA-Factory, Xinference support.",
+   "label": "Reported",
+   "src": [
+    "A5-S027",
+    "A5-S038",
+    "A5-S040",
+    "A5-S041",
+    "A5-S043"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Open-weight sizes reduce lock-in; Max tiers API-only.",
+    "label": "Reported",
+    "src": [
+     "A5-S038",
+     "A5-S041"
+    ],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Max tiers proprietary API.",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S027",
+   "A5-S038",
+   "A5-S040",
+   "A5-S041",
+   "A5-S043",
+   "A5-S044",
+   "A5-S047",
+   "A5-S051",
+   "A5-S059",
+   "A5-S060",
+   "A5-S066",
+   "A5-S067",
+   "A5-S068",
+   "A5-S086",
+   "V2-S014"
+  ],
+  "stage_a_notes": "Regulatory: Taiwan NSB (November 2025) found Tongyi (Alibaba's Qwen-family app) violated 11 of 15 security indicators [A5-S059]; no CAISI evaluation of Qwen found [A5-S051]; Beijing reportedly considering restricting overseas access to leading Chinese models including open-weight Qwen (July 2026, unenacted) [A5-S060]. No Qwen-specific government ban found. Hosted options outside China: Alibaba Frankfurt (EU scope) and Bedrock EU/UK regions (Qwen3 generation only; Qwen3.8 not on hyperscalers). Certifications for Model Studio not verified. [V2 verification 8 October 2026] Flagship licence resolved at Reported level [V2-S014]: not Apache 2.0; separate licence needed for large MaaS providers. Read the LICENSE file before any commercial use.",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-moonshot-kimi",
+  "layer": "L1",
+  "original_label": "Kimi – K3",
+  "current_name": {
+   "v": "Moonshot AI Kimi model family (Kimi K3; K2.7-Code, K2.6, K2.5, K2-Thinking)",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S039"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Moonshot AI: international API operated by Moonshot AI PTE. LTD. (Singapore); mainland platform by Beijing Moonshot Technology (PRC)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S070"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Open-weight and API model vendor (agentic, reasoning, multimodal)",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S040"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": [
+    "flagship: Kimi K3, launched 16 July 2026; weights released by 27 July 2026 on Hugging Face; 2.8T-parameter MoE (about 104B active, reported); native multimodal; 1M context. [A5-S069, A5-S039, A5-S040]",
+    "coding: Kimi K2.7-Code (262K context). [A5-S038]",
+    "previous: Kimi K2.6, K2.5 (January 2026 per KTransformers), K2-Thinking (on Google Cloud and Bedrock). [A5-S038, A5-S042, A5-S027]",
+    "graphic_label_check: \"K3\" is CORRECT (16 July 2026), verified from Moonshot pages."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S038",
+    "A5-S039",
+    "A5-S040",
+    "A5-S041",
+    "A5-S042",
+    "A5-S027",
+    "A5-S069",
+    "V2-S015",
+    "V2-S021"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Open weights under the custom \"Kimi K3 License\" (MIT-style grant; hosted-service providers above a revenue threshold need a separate agreement; attribution for products >100M MAU or >US$20M monthly revenue). Kimi K2.7-Code uses a \"Modified MIT\" licence.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S069",
+    "V2-S015"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [
+    "January 2026: Kimi K2.5",
+    "July 2026: Kimi K3 open release"
+   ],
+   "label": "Reported",
+   "src": [
+    "A5-S042",
+    "A5-S039",
+    "A5-S040"
+   ],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Large multimodal agentic LLMs offered as open weights and via Moonshot's Kimi platform API.",
+   "label": "Reported",
+   "src": [
+    "A5-S040",
+    "A5-S038"
+   ],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "L1 foundation model.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Kimi platform API (platform.kimi.ai per aggregator source links); open weights via SGLang, Xinference, ms-swift, Unsloth.",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S039",
+    "A5-S041"
+   ],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Kimi platform API)",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Yes (Bedrock Kimi K3 cross-Region profiles; Microsoft Foundry via Fireworks - inference on Fireworks GPUs outside customer tenant; Google Cloud K2-Thinking)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S086",
+     "A5-S087",
+     "A5-S027"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (open weights)",
+    "label": "Reported",
+    "src": [
+     "A5-S041"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (open weights)",
+    "label": "Reported",
+    "src": [
+     "A5-S041"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "International API platform stores data on servers in Singapore; mainland platform keeps data in the PRC. Kimi API help page says API inputs/outputs are not used for training; the international privacy policy (30 April 2025) lists model training as a purpose (conflict). No EU residency option found. Bedrock offers Kimi K3 via US, India and global cross-Region profiles (no in-Region); Microsoft Foundry offers K3 via Fireworks pass-through (US Data Zone).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S070",
+    "A5-S086",
+    "A5-S087"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "Kimi K3 (Kimi API): US$3 input / US$15 output per 1M; cached input US$0.30; flat across 1M context",
+    "Kimi K3 (Bedrock global): US$3 / US$15 per 1M (aggregator)"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S069",
+    "A5-S038"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Amazon Bedrock, Microsoft Foundry, Google Cloud (K2-Thinking), SGLang, Xinference, ms-swift, Unsloth.",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S027",
+    "A5-S039",
+    "A5-S041",
+    "A5-S040",
+    "A5-S043"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Open weights reduce lock-in.",
+    "label": "Reported",
+    "src": [
+     "A5-S041"
+    ],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S027",
+   "A5-S038",
+   "A5-S039",
+   "A5-S040",
+   "A5-S041",
+   "A5-S042",
+   "A5-S043",
+   "A5-S046",
+   "A5-S051",
+   "A5-S059",
+   "A5-S069",
+   "A5-S070",
+   "A5-S086",
+   "A5-S087",
+   "V2-S015",
+   "V2-S021"
+  ],
+  "stage_a_notes": "Regulatory: CAISI evaluated Kimi K2 Thinking (highly censored in Chinese; below US frontier) and, jointly with UK AISI, Kimi K3 (July 2026: below frontier cyber models; safeguards did not stop attempted exploit development) [A5-S051]. No Kimi-specific government ban found; Taiwan actions named other apps [A5-S059]. Anthropic (competitor; CoI) alleged distillation by Moonshot [A5-S046]. Licence characterisation conflict: HF \"State of Open Models\" post vs LICENSE text [A5-S069]. [V2 verification 8 October 2026] K3 dates (16 July launch; weights 26/27 July), size and Kimi K3 License (not MIT) corroborated by secondary sources only [V2-S015]; CAISI/UK AISI preliminary cyber assessment (July 2026) re-confirmed [V2-S021].",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-zai-glm",
+  "layer": "L1",
+  "original_label": "QI4 (Z logo) – Q4",
+  "current_name": {
+   "v": "Z.ai (Zhipu) GLM model family (GLM-5.3, GLM-5.3-Flash, GLM-5.2, GLM-5.1, GLM-5; GLM-4.7)",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S042",
+    "A5-S043"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Z.ai (Zhipu AI; listed in US Entity List as Beijing Zhipu Huazhang Technology Co., Ltd. a.k.a. Zhipu AI). International services provided by Jingsheng Hengxing Technology Pte. Ltd. (Singapore).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S072",
+    "A5-S073"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Open-weight and API model vendor (agentic/coding LLMs, multimodal, image)",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S041"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": [
+    "flagship: GLM-5.3 (753B; same base as GLM-5.2, post-trained; API launch mid-August 2026 (14 August per NIST CAISI, 18 August per press); weights about 28 August 2026 under a bespoke glm-5.3 licence; on Bedrock from 5 October 2026), GLM-5.2 (open weights, 1M context, June 2026). [A5-S071, A5-S086, A5-S042]",
+    "small_fast: GLM-5.3-Flash (320B total / 18B active, first natively multimodal GLM-5, MIT); GLM-5.3-FlashX. [A5-S071]",
+    "previous: GLM-5 (day-0 support 12 February 2026), GLM-5.1, GLM-5-Code, GLM-4.7 / 4.7-Flash. [A5-S042, A5-S038]",
+    "multimodal: GLM-Image. [A5-S041]",
+    "graphic_label_check: \"QI4\" / \"Q4\" is UNVERIFIABLE and appears garbled: no GLM, Zhipu or Z.ai model named QI4 or Q4 was found. The Z logo is consistent with Z.ai; the current family is GLM-5.x (GLM-5.3 latest)."
+   ],
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S041",
+    "A5-S042",
+    "A5-S043",
+    "A5-S044",
+    "A5-S071",
+    "A5-S086",
+    "V2-S016",
+    "V2-S021"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "GLM-5.3-Flash: MIT. GLM-5.3: MIT-style grant with \"Model as a Service\" condition (MaaS businesses >US$10bn revenue need Z.ai security review).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S071"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [
+    "12 February 2026: GLM-5",
+    "17 June 2026: GLM-5.2",
+    "26 August 2026: GLM-5.3-Flash open weights (MIT)",
+    "16 January 2025: Zhipu AI added to US Entity List (presumption of denial for EAR items)",
+    "5 October 2026: GLM 5.3 GA on Amazon Bedrock (eligible enterprise customers)",
+    "14 August 2026 (CAISI) / 18 August 2026 (press): GLM-5.3 released; weights about 28 August 2026",
+    "September 2026: NIST CAISI assessment finds GLM-5.3 the most cyber-capable open-weight model to date, about four months behind the US frontier"
+   ],
+   "label": "Reported",
+   "src": [
+    "A5-S042",
+    "A5-S072",
+    "A5-S086",
+    "V2-S016",
+    "V2-S021"
+   ],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "Large MoE LLMs for agentic and coding workloads released as open weights and via the Z.ai API.",
+   "label": "Reported",
+   "src": [
+    "A5-S043",
+    "A5-S038"
+   ],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "L1 foundation model.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "GLM-5.2 ~744-754B parameters requires multi-GPU serving; NVFP4 serving reported at 500 TPS with SGLang.",
+   "label": "Reported",
+   "src": [
+    "A5-S043",
+    "A5-S044",
+    "A5-S039"
+   ],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Z.ai API (zai-sdk 0.2.3, 16 June 2026); open weights via SGLang, KTransformers, Unsloth, LMDeploy, Xinference; also resold on Mistral's platform (zai-glm-5-3).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047",
+    "A5-S039",
+    "A5-S038"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Z.ai API)",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Yes (Google Cloud GLM-4.7/5/5.2; Amazon Bedrock GLM-5/4.7 US regions; Microsoft Foundry Fireworks-operated GLM-5 to 5.3; Mistral platform GLM-5.x)",
+    "label": "Reported",
+    "src": [
+     "A5-S027",
+     "A5-S038"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (open weights)",
+    "label": "Reported",
+    "src": [
+     "A5-S041",
+     "A5-S043"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (open weights)",
+    "label": "Reported",
+    "src": [
+     "A5-S041",
+     "A5-S043"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Personal data \"generally processed in Singapore\"; may transfer to Z.ai Group affiliates overseas. Current DPA says API content is not stored (older version said temporary storage - conflict). General privacy policy cites model training under legitimate interest; API terms do not expressly exclude API inputs from training. No EU residency option found. Bedrock GLM 5 in-Region in eu-west-2 (London); GLM 5.3 via US/global cross-Region only.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S073",
+    "A5-S086"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "GLM-5.3 (Z.ai): US$1.40 input / US$4.40 output per 1M; cached US$0.26",
+    "GLM-5.3-Flash: US$0.15 / US$0.50 per 1M",
+    "GLM-5.2 (Google Cloud): US$1.40 / US$4.40 per 1M"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S071",
+    "A5-S027"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "GLM-5.2 runnable locally only with heavy quantisation (Unsloth dynamic GGUFs); GLM-5.3-Flash targets consumer GPUs.",
+   "label": "Reported",
+   "src": [
+    "A5-S043",
+    "A5-S042"
+   ],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Google Cloud, Bedrock, Microsoft Foundry, Mistral platform; SGLang, KTransformers, Unsloth, LMDeploy, Xinference.",
+   "label": "Reported",
+   "src": [
+    "A5-S027",
+    "A5-S038",
+    "A5-S039",
+    "A5-S042",
+    "A5-S043",
+    "A5-S044",
+    "A5-S041"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Open weights reduce lock-in.",
+    "label": "Reported",
+    "src": [
+     "A5-S041"
+    ],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Vendor is on the US Entity List (export-control exposure for transactions involving EAR items).",
+    "label": "Verified fact",
+    "src": [
+     "A5-S072"
+    ],
+    "conf": "high"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S027",
+   "A5-S038",
+   "A5-S039",
+   "A5-S041",
+   "A5-S042",
+   "A5-S043",
+   "A5-S044",
+   "A5-S047",
+   "A5-S052",
+   "A5-S071",
+   "A5-S072",
+   "A5-S073",
+   "A5-S086",
+   "V2-S016",
+   "V2-S021"
+  ],
+  "stage_a_notes": "Regulatory: Zhipu AI on US Entity List since 16 January 2025 [A5-S072]; CAISI assessed GLM-5.2 (July 2026: ~GPT-5.2 level; safeguards allow agentic exploit assistance; more robust to hijacking than other PRC models) and GLM-5.3 (September 2026: most cyber-capable open-weight model, ~4 months behind US frontier) [A5-S052]. No GLM-specific usage ban found. Ambiguity A1: \"QI4\"/\"Q4\" matches no model; resolved as Z.ai GLM family. [V2 verification 8 October 2026] GLM-5.3 release date conflict: 14 August 2026 (NIST CAISI) vs 18 August 2026 (secondary press) [V2-S021, V2-S016]. GLM-5.3-Flash MIT (26 August) corroborated [V2-S016].",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-mistral",
+  "layer": "L1",
+  "original_label": "Mistral – Medium 3.1",
+  "current_name": {
+   "v": "Mistral AI model family (Mistral Large 4 preview; Mistral Medium 3.5; Mistral Large 3; Mistral Small 4.0; Ministral 3; Magistral; Devstral 2; Codestral; Mistral OCR; Voxtral)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S074",
+    "A5-S076",
+    "A5-S038"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Mistral AI (official mistralai SDK author \"Mistral\")",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Model vendor with API and open-weight models (general, reasoning, coding, OCR, speech)",
+   "label": "Reported",
+   "src": [
+    "A5-S038"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": [
+    "frontier_preview: Mistral Large 4, public preview 6 October 2026; ~1T total / 49-52B active MoE, multimodal, 1M context; open weights promised by end of October 2026 (27 October per VentureBeat); preview API-only in Mistral Studio. [A5-S076]",
+    "flagship_mid: Mistral Medium 3.5, 128B dense, 256K context, released 28 April 2026 (changelog lists 26 April), open weights under Modified MIT v26.04; API US$1.5 / US$7.5 per 1M. [A5-S074]",
+    "large_open: Mistral Large 3 (December 2025), 675B total / 41B active MoE, Apache 2.0. [A5-S074]",
+    "small: Mistral Small 4.0 (26.03); Ministral 3 3B/8B/14B (25.12). [A5-S038]",
+    "reasoning: Magistral Medium/Small (latest aliases point to Medium 3.5 / Small 4.0). [A5-S038]",
+    "coding: Devstral 2 (Bedrock devstral-2-123b; Devstral Small 2), Codestral 25.08, Mistral Vibe CLI. [A5-S038]",
+    "multimodal_specialist: Mistral OCR 4.1, Voxtral (transcription, realtime, TTS). [A5-S038]",
+    "third_party_hosted: Mistral platform also serves Z.ai GLM-5.2/5.3. [A5-S038]",
+    "graphic_label_check: \"Medium 3.1\" is STALE: superseded by Medium 3.5 (28 April 2026) and Large 4 preview (6 October 2026)."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S038",
+    "A5-S027",
+    "A5-S039",
+    "A5-S074",
+    "A5-S076",
+    "V2-S017",
+    "V2-S018"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Mixed: Large 3 and Ministral 3 Apache 2.0; Medium 3.5 Modified MIT (revenue-based exceptions); Large 4 licence not yet published; some models API-only.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S074",
+    "A5-S076",
+    "V2-S018"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "status_events": {
+   "v": [
+    "December 2025: Mistral Large 3, Ministral 3",
+    "March 2026: Mistral Small 4.0",
+    "April 2026: Mistral Medium 3.5 supersedes Medium 3.1 (dates inferred from model-card version codes)",
+    "6 October 2026: Mistral Large 4 public preview"
+   ],
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S076"
+   ],
+   "conf": "low"
+  },
+  "what_it_does": {
+   "v": "General, reasoning, coding, OCR and speech models via Mistral's API (La Plateforme) and partner clouds, with some models released as open weights.",
+   "label": "Reported",
+   "src": [
+    "A5-S038"
+   ],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "L1 foundation model; Mistral also appears at L3 (Agents) and L8 (Mistral OCR).",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Mistral API; mistralai Python SDK 3.1.0 (6 October 2026).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S047"
+   ],
+   "conf": "high"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Yes (Google Cloud: Medium 3, Small 3.1, Codestral 2, OCR; Bedrock: Large 3, Devstral 2, Ministral 3, Magistral Small, Pixtral Large incl. eu., Voxtral; Microsoft Foundry: Large 3, Medium 3.5, OCR 4)",
+    "label": "Reported",
+    "src": [
+     "A5-S027",
+     "A5-S038"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (open-weight models: Large 3, Medium 3.5, Ministral 3)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S074"
+    ],
+    "conf": "medium"
+   },
+   "on_prem": {
+    "v": "Yes (open-weight models)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S074"
+    ],
+    "conf": "medium"
+   }
+  },
+  "certifications": {
+   "v": "SOC 2 Type II and ISO 27001/27701 (per Mistral help centre; reports via Trust Center on request).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S075"
+   ],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Data hosted in the EU by default; optional US endpoint; EU regional endpoint api.eu.mistral.ai (10% surcharge) commits inference location; some features may transfer data outside EU (listed on Trust Center). API data not used for training; default 30-day retention for abuse monitoring; ZDR only for pay-as-you-go stateless calls, at Mistral's discretion.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S075"
+   ],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "Mistral Medium 3.5: US$1.50 input / US$7.50 output per 1M",
+    "Mistral Large 3: US$0.50 / US$1.50 per 1M (aggregator)",
+    "Mistral Small 4.0: US$0.15 / US$0.60 per 1M (aggregator)",
+    "Mistral Large 4 preview: 50% launch discount for 2 weeks; list price not verified"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S074",
+    "A5-S038",
+    "A5-S076"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Google Cloud, Amazon Bedrock, Microsoft Foundry, Scaleway (Medium 3.5 128B), OpenRouter; SGLang day-0 support for Large 3.",
+   "label": "Reported",
+   "src": [
+    "A5-S027",
+    "A5-S038",
+    "A5-S039"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Available on all three hyperscalers (different model subsets).",
+    "label": "Reported",
+    "src": [
+     "A5-S027",
+     "A5-S038"
+    ],
+    "conf": "medium"
+   },
+   "proprietary_api": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S027",
+   "A5-S038",
+   "A5-S039",
+   "A5-S047",
+   "A5-S074",
+   "A5-S075",
+   "A5-S076",
+   "V2-S017",
+   "V2-S018"
+  ],
+  "stage_a_notes": "Gap pass: lineup, licences, certifications and EU residency now from mistral.ai/docs/help centre via search extracts. Still not verified: headquarters/jurisdiction statement from a primary page (EU hosting default verified), Large 4 licence and list price. [V2 verification 8 October 2026] Large 4 preview (6 October 2026) and Medium 3.5 details re-confirmed [V2-S017, V2-S018]. Large 4 parameter counts differ between launch post (1T/49B) and docs (1.05T/52B).",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-google-gemma",
+  "layer": "L1",
+  "original_label": "Gemma – 2.9",
+  "current_name": {
+   "v": "Google Gemma 4 (open-weight family)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034",
+    "A5-S035"
+   ],
+   "conf": "high"
+  },
+  "company": {
+   "v": "Google (Google DeepMind)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034"
+   ],
+   "conf": "high"
+  },
+  "category": {
+   "v": "Open-weight model family (small/medium, multimodal, on-device)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034"
+   ],
+   "conf": "high"
+  },
+  "version_or_lineup": {
+   "v": [
+    "current: Gemma 4: E2B, E4B, 26B MoE (A4B), 31B Dense released 31 March 2026 (releases page) / 2 April 2026 (blog); Gemma 4 12B unified encoder-free multimodal added 3 June 2026; MTP drafters April 2026. [A5-S034]",
+    "context: 128K (E2B/E4B), up to 256K (larger models); LiteLLM lists 262,144 for 26B/31B. [A5-S034, A5-S038]",
+    "multimodal: All models take image and video input; E2B/E4B also audio. [A5-S034]",
+    "previous: Gemma 3 (1B/4B/12B/27B) still self-deployable on Google Cloud and on Bedrock. [A5-S027, A5-S038]",
+    "graphic_label_check: \"2.9\" is WRONG: no Gemma 2.9 exists in any source found; current generation is Gemma 4. Brief example \"Gemma 4\" verified."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S034",
+    "A5-S035",
+    "A5-S027",
+    "A5-S038",
+    "V2-S020"
+   ],
+   "conf": "high"
+  },
+  "licence_model": {
+   "v": "Open weights under Apache 2.0 (Hugging Face model cards and Google blog); one README also links a separate Gemma 4 licence page on ai.google.dev (not read).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034",
+    "A5-S035",
+    "V2-S020"
+   ],
+   "conf": "high"
+  },
+  "strategic_direction": {
+   "v": "Edge and on-device focus (Android AICore, AI Edge Gallery), agentic features (function calling, structured JSON), Google reports 150 million Gemma 4 downloads.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "31 March / 2 April 2026: Gemma 4 launch",
+    "3 June 2026: Gemma 4 12B"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S034",
+    "V2-S020"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Open-weight multimodal models for local, edge and self-hosted deployment, also served by Google and third parties.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034"
+   ],
+   "conf": "high"
+  },
+  "stack_position": {
+   "v": "L1 open-weight model; the graphic shows it beside Gemini, but its natural deployment is self-hosted via L2 serving engines.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Runs on own hardware (laptop to GPU server) via Hugging Face, Kaggle, Ollama; Google AI Edge for devices.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034"
+   ],
+   "conf": "medium"
+  },
+  "integration_model": {
+   "v": "Weights on Hugging Face/Kaggle/Ollama; hosted Gemma 4 on Gemini API and Google Cloud (26B), Bedrock Mantle (31B, 26B, E2B incl. US GovCloud), Cloudflare, Together, OpenRouter.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034",
+    "A5-S027",
+    "A5-S038"
+   ],
+   "conf": "medium"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Gemini API / AI Studio hosting)",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Yes (Google Cloud; Amazon Bedrock)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S027",
+     "A5-S038"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Yes (self-deploy in own cloud account)",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "private_cloud": {
+    "v": "Yes (open weights)",
+    "label": "Verified fact",
+    "src": [
+     "A5-S034"
+    ],
+    "conf": "medium"
+   },
+   "self_hosted": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A5-S034"
+    ],
+    "conf": "high"
+   },
+   "on_prem": {
+    "v": "Yes",
+    "label": "Verified fact",
+    "src": [
+     "A5-S034"
+    ],
+    "conf": "high"
+   }
+  },
+  "certifications": {
+   "v": "Not applicable to weights; Google Cloud hosting inherits Google Cloud certifications.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "gdpr_residency": {
+   "v": "Self-hosting keeps data wherever the operator runs the model.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "No vendor support for open weights verified; support via hosting cloud.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "weights: Free (Apache 2.0)",
+    "Google Cloud Gemma 4 26B managed: US$0.15 input / US$0.60 output per 1M"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S034",
+    "A5-S027"
+   ],
+   "conf": "medium",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "E2B/E4B target phones and laptops; 26B MoE and 31B dense need a single data-centre GPU class (quantisation-aware-training GGUF releases available).",
+   "label": "Reported",
+   "src": [
+    "A5-S034",
+    "A5-S035"
+   ],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Hugging Face, Kaggle, Ollama, Unsloth (QAT, MTP, GGUF, MLX), Google Cloud, Bedrock, Cloudflare Workers AI, Together, DeepInfra.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034",
+    "A5-S043",
+    "A5-S038"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Google reports 150 million Gemma 4 downloads.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034"
+   ],
+   "conf": "medium"
+  },
+  "maturity": {
+   "v": "Fourth generation; GA open release.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S034"
+   ],
+   "conf": "medium"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Low model lock-in (permissive open weights).",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "medium"
+   },
+   "acquisition": {
+    "v": "Not applicable (Google first-party).",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "high"
+   },
+   "funding": {
+    "v": "Not applicable.",
+    "label": "Architectural judgement",
+    "src": [],
+    "conf": "high"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "No",
+    "label": "Verified fact",
+    "src": [
+     "A5-S034"
+    ],
+    "conf": "high"
+   },
+   "maturity": {
+    "v": "Gemma 4 launched spring 2026; 12B added June 2026.",
+    "label": "Verified fact",
+    "src": [
+     "A5-S034"
+    ],
+    "conf": "medium"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S027",
+   "A5-S034",
+   "A5-S035",
+   "A5-S038",
+   "A5-S043",
+   "V2-S020"
+  ],
+  "stage_a_notes": "Ambiguity A9 resolved: \"Gemma 2.9\" does not exist; current is Gemma 4. Licence change: Gemma 4 is published under Apache 2.0 per Google and HF cards (earlier Gemma generations used Google's own Gemma terms - not re-verified here). Launch date conflict: 31 March (releases page) vs 2 April 2026 (blog). Google's Arena-ranking claims are vendor-reported. [V2 verification 8 October 2026] Apache 2.0 licence and release dates (31 March 2026; 12B Unified 3 June 2026) confirmed from Google's launch post, releases page and model card [V2-S020].",
+  "last_verified": "2026-10-08"
+ },
+ {
+  "id": "L1-meta",
+  "layer": "L1",
+  "original_label": "Meta – Llama (new: Muse)",
+  "current_name": {
+   "v": "Meta Muse family (Muse Spark 1.1-1.3 via Meta Model API; Muse Glimmer 30B open weights; Muse Code; Muse Image) plus Llama 4 (Scout, Maverick)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S077",
+    "A5-S078",
+    "A5-S027"
+   ],
+   "conf": "medium"
+  },
+  "company": {
+   "v": "Meta (models built by Meta Superintelligence Labs)",
+   "label": "Verified fact",
+   "src": [
+    "A5-S077",
+    "A5-S078"
+   ],
+   "conf": "medium"
+  },
+  "category": {
+   "v": "Model vendor: hosted API models (Muse Spark) and open-weight models (Muse Glimmer, Llama 4)",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S040"
+   ],
+   "conf": "medium"
+  },
+  "version_or_lineup": {
+   "v": [
+    "flagship_api: Muse Spark announced April 2026 (Meta Superintelligence Labs); Muse Spark 1.1 with public Meta Model API preview 9 July 2026; 1.2 on 5 August 2026; 1.3 on 2 September 2026; Meta Model API GA globally (announced at Meta Connect, 23-24 September 2026; pre-Connect developer page still said public preview); 1,048,576 context; OpenAI/Anthropic-SDK compatible; on Oracle Cloud, Microsoft Foundry, Google Cloud private preview. [A5-S077, A5-S038]",
+    "open_weight: Muse Glimmer 30B, released August 2026 under Apache 2.0 (distilled from Muse Spark, agentic, consumer hardware). [A5-S078, A5-S040]",
+    "llama: Llama 4 Scout (17B-16E, 10M context on Llama API) and Llama 4 Maverick (17B-128E, 1M context) still offered on Google Cloud, Bedrock, Microsoft Foundry; Llama 3.3 70B still listed. No Llama 4.x or Llama 5 found. [A5-S027, A5-S038]",
+    "sdk_signal: Official llama-api-client SDK last released 18 December 2025 (0.6.0). [A5-S047]",
+    "graphic_label_check: \"Llama (new: Muse)\" is CORRECT in direction: Muse (April 2026 onwards) is Meta's current family, verified from Meta pages; Llama 4 (Llama 4 Community License, April 2025) remains the latest Llama."
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S038",
+    "A5-S040",
+    "A5-S027",
+    "A5-S047",
+    "A5-S077",
+    "A5-S078",
+    "V2-S019"
+   ],
+   "conf": "medium"
+  },
+  "licence_model": {
+   "v": "Muse Spark: hosted API only. Muse Glimmer 30B: Apache 2.0. Llama 4: Llama 4 Community License (attribution; >700M MAU need separate licence; California law).",
+   "label": "Verified fact",
+   "src": [
+    "A5-S077",
+    "A5-S078"
+   ],
+   "conf": "medium"
+  },
+  "strategic_direction": {
+   "v": "Frontier effort moved to Meta Superintelligence Labs' Muse brand: hosted API flagship (Muse Spark) plus a permissively licensed small open model (Muse Glimmer), distribution via Oracle, Microsoft and Google clouds.",
+   "label": "Verified fact",
+   "src": [
+    "A5-S077",
+    "A5-S078"
+   ],
+   "conf": "medium"
+  },
+  "status_events": {
+   "v": [
+    "April 2026: Muse Spark announced",
+    "9 July 2026: Meta Model API public preview (Muse Spark 1.1)",
+    "5 August 2026: Muse Spark 1.2, Muse Code",
+    "August 2026: Muse Glimmer 30B (Apache 2.0)",
+    "2 September 2026: Muse Spark 1.3",
+    "Meta Connect 2026: Meta Model API GA"
+   ],
+   "label": "Verified fact",
+   "src": [
+    "A5-S077",
+    "A5-S078",
+    "V2-S019"
+   ],
+   "conf": "medium"
+  },
+  "what_it_does": {
+   "v": "Multimodal reasoning LLMs via Meta's developer API and partner clouds; open-weight models for self-hosting.",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S040"
+   ],
+   "conf": "low"
+  },
+  "stack_position": {
+   "v": "L1 foundation model.",
+   "label": "Architectural judgement",
+   "src": [],
+   "conf": "medium"
+  },
+  "dependencies": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "integration_model": {
+   "v": "Meta developer API (Llama API client SDK); Microsoft Foundry; open weights via ModelScope/Hugging Face and inference providers.",
+   "label": "Reported",
+   "src": [
+    "A5-S047",
+    "A5-S038",
+    "A5-S040"
+   ],
+   "conf": "low"
+  },
+  "deployment": {
+   "saas": {
+    "v": "Yes (Meta API)",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "managed_cloud": {
+    "v": "Yes (Microsoft Foundry Muse Spark 1.3; Llama 4 on Google Cloud, Bedrock, Foundry)",
+    "label": "Reported",
+    "src": [
+     "A5-S038",
+     "A5-S027"
+    ],
+    "conf": "medium"
+   },
+   "vpc_byoc": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "private_cloud": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "self_hosted": {
+    "v": "Yes (Muse Glimmer 30B, Llama 4)",
+    "label": "Reported",
+    "src": [
+     "A5-S040",
+     "A5-S027"
+    ],
+    "conf": "low"
+   },
+   "on_prem": {
+    "v": "Yes (open-weight models)",
+    "label": "Reported",
+    "src": [
+     "A5-S040"
+    ],
+    "conf": "low"
+   }
+  },
+  "certifications": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "gdpr_residency": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "security_features": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "access_controls": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "enterprise_support": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "pricing": {
+   "v": [
+    "Muse Spark 1.3 (Meta API): US$1.25 input / US$4.25 output per 1M (aggregator); contributor variant US$0.10 / US$0.20",
+    "Muse Glimmer 30B (Together): US$0.35 / US$1.50 per 1M",
+    "Llama 4 Maverick (Google Cloud): US$0.35 / US$1.15 per 1M",
+    "Llama 4 Scout (Google Cloud): US$0.25 / US$0.70 per 1M"
+   ],
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S027"
+   ],
+   "conf": "low",
+   "asof": "2026-10-07"
+  },
+  "infra_cost_note": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "ecosystem": {
+   "v": "Microsoft Foundry, Google Cloud, Amazon Bedrock, Together, Fireworks, DeepInfra, OpenRouter, ms-swift.",
+   "label": "Reported",
+   "src": [
+    "A5-S038",
+    "A5-S027",
+    "A5-S040"
+   ],
+   "conf": "medium"
+  },
+  "adoption_signals": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "maturity": {
+   "v": "Not publicly verified",
+   "label": "Not publicly verified",
+   "src": [],
+   "conf": "low"
+  },
+  "strategic_risk": {
+   "lock_in": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "acquisition": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "funding": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "ecosystem_dependency": {
+    "v": "Not publicly verified",
+    "label": "Not publicly verified",
+    "src": [],
+    "conf": "low"
+   },
+   "proprietary_api": {
+    "v": "Muse Spark is API-only (hosted).",
+    "label": "Reported",
+    "src": [
+     "A5-S038"
+    ],
+    "conf": "low"
+   },
+   "maturity": {
+    "v": "Brand transition from Llama to Muse in 2026.",
+    "label": "Reported",
+    "src": [
+     "A5-S038",
+     "A5-S040"
+    ],
+    "conf": "low"
+   }
+  },
+  "assessment": null,
+  "classification": null,
+  "scores": null,
+  "sources": [
+   "A5-S027",
+   "A5-S038",
+   "A5-S040",
+   "A5-S047",
+   "A5-S077",
+   "A5-S078",
+   "V2-S019"
+  ],
+  "stage_a_notes": "Ambiguity A5 resolved and upgraded to Verified (Meta announcements via search extracts). Still unverified: Meta Model API data retention/training terms, certifications, EU residency; meaning of the \"contributor\" price tier (aggregator only). No Meta Model API retention/training policy was found; the 2025 Llama API preview stated prompts/responses were not used for training (different product) [A5-S078 search context]. [V2 verification 8 October 2026] Meta Model API GA confirmed from Meta's Connect 2026 developer recap [V2-S019]; the 'contributor' tier is confirmed as discounted pricing in exchange for Meta using prompts and completions to train future models [V2-S019] - a data-use condition that regulated firms should normally exclude. Muse Glimmer 30B Apache 2.0 still rests on secondary sources.",
+  "last_verified": "2026-10-08"
+ }
+]

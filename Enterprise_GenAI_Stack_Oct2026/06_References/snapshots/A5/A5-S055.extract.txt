@@ -1,0 +1,12 @@
+SOURCE ID: A5-S055
+URL: https://www.congress.gov/bill/119th-congress/house-bill/1121
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DeepSeek ban government devices US states ... No DeepSeek on Government Devices Act 2026 status
+========================================================================
+
+Search tool summary:
+- H.R.1121 introduced 7 February 2025, referred to committee (32 cosponsors). S.765 introduced 27 February 2025 (Sen. Jacky Rosen), referred to Senate Homeland Security and Governmental Affairs.
+- Covered software: the DeepSeek application or any successor developed or provided by High Flyer or an entity owned by High Flyer.
+- No record found of either bill advancing beyond committee.
+- A coalition of 21 state attorneys general urged Congress to pass it.

@@ -1,0 +1,8 @@
+SOURCE ID: A3-S086
+URL: https://www.sec.gov/Archives/edgar/data/0001513845/000110465926064092/nbis-20260331xex99d2.htm
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Tavily acquired acquisition 2026
+========================================================================
+
+Search-tool summary: Nebius's filings treat the purchase as completed. Its accounting record puts total fair value of consideration at 189.7 (in millions), with 177.2 of that in cash, as of the March 31, 2026 filing. 'The Tavily Earnout is subject to the achievement of certain Annual Recurring Revenue ("ARR") milestones measured in December 2026 and March 2027.' Yahoo Finance, citing people familiar with the matter, reported the transaction values Tavily at $275 million (not disclosed by Nebius). Tavily founder and CEO Rotem Weiss expected to join Nebius with his team. Sacra reports integration into Nebius's AI cloud platform and Token Factory product. CB Insights lists the acquisition as May 2026 (conflict).

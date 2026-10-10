@@ -1,0 +1,8 @@
+SOURCE ID: A7-S021
+URL: https://www.cisco.com/site/us/en/products/security/ai-defense/robust-intelligence-is-part-of-cisco/index.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Robust Intelligence Cisco AI Defense acquisition
+========================================================================
+
+Cisco announced its intent to acquire Robust Intelligence in August 2024; terms not disclosed. Cisco's announcement page carries a September 24, 2024 update saying the deal was completed (a Cisco product page and a third-party profile say October 2024). Cisco product page: Robust Intelligence "has been foundational to the development of Cisco AI Defense and Cisco Foundation AI".

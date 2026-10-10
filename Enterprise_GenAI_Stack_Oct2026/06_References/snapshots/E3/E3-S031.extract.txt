@@ -1,0 +1,10 @@
+SOURCE ID: E3-S031
+URL: https://cursor.com/docs/rules
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cursor rules AGENTS.md CLI mcp.json
+========================================================================
+
+Search-tool summary of cursor.com/docs/rules and cursor.com/docs/cli/using:
+- Cursor supports AGENTS.md as a plain markdown alternative to project rules, in the project root and subdirectories. Team Rules are available on Team and Enterprise plans.
+- The Cursor CLI reads AGENTS.md and CLAUDE.md at the project root (if present) and applies them as rules alongside .cursor/rules; the CLI automatically detects and respects the mcp.json configuration file.

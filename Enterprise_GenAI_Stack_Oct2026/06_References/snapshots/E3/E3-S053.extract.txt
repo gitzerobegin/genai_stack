@@ -1,0 +1,10 @@
+SOURCE ID: E3-S053
+URL: https://sourcegraph.com/blog/why-sourcegraph-and-amp-are-becoming-independent-companies
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Sourcegraph Amp enterprise SSO SCIM spin out
+========================================================================
+
+Search-tool summary of sourcegraph.com/blog/why-sourcegraph-and-amp-are-becoming-independent-companies and ampcode.com/news/amp-frontier-corporation:
+- Sourcegraph and Amp are becoming two separate companies. Dan Adler became CEO of the Sourcegraph code-search business; co-founders Quinn Slack and Beyang Liu lead Amp, focused on coding agents.
+- Amp's announcement: "Amp is becoming a separate company. We're spinning out of Sourcegraph to become an independent research lab", naming the entity Amp Frontier Corporation. (Date not printed in extract; exact legal name not confirmed.)

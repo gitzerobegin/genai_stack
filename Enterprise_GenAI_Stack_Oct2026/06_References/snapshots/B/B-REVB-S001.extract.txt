@@ -1,0 +1,14 @@
+SOURCE ID: B-REVB-S001
+URL: https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agents-home.htm
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed help.okta.com, developer.okta.com, okta.com): Okta AI agents System Log events admin API manage AI agent identities
+========================================================================
+
+Okta help and developer pages (Okta for AI Agents home; AI agent administrators; View Agent Gateway activity; View and monitor AI agent imports; developer System Log API), as reported by the search tool:
+- Okta for AI Agents documentation (help.okta.com, reference documentation, not a training page): admins can use the Admin Console to view System Log events for AI agents, as part of centralised control and compliance reporting.
+- "AI agent administrators" (help.okta.com/oie/en-us/content/topics/security/administrators-ai-agent-admin.htm): a dedicated AI agent administrator role can create, update and delete AI agents, manage MCP servers, configure agent imports and view System Log events; it cannot manage groups, configure authorisation or resource servers, or create OIDC app integrations.
+- "View Agent Gateway activity": the System Log shows token exchanges, AI agent configuration and authentication events; each active gateway has a Recent activity page covering tool calls in the last 30 days. (Documentation page exists; GA status of Agent Gateway not stated in the extract.)
+- "View and monitor AI agent imports": each import links to its System Log event; the import view shows the last 7 days, older imports are in the System Log.
+- Developer docs: the System Log API (/api/v1/logs) returns org events, filterable by eventType, actor and target; Okta recommends scoped OAuth 2.0 tokens for management APIs. Okta support states events are retained for 90 days and that not every POST/PUT call generates an event (Event Types Catalog governs).
+- Specific eventType strings for AI-agent create/update/delete were not found in the extract.

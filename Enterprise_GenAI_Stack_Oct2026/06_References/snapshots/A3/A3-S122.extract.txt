@@ -1,0 +1,8 @@
+SOURCE ID: A3-S122
+URL: https://supermemory.ai/docs/overview/security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Supermemory data residency EU region GDPR DPA SSO (allowed_domains supermemory.ai)
+========================================================================
+
+Search-tool summary: Managed cloud is the default multi-tenant SaaS; self-hosted binary runs the full engine on your machine or VPC. 'For strict data residency or compliance requirements, dedicated deployment options are available.' Product page: dedicated setups can run in your AWS, GCP, or Azure account, or on dedicated infrastructure Supermemory runs for you; can be air-gapped. No explicit managed EU region found. Security page lists GDPR status as compliant, with access and erasure workflows supported; homepage says 'GDPR aligned'. Company will sign your contracts and DPA; subprocessor lists via legal pack from support. SSO listed in Enterprise tier; no SAML/OIDC details found.

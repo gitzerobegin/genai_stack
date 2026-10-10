@@ -1,0 +1,8 @@
+SOURCE ID: A7-S026
+URL: https://www.checkpoint.com/press-releases/check-point-launches-ai-defense-plane-to-secure-the-agentic-enterprise-at-scale/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Check Point AI security Lakera 2026 AI Agent Security OR AI Guardrails product launch
+========================================================================
+
+March 23, 2026: Check Point announced the AI Defense Plane, "a unified AI security control plane" meant to help enterprises govern AI across the business (TechAfrica News, 24 March 2026, carries the same release: "Check Point Launches AI Defense Plane to Secure Enterprises in the Agentic AI Era").

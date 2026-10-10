@@ -1,0 +1,13 @@
+SOURCE ID: A8-S021
+URL: https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DORA 17 January 2025 application; DORA register of information submission 2026
+========================================================================
+
+Search results: ESMA "Digital Operational Resilience Act (DORA)"; EIOPA DORA page; EBA "Preparations for reporting of DORA registers of information"; EBA DORA RoI reporting FAQ (14 Feb / 19 Mar / 28 Mar 2025)
+Search-tool extract:
+- "The EU regulation entered into force on 16 January 2023 and will apply as of 17 January 2025." Covers more than 20 different types of financial entities (ESMA).
+- Register of information: from application date, all in-scope financial entities need a comprehensive register of contractual arrangements with ICT third-party service providers at entity, sub-consolidated and consolidated levels; lets firms monitor ICT third-party risk, authorities supervise, and ESAs designate CTPPs.
+- Competent authorities to report registers by 30 April 2025 (first round). FAQ: "the deadline for competent authorities to report the registers to the ESAs is set to 31 March of each calendar year from 2026 onwards"; reference date 31 December of preceding year from 2026. Plain CSV format.
+- DORA pillars: ICT risk management, ICT-related incidents, resilience testing, ICT third-party risk management, information sharing, oversight of critical third-party providers.

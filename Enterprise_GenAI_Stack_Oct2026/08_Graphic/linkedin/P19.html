@@ -1,0 +1,114 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>What the agent must never do matters more</title>
+<!-- Generated from P19.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.wx{display:flex;align-items:center;gap:4px;margin:0 0 12px;white-space:nowrap}
+.wx .lb{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-right:auto;padding-right:10px;overflow:hidden;text-overflow:ellipsis}
+.wx .c{font-size:11.5px;font-weight:800;border-radius:6px;padding:3px 0;width:34px;text-align:center;border:1.5px solid var(--line);color:#8792A0;background:#fff;flex:none}
+.wx .c.done{background:var(--navy);border-color:var(--navy);color:#fff}.wx .c.now{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 19 · The worked example, end to end</div>
+  <div class="title">What the agent must never do matters more</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.mn{display:grid;grid-template-columns:270px 1fr;gap:16px;align-items:stretch}
+.may{background:var(--greenbg);border:2px solid var(--green);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.may .i{background:#fff;border-radius:10px;padding:9px 12px 9px 34px;font-size:17px;line-height:1.25;position:relative}
+.may .i:before{content:"\2713";color:var(--green);font-weight:800;position:absolute;left:13px;top:9px}
+.nv{background:#fff;border:2px solid var(--red);border-radius:16px;overflow:hidden}
+.nv .hd2{display:flex;background:var(--red);color:#fff;padding:9px 14px;font-size:15px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.nv .hd2 span:first-child{flex:1}
+.nv .r{display:flex;align-items:center;gap:10px;padding:7px 14px;border-top:1px solid #F0DCDC}
+.nv .r:first-of-type{border-top:none}
+.nv .r .w{flex:1;font-size:17px;font-weight:600;line-height:1.22;position:relative;padding-left:24px}
+.nv .r .w:before{content:"\2715";color:var(--red);font-weight:800;position:absolute;left:0;top:0}
+.nv .r .e{width:230px;flex:none;text-align:right}
+.nv .chip{font-size:15px;margin:2px 0 2px 4px;font-weight:700}
+.chip.amb{background:var(--amberbg);color:#7A5410;border:1.5px solid var(--amber)}
+.chip.blu{background:var(--bluebg);color:var(--blue);border:1.5px solid var(--blue)}
+.chip.nav{background:var(--navy);color:#fff}
+.chip.gld{background:var(--gold);color:var(--navy)}
+.chip.grn{background:var(--greenbg);color:var(--green);border:1.5px solid var(--green)}
+.chip.rd{background:var(--redbg);color:var(--red);border:1.5px solid var(--red)}
+.ep8{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ep8 .t{background:#fff;border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:17px;font-weight:700;display:flex;align-items:center;gap:8px}
+.ep8 .t .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.tid2{background:var(--gold);color:var(--navy);font-weight:800;border-radius:999px;padding:4px 16px;font-size:17px;font-family:"SFMono-Regular",Consolas,Menlo,monospace}
+</style>
+<div class="col" style="gap:14px">
+ <div class="mn">
+  <div class="may">
+   <div class="lab" style="color:var(--green)">It may</div>
+   <div class="i">draft narrative around figures it is given</div>
+   <div class="i">explain allocation, selection and currency effects in house style</div>
+   <div class="i">cite approved market context</div>
+   <div class="i">propose wording, and style rules for a person to approve</div>
+   <div class="note" style="margin-top:auto;font-size:16px">what it may do is short</div>
+  </div>
+  <div class="nv">
+   <div class="hd2"><span>It must never</span><span>Enforced by</span></div>
+   <div class="r"><div class="w">generate, round or "correct" a number</div><div class="e"><span class="chip blu">read-only tool</span><span class="chip amb">numeric comparator</span></div></div>
+   <div class="r"><div class="w">treat a figure from retrieved text, memory or a parsed document as data</div><div class="e"><span class="chip blu">document-derived tag</span><span class="chip amb">context-only rule</span></div></div>
+   <div class="r"><div class="w">present inference as source</div><div class="e"><span class="chip amb">grounding check</span><span class="chip blu">citations</span></div></div>
+   <div class="r"><div class="w">publish without a recorded human approval</div><div class="e"><span class="chip gld">approval interrupt</span></div></div>
+   <div class="r"><div class="w">call a write, email or web tool</div><div class="e"><span class="chip nav">allow-list</span></div></div>
+   <div class="r"><div class="w">send client identifiers outside the approved route</div><div class="e"><span class="chip rd">tokenisation</span></div></div>
+   <div class="r"><div class="w">retrieve another fund's or client's material</div><div class="e"><span class="chip grn">entitlement filter</span></div></div>
+   <div class="r"><div class="w">run on an unpinned model</div><div class="e"><span class="chip nav">version pin</span></div></div>
+  </div>
+ </div>
+ <div class="hflow" style="gap:12px;margin-top:4px"><div class="lab">Evidence pack per approved draft, keyed to one</div><span class="tid2">trace ID</span></div>
+ <div class="ep8">
+  <div class="t"><div class="n">1</div>Prompt version</div><div class="t"><div class="n">2</div>Model version</div><div class="t"><div class="n">3</div>Data snapshot</div><div class="t"><div class="n">4</div>Tool calls</div>
+  <div class="t"><div class="n">5</div>Eval results</div><div class="t"><div class="n">6</div>Approver</div><div class="t"><div class="n">7</div>Timestamps</div><div class="t"><div class="n">8</div>Final text</div>
+ </div>
+ <div class="row">
+  <div class="box gold grow"><div class="lab" style="color:#8A6418">The signal</div><div class="h" style="margin-top:4px">Evidence-pack completeness: 100%</div><div class="small">of approved commentaries</div></div>
+  <div class="box red grow"><div class="lab" style="color:var(--red)">The test</div><div class="h" style="margin-top:4px">A "never" with no component</div><div class="small">is a hope written into a policy</div></div>
+ </div>
+</div>
+</div>
+ <div class="wx"><span class="lb">Worked example · step 19</span><span class="c done">L1</span><span class="c done">C6</span><span class="c done">L2</span><span class="c done">C1</span><span class="c done">L3</span><span class="c done">C2</span><span class="c done">L4</span><span class="c done">C4</span><span class="c done">L5</span><span class="c done">Reg</span><span class="c done">L6</span><span class="c done">C7</span><span class="c done">L7</span><span class="c done">C5</span><span class="c done">L8</span><span class="c done">C3</span><span class="c done">L9</span><span class="c done">C8</span></div>
+ <div class="ft"><div class="cap">Every "never" names the component that enforces it, and every approved draft leaves a complete evidence pack. Generic, illustrative: the attribution-commentary agent.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: Synthesis VI.3 and VI.4</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

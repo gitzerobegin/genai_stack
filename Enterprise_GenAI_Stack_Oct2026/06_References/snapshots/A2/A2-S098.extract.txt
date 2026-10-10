@@ -1,0 +1,8 @@
+SOURCE ID: A2-S098
+URL: https://www.pinecone.io/blog/byoc-generally-available/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone trust center SOC 2 ISO 27001 HIPAA GDPR CMEK private endpoints SSO RBAC audit logs
+========================================================================
+
+BYOC generally available: data plane in customer cloud account; Pinecone does not require SSH, VPN, inbound network access, or a standing cross-account IAM role. BYOC works alongside SSO, RBAC, SCIM + SAML, audit logging, encryption, and private-networking controls available with Pinecone's Enterprise plan.

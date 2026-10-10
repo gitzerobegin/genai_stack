@@ -1,0 +1,8 @@
+SOURCE ID: A4-S150
+URL: https://openrouter.ai/blog/announcements/us-in-region-routing/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenRouter EU in-region routing launch; OpenRouter Enterprise plan SLA
+========================================================================
+
+US in-region routing added after earlier EU release; requests to eu./us.openrouter.ai decrypted in-region and routed only to in-region endpoints; if no in-region endpoint, request fails rather than falling back. Available on Business (self-serve, no monthly minimum, no contract) and Enterprise plans. Gaps: Batch API runs on US storage/queueing (no regional residency); no web search plugin engine on eu.openrouter.ai; web fetch tool unavailable on regional domains. Pricing page: contractual SLAs only on Enterprise. Enterprise FAQ: support SLA with committed response times, dedicated Slack channel, customer success manager, forward-deployed engineer. No numeric uptime target published. Routing guide notes a ~50-minute full outage in August 2025.

@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S012
+URL: https://docs.cloud.google.com/iam/docs/workforce-console-sso
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com; direct fetch blocked: cloud.google.com now redirects to docs.cloud.google.com, denied by egress policy): Google Cloud SAML single sign-on Cloud Identity workforce identity federation console access
+========================================================================
+
+"Set up user access to the console (federated)" and Workforce Identity Federation pages, as summarised by the search tool:
+- Workforce Identity Federation lets users reach Google Cloud with their existing IdP over OIDC or SAML 2.0; multiple IdPs per pool (Okta, Ping, AD FS, Microsoft Entra ID).
+- The console (federated) is separate from the regular console and gives access only to Google Cloud products that support Workforce Identity Federation.
+- Pools are created at organisation level; session duration 15 minutes to 12 hours.
+- Google also documents Cloud Identity federation as the alternative to workforce pools; break-glass accounts should be excluded from SSO.

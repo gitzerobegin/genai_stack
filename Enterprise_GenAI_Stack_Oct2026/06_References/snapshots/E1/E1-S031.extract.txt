@@ -1,0 +1,8 @@
+SOURCE ID: E1-S031
+URL: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-99
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AI Act Article 99(6) SMEs lower of fines
+========================================================================
+
+Search-tool extract (consolidated text as amended): in the case of SMEs, including start-ups, each fine referred to in Article 99 is up to the percentages or amount referred to in paragraphs 3, 4 and 5, 'whichever thereof is lower'. For small mid-cap enterprises (SMCs) the same lower-of rule applies only to paragraphs 4 and 5.

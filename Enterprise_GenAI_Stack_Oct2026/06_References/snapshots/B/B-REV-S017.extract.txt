@@ -1,0 +1,11 @@
+SOURCE ID: B-REV-S017
+URL: https://docs.reducto.ai/enterprise/enterprise-readiness
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains docs.reducto.ai, reducto.ai): Reducto SSO SAML role-based access control audit logs organization
+========================================================================
+
+Reducto docs "Enterprise Readiness" page, with reducto.ai/studio, as summarised by the search tool:
+- Plan table: SSO and SAML authentication, and role-based access control, are available on Enterprise only (not Standard or Growth).
+- The Studio page groups SSO/SAML, fine-grained roles and audit logging as part of the Enterprise programme (marketing page).
+- No documentation found of audit-log events, export or retention, of built-in role names, or of supported identity providers.

@@ -1,0 +1,8 @@
+SOURCE ID: A3-S098
+URL: https://composio.dev/enterprise
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Composio SOC 2 ISO 27001 security trust pricing enterprise self-hosted VPC (allowed_domains composio.dev)
+========================================================================
+
+Search-tool summary of composio.dev pages: 'Composio holds both SOC 2 Type II and ISO/IEC 27001:2022 certifications.' A Composio post points to security.composio.dev as its trust resource; evidence for both downloadable from its trust center. Credentials reportedly use AES-256 encryption and are isolated from your application code and from the LLM context. Enterprise tier offers documented cloud, VPC, and fully self-hosted deployment with explicit KMS key management, SSO, SCIM 2.0, MSA/DPA/SLA coverage, and dedicated support. Hybrid option: managed cloud has regional data handling; full self-hosting at the Enterprise tier for environments where no external routing is permitted. Public pricing metered by tool call: one comparison lists a free tier of 20,000 calls a month, then $29 a month for 200,000 and $229 for two million. Enterprise pricing not public (custom committed volume, dedicated SLA, VPC or on-premise). Integration counts vary (1,000+ vs 1,500+). Composio also publishes 'Best MCP Gateways' and 'Building vs Buying an Enterprise MCP Gateway' content.

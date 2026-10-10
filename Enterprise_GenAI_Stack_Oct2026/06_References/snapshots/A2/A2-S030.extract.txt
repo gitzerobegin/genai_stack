@@ -1,0 +1,8 @@
+SOURCE ID: A2-S030
+URL: https://docs.nvidia.com/nim/nemo-retriever/text-reranking/latest/release-notes.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NVIDIA NeMo Retriever embedding reranking NIM llama-nemotron-embed latest model 2026 (allowed: nvidia.com, docs.nvidia.com, huggingface.co)
+========================================================================
+
+Release 1.11.0 introduced multimodal reranking of text and images with the new NIM llama-nemotron-rerank-vl-1b-v2. Release 2.0.0 is a major runtime upgrade for nvidia/llama-nemotron-rerank-vl-1b-v2: higher throughput, lower latency, smaller VRAM footprint, faster startup. Support matrix (https://docs.nvidia.com/nim/nemo-retriever/text-reranking/latest/support-matrix.html) lists llama-nemotron-rerank-vl-1b-v2, nvidia/llama-nemotron-rerank-1b-v2, nvidia/llama-nemotron-rerank-500m-v2; 8192-token maximum on optimised models. VL reranker NGC page shows update on August 3, 2026.

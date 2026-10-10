@@ -1,0 +1,8 @@
+SOURCE ID: V2-S065
+URL: https://launchdarkly.com/security/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LaunchDarkly FedRAMP Moderate ISO 27001 ISO 27701 SOC 2 Type II (allowed_domains launchdarkly.com, marketplace.fedramp.gov)
+========================================================================
+
+Docs say LaunchDarkly holds a FedRAMP Moderate Authority to Operate (ATO); security page lists FedRAMP as authorized. SOC 2 Type II (initial announcement ~6 years old). ISO 27001 issued by A-LIGN (2013 edition post). ISO 27701 listed on product and docs pages without certificate details. Security Program Addendum commits to annual SOC 2 Type 2 audit and maintaining ISO 27001.

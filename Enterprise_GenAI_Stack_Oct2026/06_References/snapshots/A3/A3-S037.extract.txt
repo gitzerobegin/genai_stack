@@ -1,0 +1,8 @@
+SOURCE ID: A3-S037
+URL: https://agentskills.io/specification
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: agentskills.io specification governance maintainers
+========================================================================
+
+Search-tool summary: 'The Agent Skills format was originally developed by Anthropic, released as an open standard, and has been adopted by a growing number of agent products. The standard is open to contributions from the broader ecosystem.' The spec defines the SKILL.md format, frontmatter fields, and directory conventions; 'the Agent Skills specification does not mandate where skill directories live (it only defines what goes inside them).' No published governance charter or maintainers list for the Agent Skills specification was found on agentskills.io. An AAIF blog post says that the skill format itself remains owned by the Agent Skills specification. A 'Skills Over MCP' working group is looking into integrating Skills with MCP. Agent Plugins is a different, independently governed open specification, not an AAIF project.

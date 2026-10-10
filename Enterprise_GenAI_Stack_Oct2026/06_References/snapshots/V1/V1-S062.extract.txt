@@ -1,0 +1,8 @@
+SOURCE ID: V1-S062
+URL: https://openrouter.ai/blog/announcements/simplifying-our-platform-fee/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenRouter "Simplifying Our Platform Fee" percentage (allowed_domains openrouter.ai)
+========================================================================
+
+Fee is 5.5% of the order amount for non-crypto payments, with a $0.80 minimum; 5.0% flat for crypto payments with no minimum; fixed $0.35 Stripe fee dropped. The current 5% usage-based BYOK fee will be removed later and replaced by a fixed monthly subscription (pricing TBD). Post about 118 days old at 8 October 2026 (c. June 2026).

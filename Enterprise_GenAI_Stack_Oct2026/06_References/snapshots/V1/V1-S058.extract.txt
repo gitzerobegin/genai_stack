@@ -1,0 +1,8 @@
+SOURCE ID: V1-S058
+URL: https://fireworks.ai/blog/series-d-announcement
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Fireworks AI Series D $17.5 billion valuation (extended)
+========================================================================
+
+$1.505 billion Series D at a $17.5 billion valuation, announced mid-July 2026 (Business Wire via GCN: July 16, 2026; Startup Fortune: July 15). Led by Atreides Management, Index Ventures and TCV, with Evantic, Lightspeed and NVIDIA. Previous round: $250 million Series C in October 2025 at $4 billion post-money. Company says annualised revenue run rate passed $1 billion.

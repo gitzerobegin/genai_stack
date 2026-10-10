@@ -1,0 +1,16 @@
+SOURCE ID: A5-S060
+URL: https://www.cnbc.com/2026/07/08/chinese-ai-models-probe-us-lawmakers.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: 2026 restrictions Chinese AI models DeepSeek Qwen financial regulators banks US federal ban executive order PRC AI
+========================================================================
+
+Search tool summary:
+- As of reporting July to early October 2026, no broad US federal ban on Chinese AI models and no US financial-regulator or bank restriction found; restrictions are narrow (government devices, procurement, DoD).
+- Two House committees investigating corporate use of Chinese models (CNBC 8 July 2026). Adoption by US companies not prohibited.
+- Axios (20 July 2026) reported the administration reviving plans to restrict Chinese AI models (Entity List additions, security advisories, federal procurement rules); officials distanced themselves from the broadest version.
+- Treasury Secretary Bessent said Chinese AI developers could be sanctioned if found to have distilled American models; one review said none sanctioned as of 22 July 2026.
+- "No Adversarial AI Act" introduced to ban Chinese AI in federal government (pending).
+- CNBC 27 August 2026: Nvidia bolstering support for Chinese open models while warning of White House crackdown.
+- Beijing reportedly deliberating (July 2026) on restricting overseas access to leading Chinese models including open-weight Qwen; no formal controls enacted.
+- China NFRA June 2026 guidelines hold banks/insurers responsible for AI systems they use.

@@ -1,0 +1,11 @@
+SOURCE ID: A8-S046
+URL: https://www.iso.org/standard/42005
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ISO/IEC 42005:2025 ... (iso.org)
+========================================================================
+
+Search results: "ISO/IEC 42005:2025 - Information technology — Artificial intelligence (AI) — AI system impact assessment" (iso.org/standard/42005)
+Search-tool extract:
+- Published; ISO listing shows Edition 1 dated May 2025 (2025-05).
+- Gives organisations guidance for conducting AI system impact assessments of how AI systems and their foreseeable uses may affect individuals, groups or society; complements ISO/IEC 42001.

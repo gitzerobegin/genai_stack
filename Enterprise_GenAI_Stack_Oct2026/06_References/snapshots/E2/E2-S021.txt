@@ -1,0 +1,319 @@
+SOURCE ID: E2-S021
+URL: https://www.microsoft.com/en-us/microsoft-365/blog/2025/05/19/introducing-microsoft-365-copilot-tuning-multi-agent-orchestration-and-more-from-microsoft-build-2025/
+FINAL URL: https://www.microsoft.com/en-us/copilot/blog/2025/05/19/introducing-microsoft-365-copilot-tuning-multi-agent-orchestration-and-more-from-microsoft-build-2025/
+TITLE: Introducing Microsoft 365 Copilot Tuning, multi-agent orchestration, and more from Microsoft Build 2025 | AI at Work Blog
+ACCESSED: 2026-10-10
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Introducing Microsoft 365 Copilot Tuning, multi-agent orchestration, and more from Microsoft Build 2025 | AI at Work Blog
+
+Skip to content
+
+Skip to main content
+
+Copilot
+
+Copilot
+
+Word
+
+Excel
+
+PowerPoint
+
+Outlook
+
+OneDrive
+
+Teams
+
+Copilot Studio
+
+Work IQ
+
+Cowork
+
+Individuals
+
+Business
+
+Enterprise
+
+Education
+
+Plans and pricing
+
+Support
+
+Customer stories
+
+Blog
+
+Copilot vs. competitors
+
+Tech community
+
+Frontier program
+
+AI for Work Roadmap
+
+Agents
+
+New user onboarding
+
+Roll-out and adoption
+
+Prompts and use cases
+
+AI knowledge
+
+Connectors
+
+Open Copilot
+
+Download the app
+
+Discover what’s coming to Microsoft Ignite, Nov 17-20, 2026. 
+Register now
+.
+
+Introducing Microsoft 365 Copilot Tuning, multi-agent orchestration, and more from Microsoft Build 2025
+
+May 19, 2025
+
+Share
+
+Listen
+
+By
+
+Jared Spataro
+, jump to author bio
+
+Microsoft 365 Copilot
+
+The power of AI wherever you go.
+
+Try Copilot Chat
+
+Today at 
+Microsoft Build 2025
+, we announced 
+Microsoft 365 Copilot Tuning
+—a new, low-code capability in Microsoft Copilot Studio for every organization to tune AI models using their own company data, workflows, and processes—all without needing a team of data scientists or weeks of work. We also introduced multi-agent orchestration to enable agents to work together as a team, with human oversight and direction. It’s all part of our strategy to bring the latest AI innovations to you and your business—quickly, economically, and securely.
+
+Announcements include:
+
+Copilot Tuning
+ to train models and create agents using company data in a simple, low-code way with Copilot Studio.
+
+Multi-agent orchestration
+ to enable agents to collaborate with each other, so they can tackle more complex work together.
+
+New
+
+tools
+
+to enable developers to build agents the way they want, including in Microsoft Teams.
+
+We’re also excited to share that the 
+Copilot Wave 2 spring release
+—including an updated 
+Microsoft 365 Copilot app
+, the new 
+Create
+ experience, and 
+Copilot Notebooks
+—has moved to general availability and begins rolling out today. And 
+Researcher
+ and 
+Analyst
+, our first-of-their-kind 
+reasoning agents
+ for work, are rolling out this month to customers worldwide via the Frontier program.
+1
+ You can easily find and pin Researcher and Analyst in our new 
+Agent Store
+, as well as agents from 
+partners
+ like Jira, Monday.com, Miro, and your company’s custom agents.
+
+Try Microsoft 365 Copilot Chat
+
+Tune the latest AI models for your specific business needs
+
+With
+
+Copilot Tuning
+, you can use your company data, workflows, and processes to train models and create agents that perform domain-specific tasks with a high degree of accuracy using 
+Copilot Studio
+—no coding required. For example, a legal firm can create an agent to reflect its unique style and expertise—automating document creation and even drafting arguments that blend institutional knowledge with client-specific context to help build the strongest case possible. Or a consulting company can tune agents for specific industries based on subject-matter expertise. Your agents and data operate securely within the Microsoft 365 service boundary, and Microsoft does not use customer data to train foundation models. 
+Available starting in June as part of the Microsoft 365 Copilot Tuning Early Access Program
+.
+2
+
+Enable agents to work as a team and bring your own model in Copilot Studio
+
+Already, more than 230,000 organizations—including 90% of the Fortune 500—use Copilot Studio to create and customize agents. And it will become even more valuable in the years ahead, as businesses will have a projected 1.3 billion AI agents by 2028.
+3
+ Today, we’re introducing 
+new capabilities
+ for the era of human-agent collaboration.
+
+Multi-agent orchestration 
+in Copilot Studio enables agents to exchange data, collaborate on tasks, and divide their work based on each agent’s expertise. For example, multiple agents can collaborate across HR, IT, and marketing to help onboard a new employee. 
+In public preview.
+
+You can also bring your own models to Copilot Studio with 
+Azure AI Foundry
+ models integration
+ for prompts and generative answers. This gives you access to more than 1,900 models—including models tuned to your specific industry—making agent responses more relevant to your unique business needs. With this integration, we’re bringing together our pro-code and low-code capabilities from across our platforms into Copilot Studio to make it the low-code hub for building agents. 
+In public preview.
+
+Agents have become first-class business entities, and now you can manage them with the same tool you use to manage organizational identity and access: Microsoft Entra. With
+ Microsoft Entra Agent ID
+, an agent created through Copilot Studio or Azure AI Foundry is automatically assigned an identity with no additional work required from developers, giving 
+security
+ admins visibility and control. 
+In public preview.
+
+To enhance data security and prevent leaks, we’re also extending 
+Microsoft Purview Information Protection 
+to Copilot Studio agents that use Microsoft Dataverse. Information Protection makes it easy for organizations to automatically classify and protect sensitive data at scale. 
+Public preview coming in June.
+
+Other Copilot Studio capabilities we’ve added in recent months include:
+
+The 
+computer use tool
+ enables agents to automate tasks on websites and desktop applications through natural language instructions.
+
+Model Context Protocol
+ (MCP) simplifies how agents tap into external data and tools. (We’re also announcing MCP servers for 
+Dynamics 365
+.)
+
+Agent flows
+ automate tasks with predictability and consistency and can include AI-driven intelligence to efficiently handle the complexity of today’s enterprise scenarios.
+
+Deep reasoning
+ enables your agents to execute complex and multi-faceted business processes.
+
+Microsoft Copilot Studio
+
+Build your own agents or enhance Microsoft 365 Copilot with one
+
+Try it for free
+
+Empower developers to build the way they want
+
+Microsoft gives every developer the freedom to choose from a range of tools to suit their unique needs, from Copilot Studio to code-first environments like GitHub, Microsoft Visual Studio, and Azure AI Foundry. And we’re continuing to give them new capabilities to build, collaborate with, and scale agents across their organization.
+
+The 
+Microsoft 365 Agents Toolkit
+ empowers developers to create and tailor agents using the AI stack of their choice, making it easier and faster to build agents using pro-code tooling. Developers can build agents bringing their own components like models, knowledge, and orchestration—then publish those agents in Copilot and 
+Copilot Chat
+. The toolkit includes:
+
+The 
+Microsoft 365 Agents Software Development Kit (SDK) 
+helps developers test and debug agents in Copilot, Teams, on the web, and in the Agent Playground, and then deploy them using smart defaults for Azure. 
+Generally available.
+
+Hundreds of millions of people use Teams as a hub for collaboration—and now it’s a hub for collaborating with agents. The enhanced 
+Teams AI Library
+ helps developers build agents optimized for Teams chats, channels, and meetings—including support for Agent2Agent (A2A) protocol, an open standard designed to simplify collaboration between agents, as well as MCP. 
+The Teams AI Library is generally available. Select enhancements, such as MCP and A2A, are in public preview.
+
+Microsoft 365 Copilot APIs
+ give developers the ability to use key components of the Copilot stack such as retrieval, chat, and meeting—so they can tap into the rich organizational data and capabilities within Microsoft 365. This enables them to programmatically embed Copilot Chat capabilities into their own apps and services. These APIs honor existing permissions and compliance policies through the 
+Copilot Control System
+, allowing data to remain within Microsoft 365 while being used securely and in real time. 
+The retrieval API is available in public preview, with others to follow.
+
+Power Apps
+ gives developers a single, cohesive canvas where they can define business requirements, generate data tables, and design solution architecture. Developers can use natural language to create fully functional, generated pages, with underlying React code written for them—a faster, more intuitive app-building experience. 
+Generally available.
+
+Agent feed
+ is a new hub that developers can set up for end users to oversee teams of agents in Power Apps. It shows which tasks are pending across a team of agents and provides useful insights about the agents’ work. It also flags exceptions where an agent gets stuck and needs help, so you can resolve it in real time. 
+In public preview.
+
+Drive AI ROI with Copilot and agents
+
+Every day, more customers are using Copilot and 
+agents
+ to expand the capacity of their teams. Last quarter alone, customers created more than 1 million custom agents across SharePoint and Copilot Studio, up 130% quarter-over-quarter.
+
+Wells Fargo’s agent supports 35,000 bankers, providing instant access to 1,700 procedures—reducing search time from 10 minutes to just 30 seconds. T-Mobile’s agent connects to more than 20 device manufacturers’ websites, instantly assembling product information. And HCLTech’s agent streamlines employee support, resolving cases 40% faster and allowing the company to redeploy 30% of its 500-person support staff.
+
+Today’s announcements further our ambition to give developers the tools they need to empower every employee with a Copilot and transform every business process with agents in 
+Copilot Studio
+. 
+
+Try Microsoft 365 Copilot Chat
+
+Footnotes
+
+1
+The Frontier program gives customers with a Microsoft 365 Copilot license early access to new Copilot innovations while they’re still in development.
+
+2
+Available to all customers in North America, EMEA, and APAC with 5,000 or more Microsoft 365 Copilot licenses or contact your Microsoft account team.
+
+3
+IDC Info Snapshot, sponsored by Microsoft, 1.3 Billion AI Agents by 2028, #US53361825 and May 2025.
+
+LinkedIn
+
+			Jared Spataro			
+
+				Chief Marketing Officer, AI at Work, Microsoft			
+
+Jared leads Microsoft’s AI at Work efforts, helping every organization leverage AI and agents to solve their unique business problems, reduce costs, and drive net-new value creation. His team conducts research to help predict and shape what the future of work and business will look like across industries, while also delivering new products and features within Copilot, Copilot Studio, Microsoft 365, Dynamics 365, and Power Platform.
+
+Subscribe to Jared’s newsletter
+
+				See more articles from this author			
+
+Agents
+, 
+AI
+, 
+Copilot Studio
+Enterprise
+Events
+, 
+News
+Microsoft 365
+, 
+Microsoft Copilot
+, 
+Power Apps
+
+Related posts
+
+					October 8				
+
+				6 min read			
+
+						Bringing CRM into the flow of work and agents into business process for sales and service teams						
+
+					The traditional boundaries of business applications are disappearing.				
+
+					September 25				
+
+				8 min read			
+
+						Introducing the new Copilot with Home, Code and Autopilot						
+
+					We’re reimagining Microsoft Copilot to enable work as it evolves and to help expand what every individual and every organization can accomplish in the flow of human ambition.				
+
+					September 23				
+
+				3 min read			
+
+						Building the system for AI at work						
+
+					There’s no shortage of sound and fury in AI right now.

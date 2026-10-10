@@ -1,0 +1,8 @@
+SOURCE ID: A2-S144
+URL: https://developers.openai.com/api/docs/guides/your-data
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI data controls embeddings endpoint data residency zero data retention eligible endpoints list (allowed: platform.openai.com, developers.openai.com, openai.com, help.openai.com)
+========================================================================
+
+/v1/embeddings is Zero Data Retention eligible; no application state retained; abuse monitoring retention 30 days; ZDR subject to prior approval. Data residency per project via sales: US (us.api.openai.com) storage and processing for /v1/embeddings; Europe (eu.api.openai.com) storage and processing for embeddings, requires Modified Abuse Monitoring or ZDR; Australia, Canada, Japan, India, Singapore, South Korea and UK listed as storage only (not processing) for these services; UAE processing for text-embedding-3-large only. Models: text-embedding-3-small, -3-large, ada-002. Cached copies differ on some regional rows. HIPAA eligible list (https://help.openai.com/en/articles/20001069-hipaa-eligible-products-and-functionality) includes /v1/embeddings with BAA and Modified Retention.

@@ -1,0 +1,8 @@
+SOURCE ID: A3-S023
+URL: https://arxiv.org/pdf/2508.14925
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MCP tool poisoning attack security research 2026 vulnerability MCP server
+========================================================================
+
+Search-tool summary: The MCPTox academic benchmark evaluated 45 live MCP servers across 20 large language models and measured an average tool-poisoning attack success rate of 36.5%, with the highest rate reaching 72.8% against a single model. The benchmark found that more capable models were often more susceptible, which the authors attribute to stronger instruction-following. The paper was published at AAAI 2026 (per a reference listing).

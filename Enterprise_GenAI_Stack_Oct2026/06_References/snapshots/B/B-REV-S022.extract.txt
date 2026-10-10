@@ -1,0 +1,14 @@
+SOURCE ID: B-REV-S022
+URL: https://www.comet.com/docs/opik/administration/roles_and_permissions
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains comet.com, www.comet.com): Opik Comet enterprise SSO role-based access control audit logs workspace permissions
+========================================================================
+
+Opik docs "Roles and Permissions", "OIDC SSO Configuration", "SAML SSO Configuration" and "Workspace Members", as summarised by the search tool:
+- Organisation roles (Admin, Member, View-Only Member) and workspace roles (Manage, Write, Annotator/Annotate, Read); effective access combines both.
+- Custom roles are Enterprise-only.
+- SSO via SAML or OIDC; OIDC SSO is available on Enterprise plans and not in open-source deployments; SAML can sync workspace membership from the IdP.
+- Workspace Members management is available on Cloud and Enterprise, not open source.
+- Data anonymisation (per-user masking of trace data) is in preview on Opik Enterprise.
+- Audit logs appear only on marketing pages; no documentation of recorded events, retention, export or viewers was found.

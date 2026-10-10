@@ -1,0 +1,13 @@
+SOURCE ID: A6-S018
+URL: https://konghq.com/solutions/startup-program
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Kong Konnect pricing AI Gateway enterprise SOC 2 ISO 27001 trust center Kong Inc funding 2026
+========================================================================
+
+Extract as returned by search tool:
+- Konnect supports several deployment modes: fully self-managed gateways where the customer hosts everything, a hybrid model where Kong runs the control plane but the customer runs the data plane inside their own infrastructure, and Dedicated Cloud Gateways where Kong operates single-tenant managed runtimes on AWS, Azure, or GCP.
+- Kong's own startup page states that its platform is "SOC 2 Type II, ISO 27001, GDPR, HIPAA-ready". It also advertises a 99.99% SLA on Konnect cloud.
+- Kong's startup program offers 50% off list pricing for two full years.
+- Kong Gateway is open-source under Apache 2.0 and self-hostable, while Konnect is the managed SaaS offering with a free tier; managed pricing is usage- or quote-based (third-party directory statement).
+- Funding: Pulse2 reports a Series E of $175 million at a $2 billion valuation (undated in excerpt). Sacra estimates total primary equity raised at $345M. No 2026 funding announcement found.

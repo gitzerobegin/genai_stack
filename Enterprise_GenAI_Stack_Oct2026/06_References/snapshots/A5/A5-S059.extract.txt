@@ -1,0 +1,12 @@
+SOURCE ID: A5-S059
+URL: https://www.koreatimes.co.kr/amp/world/20250201/taiwan-bans-government-agencies-from-using-deepseek
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Taiwan government agencies ban DeepSeek; Taiwan National Security Bureau Chinese AI models
+========================================================================
+
+Search tool summary:
+- Early 2025: Ministry of Digital Affairs said government agencies and critical infrastructure should not use DeepSeek; Premier Cho Jung-tai said DeepSeek banned in all government agencies. Since 2019 Taiwan bars agencies from ICT products endangering national information security.
+- November 2025: NSB inspected DeepSeek, Doubao, Yiyan, Tongyi and Yuanbao against 15 indicators; Tongyi violated 11, Doubao and Yuanbao 10, Yiyan 9, DeepSeek 8; all exhibit cybersecurity risks and content biases; content aligned with CCP messaging.
+- Report (All India Radio citing Taipei Times, 20 Nov 2025) that Taiwan prohibited Chinese-developed AI systems in all government agencies - not confirmed in a primary source.
+- No Taiwan action naming Kimi or GLM found.

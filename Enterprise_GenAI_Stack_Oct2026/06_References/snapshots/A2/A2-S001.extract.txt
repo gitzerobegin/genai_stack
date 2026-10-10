@@ -1,0 +1,8 @@
+SOURCE ID: A2-S001
+URL: https://developers.openai.com/api/docs/models/text-embedding-3-large
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenAI embeddings model text-embedding-3-large latest embedding model 2026 (allowed: openai.com, developers.openai.com)
+========================================================================
+
+OpenAI's model page describes text-embedding-3-large as its most capable embedding model for both english and non-english tasks. Output vectors default to 3072 dimensions; the API can shorten them through the dimensions parameter (trading off some accuracy in exchange for the smaller vector size). Search did not turn up a newer OpenAI embedding model than text-embedding-3-large.

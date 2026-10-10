@@ -1,0 +1,11 @@
+SOURCE ID: E2-S029
+URL: https://help.mistral.ai/en/articles/156203-who-owns-api-inputs-and-outputs
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Mistral AI commercial terms of service API outputs ownership competing models training customer data
+========================================================================
+
+Search tool summary (results: help.mistral.ai/en/articles/156203; conductatlas.com clause records for Mistral AI Terms of Service and Commercial Terms). mistral.ai direct fetch blocked.
+- Mistral Help Center: when using Mistral AI's API, the user owns its inputs and outputs. Terms of Service: ownership to the extent permitted by applicable law; Mistral assigns whatever rights it may have in outputs.
+- Commercial Terms clause record (ConductAtlas): to the extent permitted by law, Customer may not use image Outputs to develop or train any image generation product that competes with a Mistral AI Product. No equivalent text-output competing-model restriction found in these results.
+- ConductAtlas (third-party tracker) reports a 29 May 2026 modification adding a licence back to Mistral AI for use of User Data; scope described for consumer products (Le Chat Free/Pro/Student without opt-out); not confirmed against Mistral's own documents.

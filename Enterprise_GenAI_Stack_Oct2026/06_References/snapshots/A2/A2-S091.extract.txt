@@ -1,0 +1,8 @@
+SOURCE ID: A2-S091
+URL: https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-privatelink.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: S3 Vectors encryption SSE-KMS IAM CloudTrail compliance HIPAA eligible PrivateLink
+========================================================================
+
+S3 Vectors supports private connectivity with AWS PrivateLink interface endpoints (service name com.amazonaws.region.s3vectors), without an internet gateway or NAT; VPC endpoint policies can restrict which vector buckets and indexes are accessible; dualstack supported.

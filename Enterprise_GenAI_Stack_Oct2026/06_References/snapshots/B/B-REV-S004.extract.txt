@@ -1,0 +1,13 @@
+SOURCE ID: B-REV-S004
+URL: https://help.openai.com/en/articles/9534785-configuring-sso
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains help.openai.com, platform.openai.com, developers.openai.com): OpenAI API platform organization SSO SAML projects role-based access control
+========================================================================
+
+Single sign-on (SSO) setup for OpenAI products (help.openai.com) and the "SSO, SCIM, and User Management" collection, as summarised by the search tool:
+- For an API organization linked to a tenant, a global admin manages the shared SSO connection in Admin Console, while API members, projects, billing and API organization settings stay in the API Platform.
+- Setup flow offers Okta, Entra or Custom SAML; an existing configuration may offer Custom OIDC.
+- SSO only governs sign-in; a person still needs an API organization membership and project assignments.
+- API Platform sign-in policy applies to linked organizations; can be set to Required after testing.
+- Release note dated 17 September 2026: tenant-wide SCIM now supports API Platform; Enterprise and Edu global admins can assign synchronized groups to API organizations and selected projects through Product access in Admin Console.

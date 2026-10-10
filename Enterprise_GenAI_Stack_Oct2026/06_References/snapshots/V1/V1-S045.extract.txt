@@ -1,0 +1,8 @@
+SOURCE ID: V1-S045
+URL: https://blog.modelcontextprotocol.io/posts/enterprise-managed-auth/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: MCP Enterprise-Managed Authorization extension stable (allowed_domains modelcontextprotocol.io)
+========================================================================
+
+The Enterprise-Managed Authorization (EMA) extension (io.modelcontextprotocol/enterprise-managed-authorization) has reached stable status; blog announced it and the roadmap post describes it as stable. Clients obtain an ID-JAG from the enterprise IdP and exchange it for an access token. Adopted by Anthropic, Microsoft, Okta; VS Code support; Asana, Atlassian, Canva, Figma, Granola, Linear, Supabase support EMA. Extensions are opt-in.

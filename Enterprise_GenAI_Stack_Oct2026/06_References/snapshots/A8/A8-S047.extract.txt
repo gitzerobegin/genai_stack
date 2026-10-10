@@ -1,0 +1,11 @@
+SOURCE ID: A8-S047
+URL: https://www.iso.org/standard/42006
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ISO/IEC 42006:2025 ... (iso.org)
+========================================================================
+
+Search results: "ISO/IEC 42006:2025 - Artificial intelligence — Requirements for bodies providing audit and certification of artificial intelligence management systems" (iso.org/standard/42006)
+Search-tool extract:
+- Published; ISO listing gives publication date 2025-07.
+- Sets out additional requirements for bodies that audit and certify AI management systems under ISO/IEC 42001; supplements ISO/IEC 17021-1 with AI-specific requirements. Intended users: certification bodies and accreditation bodies.

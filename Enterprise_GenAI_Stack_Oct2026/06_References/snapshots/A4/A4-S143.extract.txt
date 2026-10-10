@@ -1,0 +1,8 @@
+SOURCE ID: A4-S143
+URL: https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenRouter raises funding Series A Series B valuation a16z Menlo
+========================================================================
+
+OpenRouter announced a $113 million Series B on May 26, 2026, led by Alphabet's growth fund CapitalG; valuation ~$1.3 billion post-money (New York Times report; company did not disclose). Strategic investors: NVIDIA NVentures, ServiceNow Ventures, MongoDB Ventures, Snowflake Ventures, Databricks Ventures; existing backers a16z and Menlo. Series A: $40 million co-led by Andreessen Horowitz and Menlo Ventures (June 2025), Sequoia participating; PitchBook est. $547M post-money. Conflicts: Sacra gives $28M Series A (Menlo, April 2025) + $12.5M seed (a16z, Feb 2025); Tracxn dates Series B 26 March 2026 and labels OpenRouter "acquired by Stripe" (uncorroborated).

@@ -1,0 +1,12 @@
+SOURCE ID: B-REVA-S002
+URL: https://qdrant.tech/documentation/cloud-api/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains qdrant.tech): Qdrant Cloud management API keys SLA enterprise support
+========================================================================
+
+Qdrant documentation "Qdrant Cloud API" and Qdrant pricing page, as summarised by the search tool:
+- The Qdrant Cloud API manages accounts, clusters, backup schedules, authentication methods and hybrid cloud environments; requests authenticate with a Cloud Management Key created under Access Management > Cloud Management Keys; API keys can be generated and revoked programmatically.
+- Management keys and database API keys are not revoked when the creating user is removed from the account (offboarding caveat).
+- Database API keys: cluster-wide manage/write or read-only, optionally restricted to specific collections; default expiry 90 days.
+- Pricing page: Standard tier 99.5% uptime SLA; Premium tier 99.9% uptime SLA (99.95% with multi-AZ) plus additional support; Enterprise/Private Cloud custom SLAs. The tier naming between the tier list and comparison table is inconsistent.

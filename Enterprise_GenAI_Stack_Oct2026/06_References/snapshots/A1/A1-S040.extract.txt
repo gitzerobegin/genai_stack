@@ -1,0 +1,10 @@
+SOURCE ID: A1-S040
+URL: https://www.braintrust.dev/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Braintrust pricing Starter Pro Enterprise per month spans scores data retention
+========================================================================
+
+Search result titles: "Keep building with the Starter plan - Blog - Braintrust" (braintrust.dev/blog/starter-plan); Braintrust comparison articles.
+Search-tool summary: Starter (free); Pro $249/month; Enterprise custom. Official Pro listing: $249 per month, 5 GB processed data plus $3/GB, 50k scores plus $1.50 per 1k, 30-day retention. Pro adds environments, custom charts, Topics, more flexible permission roles, additional human review configurations, 30 day data retention. Starter (third-party comparisons): 1 GB processed data, 10K scores, unlimited users, 14-day retention. Braintrust's Starter post: usage-based scaling with no platform fee, pay only for processed data and scores. Enterprise: custom pricing, options for self-hosting or hybrid deployment, dedicated support; custom limits, RBAC, deployment approvals, data retention controls. Meters are processed data and scores, not spans.
+Note: pricing URL is the canonical pricing page; figures came via search-tool summary of Braintrust pages and comparisons.

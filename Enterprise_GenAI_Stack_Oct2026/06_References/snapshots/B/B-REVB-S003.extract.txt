@@ -1,0 +1,12 @@
+SOURCE ID: B-REVB-S003
+URL: https://www.paloaltonetworks.com/legal-notices/trust-center/soc2
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed paloaltonetworks.com, docs.paloaltonetworks.com): Prisma AIRS SOC 2 Type II ISO 27001 compliance scope Palo Alto Networks
+========================================================================
+
+Palo Alto Networks Trust Center compliance page and related pages, as reported by the search tool:
+- The Trust Center compliance page lists Prisma AIRS under an ENS (Spain's Esquema Nacional de Seguridad) heading alongside products such as Advanced Threat Prevention and SaaS Security; the extract does not show Prisma AIRS named under SOC 2 or ISO 27001.
+- A 2020 blog lists products then in ISO 27001 scope (Prisma Access, Prisma Cloud, Prisma SaaS); Prisma AIRS is newer and not on it.
+- Prisma Cloud for Government states SOC 2 for Prisma Cloud products; a knowledge-base article describes obtaining the Prisma Cloud SOC 2 Type 2 report under NDA.
+- Negative finding: no source naming Prisma AIRS within SOC 2 Type II or ISO 27001 scope was found.

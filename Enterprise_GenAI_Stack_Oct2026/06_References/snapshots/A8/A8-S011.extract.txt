@@ -1,0 +1,19 @@
+SOURCE ID: A8-S011
+URL: https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Regulation (EU) 2026/1744 amending Regulation (EU) 2024/1689 artificial intelligence Official Journal (eur-lex, europa.eu)
+========================================================================
+
+Search result title: "Regulation - EU - 2026/1744 - EN - EUR-Lex" (eur-lex.europa.eu/eli/reg/2026/1744/oj/eng; HTML CELEX:32026R1744)
+Search-tool extract:
+- Regulation (EU) 2026/1744 is the "Digital Omnibus on AI". It amends the AI Act (Regulation 2024/1689), along with Regulations 2018/1139 and 2023/1230, to simplify implementation of harmonised AI rules. Adopted 8 July 2026; Official Journal L series 24 July 2026.
+- Enters into force on the third day after publication in the Official Journal [27 July 2026].
+- Rationale: late standards, common specifications and guidance, plus delayed national authorities, made the original 2 August 2026 start date for high-risk obligations unworkable.
+- Article 4 (AI literacy) amended: providers and deployers to take measures [to support AI literacy of staff].
+- Article 43(3) technical correction; notified bodies may assess high-risk systems for 18 months from 27 July 2026 under specified conditions.
+- Articles 57, 58, 60 amended (sandboxes; real-world testing for certain Annex I high-risk systems).
+- The Commission's power to adopt a harmonised template for post-market monitoring plans under Article 72(3) is removed.
+- Providers that placed generative systems on the market before 2 August 2026 receive a transition [to 2 December 2026] for Article 50(2) marking duties.
+- New application dates: 2 December 2027 for Annex III high-risk systems; 2 August 2028 for Annex I high-risk systems; Articles 102 to 110 apply from 27 July 2026.
+- Council corrigendum dated 22 September 2026 (ST-13206-2026) fixes German text.

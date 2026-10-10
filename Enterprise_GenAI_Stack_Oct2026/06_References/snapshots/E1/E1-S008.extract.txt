@@ -1,0 +1,8 @@
+SOURCE ID: E1-S008
+URL: https://www.european-cyber-resilience-act.com/Cyber_Resilience_Act_Article_12.html
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cyber Resilience Act Article 12 high-risk AI systems Article 15 deemed compliant
+========================================================================
+
+Search-tool extract (several reproductions of the text agree): Article 12(1): products with digital elements classified as high-risk AI systems under Article 6 of Regulation (EU) 2024/1689 that fulfil the essential cybersecurity requirements of Annex I Part I, where the manufacturer's processes comply with Annex I Part II, and where the achieved level of cybersecurity protection is demonstrated in the EU declaration of conformity, are deemed to comply with the cybersecurity requirements of Article 15 of Regulation (EU) 2024/1689, without prejudice to the other requirements of that Article (accuracy and robustness). Article 12(2): the conformity assessment procedure of Article 43 of the AI Act applies. Article 12(3): by way of derogation, important (Class I/II) and critical products subject to CRA Article 32 conformity procedures that would use AI Act internal control (Annex VI) remain subject to the CRA conformity assessment procedures for the essential cybersecurity requirements.

@@ -1,0 +1,8 @@
+SOURCE ID: V1-S017
+URL: https://www.axios.com/pro/enterprise-software-deals/2026/02/17/ai-observability-braintrust-80-million-800-million
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Braintrust raises $80M Series B (standard)
+========================================================================
+
+Braintrust closed an $80 million Series B in February 2026. Axios reported that the round was led by Iconiq at an $800 million post-money valuation, citing CEO Ankur Goyal. CB Insights dates the round to February 17, 2026. Returning investors Andreessen Horowitz, Greylock, Elad Gil and Basecase Capital participated. CB Insights puts total funding at $124.3M over 5 rounds. (Axios page is paywalled: cited by link; this extract is the search tool's summary.)

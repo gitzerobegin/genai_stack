@@ -1,0 +1,13 @@
+SOURCE ID: B-C8-S004
+URL: https://productresources.collibra.com/docs/collibra/latest/Content/Console/Infrastructure/DGCService/SecurityConfiguration/co_single-sign-on.htm
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains productresources.collibra.com, collibra.com): Collibra SAML single sign-on roles permissions audit log documentation
+========================================================================
+
+Search-tool extract (Collibra product documentation):
+- Single Sign-On (SSO): "The only supported SAML protocol version in Collibra is SAML 2.0"; assertions via HTTP-POST binding; SP metadata from a REST endpoint.
+- IdP group attribute in the SAML response places users into Collibra groups (comma-separated list); groups created on the fly; option "Groups DGC managed" to keep group management inside Collibra.
+- Global roles assigned under Settings > Roles (e.g. Everyone group to global roles).
+- Collibra Console SSO: group-to-role mapping to Console roles (READ, ADMIN, SUPER).
+- No dedicated audit-log documentation found in the results; a release note says logging API endpoints for Collibra Console are public.

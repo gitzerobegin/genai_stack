@@ -1,0 +1,11 @@
+SOURCE ID: E3-S074
+URL: https://datatracker.ietf.org/doc/html/draft-klrc-aiagent-auth-01
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: IETF draft-ietf-oauth-identity-assertion-authz-grant status 2026; AI agent authentication draft; WIMSE
+========================================================================
+
+Search-tool summary of datatracker.ietf.org/doc/html/draft-klrc-aiagent-auth-01 and datatracker.ietf.org/meeting/126/materials/slides-126-wimse-aims-00 ("AI Agent Authentication and Authorization", Nick Steele (OpenAI)):
+- draft-klrc-aiagent-auth-01 "AI Agent Authentication and Authorization" is an individual (not WG-adopted, per the draft name) Informational draft that maps existing, mainly IETF, technologies to agentic authentication and authorisation; it cites the ID-JAG draft (-02, March 2026) as a normative reference and references identity chaining, the assertion grant and Transaction Tokens drafts.
+- IETF 126 (Vienna, July 2026) WIMSE slides flag a gap: CIBA is client-initiated, so it may not fit mid-execution user consent.
+- WG adoption of an agent-specific draft in WIMSE not confirmed.

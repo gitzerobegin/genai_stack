@@ -1,0 +1,13 @@
+SOURCE ID: E2-S044
+URL: https://www.nvidia.com/en-us/startups/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: NVIDIA Inception program benefits eligibility startups free membership nvidia.com/en-us/startups
+========================================================================
+
+Search tool summary (results: nvidia.com/en-in/startups/; nvidia.com/es-es/startups/inception/; nvidia.com/fr-fr/startups/showcase/; vc4a.com regional listing; itwire, techzim, hpcwire, grantedai not relied on). en-us page not returned; nvidia.com direct fetch blocked.
+- Inception is free: no application fees, membership fees or equity requirements; open regardless of funding stage; no application deadlines or cohorts.
+- Benefits: startup portal access for the team; NVIDIA Deep Learning Institute credits; discounted technical workshops; preferred pricing on select hardware and software; cloud credits through NVIDIA partners; solution architect guidance; investor connections via Inception Capital Connect.
+- Members must keep product and company details updated in the portal.
+- Premier tier: a mirror says once the start-up closes at least Series A and is in production it can be evaluated for Premier membership.
+- Official en-in page cites over 25,000 start-ups in the network.

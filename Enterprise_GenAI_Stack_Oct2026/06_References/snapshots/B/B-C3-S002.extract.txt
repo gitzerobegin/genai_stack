@@ -1,0 +1,11 @@
+SOURCE ID: B-C3-S002
+URL: https://docs.cloud.google.com/sensitive-data-protection/docs/inspect-sensitive-text-de-identify
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed cloud.google.com, docs.cloud.google.com): Sensitive Data Protection CMEK customer-managed encryption keys regional processing locations EU
+========================================================================
+
+Google Cloud docs, "De-identify and re-identify sensitive data" (Sensitive Data Protection), as reported by the search tool:
+- When you create a Cloud KMS key (used to wrap the de-identification key), you must store it in either global or in the same region that you will use for your Sensitive Data Protection requests.
+- Decide where you want Sensitive Data Protection to process your de-identification and re-identification requests before creating the key. Examples use the global location; a region name can be substituted.
+- Points to a separate list of supported locations ("Sensitive Data Protection locations"), which was not retrieved. Supported EU regions not confirmed by this extract.

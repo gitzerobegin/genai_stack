@@ -1,0 +1,16 @@
+SOURCE ID: A6-S029
+URL: https://guardrailsai.com/guardrails/docs/concepts/validators
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Guardrails AI Hub validators PyPI remote inference retired guardrailsai.com announcement (site:guardrailsai.com)
+========================================================================
+
+Related: https://guardrailsai.com/guardrails/docs/concepts/remote_validation_inference ; https://guardrailsai.com/guardrails/docs/concepts/deploying ; https://guardrailsai.com/docs/guardrails_server_api/
+
+Extract as returned by search tool:
+- The remote validation docs say Guardrails hosts some of these for free as a preview feature; remote inferencing is only available in Guardrails versions 0.5.0 and above (pages carry an age stamp of about 317 days).
+- To use remote inferencing endpoints, you need a Guardrails API key.
+- The Llama Guard and ShieldGemma validator pages say they are remote inference only validators.
+- The validators docs say Guardrails-AI validators are published to public PyPI as guardrails-ai-<name> and can be installed with pip. They also note that the in-code guardrails.install(...) SDK is deprecated.
+- No Guardrails announcement or changelog entry about retiring remote inference was found by this search.
+- A Guardrails Server REST API is documented (Guardrails Server Rest API).

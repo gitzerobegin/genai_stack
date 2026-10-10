@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S007
+URL: https://docs.cloud.google.com/vertex-ai/docs/general/access-control
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com; direct fetch blocked: cloud.google.com now redirects to docs.cloud.google.com, denied by egress policy): Vertex AI IAM roles access control audit logging generative AI Gemini Enterprise Agent Platform
+========================================================================
+
+"Agent Platform access control with IAM" and "Access control" (generative AI) pages, as summarised by the search tool. Google Cloud docs now use the name "Gemini Enterprise Agent Platform" for Vertex AI.
+- Access to generative AI features is granted through IAM roles; predefined roles Agent Platform Administrator (roles/aiplatform.admin) and Agent Platform User (roles/aiplatform.user).
+- Custom roles can be built from a per-operation permission map (e.g. aiplatform.endpoints.predict) and assigned to a service account on an endpoint; predefined roles often contain more permissions than needed.
+- Access can be set at project or resource level; IAM policies can be set directly on an endpoint (endpoints.getIamPolicy / setIamPolicy; testIamPermissions).
+- Google-managed service agents are automatically granted IAM roles on the project; the docs warn against granting these roles to anyone else.

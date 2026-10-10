@@ -1,0 +1,8 @@
+SOURCE ID: A2-S072
+URL: https://www.pinecone.io/newsroom/zoominfo-pinecone-drn/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone 2026 news funding CEO acquisition dedicated read nodes BYOC
+========================================================================
+
+April 2026 release. Dedicated Read Nodes are now generally available and recommended for production usage on Standard and Enterprise plans. Pinecone is based in New York and raised $138M in funding from Andreessen Horowitz, ICONIQ, Menlo Ventures, and Wing Venture Capital. Ashutosh: Pinecone is the only vector database that lets customers run all of these workloads in one place. Marketing claims 77-97% cost reduction at scale for sustained high-throughput workloads (vendor claim).

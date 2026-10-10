@@ -1,0 +1,32 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>C7 decision tree: secrets, model artefacts, runtime detection and red-team</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">C7 decision tree: secrets, model artefacts, runtime detection and red-team</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  S0["STEP 0 (not optional,&lt;br/&gt;no product decision):&lt;br/&gt;Capability separation: no agent&lt;br/&gt;holds untrusted input + sensitive&lt;br/&gt;data + an outbound channel.&lt;br/&gt;Secrets never in prompts,&lt;br/&gt;context, memory or traces.&lt;br/&gt;Pinned, hashed dependencies&lt;br/&gt;from a private mirror;&lt;br/&gt;SBOM per image."]:::note
+  S0 --&gt; Q1{"STEP 1: Secrets and&lt;br/&gt;agent credentials&lt;br/&gt;Multi-cloud or hybrid estate,&lt;br/&gt;or agents acting on behalf&lt;br/&gt;of users across systems?"}
+  Q1 -- "yes" --&gt; A1["HashiCorp Vault (Enterprise&lt;br/&gt;for agentic IAM); accept BUSL&lt;br/&gt;and IBM ownership&lt;br/&gt;(alt: C4 identity platform +&lt;br/&gt;per-cloud secrets services)"]
+  Q1 -- "no" --&gt; A2["The cloud's native&lt;br/&gt;secrets service +&lt;br/&gt;C4 workload identity"]
+  A1 &amp; A2 --&gt; Q2{"STEP 2: Model artefacts&lt;br/&gt;Do you self-host or&lt;br/&gt;fine-tune weights?"}
+  Q2 -- "no: skip to Step 3&lt;br/&gt;(hosted APIs: supply-chain&lt;br/&gt;risk is the provider's&lt;br/&gt;and your SDKs')" --&gt; Q3
+  Q2 -- "yes" --&gt; B1["Format policy: safetensors&lt;br/&gt;only, by default.&lt;br/&gt;Scan anything executable:&lt;br/&gt;ModelScan + picklescan/&lt;br/&gt;fickling in CI"]
+  B1 --&gt; Q2a{"Large or regulated&lt;br/&gt;model estate?"}
+  B1 --&gt; Q2b{"Internally produced&lt;br/&gt;weights?"}
+  Q2a -- "yes" --&gt; B2["Add Prisma AIRS&lt;br/&gt;AI Model Security or&lt;br/&gt;HiddenLayer Model Scanner"]
+  Q2b -- "yes" --&gt; B3["Sign with OpenSSF&lt;br/&gt;Model Signing (firm key&lt;br/&gt;or HSM); verify at load"]
+  Q2a -- "no" --&gt; Q3
+  Q2b -- "no" --&gt; Q3
+  B2 &amp; B3 --&gt; Q3{"STEP 3: Runtime detection&lt;br/&gt;(behind the C1 gateway,&lt;br/&gt;swappable)&lt;br/&gt;Must prompts and client&lt;br/&gt;data stay in-estate?"}
+  Q3 -.- CA["In all cases: switch off or limit&lt;br/&gt;the detector's own prompt logging;&lt;br/&gt;SIEM export on."]:::note
+  Q3 -- "yes" --&gt; C1["Self-hosted Check Point&lt;br/&gt;AI Guardrails, or Prisma AIRS&lt;br/&gt;private-cloud firewall"]
+  Q3 -- "no, and already a&lt;br/&gt;Palo Alto Networks shop" --&gt; C2["Prisma AIRS&lt;br/&gt;(map regions per module)"]
+  Q3 -- "no, and already a&lt;br/&gt;Check Point shop" --&gt; C3["Check Point&lt;br/&gt;AI Guardrails"]
+  Q3 -- "no, and want an&lt;br/&gt;independent specialist" --&gt; C4["HiddenLayer&lt;br/&gt;(confirm certificates)"]
+  C1 &amp; C2 &amp; C3 &amp; C4 --&gt; S4["STEP 4: Red-team and response&lt;br/&gt;Two red-team tools in CI (L9),&lt;br/&gt;one independent of the model&lt;br/&gt;vendor under test;&lt;br/&gt;map cases to OWASP LLM 2026&lt;br/&gt;and Agentic 2026;&lt;br/&gt;canary documents in every index;&lt;br/&gt;AI events classified under the&lt;br/&gt;DORA / FCA incident scheme."]:::note
+</pre><div class="c">The Step 0 controls apply whatever is chosen; estate shape drives the secrets choice, self-hosting drives model-artefact controls, and residency and existing vendors drive the runtime detector.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

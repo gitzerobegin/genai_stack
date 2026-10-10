@@ -1,0 +1,8 @@
+SOURCE ID: A2-S105
+URL: https://qdrant.tech/security/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qdrant Cloud SOC 2 HIPAA ISO 27001 hybrid cloud private cloud pricing EU regions (allowed: qdrant.tech)
+========================================================================
+
+SOC 2 Type II: audit covered Security, Confidentiality, Availability, no exceptions; first audit period 1 January to 7 April 2024; renewed over a full 12-month observation period (https://qdrant.tech/blog/soc-2-type-ii-hipaa/). HIPAA compliance; BAA available for Managed Cloud / on request; contact Qdrant for PHI. DPA for GDPR. Qdrant headquartered in Berlin; EU customers can keep data in EU regions exclusively. Cloud Inference runs in the EU for clusters in EU regions. No mention of ISO 27001 found. Runs on AWS, GCP and Azure.

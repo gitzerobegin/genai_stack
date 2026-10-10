@@ -1,0 +1,11 @@
+SOURCE ID: A5-S054
+URL: https://www.protectivesecurity.gov.au/publications-library/direction-001-2025-deepseek-products-applications-and-web-services
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Australia bans DeepSeek government devices (allowed_domains homeaffairs.gov.au, protectivesecurity.gov.au)
+========================================================================
+
+Search tool summary:
+- Secretary of Home Affairs issued PSPF Direction 001-2025, dated 4 February 2025 (page updated 14 February 2025).
+- Government entities must prevent access, use or installation of DeepSeek products, applications and web services and remove existing instances from government systems and devices.
+- Based on threat and risk analysis including cyber security. Mandatory for all non-corporate Commonwealth entities; applies to personnel accessing Australian Government information. Does not restrict private individuals or businesses. Similar direction issued for Kaspersky.

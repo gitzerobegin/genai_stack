@@ -1,0 +1,11 @@
+SOURCE ID: A5-S053
+URL: https://www.koreatimes.co.kr/amp/southkorea/globalcommunity/20250424/deepseek-transferred-korean-users-data-abroad-without-permission-govt
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Korea PIPC DeepSeek suspension downloads data transfer findings
+========================================================================
+
+Search tool summary:
+- February 2025: PIPC analysis found third-party data transfers and an inadequate privacy policy; recommended temporary suspension; DeepSeek removed its app from Korean App Store and Google Play on 15 February 2025.
+- 24 April 2025 findings: DeepSeek transferred Korean users' data abroad without consent to four overseas companies (three in China, one in the US) until downloads were suspended; data included AI prompt content and device, network and app information; privacy policy omitted legally required items. PIPC recommended corrective measures including deletion of transferred data. PIPC identified recipient Beijing Volcano Engine Technology as a ByteDance affiliate but a separate legal entity.
+- DeepSeek submitted a revised Korean privacy policy; reinstatement in Korean app stores reported only by a secondary site (unverified).

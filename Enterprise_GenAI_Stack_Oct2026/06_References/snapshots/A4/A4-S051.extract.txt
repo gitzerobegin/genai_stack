@@ -1,0 +1,8 @@
+SOURCE ID: A4-S051
+URL: https://pitchbook.com/profiles/company/590845-78
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CrewAI raises funding 2025 2026 Series B
+========================================================================
+
+PitchBook lists Early Stage VC (Series B) 15-Apr-2026, $20M, completed; total raised $44.5M. FastAIJobs: $20.5M Series B Apr 2026, total $38.5M. Forge Global: Series B-1 $20M and B-2 ~$500K on 04/15/2026; total $38.5M. Earlier: TechCrunch (Oct 2024) reported $18M across seed and Series A (Boldstart, Craft Ventures, Earl Grey, Insight Partners). Lead investors for Series B not named. No CrewAI primary announcement found.

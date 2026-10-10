@@ -1,0 +1,12 @@
+SOURCE ID: A5-S058
+URL: https://techcrunch.com/2025/06/27/germany-tells-apple-google-to-remove-deepseek-from-the-countrys-app-stores
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Berlin data protection commissioner DeepSeek Apple Google remove app
+========================================================================
+
+Search tool summary:
+- Berlin Commissioner for Data Protection Meike Kamp reported DeepSeek to Apple and Google as "illegal content" under Article 16 of the Digital Services Act (27 June 2025), coordinated with Baden-Württemberg, Rhineland-Palatinate, Bremen regulators and the Federal Network Agency.
+- Grounds: DeepSeek transfers German users' data to China without adequate safeguards; no convincing evidence of EU-equivalent protection; Chinese government access rights. DeepSeek's privacy policy says it stores requests and uploaded files on computers in China.
+- 6 May 2025 request to DeepSeek to comply or withdraw; DeepSeek did not comply. A fine was judged unenforceable in China.
+- France, Netherlands, Luxembourg and Portugal also examining DeepSeek. Outcome of the app-store request not found.

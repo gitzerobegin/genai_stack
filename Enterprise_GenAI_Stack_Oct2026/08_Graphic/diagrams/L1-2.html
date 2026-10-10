@@ -1,0 +1,47 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L1 decision tree: building a model portfolio by route, vendor and tier</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L1 decision tree: building a model portfolio by route, vendor and tier</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  S0["STEP 0 [Rec] (not optional)&lt;br/&gt;All model calls go through the firm's gateway (C1) with pinned model IDs, data-class → route/region policy, logging to L9, and a model inventory entry (C8).&lt;br/&gt;Applications never call a vendor API directly."]
+
+  S0 --&gt; S1["STEP 1 [Rec]: Which routes may this data class use?"] --&gt; Q1{"Client / personal /&lt;br/&gt;confidential data?"}
+  Q1 -- yes --&gt; A1["Only (a) hyperscaler-hosted, in an approved UK/EU region, in-tenant, no-training, ZDR or short retention; or (b) self-hosted open weights in the estate"]
+  A1 -.- N1["Never: a vendor's own API without a first-party EU region and ZDR; any Chinese-origin vendor's own API; any 'trains on data' tier"]:::note
+  Q1 -- "no (public or internal low-risk)" --&gt; B1["Vendor API also allowed, after due diligence"]
+
+  A1 --&gt; S2
+  B1 --&gt; S2
+  S2["STEP 2 [Rec]: Mid-tier primary and fallback&lt;br/&gt;(two different vendors, same region)"] --&gt; Q2{"Primary cloud?"}
+  Q2 -- Azure --&gt; AZ["Primary: GPT-6.1 Sol (Foundry EU Data Zone)&lt;br/&gt;Fallback: Mistral Medium 3.5 (Foundry or EU endpoint)"]
+  AZ -.- NAZ["EU processing for Claude on Foundry is not verified; its Azure-hosted deployment is still 'In-Process Q4 2026' for certification"]:::note
+  Q2 -- AWS --&gt; AW["Primary: Claude Sonnet 5.5 or GPT-6 tier on Bedrock in an EU region&lt;br/&gt;Fallback: the other of those two, or Mistral via Bedrock / EU endpoint"]
+  AW -.- NAW["Confirm per-model regional availability; Astra is US-only on Bedrock"]:::note
+  Q2 -- Google --&gt; GO["Primary: Gemini 3.8 Flash (EU region, logging/caching off)&lt;br/&gt;Fallback: Claude Sonnet 5.5 via Google Cloud EU (GPT-6 is not on Google Cloud)&lt;br/&gt;Independent alternative: Mistral on Google Cloud (confirm model and region)"]
+  Q2 -- "multi-cloud or none" --&gt; MC["Primary: OpenAI EU endpoint (ZDR) or Mistral EU endpoint&lt;br/&gt;Fallback: the other; add a hyperscaler route when available"]
+  NCL["Independent alternatives to any Claude choice (Anthropic Strategic, conditional, CP4-1): GPT-6.1 Sol, Gemini 3.8 Flash, Mistral Medium 3.5.&lt;br/&gt;Never Claude as the only qualified vendor."]:::note
+
+  AZ --&gt; NCL
+  AW --&gt; NCL
+  GO --&gt; NCL
+  MC --&gt; NCL
+  NCL --&gt; S3["STEP 3 [Rec]: Small and open-weight tiers"]
+
+  S3 --&gt; Q3a{"High-volume&lt;br/&gt;classification /&lt;br/&gt;extraction / routing?"}
+  Q3a -- yes --&gt; A3a["Small tier of the primary vendor (Luna, Haiku 5.5, Flash-Lite) or self-hosted Gemma 4"]
+  S3 --&gt; Q3b{"Data must never&lt;br/&gt;leave the estate, or&lt;br/&gt;air-gap required?"}
+  Q3b -- yes --&gt; A3b["Self-hosted: Gemma 4 (Apache 2.0), Mistral Medium 3.5 / Large 3, gpt-oss-120b&lt;br/&gt;→ Chinese-origin weights (DeepSeek MIT, Qwen3.8-27B, GLM-5.3-Flash) only if the firm's sovereignty policy explicitly allows them, never with tool access, and GLM only after sanctions review"]
+  S3 --&gt; Q3c{"Frontier tier&lt;br/&gt;(Astra, Fable 5.1,&lt;br/&gt;Argon)?"}
+  Q3c --&gt; A3c["Only when evaluation shows the mid tier fails a named use case; keep disabled otherwise"]
+
+  A3a --&gt; S4
+  A3b --&gt; S4
+  A3c --&gt; S4
+  S4["STEP 4 [Rec]: Checks before go-live&lt;br/&gt;• Second vendor qualified on the same L9 suite? Failover drill passed?&lt;br/&gt;• Every pinned model's retirement date &gt; re-qualification lead time?&lt;br/&gt;• Contract, DPA, register-of-information / MTP entry and exit plan done for each vendor?"]
+</pre><div class="c">Route every call through the gateway, let the data class decide which routes are allowed, pair a mid-tier primary with a fallback from a different vendor in the same region, add small, open-weight and frontier tiers only for their stated cases, and run the go-live checks.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

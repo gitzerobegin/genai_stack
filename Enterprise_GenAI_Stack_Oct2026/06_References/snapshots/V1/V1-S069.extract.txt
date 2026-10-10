@@ -1,0 +1,8 @@
+SOURCE ID: V1-S069
+URL: https://qdrant.tech/blog/soc-2-type-ii-hipaa/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qdrant Cloud SOC 2 Type II HIPAA compliance (allowed_domains qdrant.tech)
+========================================================================
+
+Qdrant renewed its SOC 2 Type II report (initial 2024; 12-month observation period; Security, Confidentiality, Availability). Reports in the Trust Center under NDA. Qdrant holds HIPAA compliance in addition to SOC 2 Type II; FAQ: a BAA is available for Qdrant Managed Cloud; Cloud page: BAA and DPA on request. No statement found that the BAA extends to Hybrid or Private Cloud. Some pages say "HIPAA-ready".

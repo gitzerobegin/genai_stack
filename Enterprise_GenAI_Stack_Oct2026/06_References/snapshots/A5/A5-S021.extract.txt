@@ -1,0 +1,14 @@
+SOURCE ID: A5-S021
+URL: https://trust.anthropic.com/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic trust center SOC 2 Type II ISO 27001 ISO 42001 certification (allowed_domains anthropic.com, trust.anthropic.com, privacy.claude.com, support.claude.com); direct fetch of trust.anthropic.com failed (connection 000)
+========================================================================
+
+Links: Trust Center - Anthropic (https://trust.anthropic.com/); What Certifications has Anthropic obtained? (https://privacy.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained); Anthropic achieves ISO 42001 certification for responsible AI (anthropic.com/news/...).
+Search tool summary:
+- Trust Center marks SOC 2 Type 2, ISO 27001, and ISO 42001 as achieved. Scope table applies these to Claude via the API, Claude Enterprise, Claude Team, and Claude in Amazon Bedrock and Google Vertex AI, with Microsoft Foundry hosted on Azure listed as In-Process Q4 2026 for the same three certifications.
+- Help centre certifications article lists ISO 27001:2022, ISO/IEC 42001:2023, and SOC 2 Type I & Type II, along with a HIPAA-ready configuration; covers commercial products, not consumer plans.
+- ISO 42001 issued by Schellman Compliance, LLC (ANAB-accredited).
+- Trust Center links a 2025 Type 2 SOC 2 and CSA STAR Level 2 report, two 2026 SOC 2 bridge letters, and an ISO Statement of Applicability.
+- Tool caveat: a cached copy on docs.anthropic.com lists fewer Foundry entries; treat live trust.anthropic.com as authoritative.

@@ -1,0 +1,13 @@
+SOURCE ID: A5-S049
+URL: https://www.nist.gov/news-events/news/2025/09/caisi-evaluation-deepseek-ai-models-finds-shortcomings-and-risks
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CAISI evaluation DeepSeek NIST Commerce (allowed_domains nist.gov, commerce.gov)
+========================================================================
+
+Search tool summary:
+- CAISI published 30 September 2025 an evaluation of PRC developer DeepSeek's models (R1, R1-0528, V3.1) vs US models (GPT-5, GPT-5-mini, gpt-oss, Opus 4) across 19 benchmarks; DeepSeek lags in performance, cost, security and adoption.
+- Best US model solves 20-80% more software-engineering and cyber tasks; one US reference model cost 35% less on average at similar performance.
+- DeepSeek models much more likely to follow malicious agent-hijacking instructions; highly susceptible to jailbreaking; assisted with a majority of malicious requests evaluated.
+- Report states security shortcomings and censorship of model responses may pose risks to application developers, consumers and US national security.
+- Commerce Secretary Howard Lutnick used the report to argue against reliance on foreign AI.

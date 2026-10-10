@@ -1,0 +1,8 @@
+SOURCE ID: A4-S050
+URL: https://docs.crewai.com/en/introduction
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CrewAI Flows vs Crews when to use deterministic event-driven
+========================================================================
+
+Introduction: Flows define the steps, logic and how data moves through the system; provide state management, event-driven execution and branching. "Think of a Flow as the 'manager' or the 'process definition' of your application." Crews are the "teams" that do the heavy lifting; within a Flow you can trigger a Crew to tackle a complex problem requiring creativity and collaboration. Evaluating Use Cases guide (v1.15.21): Flows when you need exact sequencing and state across steps, structured predictable output, conditional logic, or mixing AI calls with ordinary code; Crews when several specialised agents collaborate, for research/analysis/content creation, where some variation in output is acceptable; recommends Flows orchestrating Crews for complex, high-stakes pipelines. Flow decorators: @start, @listen(x), @router(x); and_/or_ combinators. PyPI README: "CrewAI Crews: Optimize for autonomy and collaborative intelligence. CrewAI Flows: Enable granular, event-driven control".

@@ -1,0 +1,11 @@
+SOURCE ID: A1-S120
+URL: https://www.confident-ai.com/pricing
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: confident-ai.com/pricing Starter Team Enterprise plan
+========================================================================
+
+Free: "Forever $0 with limits of 2 user seats, 1 project, 5 test runs per week, and 1 GB-month of trace spans".
+Starter: "$200 / month with unlimited user seats, 5 projects, 5 GB-months of trace spans, then $1 per GB-month ingested or retained".
+Team: "$2,000 / month with unlimited user seats, unlimited projects, 75 GB-months of trace spans".
+Enterprise: custom. Annual billing discounted. Conflict: older Confident AI comparison pages list per-seat Starter ($9.99 or $19.99/user/month) and Premium ($49.99/user/month).

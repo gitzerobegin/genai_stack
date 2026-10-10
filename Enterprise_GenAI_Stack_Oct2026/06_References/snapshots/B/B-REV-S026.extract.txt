@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S026
+URL: https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains cloud.google.com, docs.cloud.google.com): Vertex AI ranking API semantic-ranker model reranking RAG
+========================================================================
+
+Google Cloud docs "Improve search and RAG quality with ranking API" and "Reranking for RAG Engine on Gemini Enterprise Agent Platform", as summarised by the search tool:
+- The ranking API is a standalone semantic reranker (Discovery Engine rank method) taking a query and records (ID, title and/or content), with optional top_n; also usable inside RAG Engine via rank_service.
+- Models: semantic-ranker-default-004 and semantic-ranker-fast-004; models up to version 003 (e.g. semantic-ranker-512-003) support 512 tokens per record; version 005 models listed with a preview date of 1 September 2026, and @latest to move to 005 on or before 1 October 2026.
+- RAG Engine also offers an LLM reranker using Gemini models.
+- Google's launch blog makes relative speed claims against competing services (vendor-reported; not used).

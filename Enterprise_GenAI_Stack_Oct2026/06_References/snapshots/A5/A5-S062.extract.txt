@@ -1,0 +1,13 @@
+SOURCE ID: A5-S062
+URL: https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DeepSeek privacy policy data stored servers PRC API open platform terms training (allowed_domains deepseek.com and subdomains)
+========================================================================
+
+Search tool summary (quotes from DeepSeek policies):
+- Consumer privacy policy: "To provide you with our services, we directly collect, process and store your Personal Data in People's Republic of China."
+- Open Platform privacy policy: "We store the information we collect in secure servers located in the People's Republic of China." Corporate group entities process data for storage, content delivery, security, R&D, foundation model training and optimisation.
+- Open Platform Terms: governed by the laws of the People's Republic of China in the mainland. Developers are controllers for their end users' data and must disclose processing and obtain consent.
+- Consumer policy lists training as a purpose with an opt-out; Terms of Use allow de-identified, minimal use of Inputs/Outputs with opt-out ("Improve the model for everyone").
+- No clear statement found on whether API inputs are used for training.

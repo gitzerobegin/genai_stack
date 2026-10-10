@@ -1,0 +1,17 @@
+SOURCE ID: A5-S030
+URL: https://ai.google.dev/gemini-api/docs/changelog
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Gemini models list latest ...; Gemini API release notes September 2026 Gemini 3.8 Flash Gemini 3.5 Pro (allowed_domains ai.google.dev, blog.google, deepmind.google)
+========================================================================
+
+Links: Release notes (ai.google.dev/gemini-api/docs/changelog); Models (ai.google.dev/gemini-api/docs/models); Gemini deprecations (ai.google.dev/gemini-api/docs/deprecations); What's new in Gemini 3.8 Flash (ai.google.dev/gemini-api/docs/latest-model); Introducing Gemini 3.8 Flash and 3.8 Flash Cyber (blog.google); Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber (blog.google); Gemini 3.5: frontier intelligence with action (blog.google); Gemini 3.1 Flash-Lite model card (deepmind.google).
+Search tool summaries:
+- Gemini 3.5 Flash-Lite added July 21, 2026, low-latency cost-effective; $0.3/1M input, $2.5/1M output.
+- Gemini 3.1 Flash-Lite preview March 3, 2026; GA May 7, 2026; deprecations page recommends 3.5 Flash-Lite, shutdown May 7, 2027.
+- Gemini 3.8 Flash listed on models page. Gemini 3.7 Flash and 3.6 Flash also listed. Release notes: Gemini 3.6 Flash and Gemini 3.5 Flash-Lite GA. Gemini 3.5 Flash GA, release May 19, 2026 per deprecations page.
+- Gemini 3 Flash preview December 17, 2025; replacement gemini-3.6-flash.
+- Gemini 3.1 Pro preview released February 19, 2026; no shutdown date announced. Gemini 3 Pro preview November 18, 2025, shut down March 9, 2026, replacement 3.1 Pro.
+- Gemini 3.5 Pro: Google blog said it was being tested with partners; no release confirmed.
+- September 2026 release notes: Sept 2 Gemini 3.8 Flash GA, "most intelligent Flash model", long-horizon software engineering, agents. Sept 15 Gemini 3.8 Live and Live Extended Thinking GA. Sept 18 access to 2.5 models limited to recent users; for new projects Google points to 3.5 Flash-Lite or 3.8 Flash. Sept 22 Gemini 3.8 Flash TTS and Flash-Lite TTS GA.
+- Gemini 3.8 Flash: 1M token context, 64k max output, thinking levels low/medium/high; introductory pricing $0.75/$3.75 per 1M input/output through December 31, 2026; standard $1.50/$7.50 from January 1, 2027.

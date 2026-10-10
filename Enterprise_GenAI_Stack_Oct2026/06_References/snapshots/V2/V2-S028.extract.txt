@@ -1,0 +1,24 @@
+SOURCE ID: V2-S028
+URL: https://pypi.org/pypi/litellm/json
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Direct fetch of https://pypi.org/pypi/<pkg>/json (direct fetch worked; tool header wording is generic)
+========================================================================
+
+Direct fetch from PyPI JSON API on 2026-10-08 (not blocked). Summary:
+litellm 1.104.1 (2026-10-07) MIT, author BerriAI. 1.82.6 uploaded 2026-03-22; 1.82.7 and 1.82.8 ABSENT from release list (removed); 1.83.0 uploaded 2026-03-31T05:08:21Z (= 30 March 2026 US Pacific time).
+guardrails-ai 0.11.0 (2026-08-14) Apache-2.0, author "Guardrails AI".
+presidio-analyzer 2.2.364 (2026-07-22) MIT, author "Presidio".
+nemoguardrails 0.24.1 (2026-09-16) Apache-2.0, NVIDIA.
+llamafirewall 1.0.3 (2025-05-29).
+langfuse 4.17.0 (2026-10-05) MIT.
+promptfoo (PyPI wrapper) 0.2.0 (2026-09-18) MIT.
+modelscan 0.8.8 (2026-02-18) Apache-2.0, ProtectAI.
+picklescan 1.0.5 (2026-07-01).
+fickling 0.1.12 (2026-06-26) LGPL.
+safetensors 0.8.0 (2026-06-09).
+model-signing 1.1.1 (2025-10-10) Apache-2.0.
+validmind 2.13.14 (2026-09-03) dual licence.
+openlineage-python 1.53.0 (2026-09-01) Apache-2.0.
+helicone (Python) 1.0.14 (2023-11-03) Apache-2.0.
+promptlayer 1.5.16 (2026-08-19) Apache-2.0, Magniv.

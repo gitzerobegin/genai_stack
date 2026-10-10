@@ -1,0 +1,98 @@
+SOURCE ID: A4-S071
+URL: https://raw.githubusercontent.com/vercel/workflow/main/packages/workflow/README.md
+FINAL URL: https://raw.githubusercontent.com/vercel/workflow/main/packages/workflow/README.md
+TITLE: 
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Workflow SDK
+
+[Workflow SDK](https://workflow-sdk.dev) makes TypeScript and JavaScript
+functions durable. It persists workflow progress, retries failed steps, and
+provides built-in observability. Workflows can suspend without using compute
+while they wait.
+
+## Quick start
+
+Install the SDK in an existing project:
+
+```bash
+npm install workflow
+```
+
+Configure the integration for your framework. For example, with Next.js:
+
+```ts
+// next.config.ts
+import { withWorkflow } from 'workflow/next';
+
+export default withWorkflow({});
+```
+
+Then start a workflow from an API route, Server Action, or other server-side
+code:
+
+```ts
+import { start } from 'workflow/api';
+import { onboardUser } from './workflows/onboard-user';
+
+await start(onboardUser, ['hello@example.com']);
+```
+
+Run your app, then open the local observability UI in another terminal:
+
+```bash
+npm run dev
+```
+
+```bash
+npx workflow web
+```
+
+Choose your framework in the
+[getting-started guides](https://workflow-sdk.dev/docs/getting-started).
+
+> [!NOTE]
+> The `workflow` package includes its full documentation, so coding agents can
+> read version-matched guides locally from `node_modules/workflow/docs`.
+
+## Run anywhere
+
+For application-level completion and failure reporting, `registerLifecycleHooks`
+from `workflow/api` registers handlers in the workflow executor's host startup.
+Calling it inside a workflow or step throws. Check the
+[lifecycle hooks guide](https://workflow-sdk.dev/v5/docs/observability/lifecycle-hooks)
+for supported framework/deployment combinations and stream cleanup requirements.
+
+Local development uses the bundled backend with no configuration. Deploy to
+Vercel for managed storage, queuing, scaling, and observability. To self-host,
+use the Postgres backend or implement a custom
+[World](https://workflow-sdk.dev/docs/deploying).
+
+The [Worlds page](https://workflow-sdk.dev/worlds) lists maintainer-curated
+third-party Worlds, including self-hosted and managed options. Submit your World
+by updating the [Worlds Manifest](https://github.com/vercel/workflow/blob/main/worlds-manifest.json).
+
+## Community
+
+The Workflow SDK community lives on
+[GitHub Discussions](https://github.com/vercel/workflow/discussions), where you
+can ask questions, share ideas, and show what you have built.
+
+## Contributing
+
+Contributions are welcome. Use
+[issues](https://github.com/vercel/workflow/issues) and
+[discussions](https://github.com/vercel/workflow/discussions) to collaborate
+with the team and wider community. By participating, you agree to our
+[Code of Conduct](https://github.com/vercel/workflow/blob/main/CODE_OF_CONDUCT.md).
+
+## Security
+
+If you find a security vulnerability in Workflow SDK, **_disclose it responsibly instead of opening a public issue_**.
+
+To participate in our Open Source Software Bug Bounty program, please email
+[responsible.disclosure@vercel.com](mailto:responsible.disclosure@vercel.com).
+We will add you to the program and provide further instructions for submitting
+your report.

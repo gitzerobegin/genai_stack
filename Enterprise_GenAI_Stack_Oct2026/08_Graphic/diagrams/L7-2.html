@@ -1,0 +1,43 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L7 decision tree: choosing embedding and reranking models for a corpus</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L7 decision tree: choosing embedding and reranking models for a corpus</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  START["START: a corpus to make retrievable&lt;br/&gt;(one decision per corpus / index)"] --&gt; Q1{"1. Does the corpus contain&lt;br/&gt;client, personal or&lt;br/&gt;confidential data?"}
+  Q1 -- "no: any approved hosted&lt;br/&gt;API is acceptable" --&gt; Q3
+  Q1 -- "yes" --&gt; Q2{"2. Where may it&lt;br/&gt;be processed?"}
+  subgraph S2[" "]
+    Q2 -- "only inside our estate&lt;br/&gt;(or air-gapped)" --&gt; V{"Need vendor&lt;br/&gt;support?"}
+    V -- "yes, NVIDIA AI Enterprise&lt;br/&gt;already licensed" --&gt; E1["NVIDIA NeMo Retriever NIMs"]
+    V -- "yes, otherwise" --&gt; E2["Cohere private / on-prem deployment&lt;br/&gt;(or Jina on-prem licence if Elastic is the store)"]
+    V -- "no" --&gt; E3["Sentence Transformers serving an Apache-2.0 model&lt;br/&gt;(Qwen3 only after provenance review;&lt;br/&gt;voyage-4-nano is another option)"]
+    Q2 -- "UK processing&lt;br/&gt;required" --&gt; UK["None of the hosted APIs here verified UK processing for embeddings → treat as 'own estate' (above) or a VPC/marketplace deployment in a UK region (Cohere on SageMaker/Foundry, Voyage on SageMaker); confirm the region"]
+    UK -. "own estate" .-&gt; V
+    Q2 -- "EU processing&lt;br/&gt;acceptable" --&gt; EU{"Which estate&lt;br/&gt;or store?"}
+    EU -- "store is MongoDB" --&gt; U1["Voyage via Atlas EEA Geography&lt;br/&gt;(accept preview status, obtain the SOC 2 report)"]
+    EU -- "store is Elasticsearch" --&gt; U2["Jina via Elastic Inference Service&lt;br/&gt;(pin the model)"]
+    EU -- "Google-centred estate,&lt;br/&gt;multimodal" --&gt; U3["Gemini Embedding 2&lt;br/&gt;on the 'eu' endpoint"]
+    EU -- "OpenAI already approved,&lt;br/&gt;text-only" --&gt; U4["text-embedding-3 on an&lt;br/&gt;EU project with ZDR"]
+    EU -- "otherwise" --&gt; U5["Cohere&lt;br/&gt;(SaaS with ZDR, or VPC)"]
+  end
+  S2 --&gt; Q3{"3. Do we need a reranker?&lt;br/&gt;(almost always yes for&lt;br/&gt;precision-critical answers)"}
+  Q3 -- "same vendor offers one and&lt;br/&gt;it passes in-domain eval" --&gt; R1["Use it"]
+  Q3 -- "embedding vendor has none in the same API&lt;br/&gt;(OpenAI; Google's is the Vertex ranking API)" --&gt; R2["Cohere Rerank 4, Voyage rerank-3 (Preview),&lt;br/&gt;or a self-hosted cross-encoder"]
+  Q3 -- "store hosts it&lt;br/&gt;(MongoDB $rerank, Pinecone, Elastic)" --&gt; R3["Acceptable if the model version is pinned&lt;br/&gt;and logged, and entitlement filtering precedes it"]
+  R1 --&gt; Q4
+  R2 --&gt; Q4
+  R3 --&gt; Q4
+  Q4{"4. Exact identifiers matter&lt;br/&gt;(fund codes, ISINs,&lt;br/&gt;share classes)?"} -- "yes" --&gt; H["Hybrid first stage&lt;br/&gt;(BM25/sparse + dense, fused)&lt;br/&gt;before rerank"]
+  Q4 -- "no" --&gt; Q5
+  H --&gt; Q5{"5. Scanned pages,&lt;br/&gt;charts or images&lt;br/&gt;matter?"}
+  Q5 -- "yes" --&gt; M["Multimodal model (Gemini Embedding 2, Cohere Embed 5, Jina v5-omni, voyage-multimodal-3.5, NVIDIA VL), chosen by in-domain eval"]
+  ALL["6. Always: pin versions in C5, keep raw text, tag vectors with model_version, and migrate by dual index behind an L9 regression gate."]:::note
+  Q5 -- "no" --&gt; ALL
+  M --&gt; ALL
+</pre><div class="c">Data sensitivity and permitted processing location decide the embedding route first, then reranking, hybrid retrieval and multimodal needs are settled, and every choice is version-pinned and migrated behind an L9 regression gate.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

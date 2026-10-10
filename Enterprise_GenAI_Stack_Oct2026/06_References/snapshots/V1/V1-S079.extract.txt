@@ -1,0 +1,8 @@
+SOURCE ID: V1-S079
+URL: https://trust.together.ai/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Together AI SOC 2 Type 2 ISO 27001 HIPAA BAA trust center (allowed_domains together.ai etc.)
+========================================================================
+
+Trust center lists a SOC 2 Type 2 report, updated report published June 17, 2026. ISO 27001:2022 certification from A-LIGN (ANAB-accredited), scoped to the ISMS supporting the global platform, corporate HQ and third-party data-centre security. HIPAA: blog says Together adheres to HIPAA including BAAs "with our partners"; product pages say "HIPAA-ready", "HIPAA-aligned"; trust-centre content retrieved does not mention HIPAA or a BAA.

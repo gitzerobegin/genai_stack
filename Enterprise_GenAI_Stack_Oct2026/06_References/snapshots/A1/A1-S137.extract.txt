@@ -1,0 +1,9 @@
+SOURCE ID: A1-S137
+URL: https://docs.wandb.ai/weave/guides/platform
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: W&B Weave pricing security SOC 2 HIPAA dedicated cloud self-managed
+========================================================================
+
+Search result titles: "Deployment options and security features - Weights & Biases Documentation" (docs.wandb.ai/weave/guides/platform); "Dedicated Cloud - Weights & Biases Documentation"; "W&B Self-Managed deployment overview".
+Extracts: Multi-tenant Cloud: "A multi-tenant, fully managed platform deployed in W&B's Google Cloud Platform (Google Cloud) account in a North America region." Dedicated Cloud: GA on AWS, Google Cloud and Azure; "fully managed platform with dedicated, isolated infrastructure"; Weave data stored in a unique ClickHouse Cloud cluster in chosen cloud and region, encrypted with unique W&B-managed key. Self-Managed: Kubernetes, MySQL 8.4.x, S3-compatible object storage, Redis; ingest sampling for Weave. Both managed platforms SOC 2 Type II; reports via W&B Security Portal. "When configured appropriately, W&B Dedicated Cloud meets the requirements of HIPAA"; BAA required. Self-managed: customer maintains own compliance. IP allowlisting and private connectivity on Dedicated Cloud. W&B site: ISO/IEC 27001:2022, ISO/IEC 27017:2015, ISO/IEC 27018:2019 certified; SOC 2 and HIPAA compliant. Conflict: May 2025 deployment guide said HIPAA for Weave "coming soon".

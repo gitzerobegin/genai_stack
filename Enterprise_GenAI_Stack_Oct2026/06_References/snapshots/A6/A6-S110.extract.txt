@@ -1,0 +1,14 @@
+SOURCE ID: A6-S110
+URL: https://www.cloudflare.com/trust-hub/compliance-resources/soc-2/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cloudflare compliance certifications SOC 2 ISO 27001 AI Gateway in scope Data Localization Suite (site:cloudflare.com, developers.cloudflare.com)
+========================================================================
+
+Related: https://www.cloudflare.com/trust-hub/compliance-resources/iso-certifications/ ; https://www.cloudflare.com/trust-hub/gdpr/ ; https://www.cloudflare.com/trust-hub/
+
+Extract as returned by search tool:
+"Cloudflare's SOC 2 Type II report covers security, confidentiality, and availability controls to protect customer data and is available to download from the Cloudflare dashboard." All Cloudflare plans are in scope. In-scope services list "Developer Platform: Browser Rendering, ... AI Gateway, Cloudflare Queues" and "Privacy and Compliance: Data Localization Suite". Issued annually; shared under NDA with prospects.
+ISO: "ISO 27001 certified since 2019. Cloudflare's ISMS has been assessed and certified by a third party auditor and is currently certified against ISO 27001:2022." Scope "includes the Cloudflare global cloud platform and subsidiary offices" (AI Gateway not named individually). "We currently maintain the following validations: ISO 27001, ISO 27701, ISO 27018, SOC 2 Type II, and PCI DSS Level 1 compliance."
+Data Localization Suite helps "set rules and controls at the edge about where their data is stored and protected." EU transfers rely on EU-U.S. Data Privacy Framework certifications, with EU SCCs as fallback.
+Several Trust Hub pages are marked as roughly two years old.

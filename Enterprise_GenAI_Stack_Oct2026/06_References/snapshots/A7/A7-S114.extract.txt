@@ -1,0 +1,13 @@
+SOURCE ID: A7-S114
+URL: https://www.cloudzero.com/blog/token-based-pricing/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CloudZero AI cost OpenAI Anthropic Bedrock token cost allocation 2026 (allowed_domains cloudzero.com)
+========================================================================
+
+CloudZero blog (vendor statements, posts dated within ~5 months of 7 Oct 2026):
+- OpenAI integration "ingests token-level usage and cost data", and the CostFormation allocation engine maps it to customer, feature, team and environment.
+- Anthropic direct API: ingests uncached input, cache hits, output tokens and tool usage by model, workspace and API key; claims to be the first cloud cost platform to integrate directly with Anthropic.
+- Amazon Bedrock: AWS Cost Explorer shows Bedrock as one line item; CloudZero splits spend by model, team, feature, product and customer. Claude Platform on AWS: normalises Bedrock tokens and Marketplace Claude Consumption Units into cost-per-inference.
+- Azure OpenAI: integration "attributes every dollar to who's responsible for it".
+- CloudZero reports organisations typically end up at 1.5x to 2x initial Amazon Bedrock cost estimates (Knowledge Bases, Agents, Guardrails costs).

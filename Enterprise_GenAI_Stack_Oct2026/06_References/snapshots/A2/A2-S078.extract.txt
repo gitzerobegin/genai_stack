@@ -1,0 +1,8 @@
+SOURCE ID: A2-S078
+URL: https://www.mongodb.com/company/blog/product-release-announcements/unlocking-ai-search-introducing-automated-embedding-in-mongodb-vector-search
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Voyage AI latest embedding model voyage-4 MongoDB
+========================================================================
+
+Automated Embedding in MongoDB Vector Search features Voyage AI models including voyage-4-large, voyage-4, voyage-4-lite and voyage-code-3. It is in public preview on Community Edition; Atlas support 'coming soon' (as of January 2026 press release). Search result list also included 'Improving Agent Retrieval with Native Reranking and Hybrid Search' (https://www.mongodb.com/company/blog/product-release-announcements/improving-agent-retrieval-native-reranking-hybrid-search) - title only, content not returned.

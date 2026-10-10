@@ -1,0 +1,14 @@
+SOURCE ID: A5-S031
+URL: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: "Gemini 4" Argon Google DeepMind frontier model (no domain filter)
+========================================================================
+
+Links: Gemini 4 Argon: our next era of frontier intelligence (blog.google/.../gemini-4-argon/); Google DeepMind on X "Introducing Gemini 4 Argon"; Google announces Gemini 4 Argon as its new frontier model (9to5google.com/2026/09/30/gemini-4-argon-announcement/); neuraltrust.ai blog; chromeunboxed.com; deepmind.google/models/gemini/.
+Search tool summary:
+- Google describes Argon as "Built to sustain deep reasoning across complex, long-horizon workflows"; coding, financial research, legal drafting, autonomous cybersecurity vulnerability patching.
+- Output limit raised to 1M tokens, up from 64K.
+- Launched September 30, 2026 to a limited group: rolling out to trusted cyber defenders through the Fairwind Program. Paid API customers and Google AI Ultra subscribers expected next; no date given. At launch absent from OpenRouter, Vertex AI, Gemini CLI (third-party guide).
+- 9to5Google: model available "without cyber guardrails" to trusted defenders and internal Google teams; launch follows cancellation of Gemini 3.5 Pro and focus on 3.8 Flash; new naming scheme.
+- Google headline: DeepSWE v1.1 77.9% vs Claude Opus 5.5 74.2% and GPT-6 Astra 74.1% (vendor-reported). NeuralTrust table: Argon 52.6 on Artificial Analysis Intelligence Index vs Opus 5.5 57.6.

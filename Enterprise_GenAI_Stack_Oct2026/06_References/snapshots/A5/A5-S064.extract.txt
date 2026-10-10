@@ -1,0 +1,12 @@
+SOURCE ID: A5-S064
+URL: https://api-docs.deepseek.com/news/news260910/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: DeepSeek V4.1 release (allowed_domains api-docs.deepseek.com, deepseek.com, huggingface.co)
+========================================================================
+
+Search tool summary:
+- DeepSeek-V4.1-Flash released 10 September 2026 (changelog and news post): smallest model in the new architecture family, native multimodal visual understanding; 552B MoE (HF card: 763B total incl. components), 8B active input / 16B output; 1M context. API prices reduced; model name deepseek-flash; deepseek-v4-flash and deepseek-v4-flash-vision-exp routed to V4.1-Flash.
+- Open weights on Hugging Face (deepseek-ai/DeepSeek-V4.1-Flash); NVIDIA NVFP4 quantisation published.
+- Conflict: news post says deepseek-v4-pro requests route to V4.1-Flash from 14 September 2026 until V4.1-Pro launches ("We're phasing out V4-Pro"); a later changelog entry says DeepSeek will continue providing V4 Pro API after 14 September 2026.
+- No V4.1-Pro released as of sources found.

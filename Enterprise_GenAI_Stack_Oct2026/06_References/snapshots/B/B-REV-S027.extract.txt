@@ -1,0 +1,12 @@
+SOURCE ID: B-REV-S027
+URL: https://www.mongodb.com/products/platform/trust/soc
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains mongodb.com, trust.mongodb.com, voyageai.com, docs.voyageai.com): MongoDB trust center Voyage AI SOC 2 Type II ISO 27001 embedding API compliance scope
+========================================================================
+
+"SOC Compliance - MongoDB Atlas" page, MongoDB Atlas Trust Center and "Manage Voyage AI Model API Keys" docs, as summarised by the search tool:
+- SOC 2 Type II scope list names MongoDB Atlas, Atlas for Government, Atlas App Services, Realm, Charts, Atlas Data Federation, Atlas Serverless, Cloud Manager and Online Archive; it does not name Voyage AI or the Embedding and Reranking API, and excludes products or features in beta, preview or similar (page metadata indicates it is old).
+- The Trust Center lists ISO/IEC 27001:2022 among Atlas attestations; no Voyage mention.
+- Model API keys created through Atlas authenticate to ai.mongodb.com endpoints; keys created through Voyage AI authenticate to api.voyageai.com.
+- Voyage models deployed via the Azure or AWS marketplaces run in the customer's own cloud account (docs.voyageai.com marketplace pages).

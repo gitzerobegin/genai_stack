@@ -1,0 +1,8 @@
+SOURCE ID: A3-S041
+URL: https://www.linuxfoundation.org/press/agentic-ai-foundation-welcomes-57-new-members-gaining-major-financial-services-players-and-apac-leaders
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Agentic AI Foundation projects members 2026 MCP AGENTS.md goose new projects
+========================================================================
+
+Search-tool summary: The August 2026 announcement said the 57 new members brought total foundation membership to 247 organizations worldwide. In August 2026, Alibaba, Visa, and Wells Fargo joined as Gold Members. In February 2026, the AAIF said it represented a community of 146 members; by May 180 organizations (totals don't fully reconcile). The September 2026 release names MCP, A2A, AGENTS.md, goose, agentgateway, and Agent Router as [AAIF] projects. In February 2026, the AAIF appointed David Nalley, director of developer experience at AWS, as governing board chair.

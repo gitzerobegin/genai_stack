@@ -1,0 +1,11 @@
+SOURCE ID: E3-S064
+URL: https://csrc.nist.gov/pubs/sp/800/218/a/final
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SP 800-218A generative AI secure software development
+========================================================================
+
+Search-tool summary of csrc.nist.gov/pubs/sp/800/218/a/final and nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.pdf:
+- SP 800-218A (final, July 2024) is a Community Profile for generative AI and dual-use foundation models that augments the practices and tasks in SSDF version 1.1 with recommendations, considerations, notes and informative references for generative AI development.
+- PW.5.1 (secure coding) is expanded to include AI technology-specific considerations, e.g. carefully coding the handling of inputs (including prompts and user data) and outputs.
+- Its scope is developing AI models and systems; it is not guidance on developers using AI coding assistants.

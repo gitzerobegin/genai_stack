@@ -1,0 +1,109 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>Portability lives in the artefacts you own</title>
+<!-- Generated from P22.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.wx{display:flex;align-items:center;gap:4px;margin:0 0 12px;white-space:nowrap}
+.wx .lb{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-right:auto;padding-right:10px;overflow:hidden;text-overflow:ellipsis}
+.wx .c{font-size:11.5px;font-weight:800;border-radius:6px;padding:3px 0;width:34px;text-align:center;border:1.5px solid var(--line);color:#8792A0;background:#fff;flex:none}
+.wx .c.done{background:var(--navy);border-color:var(--navy);color:#fff}.wx .c.now{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 22 · Where not to abstract</div>
+  <div class="title">Portability lives in the artefacts you own</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.p22{display:grid;grid-template-columns:1.08fr 1fr;gap:18px;align-items:stretch}
+.p22>div{display:flex;flex-direction:column}
+.p22 .hd2{border-radius:14px;padding:10px 14px;margin-bottom:8px}
+.p22 .hd2 .h{font-size:23px}.p22 .hd2 .d{font-size:15px;margin-top:2px}
+.p22 .ab{background:var(--greenbg);border:2px solid var(--green)}.p22 .ab .h{color:var(--green)}.p22 .ab .d{color:var(--navy)}
+.p22 .nx{background:var(--redbg);border:2px solid var(--red)}.p22 .nx .h{color:var(--red)}.p22 .nx .d{color:var(--navy)}
+.p22 .i{display:flex;gap:10px;align-items:flex-start;background:#fff;border:2px solid var(--line);border-radius:11px;padding:7px 11px;margin-top:6px}
+.p22 .i .code{flex:none;min-width:40px;text-align:center;margin:1px 0 0;font-size:14px;padding:2px 6px}
+.p22 .i b{display:block;font-size:17px;line-height:1.2}
+.p22 .i span.w{display:block;font-size:15px;color:var(--mute);line-height:1.25;margin-top:1px}
+.p22 .x{border-left:6px solid var(--red)}
+.p22 .key{border:2px solid var(--red);background:#FFF8F8}
+.p22s .strip{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.p22s .strip>div{display:block}
+.p22s .sh{font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:800;margin-bottom:4px}
+.p22s .chip{font-size:14.5px;padding:3px 11px;margin:3px 3px 0 0}
+</style>
+<div class="col" style="gap:14px">
+ <div class="p22">
+  <div>
+   <div class="hd2 ab"><div class="h">&#10003; Abstract: thin, firm-owned</div><div class="d">where switching is likely and the interface is small</div></div>
+   <div class="i"><span class="code">L5</span><div><b>Memory API</b><span class="w">write · recall · forget by subject · snapshot</span></div></div>
+   <div class="i"><span class="code">L6</span><div><b>Retrieval interface</b><span class="w">one thin call returning IDs and scores</span></div></div>
+   <div class="i"><span class="code">L7</span><div><b>Embed and rerank service</b><span class="w">model version on every vector</span></div></div>
+   <div class="i"><span class="code">L9</span><div><b>Telemetry collector</b><span class="w">firm-owned, open, with redaction</span></div></div>
+   <div class="i"><span class="code">L9</span><div><b>Evaluation datasets</b><span class="w">datasets and scorers in source control</span></div></div>
+   <div class="i"><span class="code g">C1</span><div><b>Routing contract</b><span class="w">one API contract at the gateway; no provider SDKs</span></div></div>
+   <div class="i"><span class="code g">C3</span><div><b>Privacy API</b><span class="w">detect · transform · re-identify</span></div></div>
+   <div class="i"><span class="code g">C4</span><div><b>Policy as code</b><span class="w">open policy language, with tests</span></div></div>
+   <div class="i"><span class="code g">C5</span><div><b>Configuration fetch</b><span class="w">one call, with a file-based fallback</span></div></div>
+   <div class="i"><span class="code g">C7</span><div><b>Credentials</b><span class="w">workload identity and a vault; no standing secrets</span></div></div>
+  </div>
+  <div>
+   <div class="hd2 nx"><div class="h">&#10007; Do not over-abstract</div><div class="d">wrappers drift behind every upstream release</div></div>
+   <div class="i x"><span class="code">L1</span><div><b>Vendor model extras</b><span class="w">only behind an adapter with a feature-free fallback</span></div></div>
+   <div class="i x key"><span class="code" style="background:var(--red)">L3</span><div><b>Agent frameworks</b><span class="w">no firm-wide wrapper: frameworks on top of frameworks. Keep specification, prompts, tools and evaluations outside, and a rewrite is bounded work</span></div></div>
+   <div class="i x"><span class="code">L3</span><div><b>Single-workflow plug-ins</b><span class="w">one workflow with one model step needs no plug-in architecture</span></div></div>
+   <div class="i x"><span class="code">L6</span><div><b>Plain database access</b><span class="w">no layer between every query and the database</span></div></div>
+   <div class="i x"><span class="code">L6·L7</span><div><b>Store-bundled features</b><span class="w">use only if the model is pinned and raw text is kept outside; never abstract to hide an unpinned model</span></div></div>
+   <div class="box gold" style="margin-top:auto;padding:11px 14px"><div class="lab" style="color:#8A6418">The signal</div><div class="h" style="font-size:20px;margin-top:2px">Framework currency</div><div class="small">days behind the pinned framework's latest security fix, held inside the patch window (for example, 30 days)</div></div>
+  </div>
+ </div>
+ <div class="box p22s" style="padding:12px 16px">
+  <div class="strip">
+   <div><div class="sh" style="color:var(--green)">Multi-vendor is necessary</div>
+    <span class="chip green">two unrelated model vendors</span><span class="chip green">an open-weight exit route</span><span class="chip green">two red-team tools, one independent</span><span class="chip green">two gateway deployments</span><span class="chip green">two guardrail detectors</span></div>
+   <div><div class="sh" style="color:var(--red)">Multi-vendor only adds complexity</div>
+    <span class="chip red">two orchestration frameworks</span><span class="chip red">a second cloud's agent stack</span><span class="chip red">two vector stores, one corpus</span><span class="chip red">two observability platforms</span><span class="chip red">two identity providers for agents</span></div>
+  </div>
+ </div>
+</div>
+</div>
+ <div class="wx"><span class="lb">Worked example · step 22</span><span class="c done">L1</span><span class="c done">C6</span><span class="c done">L2</span><span class="c done">C1</span><span class="c done">L3</span><span class="c done">C2</span><span class="c done">L4</span><span class="c done">C4</span><span class="c done">L5</span><span class="c done">Reg</span><span class="c done">L6</span><span class="c done">C7</span><span class="c done">L7</span><span class="c done">C5</span><span class="c done">L8</span><span class="c done">C3</span><span class="c done">L9</span><span class="c done">C8</span></div>
+ <div class="ft"><div class="cap">Abstract where switching is likely and the interface is small; do not wrap the framework. Ask what switching would cost without the layer. Generic: no vendor names.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: Synthesis IX.1, IX.2 and IX.3</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

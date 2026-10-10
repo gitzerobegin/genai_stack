@@ -1,0 +1,11 @@
+SOURCE ID: V2-S021
+URL: https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CAISI evaluation GLM-5.3 OR Kimi K3 OR DeepSeek V4 NIST 2026
+========================================================================
+
+CAISI's Assessment of Z.ai's GLM-5.3 Cyber Capabilities (nist.gov, September 2026): "GLM-5.3 is the most cyber-capable open-weight model released to date. GLM-5.3's cyber capabilities are significantly lower than those of current U.S. frontier models." "GLM-5.3 lags the capability level of the U.S. frontier by about four months." Z.ai released the model on August 14, 2026, and publicly released the model's weights two weeks later.
+UK AISI / CAISI Preliminary Assessment of Kimi K3's Cyber Capabilities (July 2026): Kimi K3 reached step 17 of a 32-step path vs 28.5 for most cyber-capable US models; performs above GLM-5.2; "Kimi K3's safeguards did not prevent it from attempting cyber exploit development or offensive cyber operations". Preliminary, selective evaluations.
+DeepSeek V4 Pro: "in April 2026, the Center for AI Standards and Innovation (CAISI) evaluated the open-weight AI model DeepSeek V4 Pro" (findings truncated in snippet; 'eight months behind' only from a third-party blog).
+NIST page title: "Center for Advancing Innovation and Standards for Super Intelligence (CAISSI)".

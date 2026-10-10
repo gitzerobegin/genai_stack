@@ -1,0 +1,39 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L9 decision tree: observability platform of record, monitoring and evaluation tooling</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L9 decision tree: observability platform of record, monitoring and evaluation tooling</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  classDef step fill:#0B1B33,stroke:#0B1B33,color:#FFFFFF;
+  S0["&lt;b&gt;STEP 0 [Rec] (not optional)&lt;/b&gt;&lt;br/&gt;Instrument with OTel GenAI conventions (or OpenInference) via a firm-owned OTel Collector with redaction; keep datasets and metric code in Git."]:::note
+  S0 --&gt; H1["STEP 1 [Rec]: Platform of record for traces, datasets, evals, prompts"]:::step
+  H1 --&gt; Q1{"Do traces contain client/personal&lt;br/&gt;data that must stay in-estate&lt;br/&gt;or in UK/EU?"}
+  Q1 -- "no" --&gt; N1["Pick on team fit: LangSmith (LangGraph),&lt;br/&gt;Braintrust (eval-led), Langfuse"]
+  Q1 -- "yes" --&gt; Q2{"Can you run Kubernetes +&lt;br/&gt;ClickHouse/PostgreSQL&lt;br/&gt;yourselves?"}
+  Q2 -- "yes" --&gt; Q3{"Is an ML platform (Databricks /&lt;br/&gt;SageMaker / Azure ML) already the&lt;br/&gt;model-inventory system?"}
+  Q3 -- "yes" --&gt; Y1["MLflow (managed, in-region)"]
+  Q3 -- "no" --&gt; Y2["Langfuse self-hosted + Enterprise licence&lt;br/&gt;(alt: Opik + Comet Enterprise;&lt;br/&gt;LangSmith self-host if LangGraph)"]
+  Q2 -- "no: managed with EU region&lt;br/&gt;or customer data plane" --&gt; Q4{"LangGraph&lt;br/&gt;estate?"}
+  Q4 -- "yes" --&gt; M1["LangSmith EU / BYOC"]
+  Q4 -- "otherwise" --&gt; M2["Langfuse Cloud EU, Braintrust hybrid (EU),&lt;br/&gt;W&amp;B Dedicated Cloud (EU region)"]
+  H2["STEP 2 [Rec]: Production monitoring with ops"]:::step
+  H1 ~~~ H2
+  H2 --&gt; Q5{"Is Datadog or Dynatrace&lt;br/&gt;the APM standard?"}
+  Q5 -- "Datadog" --&gt; D1["Datadog Agent Observability,&lt;br/&gt;fed by the same Collector (EU1 site)"]
+  Q5 -- "Dynatrace" --&gt; D2["Arize AX (re-assess after Dynatrace&lt;br/&gt;publishes its roadmap)"]
+  Q5 -- "neither" --&gt; D3["Platform of record's online&lt;br/&gt;evals + alerting"]
+  H3["STEP 3 [Rec]: CI evaluation and red-teaming"]:::step
+  D1 ~~~ H3
+  D2 ~~~ H3
+  D3 ~~~ H3
+  H3 --&gt; T1["&lt;b&gt;Metrics library&lt;/b&gt; → DeepEval (or the platform's own evaluators), judge model via gateway"]
+  H3 --&gt; T2["&lt;b&gt;Red-team&lt;/b&gt; → Promptfoo CLI locally&lt;br/&gt;AND, if the system under test uses an OpenAI model, a second, vendor-independent red-team tool (e.g. Confident AI)"]
+  H3 --&gt; T5["&lt;b&gt;Validation sandbox for independent reviewers&lt;/b&gt; → Phoenix (auth on, telemetry off, air-gapped)"]
+  S4["&lt;b&gt;STEP 4 [Rec]: Checks before go-live&lt;/b&gt;&lt;br/&gt;• Trace retention ≥ records policy (and ≥ 6 months where AI Act Art. 26 applies)?&lt;br/&gt;• Judge calibrated against human labels?&lt;br/&gt;• Trace completeness reconciled with gateway?"]:::note
+  T2 ~~~ S4
+</pre><div class="c">After instrumenting through a firm-owned OTel Collector, the platform of record is chosen by data residency, self-hosting capacity and existing ML platform, production monitoring follows the APM standard, CI evaluation and red-teaming are added, and go-live checks close the selection.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

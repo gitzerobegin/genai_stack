@@ -1,0 +1,8 @@
+SOURCE ID: V1-S076
+URL: https://lmstudio.ai/blog/free-for-work
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LM Studio free for work commercial license removed terms (allowed_domains lmstudio.ai)
+========================================================================
+
+Previously the app terms required a separate commercial licence for company use; "Starting today, there's no need to fill a form or contact us" (post about 457 days old at 8 Oct 2026, i.e. c. July 2025). Current app terms: licence for personal and/or internal business purposes; no redistribution, resale, service bureau or SaaS use. Enterprise plan for SSO, model/MCP gating, private collaboration. lms CLI, Core SDK and MLX engine are MIT.

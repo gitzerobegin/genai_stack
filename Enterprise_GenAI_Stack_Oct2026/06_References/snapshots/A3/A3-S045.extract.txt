@@ -1,0 +1,8 @@
+SOURCE ID: A3-S045
+URL: https://owasp.org/www-project-mcp-top-10/2025/MCP03-2025%E2%80%93Tool-Poisoning
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OWASP MCP Top 10 project tool poisoning MCP03 and OWASP Top 10 for Agentic Applications 2026
+========================================================================
+
+Search-tool summary: The MCP Top 10 still uses the 2025 labels; no 2026 MCP edition found. MCP03 is 'Tool Poisoning'. An adversary compromises the tools, plugins, or their outputs that an AI model depends on, injecting misleading or biased context to steer the model. The MCP03:2025 entry centers on schema poisoning, where an attacker alters the contract governing agent-to-tool calls. Prevention includes digitally signing schemas and tool manifests, and having agents verify signatures before accepting or using a schema. The OWASP MCP Security Cheat Sheet lists rug pulls, where a server changes tool definitions after approval, and recommends pinning reviewed tool definitions with cryptographic hashes and requiring review when they change. The MCP Top 10 is licensed under CC BY-NC-SA 4.0.

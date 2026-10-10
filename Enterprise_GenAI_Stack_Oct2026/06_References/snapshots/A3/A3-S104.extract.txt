@@ -1,0 +1,8 @@
+SOURCE ID: A3-S104
+URL: https://e2b.dev/security
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: E2B SOC 2 security pricing BYOC enterprise self-hosted (allowed_domains e2b.dev)
+========================================================================
+
+Search-tool summary: 'E2B is SOC 2 Type II compliant and signs HIPAA BAAs on Enterprise plans.' 'The full report is available under NDA from the E2B Trust Center, and the current bridge letter is available.' 'SOC 2 Type II report, penetration test report, and DPA in the Trust Center. HIPAA BAA and questionnaire on request.' 'E2B's SOC 2 Type II report covers the E2B software and control plane; the cloud account it is deployed into, and that account's compliance posture, remain yours.' E2B Cloud data path: Google Cloud, operated by E2B. BYOC: sandboxes run inside your own VPC; E2B provisions and monitors the cluster; Enterprise offering. Docs (docs.e2b.dev/byoc): BYOC currently only available for AWS and Google Cloud; Enterprise page lists AWS, GCP and Azure (conflict). Self-hosted: run E2B's open-source infrastructure yourself; Terraform deploys to AWS or GCP. Pricing: Hobby free with one-time $100 usage credit; Pro $150/month plus usage; Enterprise custom + usage; workload estimator: Enterprise requires $3,000/mo minimum. Hosted usage billed per second; paused sandboxes not billed.

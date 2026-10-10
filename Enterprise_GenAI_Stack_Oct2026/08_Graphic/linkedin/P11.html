@@ -1,0 +1,99 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>You may not need a vector database</title>
+<!-- Generated from P11.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.wx{display:flex;align-items:center;gap:4px;margin:0 0 12px;white-space:nowrap}
+.wx .lb{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-right:auto;padding-right:10px;overflow:hidden;text-overflow:ellipsis}
+.wx .c{font-size:11.5px;font-weight:800;border-radius:6px;padding:3px 0;width:34px;text-align:center;border:1.5px solid var(--line);color:#8792A0;background:#fff;flex:none}
+.wx .c.done{background:var(--navy);border-color:var(--navy);color:#fff}.wx .c.now{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 11 · L6 Retrieval and knowledge stores</div>
+  <div class="title">You may not need a vector database</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.dt6{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:stretch}
+.dt6 .stp{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.dt6 .box{padding:15px 16px}
+.dt6 .code{white-space:nowrap}
+.dt6 .flow>.arrow{margin:2px 0}
+.dt6 ul{margin:4px 0 0;padding-left:20px;font-size:17px;line-height:1.35}
+.dt6 .tr{display:grid;grid-template-columns:30px 1fr;gap:4px 6px;font-size:17px;line-height:1.3;margin-top:6px}
+.dt6 .tr b{color:var(--blue)}
+.dt6 .side{display:flex;flex-direction:column;gap:12px}
+.dt6 .mini{display:flex;flex-direction:column;gap:4px;font-size:16px;line-height:1.25;margin-top:8px}
+.dt6 .mini div{background:#fff;border-radius:8px;padding:6px 10px}
+.dt6 .mini i{font-style:normal;text-align:center;font-weight:700;font-size:17px;line-height:1}
+.dt6 .bad .mini i{color:var(--red)}
+.dt6 .good .mini i{color:var(--green)}
+.dt6 .eq{font-weight:800;font-size:19px;margin-top:8px}
+.dt6 .no{display:flex;align-items:center;gap:10px}
+</style>
+<div class="col" style="gap:24px">
+ <div class="dt6">
+  <div class="flow">
+   <div class="box gold"><div class="stp"><span class="code g">Step 0</span><span class="h" style="font-size:20px">Non-negotiables, whatever the store</span></div>
+    <ul><li>entitlement filters applied inside the search</li><li>no unfiltered fallback</li><li>rebuild from source tested twice a year</li></ul></div>
+   <div class="arrow d"></div>
+   <div class="box"><div class="stp"><span class="code">Step 1</span><span class="h" style="font-size:20px">Use what you run</span></div>
+    <div><span class="chip">relational database</span><span class="chip">search engine</span><span class="chip">document database</span><span class="chip">object-store tier</span></div></div>
+   <div class="arrow d"></div>
+   <div class="box"><div class="stp"><span class="code">Step 2</span><span class="h" style="font-size:20px">Trigger shown in a load test on your own data?</span></div>
+    <div class="tr"><b>(a)</b><span>filtered latency or recall fails the budget</span><b>(b)</b><span>tenants must be isolated at a scale schemas cannot manage</span><b>(c)</b><span>corpus makes the existing platform's cost disproportionate</span></div>
+    <div class="no" style="margin-top:8px"><span class="chip amber">no trigger</span><span class="small">stay in Step 1</span></div></div>
+   <div style="position:relative;display:flex;justify-content:center;margin:2px 0"><span class="arrow d"></span><span class="chip green" style="position:absolute;left:calc(50% + 26px);top:-2px">at least one: yes</span></div>
+   <div class="box navy"><div class="stp" style="margin:0"><span class="code g">Step 3</span><span class="h" style="font-size:20px">Dedicated engine</span></div><div class="sub" style="font-size:16px">chosen by where it must run</div></div>
+  </div>
+  <div class="side">
+   <div class="box red bad grow"><div class="lab" style="color:var(--red)">Leakage · illustrative</div><div class="eq">Filter after ranking + fallback</div>
+    <div class="mini"><div>rank the top 20 passages</div><i>&#8595;</i><div>filter out other funds: none left</div><i>&#8595;</i><div>retry without the filter</div><i>&#8595;</i><div><b>another client's material reaches the draft</b></div></div></div>
+   <div class="box green good grow"><div class="lab" style="color:var(--green)">Safe</div><div class="eq">Filter inside search + hard empty result</div>
+    <div class="mini"><div>only permitted passages are candidates</div><i>&#8595;</i><div>none relevant: return nothing</div><i>&#8595;</i><div><b>draft flags "no comparable commentary"</b></div></div></div>
+  </div>
+ </div>
+ <div class="box gold" style="padding:13px 18px"><div class="lab" style="color:#8A6418">The signal</div><div class="h" style="margin-top:4px;font-size:21px">Filtered recall@k</div><div class="small" style="font-size:17px">recall measured with production-like entitlement filters applied, not on the open index</div></div>
+</div>
+</div>
+ <div class="wx"><span class="lb">Worked example · step 11</span><span class="c done">L1</span><span class="c done">C6</span><span class="c done">L2</span><span class="c done">C1</span><span class="c done">L3</span><span class="c done">C2</span><span class="c done">L4</span><span class="c done">C4</span><span class="c done">L5</span><span class="c done">Reg</span><span class="c now">L6</span><span class="c ">C7</span><span class="c ">L7</span><span class="c ">C5</span><span class="c ">L8</span><span class="c ">C3</span><span class="c ">L9</span><span class="c ">C8</span></div>
+ <div class="ft"><div class="cap">Use the platform you already run until a load test shows a trigger, and filter inside the search with no fallback. Generic; the leakage path is illustrative.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: L6 §6.2, §6.3, §6.9 and §6.12</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

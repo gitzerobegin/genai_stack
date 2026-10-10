@@ -1,0 +1,12 @@
+SOURCE ID: A5-S037
+URL: https://docs.cloud.google.com/gemini/docs/discover/certifications
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Google Cloud ISO 42001 certification Vertex AI Gemini SOC 2 compliance (allowed_domains cloud.google.com, docs.cloud.google.com)
+========================================================================
+
+Search tool summary:
+- Google compliance page: Google Cloud, Google Workspace and Gemini (App) certified against ISO/IEC 42001:2023; in-scope list includes Gemini Enterprise Agent Platform (formerly Vertex AI Platform) and Generative AI on the platform.
+- Gemini certifications page marks ISO 42001 and SOC 2 as compliant; certifications don't apply to Gemini Code Assist on GitHub.
+- SOC 2 page lists Gemini Enterprise Agent Platform, Generative AI on the platform, Gemini for Google Cloud in scope; reports cover November 1 to October 31.
+- Gemini in Workspace and the Gemini app FedRAMP High (blog title).

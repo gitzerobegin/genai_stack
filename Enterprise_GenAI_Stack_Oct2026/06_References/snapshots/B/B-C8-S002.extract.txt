@@ -1,0 +1,12 @@
+SOURCE ID: B-C8-S002
+URL: https://www.ibm.com/new/announcements/introducing-fedramp-authorized-watsonx-services-on-aws-govcloud
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains ibm.com, cloud.ibm.com): watsonx.governance SOC 2 ISO 27001 compliance IBM Cloud service certifications
+========================================================================
+
+Search-tool extract:
+- No current SOC 2 or ISO 27001 attestation naming watsonx.governance was found.
+- IBM announcement "Introducing FedRAMP-authorized watsonx services on AWS GovCloud" lists watsonx.governance; the headline says "FedRAMP-authorized" but the body says "We are on our way to receiving the FedRAMP Moderate authorization" (wording mixed; current status unconfirmed).
+- 2019 IBM Watson Privacy and Security POV (ibm.com/watson/assets/duo/pdf/Watson-Privacy-and-Security-POV_final_062819_tps.pdf): IBM deployments reside in IBM Cloud data centres "that are ISO27001 and SOC2 certified"; SOC 1 / SOC 2 reports on request via customer portal or IBM representative (dated, data-centre level, not watsonx.governance-specific).
+- watsonx.governance policy packs align with EU AI Act, ISO/IEC 42001 and NIST AI RMF (framework content, not a security certification of the service).

@@ -1,0 +1,11 @@
+SOURCE ID: B-C6-S003
+URL: https://docs.cloudzero.com/docs/users-and-permissions
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (cloudzero.com, docs.cloudzero.com): CloudZero SSO SAML user roles permissions docs
+========================================================================
+
+- docs.cloudzero.com "SSO with SAML": SAML 2.0 with any SAML IdP (Okta, Entra ID guides); configured in Settings > SSO Integrations; JIT provisioning on first login.
+- Roles: default Member and Organizer roles; custom roles set data access (Full, Limited by Dimensions/cost types, None) and action permissions (API keys, SSO settings, cloud connections); multiple roles combine as a union. Budgets require Full Access.
+- Limited Access can filter by SSO login attribute; "Enable SSO for Groups" lets the IdP manage roles. RBAC enhancements changelog.
+- Audit log not found in results.

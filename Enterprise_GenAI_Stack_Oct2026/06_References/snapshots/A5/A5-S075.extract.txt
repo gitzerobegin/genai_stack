@@ -1,0 +1,11 @@
+SOURCE ID: A5-S075
+URL: https://help.mistral.ai/en/articles/347638-do-you-have-soc-2-or-iso-27001-certification
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Mistral AI trust center SOC 2 ISO 27001 data residency EU hosting zero data retention training (allowed_domains mistral.ai, docs.mistral.ai, trust.mistral.ai, help.mistral.ai, legal.mistral.ai)
+========================================================================
+
+Search tool summary:
+- Mistral complies with SOC 2 Type II and ISO 27001/27701; reports available on request via the Trust Center (trust.mistral.ai), which also lists subprocessors.
+- Data hosted in the European Union by default; US API endpoint optional. Some features may temporarily transfer data outside the EU (locations listed on Trust Center). EU regional endpoint api.eu.mistral.ai at 10% upcharge; global endpoint carries no location commitment; account config, keys, billing may be handled outside region. Enterprise customers can disable non-EU-transferring features.
+- "Data sent through our API isn't used for model training." ZDR available only with pay-as-you-go for stateless API calls, at Mistral's discretion; not for Chat, agents, batch, libraries etc. Default API retention 30 rolling days for abuse monitoring unless ZDR.

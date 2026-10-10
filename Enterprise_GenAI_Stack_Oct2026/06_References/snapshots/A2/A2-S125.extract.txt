@@ -1,0 +1,8 @@
+SOURCE ID: A2-S125
+URL: https://turbopuffer.com/docs/byoc
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: turbopuffer pricing SOC 2 HIPAA BYOC regions object storage architecture
+========================================================================
+
+BYOC runs in customer's Kubernetes cluster on AWS, GCP, or Azure via a BYOC kit (Terraform + Kubernetes); no customer data leaves the customer VPC; TLS1.2+ in transit, AES-256 at rest in GCS/S3/Azure Blob; SSD cache encrypted; all operations require manual customer approval (affects pricing and SLAs). SOC 2 Type 2 maintained with continuous auditing by an AICPA certified auditor; report on request. Customers: Atlassian BYOC on AWS and GCP (https://turbopuffer.com/customers/atlassian); Legora in its own Azure regions.

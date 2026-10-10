@@ -1,0 +1,10 @@
+SOURCE ID: B-C1-S007
+URL: https://learn.microsoft.com/en-us/azure/compliance/offerings/offering-iso-27001
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains learn.microsoft.com): Azure compliance offerings ISO 27001 SOC 2 in scope API Management Azure AI Content Safety
+========================================================================
+
+Search-tool extract (ISO/IEC 27001 - Azure Compliance):
+- In-scope product families: Azure, Dynamics 365, Microsoft 365, Power Platform. The Azure ISO/IEC 27001 certificate covers Azure, Dynamics 365, Power Platform and select Microsoft 365 cloud services; audit documents in the Service Trust Portal.
+- The page does not name individual services such as API Management or Azure AI Content Safety; the per-service "Cloud services in audit scope" list is in the Service Trust Portal (not read).

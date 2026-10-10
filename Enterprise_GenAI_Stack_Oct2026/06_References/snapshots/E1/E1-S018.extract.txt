@@ -1,0 +1,8 @@
+SOURCE ID: E1-S018
+URL: https://eur-lex.europa.eu/EN/legal-content/summary/cybersecurity-of-network-and-information-systems.html
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NIS2 summary applies since 18 October 2024 (eur-lex.europa.eu)
+========================================================================
+
+Search-tool extract: Member States had to transpose the directive by 17 October 2024; the rules have applied since 18 October 2024. Annex I high-criticality entities covered include cloud computing service providers, data centre service providers, content delivery network providers, managed service providers and managed security service providers. The directive principally targets medium-sized and large entities.

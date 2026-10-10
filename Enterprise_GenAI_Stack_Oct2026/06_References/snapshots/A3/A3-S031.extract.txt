@@ -1,0 +1,8 @@
+SOURCE ID: A3-S031
+URL: https://a2a-protocol.org/latest/specification/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: A2A specification v1.0 release signed agent cards what's new
+========================================================================
+
+Search-tool summary of the specification: The spec says cards MAY be digitally signed using JSON Web Signature (JWS) as defined in RFC 7515, and cards carry a signatures array of AgentCardSignature entries. The spec requires alg, typ (recommended as 'JOSE'), and kid. The signing process removes default-valued optional fields and the signatures field, then canonicalizes the result with RFC 8785. Clients SHOULD verify signatures when present to ensure the Agent Card has not been tampered with. Endpoint info moved into supportedInterfaces[], each interface has url, protocolBinding, and protocolVersion.

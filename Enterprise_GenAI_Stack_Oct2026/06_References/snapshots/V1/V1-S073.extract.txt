@@ -1,0 +1,8 @@
+SOURCE ID: V1-S073
+URL: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2-generally-available/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: gemini-embedding-2 generally available (allowed_domains cloud.google.com, ai.google.dev, blog.google etc.)
+========================================================================
+
+Google made gemini-embedding-2 generally available on April 22, 2026 through the Gemini API and Vertex AI (blog dated April 22, 2026; Gemini API release notes: "Released gemini-embedding-2 as generally available (GA)"). Preview gemini-embedding-2-preview shipped March 10, 2026. Gemini Enterprise Agent Platform release notes (docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes) record the GA on April 22, 2026; known issue: audio_track_extraction does not work for this model.

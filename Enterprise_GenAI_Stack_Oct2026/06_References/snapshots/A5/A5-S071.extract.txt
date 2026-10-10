@@ -1,0 +1,12 @@
+SOURCE ID: A5-S071
+URL: https://huggingface.co/zai-org/GLM-5.3
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GLM-5.3 release Z.ai MIT license open weights pricing (allowed_domains z.ai, docs.z.ai, huggingface.co, bigmodel.cn)
+========================================================================
+
+Search tool summary:
+- GLM-5.3: same base as GLM-5.2, gains from post-training; 753B parameters. Licence is not plain MIT: broad grant incl. weights but a "Model as a Service" condition - companies running a MaaS business with >US$10 billion aggregate revenue in any 12 months must pass Z.AI's security review before commercial use.
+- GLM-5.3-Flash: first natively multimodal GLM-5 model; 320B total / 18B active; standard MIT License (Copyright 2026 Z.AI Co., Ltd).
+- Z.ai pricing (USD per 1M): GLM-5.3-Flash 0.15 input / 0.03 cached / 0.50 output; GLM-5.3-FlashX 0.37 / 0.075 / 1.25; GLM-5.3 1.40 / 0.26 / 4.40.
+- Exact launch date of GLM-5.3 not confirmed (HF repos ~late August 2026).

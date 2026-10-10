@@ -1,0 +1,8 @@
+SOURCE ID: A7-S101
+URL: https://www.collibra.com/company/newsroom/press-releases/collibra-acquires-trail-ml-to-automate-ai-governance-from-policy-to-production
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Collibra AI Governance 2026 (allowed_domains collibra.com)
+========================================================================
+
+Collibra press release (search tool indicated roughly two days old as of 7 October 2026, i.e. about 5 October 2026; exact date not shown): Collibra announced the acquisition of trail ML, a Munich-based AI governance company. Stated aim: agent-powered automation - "trail ML agents can analyze the context surrounding an AI system, determine applicable frameworks and controls, and assess whether controls are in place and effective", covering the EU AI Act, ISO 42001 and the NIST AI Risk Management Framework.

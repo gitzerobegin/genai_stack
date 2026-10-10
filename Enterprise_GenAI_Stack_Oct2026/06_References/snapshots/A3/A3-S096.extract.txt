@@ -1,0 +1,8 @@
+SOURCE ID: A3-S096
+URL: https://supermemory.ai/pricing/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Supermemory pricing enterprise SOC 2 security self-hosting (allowed_domains supermemory.ai)
+========================================================================
+
+Search-tool summary: The page lists Pro $19, Max $100, Scale $399, custom for Enterprise. Free starts with $5 a month in credits; every plan includes a monthly credit balance. Scale adds SOC 2 and self-hosting, for teams and production workloads. Enterprise: air-gapped self-hosting or a dedicated managed instance, SOC 2, HIPAA, GDPR, custom contracts and a DPA, SSO, and custom integrations. Pricing FAQ: self-hosted deployments are available on Scale and Enterprise; Enterprise also supports fully air-gapped deployments. Docs (supermemory.ai/docs/self-hosting/local-vs-enterprise): Supermemory local is free and aimed at individual developers; its server binary is not open source; self-hosted use is free within its lite license limit; dedicated deployment options for strict data residency or compliance. Blog posts describe SOC 2 Type 2, HIPAA and GDPR; pricing page says only 'SOC 2' (type not stated). Blog claim that self-hosting is on all tiers conflicts with the pricing FAQ.

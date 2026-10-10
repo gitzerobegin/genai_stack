@@ -1,0 +1,14 @@
+SOURCE ID: B-L5-S001
+URL: https://genai.owasp.org/2026/05/13/memory-is-a-feature-it-is-also-an-attack-surface/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains genai.owasp.org, owasp.org): OWASP Top 10 for Agentic Applications 2026 ASI06 Memory and Context Poisoning
+========================================================================
+
+OWASP GenAI Security Project article "Memory Is a Feature. It Is Also an Attack Surface" (13 May 2026), as reported by the search tool:
+- ASI06 in the OWASP Top 10 for Agentic Applications (released December 2025) covers memory and context poisoning.
+- The entry's co-lead (Idan Habler, Cisco) describes the risk as agents carrying untrusted input forward instead of handling it once and discarding it: attacker-controlled content poisons memory and context that the system continues to trust over time, so the system may continue treating attacker-controlled content as legitimate guidance.
+- Persistence is the concern: corrupted context remains available, continues to circulate and can shape future planning, tool use and behaviour.
+- The Agentic Top 10 describes memory poisoning as reshaping behaviour long after the initial interaction.
+Related: OWASP Agent Memory Guard project page (https://owasp.org/www-project-agent-memory-guard/) presents itself as a reference implementation for ASI06 (integrity hashing of memory, policy on memory reads/writes, snapshots and rollback) - project's own description, not an official OWASP mitigation list.
+Official ASI06 text: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ (not read).

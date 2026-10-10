@@ -1,0 +1,11 @@
+SOURCE ID: E3-S061
+URL: https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Agentic AI Foundation founding projects AGENTS.md OpenAI
+========================================================================
+
+Search-tool summary of linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation and openai.com/index/agentic-ai-foundation/:
+- The Agentic AI Foundation (AAIF) launched on 9 December 2025 with three founding projects: Anthropic's Model Context Protocol, Block's goose and OpenAI's AGENTS.md; AAIF is a directed fund under the Linux Foundation.
+- OpenAI co-founded the foundation with Anthropic and Block and donated AGENTS.md, a Markdown-based format giving coding agents project-specific instructions; OpenAI released AGENTS.md in August 2025 and said more than 60,000 open-source projects had adopted it by the launch (project-reported).
+- Later 2026 Linux Foundation materials list A2A, agentgateway and Agent Router among AAIF projects.

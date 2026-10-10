@@ -1,0 +1,13 @@
+SOURCE ID: A5-S077
+URL: https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Meta Muse Spark launch Meta Superintelligence Labs model API (allowed_domains ai.meta.com, about.fb.com, llama.com, developers.meta.com, ai.developer.meta.com)
+========================================================================
+
+Search tool summary:
+- April 2026: Meta announced Muse Spark, first in a new series of LLMs from Meta Superintelligence Labs (MSL); in meta.ai and Meta AI app; private API preview.
+- 9 July 2026: public preview of the Meta Model API with Muse Spark 1.1 (multimodal reasoning model for agentic tasks). Docs: model ID muse-spark-1.1, 1,048,576 context, base URL api.meta.ai/v1, OpenAI- and Anthropic-SDK compatible, pay-as-you-go.
+- Meta research page: Muse Code and Muse Spark 1.2 (5 August 2026); Muse Spark 1.3 (2 September 2026); Muse Image (July 2026).
+- Meta Connect 2026 recap: Meta Model API generally available globally; Muse Spark 1.3 on Oracle Cloud AI Platform; Google Cloud in private preview.
+- No Meta Model API data-retention/training policy found; 2025 Llama API preview said prompts/responses not used for training (different product).

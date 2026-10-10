@@ -1,0 +1,34 @@
+SOURCE ID: A5-S045
+URL: https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions
+FINAL URL: https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions
+TITLE: Updating sales restrictions for unsupported regions \ Anthropic
+ACCESSED: 2026-10-07
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Updating sales restrictions for unsupported regions \ Anthropic
+Skip to main content
+Skip to footer
+Try Claude
+Announcements
+Updating restrictions of sales to unsupported regions 
+Sep 4, 2025
+Anthropic's Terms of Service prohibit use of our services in
+ certain regions
+ due to legal, regulatory, and security risks. However, companies from these restricted regions—including adversarial nations like China—continue accessing our services in various ways, such as through subsidiaries incorporated in other countries.
+Companies subject to control from authoritarian regions like China face legal requirements that can compel them to share data, cooperate with intelligence services, or take other actions that create national security risks. These requirements make it difficult for companies to resist these pressures regardless of where they operate or of the personal preferences of the individuals at those companies. When these entities access our services through subsidiaries, they could use our capabilities to develop applications and services that ultimately serve adversarial military and intelligence services and broader authoritarian objectives. They could also potentially use our models to advance their own AI development through techniques like distillation and to compete globally with trusted technology companies headquartered in the United States and allied countries.
+To account for this reality and better align with our commitment to ensuring that transformative AI capabilities advance democratic interests, we are strengthening our regional restrictions. This update prohibits companies or organizations whose ownership structures subject them to control from jurisdictions where our products are not permitted, like China, regardless of where they operate. This includes entities that are more than 50% owned, directly or indirectly, by companies headquartered in unsupported regions. This change ensures our Terms of Service reflect real-world risks and are true to the spirit of our policies.
+Consistent with this concern, we continue to advocate for policies like strong export controls to prevent authoritarian nations from developing frontier AI capabilities that could threaten national security, accelerating energy projects on US soil to build out large-scale infrastructure for AI scaling, and 
+rigorously evaluating 
+AI models for national security relevant capabilities, including those that could be exploited by US adversaries.
+The safety and security of AI development requires collective commitment to preventing its misuse by authoritarian adversaries. Responsible AI companies can and should take decisive action to ensure that transformative technologies serve US and allied strategic interests and support our democratic values.
+Related content
+Expanding the Cyber Verification Program
+We’re launching a new, expanded version of our Cyber Verification Program, which makes advanced cyber capabilities and reduced blocking classifiers available to qualifying security professionals.
+Read more
+Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap
+Anthropic is investing $100 million in Claude Frontier Academy to train 10,000 Frontier Deployed Engineers by the end of 2027, with cohorts from Accenture, Bain, CBA, Deloitte, McKinsey, Morgan Stanley and Novo Nordisk already underway.
+Read more
+Barclays scales Claude to upgrade operations and improve client experience 
+Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.
+Read more

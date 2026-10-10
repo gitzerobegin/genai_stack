@@ -1,0 +1,8 @@
+SOURCE ID: A2-S013
+URL: https://cohere.com/blog/embed-5
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cohere Embed 5 embed-v5.0 announcement; Cohere pricing embed rerank per million tokens
+========================================================================
+
+Pro posts the highest average score of any model Cohere tested, with biggest strengths on financial datasets, parsed PDFs and visually rich documents (vendor-reported). Pricing: $0.12 / 1M tokens (text), $0.40 / 1M tokens (image) for Pro; $0.08 / 1M tokens (text), $0.40 / 1M tokens (image) for Fast. Fast costs a third less than Pro while retaining the same 128K-token context, multimodal inputs, multilingual coverage and compressed output formats. Moving from 2048-dim float32 to 256-dim binary vectors would cut raw storage for 100 million chunks from roughly 819 GB to 3.2 GB. Live X discussion scheduled October 8, 2026 covering Embed 5 and Parse 5.

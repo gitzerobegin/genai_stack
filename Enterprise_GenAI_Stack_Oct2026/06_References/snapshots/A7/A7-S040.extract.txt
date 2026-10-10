@@ -1,0 +1,10 @@
+SOURCE ID: A7-S040
+URL: https://openssf.org/blog/2025/04/04/launch-of-model-signing-v1-0-openssf-ai-ml-working-group-secures-the-machine-learning-supply-chain/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenSSF model signing OMS v1.0 2025 2026
+========================================================================
+
+OpenSSF blog, 4 April 2025: the AI/ML Working Group launched version 1.0 of the model-signing project, with contributors from Google, NVIDIA and HiddenLayer. Library and CLI "for signing and verification of ML models, supporting any type of model format and models of any size"; works with Sigstore, self-signed certificates or plain key pairs while maintaining the same hashing scheme and signature format (a sigstore bundle). Formalised as the OMS specification (github.com/ossf/model-signing-spec): detached signature file typically distributed within the model folder.
+July 2026 OpenSSF podcast (episode 65, Mihai Maruseac) refers to follow-on iterations v1.1 and v1.2.
+Commentary (HackerNoon, secondary): OMS confirms integrity and signer, not provenance.

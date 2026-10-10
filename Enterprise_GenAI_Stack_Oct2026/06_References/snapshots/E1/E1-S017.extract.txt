@@ -1,0 +1,8 @@
+SOURCE ID: E1-S017
+URL: https://digital-strategy.ec.europa.eu/en/faqs/directive-measures-high-common-level-cybersecurity-across-union-nis2-directive-faqs
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NIS2 FAQ size-cap managed service providers
+========================================================================
+
+Search-tool extract: the directive introduces a size-cap rule; all medium-sized and large entities in covered sectors are in scope. Annex I high-criticality sectors include digital infrastructure (cloud computing service providers, data centre service providers, content delivery network providers, DNS service providers, TLD name registries, trust service providers) and ICT service management (business-to-business): managed service providers and managed security service providers. Fines: at least EUR 10m or 2% for essential entities and EUR 7m or 1.4% for important entities. Early warning within 24 hours, incident notification within 72 hours, final report within one month.

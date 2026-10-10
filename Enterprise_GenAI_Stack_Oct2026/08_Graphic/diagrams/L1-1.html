@@ -1,0 +1,25 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>L1 reference flow: one gateway routing calls across four model tiers</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">L1 reference flow: one gateway routing calls across four model tiers</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  APP["Application / agent (L3)"]
+  GW["Gateway C1&lt;br/&gt;Policy: data class → allowed routes and regions;&lt;br/&gt;task → model tier; pinned model IDs;&lt;br/&gt;fallback order; quotas; logging (L9, C6)"]
+  APP -- "prompt + approved context&lt;br/&gt;(no raw client identifiers: C3)" --&gt; GW
+  GW --&gt; FT["Frontier tier&lt;br/&gt;(gated, rare use)&lt;br/&gt;e.g. Astra / Fable"]
+  GW --&gt; MT["Mid tier (default)&lt;br/&gt;vendor A in-region&lt;br/&gt;e.g. GPT-6.1 Sol, Sonnet 5.5,&lt;br/&gt;Gemini 3.8 Flash, Mistral Medium 3.5"]
+  GW --&gt; ST["Small tier&lt;br/&gt;classification, routing, extraction&lt;br/&gt;e.g. Luna, Haiku 5.5,&lt;br/&gt;Flash-Lite, Ministral"]
+  GW --&gt; OW["Self-hosted open-weight tier (L2 serving)&lt;br/&gt;e.g. Gemma 4, Mistral Medium 3.5, gpt-oss&lt;br/&gt;(sensitive data stays in estate)"]
+  MT -.-&gt; FB["Fallback: vendor B, same tier, same region,&lt;br/&gt;qualified on the same L9 suite"]
+  FT --&gt; R
+  MT --&gt; R
+  FB -.-&gt; R
+  ST --&gt; R
+  OW --&gt; R
+  R["Response"] --&gt; G["Guardrails (C2)"] --&gt; E["Evaluation (L9)"] --&gt; I["Inventory and evidence (C8)"]
+</pre><div class="c">Every model call passes through the gateway (C1), which picks a tier and an approved route by data class and task, with a qualified same-tier fallback from a second vendor, before the response goes through guardrails, evaluation and evidence.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

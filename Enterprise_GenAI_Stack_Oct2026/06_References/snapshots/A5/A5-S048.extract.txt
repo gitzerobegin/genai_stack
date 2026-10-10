@@ -1,0 +1,13 @@
+SOURCE ID: A5-S048
+URL: https://www.garanteprivacy.it/web/guest/home/docweb/-/docweb-display/docweb/10098477
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Garante privacy DeepSeek provvedimento blocco (allowed_domains garanteprivacy.it)
+========================================================================
+
+Search tool summary (Italian, translated):
+- 28 January 2025: Garante requested information from the two Chinese companies behind DeepSeek (what data, sources, purposes, legal basis, whether stored on servers in China); 20 days to answer.
+- 30 January 2025: urgent measure with immediate effect limiting processing of Italian users' data; investigation opened. The companies said they do not operate in Italy and European law does not apply to them; the Garante rejected this.
+- Provvedimento 10098477 finds violations of Art. 31 (cooperation), Art. 6/information duties (privacy notice lacks legal bases), Chapter III (data-subject rights), Art. 32 (security) given data stored in the People's Republic of China. Operative text uses "limitazione definitiva" under Art. 58(2)(f), while reserving further determinations; a Garante member described it as essentially precautionary.
+- Garante member Agostino Ghiglia: first measure of its kind worldwide. 2025 annual report cites it as first action of the year.
+- No source found indicating the limitation was lifted or that a fine concluded the investigation.

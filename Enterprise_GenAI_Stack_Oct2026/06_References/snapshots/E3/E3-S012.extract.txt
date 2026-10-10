@@ -1,0 +1,11 @@
+SOURCE ID: E3-S012
+URL: https://github.blog/changelog/2026-03-25-updates-to-our-privacy-statement-and-terms-of-service-how-we-use-your-data/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: GitHub Copilot Business Enterprise not used to train 2026
+========================================================================
+
+Search-tool summary of GitHub Changelog 25 March 2026 (and GitHub Blog "Updates to GitHub Copilot interaction data usage policy"):
+- GitHub's new training policy, effective 24 April 2026, covers only Copilot Free, Pro and Pro+ users; Copilot Business and Copilot Enterprise users are not affected by this update.
+- GitHub's model-hosting docs add that GitHub does not use Copilot Business or Copilot Enterprise customer data to train AI models.
+- Retention for the cloud agent and CLI was not stated in an official retention table in the results; a January 2026 community post (unofficial) claims 28-day retention for CLI prompts/outputs on Business/Enterprise. Not verified.

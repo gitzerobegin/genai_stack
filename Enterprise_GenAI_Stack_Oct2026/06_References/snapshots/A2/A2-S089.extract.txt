@@ -1,0 +1,8 @@
+SOURCE ID: A2-S089
+URL: https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: S3 Vectors Bedrock Knowledge Bases OpenSearch integration vector bucket index limits
+========================================================================
+
+Bedrock Knowledge Bases supports S3 vector buckets as a vector store; requires the vector bucket ARN and vector index ARN. Bedrock caps custom metadata at 1 KB per vector (filterable plus non-filterable) and 35 metadata keys per vector; if exceeded the ingestion job throws an exception. Bedrock computes and stores the vectors and adds the source text chunk as large metadata. CloudFormation: AWS::Bedrock::KnowledgeBase S3VectorsConfiguration.

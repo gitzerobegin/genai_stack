@@ -1,0 +1,15 @@
+SOURCE ID: E3-S066
+URL: https://raw.githubusercontent.com/open-telemetry/semantic-conventions/main/docs/gen-ai/README.md
+FINAL URL: https://raw.githubusercontent.com/open-telemetry/semantic-conventions/main/docs/gen-ai/README.md
+TITLE: 
+ACCESSED: 2026-10-10
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+# Moved: Generative AI semantic conventions
+
+> [!IMPORTANT]
+>
+> GenAI semantic conventions have moved to the
+> [OpenTelemetry GenAI semantic conventions repository](https://github.com/open-telemetry/semantic-conventions-genai).
+> This page has moved and is no longer maintained in this repository.

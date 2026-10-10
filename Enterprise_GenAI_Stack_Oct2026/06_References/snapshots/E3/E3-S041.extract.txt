@@ -1,0 +1,12 @@
+SOURCE ID: E3-S041
+URL: https://kiro.dev/docs/upgrade-guides/migrating-from-q-developer/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Kiro AWS enterprise IAM Identity Center Amazon Q Developer transition to Kiro data training
+========================================================================
+
+Search-tool summary of kiro.dev/docs/upgrade-guides/migrating-from-q-developer/, kiro.dev/docs/enterprise/identity-provider/iam-identity-center/ and the Kiro FAQ (with AWS Prescriptive Guidance, security reference architecture for generative AI):
+- Kiro sign-in options include IAM Identity Center alongside GitHub, Google and AWS Builder ID. AWS prescriptive guidance recommends IAM Identity Center for centralised identity across AI applications and names Kiro among the covered applications.
+- Enterprise admins can configure Kiro to collect user activity reports for users in the organisation.
+- Kiro FAQ: Q Developer Pro users accessing Kiro through their AWS account will not have content used for service improvement; Kiro Pro tiers accessed through IAM Identity Center are also excluded from content use, and telemetry is not collected from Kiro Pro, Pro+, Pro Max or Power users on that path. Kiro Free Tier and individual subscribers (social login or AWS Builder ID) may have certain content used for service improvement.
+- AWS guidance mentions customer-managed KMS keys for conversation history encryption. No retention period found.

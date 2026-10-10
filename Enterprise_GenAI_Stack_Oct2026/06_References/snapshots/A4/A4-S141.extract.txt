@@ -1,0 +1,8 @@
+SOURCE ID: A4-S141
+URL: https://www.businesswire.com/news/home/20260716264405/en/Fireworks-Raises-a-$1.5-Billion-Series-D-to-Lead-the-Specialized-Intelligence-Revolution
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Fireworks AI Series D $17.5 billion valuation announcement July 2026
+========================================================================
+
+Company release / blog (Company News 7/15/2026) and CNBC (16 July 2026): Series D of $1.505 billion (CNBC rounds to $1.5B) at a $17.5 billion valuation, led by Atreides Management, Index Ventures and TCV, with Evantic, Lightspeed Venture Partners and NVIDIA participating. Fireworks says it has passed $1 billion annualised revenue run rate and serves more than 40 trillion tokens per day. CNBC: about half of revenue came from Cursor as of last year; ~200 employees, expected 600 by end 2026. Bloomberg (May 2026) had reported talks at $15B.

@@ -1,0 +1,8 @@
+SOURCE ID: A2-S076
+URL: https://www.pinecone.io/newsroom/Pinecone-Expands-in-Europe-with-New-Frankfurt-Cloud-Region/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Pinecone Nexus knowledge engine for agents announcement
+========================================================================
+
+Search result title only (content and date not returned): 'Pinecone Expands in Europe with New Frankfurt Cloud Region, Delivering the Knowledge Infrastructure for AI to Central European Enterprises'. Also listed: 'Pinecone Launches First Serverless Region in Asia with New Singapore Cloud Region'. Nexus BYOC data residency reference page: https://docs.pinecone.io/guides/nexus/byoc/reference.

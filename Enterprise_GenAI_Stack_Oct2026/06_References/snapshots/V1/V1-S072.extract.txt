@@ -1,0 +1,8 @@
+SOURCE ID: V1-S072
+URL: search-tool-null-result (no URL)
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Grouped acquisition queries (extended), 8 Oct 2026
+========================================================================
+
+Grouped extended searches found no reports of 2026 acquisitions of: Pinecone, Weaviate, Chroma, turbopuffer, Qdrant; Composio, Exa, Browserbase, E2B, Mem0, Zep, Letta, Supermemory; Unstructured, Reducto, Apify, Confident AI, Comet, Braintrust. Related: Pinecone reportedly explored a sale (The Information, secondhand, unconfirmed); Weaviate RICOH Innovation Fund investment 2026-03-13 (aggregator); Reducto acquired Opennote (Reducto blog, 7 May 2026); Comet acquired Stakion (Tracxn). Absence of evidence only; not proof.

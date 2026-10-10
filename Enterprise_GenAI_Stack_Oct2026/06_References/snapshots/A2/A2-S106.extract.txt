@@ -1,0 +1,8 @@
+SOURCE ID: A2-S106
+URL: https://qdrant.tech/hybrid-cloud/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Qdrant Cloud SOC 2 HIPAA ISO 27001 hybrid cloud private cloud pricing EU regions
+========================================================================
+
+Hybrid Cloud: all Qdrant databases operate solely within your network using your storage and compute; managed via Qdrant Cloud UI; available as part of Enterprise plan. Private Cloud: dedicated, isolated deployment, suits air-gapped setups. Pricing page (https://qdrant.tech/pricing/): Managed Cloud priced on vCPU, RAM, disk and inference tokens; 'from 25$'; Hybrid Cloud figure 0.014 USD per hour (unclear unit); Private Cloud and Enterprise on request. Paid managed clusters run on dedicated resources.

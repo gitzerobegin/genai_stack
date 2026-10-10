@@ -1,0 +1,8 @@
+SOURCE ID: E1-S007
+URL: https://www.kennedyslaw.com/en/thought-leadership/article/2026/eu-cyber-resilience-act-what-the-european-commission-s-2026-guidance-means-for-manufacturers/
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cyber Resilience Act remote data processing SaaS Commission 2026 guidance
+========================================================================
+
+Search-tool extract (practitioner commentary): the 2026 Commission guidance turns the Article 3(2) definition into a practical test: is the processing at a distance, would its absence prevent a function of the product, and was the software designed by or under the manufacturer's responsibility. A web application reached only through a browser is not a product merely because it is accessed remotely; the guidance does not create a general SaaS exclusion. Standalone SaaS or cloud services built outside a manufacturer's responsibility are not products with digital elements, but they fall in scope if they meet the remote data processing definition for a product.

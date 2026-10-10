@@ -1,0 +1,8 @@
+SOURCE ID: V2-S073
+URL: https://learn.microsoft.com/en-us/azure/api-management/ai-gateway-overview
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Azure API Management AI Gateway tier public preview East US 2 Sweden Central (allowed_domains learn.microsoft.com, techcommunity.microsoft.com, azure.microsoft.com)
+========================================================================
+
+AI Gateway tier of Azure API Management in public preview in East US 2 and Sweden Central; free during public preview, pricing to be shared separately; access limited to users signing in with Microsoft Entra ID; no SLA, best effort; preview quotas. Fronts models from Microsoft Foundry, AWS Bedrock, Google Vertex AI, OpenAI and Anthropic; exposes MCP servers; governance: rate limits, token quotas, Azure AI Content Safety, fallback. Quickstart warns against production use unless preview terms accepted.

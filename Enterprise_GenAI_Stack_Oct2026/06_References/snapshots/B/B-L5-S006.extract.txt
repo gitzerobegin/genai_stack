@@ -1,0 +1,11 @@
+SOURCE ID: B-L5-S006
+URL: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/storage-limitation/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch (allowed_domains eur-lex.europa.eu, ico.org.uk): GDPR Article 17 right to erasure Article 5(1)(e) storage limitation text
+========================================================================
+
+ICO guidance "Principle (e): Storage limitation" (UK GDPR), as reported by the search tool:
+- Personal data must be kept for no longer than is necessary for the purposes for which it is processed.
+- "You should also periodically review the data you hold, and erase or anonymise it when you no longer need it."
+- If it is appropriate to delete personal data from a live system, you should also delete it from any back-up of the information on that system.

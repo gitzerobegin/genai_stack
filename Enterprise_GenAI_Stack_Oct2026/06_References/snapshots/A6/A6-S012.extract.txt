@@ -1,0 +1,13 @@
+SOURCE ID: A6-S012
+URL: https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000023/panw-20260731.htm
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Palo Alto Networks completes acquisition of Portkey AI gateway Prisma AIRS
+========================================================================
+
+Related: Form 10-Q https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000015/panw-20260430.htm
+
+Extract as returned by search tool:
+Palo Alto Networks announced its intent to acquire Portkey on April 30, 2026, and completed the acquisition on May 29, 2026, according to its FY2026 Form 10-K.
+Price: The 10-K reports total purchase consideration of $117 million, substantially all in cash. However, the earlier 10-Q described the deal as total consideration of $140 million in cash and replacement awards, subject to adjustments, so the two figures differ. The 10-K's allocation shows goodwill of $110 million and identified intangible assets of $15 million, which are preliminary estimates.
+(Separate secondary report, cyber-biz.com: about $700M — press reporting, not official.)

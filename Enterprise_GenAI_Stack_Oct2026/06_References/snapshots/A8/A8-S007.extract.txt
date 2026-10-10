@@ -1,0 +1,12 @@
+SOURCE ID: A8-S007
+URL: https://www.lumenova.ai/blog/sr-26-2-control-framework/
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OCC Federal Reserve FDIC request for information model risk management artificial intelligence generative agentic Federal Register comment
+========================================================================
+
+Search: no Federal Register notice found for the planned interagency RFI on model risk management and AI.
+Search-tool extract (practitioner summary, Lumenova/Tyche/CRA commentary on SR 26-2):
+- A recent practitioner summary lists the RFI as "AI RFI announced, not yet published."
+- The revised guidance (Fed SR 26-2, OCC Bulletin 2026-13, FDIC FIL-15-2026) was issued April 17, 2026. It replaces SR 11-7 and carves generative and agentic AI out of scope ... tells banks to govern those systems under their existing risk management and governance practices.
+- Commentators note that other obligations still apply to AI systems, such as fair lending, consumer protection, third-party risk management, cybersecurity, and recordkeeping obligations.

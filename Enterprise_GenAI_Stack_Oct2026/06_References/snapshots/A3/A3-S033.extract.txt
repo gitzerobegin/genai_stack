@@ -1,0 +1,8 @@
+SOURCE ID: A3-S033
+URL: https://developers.openai.com/codex/skills
+ACCESSED: 2026-10-07
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Codex agent skills SKILL.md documentation
+========================================================================
+
+Search-tool summary: A skill is a directory with a SKILL.md file plus optional scripts and references. The SKILL.md file must include name and description. Codex uses progressive disclosure. Repo skills go in .agents/skills; user skills under $HOME/.agents/skills, admin skills under /etc/codex/skills. For distribution, the docs recommend plugins. Codex's SKILL.md format follows the open Agent Skills standard. The OpenAI blog notes that the Agent Skills specification makes name and description the required SKILL.md frontmatter fields.

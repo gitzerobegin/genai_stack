@@ -1,0 +1,8 @@
+SOURCE ID: V2-S027
+URL: https://futuresearch.ai/blog/litellm-pypi-supply-chain-attack/
+ACCESSED: 2026-10-08
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: LiteLLM PyPI compromise 1.82.7 1.82.8 March 2026 supply chain
+========================================================================
+
+Researchers identified the compromise on March 24, 2026. Releases 1.82.7 and 1.82.8 were malicious; 1.82.6 and earlier safe. LiteLLM's update: packages live for about 40 minutes before PyPI quarantine; Snyk: about three hours ending around 13:38 UTC. FutureSearch first reported to PyPI. 1.82.7 payload in proxy_server.py; 1.82.8 added litellm_init.pth (runs at interpreter startup). Stolen data: SSH keys, cloud credentials, Kubernetes tokens, env vars/API keys etc.; exfiltration to models.litellm.cloud. Access vector disputed (maintainer GitHub account/CI vs direct PyPI upload; Snyk links to stolen credentials from earlier Trivy compromise). Threat actor "TeamPCP" claimed credit. Versions yanked; LiteLLM released v1.83.0 through a new pipeline. GitHub issue BerriAI/litellm #24518.
