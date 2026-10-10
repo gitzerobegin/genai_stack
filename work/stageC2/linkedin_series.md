@@ -1,12 +1,12 @@
 # LinkedIn thought-leadership series: the enterprise GenAI stack, layer by layer
 
-**Author:** Bing Zhang · **Drafted:** 9 October 2026 · **Status:** complete draft. An introduction post (Post 0, a few days before week 1), 24 posts (weeks 1–12), a week-13 buffer note and 3 reactive templates. Posts #19–#24 are drawn from the Stage C synthesis.
+**Author:** Bing Zhang · **Drafted:** 9 October 2026, extended 10 October 2026 · **Status:** complete draft. An introduction post (Post 0, a few days before week 1), 24 posts on the regulated-FS view (weeks 1–12), the eight-post run "One stack, seven lenses" (Posts 25–32, weeks 13–16), a week-17 buffer note and 3 reactive templates. Posts #19–#24 are drawn from the Stage C synthesis; Posts #25–#32 from the view Parts XIII–XVIII.
 
 ## Series introduction
 
-**Purpose.** A 13-week series that turns the Enterprise GenAI Full-Stack Architecture Review into a public body of work. Each week pairs one stack layer with the control that makes it safe in production. The aim is to show judgement rather than vendor knowledge: the trade-offs, the operating-model decisions and the evidence a regulated firm needs. One generic worked example runs through every post: an agent that drafts the monthly Brinson-style performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
+**Purpose.** A 17-week series that turns the Enterprise GenAI Full-Stack Architecture Review into a public body of work. Each week pairs one stack layer with the control that makes it safe in production. The aim is to show judgement rather than vendor knowledge: the trade-offs, the operating-model decisions and the evidence a regulated firm needs. One generic worked example runs through every post: an agent that drafts the monthly Brinson-style performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
 
-**Cadence.** Two posts a week, on whichever days suit the audience: no day of the week is fixed, and no post names one. The first post of each week is the **stack post** and the second is the **control post** that pairs with it. The series starts after CP5 sign-off; dates are planned in the content calendar, and each post below is labelled "Week N". Week 13 is a buffer for a reactive post or a slipped week.
+**Cadence.** Two posts a week, on whichever days suit the audience: no day of the week is fixed, and no post names one. The first post of each week is the **stack post** and the second is the **control post** that pairs with it. The series starts after CP5 sign-off; dates are planned in the content calendar, and each post below is labelled "Week N". Weeks 13–16 are the "One stack, seven lenses" run (below), and week 17 is a buffer for a reactive post or a slipped week.
 
 **How to use the anecdote slots.**
 - Each full post has one bracketed line, `[Anecdote slot: …]`, where the "honest part" goes. It is sized for one or two sentences (about 25–35 words), so replacing it keeps the post within 220–300 words.
@@ -15,7 +15,9 @@
 - The **short variant** also stands alone. Use it for a lighter week or a repost.
 - Hashtags are listed separately. Add them as the last line of whichever version you post.
 
-**The worked example, built post by post.** The commentary agent is not just an illustration: each post adds one piece of its design (`work/stageC2/worked_example_build.json`). The first comment of every post states the step: what it adds, what now works and what the agent must never do. A strip at the foot of every visual shows how far the build has come, with the current piece in gold. Posts 1–18 add the layers and controls in the series' teaching order; Post 19 assembles them into one request trace; Post 20 sets out the real build order (governance and evaluation first) and the minimum go-live; Posts 21–24 settle build or buy, interfaces, lock-in and the final selection. The table at the end of this document lists every step.
+**The worked example, built post by post.** The commentary agent is not just an illustration: each post adds one piece of its design (`work/stageC2/worked_example_build.json`). The first comment of every post states the step: what it adds, what now works and what the agent must never do. A strip at the foot of every visual shows how far the build has come, with the current piece in gold. Posts 1–18 add the layers and controls in the series' teaching order; Post 19 assembles them into one request trace; Post 20 sets out the real build order (governance and evaluation first) and the minimum go-live; Posts 21–24 settle build or buy, interfaces, lock-in and the final selection. The table at the end of this document lists every step. Posts 25–32 add no step: their visuals carry a "Seven lenses" strip instead, with the current view in gold.
+
+**One stack, seven lenses (weeks 13–16).** Posts 1–24 read the stack through one lens, the regulated asset manager of the master review, and they stay on it: their bodies are unchanged. The second run re-reads the same evidence for six more readers, each a Part of the review: a technology service provider (TS, Part XIII), a software product company (SW, Part XIV), a start-up (SU, Part XV), and three start-ups selling into the enterprise stack: AI tools (AT, Part XVI), agentic software-delivery tools (DV, Part XVII) and agents (AG, Part XVIII) [AJ]. Each view re-weights the same eight criterion scores, so the shortlist moves from 45 core candidates of 138 under the FS weights to 48 (TS, SW), 57 (SU), 56 (AT, AG) and 63 (DV) [AJ]. Each post in the run opens with one plain line saying who it is for, so readers can find their lens; Post 25 opens the run, Posts 26–31 take one view each, and Post 32 closes on what none of the seven changes. The first comment of every earlier post now carries one line, "Views that change this advice", naming which of the six views alter that post's advice and how [AJ].
 
 **Compliance note (applies to every post).**
 - These are **personal views**. They do not imply employer endorsement or describe any firm's actual vendor choices.
@@ -26,15 +28,15 @@
 
 **Conflict of interest.** The drafts were prepared with help from an AI model made by Anthropic. Post bodies name no vendor. In first comments, Anthropic products (Claude, the Claude Agent SDK, MCP's origin, Agent Skills) are listed in the same way as every other vendor's. Whether to say in the first comment of post #1 that you used AI drafting assistance is your choice. A suggested line is given there.
 
-**Sourcing.** Every fact in a post traces to a chapter of the review (`work/stageB/<layer>/section.md`), to the synthesis (`work/stageC/synthesis.md`, posts #19–#24), or to `Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json`. The section and source IDs are in each first comment. Numbers marked as targets are starting points from the review's KPI tables, not industry benchmarks. Illustrative scenarios from the chapters are not used as if they were real incidents.
+**Sourcing.** Every fact in a post traces to a chapter of the review (`work/stageB/<layer>/section.md`), to the synthesis (`work/stageC/synthesis.md`, posts #19–#24), to the view Parts (`work/stageE/views/<VIEW>/view.md`, posts #25–#32), or to `Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json`. The section and source IDs are in each first comment. Numbers marked as targets are starting points from the review's KPI tables, not industry benchmarks. Illustrative scenarios from the chapters are not used as if they were real incidents.
 
 **Re-verify before posting.** Over three months, versions, ownership, prices and regulatory dates move. Check each post's "Re-verify" list in the week before it goes out.
 
 **Word counts.** Each full post and fallback version is 220–300 words, including the anecdote slot as drafted. Each short variant is 120–150 words. Reactive templates are 220–300 words (short variants 120–150), with their bracketed fields counted as drafted. These were checked with a script (see the end of this file).
 
-### Calendar, weeks 1–13
+### Calendar, weeks 1–17
 
-| Week | Stack post (first of the week) | Control post (second of the week) |
+| Week | Stack post (first of the week; weeks 13–16: first views post) | Control post (second of the week; weeks 13–16: second views post) |
 |---|---|---|
 | 0 | #0 Series introduction (a few days before week 1) | |
 | 1 | #1 L1 Foundation models | #2 C6 AI FinOps |
@@ -49,9 +51,13 @@
 | 10 | #19 The worked example, end to end | #20 Start small |
 | 11 | #21 Build vs buy | #22 Where not to abstract |
 | 12 | #23 Which lock-in is acceptable | #24 Close: what I'd select, and what I'd deliberately not select |
-| 13 | Buffer (slipped post or reactive template) | Buffer |
+| 13 | #25 One stack, seven lenses: the opener | #26 Technology service provider (TS) |
+| 14 | #27 Software product company (SW) | #28 Start-up (SU) |
+| 15 | #29 AI-tools start-up (AT) | #30 Agentic-SDLC start-up (DV) |
+| 16 | #31 Agent-provider start-up (AG) | #32 Close: what doesn't change across all seven lenses |
+| 17 | Buffer (slipped post or reactive template) | Buffer |
 
-Reactive templates R1 (model launch), R2 (acquisition) and R3 (regulatory milestone) can go into week 13 or replace a control-post slot when timing matters.
+Reactive templates R1 (model launch), R2 (acquisition) and R3 (regulatory milestone) can go into the week-17 buffer or replace a control-post slot when timing matters.
 
 ---
 
@@ -229,6 +235,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L1 Foundation models
 - Tiered families: OpenAI GPT-6 (Astra, Sol, Luna) and GPT-6.1 Sol; Anthropic Claude Fable 5.1 above Opus, Sonnet and Haiku 5.5; Google Gemini 3.x with a restricted Gemini 4 Argon [A5-S002, A5-S004, A5-S010, A5-S019, A5-S030, A5-S031].
 - Review tiers: OpenAI, Anthropic and Mistral Strategic for the mid tier (Anthropic re-scored to neutral rubric values at CP4); Gemini Strategic where Google Cloud is the primary cloud; Gemma 4 Strategic as the small self-hosted tier. Chinese-origin open weights (DeepSeek, Qwen, Kimi, GLM) only by explicit policy, self-hosted or in-tenant. Conflict of interest: these drafts were prepared with an Anthropic model, and an independent alternative is named wherever a Claude model is recommended.
 - Vendor benchmarks, including Anthropic's, were not used as decision inputs.
+- **Views that change this advice:** all six change the model default (TS sizes the second vendor as a live capacity route, SW publishes a support matrix with one bundled open-weight model, SU may start on first-party APIs with one primary, and AT, DV and AG route to the customer's own model accounts), yet every one keeps a second qualified vendor (§5 of Parts XIII–XVIII) [AJ].
 - **Worked example, step 1 (models).** Adds: Four model roles, each pinned to an exact version: a primary drafting model, a fallback from a different vendor, a small classifier for reviewer edits, and a self-hosted open-weight model for anything touching unmasked client data. Now: The agent has a primary and a qualified fallback in the approved region. Never: No alias or preview model, and no model ever generates, rounds or corrects a figure.
 
 #### Hashtags
@@ -325,6 +332,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, C6 AI FinOps (§C6.2
 - FinOps Foundation: "Pair every financial cap with an engineering enforcement point. A budget without a quota is a number, not a control." Its tokenomics guidance: baseline for 30–60 days, budget at 110–120%, alerts at 80% and 100% [A7-S115].
 - FOCUS 1.4 ratified 4 June 2026; 1.5 adds model identity, and a token-type column was deferred [V2-S046, A7-S116].
 - Tools: gateway metering (LiteLLM, Cloudflare, Azure API Management, Apigee, Kong); Vantage and CloudZero as optional reporting layers; Helicone (acquired by Mintlify, maintenance mode) not recommended [A7-S112].
+- **Views that change this advice:** TS and DV turn cost per task into a gross-margin control, because every call is cost of goods sold and batch and caching at least halve unit cost [VF: A5-S004, V2-S002], SU sets model spend against revenue per tenant, and SW, AT and AG mostly export usage to customers who pay for their own inference (Parts XIII.5, XVII.5, XV.5, XIV.5) [AJ].
 - **Worked example, step 2 (cost).** Adds: A run ID on every call, tagged with use case and fund, joined to the trace; a monthly budget set from two month-end cycles; a per-run ceiling on model calls and tokens. Now: Cost is reported per approved commentary and per fund, not per token. Never: A runaway loop fails the run instead of the budget.
 
 #### Hashtags
@@ -421,6 +429,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L2 Inference, servin
 - Processing location by deployment type: Microsoft Foundry Global deployments may process prompts anywhere; Bedrock geographic profiles move prompts within a geography [B-L2-S006, B-L2-S005]. Vertex AI overflow beyond Provisioned Throughput goes to the global endpoint by default unless overridden [B-L2-S008].
 - Engines: vLLM (PyTorch Foundation-hosted) as the default, SGLang as a qualified alternative once its open advisory is confirmed fixed (CP4-4) [A4-S009, A4-S010, B-L2-S009]. Optimisation layers: NVIDIA Dynamo, llm-d (pilot only).
 - Access: Amazon Bedrock, Microsoft Foundry, Google Cloud as defaults; Together AI, Fireworks AI (Strategic, conditional, once ISO certificates are confirmed, CP4-4), Cerebras, Hugging Face Inference Endpoints; routers OpenRouter (Stripe acquisition pending) and Hugging Face Inference Providers.
+- **Views that change this advice:** SW ships the open serving engine inside its product rather than keeping it as an exit route, TS treats capacity tiers as a service-level design because a discount tier can return rate-limit errors under load [VF: E2-S031], and SU uses the vendors' own endpoints with no in-region requirement until a customer asks (Parts XIV.5, XIII.5, XV.5) [AJ].
 - **Worked example, step 3 (model access).** Adds: Drafting through the primary cloud's in-region model service, with capacity sized for the month-end peak and an open-weight route kept ready as the stressed exit. Now: Every fund's draft can be produced in the narrow month-end window. Never: No router or provider that cannot guarantee region and retention.
 
 #### Hashtags
@@ -514,6 +523,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, C1 AI / LLM gateway 
 - The March incident: malicious LiteLLM 1.82.7 and 1.82.8 published to PyPI on 24 March 2026; clean 1.83.0 after a rebuilt pipeline [A6-S008, A6-S009, V2-S027].
 - Exit plans: PRA SS2/21 expects documented, tested exit plans including stressed exit [R-PRA-SS221: A8-S048]. PRA PS7/26 and FCA PS26/2: material third-party notifications from 18 March 2027 [R-PRA-SS221, R-FCA-SYSC8: A8-S062, V2-S053].
 - Gateways assessed: LiteLLM (hardened, Enterprise-licensed), Kong AI Gateway, Apigee, Azure API Management AI policies (the AI Gateway tier itself is preview), AWS AgentCore Gateway, Cloudflare AI Gateway, agentgateway. Ownership: Palo Alto Networks completed its acquisition of Portkey on 29 May 2026 [A6-S011, V2-S025]; Stripe agreed to acquire OpenRouter, with closing pending [V1-S059, V1-S060].
+- **Views that change this advice:** SW and the three vendor views do not own the gateway of record but are routed by the customer's, an AI-tools start-up being a call-out from its pre-call and post-call hooks [VF: A6-S015, A6-S017], while TS adds per-tenant keys, quotas and budgets and SU runs one pinned open-source deployment from the first commit (Parts XIV.5, XVI.5, XIII.5, XV.5) [AJ].
 - **Worked example, step 4 (gateway).** Adds: One gateway route, attribution-commentary-draft: the workflow calls the route with its own identity and never holds a provider key; residency, fallback, budgets and inline guards live on the route. Now: Switching to the qualified fallback is a configuration change, drilled in hours. Never: If both models are unavailable, the route fails closed and the analyst is told the draft is delayed.
 
 #### Hashtags
@@ -612,6 +622,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L3 Agent frameworks 
 - Durability is separating out: Pydantic AI v2, the OpenAI Agents SDK and Mistral Workflows delegate to Temporal or DBOS [A4-S045, A4-S052, A4-S058].
 - Autonomous harnesses (OpenAI Agents SDK, Claude Agent SDK, Mistral Agents API) are recommended only as sandboxed sub-steps. The Claude Agent SDK is rated Experimental and the OpenAI Agents SDK Tactical; both pre-1.0 SDKs score maturity 2 (CP4-9). Conflict of interest noted.
 - OpenAI's Agent Builder shuts down on 30 November 2026 [A4-S054, V1-S051].
+- **Views that change this advice:** only DV changes the default, because its agent loop is the product, bounded by a sandbox, an egress allow-list and a human merge rather than removed, while AG ships its workflow graph and autonomy budget as configuration the customer can tighten and TS, SW and SU keep deterministic workflows with one bounded step (Parts XVII.1, XVIII.1, XIII.5, XIV.5, XV.5) [AJ].
 - **Worked example, step 5 (workflow).** Adds: A pinned workflow graph: authorise, fetch the attribution snapshot, retrieve style and prior commentary, one drafting step, an evaluation gate, a human approval interrupt, then release by a separate service. Now: Every run follows the same path; a failed run resumes from its checkpoint with the same numbers. Never: Autonomy budget of one: the model drafts, but never chooses tools or order.
 
 #### Hashtags
@@ -706,6 +717,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, C2 Guardrails (§C2.
 - Open source: NVIDIA NeMo Guardrails is still 0.x Beta [A6-S003]; Meta has released no new Llama Guard, Prompt Guard or LlamaFirewall since May 2025 [A6-S006, A6-S107]; Harvey announced its acquisition of Guardrails AI on 9 September 2026 [A6-S028, V2-S026]. Check Point (Lakera) is a second-detector option (see C7).
 - ESMA expects "ex-ante input controls and frequent ex-post output controls" [R-INTL-AI-ASSETMGMT: A8-S059].
 - The 1% false-positive figure is an example target from the review, not a benchmark.
+- **Views that change this advice:** DV makes the customer's own tests, linters and code scanning the gate [VF: E3-S003], TS and SU accept a cloud's managed detector on cost [VF: A6-S067], SW cannot bundle managed detectors and ships product invariants instead, and AT sells the detector, so it must be swappable and measurable (Parts XVII.5, XIII.5, XV.5, XIV.5, XVI.5) [AJ].
 - **Worked example, step 6 (guardrails).** Adds: A deterministic numeric comparator on every draft, injection screening of retrieved text, a PII check on output and denied topics (forecasts, advice). Now: A draft with any figure, sign or direction word that disagrees with the engine is blocked before a human sees it. Never: Guardrails back up the design; they never license more autonomy.
 
 #### Hashtags
@@ -802,6 +814,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L4 Tools, protocols 
 - MCPTox benchmark (AAAI 2026): 45 live MCP servers, 20 models, 36.5% average and 72.8% peak attack success [A3-S023].
 - The protocols: the Model Context Protocol (MCP), which originated at Anthropic and was donated to the Agentic AI Foundation under the Linux Foundation on 9 December 2025 [A3-S018, V1-S038], and A2A 1.0, which joined AAIF in August 2026 [A3-S079, A3-S116]. MCP's 2026-07-28 specification still leaves authorisation optional [A3-S055]. Both MCP Lead Maintainers are Anthropic staff [A3-S082]. Independent alternatives: OpenAPI-described tools behind a gateway; A2A for agent delegation. Conflict of interest noted: these drafts were prepared with an Anthropic model.
 - Tool vendors assessed: Exa, Tavily (Nebius-owned since 19 February 2026), Browserbase, E2B, Composio (disclosed a token-exposure incident in May 2026 [B-L4-S007]); managed gateway option: AWS AgentCore Gateway.
+- **Views that change this advice:** TS becomes the multi-tenant token holder the FS view rejects in a third party and must engineer per-tenant vaulting [VF: B-L4-S007], SW becomes a tool provider with its own tool server, DV adds a sandbox with default-deny egress, and AG declares each tool's effect class and calls only through the customer's gateway (Parts XIII.5, XIV.5, XVII.5, XVIII.5) [AJ].
 - **Worked example, step 7 (tools).** Adds: Four tools behind the tool gateway: read-only attribution results with a snapshot hash, read-only fund reference data, a sandboxed calculator for derived figures, and retrieval of approved commentary. Now: Every figure in the draft traces to a snapshot ID and hash. Never: No write, publish or e-mail tool exists, so none can be misused.
 
 #### Hashtags
@@ -894,6 +907,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, C4 Identity and acce
 - Agent identity products now GA: Microsoft Entra Agent ID (April 2026) [A6-S058, V2-S032]; Okta for AI Agents (30 April 2026) and Okta Agent SSO / Cross App Access (24 August 2026) [A6-S100, V2-S035]; Auth0 for AI Agents (19 November 2025) [A6-S097]. Policy engines: OPA (CNCF graduated) and Cedar-based Amazon Bedrock AgentCore Policy (GA 3 March 2026) [A6-S046, A6-S026]. Workload identity: SPIFFE/SPIRE [A6-S087].
 - MCP authorisation (Enterprise-Managed Authorization) is stable but optional in the specification [A6-S033]; MCP originated at Anthropic (conflict of interest noted).
 - UK: the FCA relies on existing frameworks including SM&CR [R-UK-AI-STATEMENTS: A8-S055].
+- **Views that change this advice:** TS and SU replace the workforce directory with customer identity that carries the tenant in every token [VF: A6-S099, A6-S098], AG and DV accept the customer's directory and on-behalf-of tokens and hold no standing credential [VF: V2-S032, A6-S100], and SW signs users in through its own SSO and SCIM against the customer's directory (Parts XIII.5, XV.5, XVIII.5, XVII.5, XIV.5) [AJ].
 - **Worked example, step 8 (identity).** Adds: A registered agent identity with a named sponsor; it acts on behalf of the analyst with a read-only, minutes-long token; a different portfolio manager approves with step-up authentication. Now: Every action answers 'who did this, on whose behalf, under which policy'. Never: The agent holds no standing credentials and can never approve.
 
 #### Hashtags
@@ -990,6 +1004,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L5 Memory (§5.2, §
 - Defaults that run against storage limitation: no long-term time limit in Amazon Bedrock AgentCore Memory (AWS recommends a pruner) [A3-S111]; no default TTL in Google's Memory Bank [A3-S109]; ADD-only accumulation in Mem0 open source [A3-S081]; invalidation rather than deletion in Graphiti [A3-S003].
 - ICO erasure expectations, including backups put "beyond use" and a one-month response [B-L5-S005]; storage limitation [B-L5-S006].
 - Market: Mem0 removed external graph stores from open source; Zep deprecated its Community Edition (Graphiti remains); Letta pivoted to an agent harness; LangMem has had no release since 27 October 2025 [A3-S081, A3-S059, A3-S093, A3-S006]. Model vendors also ship memory features (Anthropic's memory tool, OpenAI's Conversations API) [A3-S069, A3-S110].
+- **Views that change this advice:** none: all six keep memory last or stateless, and the vendor views add erasure by subject wherever state is kept, because memory poisoning is on the agentic threat list [VF: B-L5-S001, E3-S072] (§5 of Parts XIII–XVIII) [AJ].
 - **Worked example, step 9 (memory).** Adds: Deliberately little: a versioned glossary and style rules per fund, changed only by an approved pull request, recalled by version hash. Now: Any commentary can be regenerated with exactly the memory it used. Never: The agent may propose memory, never write it; no client identifiers in memory.
 
 #### Hashtags
@@ -1080,6 +1095,7 @@ Personal views; not legal advice. Sources: the Enterprise GenAI Stack review, C8
 - DORA: first CTPP list 18 November 2025, 19 providers including AWS, Google Cloud, Microsoft, Oracle, IBM, SAP, Bloomberg and LSEG; no AI model provider; updated annually [R-DORA: A8-S020, A8-S021, V2-S051]. UK CTPs in force 13 July 2026: AWS, Google Cloud, Microsoft, Oracle; no model vendor [R-UK-CTP: A8-S023, V2-S052].
 - PRA PS7/26 and FCA PS26/2: material third-party notifications and an annual register from 18 March 2027 [R-PRA-SS221, R-FCA-SYSC8: A8-S062, V2-S053]. SS2/21 stressed-exit expectations [A8-S048].
 - IOSCO Supervisory Toolkit (FR/02/2026) flags concentration risk from reliance on few AI providers [R-INTL-AI-ASSETMGMT: A8-S058].
+- **Views that change this advice:** each other view swaps the deployer's rulebook for its own, with TS facing NIS2 and AI Act Article 50 [VF: E1-S017, E1-S035], SW and the vendor start-ups becoming Cyber Resilience Act manufacturers with reporting since 11 September 2026 [VF: E1-S001, E1-S003], and all six meeting DORA as Article 30 clauses flowed down by their FS customers [VF: E1-S055, E1-S057] (§6 of Parts XIII–XVIII) [AJ].
 - **Worked example, step 10 (regulation).** Adds: The regulatory mapping: not an Annex III use; transparency and literacy duties; model vendors as material outsourcing with exit plans; the agent recorded in the model inventory. Now: The design is defensible to a regulator, not only to an architect. Never: Never assume a vendor's oversight covers the firm's duties.
 
 #### Hashtags
@@ -1172,6 +1188,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L6 Retrieval and kno
 - Hybrid is standard: turbopuffer, Chroma Cloud, Milvus, Elasticsearch, MongoDB, Qdrant and Pinecone all fuse lexical and vector retrieval [A2-S056, A2-S060, A2-S054, A2-S133, A2-S141, A2-S103, A2-S101].
 - Databases absorbed the feature: pgvector 0.8.7 (1 October 2026) [V1-S020, V1-S022]; MongoDB Vector Search GA on self-managed editions [A2-S137, V1-S035]. Object storage: Amazon S3 Vectors GA since December 2025 [A2-S081, V1-S030]. Pinecone now sells Nexus, a "knowledge engine for agents" [A2-S073, V1-S029].
 - Recommended starting point in the review: vectors in the database or search engine you already operate; Qdrant or Milvus only when a load test justifies a dedicated engine. Weaviate is Tactical while its licence position settles. turbopuffer reports Anthropic as a customer [R: A2-S126]; noted for completeness.
+- **Views that change this advice:** TS and SU make tenant isolation the defining duty, with the tenant filter injected server-side [VF: E2-S050, E2-S051], SW keeps retrieval inside the product's own database and permission model, and DV treats the repository as the store with a per-task index destroyed at task end (Parts XIII.5, XV.5, XIV.5, XVII.5) [AJ].
 - **Worked example, step 11 (retrieval store).** Adds: One store already run by the firm, with three collections (prior commentaries, style guide, approved market notes) and fund-level entitlement filters applied inside the search. Now: Context arrives only from documents the analyst is entitled to see. Never: No unfiltered fallback: no permitted result means an empty result.
 
 #### Hashtags
@@ -1267,6 +1284,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, C7 AI security (§C7
 - Consolidation: Lakera to Check Point, Protect AI to Palo Alto Networks, Prompt Security to SentinelOne, CalypsoAI to F5, Pangea to CrowdStrike; HiddenLayer is the main independent in this set [A7-S012, A7-S014, A7-S018, A7-S019, A7-S020, A7-S017].
 - OWASP Top 10 for Agentic Applications for 2026 opens with ASI01 Agent Goal Hijack [R-OWASP-AGENTIC: A8-S042].
 - Secrets and agent credentials: HashiCorp Vault (IBM-owned, BUSL) or the cloud's native secrets service.
+- **Views that change this advice:** SW, AT, DV and AG become manufacturers of what they ship, so signing, SBOMs and patching for the support period join the controls [VF: E1-S001, E1-S002], TS adds cross-tenant injection and NIS2 incident duties [VF: E1-S016], and SU keeps pinning and capability separation without a runtime security platform (Parts XIV.5, XVI.5, XVII.5, XVIII.5, XIII.5, XV.5) [AJ].
 - **Worked example, step 12 (ai security).** Adds: Defence in depth against a poisoned market note: nothing to hijack, numbers that cannot be rewritten, retrieved text marked as data, chunk screening, canary documents and human approval. Now: No single control has to catch an injected instruction. Never: Untrusted input, sensitive data and an outbound channel never meet in one agent.
 
 #### Hashtags
@@ -1358,6 +1376,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L7 Embeddings and re
 - Ownership: Voyage AI is part of MongoDB (17 February 2025) [A2-S033, V1-S023]; Jina AI is part of Elastic (9 October 2025) [A2-S023, V1-S025].
 - Options assessed: OpenAI text-embedding-3, Gemini Embedding 2, Voyage 4, Cohere Embed 5 and Rerank 4, Qwen3 Embedding and Reranker, Jina v5, Sentence Transformers, NVIDIA NeMo Retriever.
 - Targets (0.95 recall@k; 100–300 labelled queries for a bake-off) are the review's starting points, not industry benchmarks.
+- **Views that change this advice:** SW and SU accept hosted embeddings only through the customer's account or on cost, keeping a self-hostable model as the exit, with SW never bundling weights whose licence bars redistribution [VF: A2-S024], and TS plans a re-embedding of every tenant's index when the model changes (Parts XIV.5, XV.5, XIII.5) [AJ].
 - **Worked example, step 13 (retrieval quality).** Adds: Two-stage retrieval of comparable past commentary (embed and rerank), with both model versions pinned and tagged on every vector. Now: The draft follows the fund's own style and comparable months. Never: A mixed-version index is refused; migration runs as a shadow index behind a regression gate.
 
 #### Hashtags
@@ -1452,6 +1471,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, C5 Prompt and config
 - Registries assessed: Langfuse and LangSmith prompt management (inside their L9 platforms) [A7-S071, A7-S076]; LaunchDarkly AI Configs, renamed AgentControl in 2026 [A7-S117, V2-S045]; PromptLayer [A7-S004]. Prompts-as-code formats: Prompty and Dotprompt [A7-S067, A7-S066].
 - Ownership: ClickHouse announced its acquisition of Langfuse (16 January 2026) [A7-S075, V2-S041]; OpenAI announced its acquisition of Promptfoo (9 March 2026) [V2-S042].
 - Under EU AI Act Article 25, changing a system's intended purpose so that it becomes high-risk can make a deployer a provider; a system prompt is the easiest place to do that [R-EUAIA: A8-S011].
+- **Views that change this advice:** none changes the principle, but TS adds tenant overlays so a tenant's AI setting is configuration [VF: A7-S072], SW ships prompts in the release rather than from a runtime registry, and the vendor views keep policy and configuration as files the customer reviews in its own Git (Parts XIII.5, XIV.5, XVI.5, XVIII.5) [AJ].
 - **Worked example, step 14 (configuration).** Adds: A release manifest per monthly cycle (prompt set, model pins, retrieval settings, tool list, guard policy, eval thresholds), approved by pull request with a second approver and gated by the eval suite. Now: Every setting that can change what a client reads is versioned and reversible. Never: No production prompt is ever edited in a console.
 
 #### Hashtags
@@ -1545,6 +1565,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L8 Data extraction, 
 - Market moves: Docling graduated within LF AI & Data in August 2026 [V1-S091]; Mistral OCR 4.0 retired on 30 September 2026 [A1-S130, V1-S014]; LlamaParse now names LlamaIndex's whole document platform [A1-S080]; Firecrawl's server is AGPL-3.0 [A1-S053].
 - Products assessed: Docling, Unstructured, LlamaParse, Reducto, Mistral OCR, Google Document AI, MinerU, Firecrawl, Crawl4AI, Apify.
 - ESMA's expectation of "ex-ante input controls" [R-INTL-AI-ASSETMGMT: A8-S059] is where ingestion sits in a regulated firm.
+- **Views that change this advice:** TS makes per-tenant deletion on exit contractual under the Data Act [VF: E1-S025], SW embeds open parsers only after checking each parsing model's licence [VF: A1-S057, A1-S008], SU starts with a per-document record rather than a full envelope, and AT must preserve ACL and lineage metadata that no profiled ingestion product emits today [VF: A1-S094, A1-S096] (Parts XIII.5, XIV.5, XV.5, XVI.5) [AJ].
 - **Worked example, step 15 (ingestion).** Adds: Three corpora ingested under a control envelope: dual-parsed factsheet tables reconciled to the engine, prior commentaries with their permissions, and market notes from the approved register only. Now: Every chunk carries its source, version, permissions, classification and lineage. Never: No envelope, no index; parsed numbers are context only, never figures.
 
 #### Hashtags
@@ -1641,6 +1662,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, C3 DLP and PII prote
 - Microsoft folded DSPM for AI into unified Purview DSPM (GA May 2026) [A6-S090, A6-S091]; Google Sensitive Data Protection underpins Model Armor's screening [A6-S066, A6-S067]; Protegrity AI Team Edition is Tech Preview [A6-S093]; Skyflow offers an LLM Privacy Vault with EU vaults [A6-S095]. DLP also appears inside Cloudflare AI Gateway, Kong AI Gateway, Bedrock Guardrails and Model Armor [A6-S052, A6-S016, A6-S072, A6-S067].
 - Processing location is now a priced contract item at least at one first-party model API (Anthropic's US-only inference option) [A8-S036]; other providers' equivalents are covered in the L1 and L2 chapters.
 - EU–US transfers: the Data Privacy Framework appeal C-703/25 P is pending [R-DATA-TRANSFERS: A8-S053].
+- **Views that change this advice:** TS and SW set entity policy per tenant or customer rather than firm-wide, SU keeps two enforcement points (prompt and trace export) rather than six, and the vendor views call the customer's privacy service rather than running their own (Parts XIII.5, XIV.5, XV.5, XVI.5, XVIII.5) [AJ].
 - **Worked example, step 16 (privacy).** Adds: One privacy service called at six points: client names and mandates tokenised before any model call, detected again in output, re-identified only for the reviewing manager. Now: The model writes about 'the mandate' without ever seeing whose it is. Never: A clear-text identifier not in the approved inputs blocks the draft.
 
 #### Hashtags
@@ -1737,6 +1759,7 @@ Personal views. Notes and sources for this post: the Enterprise GenAI Stack revi
 - OpenTelemetry GenAI semantic conventions are at "Development" status [A1-S058].
 - Products assessed in this layer: Langfuse, LangSmith, MLflow, Braintrust, Arize Phoenix and AX, DeepEval, Promptfoo, Opik, Datadog Agent Observability, W&B Weave. The pattern matters more than the pick: one platform of record, plus two CI red-team tools, one of them independent of any model vendor.
 - Optional disclosure line: "I used an AI drafting assistant (Anthropic's Claude) to help structure this series; the views and the edits are mine."
+- **Views that change this advice:** SW splits evaluation into a vendor-held release record and a harness the customer can re-run on its own model, SU uses a managed free tier but keeps datasets in Git because free tiers keep data for 15–60 days [VF: A1-S031, A1-S123], and the vendor views emit spans to the customer's collector against a convention version still at Development [VF: E3-S067, E3-S069] (Parts XIV.5, XV.5, XVI.5) [AJ].
 - **Worked example, step 17 (evaluation).** Adds: The evaluation plane: numeric faithfulness (blocking), groundedness, style, trajectory, and a regression suite of 24 to 36 months of approved commentaries, all on one firm-owned telemetry spine. Now: Every change of model, prompt, index or judge is tested before it reaches a client. Never: Any numeric miss blocks; no human is asked to catch what code can check.
 
 #### Hashtags
@@ -1828,6 +1851,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, C8 Model risk, gover
 - SR 26-2 / OCC Bulletin 2026-13 / FDIC FIL-15-2026, issued 17 April 2026, supersede SR 11-7 and exclude generative and agentic AI [R-US-MRM: A8-S001, A8-S002, V2-S049]. The agencies' planned AI request for information had not been published as of 7 October 2026 [A8-S003, A8-S007].
 - PRA SS1/23: technology-agnostic, covers vendor models, five principles [R-PRA-SS123: A8-S008, A8-S061].
 - Governance workflow tools assessed (none reaches Strategic on public evidence): ValidMind, IBM watsonx.governance, Credo AI, Collibra AI Governance (trail ML acquisition announced 5 October 2026), ModelOp. OpenLineage is the recommended lineage standard.
+- **Views that change this advice:** TS replaces model-risk validation with a customer assurance pack led by a published AI-CAIQ [VF: E2-S047], SW keeps evidence per release as its liability defence [VF: E1-S010], SU starts with an evidence table and a one-page register, and AT, DV and AG write their records into the customer's own store, keyed by its trace ID (Parts XIII.5, XIV.5, XV.5, XVI.5–XVIII.5) [AJ].
 - **Worked example, step 18 (governance).** Adds: The inventory entry for the use case and an evidence pack per approved commentary, keyed by one trace ID, written to an immutable archive. Now: Any approved commentary can be explained and re-performed on request. Never: The governed unit is the use case; the model is a vendor component inside it.
 
 #### Hashtags
@@ -1925,6 +1949,7 @@ Two-column "may / must never" table for the worked example. Each "never" row has
 Personal views. The worked example is generic and illustrative, not a description of any firm's platform. Sources: the Enterprise GenAI Stack review, synthesis Part VI (VI.1 request trace, VI.3 boundaries with enforcing components, VI.4 evidence pack), and C8 §C8.12.
 - The design is cloud-neutral, with AWS, Azure and Google Cloud equivalents shown side by side (CP4-6). Examples by layer: Docling and pgvector for retrieval; LangGraph with a Postgres checkpointer, or Strands on AgentCore, Microsoft Agent Framework or Google ADK, for the workflow; LiteLLM, Kong, APIM or Apigee for the gateway; a two-vendor model portfolio on the primary cloud's model service (Claude, GPT-6.1, Gemini or Mistral, with an independent alternative named wherever Claude appears; conflict of interest noted).
 - The use case is not an EU AI Act Annex III use; Article 50 is assessed and human editorial review applies (synthesis VI.4).
+- **Views that change this advice:** each view re-traces its own example (a tenant's support reply, an on-premises document assistant, an accounting firm's client e-mails, a redaction call-out, a framework-upgrade pull request, an accounts-payable proposal), and every one keeps the same shape of one bounded model step, a named human decision and an evidence record (§10 of Parts XIII–XVIII) [AJ].
 - **Worked example, step 19 (assembled).** Adds: All eighteen pieces assembled into one request trace, with a 'may / must never' list in which every 'never' names the component that enforces it. Now: The design is complete end to end on paper. Never: Every 'must never' has an enforcing component, not a policy sentence.
 
 #### Hashtags
@@ -2018,6 +2043,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, synthesis Part VII, 
 - Stack D's per-cloud equivalents: gateway as LiteLLM self-hosted, AgentCore Gateway (tools), APIM GA AI policies or Apigee; identity as AgentCore Identity, Entra Agent ID, or Okta/Entra; workflow on LangGraph, Strands on AgentCore, Microsoft Agent Framework or ADK; retrieval on pgvector (RDS, Azure Database for PostgreSQL or Cloud SQL); evaluation on Langfuse or MLflow with DeepEval, Promptfoo and one independent red-team tool; models on Bedrock, Foundry or Google Cloud with two vendors qualified.
 - Stack D's not-yet list also names MCP beyond the first read-only tool, Agent Skills and a runtime AI-security platform. Agent Skills and MCP originated at Anthropic (conflict of interest noted).
 - The synthesis names the attribution commentary as a good first candidate "because its boundaries are clear and its numbers are checkable".
+- **Views that change this advice:** SU shrinks the minimum to a fortnight (a pinned gateway, a tenant identifier, tracing and an evaluation set in Git), TS and SW start with terms, tenancy and regulatory roles instead of model validation, and the vendor views start by publishing the integration contract and a CRA reporting runbook [VF: E1-S003] (§9 of Parts XIII–XVIII) [AJ].
 - **Worked example, step 20 (minimum go-live).** Adds: The build order for real: governance and evaluation first, then the gateway, retrieval, the workflow and one read-only tool; memory and everything on the 'not yet' list waits for evidence. Now: The agent can go live on the minimum platform. Never: Nothing is built before the evidence says it is needed.
 
 #### Hashtags
@@ -2114,6 +2140,7 @@ Personal views. Source: the Enterprise GenAI Stack review, synthesis Part VIII (
 - Products named in the "buy" and "hybrid" columns include LiteLLM Enterprise, Kong, APIM, Apigee and AgentCore Gateway (gateway); Presidio and Sensitive Data Protection (privacy); Entra Agent ID and Okta for AI Agents (identity); Langfuse, MLflow and LangSmith (evaluation); Docling and Unstructured (ingestion); LangGraph, Microsoft Agent Framework, ADK and Pydantic AI (orchestration); vLLM (serving); and hosted models from several vendors, including Anthropic, plus Gemma 4 or Mistral open weights.
 - The ownership changes behind "neutral products changed owner" are listed in synthesis Part I, finding 2.
 - Fine-tuning and EU AI Act Article 25 (deployer becoming provider): [R-EUAIA: A8-S011]; the synthesis lists fine-tuning as "do not build yet".
+- **Views that change this advice:** TS builds tenancy enforcement and product-grade cost data, SW embeds only what passes a redistribution gate, SU adopts free or open tiers behind its own interfaces, and AT, DV and AG build the differentiated core, the evidence and the enterprise wrapper while adopting the buyer's identity, telemetry and policy standards (§8 of Parts XIII–XVIII) [AJ].
 - **Worked example, step 21 (build or buy).** Adds: A build, hybrid or buy decision for each of the seventeen components: build the evidence store, configuration and tools; buy models, serving and security tooling; hybrid elsewhere. Now: Spend goes where the firm differentiates. Never: Fine-tuning stays off the list.
 
 #### Hashtags
@@ -2208,6 +2235,7 @@ Personal views. Source: the Enterprise GenAI Stack review, synthesis Part IX (IX
 - Open interfaces cited: an OpenAI-compatible routing contract accepted by every gateway assessed; OpenTelemetry or OpenInference for traces; OPA (Rego) or Cedar for policy.
 - IX.3 also lists where multi-vendor only adds complexity: two orchestration frameworks in one language estate, two vector stores for one corpus, two observability platforms of record, two IdPs for agents, a second cloud's agent stack.
 - The 30-day patch window is an example target from the review, not a benchmark.
+- **Views that change this advice:** SW puts the abstractions for model routing, retrieval, embedding, evaluation and privacy inside its product code, and DV and AG keep a model-agnostic core with no model-vendor harness, the Claude Agent SDK being Experimental and the OpenAI Agents SDK pre-1.0 (alternatives LangGraph or Pydantic AI) [VF: A4-S006, A4-S005] (Parts XIV.8, XVII.8, XVIII.7) [AJ].
 - **Worked example, step 22 (thin interfaces).** Adds: Thin firm-owned interfaces where switching is likely (routing contract, telemetry, datasets, privacy, retrieval) and none around the agent framework. Now: Changing a vendor is a contained change. Never: No firm-wide wrapper around frameworks.
 
 #### Hashtags
@@ -2314,6 +2342,7 @@ Heat-map table: the 17 layers and controls as rows; columns "acceptable", "manag
 Personal views. Source: the Enterprise GenAI Stack review, synthesis Part IX.4 (lock-in by layer and control) and L6 §6.3 (rebuild-time KPI).
 - Examples behind the categories: vLLM and SGLang (Apache-2.0, OpenAI-compatible) as acceptable [A4-S009, A4-S010]; MCP and A2A as open specifications under AAIF [A3-S018, A3-S116] (MCP originated at Anthropic; conflict of interest noted); credential custody in a third party's multi-tenant cloud as unacceptable, following Composio's May 2026 incident [B-L4-S007]; OpenAI's Agent Builder shutting on 30 November 2026 as an example of vendor-hosted state [A4-S054].
 - Each cell of the table has its rationale and abstraction in the synthesis; this post compresses it.
+- **Views that change this advice:** TS weights lock-in at 5% because it runs one estate yet owes its own customers free switching from 12 January 2027 [VF: E1-S025], SW widens lock-in to redistributability, and AT and AG read the FS 'unacceptable' column as the list of things they must never sell (Parts XIII.8, XIV.8, XVI.8, XVIII.8) [AJ].
 - **Worked example, step 23 (exit tested).** Adds: Lock-in accepted knowingly per component, with the firm's own records (evidence, configuration, datasets, credentials) kept out of any vendor's hands, and an index rebuild drilled. Now: The agent survives the loss of any single vendor. Never: No vendor-held store is ever the only copy of the firm's evidence.
 
 #### Hashtags
@@ -2406,6 +2435,7 @@ Personal views; not a description of any firm's platform or vendor choices. Sour
 - Conflict of interest: these drafts were prepared with an Anthropic model; Anthropic's tier in the review was set by me, on neutral-rubric scores, not by the drafting tool, and an independent alternative is named wherever a Claude model, MCP or Agent Skills appears.
 - IOSCO's supervisory toolkit names the level and frequency of human intervention as an indicator for asset managers [R-INTL-AI-ASSETMGMT: A8-S058].
 - [Link to the published review, if released.]
+- **Views that change this advice:** each view ends with its own one-paragraph answer, but all keep the plane-first logic and change only who owns the plane, the vendor views plugging into the buyer's rather than building their own (§11 of Parts XIII–XVIII; Post 32 closes the seven-lens run) [AJ].
 - **Worked example, step 24 (signed off).** Adds: The final selection: a firm-owned control and evidence plane, with replaceable components beneath it, and a published list of what was deliberately not selected. Now: The worked example is complete, governed and ready to run. Never: What was not selected stays off until the evidence changes.
 
 #### Hashtags
@@ -2425,14 +2455,828 @@ Personal views; not a description of any firm's platform or vendor choices. Sour
 
 ---
 
-## Week 13: buffer
+## Week 13: One stack, seven lenses (1 of 4)
+
+### Post 25 · Week 13 · One stack, seven lenses: who builds it, runs it or sells into it
+
+**Pair:** Post 26 (TS, Week 13). **Bridge:** The opener names the seven lenses and what each weights most; the next post takes the first of them, the company that runs GenAI inside a service its customers pay for.
+
+**Theme and source:** Why the same stack reads differently for each reader, and what the second run covers. `work/stage0/11_stageE_views_brief.md`, `work/stageE/views/views.json` (weights, core-candidate counts), and §1 and §3 of each view Part (`work/stageE/views/{TS,SW,SU,AT,DV,AG}/view.md`, Parts XIII–XVIII).
+
+**Tension:** Same stack, different owner of the control plane, and that is what changes the advice.
+
+#### Full post
+
+If you build GenAI into what you sell, run it for customers, or sell into someone else's stack, the next eight posts are for you.
+
+For twelve weeks this series read the enterprise GenAI stack through one lens: a regulated asset manager. That firm deploys GenAI for itself, owns its control plane and answers to a supervisor.
+
+Most readers do something else. So I re-read the same review for six more: a technology service provider, a software product company, a start-up, and three start-ups selling into the enterprise stack, with AI tools, software-delivery agents or business agents.
+
+The same 138 scored products and the same eight criterion scores, re-weighted for each reader. The weights are where the lenses differ.
+
+The regulated firm weights security and compliance most. The service provider weights reliability and cost per call, because every call is cost of goods sold. The software company weights deployment flexibility, because its product runs wherever the customer runs. The start-up weights technical capability and cost. The three vendor start-ups weight ecosystem three times as heavily as the regulated firm, because open standards are how a product plugs into a buyer's stack.
+
+The shortlist moves with the weights: 45 core candidates under the regulated lens, between 48 and 63 under the others. The role moves more. Deployer, operator, manufacturer, provider, supplier: each owes different evidence to different people.
+
+The leadership move is to name your lens before you borrow anyone's reference architecture: who owns the control plane, who pays for inference, and who will audit you.
+
+[Anecdote slot: one or two sentences on a practice you borrowed from an organisation with a different business model, and what had to change before it worked.]
+
+Same stack. Different owner of the control plane. That is what changes the advice.
+
+#### Short variant
+
+If you build GenAI into what you sell, or sell into someone else's stack, the next eight posts are for you.
+
+For twelve weeks this series read the stack through one lens: a regulated asset manager that owns its control plane.
+
+I have re-read the same review for six more readers: a service provider, a software product company, a start-up, and three start-ups selling AI tools, software-delivery agents or business agents into enterprises.
+
+Same 138 products, same scores, different weights. The service provider weights reliability and cost per call; the software company, deployment flexibility; the start-up, capability and cost; the vendor start-ups, open standards.
+
+The shortlist moves from 45 core candidates to between 48 and 63. The role moves more.
+
+Name your lens before you borrow a reference architecture. Same stack, different owner of the control plane.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a practice, standard or architecture pattern you adopted from an organisation with a different business model (a bank, a software vendor, a start-up), and what had to be changed before it fitted. Credit the person who spotted the mismatch.
+- **Fits:** "share the lesson, credit the team"; context before copy.
+- **Avoid:** naming the organisation you borrowed from, or any current employer's platform.
+
+#### Fallback version
+
+If you build GenAI into what you sell, run it for customers, or sell into someone else's stack, the next eight posts are for you.
+
+For twelve weeks this series read the enterprise GenAI stack through one lens: a regulated asset manager. That firm deploys GenAI for itself, owns its control plane and answers to a supervisor.
+
+Most readers do something else. So I re-read the same review for six more: a technology service provider, a software product company, a start-up, and three start-ups selling into the enterprise stack, with AI tools, software-delivery agents or business agents.
+
+The same 138 scored products and the same eight criterion scores, re-weighted for each reader. The weights are where the lenses differ.
+
+The regulated firm weights security and compliance most. The service provider weights reliability and cost per call, because every call is cost of goods sold. The software company weights deployment flexibility, because its product runs wherever the customer runs. The start-up weights technical capability and cost. The three vendor start-ups weight ecosystem three times as heavily as the regulated firm, because open standards are how a product plugs into a buyer's stack.
+
+The shortlist moves with the weights: 45 core candidates under the regulated lens, between 48 and 63 under the others. The role moves more. Deployer, operator, manufacturer, provider, supplier: each owes different evidence to different people.
+
+The leadership move is to name your lens before you borrow anyone's reference architecture: who owns the control plane, who pays for inference, and who will audit you.
+
+The honest caveat: the weights are my architectural judgement, not a survey. They are published, so anyone can re-run the scores with their own.
+
+Same stack. Different owner of the control plane. That is what changes the advice.
+
+#### Suggested visual
+
+The seven views on one card: one row each for FS, TS, SW, SU, AT, DV and AG, in that order, with who it is for in a few words, the eight criterion weights as a compact grid (the heaviest per row in gold), the role the reader plays (deployer, operator, manufacturer, supplier) and core candidates of 138. Source: `views.json` and §3 of Parts XIII–XVIII.
+
+#### First comment
+
+Personal views; not a description of any firm's platform or vendor choices. Sources: the Enterprise GenAI Stack review, Parts XIII–XVIII (one per view, §1 and §3) and the weights in `work/stageE/views/views.json`.
+- The weights are architectural judgement and sum to 100 for each view [AJ]: security and compliance 20 under FS; reliability 15 and cost 15 under TS; deployment flexibility 20 under SW; technical 25 and cost 20 under SU; ecosystem 15 under AT, DV and AG against 5 under FS. No product fact or criterion score changes between views [AJ].
+- Core candidates of 138 scored products: FS 45, TS 48, SW 48, SU 57, AT 56, DV 63, AG 56. The fit is computed and indicative; the master tiers and their conditions still stand [AJ].
+- Roles: a service provider is in NIS2 scope as a medium or large cloud or managed-service provider [VF: E1-S017, E1-S018]; supplying an AI system under your own name makes you its provider [VF: A8-S016]; installed software makes a vendor a CRA manufacturer and, from 9 December 2026, software is a product under the PLD [VF: E1-S001, E1-S010]; vendors to EU financial firms receive DORA Article 30 clauses and subcontracting terms [VF: E1-S055, E1-S057].
+- Conflict of interest: these drafts were prepared with an Anthropic model. Under some lenses Anthropic's Claude family and MCP (Anthropic-originated, now under the Agentic AI Foundation) rise on the same criterion scores; each Part names the independent alternatives beside them: GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 for a Claude route, OpenAPI-described tools for MCP [AJ].
+- **Seven lenses, 1 of 8 (the opener).** Posts 1–24 stay on the regulated-FS view; this run changes only the reader, not the evidence. One Part of the review per lens: TS Part XIII, SW Part XIV, SU Part XV, AT Part XVI, DV Part XVII, AG Part XVIII [AJ].
+
+#### Hashtags
+
+#GenerativeAI #EnterpriseArchitecture
+
+#### Re-verify before posting
+
+- Weights and core-candidate counts against the published `05_Data/views.xlsx` (they change if the scores are refreshed)
+- The PLD date and NIS2 scope wording in the first comment
+
+#### Compliance check
+
+- Personal views; no statement about any firm's architecture or business model: yes
+- Body vendor-neutral; Anthropic items in the first comment carry independent alternatives: yes
+- No weekday named: yes
+
+---
+
+### Post 26 · Week 13 · Technology service provider: margin, uptime and tenant isolation change the defaults
+
+**Pair:** Post 25 (the opener, Week 13). **Bridge:** The opener said the weights move with the reader; this post shows what moves when every model call is cost of goods sold and every customer shares one estate.
+
+**Theme and source:** Margin, uptime and tenant isolation replace model-risk validation as the hardest problems. `work/stageE/views/TS/view.md` (Part XIII: XIII.1, XIII.2 findings 2–5 and 8, XIII.3, XIII.5, XIII.10), `work/stageE/views/TS_scores.md`.
+
+**Tension:** Same plane as a bank's, but every element of it tenant-aware, metered and sold.
+
+#### Full post
+
+If you run GenAI inside a service your customers pay for, this one is for you.
+
+A regulated firm treats model cost as a minor line; reviewer time is its real cost. A service provider cannot. Every model call is cost of goods sold, and the margin is set by architecture: a stable prompt prefix that can be cached, an asynchronous path at batch prices, and a small model for the easy work. Batch is half price at the major model vendors, and cached input can be ninety per cent cheaper or more.
+
+Uptime changes the second vendor's job. For a regulated firm the fallback is an exit route. For a provider it is a live capacity route, warm and sized for real traffic, because a discount tier can return errors under load and a model vendor can suspend a whole service for its end users' misuse. On a multi-tenant platform, one tenant's breach can put every tenant's feature at risk.
+
+Isolation is the product's core promise. There is no single standard for it, and shared caches can carry one request's context into another's. So the tenant travels in every token, key, cache, index, trace and evidence record, with the filter injected server-side from the token, never from the prompt.
+
+The leadership move is to write a tenancy standard before the first feature, and to make a cross-tenant leak test block every release.
+
+The signal is cost per call, reported per tenant and per feature against the price you charge.
+
+[Anecdote slot: one or two sentences on a time a shared resource leaked, throttled or failed across customers, and what the team changed afterwards.]
+
+Same stack as a bank's. Every part of it tenant-aware, metered and sold.
+
+#### Short variant
+
+If you run GenAI inside a service your customers pay for, this one is for you.
+
+Every model call is cost of goods sold. Margin is set by architecture: cacheable prompt prefixes, a batch path at half price, a small model for easy work.
+
+The second model vendor stops being an exit route and becomes a live capacity route, because discount tiers can fail under load and a vendor can suspend a service for its end users' misuse.
+
+Isolation is the product's promise. The tenant travels in every token, cache, index, trace and evidence record, and the filter comes from the token, never from the prompt.
+
+Write a tenancy standard before the first feature. Make a cross-tenant leak test block every release. Report cost per call per tenant against price.
+
+Same stack as a bank's. Every part tenant-aware, metered and sold.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a time a shared resource (a cache, a queue, a quota, a noisy neighbour) affected more than one customer, and what the team changed. Credit the engineer who found it; own it if the design was yours.
+- **Fits:** resilience; making invisible work visible.
+- **Avoid:** customer names, incident details that are not public, or real margins.
+
+#### Fallback version
+
+If you run GenAI inside a service your customers pay for, this one is for you.
+
+A regulated firm treats model cost as a minor line; reviewer time is its real cost. A service provider cannot. Every model call is cost of goods sold, and the margin is set by architecture: a stable prompt prefix that can be cached, an asynchronous path at batch prices, and a small model for the easy work. Batch is half price at the major model vendors, and cached input can be ninety per cent cheaper or more.
+
+Uptime changes the second vendor's job. For a regulated firm the fallback is an exit route. For a provider it is a live capacity route, warm and sized for real traffic, because a discount tier can return errors under load and a model vendor can suspend a whole service for its end users' misuse. On a multi-tenant platform, one tenant's breach can put every tenant's feature at risk.
+
+Isolation is the product's core promise. There is no single standard for it, and shared caches can carry one request's context into another's. So the tenant travels in every token, key, cache, index, trace and evidence record, with the filter injected server-side from the token, never from the prompt.
+
+The leadership move is to write a tenancy standard before the first feature, and to make a cross-tenant leak test block every release.
+
+The signal is cost per call, reported per tenant and per feature against the price you charge.
+
+The honest caveat: no model-risk regime reaches a provider directly, so regulated customers bring theirs through the contract and ask for the evidence.
+
+Same stack as a bank's. Every part of it tenant-aware, metered and sold.
+
+#### Suggested visual
+
+Weights compared with the regulated-FS view (eight paired bars, FS against TS, with the change marked), then the three layers whose advice changes most, in layer order: L1 models (the second vendor becomes a live capacity route), L6 stores (tenant isolation replaces entitlement within one firm), C6 FinOps (from reporting to gross-margin control). A strip states what stays (gateway of record, day-one evaluation, approval-gated workflows, configuration in source control) and the core-candidate count, 45 to 48. Source: Part XIII.1, XIII.3 and XIII.5.
+
+#### First comment
+
+Personal views; not a description of any firm's platform. Source: the Enterprise GenAI Stack review, Part XIII (technology service providers): XIII.1, XIII.2, XIII.3, XIII.5 and the worked example in XIII.10.
+- Weights, FS → TS: security 20 → 15, deployment 15 → 10, ecosystem 5 → 10, reliability 10 → 15, cost 5 → 15, lock-in 15 → 5 [AJ]. Core candidates 48 against 45 of 138 (`TS_scores.md`) [AJ].
+- Cost levers: Batch is 50% below standard on OpenAI, Anthropic, the Gemini API, Bedrock (select models) and Azure OpenAI Batch [VF: A5-S004, A5-S011, A5-S032, E2-S032, E2-S018]; OpenAI cached input is about 90–95% cheaper and an Anthropic cache read costs 0.1x base input (0.05x on Opus 5.5 and Sonnet 5.5) [VF: A5-S004, V2-S002].
+- Capacity and suspension: OpenAI Flex is billed at Batch rates and may return 429 under load [VF: E2-S031]; Anthropic may suspend access when a customer's users breach its Usage Policy [VF: E2-S004, E2-S005]; Claude Fable 5 was unavailable from 12 June to 1 July 2026 [VF: V2-S004]. For any Claude route, Part XIII names GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as the independent alternative [AJ].
+- Isolation: Microsoft's four isolation models for Azure OpenAI and AWS's silo, pool and bridge patterns [VF: E2-S016, E2-S050]; OWASP LLM08:2025 names cross-context leakage in multi-tenant vector stores [VF: E2-S051]; shared prefix caches and tiered KV stores [VF: A4-S091, A4-S090, A4-S089]; Apigee fixed an SSRF in its semantic-cache lookup on 30 September 2026 [VF: A6-S025]. No OWASP item on tenant isolation was found [NPV].
+- Customers can switch away without charges from 12 January 2027 [VF: E1-S025, E1-S026].
+- **Seven lenses, 2 of 8 (technology service provider).** This lens turns the control plane into a product: tenant isolation, cost per call and service levels replace model-risk validation, and models, stores and FinOps change most, while the gateway of record, day-one evaluation, approval-gated workflows and source-controlled configuration stay. Part XIII [AJ].
+
+#### Hashtags
+
+#SaaS #EnterpriseArchitecture
+
+#### Re-verify before posting
+
+- Batch, cache and Flex pricing at each vendor (volatile)
+- Anthropic's Usage Policy effective 12 November 2026, for the suspension wording
+
+#### Compliance check
+
+- Personal views; no statement about any provider's tenancy design or margins: yes
+- Body vendor-neutral; vendor terms cited evenly in the first comment: yes
+- No weekday named: yes
+
+---
+
+## Week 14: One stack, seven lenses (2 of 4)
+
+### Post 27 · Week 14 · Software product company: your stack has to run where your customer runs
+
+**Pair:** Post 28 (SU, Week 14). **Bridge:** A software company ships into estates it does not control; a start-up builds its own, fast. The next post shows what changes when runway, not the customer's estate, is the constraint.
+
+**Theme and source:** Own a release plane, not a control plane. `work/stageE/views/SW/view.md` (Part XIV: XIV.1, XIV.2 findings 1–5, XIV.3, XIV.4, XIV.5, XIV.8), `work/stageE/views/SW_scores.md`.
+
+**Tension:** What is fine to run internally can be impossible to ship.
+
+#### Full post
+
+If you ship software with GenAI built in that your customers install and run, this one is for you.
+
+A regulated firm owns one control plane. A software company ships into many it does not own. That changes three defaults.
+
+First, models. Hosted model versions now live for months: one released in August 2026 retires in January 2027. A product sold in the EU will owe a support period of at least five years unless its expected use is shorter. So the answer is not a two-vendor portfolio but a published support matrix: customers bring their own model account or endpoint, and the product bundles one open-weight model, under a licence that allows redistribution, for air-gapped sites.
+
+Second, the gateway. The product should be routed by the customer's gateway, not bring its own. Every gateway in the review speaks a common model API, so one endpoint setting reaches the customer's gateway, its cloud account or the bundled engine.
+
+Third, security. The vendor is now a manufacturer. EU vulnerability reporting for products has applied since September 2026, conformity and marking follow in December 2027, and from December 2026 software is a product for liability purposes. Every bundled model, library and engine must be licensed to ship, signed, and patched for the whole support period.
+
+The leadership move is to own a release plane, not a control plane.
+
+The signal is whether a customer can switch hosted model by configuration, and run the feature offline on the bundled model against the same test suite.
+
+[Anecdote slot: one or two sentences on a component that was fine to use internally but could not be shipped to customers, and how the team found out.]
+
+Run where the customer runs, or do not ship the feature.
+
+#### Short variant
+
+If you ship software with GenAI built in that your customers install and run, this one is for you.
+
+You do not own a control plane. You ship into many.
+
+Models: hosted versions live for months, while an EU support period can run five years. Publish a support matrix, let customers bring their own model account, and bundle one open-weight model you may redistribute for air-gapped sites.
+
+Gateway: be routed by the customer's gateway. One endpoint setting reaches it, their cloud account or the bundled engine.
+
+Security: you are a manufacturer now. Every bundled model and library must be licensed to ship, signed and patched for the support period.
+
+Own a release plane, not a control plane. The signal: a customer switches model by configuration and runs offline on the same test suite.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a library, model or tool that was fine to run in-house but could not be redistributed, or a supported platform that went end-of-life inside a customer's support period. Credit whoever read the licence; own it if it shipped before anyone did.
+- **Fits:** platform modernisation; turning external deadlines into refresh mandates.
+- **Avoid:** naming the component, the vendor or the product.
+
+#### Fallback version
+
+If you ship software with GenAI built in that your customers install and run, this one is for you.
+
+A regulated firm owns one control plane. A software company ships into many it does not own. That changes three defaults.
+
+First, models. Hosted model versions now live for months: one released in August 2026 retires in January 2027. A product sold in the EU will owe a support period of at least five years unless its expected use is shorter. So the answer is not a two-vendor portfolio but a published support matrix: customers bring their own model account or endpoint, and the product bundles one open-weight model, under a licence that allows redistribution, for air-gapped sites.
+
+Second, the gateway. The product should be routed by the customer's gateway, not bring its own. Every gateway in the review speaks a common model API, so one endpoint setting reaches the customer's gateway, its cloud account or the bundled engine.
+
+Third, security. The vendor is now a manufacturer. EU vulnerability reporting for products has applied since September 2026, conformity and marking follow in December 2027, and from December 2026 software is a product for liability purposes. Every bundled model, library and engine must be licensed to ship, signed, and patched for the whole support period.
+
+The leadership move is to own a release plane, not a control plane.
+
+The signal is whether a customer can switch hosted model by configuration, and run the feature offline on the bundled model against the same test suite.
+
+The honest caveat: the licence picture moves, so the redistribution check runs on every release, not once.
+
+Run where the customer runs, or do not ship the feature.
+
+#### Suggested visual
+
+Weights compared with the regulated-FS view (eight paired bars, FS against SW), then the three layers whose advice changes most: L1 models (a support matrix and a bundled open-weight model replace the two-vendor portfolio), C1 gateway (routed by the customer's gateway, not the gateway of record), C7 security (sign and patch every shipped copy for the support period). A strip states the redistribution gate and the core-candidate count, 45 to 48. Source: Part XIV.1, XIV.3 and XIV.5.
+
+#### First comment
+
+Personal views; not a description of any vendor's product. Source: the Enterprise GenAI Stack review, Part XIV (software product companies): XIV.1–XIV.5 and XIV.8.
+- Weights, FS → SW: enterprise readiness 15 → 10, security 20 → 15, deployment 15 → 20, ecosystem 5 → 10; lock-in stays at 15 but widens to redistributability [AJ]. Core candidates 48 against 45 of 138 (`SW_scores.md`) [AJ].
+- Lifetimes against support periods: a Gemini Flash version released on 13 August 2026 retires on 28 January 2027, and Mistral Medium 3.1 retired on 31 August 2026 [VF: B-L1-S003, B-L1-S002]; the CRA support period is at least five years unless expected use is shorter [VF: E1-S001].
+- Manufacturer duties: CRA reporting since 11 September 2026 and conformity, declaration and CE marking from 11 December 2027 [VF: E1-S001, E1-S002, E1-S003]; software is a product under the PLD from 9 December 2026 [VF: E1-S010, E1-S011].
+- Redistribution: Gemma 4, Mistral Large 3 and Ministral 3 ship under Apache 2.0 with licence and notices, served by vLLM [VF: A5-S034, A5-S074, A4-S009]; Llama 4's Acceptable Use Policy grants no rights to its multimodal models to EU-domiciled companies [VF: E2-S002]; Elasticsearch (AGPLv3, SSPL or ELv2), Vault (BUSL 1.1) and Jina weights (CC-BY-NC-4.0) cannot be embedded as freely as they can be run [VF: A2-S132, A7-S060, A2-S024].
+- Every gateway in the dataset exposes or accepts the OpenAI-compatible format [VF: A6-S015, A6-S049, A6-S053, A6-S061, A6-S063].
+- Conflict of interest: where a customer brings a Claude route, Part XIV names GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 as alternatives; the Claude Agent SDK stays out of shipped code, with LangGraph or Pydantic AI instead [VF: A4-S092]; a product MCP server has an OpenAPI description as the independent alternative [AJ].
+- **Seven lenses, 3 of 8 (software product company).** This lens moves the reader from deployer to manufacturer: a support matrix, the customer's gateway and a signed, patched release replace the firm-owned portfolio and gateway of record, and evidence is kept per release. Part XIV [AJ].
+
+#### Hashtags
+
+#SoftwareEngineering #EnterpriseArchitecture
+
+#### Re-verify before posting
+
+- Hosted-model retirement dates and the licences of the bundled open-weight models
+- CRA guidance and delegated acts (not read in full at drafting)
+
+#### Compliance check
+
+- Personal views; no statement about any vendor's product or licence position: yes
+- Body vendor-neutral; licences and dates only in the first comment: yes
+- No weekday named: yes
+
+---
+
+### Post 28 · Week 14 · Start-up: speed and runway first, with exits kept open cheaply
+
+**Pair:** Post 27 (SW, Week 14). **Bridge:** The software company ships into estates it does not control; the start-up controls its own, and has to decide how much of the regulated firm's plane it can afford in its first fortnight.
+
+**Theme and source:** A thin control plane in the first fortnight, and the cheap insurance against lock-in. `work/stageE/views/SU/view.md` (Part XV: XV.1, XV.2 findings 1–3, 6, 7 and 9, XV.3, XV.4, XV.5, XV.9), `work/stageE/views/SU_scores.md`.
+
+**Tension:** Each control must cost days, not quarters, and still keep the exits open.
+
+#### Full post
+
+If you are building an AI-native product with a small team and a runway to watch, this one is for you.
+
+The regulated lens asks for a firm-owned control plane before anything ships. A start-up cannot spend a quarter on that. It can spend a fortnight, and that fortnight decides how cheaply it can change its mind later.
+
+Four things are worth building in the first two weeks, because each costs days now and months later: one pinned gateway with a key and budget per customer; a customer identifier on every row, vector, trace and evidence record; standard tracing from the first call; and an evaluation set of real cases, kept with the prompts in source control. Everything else waits for a customer who asks.
+
+Three defaults change most. Models: start-up credits pull you towards the credit-giver's models, and the programmes I checked do not pay for anyone else's, so one primary vendor is fine if a second is qualified on the same evaluation set and every call goes through the gateway. Stores: the first control problem is not model risk but keeping one customer's data out of another's answers. Identity: your users are your customers' staff, so you need a hosted customer-identity service, not a workforce directory.
+
+Two things do not bend. Pin the gateway: a popular open-source one shipped poisoned releases in March 2026. And keep the evaluation set and prompts as your own IP, because free tiers keep data for weeks, not years.
+
+The signal is whether a model change is a one-line pull request that runs the evaluation set.
+
+[Anecdote slot: one or two sentences on an early shortcut that saved the team weeks, or one that cost months to undo.]
+
+Move fast on the product. Keep the exits cheap.
+
+#### Short variant
+
+If you are building an AI-native product with a small team and a runway to watch, this one is for you.
+
+You cannot spend a quarter on a control plane. Spend a fortnight on four things: a pinned gateway with a budget per customer, a customer identifier on every row and trace, tracing from the first call, and an evaluation set with the prompts in source control.
+
+Then three defaults change. One primary model vendor is fine if a second is qualified and calls go through the gateway, because credits pull you towards one vendor. Keeping customers' data apart is your first control problem. Your users need customer identity, not a workforce directory.
+
+Pin the gateway, and keep your evaluation data as your own IP.
+
+The signal: a model change is a one-line pull request. Move fast; keep the exits cheap.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** an early technical shortcut in a product or programme you led, either one that paid off because it was cheap to reverse, or one that became expensive. Credit the person who argued for the cheap exit.
+- **Fits:** "share the lesson, credit the team"; developing leaders through delivery.
+- **Avoid:** naming investors, customers, revenue or runway figures.
+
+#### Fallback version
+
+If you are building an AI-native product with a small team and a runway to watch, this one is for you.
+
+The regulated lens asks for a firm-owned control plane before anything ships. A start-up cannot spend a quarter on that. It can spend a fortnight, and that fortnight decides how cheaply it can change its mind later.
+
+Four things are worth building in the first two weeks, because each costs days now and months later: one pinned gateway with a key and budget per customer; a customer identifier on every row, vector, trace and evidence record; standard tracing from the first call; and an evaluation set of real cases, kept with the prompts in source control. Everything else waits for a customer who asks.
+
+Three defaults change most. Models: start-up credits pull you towards the credit-giver's models, and the programmes checked do not pay for anyone else's, so one primary vendor is fine if a second is qualified on the same evaluation set and every call goes through the gateway. Stores: the first control problem is not model risk but keeping one customer's data out of another's answers. Identity: your users are your customers' staff, so you need a hosted customer-identity service, not a workforce directory.
+
+Two things do not bend. Pin the gateway: a popular open-source one shipped poisoned releases in March 2026. And keep the evaluation set and prompts as your own IP, because free tiers keep data for weeks, not years.
+
+The signal is whether a model change is a one-line pull request that runs the evaluation set.
+
+The honest caveat: credit programmes and free tiers change every quarter, so re-check them before choosing.
+
+Move fast on the product. Keep the exits cheap.
+
+#### Suggested visual
+
+Weights compared with the regulated-FS view (eight paired bars, FS against SU), then the three layers whose advice changes most: L1 models (one primary vendor plus a second qualified, first-party access allowed), L6 stores (tenant isolation becomes the first control problem), C4 identity (hosted customer identity, not a workforce directory). A strip lists the first-fortnight four and the core-candidate count, 45 to 57. Source: Part XV.1, XV.3, XV.4 and XV.5.
+
+#### First comment
+
+Personal views; not investment or legal advice. Source: the Enterprise GenAI Stack review, Part XV (start-ups): XV.1–XV.5 and the roadmap in XV.9.
+- Weights, FS → SU: technical 15 → 25, enterprise readiness 15 → 5, security 20 → 10, deployment 15 → 5, ecosystem 5 → 15, cost 5 → 20, lock-in 15 → 10 [AJ]. Core candidates 57 against 45 of 138 (`SU_scores.md`) [AJ].
+- Credits (volatile; re-verify): Google for Startups credits cover Google models, with third-party models billed directly [VF: E2-S009, E2-S010]; Claude for Startups credits apply only to the first-party Claude API [VF: E2-S008]. Whether AWS or Azure credits pay for third-party models was not established [NPV]. For a Claude primary, Part XV names GPT-6.1 Sol, Mistral Medium 3.5 or Gemini 3.8 Flash as the independent alternative, and the hyperscaler programmes as alternative credit sources [AJ].
+- Routers that bill on their own account charge a fee on credit purchases (OpenRouter 5.5% on its Standard plan, Cloudflare AI Gateway 5% on Unified Billing) [VF: A4-S144, A6-S052].
+- Malicious LiteLLM releases 1.82.7 and 1.82.8 were published to PyPI on 24 March 2026; 1.83.0 was the first build from the rebuilt pipeline [VF: A6-S008, A6-S009].
+- Isolation: OWASP LLM08:2025 and AWS's pool, bridge and silo patterns [VF: E2-S051, E2-S050]. Customer identity: Auth0 for AI Agents is the view's default, with OPA when policy outgrows code [VF: A6-S098] [AJ].
+- Free observability tiers keep data for 15 to 60 days [VF: A1-S047, A1-S031, A1-S123]; a published AI-CAIQ (STAR for AI Level 1) answers the first AI questionnaire cheaply [VF: E2-S047].
+- **Seven lenses, 4 of 8 (start-up).** This lens keeps every control point but collapses it into the product's own code, cloud account and database; models, tenant isolation and customer identity change most, and the gateway arrives in the first fortnight rather than the first quarter. Part XV [AJ].
+
+#### Hashtags
+
+#Startups #GenerativeAI
+
+#### Re-verify before posting
+
+- Credit programme terms and router fees (volatile; quarterly)
+- The current LiteLLM release line and advisory
+
+#### Compliance check
+
+- Personal views; no statement about any start-up's choices or finances: yes
+- Body vendor-neutral; credit programmes named evenly in the first comment, with the Anthropic programme beside its alternatives: yes
+- No weekday named: yes
+
+---
+
+## Week 15: One stack, seven lenses (3 of 4)
+
+### Post 29 · Week 15 · AI-tools start-up: to be bought, fit the buyer's control plane
+
+**Pair:** Post 30 (DV, Week 15). **Bridge:** A tools start-up sells one component of the buyer's control plane; an agentic software-delivery start-up sells a workload that runs inside it and inside the buyer's delivery chain at once.
+
+**Theme and source:** The buyer has already assigned the product's place: a replaceable call-out. `work/stageE/views/AT/view.md` (Part XVI: XVI.1, XVI.2 findings 1–4, XVI.3, XVI.4, XVI.5 integration contract, XVI.8), `work/stageE/views/AT_scores.md`.
+
+**Tension:** You win by designing for the buyer's "everything beneath the plane is replaceable" posture, not against it.
+
+#### Full post
+
+If your start-up sells a gateway, guardrail, privacy, evaluation, retrieval or governance tool to enterprises, this one is for you.
+
+The first twelve weeks of this series told regulated buyers to own one control plane and treat every product beneath it as replaceable. Your product is one of those products. You win by designing for that posture, not against it.
+
+The buyer's architecture has already assigned your place, and it is a call-out. Detectors are swappable calls from the gateway's pre-call and post-call hooks. Policy and test sets live in the buyer's source control. Evidence lives in the buyer's store. A tool that insists on being the gateway asks the buyer to undo its architecture.
+
+So the integration contract runs layer by layer: the customer's own model accounts or bundled open weights, never a hidden model dependency; spans to the customer's telemetry collector; identity from the customer's directory; policy as files, not console settings; verdict records in the customer's evidence store, keyed by its trace ID; usage exported in an open cost format.
+
+Two market facts sharpen it. Over the past year many "neutral" tools in this stack were acquired, so a change of owner is both your likeliest exit and your buyer's first due-diligence question. And the free, open baseline is your real competitor: you have to beat it on recall, operations or evidence, not on having the feature.
+
+The single test is simple. Can the buyer run its evidence pack with your product in the path, and remove it by changing one gateway route and one manifest entry?
+
+[Anecdote slot: one or two sentences on a product you bought because it was easy to leave, or rejected because it was not.]
+
+Be easy to adopt and easy to leave. Buyers notice both.
+
+#### Short variant
+
+If your start-up sells a gateway, guardrail, privacy, evaluation or governance tool to enterprises, this one is for you.
+
+Regulated buyers own one control plane and treat every product beneath it as replaceable. Yours is one of them. Design for that.
+
+Your place is a call-out from the buyer's gateway. Take identity from their directory, models from their accounts, policy from their source control. Send spans to their collector, verdicts to their evidence store and usage in an open cost format.
+
+Many "neutral" tools were acquired this year, so expect change of control to be the first due-diligence question. And the free, open baseline is the real competitor.
+
+The test: can the buyer run its evidence pack with you in the path, and remove you with one route change?
+
+Be easy to adopt and easy to leave.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** as a buyer, a tool you chose because its exit was clean, or turned down because leaving would have meant a reconstruction; or, as a seller, the integration question that won or lost a deal. Credit the architect or engineer who asked it.
+- **Fits:** "audit outcomes as a symptom of operating-model design"; vendor management.
+- **Avoid:** naming the product, the vendor or the deal.
+
+#### Fallback version
+
+If your start-up sells a gateway, guardrail, privacy, evaluation, retrieval or governance tool to enterprises, this one is for you.
+
+The first twelve weeks of this series told regulated buyers to own one control plane and treat every product beneath it as replaceable. Your product is one of those products. You win by designing for that posture, not against it.
+
+The buyer's architecture has already assigned your place, and it is a call-out. Detectors are swappable calls from the gateway's pre-call and post-call hooks. Policy and test sets live in the buyer's source control. Evidence lives in the buyer's store. A tool that insists on being the gateway asks the buyer to undo its architecture.
+
+So the integration contract runs layer by layer: the customer's own model accounts or bundled open weights, never a hidden model dependency; spans to the customer's telemetry collector; identity from the customer's directory; policy as files, not console settings; verdict records in the customer's evidence store, keyed by its trace ID; usage exported in an open cost format.
+
+Two market facts sharpen it. Over the past year many "neutral" tools in this stack were acquired, so a change of owner is both your likeliest exit and your buyer's first due-diligence question. And the free, open baseline is your real competitor: you have to beat it on recall, operations or evidence, not on having the feature.
+
+The single test is simple. Can the buyer run its evidence pack with your product in the path, and remove it by changing one gateway route and one manifest entry?
+
+The honest caveat: the telemetry and agent-identity standards in that contract are still moving, so pin a version and expect renames.
+
+Be easy to adopt and easy to leave. Buyers notice both.
+
+#### Suggested visual
+
+The integration contract, layer by layer then control by control: seventeen rows L1 → L9 then C1 → C8, each with what the buyer's stack expects and the interface the product should offer, the product's likely home rows marked. A box beneath gives the single test (evidence pack with the product in the path; removal by one route and one manifest entry). Source: Part XVI.5.
+
+#### First comment
+
+Personal views; not a description of any vendor or buyer. Source: the Enterprise GenAI Stack review, Part XVI (start-ups selling AI tools into the enterprise stack): XVI.1–XVI.5 and XVI.8.
+- Weights, FS → AT: technical 15 → 20, enterprise readiness 15 → 10, security 20 → 15, ecosystem 5 → 15, reliability 10 → 5, cost 5 → 10, lock-in 15 → 10 [AJ]. Core candidates 56 against 45 of 138 (`AT_scores.md`) [AJ].
+- Gateway hooks: LiteLLM runs guardrails pre-call, during and post-call; Kong integrates the three clouds' guardrail services and NeMo Guardrails; APIM applies Content Safety to MCP and A2A payloads; Apigee calls Model Armor inline [VF: A6-S015, A6-S017, A6-S020, A6-S024]. Whether each accepts a generic third-party call-out was not verified per product [NPV].
+- Ownership changes: Dynatrace–Arize (completed 1 October 2026), ClickHouse–Langfuse, OpenAI–Promptfoo (announced), Palo Alto Networks–Protect AI and Portkey, Check Point–Lakera, Harvey–Guardrails AI, Mintlify–Helicone [VF: A1-S045, V1-S005, A1-S021, V2-S041, A1-S024, V1-S006, A7-S014, A6-S012, V2-S025, A7-S012, A6-S028, A7-S112, V2-S043]. UK firms must notify significant changes to material arrangements from 18 March 2027 [VF: R-PRA-SS221, A8-S062].
+- The open baseline: Presidio (MIT, community-governed), Docling (MIT), OPA, MLflow and vLLM [VF: A6-S040, V2-S030, A6-S046, A1-S103, A4-S009].
+- Standards in the contract: OpenTelemetry GenAI conventions at Development status with no tagged release [VF: E3-S067, E3-S069]; MCP authorisation optional in the specification [VF: A3-S055]. Conflict of interest: MCP and MCP Authorization are Anthropic-originated (now under the Agentic AI Foundation); the independent alternatives are an OpenAPI description and an OAuth 2.0 resource-server pattern [AJ].
+- **Seven lenses, 5 of 8 (AI-tools start-up).** This lens stands on the other side of the table: the reader's product must become one replaceable call-out inside the buyer's plane, so the integration contract, not a feature list, decides the sale. Part XVI [AJ].
+
+#### Hashtags
+
+#Startups #AIGovernance
+
+#### Re-verify before posting
+
+- Closing status of the announced acquisitions (Promptfoo, OpenRouter) and any new ones in the tool categories
+- OpenTelemetry GenAI conventions release status
+
+#### Compliance check
+
+- Personal views; no statement about any vendor's product, deal or customer: yes
+- Body vendor-neutral; ownership changes listed factually and evenly in the first comment: yes
+- No weekday named: yes
+
+---
+
+### Post 30 · Week 15 · Agentic-SDLC start-up: code confidentiality and audit trails decide the deal
+
+**Pair:** Post 29 (AT, Week 15). **Bridge:** A tools start-up is a call-out inside the buyer's plane; a coding-agent start-up runs inside that plane and the buyer's delivery chain at once, holding the most sensitive asset the buyer has.
+
+**Theme and source:** The pull request as the control boundary, and the audit trail as the gap. `work/stageE/views/DV/view.md` (Part XVII: XVII.1, XVII.2 findings 1, 2, 4–6 and 10, XVII.3, XVII.4, XVII.5, XVII.10), `work/stageE/views/DV_scores.md`.
+
+**Tension:** Trust is earned in the pull request, not the demo.
+
+#### Full post
+
+If your start-up sells coding agents, AI code review, test generation or migration agents to enterprise engineering teams, this one is for you.
+
+For this buyer the crown jewels are not client data. They are source code, and the credentials that can change it. Two questions decide the deal: where does our code go, and can we see everything your agent did?
+
+Confidentiality starts with the model route. The enterprise baseline is the customer's own model endpoint, reached through the customer's gateway. Retention depends on the model, not the tool, so "no retention of code" is a property of each route, and the product has to report it route by route.
+
+The audit trail is where the incumbents leave a gap. Agent sessions can be exported as telemetry, but at least one incumbent's compliance interface misses some hosted file operations, commands and approvals. An evidence record of every model call, tool call and command, written to the customer's store, is a gap a start-up can fill.
+
+The control boundary the market has settled on is the pull request. The agent works on its own branch in an isolated sandbox with default-deny network access, runs the customer's tests, holds only short-lived tokens scoped to one repository, and never merges. A named human does.
+
+Caching long, repeated prefixes is the cost lever: on my illustrative figures, a framework upgrade costs about a quarter of the uncached price.
+
+The leadership move is to sell depth in one task, model neutrality and evidence, because the platforms already ship breadth.
+
+[Anecdote slot: one or two sentences on the first time your team let an automated tool open changes, and what made reviewers trust it.]
+
+Trust is earned in the pull request, not the demo.
+
+#### Short variant
+
+If your start-up sells coding agents, code review, test generation or migration agents to enterprises, this one is for you.
+
+The crown jewels are source code and the credentials that can change it. Two questions decide the deal: where does our code go, and can we see everything your agent did?
+
+Route every call to the customer's own model endpoint through their gateway, and report retention per route, because it depends on the model, not the tool.
+
+Write an evidence record of every model call, tool call and command to the customer's store. The incumbents leave that gap.
+
+Work on an agent branch in a sandbox, with short-lived tokens. Never merge; a named human does.
+
+Cache the long prefixes. Sell depth, neutrality and evidence. Trust is earned in the pull request.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** the first time your team let a bot or automated tool raise changes against a codebase, and what made reviewers trust it (or stop trusting it). Credit the reviewer who set the bar.
+- **Fits:** engineering culture; "make the safe path the easy path".
+- **Avoid:** naming the tool, the repository or any security finding that is not public.
+
+#### Fallback version
+
+If your start-up sells coding agents, AI code review, test generation or migration agents to enterprise engineering teams, this one is for you.
+
+For this buyer the crown jewels are not client data. They are source code, and the credentials that can change it. Two questions decide the deal: where does our code go, and can we see everything your agent did?
+
+Confidentiality starts with the model route. The enterprise baseline is the customer's own model endpoint, reached through the customer's gateway. Retention depends on the model, not the tool, so "no retention of code" is a property of each route, and the product has to report it route by route.
+
+The audit trail is where the incumbents leave a gap. Agent sessions can be exported as telemetry, but at least one incumbent's compliance interface misses some hosted file operations, commands and approvals. An evidence record of every model call, tool call and command, written to the customer's store, is a gap a start-up can fill.
+
+The control boundary the market has settled on is the pull request. The agent works on its own branch in an isolated sandbox with default-deny network access, runs the customer's tests, holds only short-lived tokens scoped to one repository, and never merges. A named human does.
+
+Caching long, repeated prefixes is the cost lever: on illustrative figures, a framework upgrade costs about a quarter of the uncached price.
+
+The leadership move is to sell depth in one task, model neutrality and evidence, because the platforms already ship breadth.
+
+The honest caveat: no supply-chain standard yet has a field for agent-authored commits, so commit trailers are a stop-gap.
+
+Trust is earned in the pull request, not the demo.
+
+#### Suggested visual
+
+The integration contract, layer by layer then control by control: seventeen rows L1 → L9 then C1 → C8, with what the buyer's stack expects and what the coding agent must do, the pull-request boundary (agent branch, customer CI, named human merge) shown as a band across it. A box gives the four properties to prove. Source: Part XVII.4 and XVII.5.
+
+#### First comment
+
+Personal views; not a description of any vendor's product. Source: the Enterprise GenAI Stack review, Part XVII (start-ups selling agentic SDLC tools): XVII.1–XVII.5 and the worked example in XVII.10.
+- Weights, FS → DV: technical 15 → 25, enterprise readiness 15 → 10, security 20 → 15, deployment 15 → 10, ecosystem 5 → 15, reliability 10 → 5, cost 5 → 15, lock-in 15 → 5 [AJ]. Core candidates 63 against 45 of 138, the most of any lens (`DV_scores.md`) [AJ].
+- Customer endpoints: Copilot has local and enterprise BYOK; Cursor allows BYOK for chat models; the Codex CLI takes custom and local providers; Junie is LLM-agnostic with BYOK; Tabnine runs customer-chosen models [VF: E3-S002, E3-S030, E3-S025, E3-S050, E3-S055].
+- Retention by model: Claude Fable 5 and 5.1 retain data by default for safety classifiers [VF: E3-S011]; Cursor's ZDR does not apply to BYOK keys [VF: E3-S032]; Codex cloud is not strict ZDR [VF: E3-S024]; Claude Code defaults to 30-day retention, with ZDR per qualified Enterprise organisation [VF: E3-S015].
+- Audit: the Codex Compliance API does not cover every hosted file operation, command or approval, and keeps logs for 30 days [VF: E3-S023]; Copilot exports OpenTelemetry traces of agent sessions without prompt content by default [VF: E3-S081]; the GenAI agent conventions are at Development [VF: E3-S067, E3-S069]. Copilot's cloud agent opens pull requests and agent code is scanned before they are finalised [VF: E3-S008, E3-S003]; no SLSA field for agent-authored commits was found [NPV].
+- Cost (illustrative, author's assumptions): 200 calls per service at 40,000 input tokens (35,000 cached) and 1,000 output, at US$2 / US$10 per 1M with cached input at US$0.10 (GPT-6.1 Sol; Claude Sonnet 5.5's 0.05x cache read gives the same figure), is about US$4.70 against about US$18 uncached [VF: A5-S004, A5-S011, V2-S002] [AJ].
+- Conflict of interest: Claude Code is recorded on the same evidence as every other tool; the independent alternatives are the Codex CLI and Gemini CLI (both open source), JetBrains Junie and, for self-hosted estates, Tabnine. A vendor embedding Claude Code must ship it unmodified, with each end user authenticating with their own credentials [VF: E3-S016].
+- **Seven lenses, 6 of 8 (agentic-SDLC start-up).** This lens keeps the agent loop as the product but bounds it with a sandbox, an egress allow-list and a human merge, and makes per-route retention and a per-action evidence record the selling points. Part XVII [AJ].
+
+#### Hashtags
+
+#DevOps #AIGovernance
+
+#### Re-verify before posting
+
+- Retention terms per model and tool, including the end-of-2026 Copilot exemption for Claude Fable
+- Ownership and end-of-sale events among the coding-agent incumbents
+
+#### Compliance check
+
+- Personal views; no statement about any vendor's security or any employer's tooling: yes
+- Body vendor-neutral; incumbents named evenly in the first comment, Claude Code with four independent alternatives: yes
+- No weekday named: yes
+
+---
+
+## Week 16: One stack, seven lenses (4 of 4)
+
+### Post 31 · Week 16 · Agent-provider start-up: an agent the customer can't govern isn't bought
+
+**Pair:** Post 32 (Close, Week 16). **Bridge:** The agent start-up is the hardest case of fitting someone else's control plane; the close asks what survives across all seven lenses once the owner of the plane changes.
+
+**Theme and source:** The seven-clause integration contract for an agent sold into a governed enterprise. `work/stageE/views/AG/view.md` (Part XVIII: XVIII.1, XVIII.2 findings 1–4 and 8, XVIII.3, XVIII.4, XVIII.5, XVIII.10), `work/stageE/views/AG_scores.md`.
+
+**Tension:** Capability wins the demo; governance fit wins the purchase.
+
+#### Full post
+
+If your start-up sells agents that do work inside a customer's business, this one is for you.
+
+An agent the customer cannot govern is not bought. The regulated buyer governs every agent through its own plane: a registered identity with a sponsor, tools behind a governed gateway, evidence in its own store. Your agent arrives as a foreign workload, and it has to plug into that plane as cleanly as the buyer's own agents do.
+
+The good news: the plane is now built from generally available products. Agent identity arrived in the major workforce directories this year, and an enterprise authorisation extension for the leading tool protocol has been stable since June. The bad news: the standards beneath them are incomplete: tool authorisation is optional, agent-card signing is optional, and the delegation draft is not yet a standard. So ship the strict profile: authorisation on, signed cards, short-lived audience-bound tokens, no sub-delegation.
+
+Telemetry is the weakest clause. Agent span conventions are still in development, so emit them against a pinned version and write a stable evidence record that does not depend on span names.
+
+The contract has seven clauses: identity and delegation, the tool gateway, model routing, telemetry, evidence, configuration, and cost and residency. The test has three parts. Can the customer run its evidence pack for every output, revoke the agent by disabling one identity, and switch its model by changing one gateway route?
+
+The leadership move is to treat governance fit as the product, because a capability lead over a platform's own agent is short-lived.
+
+[Anecdote slot: one or two sentences on a capable tool your organisation could not adopt because it could not be governed, and what would have changed the answer.]
+
+Sell the outcome. Win on governance fit.
+
+#### Short variant
+
+If your start-up sells agents that do work inside a customer's business, this one is for you.
+
+An agent the customer cannot govern is not bought. It arrives as a foreign workload and must plug into the buyer's plane: the buyer's identity and on-behalf-of tokens, the buyer's tool gateway, the buyer's model routes, the buyer's evidence store.
+
+Agent identity is now a generally available product. The standards beneath it are not finished, so ship the strict profile: authorisation on, signed cards, short-lived tokens, no sub-delegation.
+
+Emit telemetry against a pinned version, and write an evidence record that does not depend on span names.
+
+The test: can the customer audit every output, revoke the agent with one identity and switch its model with one route?
+
+Sell the outcome. Win on governance fit.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** a capable product or tool your organisation turned down, or delayed, because it could not run under your identity, policy or audit, and what the vendor would have needed to change. Credit the security or risk colleague who held the line.
+- **Fits:** "audit outcomes as a symptom of operating-model design"; credit the team.
+- **Avoid:** naming the vendor or the product, or implying any current procurement.
+
+#### Fallback version
+
+If your start-up sells agents that do work inside a customer's business, this one is for you.
+
+An agent the customer cannot govern is not bought. The regulated buyer governs every agent through its own plane: a registered identity with a sponsor, tools behind a governed gateway, evidence in its own store. Your agent arrives as a foreign workload, and it has to plug into that plane as cleanly as the buyer's own agents do.
+
+The good news: the plane is now built from generally available products. Agent identity arrived in the major workforce directories this year, and an enterprise authorisation extension for the leading tool protocol has been stable since June. The bad news: the standards beneath them are incomplete: tool authorisation is optional, agent-card signing is optional, and the delegation draft is not yet a standard. So ship the strict profile: authorisation on, signed cards, short-lived audience-bound tokens, no sub-delegation.
+
+Telemetry is the weakest clause. Agent span conventions are still in development, so emit them against a pinned version and write a stable evidence record that does not depend on span names.
+
+The contract has seven clauses: identity and delegation, the tool gateway, model routing, telemetry, evidence, configuration, and cost and residency. The test has three parts. Can the customer run its evidence pack for every output, revoke the agent by disabling one identity, and switch its model by changing one gateway route?
+
+The leadership move is to treat governance fit as the product, because a capability lead over a platform's own agent is short-lived.
+
+The honest caveat: of the three vendor lenses this one carries the most liability, so keep release history and evaluation records.
+
+Sell the outcome. Win on governance fit.
+
+#### Suggested visual
+
+The integration contract, layer by layer then control by control: seventeen rows L1 → L9 then C1 → C8, with what the customer's stack expects and the interface the agent must offer, the seven clauses marked against the rows they cover. A box gives the three-part test (audit every output, revoke with one identity, switch model with one route). Source: Part XVIII.4 and XVIII.5.
+
+#### First comment
+
+Personal views; not a description of any vendor or buyer. Source: the Enterprise GenAI Stack review, Part XVIII (start-ups selling agents to enterprises): XVIII.1–XVIII.5 and the accounts-payable worked example in XVIII.10.
+- Weights, FS → AG: technical 15 → 20, security 20 → 15, ecosystem 5 → 15, reliability 10 → 5, lock-in 15 → 10; enterprise readiness, deployment and cost unchanged [AJ]. Core candidates 56 against 45 of 138, with all three agent-identity records becoming core candidates (`AG_scores.md`) [AJ].
+- Agent identity: Entra Agent ID GA in April 2026, Okta for AI Agents on 30 April 2026 and Okta Agent SSO (Cross App Access) on 24 August 2026 [VF: V2-S032, A6-S100, V2-S035]; MCP Enterprise-Managed Authorization stable since 18 June 2026 [VF: A3-S017].
+- Incomplete standards: MCP authorisation is optional [VF: A3-S055]; A2A Agent Card signing is optional and mid-task delegation scope is undefined [VF: A3-S078]; ID-JAG is an IETF OAuth working-group draft (-04, 21 May 2026) [VF: E3-S073]; OpenTelemetry agent spans are at Development [VF: E3-S067, E3-S069].
+- Hosted agents from model vendors: OpenAI's Agents API launched with US residency only and no ZDR, and Claude Managed Agents is excluded from ZDR [VF: A4-S055, A4-S123]; a customer-run, model-neutral edition answers that objection [AJ]. Marketplaces impose their host's protocol or runtime [VF: E2-S035, E2-S021, E2-S037].
+- Liability: software, SaaS included, is a product under the PLD from 9 December 2026, with a presumption of defectiveness where complexity makes proof excessively difficult [VF: E1-S010, E1-S011].
+- Conflict of interest: MCP and MCP Authorization are Anthropic-originated (now under the Agentic AI Foundation); the independent alternatives are OpenAPI-described tools and OAuth 2.0 resource servers. The Claude Agent SDK (Experimental) is not recommended as the product core; LangGraph or Pydantic AI are [VF: A4-S006] [AJ].
+- **Seven lenses, 7 of 8 (agent-provider start-up).** This lens makes the reader's agent a governed guest in the buyer's plane: identity, tools, model routes, telemetry, evidence, configuration and cost are all customer-owned interfaces, written down as a seven-clause contract. Part XVIII [AJ].
+
+#### Hashtags
+
+#AIAgents #AIGovernance
+
+#### Re-verify before posting
+
+- ID-JAG draft status (draft -04 expires 22 November 2026) and MCP authorisation changes
+- OpenTelemetry GenAI conventions release status; marketplace listing rules
+
+#### Compliance check
+
+- Personal views; no statement about any vendor's agent or any buyer's procurement: yes
+- Body vendor-neutral; identity products and hosted-agent gaps cited evenly in the first comment: yes
+- No weekday named: yes
+
+---
+
+### Post 32 · Week 16 · Close: what doesn't change across all seven lenses
+
+**Pair:** Post 31 (AG, Week 16). **Bridge:** The agent start-up showed the plane from the guest's side; the close lays all seven lenses over the seventeen layers and controls and keeps what none of them changes.
+
+**Theme and source:** What survives every lens, and what moves with the owner of the control plane. §5, §10 and §11 of each view Part (`work/stageE/views/{TS,SW,SU,AT,DV,AG}/view.md`), with `work/stageC/synthesis.md` Part I.2 (the twelve decisions) as the baseline.
+
+**Tension:** Lenses change the defaults. They do not change the discipline.
+
+#### Full post
+
+If you have followed one lens of this run, or all seven, this post closes it.
+
+The heat map shows where the advice changed for six more readers, layer by layer. The surprise is how much survives.
+
+Models change in every lens. The reason for a second vendor moves from regulatory exit to live capacity, to a support matrix, to a buyer's own standard. But every lens keeps a second model, from an unrelated vendor, qualified on the same evaluation set.
+
+Six things hold in all seven.
+
+A named person approves anything consequential: a support reply, a merged pull request, a payment run. The model drafts; a person decides.
+
+Memory comes last.
+
+Prompts, model pins and policies live in source control, released through review.
+
+Every output leaves an evidence record keyed by a trace ID, in a store you own or your customer owns, never only in a vendor's.
+
+The supply chain is pinned and signed. A five-person team is as exposed to a poisoned package as a bank.
+
+No third party holds your users' credentials in its multi-tenant cloud.
+
+What changes is who owns the control plane, who pays for inference, and which rulebook you answer to: deployer, operator, manufacturer, provider or supplier. From 9 December 2026 software is a product for liability purposes in the EU, and for every lens beyond the regulated firm, release history, evaluation records and logs become the main defence.
+
+The leadership move is to fund the parts that never change first. They are what every customer, supervisor and acquirer will ask about.
+
+[Anecdote slot: one or two sentences crediting a colleague from a very different kind of organisation whose questions sharpened your view of what is universal.]
+
+Lenses change the defaults. They do not change the discipline.
+
+#### Short variant
+
+If you have followed one lens of this run, or all seven, this post closes it.
+
+Across all seven readers, the model default changes every time. Yet every lens keeps a second model from an unrelated vendor, qualified on the same tests.
+
+Six things hold in all seven: a named person approves anything consequential; memory comes last; prompts, pins and policies live in source control; every output leaves an evidence record you or your customer own; the supply chain is pinned and signed; and no third party holds your users' credentials.
+
+What changes is who owns the control plane, who pays for inference and which rulebook you answer to.
+
+Fund the parts that never change first. Every customer, supervisor and acquirer will ask about them.
+
+Lenses change the defaults. They do not change the discipline.
+
+#### Anecdote slot
+
+- **Where:** the bracketed line before the closing paragraph.
+- **Prompt:** as the close of the seven-lens run, credit someone from a different kind of organisation (a vendor, a start-up founder, a service provider, a regulator) whose questions showed you which of your practices were universal and which were local habit. By role, or by name with their permission.
+- **Fits:** "share the lesson, credit the team"; learning across boundaries.
+- **Avoid:** naming colleagues without consent, or implying any firm has adopted these practices.
+
+#### Fallback version
+
+If you have followed one lens of this run, or all seven, this post closes it.
+
+The heat map shows where the advice changed for six more readers, layer by layer. The surprise is how much survives.
+
+Models change in every lens. The reason for a second vendor moves from regulatory exit to live capacity, to a support matrix, to a buyer's own standard. But every lens keeps a second model, from an unrelated vendor, qualified on the same evaluation set.
+
+Six things hold in all seven.
+
+A named person approves anything consequential: a support reply, a merged pull request, a payment run. The model drafts; a person decides.
+
+Memory comes last.
+
+Prompts, model pins and policies live in source control, released through review.
+
+Every output leaves an evidence record keyed by a trace ID, in a store you own or your customer owns, never only in a vendor's.
+
+The supply chain is pinned and signed. A five-person team is as exposed to a poisoned package as a bank.
+
+No third party holds your users' credentials in its multi-tenant cloud.
+
+What changes is who owns the control plane, who pays for inference, and which rulebook you answer to: deployer, operator, manufacturer, provider or supplier. From 9 December 2026 software is a product for liability purposes in the EU, and for every lens beyond the regulated firm, release history, evaluation records and logs become the main defence.
+
+The leadership move is to fund the parts that never change first. They are what every customer, supervisor and acquirer will ask about.
+
+The honest caveat: the shading is my reading of each Part, not a score, and some cells could reasonably go either way.
+
+Lenses change the defaults. They do not change the discipline.
+
+#### Suggested visual
+
+A heat map: the seventeen layers and controls as rows (L1 → L9 then C1 → C8), the seven views as columns (FS as the baseline, then TS, SW, SU, AT, DV, AG), each cell shaded "holds", "adjusted" or "changes" by the author's reading of each Part's layer-by-layer table. Rows where no lens changes the answer are marked; a side panel lists the six things that hold in all seven. Source: §5 of Parts XIII–XVIII against synthesis I.2.
+
+#### First comment
+
+Personal views; not a description of any firm's platform. Sources: the Enterprise GenAI Stack review, synthesis Part I.2 (the twelve decisions) and §5, §10 and §11 of Parts XIII–XVIII.
+- The heat map is the author's reading of each Part's layer-by-layer table, not a computed score [AJ]. On that reading no lens changes the answer at L5 memory, L7 retrieval optimisation, L8 ingestion, C3 privacy or C5 configuration, and every lens changes the L1 model default while keeping a second qualified vendor [AJ].
+- The human decision in each worked example: a support agent approves each reply (XIII.10), the user acts on a cited answer with no write tools (XIV.10), the accountant edits and sends (XV.10), re-identification only for the named reviewer (XVI.10), a named reviewer merges (XVII.10), and the approver releases payment in the ERP (XVIII.10) [AJ].
+- Credentials: Composio's May 2026 exposure of connected-account tokens is why every lens keeps users' tokens out of a third party's multi-tenant cloud [VF: B-L4-S007]. Supply chain: malicious LiteLLM releases 1.82.7 and 1.82.8 on 24 March 2026 [VF: A6-S008].
+- Liability: software is a product under the PLD from 9 December 2026 [VF: E1-S010, E1-S011]; release history, evaluation records and logs are the main defence [R: E1-S013].
+- Conflict of interest: these drafts were prepared with an Anthropic model; every Part names an independent alternative beside each Anthropic item (GPT-6.1 Sol, Gemini 3.8 Flash or Mistral Medium 3.5 for Claude; OpenAPI tools for MCP; LangGraph or Pydantic AI for the Claude Agent SDK) [AJ].
+- [Link to the published review, if released.]
+- **Seven lenses, 8 of 8 (what stays the same).** Across all seven lenses the discipline holds and only the owner of the control plane moves: approval by a named person, memory last, configuration in source control, evidence keyed by trace ID, a pinned supply chain and no third-party credential custody. Parts XIII–XVIII, against synthesis I.2 [AJ].
+
+#### Hashtags
+
+#EnterpriseArchitecture #AIGovernance
+
+#### Re-verify before posting
+
+- Whether the PLD date has passed when the post goes out (adjust "From 9 December 2026" to "Since 9 December 2026")
+- Any change to the view Parts' layer tables since drafting, which would change the shading
+
+#### Compliance check
+
+- Personal views; "what holds" is an architectural view, not a firm decision: yes
+- Anecdote prompt asks for consent before naming colleagues: yes
+- Vendors only in the first comment, with the conflict of interest stated: yes
+
+---
+
+## Week 17: buffer
 
 No post is scheduled. Use the week for one of the following:
-- **A slipped post.** If any week 1–12 post was delayed (clearance, travel, a news week), move it here and keep the pair together where possible.
-- **A reactive post.** Use one of the templates below if a model launch, an acquisition or a regulatory milestone lands during the series. A reactive post can also replace a control-post slot if timing matters; move the displaced post to week 13.
-- **A rest week.** If the series ran to plan, skipping week 13 is fine. A short "thank you and where to find the full review" note is optional, and needs no template.
+- **A slipped post.** If any week 1–16 post was delayed (clearance, travel, a news week), move it here and keep the pair together where possible. Posts 25–32 can also slip as a block: they read as one run.
+- **A reactive post.** Use one of the templates below if a model launch, an acquisition or a regulatory milestone lands during the series. A reactive post can also replace a control-post slot if timing matters; move the displaced post to week 17.
+- **A rest week.** If the series ran to plan, skipping week 17 is fine. A short "thank you and where to find the full review" note is optional, and needs no template.
 
-Before using week 13, re-run the "Re-verify" lists for any post moved into it.
+Before using week 17, re-run the "Re-verify" lists for any post moved into it.
 
 ---
 
@@ -2442,7 +3286,7 @@ Each template is a full post with bracketed fields for the event details. Fill e
 
 ### Template R1 · Model launch
 
-**Links back to:** Post 1 (L1 Foundation models) and Post 17 (L9 Evaluation). **Schedule:** week 13 buffer, or in place of a control post within a week of the launch.
+**Links back to:** Post 1 (L1 Foundation models) and Post 17 (L9 Evaluation). **Schedule:** week 17 buffer, or in place of a control post within a week of the launch.
 
 **Tension:** A new model is a portfolio decision, not a migration.
 
@@ -2486,7 +3330,7 @@ A firm that can evaluate quickly, and switch by configuration, does not need to 
 
 ### Template R2 · Acquisition or change of ownership
 
-**Links back to:** Post 17 (L9, ownership of evaluation tools), Post 4 (C1 gateway) and Post 23 (lock-in). **Schedule:** week 13 buffer, or in place of a control post within a week of the announcement.
+**Links back to:** Post 17 (L9, ownership of evaluation tools), Post 4 (C1 gateway) and Post 23 (lock-in). **Schedule:** week 17 buffer, or in place of a control post within a week of the announcement.
 
 **Tension:** Independence can no longer be assumed from a product's origins; it has to be designed in.
 
@@ -2528,7 +3372,7 @@ Being surprised by an ownership change is optional.
 
 ### Template R3 · Regulatory milestone
 
-**Links back to:** Post 18 (C8 model risk) and Post 10 (Regulated reality). **Schedule:** the week of the milestone, in place of a control post, or in the week 13 buffer.
+**Links back to:** Post 18 (C8 model risk) and Post 10 (Regulated reality). **Schedule:** the week of the milestone, in place of a control post, or in the week 17 buffer.
 
 **Tension:** A regulatory date is most useful as a refresh mandate for the architecture.
 
@@ -2584,3 +3428,5 @@ The checks are run with `python3 -I` over this file. For each of the 25 posts (P
 The three reactive templates get the same length, hashtag and emoji checks. Word counts were taken two ways, a word-token count and a plain whitespace split; both had to fall in range.
 
 Result on 9 October 2026: all 24 posts and 3 templates passed. Full posts are 261–290 words, short variants 123–142, fallback versions 269–297, and templates 231–268 (short variants 126–134). Post 0 was added later the same day and passed the same checks (full post 263 words, short variant 128, fallback 267).
+
+Posts 25–32 ("One stack, seven lenses") were added on 10 October 2026 and passed the same checks, plus a check that no weekday is named: RESULT_PLACEHOLDER
