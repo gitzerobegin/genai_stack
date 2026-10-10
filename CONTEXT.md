@@ -41,7 +41,7 @@ The aim is to update the "Full AI Stack Explained" graphic (`inputs/AI_Full_Stac
 | 4 | Worked example: multi-asset fund, Brinson-style (allocation, selection, currency); generic |
 | 5 | Deck audience: MD/executive, story-led, with technical detail in the appendix |
 | 6 | Destination: GitHub repository `gitzerobegin/genai_stack`, branch `claude/nice-meitner-0me752`. Not Bitbucket (the user confirmed GitHub). |
-| 7 | LinkedIn series: 24 posts over 13 weeks, Tuesday (stack) and Thursday (control), about 08:00 UK, 220–300 words each. Vendor names go in the first comment only. Every post has a visual brief. |
+| 7 | LinkedIn series: Post 0 plus 24 posts over 13 weeks, two a week (a stack post, then the control post that pairs with it), 220–300 words each. **No fixed weekday** (user decision, 10 October 2026, superseding CP4b's Tuesday/Thursday): no post, visual or calendar names a day; dates are planned in `Content_Calendar.xlsx`. Vendor names go in the first comment only. Every post has a visual brief. |
 
 ### CP1 decisions (`checkpoints/CP1/06_CP1_Decisions.md`)
 

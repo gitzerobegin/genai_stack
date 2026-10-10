@@ -1,0 +1,8 @@
+SOURCE ID: E1-S054
+URL: https://www.legislation.gov.uk/ukpga/2022/46
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: PSTI Act section 4 relevant connectable product Schedule 3 excepted (legislation.gov.uk)
+========================================================================
+
+Search-tool extract: section 4 defines a 'relevant connectable product' as an internet-connectable or network-connectable product that is not an excepted product; section 5: internet-connectable means capable of connecting to the internet. Schedule 3 excepts desktop computers, laptop computers and tablet computers without cellular capability (exception not applying to products designed for children under 14). Explanatory Notes: a security requirement may relate to software 'which may or may not be installed on the product' and 'may or may not be provided by the manufacturer of the product'. Examples of in-scope products: smartphones, smart TVs, smart speakers, connected baby monitors, connected alarm systems.

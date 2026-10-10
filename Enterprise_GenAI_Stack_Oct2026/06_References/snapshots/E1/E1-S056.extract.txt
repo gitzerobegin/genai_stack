@@ -1,0 +1,8 @@
+SOURCE ID: E1-S056
+URL: https://eur-lex.europa.eu/eli/reg_del/2024/1773/oj/eng
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Delegated Regulation 2024/1773 audit access ICT provider (eur-lex.europa.eu)
+========================================================================
+
+Search-tool extract: the policy RTS requires that the ICT third-party service provider 'consents to contractual arrangements that ensure that it is effectively possible to conduct audits, including onsite', and that the relevant contractual arrangements include information access, inspection, audit and ICT testing rights.

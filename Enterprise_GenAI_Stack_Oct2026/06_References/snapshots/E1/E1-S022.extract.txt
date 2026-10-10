@@ -1,0 +1,8 @@
+SOURCE ID: E1-S022
+URL: https://www.gov.uk/government/publications/cyber-security-and-resilience-network-and-information-systems-bill-factsheets/relevant-managed-service-providers
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cyber Security and Resilience Bill relevant managed service providers factsheet
+========================================================================
+
+Search-tool extract: once the regulations are commenced, a relevant managed service provider will have three months to register with the Information Commissioner. Medium and large MSPs are in scope; small and micro businesses are excluded.

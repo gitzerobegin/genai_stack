@@ -1,0 +1,8 @@
+SOURCE ID: E1-S014
+URL: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025XC05423
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AI Liability Directive proposal withdrawn Official Journal
+========================================================================
+
+Search-tool extract: the Commission approved the withdrawal of pending proposals at its meeting of 16 July 2025; notice C/2025/5423 dated 6.10.2025 lists COM(2022) 496 (2022/0303(COD)) on adapting non-contractual civil liability rules to artificial intelligence. EUR-Lex record shows end of validity 06/10/2025, 'Withdrawn'. Reasons given in COM(2025) 45 final (2025 Work Programme, Annex IV).

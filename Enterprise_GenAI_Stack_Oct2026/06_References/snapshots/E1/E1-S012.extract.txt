@@ -1,0 +1,8 @@
+SOURCE ID: E1-S012
+URL: https://single-market-economy.ec.europa.eu/single-market/goods/free-movement-sectors/liability-defective-products_en
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Directive 2024/2853 transposition 9 December 2026 Commission page
+========================================================================
+
+Search-tool extract: 'EU countries will have until 9 December 2026 to transpose this directive into national law.' Software is a product for no-fault liability whatever its mode of supply, including cloud and software-as-a-service.

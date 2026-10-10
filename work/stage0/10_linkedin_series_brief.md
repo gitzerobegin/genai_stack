@@ -6,8 +6,8 @@ You write a 24-post LinkedIn series in **Bing Zhang's** voice, in **one consiste
 
 - `inputs/Enterprise_GenAI_Stack_Consolidated_Plan_v4.3.md` §15: purpose, structure, 13-week design, per-post elements, guardrails and checklist. It is binding, except where the decisions below differ.
 - `checkpoints/CP4/00_CP4_CP4b_Decisions.md`:
-  - start on the first Tuesday after CP5 sign-off, about 08:00 UK
-  - Tuesday is the stack post, Thursday the control post
+  - start after CP5 sign-off on a date the author chooses (no fixed weekday: user decision, 10 October 2026)
+  - the first post of each week is the stack post, the second the control post
   - no pre-clearance needed
   - topic-specific hashtags, at most 2
   - vendor names in the first comment only
@@ -51,7 +51,7 @@ Signature themes to draw on where relevant:
 
 Write the posts to `work/stageC2/linkedin_series.md`. Each post has these elements:
 
-- Post number, week and day (dates are filled in at sign-off: write "Week N, Tuesday/Thursday")
+- Post number and week (write "Week N"; never name a weekday in a post, a visual or a heading)
 - Pair link and a bridge sentence
 - Theme, with a link to the source section
 - Tension (one line)
@@ -67,7 +67,7 @@ Write the posts to `work/stageC2/linkedin_series.md`. Each post has these elemen
 
 ## Series order (plan §15.3 table; binding)
 
-| Week | Tuesday | Thursday |
+| Week | Stack post | Control post |
 |---|---|---|
 | 1 | L9 | C8 |
 | 2 | L8 | C3 |

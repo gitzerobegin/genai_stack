@@ -1,0 +1,8 @@
+SOURCE ID: E1-S052
+URL: https://www.ncsc.gov.uk/blog-post/software-code-of-practice-building-a-secure-digital-future
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Software Security Code of Practice launched CyberUK 7 May 2025 (ncsc.gov.uk)
+========================================================================
+
+Search-tool extract: the code was launched at CyberUK on 7 May 2025. The government is monitoring uptake and seeking feedback; industry partners (Cisco, Palo Alto Networks, Sage, Santander, NCC Group) are championing it.

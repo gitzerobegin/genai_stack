@@ -18,7 +18,7 @@
 | Explorer | `04_Explorer/explorer.html` | Offline single file (CP5-3): products, compare, worked example, hypotheses, reference stacks, final stack |
 | Dataset | `05_Data/products.json`/`.xlsx`, `regulatory_facts.json`, `what_changed.xlsx` | 140 records (138 scored), 4,620 fact cells, 20 regulatory facts |
 | Sources | `06_References/bibliography.xlsx`, `snapshots/`, `originals/` | 1,255 sources; `originals/` is empty in this run (see below) |
-| LinkedIn | `07_LinkedIn/Content_Calendar.xlsx`, `LinkedIn_Series.docx` | 24 posts, 12 weeks, 3 reactive templates. Enter the first Tuesday after sign-off in cell E1. No clearance column needed (CP4b). |
+| LinkedIn | `07_LinkedIn/Content_Calendar.xlsx`, `LinkedIn_Series.docx` | 24 posts, 12 weeks, 3 reactive templates. Enter the date of Post 1 (any weekday; user decision 10 October 2026) in cell E1. No clearance column needed (CP4b). |
 
 **Final tiers:** 58 Strategic, 67 Tactical, 13 Experimental, 2 unscored (EthicalAgents and Ragoos, unverifiable).
 

@@ -1,0 +1,8 @@
+SOURCE ID: E1-S030
+URL: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-58
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AI Act Article 58 sandbox SMEs free of charge
+========================================================================
+
+Search-tool extract: participation in an AI regulatory sandbox by SMEs, including start-ups, 'shall be prioritised and free of charge', without prejudice to exceptional costs that national competent authorities may recover in a fair and proportionate manner.

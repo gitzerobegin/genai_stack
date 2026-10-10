@@ -1,0 +1,16 @@
+SOURCE ID: E1-S010
+URL: https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Directive (EU) 2024/2853 product liability software disclosure presumption Article 9 Article 10 (eur-lex.europa.eu)
+========================================================================
+
+Search-tool extracts from the EUR-Lex text:
+- Software is a product for the purposes of no-fault liability, 'irrespective of the mode of its supply or usage'; information such as the content of digital files or plain source code is not a product.
+- 'This Directive does not apply to free and open-source software that is developed or supplied outside the course of a commercial activity.'
+- Manufacturers 'should remain liable for defectiveness that comes into being after that moment as a result of software or related services within their control', including a lack of software updates or upgrades necessary to maintain safety (Article 11(2)(c), as reported); 'This Directive does not impose any obligation to provide updates or upgrades for a product.' Safety-relevant cybersecurity requirements are among the circumstances taken into account in assessing defectiveness (Article 7(2)(f), as reported).
+- Article 8: the manufacturer of a defective component is liable where the component was integrated into, or inter-connected with, a product within the manufacturer's control and caused that product to be defective.
+- Article 9: national courts may order the defendant to disclose relevant evidence at its disposal where the claimant has presented facts and evidence sufficient to support the plausibility of the claim; disclosure is limited to what is necessary and proportionate, with protection of trade secrets and confidential information; Article 9(2) gives a reciprocal right to the defendant.
+- Article 10: defectiveness is presumed where the defendant fails to disclose relevant evidence under Article 9(1), where the product does not comply with mandatory product safety requirements, or where damage was caused by an obvious malfunction during reasonably foreseeable use; a court shall presume defectiveness or the causal link where, despite disclosure, the claimant faces excessive difficulties, 'in particular due to technical or scientific complexity', in proving them and shows that it is likely.
+- Recitals: modifications within the manufacturer's control after placing on the market that change intended functions, safety compliance or risk profile are treated as substantial; the manufacturer cannot escape liability by pointing to post-market timing.
+- One EUR-Lex snapshot (consolidated 2024-11-18) gives Article 2 application to products placed on the market or put into service 'after 8 December 2026'; other EUR-Lex and Commission material uses 9 December 2026 (apparent off-by-one difference in wording).

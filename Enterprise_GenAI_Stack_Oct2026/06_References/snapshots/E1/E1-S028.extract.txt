@@ -1,0 +1,8 @@
+SOURCE ID: E1-S028
+URL: https://koksal.av.tr/en/legislation/eu-digital-omnibus/
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Digital Omnibus Data Act amendments status adopted 2026
+========================================================================
+
+Search-tool extract (law-firm tracker, about July 2026): the AI half of the Digital Omnibus was signed on 8 July 2026; the data and GDPR half is still only a proposal, 'sitting in Council: no general approach, no Parliament position, no trilogue'.

@@ -1,12 +1,12 @@
 # LinkedIn thought-leadership series: the enterprise GenAI stack, layer by layer
 
-**Author:** Bing Zhang · **Drafted:** 9 October 2026 · **Status:** complete draft. An introduction post (Post 0, the Thursday before week 1), 24 posts (weeks 1–12), a week-13 buffer note and 3 reactive templates. Posts #19–#24 are drawn from the Stage C synthesis.
+**Author:** Bing Zhang · **Drafted:** 9 October 2026 · **Status:** complete draft. An introduction post (Post 0, a few days before week 1), 24 posts (weeks 1–12), a week-13 buffer note and 3 reactive templates. Posts #19–#24 are drawn from the Stage C synthesis.
 
 ## Series introduction
 
 **Purpose.** A 13-week series that turns the Enterprise GenAI Full-Stack Architecture Review into a public body of work. Each week pairs one stack layer with the control that makes it safe in production. The aim is to show judgement rather than vendor knowledge: the trade-offs, the operating-model decisions and the evidence a regulated firm needs. One generic worked example runs through every post: an agent that drafts the monthly Brinson-style performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
 
-**Cadence.** Two posts a week, at about 08:00 UK time. **Tuesday** is the stack post and **Thursday** is the control post. The series starts on the **first Tuesday after CP5 sign-off**. Dates are filled in at sign-off; each post below is labelled "Week N, Tuesday/Thursday". Week 13 is a buffer for a reactive post or a slipped week.
+**Cadence.** Two posts a week, on whichever days suit the audience: no day of the week is fixed, and no post names one. The first post of each week is the **stack post** and the second is the **control post** that pairs with it. The series starts after CP5 sign-off; dates are planned in the content calendar, and each post below is labelled "Week N". Week 13 is a buffer for a reactive post or a slipped week.
 
 **How to use the anecdote slots.**
 - Each full post has one bracketed line, `[Anecdote slot: …]`, where the "honest part" goes. It is sized for one or two sentences (about 25–35 words), so replacing it keeps the post within 220–300 words.
@@ -32,9 +32,9 @@
 
 ### Calendar, weeks 1–13
 
-| Week | Tuesday (stack) | Thursday (control) |
+| Week | Stack post (first of the week) | Control post (second of the week) |
 |---|---|---|
-| 0 | | #0 Series introduction (the Thursday before week 1) |
+| 0 | #0 Series introduction (a few days before week 1) | |
 | 1 | #1 L1 Foundation models | #2 C6 AI FinOps |
 | 2 | #3 L2 Inference and access | #4 C1 AI gateway |
 | 3 | #5 L3 Orchestration | #6 C2 Guardrails |
@@ -49,15 +49,15 @@
 | 12 | #23 Which lock-in is acceptable | #24 Close: what I'd select, and what I'd deliberately not select |
 | 13 | Buffer (slipped post or reactive template) | Buffer |
 
-Reactive templates R1 (model launch), R2 (acquisition) and R3 (regulatory milestone) can go into week 13 or replace a Thursday slot when timing matters.
+Reactive templates R1 (model launch), R2 (acquisition) and R3 (regulatory milestone) can go into week 13 or replace a control-post slot when timing matters.
 
 ---
 
 ## Week 0: series introduction
 
-### Post 0 · Week 0, Thursday · Series introduction: the enterprise GenAI stack, layer by layer
+### Post 0 · Week 0 · Series introduction: the enterprise GenAI stack, layer by layer
 
-**Pair:** Post 1 (L1, Week 1 Tuesday). **Bridge:** The series starts where every architecture starts: the models, and how not to bet the firm on one of them.
+**Pair:** Post 1 (L1, Week 1). **Bridge:** The series starts where every architecture starts: the models, and how not to bet the firm on one of them.
 
 **Theme and source:** Why the series exists, what it covers and how it runs. `work/stageD/method.md` (evidence base), `work/stageC/synthesis.md` (Part I finding 1, Part XII), `Enterprise_GenAI_Stack_Oct2026/05_Data/what_changed.xlsx`.
 
@@ -73,13 +73,13 @@ So I asked a narrower question. What would a regulated asset manager actually ne
 
 The answer became a review of 140 products across nine layers and eight cross-cutting controls, built on 1,255 logged sources and checked by two independent verifiers. The finding that shaped everything else: the architecture that matters is the control plane around the products, not the products themselves.
 
-The series follows that shape. Every Tuesday, one layer of the stack, from foundation models to evaluation. Every Thursday, the control that makes it safe. One worked example runs throughout: an agent that drafts the monthly performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
+The series follows that shape. Each week takes one layer of the stack, from foundation models to evaluation, and then the control that makes it safe. One worked example runs throughout: an agent that drafts the monthly performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
 
 The posts share judgement, not vendor rankings. No vendor is named in the post itself; sources sit in the first comment.
 
 [Anecdote slot: one or two sentences on a time a vendor map or stack diagram you relied on turned out to be out of date, and what it taught the team.]
 
-If one of these weeks saves you a quarter of rework, the series will have done its job. It starts on Tuesday with foundation models.
+If one of these weeks saves you a quarter of rework, the series will have done its job. The first post is on foundation models.
 
 #### Short variant
 
@@ -89,9 +89,9 @@ The popular stack diagram is a useful map, but by the end of Q3 2026, 39 of its 
 
 So I asked a narrower question: what does a regulated asset manager need to run GenAI safely in production? The answer became a review of 140 products, nine layers and eight controls, built on 1,255 sources.
 
-Every Tuesday, one layer. Every Thursday, the control that makes it safe. One worked example throughout: an agent drafting a fund's monthly attribution commentary, with a portfolio manager approving every draft.
+Each week, one layer, then the control that makes it safe. One worked example throughout: an agent drafting a fund's monthly attribution commentary, with a portfolio manager approving every draft.
 
-Judgement, not vendor rankings. It starts on Tuesday with foundation models.
+Judgement, not vendor rankings. The first post is on foundation models.
 
 #### Anecdote slot
 
@@ -110,17 +110,17 @@ So I asked a narrower question. What would a regulated asset manager actually ne
 
 The answer became a review of 140 products across nine layers and eight cross-cutting controls, built on 1,255 logged sources and checked by two independent verifiers. The finding that shaped everything else: the architecture that matters is the control plane around the products, not the products themselves.
 
-The series follows that shape. Every Tuesday, one layer of the stack, from foundation models to evaluation. Every Thursday, the control that makes it safe. One worked example runs throughout: an agent that drafts the monthly performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
+The series follows that shape. Each week takes one layer of the stack, from foundation models to evaluation, and then the control that makes it safe. One worked example runs throughout: an agent that drafts the monthly performance-attribution commentary for a multi-asset fund, with a portfolio manager approving every draft.
 
 The posts share judgement, not vendor rankings. No vendor is named in the post itself; sources sit in the first comment.
 
 The honest caveat: parts of this will date. Versions, owners and prices move monthly, so each post is re-checked in the week it goes out, and where I get something wrong I will say so.
 
-If one of these weeks saves you a quarter of rework, the series will have done its job. It starts on Tuesday with foundation models.
+If one of these weeks saves you a quarter of rework, the series will have done its job. The first post is on foundation models.
 
 #### Suggested visual
 
-Series map: the nine layers (L1 → L9) as a stack on the left, each paired by a connector with its Thursday control or theme on the right, labelled with week numbers 1–9. Weeks 10–12 (worked example, start small, build vs buy, where not to abstract, lock-in, close) as a strip beneath. A banner across the top: "the control plane around the products is the architecture". Footer: "24 posts · 12 weeks · one worked example". Source: the calendar above and synthesis Part I.
+Series map: the nine layers (L1 → L9) as a stack on the left, each paired by a connector with its control or theme on the right, labelled with week numbers 1–9. Weeks 10–12 (worked example, start small, build vs buy, where not to abstract, lock-in, close) as a strip beneath. A banner across the top: "the control plane around the products is the architecture". Footer: "24 posts · 12 weeks · one worked example". Source: the calendar above and synthesis Part I.
 
 #### First comment
 
@@ -128,7 +128,7 @@ Personal views; not a description of any firm's platform or vendor choices. Sour
 - Scope and evidence: 140 product records (138 scored), 20 regulatory and standards records and 1,255 logged sources, checked by two adversarial verifiers (review method, "Evidence base").
 - The 39 of 80 tiles: the review's "What changed since the popular stack diagram" table (9 acquired, 9 mispositioned, 8 renamed, 8 with a wrong version label, 6 not publicly verifiable, 4 duplicated, 3 superseded, 2 deprecated; some tiles carry more than one flag).
 - Disclosure: I used an AI model made by Anthropic to help research and draft the review and these posts. Anthropic products are treated like every other vendor's, and an independent alternative is named wherever one is recommended.
-- Schedule: Tuesdays, one stack layer; Thursdays, the control that makes it safe.
+- Format: each week, one stack layer, then the control that makes it safe.
 
 #### Hashtags
 
@@ -137,7 +137,7 @@ Personal views; not a description of any firm's platform or vendor choices. Sour
 #### Re-verify before posting
 
 - The counts (140 products, 1,255 sources, 39 of 80 tiles) against the final published edition
-- The start date of Post 1 (the first Tuesday after sign-off)
+- The planned date of Post 1 (set in the content calendar)
 
 #### Compliance check
 
@@ -150,9 +150,9 @@ Personal views; not a description of any firm's platform or vendor choices. Sour
 
 ## Week 1
 
-### Post 1 · Week 1, Tuesday · L1 Foundation models
+### Post 1 · Week 1 · L1 Foundation models
 
-**Pair:** Post 2 (C6, Week 1 Thursday). **Bridge:** A portfolio of models needs a way to choose between them on cost without fooling yourself; Thursday supplies the metric.
+**Pair:** Post 2 (C6, Week 1). **Bridge:** A portfolio of models needs a way to choose between them on cost without fooling yourself; the control post supplies the metric.
 
 **Theme and source:** A small, governed model portfolio with a qualified second vendor. `work/stageB/L1/section.md` (executive summary, §1.2, §1.3, §1.9, §1.11–§1.13), with the CP4-1 tier decision.
 
@@ -245,9 +245,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, L1 Foundation models
 
 ---
 
-### Post 2 · Week 1, Thursday · C6 AI FinOps
+### Post 2 · Week 1 · C6 AI FinOps
 
-**Pair:** Post 1 (L1, Week 1 Tuesday). **Bridge:** A model portfolio is only as good as the cost metric used to choose within it, and cost per token is the wrong one.
+**Pair:** Post 1 (L1, Week 1). **Bridge:** A model portfolio is only as good as the cost metric used to choose within it, and cost per token is the wrong one.
 
 **Theme and source:** Cost per task, metered at the gateway and joined to traces. `work/stageB/C6/section.md` (executive summary, §C6.2, §C6.3, §C6.9, §C6.11–§C6.13).
 
@@ -259,7 +259,7 @@ Cost per token is the number on the price list. Cost per task is the number exec
 
 A cheaper token that needs three retries and a longer human review is not cheaper. Teams that optimise price per token can move to a smaller model and lose more in regeneration and review time than they saved.
 
-Tuesday's post argued for a portfolio of models. This is how to choose between them on cost without fooling yourself. Meter every call at the gateway, tagged by use case and run. Join those records to the traces so that failed and regenerated attempts count. Reconcile monthly against provider bills. Keep the result in a dataset the firm owns, shaped to the open billing standard.
+The previous post argued for a portfolio of models. This is how to choose between them on cost without fooling yourself. Meter every call at the gateway, tagged by use case and run. Join those records to the traces so that failed and regenerated attempts count. Reconcile monthly against provider bills. Keep the result in a dataset the firm owns, shaped to the open billing standard.
 
 In the illustrative cost model for this series' worked example, a monthly fund commentary at current list prices, tokens come to well under a dollar per approved commentary. Reviewer time is the real cost. So the signal I would report is cost per approved output, counting every failed and regenerated draft, alongside the regeneration rate.
 
@@ -341,9 +341,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, C6 AI FinOps (§C6.2
 
 ## Week 2
 
-### Post 3 · Week 2, Tuesday · L2 Inference, serving and model access
+### Post 3 · Week 2 · L2 Inference, serving and model access
 
-**Pair:** Post 4 (C1, Week 2 Thursday). **Bridge:** Tuesday makes managed access the default; Thursday shows the gateway is what keeps that choice reversible.
+**Pair:** Post 4 (C1, Week 2). **Bridge:** The stack post makes managed access the default; the control post shows the gateway is what keeps that choice reversible.
 
 **Theme and source:** Serving, optimisation and access as three distinct jobs. `work/stageB/L2/section.md` (executive summary, §2.2, §2.3, §2.9, §2.11–§2.13).
 
@@ -433,9 +433,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, L2 Inference, servin
 
 ---
 
-### Post 4 · Week 2, Thursday · C1 AI / LLM gateway
+### Post 4 · Week 2 · C1 AI / LLM gateway
 
-**Pair:** Post 3 (L2, Week 2 Tuesday). **Bridge:** Managed access is only a safe default if you can leave it; the gateway is what makes leaving a configuration change.
+**Pair:** Post 3 (L2, Week 2). **Bridge:** Managed access is only a safe default if you can leave it; the gateway is what makes leaving a configuration change.
 
 **Theme and source:** The gateway as the control point that makes exit plans executable. `work/stageB/C1/section.md` (executive summary, §C1.2, §C1.3, §C1.9, §C1.11–§C1.13).
 
@@ -447,7 +447,7 @@ The most boring component in the AI stack is the one that makes an exit plan rea
 
 UK supervisors expect documented and tested exit plans for material outsourcing, including a stressed exit. Without a gateway, provider SDKs and keys spread through application code, and switching model becomes a programme of code changes. The plan exists on paper; it cannot be carried out in the time a stressed exit allows.
 
-Tuesday's post argued for managed model access by default. The gateway keeps that choice reversible. Every model call, and now every tool and agent call, passes through one firm-controlled point that owns routing, fallback, budgets, policy and the request log. Guardrails, data protection, identity checks and cost attribution are all invoked there.
+The previous post argued for managed model access by default. The gateway keeps that choice reversible. Every model call, and now every tool and agent call, passes through one firm-controlled point that owns routing, fallback, budgets, policy and the request log. Guardrails, data protection, identity checks and cost attribution are all invoked there.
 
 That concentration cuts both ways. In March 2026, malicious releases of a popular open-source gateway were published to a public package index. A component that holds every provider key is a prime target. So run it like payments infrastructure: two independent deployments, pinned and signed builds, and budgets, guards and fallbacks that fail closed.
 
@@ -529,9 +529,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, C1 AI / LLM gateway 
 
 ## Week 3
 
-### Post 5 · Week 3, Tuesday · L3 Agent frameworks and orchestration
+### Post 5 · Week 3 · L3 Agent frameworks and orchestration
 
-**Pair:** Post 6 (C2, Week 3 Thursday). **Bridge:** Tuesday decides how much autonomy a process gets; Thursday explains why guardrails cannot make up for a wrong answer to that question.
+**Pair:** Post 6 (C2, Week 3). **Bridge:** The stack post decides how much autonomy a process gets; the control post explains why guardrails cannot make up for a wrong answer to that question.
 
 **Theme and source:** Deterministic workflows versus autonomous agents, on a durable substrate. `work/stageB/L3/section.md` (executive summary, §3.2, §3.3, §3.9, §3.11–§3.13).
 
@@ -622,9 +622,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, L3 Agent frameworks 
 
 ---
 
-### Post 6 · Week 3, Thursday · C2 Guardrails
+### Post 6 · Week 3 · C2 Guardrails
 
-**Pair:** Post 5 (L3, Week 3 Tuesday). **Bridge:** Tuesday's deterministic design does most of the safety work; guardrails are the second line, not a licence for more autonomy.
+**Pair:** Post 5 (L3, Week 3). **Bridge:** The stack post's deterministic design does most of the safety work; guardrails are the second line, not a licence for more autonomy.
 
 **Theme and source:** Layered guardrails as a second line of defence. `work/stageB/C2/section.md` (executive summary, §C2.2, §C2.3, §C2.9, §C2.11–§C2.13).
 
@@ -636,7 +636,7 @@ Guardrails cannot fix a workflow that should never have been autonomous.
 
 A guardrail is a filter on a stream of actions. It lowers the chance that a bad action passes; it does not reduce the number of actions an agent is allowed to attempt. If an agent has write access to a client-facing system, a content filter on its output is not a control over that access.
 
-Tuesday's post argued for deterministic workflows with one judgement step. That design does most of the safety work. Guardrails are the second line, and they fail in predictable ways. They screen only the user's prompt while retrieved documents pass unchecked. A content-safety classifier is asked to catch a business error it was never trained for, such as a reversed sign. Or a guard times out and the request goes through.
+The previous post argued for deterministic workflows with one judgement step. That design does most of the safety work. Guardrails are the second line, and they fail in predictable ways. They screen only the user's prompt while retrieved documents pass unchecked. A content-safety classifier is asked to catch a business error it was never trained for, such as a reversed sign. Or a guard times out and the request goes through.
 
 So layer them by mechanism. Deterministic rules first, for business invariants such as figures, signs and forbidden phrases. Small classifiers next, including on every retrieved chunk. Model-based judges only where nothing simpler can decide, and never as the only check on numbers. Everything fails closed.
 
@@ -718,9 +718,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, C2 Guardrails (§C2.
 
 ## Week 4
 
-### Post 7 · Week 4, Tuesday · L4 Tools, protocols and agent connectivity
+### Post 7 · Week 4 · L4 Tools, protocols and agent connectivity
 
-**Pair:** Post 8 (C4, Week 4 Thursday). **Bridge:** Tuesday puts a gateway in front of every tool; Thursday decides who is allowed through it, and on whose behalf.
+**Pair:** Post 8 (C4, Week 4). **Bridge:** The stack post puts a gateway in front of every tool; the control post decides who is allowed through it, and on whose behalf.
 
 **Theme and source:** A tool-governance sub-layer between the agent and its tools. `work/stageB/L4/section.md` (executive summary, §4.2, §4.3, §4.9, §4.11–§4.13).
 
@@ -812,9 +812,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, L4 Tools, protocols 
 
 ---
 
-### Post 8 · Week 4, Thursday · C4 Identity and access for agents
+### Post 8 · Week 4 · C4 Identity and access for agents
 
-**Pair:** Post 7 (L4, Week 4 Tuesday). **Bridge:** Once every tool sits behind a gateway, the question is who the agent is, and whose authority it carries.
+**Pair:** Post 7 (L4, Week 4). **Bridge:** Once every tool sits behind a gateway, the question is who the agent is, and whose authority it carries.
 
 **Theme and source:** Agent identity, delegation and least privilege for non-human actors. `work/stageB/C4/section.md` (executive summary, §C4.2, §C4.3, §C4.9, §C4.11–§C4.13).
 
@@ -826,7 +826,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L4 Tools, protocols 
 
 Agents turn identity mistakes into actions. A person with excessive access usually does nothing with it. An agent with excessive access can be steered into using it by text it reads, which is why the OWASP list for agentic applications names identity and privilege abuse alongside goal hijack and tool misuse.
 
-Tuesday's post put a gateway in front of every tool. This one decides who is allowed through it. Five properties hold up. The agent has its own registered identity with a named sponsor. Where a person started the work, it acts on that person's behalf. Its permissions are the intersection of that person's and the agent's own ceiling. It holds no standing secrets, only short-lived tokens scoped to the task. And every action is attributable to both.
+The previous post put a gateway in front of every tool. This one decides who is allowed through it. Five properties hold up. The agent has its own registered identity with a named sponsor. Where a person started the work, it acts on that person's behalf. Its permissions are the intersection of that person's and the agent's own ceiling. It holds no standing secrets, only short-lived tokens scoped to the task. And every action is attributable to both.
 
 The signal is attribution completeness: the share of audit events recording user, agent, tool, an argument hash, the policy decision and a trace ID. Aim for 99.9% or better. A gap is a question you cannot answer later.
 
@@ -903,9 +903,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, C4 Identity and acce
 
 ## Week 5
 
-### Post 9 · Week 5, Tuesday · L5 Memory
+### Post 9 · Week 5 · L5 Memory
 
-**Pair:** Post 10 (Regulated reality, Week 5 Thursday). **Bridge:** Memory is where governance gets personal (erasure, retention, reproducibility); Thursday steps back to the regulations that frame all of it.
+**Pair:** Post 10 (Regulated reality, Week 5). **Bridge:** Memory is where governance gets personal (erasure, retention, reproducibility); the control post steps back to the regulations that frame all of it.
 
 **Theme and source:** Agent memory as a governed record class, built last. `work/stageB/L5/section.md` (executive summary, §5.2, §5.3, §5.9, §5.11–§5.13); plan §12.6 build order.
 
@@ -997,9 +997,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, L5 Memory (§5.2, §
 
 ---
 
-### Post 10 · Week 5, Thursday · Regulated reality: EU AI Act and DORA
+### Post 10 · Week 5 · Regulated reality: EU AI Act and DORA
 
-**Pair:** Post 9 (L5, Week 5 Tuesday). **Bridge:** Halfway through the layers, the regulatory frame explains why multi-vendor design and retained evidence stop being optional.
+**Pair:** Post 9 (L5, Week 5). **Bridge:** Halfway through the layers, the regulatory frame explains why multi-vendor design and retained evidence stop being optional.
 
 **Theme and source:** The 2026–27 regulatory frame for GenAI in asset management. `work/stageB/C8/section.md` §C8.11 (with §C8.13), `work/stageB/L1/section.md` §1.11 (concentration), and `Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json` (R-US-MRM, R-EUAIA, R-EU-OMNIBUS-AI, R-DORA, R-UK-CTP, R-PRA-SS221, R-FCA-SYSC8, R-INTL-AI-ASSETMGMT).
 
@@ -1090,9 +1090,9 @@ Personal views; not legal advice. Sources: the Enterprise GenAI Stack review, C8
 
 ## Week 6
 
-### Post 11 · Week 6, Tuesday · L6 Retrieval and knowledge stores
+### Post 11 · Week 6 · L6 Retrieval and knowledge stores
 
-**Pair:** Post 12 (C7, Week 6 Thursday). **Bridge:** Tuesday is about retrieving the right passages under real permissions; Thursday is about the passages someone else wrote for you.
+**Pair:** Post 12 (C7, Week 6). **Bridge:** The stack post is about retrieving the right passages under real permissions; the control post is about the passages someone else wrote for you.
 
 **Theme and source:** Retrieval stores as derived, entitlement-filtered, rebuildable indexes. `work/stageB/L6/section.md` (executive summary, §6.2, §6.3, §6.9, §6.11–§6.13).
 
@@ -1177,9 +1177,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, L6 Retrieval and kno
 
 ---
 
-### Post 12 · Week 6, Thursday · C7 AI security
+### Post 12 · Week 6 · C7 AI security
 
-**Pair:** Post 11 (L6, Week 6 Tuesday). **Bridge:** Retrieval brings back passages; some were written by someone who wants your agent to act on them.
+**Pair:** Post 11 (L6, Week 6). **Bridge:** Retrieval brings back passages; some were written by someone who wants your agent to act on them.
 
 **Theme and source:** Capability separation and layered defence for agents. `work/stageB/C7/section.md` (executive summary, §C7.2, §C7.3, §C7.9, §C7.11–§C7.13).
 
@@ -1189,7 +1189,7 @@ Personal views. Sources: the Enterprise GenAI Stack review, L6 Retrieval and kno
 
 A language model follows instructions it finds in any text it reads. Give it tools, and those instructions become actions.
 
-That is why every retrieved document is untrusted input. Tuesday's post was about retrieving the right passages. This one is about passages someone else wrote for you. A broker note, a web page or an email can carry hidden text, and it arrives through the same pipeline as the firm's own knowledge. Indirect prompt injection is a supply-chain problem, not a chat problem.
+That is why every retrieved document is untrusted input. The previous post was about retrieving the right passages. This one is about passages someone else wrote for you. A broker note, a web page or an email can carry hidden text, and it arrives through the same pipeline as the firm's own knowledge. Indirect prompt injection is a supply-chain problem, not a chat problem.
 
 The supply chain is literal too. In March 2026, malicious releases of a widely used open-source model gateway were published to a public package index using stolen release credentials. The component that holds every provider key was itself the target.
 
@@ -1273,9 +1273,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, C7 AI security (§C7
 
 ## Week 7
 
-### Post 13 · Week 7, Tuesday · L7 Embeddings and reranking
+### Post 13 · Week 7 · L7 Embeddings and reranking
 
-**Pair:** Post 14 (C5, Week 7 Thursday). **Bridge:** Tuesday ends on "the embedding version is production configuration"; Thursday extends that to prompts and every other setting that changes outputs.
+**Pair:** Post 14 (C5, Week 7). **Bridge:** The stack post ends on "the embedding version is production configuration"; the control post extends that to prompts and every other setting that changes outputs.
 
 **Theme and source:** Retrieval optimisation as one governed, two-stage service. `work/stageB/L7/section.md` (executive summary, §7.2, §7.3, §7.9, §7.11–§7.13).
 
@@ -1361,9 +1361,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, L7 Embeddings and re
 
 ---
 
-### Post 14 · Week 7, Thursday · C5 Prompt and configuration management
+### Post 14 · Week 7 · C5 Prompt and configuration management
 
-**Pair:** Post 13 (L7, Week 7 Tuesday). **Bridge:** If the embedding version is production configuration, so is the prompt, and both need versioning, review and rollback.
+**Pair:** Post 13 (L7, Week 7). **Bridge:** If the embedding version is production configuration, so is the prompt, and both need versioning, review and rollback.
 
 **Theme and source:** Git as the system of record for prompts and configuration. `work/stageB/C5/section.md` (executive summary, §C5.2, §C5.3, §C5.9, §C5.11–§C5.13).
 
@@ -1375,7 +1375,7 @@ A one-sentence edit to a prompt can change outputs as much as a model upgrade. F
 
 Prompt registries are sold on exactly that convenience: update the text, no deployment needed. That is useful while iterating. On a regulated output, it means one person can write, approve and release a change that nobody can later trace.
 
-Tuesday's post argued that the embedding model version is production configuration. So is the prompt. So are the model version, the retrieval settings, the tool list and the guardrail policy. Each can change what a client reads; each needs versioning, review, an evaluation gate and a way back.
+The previous post argued that the embedding model version is production configuration. So is the prompt. So are the model version, the retrieval settings, the tool list and the guardrail policy. Each can change what a client reads; each needs versioning, review, an evaluation gate and a way back.
 
 The pattern I would defend is plain. Source control is the system of record. Every approved prompt and setting goes into one pinned release manifest, approved by pull request with a second reviewer and gated by the regression suite. A registry may deliver approved versions at run time and stamp each trace with the version that produced it, but only the release pipeline moves the production label.
 
@@ -1456,9 +1456,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, C5 Prompt and config
 
 ## Week 8
 
-### Post 15 · Week 8, Tuesday · L8 Data extraction and ingestion
+### Post 15 · Week 8 · L8 Data extraction and ingestion
 
-**Pair:** Post 16 (C3, Week 8 Thursday). **Bridge:** Tuesday shows that quality is decided at ingestion; Thursday shows that residency and privacy are decided there too.
+**Pair:** Post 16 (C3, Week 8). **Bridge:** The stack post shows that quality is decided at ingestion; the control post shows that residency and privacy are decided there too.
 
 **Theme and source:** Ingestion as a control plane around commodity parsers. `work/stageB/L8/section.md` (executive summary, §8.2, §8.3, §8.9, §8.11–§8.13).
 
@@ -1547,9 +1547,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, L8 Data extraction, 
 
 ---
 
-### Post 16 · Week 8, Thursday · C3 DLP and PII protection
+### Post 16 · Week 8 · C3 DLP and PII protection
 
-**Pair:** Post 15 (L8, Week 8 Tuesday). **Bridge:** If quality is decided at ingestion, so are residency and privacy; a filter at the prompt arrives too late.
+**Pair:** Post 15 (L8, Week 8). **Bridge:** If quality is decided at ingestion, so are residency and privacy; a filter at the prompt arrives too late.
 
 **Theme and source:** One firm-owned privacy service called from every enforcement point. `work/stageB/C3/section.md` (executive summary, §C3.2, §C3.3, §C3.9, §C3.11–§C3.13).
 
@@ -1561,7 +1561,7 @@ One analyst question can place the same client identifier in seven places: a pro
 
 Each copy has its own retention, location and access model. Each is somewhere an erasure request or a breach investigation has to reach.
 
-The common trap is a single checkpoint: a filter at the prompt. By then the document may already have been parsed by a third party and indexed without its classification, and no prompt-level control can undo that. Tuesday's post argued that ingestion is where data quality is decided. It is also where residency and privacy are decided.
+The common trap is a single checkpoint: a filter at the prompt. By then the document may already have been parsed by a third party and indexed without its classification, and no prompt-level control can undo that. The previous post argued that ingestion is where data quality is decided. It is also where residency and privacy are decided.
 
 The pattern that holds up is one firm-owned privacy service — detect, transform and, under policy, re-identify — called from every enforcement point: ingestion, prompts, tool results, outputs, memory writes and trace export. One policy, six call sites, rather than a different detector bought for each layer.
 
@@ -1644,9 +1644,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, C3 DLP and PII prote
 
 ## Week 9
 
-### Post 17 · Week 9, Tuesday · L9 Evaluation and observability
+### Post 17 · Week 9 · L9 Evaluation and observability
 
-**Pair:** Post 18 (C8, Week 9 Thursday). **Bridge:** Tuesday argues that evaluation must exist from day one; Thursday shows that the same eval suite, run independently and kept, is the validation evidence a model-risk function needs.
+**Pair:** Post 18 (C8, Week 9). **Bridge:** The stack post argues that evaluation must exist from day one; the control post shows that the same eval suite, run independently and kept, is the validation evidence a model-risk function needs.
 
 **Theme and source:** Evaluation and observability as a cross-cutting plane, not a downstream box. `work/stageB/L9/section.md` (executive summary, §9.2, §9.3, §9.9, §9.11–§9.13).
 
@@ -1739,9 +1739,9 @@ Personal views. Notes and sources for this post: the Enterprise GenAI Stack revi
 
 ---
 
-### Post 18 · Week 9, Thursday · C8 Model risk, governance and audit
+### Post 18 · Week 9 · C8 Model risk, governance and audit
 
-**Pair:** Post 17 (L9, Week 9 Tuesday). **Bridge:** Tuesday's eval suite becomes Thursday's validation evidence, but only if someone independent challenges it, it is versioned, and it is retained.
+**Pair:** Post 17 (L9, Week 9). **Bridge:** The stack post's eval suite becomes the control post's validation evidence, but only if someone independent challenges it, it is versioned, and it is retained.
 
 **Theme and source:** Model-risk governance for LLM systems after SR 26-2's carve-out. `work/stageB/C8/section.md` (executive summary, §C8.2, §C8.3, §C8.9, §C8.11–§C8.13).
 
@@ -1753,7 +1753,7 @@ In April, the US supervisory guidance that had shaped model risk management sinc
 
 It is tempting to read that as relief. It is the opposite. The governance burden has not gone; it has moved to the firm. Each firm now has to write its own standard for LLM systems, and the UK's SS1/23, which is technology-agnostic and covers vendor models, is the most complete benchmark to write it against.
 
-Here is what makes it tractable. Much of the validation evidence already exists if Tuesday's evaluation work is done properly. The eval suite is the validation evidence, on three conditions: someone independent of the developers challenges and extends it; it is versioned with the results it produced; and it is kept beyond any vendor's retention tier. A developer's test suite on its own is development testing, not validation.
+Here is what makes it tractable. Much of the validation evidence already exists if the evaluation work in the previous post is done properly. The eval suite is the validation evidence, on three conditions: someone independent of the developers challenges and extends it; it is versioned with the results it produced; and it is kept beyond any vendor's retention tier. A developer's test suite on its own is development testing, not validation.
 
 The signal I would put in front of a risk committee is validation currency: the share of material use cases whose validation covers the model, prompt, index and tool versions running today. Below 100% means an approval that no longer describes production.
 
@@ -1830,9 +1830,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, C8 Model risk, gover
 
 ## Week 10
 
-### Post 19 · Week 10, Tuesday · The worked example, end to end
+### Post 19 · Week 10 · The worked example, end to end
 
-**Pair:** Post 20 (Start small, Week 10 Thursday). **Bridge:** Tuesday shows the full worked example and its "never" list; Thursday shows the minimum platform needed to run it, and what to leave out.
+**Pair:** Post 20 (Start small, Week 10). **Bridge:** The stack post shows the full worked example and its "never" list; the control post shows the minimum platform needed to run it, and what to leave out.
 
 **Theme and source:** The performance-attribution commentary agent, end to end, with its boundaries and evidence pack. `work/stageC/synthesis.md` Part VI (VI.1 request trace, VI.3 boundaries, VI.4 evidence pack).
 
@@ -1921,9 +1921,9 @@ Personal views. The worked example is generic and illustrative, not a descriptio
 
 ---
 
-### Post 20 · Week 10, Thursday · Start small
+### Post 20 · Week 10 · Start small
 
-**Pair:** Post 19 (Worked example, Week 10 Tuesday). **Bridge:** Tuesday's agent needs a platform; Thursday argues that the minimum platform, plus a published "not yet" list, is the right first release.
+**Pair:** Post 19 (Worked example, Week 10). **Bridge:** The stack post's agent needs a platform; the control post argues that the minimum platform, plus a published "not yet" list, is the right first release.
 
 **Theme and source:** Stack D, minimal start-small, and its "do NOT build yet" list. `work/stageC/synthesis.md` Part VII, Stack D (with the Stack A build-now and not-yet lists).
 
@@ -2014,9 +2014,9 @@ Personal views. Sources: the Enterprise GenAI Stack review, synthesis Part VII, 
 
 ## Week 11
 
-### Post 21 · Week 11, Tuesday · Build vs buy
+### Post 21 · Week 11 · Build vs buy
 
-**Pair:** Post 22 (Where not to abstract, Week 11 Thursday). **Bridge:** Tuesday says to own a thin interface in front of what you buy; Thursday warns against owning too many interfaces.
+**Pair:** Post 22 (Where not to abstract, Week 11). **Bridge:** The stack post says to own a thin interface in front of what you buy; the control post warns against owning too many interfaces.
 
 **Theme and source:** Build, buy or hybrid per component. `work/stageC/synthesis.md` Part VIII.
 
@@ -2108,9 +2108,9 @@ Personal views. Source: the Enterprise GenAI Stack review, synthesis Part VIII (
 
 ---
 
-### Post 22 · Week 11, Thursday · Where not to abstract
+### Post 22 · Week 11 · Where not to abstract
 
-**Pair:** Post 21 (Build vs buy, Week 11 Tuesday). **Bridge:** Tuesday's thin firm-owned interfaces are the right default; Thursday names where adding one is the mistake.
+**Pair:** Post 21 (Build vs buy, Week 11). **Bridge:** The stack post's thin firm-owned interfaces are the right default; the control post names where adding one is the mistake.
 
 **Theme and source:** What to abstract and what not to over-abstract. `work/stageC/synthesis.md` Part IX (IX.1, IX.2, IX.3).
 
@@ -2120,7 +2120,7 @@ Personal views. Source: the Enterprise GenAI Stack review, synthesis Part VIII (
 
 Abstraction is how an architecture stays reversible. Too much of it is how an architecture stops moving.
 
-Tuesday's post argued for a firm-owned interface in front of anything you may replace. The trap is applying that everywhere. The classic case is a firm-wide wrapper around agent frameworks: frameworks on top of frameworks. It falls behind every upstream release, hides the features teams chose the framework for, and becomes a second product to maintain.
+The previous post argued for a firm-owned interface in front of anything you may replace. The trap is applying that everywhere. The classic case is a firm-wide wrapper around agent frameworks: frameworks on top of frameworks. It falls behind every upstream release, hides the features teams chose the framework for, and becomes a second product to maintain.
 
 Abstract where switching is likely and the interface is small. Model routing through one API contract at the gateway. Observability through an open telemetry collector. Evaluation datasets in source control. Credentials through workload identity. Policy as code. Retrieval behind a thin interface. Embeddings with a version on every vector.
 
@@ -2203,9 +2203,9 @@ Personal views. Source: the Enterprise GenAI Stack review, synthesis Part IX (IX
 
 ## Week 12
 
-### Post 23 · Week 12, Tuesday · Which lock-in is acceptable
+### Post 23 · Week 12 · Which lock-in is acceptable
 
-**Pair:** Post 24 (Close, Week 12 Thursday). **Bridge:** Tuesday classifies which dependencies are worth accepting; Thursday applies that to the final stack: what I would select, and what I would deliberately leave out.
+**Pair:** Post 24 (Close, Week 12). **Bridge:** The stack post classifies which dependencies are worth accepting; the control post applies that to the final stack: what I would select, and what I would deliberately leave out.
 
 **Theme and source:** Lock-in by layer and control: acceptable, manageable, unacceptable. `work/stageC/synthesis.md` Part IX.4 (lock-in table), with L6 §6.3 (rebuild-time KPI).
 
@@ -2306,9 +2306,9 @@ Personal views. Source: the Enterprise GenAI Stack review, synthesis Part IX.4 (
 
 ---
 
-### Post 24 · Week 12, Thursday · Close: what I'd select, and what I'd deliberately not select
+### Post 24 · Week 12 · Close: what I'd select, and what I'd deliberately not select
 
-**Pair:** Post 23 (Which lock-in is acceptable, Week 12 Tuesday). **Bridge:** Tuesday's lock-in classification is the filter; Thursday shows what passes through it, what does not, and what leading the change actually requires.
+**Pair:** Post 23 (Which lock-in is acceptable, Week 12). **Bridge:** The stack post's lock-in classification is the filter; the control post shows what passes through it, what does not, and what leading the change actually requires.
 
 **Theme and source:** The final recommended stack on one page, and a lesson about leading the transformation. `work/stageC/synthesis.md` Part XI (XI.4 Experimental, XI.5 Products to avoid, XI.7 The answer in one paragraph), with Part I.1 (39 of 80 tiles) and I.2 (twelve decisions).
 
@@ -2402,7 +2402,7 @@ Personal views; not a description of any firm's platform or vendor choices. Sour
 
 No post is scheduled. Use the week for one of the following:
 - **A slipped post.** If any week 1–12 post was delayed (clearance, travel, a news week), move it here and keep the pair together where possible.
-- **A reactive post.** Use one of the templates below if a model launch, an acquisition or a regulatory milestone lands during the series. A reactive post can also replace a Thursday slot if timing matters; move the displaced post to week 13.
+- **A reactive post.** Use one of the templates below if a model launch, an acquisition or a regulatory milestone lands during the series. A reactive post can also replace a control-post slot if timing matters; move the displaced post to week 13.
 - **A rest week.** If the series ran to plan, skipping week 13 is fine. A short "thank you and where to find the full review" note is optional, and needs no template.
 
 Before using week 13, re-run the "Re-verify" lists for any post moved into it.
@@ -2415,7 +2415,7 @@ Each template is a full post with bracketed fields for the event details. Fill e
 
 ### Template R1 · Model launch
 
-**Links back to:** Post 1 (L1 Foundation models) and Post 17 (L9 Evaluation). **Schedule:** week 13 buffer, or in place of a Thursday post within a week of the launch.
+**Links back to:** Post 1 (L1 Foundation models) and Post 17 (L9 Evaluation). **Schedule:** week 13 buffer, or in place of a control post within a week of the launch.
 
 **Tension:** A new model is a portfolio decision, not a migration.
 
@@ -2459,7 +2459,7 @@ A firm that can evaluate quickly, and switch by configuration, does not need to 
 
 ### Template R2 · Acquisition or change of ownership
 
-**Links back to:** Post 17 (L9, ownership of evaluation tools), Post 4 (C1 gateway) and Post 23 (lock-in). **Schedule:** week 13 buffer, or in place of a Thursday post within a week of the announcement.
+**Links back to:** Post 17 (L9, ownership of evaluation tools), Post 4 (C1 gateway) and Post 23 (lock-in). **Schedule:** week 13 buffer, or in place of a control post within a week of the announcement.
 
 **Tension:** Independence can no longer be assumed from a product's origins; it has to be designed in.
 
@@ -2501,7 +2501,7 @@ Being surprised by an ownership change is optional.
 
 ### Template R3 · Regulatory milestone
 
-**Links back to:** Post 18 (C8 model risk) and Post 10 (Regulated reality). **Schedule:** the week of the milestone, in place of a Thursday post, or in the week 13 buffer.
+**Links back to:** Post 18 (C8 model risk) and Post 10 (Regulated reality). **Schedule:** the week of the milestone, in place of a control post, or in the week 13 buffer.
 
 **Tension:** A regulatory date is most useful as a refresh mandate for the architecture.
 

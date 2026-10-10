@@ -1,0 +1,8 @@
+SOURCE ID: E1-S021
+URL: https://www.gov.uk/government/publications/cyber-security-and-resilience-network-and-information-systems-bill-factsheets/summary-of-the-bill
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cyber Security and Resilience Bill managed service providers critical suppliers (gov.uk, parliament.uk)
+========================================================================
+
+Search-tool extract: the Bill brings certain medium and large managed service providers ('relevant managed service providers', RMSPs) into the Network and Information Systems Regulations 2018; small and micro businesses are excluded and public-sector bodies exempt. Regulators may designate 'critical suppliers' to operators of essential services, relevant digital service providers or RMSPs, where an incident affecting the supplier's network and information systems could disrupt the relevant services; small and micro suppliers can still be designated. Detailed security and incident-reporting duties are to be set in secondary legislation. Commentary adds that data centres are brought in as essential services.

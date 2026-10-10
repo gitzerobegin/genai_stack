@@ -1,0 +1,8 @@
+SOURCE ID: E1-S039
+URL: https://coag.gov/ai/
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Colorado Attorney General ADMT rulemaking
+========================================================================
+
+Search-tool extract: 'this new law and its provisions go into effect January 1, 2027.' The Attorney General must adopt rules by 1 January 2027. The Department of Law filed the Automated Decision-Making Technology & Conversational Artificial Intelligence Service rules with the Secretary of State on 11 August 2026 and released an interim draft on 6 October 2026.

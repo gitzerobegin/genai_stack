@@ -1,0 +1,8 @@
+SOURCE ID: E1-S035
+URL: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AI Act Article 50 paragraph 1 paragraph 2 machine-readable (ai-act-service-desk.ec.europa.eu)
+========================================================================
+
+Search-tool extract: Article 50(1): providers ensure AI systems intended to interact directly with natural persons are designed and developed so that the persons concerned are informed that they are interacting with an AI system, unless obvious to a reasonably well-informed, observant and circumspect person (exception for systems authorised by law for criminal-law purposes). Article 50(2): providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content ensure outputs are marked in a machine-readable format and detectable as artificially generated or manipulated; solutions must be effective, interoperable, robust and reliable as far as technically feasible; not applicable to assistive standard-editing functions or systems that do not substantially alter the input. Transparency obligations apply from 2 August 2026; providers of systems placed on the market before that date have until 2 December 2026 for Article 50(2).

@@ -1,0 +1,8 @@
+SOURCE ID: E1-S011
+URL: https://eur-lex.europa.eu/EN/legal-content/summary/defective-products-liability.html
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Directive 2024/2853 applies products placed on market 9 December 2026 (eur-lex.europa.eu)
+========================================================================
+
+Search-tool extract: 'It applies to products placed on the market or put into service as of 9 December 2026. For products placed on the EU market before that date, the rules stemming from Directive 85/374/EEC remain applicable.'

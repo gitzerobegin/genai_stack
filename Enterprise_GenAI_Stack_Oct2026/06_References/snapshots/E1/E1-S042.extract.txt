@@ -1,0 +1,8 @@
+SOURCE ID: E1-S042
+URL: https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-ai-rights
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Texas Responsible Artificial Intelligence Governance Act HB 149 (capitol.texas.gov, texasattorneygeneral.gov)
+========================================================================
+
+Search-tool extract: TRAIGA took effect 1 January 2026 and governs entities deploying AI in Texas. Prohibitions: developing or deploying AI to intentionally incite self-harm, harm to others or criminal activity; government social scoring; government biometric identification without consent; developing or deploying AI with the sole intent of infringing constitutional rights; developing or deploying AI with intent to unlawfully discriminate against a protected class ('a disparate impact alone is not sufficient to demonstrate an intent to discriminate'); AI built to produce unlawful sexual deepfakes or child sexual material. Enforcement by the Attorney General: civil penalties of $10,000-$12,000 for curable violations, $80,000-$200,000 for uncurable violations, and $2,000-$40,000 per day for continuing violations, plus injunctive relief and costs.

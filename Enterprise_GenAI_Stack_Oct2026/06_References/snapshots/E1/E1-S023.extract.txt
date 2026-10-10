@@ -1,0 +1,8 @@
+SOURCE ID: E1-S023
+URL: https://www.parliament.uk/business/news/2026/august-2026/cyber-security-and-resilience-bill-house-of-lords-committee-stage/
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cyber Security and Resilience Bill Parliament stage October 2026
+========================================================================
+
+Search-tool extract: the House of Lords committee stage of the Cyber Security and Resilience Bill concluded (early September 2026 per the search summary); report stage was yet to be scheduled at the time of the page. One law-firm source (Gowling WLG) says the Bill is now at report stage in the House of Lords. No source confirmed Royal Assent; trackers expect Royal Assent around the end of 2026, with phased commencement afterwards.

@@ -3,8 +3,9 @@
 work/stageC2/linkedin_series.md.
 
 Usage: python3 -I tools/build_linkedin_calendar.py <repo_root> [--start YYYY-MM-DD]
-Without --start, dates are left blank ("first Tuesday after CP5 sign-off", CP4b decision) and a
-'Date' formula column computes them from a single start-date cell you fill in.
+Without --start, dates are left blank and a 'Suggested date' formula column computes them from a single
+start-date cell you fill in (the date of Post 1). No day of the week is fixed: the first post of each week is the
+stack post, the second the control post, two days apart by default; overwrite any date freely.
 Writes Enterprise_GenAI_Stack_Oct2026/07_LinkedIn/Content_Calendar.xlsx and LinkedIn_Series.docx
 """
 import os, re, subprocess, sys
@@ -28,9 +29,10 @@ def field(block, name):
 rows = []
 for b in posts:
     head = b.split("\n", 1)[0]
-    m = re.match(r"### Post (\d+)\s*·\s*Week (\d+),\s*(\w+)\s*·\s*(.+)", head)
+    m = re.match(r"### Post (\d+)\s*·\s*Week (\d+)\s*·\s*(.+)", head)
     if not m: continue
-    n, wk, day, theme = int(m.group(1)), int(m.group(2)), m.group(3), m.group(4).strip()
+    n, wk, theme = int(m.group(1)), int(m.group(2)), m.group(3).strip()
+    day = "Introduction" if n == 0 else ("Stack post" if n % 2 else "Control post")
     full = sub(b, "Full post")
     hook = next((l.strip() for l in full.split("\n") if l.strip()), "")
     rows.append(dict(n=n, week=wk, day=day, theme=theme, pair=field(b, "Pair"), tension=field(b, "Tension"), hook=hook[:300],
@@ -38,24 +40,24 @@ for b in posts:
                      tags=sub(b, "Hashtags").replace("\n", " ")[:80], reverify=sub(b, "Re-verify before posting").replace("\n", " ")[:500]))
 
 wb = Workbook(); ws = wb.active; ws.title = "calendar"
-ws["A1"] = "Series start date (first Tuesday after CP5 sign-off):"; ws["A1"].font = Font(bold=True)
+ws["A1"] = "Series start date (the date you publish Post 1):"; ws["A1"].font = Font(bold=True)
 ws["E1"] = None; ws["E1"].fill = PatternFill("solid", fgColor="FFF2CC")
-ws["F1"] = "← enter the start Tuesday (dates and times below compute from it; posting time about 08:00 UK)"
+ws["F1"] = "← enter the date of Post 1; suggested dates below compute from it (any weekday; edit freely)"
 start_arg = next((sys.argv[i + 1] for i, a in enumerate(sys.argv) if a == "--start"), None)
 if start_arg:
     import datetime; ws["E1"] = datetime.date.fromisoformat(start_arg); ws["E1"].number_format = "dd mmm yyyy"
-cols = ["#", "Week", "Day", "Date", "Time (UK)", "Theme", "Pair", "Tension", "Hook (first line)", "Words", "Hashtags", "Visual brief",
+cols = ["#", "Week", "Slot", "Suggested date", "Time (UK)", "Theme", "Pair", "Tension", "Hook (first line)", "Words", "Hashtags", "Visual brief",
         "Re-verify before posting", "Status", "Cleared", "Published URL", "Responses / notes", "Full post and visual"]
 ws.append([]); ws.append(cols)
 for c in ws[3]:
     c.font = Font(bold=True, color="FFFFFF"); c.fill = PatternFill("solid", fgColor="1F3864"); c.alignment = Alignment(wrap_text=True, vertical="top")
 for r in sorted(rows, key=lambda x: x["n"]):
     i = ws.max_row + 1
-    off = (r["week"] - 1) * 7 + (0 if r["day"].lower().startswith("tue") else 2)
+    off = -3 if r["n"] == 0 else (r["week"] - 1) * 7 + (0 if r["day"] == "Stack post" else 2)
     ws.append([r["n"], r["week"], r["day"], '=IF($E$1="","",$E$1+%d)' % off, "08:00", r["theme"], r["pair"], r["tension"], r["hook"], r["words"],
                r["tags"], r["visual"], r["reverify"], "Draft", "Not required (CP4b)", "", "",
                "07_LinkedIn/LinkedIn_Series.docx, Post %d · visual 08_Graphic/linkedin/P%02d.png" % (r["n"], r["n"])])
-    ws.cell(i, 4).number_format = "ddd dd mmm yyyy"
+    ws.cell(i, 4).number_format = "dd mmm yyyy"
 widths = [5, 6, 9, 15, 9, 28, 30, 40, 45, 7, 22, 45, 45, 11, 16, 25, 30, 30]
 for i, w in enumerate(widths, 1): ws.column_dimensions[get_column_letter(i)].width = w
 for row in ws.iter_rows(min_row=4):

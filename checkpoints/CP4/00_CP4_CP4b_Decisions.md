@@ -23,7 +23,7 @@ The questions were asked before the drafts were produced, at the user's request.
 
 | Q | Decision |
 |---|---|
-| Start date | **First Tuesday after CP5 sign-off**, at about 08:00 UK time. Tuesday is the stack post, Thursday the control post. |
+| Start date | **First Tuesday after CP5 sign-off**, at about 08:00 UK time. Tuesday is the stack post, Thursday the control post. *Superseded 10 October 2026 by the user: no fixed weekday; posts and visuals never name a day.* |
 | Clearance | **No pre-clearance needed.** Keep the compliance checklist per post, with no clearance batching. |
 | Hashtags | **Topic-specific**, at most 2 per post |
 | Already decided | 24 posts over 13 weeks · 220–300 words · vendor names only in the first comment · a visual brief per post · an anecdote slot plus a fallback version · British spelling · the `linkedin-post-generator` voice rules |

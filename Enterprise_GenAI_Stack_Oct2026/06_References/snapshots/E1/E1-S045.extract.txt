@@ -1,0 +1,8 @@
+SOURCE ID: E1-S045
+URL: https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB853
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AB 853 California AI Transparency Act operative August 2 2026 covered provider (leginfo.legislature.ca.gov)
+========================================================================
+
+Search-tool extract: AB 853, Chapter 674, approved and filed 13 October 2025; its digest states it would delay the operation of the California AI Transparency Act (SB 942) until 2 August 2026. 'Covered provider' means a person that creates, codes or otherwise produces a generative AI system with over 1,000,000 monthly visitors or users that is publicly accessible within the state. Covered providers must offer a free AI-detection tool and include disclosures in AI-generated image, video and audio content (secondary sources: civil penalty $5,000 per violation). Large online platform provenance duties and the GenAI hosting platform restriction begin 1 January 2027; capture-device latent-disclosure duties begin 1 January 2028. Governor's 2026 releases describe further strengthening of the Act; the text in force may differ.

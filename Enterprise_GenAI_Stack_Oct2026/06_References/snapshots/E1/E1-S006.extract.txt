@@ -1,0 +1,8 @@
+SOURCE ID: E1-S006
+URL: https://www.enisa.europa.eu/news/the-cra-single-reporting-platform-is-launched
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: ENISA CRA Single Reporting Platform live 11 September 2026
+========================================================================
+
+Search-tool extract: ENISA has deployed the initial operating capability of the Single Reporting Platform (SRP), which lets manufacturers and open-source software stewards report once and communicate the information to all appropriate authorities. 'From today, 11 September 2026, manufacturers are required to report actively exploited vulnerabilities and severe incidents.' The CSIRT acting as coordinator passes the notification to other relevant CSIRTs and it is simultaneously made available to ENISA. Voluntary reporting under Article 15 is not available in the initial release. Access is via EU Login with multi-factor authentication.

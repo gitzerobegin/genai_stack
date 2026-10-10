@@ -1,0 +1,8 @@
+SOURCE ID: E1-S009
+URL: https://eur-lex.europa.eu/EN/legal-content/summary/horizontal-cybersecurity-requirements-for-products-with-digital-elements-cyber-resilience-act.html
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cyber Resilience Act summary fines 2.5% (eur-lex.europa.eu)
+========================================================================
+
+Search-tool extract: reporting obligations for actively exploited vulnerabilities and severe incidents start on 11 September 2026; the regulation applies from 11 December 2027, with some exceptions. Non-compliance can lead to fines of up to 2.5% of global annual turnover, and to product bans or recalls.

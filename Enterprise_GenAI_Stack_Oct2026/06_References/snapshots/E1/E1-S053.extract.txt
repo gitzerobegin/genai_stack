@@ -1,0 +1,8 @@
+SOURCE ID: E1-S053
+URL: https://www.gov.uk/government/publications/the-uk-product-security-and-telecommunications-infrastructure-product-security-regime
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: PSTI Act 2022 connectable products scope software (gov.uk, legislation.gov.uk)
+========================================================================
+
+Search-tool extract: all parts of Part 1 of the PSTI Act 2022 not already in force came into force on 29 April 2024 (Commencement No. 2 Regulations 2023, reg. 3); OPSS enforces the Act and the 2023 Regulations from that date. 'Enterprise devices that are not available to consumers are not covered by the scope of Part 1 of the PSTI Act.'

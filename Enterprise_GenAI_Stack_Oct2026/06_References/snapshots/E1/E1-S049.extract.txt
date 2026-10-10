@@ -1,0 +1,8 @@
+SOURCE ID: E1-S049
+URL: https://www.federalregister.gov/documents/2025/12/16/2025-23092/ensuring-a-national-policy-framework-for-artificial-intelligence
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: executive order national policy framework AI state law preemption task force (whitehouse.gov, justice.gov, federalregister.gov)
+========================================================================
+
+Search-tool extract: Executive Order 14365 (signed 11 December 2025; Federal Register 16 December 2025) directs the Attorney General to establish an AI Litigation Task Force whose sole responsibility is to challenge State AI laws inconsistent with the order's policy, including on preemption and interstate-commerce grounds; directs Commerce to publish within 90 days an evaluation identifying onerous State AI laws; makes States with such laws ineligible for BEAD non-deployment funds to the maximum extent allowed by federal law. A DOJ memo of 9 January 2026 established the Task Force. A 20 March 2026 White House legislative framework recommends that Congress preempt state AI laws that impose undue burdens. Publication of the Commerce evaluation was not found.

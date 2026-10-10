@@ -2,7 +2,7 @@
 // Sources: Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P<NN>.md (P00 = series introduction).
 // Each source has:
 //   # Title                                   (headline on the card)
-//   Post: 1 · Week 1, Tuesday · L1 Foundation models
+//   Post: Post 1 · Week 1 · L1 Foundation models   (never name a weekday)
 //   Caption: one-line footer (what the reader should take away; say "illustrative" where it is)
 //   Source: L1 §1.9 and §1.12                 (where the content comes from in the review)
 //   Format: portrait | square | landscape     (optional; default portrait 1080x1350, LinkedIn's 4:5 feed size)

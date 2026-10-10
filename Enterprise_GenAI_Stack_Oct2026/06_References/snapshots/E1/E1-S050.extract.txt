@@ -1,0 +1,8 @@
+SOURCE ID: E1-S050
+URL: https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Justice Department intervenes xAI lawsuit Colorado
+========================================================================
+
+Search-tool extract: the Justice Department moved to intervene in xAI's lawsuit against Colorado's AI Act, arguing it violates the Equal Protection Clause (page updated 24 April 2026).

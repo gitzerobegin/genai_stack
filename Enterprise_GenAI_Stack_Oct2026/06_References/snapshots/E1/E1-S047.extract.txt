@@ -1,0 +1,8 @@
+SOURCE ID: E1-S047
+URL: https://cppa.ca.gov/announcements/2025/20250923.html
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: CPPA automated decisionmaking technology regulations effective January 1 2026 (cppa.ca.gov)
+========================================================================
+
+Search-tool extract: on 22 September 2025 the regulations were approved by the Office of Administrative Law and filed with the Secretary of State; they took effect 1 January 2026. Businesses that use ADMT to make significant decisions must comply with the ADMT requirements beginning 1 January 2027 (final statement of reasons: 'no later than January 1, 2027'). Businesses subject to risk-assessment requirements begin compliance from 1 January 2026 and by 1 April 2028 submit an attestation and summary of risk-assessment information to the CPPA. Cybersecurity audit requirements phase in between 1 January 2027 and 1 April 2030.

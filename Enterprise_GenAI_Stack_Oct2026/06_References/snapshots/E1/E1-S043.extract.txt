@@ -1,0 +1,8 @@
+SOURCE ID: E1-S043
+URL: https://capitol.texas.gov/tlodocs/89R/billtext/pdf/HB00149F.pdf
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: HB 149 enrolled text Texas sandbox developer deployer (capitol.texas.gov)
+========================================================================
+
+Search-tool extract: the enacted text defines a deployer as 'a person who deploys an artificial intelligence system for use in this state' and a developer as a person who develops an AI system offered, sold, leased or otherwise provided in Texas. The Department of Information Resources runs a regulatory sandbox; per the committee analysis a participant may test and deploy an AI system for not more than 36 months, and the AG or a state agency may still act against a participant that breaches the prohibitions. The enrolled bill summary also mentions disclosure requirements for certain government and health-care users and creation of the Texas Artificial Intelligence Council. Some numbers (cure periods) were reported from introduced or committee versions.

@@ -1,0 +1,8 @@
+SOURCE ID: E1-S015
+URL: https://heydata.eu/en/magazine/eu-product-liability-directive-2024-2853-digital-software-ai
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: new Product Liability Directive software AI systems product
+========================================================================
+
+Search-tool extract (commentary): Directive 2024/2853 counts software as a product regardless of how it is supplied, and AI systems fall within that category; firmware, applications, operating systems and AI systems are covered whether they run on a device, in the cloud or as SaaS. Commercial products built on open-source components are covered. The directive anticipates products that continue to learn after placing on the market.

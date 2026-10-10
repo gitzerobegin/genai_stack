@@ -1,0 +1,8 @@
+SOURCE ID: E1-S046
+URL: https://www.aoshearman.com/en/insights/ao-shearman-on-tech/zooming-in-on-ai-california-evolving-ai-legal-landscape-entering-2026
+ACCESSED: 2026-10-09 (search run; extract file written 2026-10-10 after a session restart)
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: California SB 53 AB 2013 SB 942 AB 853 effective 2026
+========================================================================
+
+Search-tool extract (law-firm and compliance summaries): AB 2013 (Generative AI Training Data Transparency Act) took effect 1 January 2026 and requires developers of generative AI systems to post public summaries of training datasets across 12 categories. SB 53 effective 1 January 2026; AI Transparency Act (SB 942) operative 2 August 2026 after AB 853.
