@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the enterprise GenAI stack graphic from its editable Markdown source.
 
-Source:  Enterprise_GenAI_Stack_Oct2026/08_Graphic/Enterprise_GenAI_Stack_Oct2026.md   (edit this)
+Source:  <PKG>/08_Graphic/<PKG>.md   (edit this)
 Output:  the .html next to it (also hand-editable), then render PNG and PDF with
          NODE_PATH=$(npm root -g) node tools/render_graphic.js <html> <out_basename>
 
@@ -19,9 +19,10 @@ Markdown format (see the file itself):
   ## Source                 one line under the graphic
 """
 import html, json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 
 root = sys.argv[1]; os.chdir(root)
-PKG = "Enterprise_GenAI_Stack_Oct2026"
 MD = sys.argv[sys.argv.index("--md") + 1] if "--md" in sys.argv else os.path.join(PKG, "08_Graphic", PKG + ".md")
 OUT = os.path.splitext(MD)[0] + ".html"
 TIERS = {"Strategic": "s", "Tactical": "t", "Experimental": "e", "Pattern": "p"}
@@ -147,9 +148,9 @@ def build(doc):
     title = inline(doc["title"])
     return ('<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>%s</title>\n<!-- Generated from %s by tools/build_stack_graphic.py. '
             'You can edit this file directly, but the Markdown is the source: re-running the builder overwrites it. -->\n<style>%s</style></head>'
-            '<body><div class="wrap">\n<div class="hdr"><div><div class="kick">The view at end of Q3 2026</div><h1>%s</h1><div class="grule"></div></div><img class="lock" src="veyan_lockup.png" alt="Veyan"></div>\n<div class="sub">%s</div>\n<div class="stats">%s</div>\n<div class="legend">%s</div>\n%s\n'
+            '<body><div class="wrap">\n<div class="hdr"><div><div class="kick">__KICK__</div><h1>%s</h1><div class="grule"></div></div><img class="lock" src="veyan_lockup.png" alt="Veyan"></div>\n<div class="sub">%s</div>\n<div class="stats">%s</div>\n<div class="legend">%s</div>\n%s\n'
             '<div class="foot">%s</div>\n<div class="small"><img src="veyan_mark.png" alt="">%s</div>\n</div></body></html>\n'
-            % (title, os.path.basename(MD), CSS, title, inline(M.get("subtitle", "")), stats, legend, "\n".join(body), "".join(foot), source)), cnt
+            % (title, os.path.basename(MD), CSS, title, inline(M.get("subtitle", "")), stats, legend, "\n".join(body), "".join(foot), source)).replace("__KICK__", html.escape(E["view_label"])), cnt
 
 CSS = """
 :root{--navy:#0B1B33;--teal:#2E6DA4;--teal2:#E8F0F8;--amber:#D4A13A;--ink:#1F2933;--mute:#5B6B7A;--line:#D5DEE6;--bg:#F6F8FA}

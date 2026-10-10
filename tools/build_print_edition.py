@@ -8,7 +8,7 @@ One builder, several books, each described by a config file:
 A config sets the metadata (title, author, ISBNs, blurb), trim size, margins, paper, the source markdown, the front-matter
 file and the output folder.
 
-Writes Enterprise_GenAI_Stack_Oct2026/01_Report/Print/:
+Writes <PKG>/01_Report/Print/:
   Interior.docx         the print interior KDP takes for the paperback (no PDF by default: user decision, 10 October 2026)
   Interior.pdf          only with --pdf (LibreOffice layout, slow): trim size, mirrored margins, recto Part openers, running heads, fonts embedded
   Interior.docx         the same content as an editable Word file (layout features are applied in LibreOffice)
@@ -18,12 +18,14 @@ Writes Enterprise_GenAI_Stack_Oct2026/01_Report/Print/:
   cover.html            the editable cover source (re-render with this script)
 The publishing checklist and the specification notes are in Print/Publishing_Kit.md.
 """
-import json, os, re, shutil, subprocess, sys, zipfile
+import html, json, os, re, shutil, subprocess, sys, zipfile
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG, fill, fill_all
 
 root = sys.argv[1]; os.chdir(root)
 CFG = sys.argv[sys.argv.index("--config") + 1] if "--config" in sys.argv else "tools/print/book.json"
-B = json.load(open(CFG, encoding="utf-8"))
-OUT = B.get("out_dir", "Enterprise_GenAI_Stack_Oct2026/01_Report/Print"); WORK = B.get("work_dir", "work/stageD/print")
+B = fill_all(json.load(open(CFG, encoding="utf-8")))   # {VIEW_LABEL}, {EDITION}, {PKG} ... from edition.json
+OUT = B.get("out_dir", PKG + "/01_Report/Print"); WORK = B.get("work_dir", "work/stageD/print")
 os.makedirs(OUT, exist_ok=True); os.makedirs(WORK, exist_ok=True)
 SRC = B.get("source_md", "work/stageD/Master_Architecture.pandoc.md")
 if not os.path.exists(SRC):
@@ -68,7 +70,7 @@ def make_reference():
 
 # ---------------------------------------------------------------- 2. book markdown
 def esc(s): return s.replace("*", "\\*")
-FRONT = open(B.get("front_md", "tools/print/master_front.md"), encoding="utf-8").read().replace("{evidence_date}", B["evidence_date"])
+FRONT = fill(open(B.get("front_md", "tools/print/master_front.md"), encoding="utf-8").read().replace("{evidence_date}", B["evidence_date"]))
 sys.path.insert(0, "tools")
 from tagfmt import load_index, convert_markdown   # front matter carries claim labels too: format them like the body
 FRONT = convert_markdown(FRONT, *load_index("."))
@@ -192,7 +194,7 @@ def cover_html(pages, mode):
 .front{{position:absolute;left:{bl + tw + spine}in;top:0;width:{tw + bl}in;height:{H}in;font-size:100%}}
 {SMALL if tw < 8 else ""}
 </style></head><body>
-<div class="back"><div class="kick">The view at end of Q3 2026</div><div class="bt">{B["back_title"]}</div><div class="rule"></div>
+<div class="back"><div class="kick">{html.escape(B.get("kicker") or E["view_label"])}</div><div class="bt">{B["back_title"]}</div><div class="rule"></div>
 {blurb}<ul>{pts}</ul><div class="bfoot"><img src="../../../brand/veyan_lockup_white.png"><div class="barcode">Barcode area<br>(left clear for the printer)</div></div></div>
 <div class="spinewrap">{spine_txt}</div>
 {front}
@@ -248,8 +250,8 @@ table{border-collapse:collapse;font-size:.8em;margin:1em 0}td,th{border:1px soli
 img{max-width:100%}.Claim-Label,[data-custom-style="Claim Label"]{font-size:.7em;color:#8792A0}blockquote{border-left:3px solid #D4A13A;margin-left:0;padding-left:1em}""")
     meta = os.path.join(WORK, "epub_meta.yaml")
     open(meta, "w", encoding="utf-8").write(
-        "---\ntitle:\n- type: main\n  text: \"%s\"\n- type: subtitle\n  text: \"%s\"\ncreator:\n- role: author\n  text: \"%s\"\npublisher: \"%s\"\nrights: \"Copyright © %s %s. All rights reserved.\"\nlang: %s\ndate: \"2026-10-09\"\n%s---\n"
-        % (B["title"], B["subtitle"], B["author"], B["publisher"], B["year"], B["copyright_holder"], B["language"],
+        "---\ntitle:\n- type: main\n  text: \"%s\"\n- type: subtitle\n  text: \"%s\"\ncreator:\n- role: author\n  text: \"%s\"\npublisher: \"%s\"\nrights: \"Copyright © %s %s. All rights reserved.\"\nlang: %s\ndate: \"%s\"\n%s---\n"
+        % (B["title"], B["subtitle"], B["author"], B["publisher"], B["year"], B["copyright_holder"], B["language"], E["evidence_iso"],
            ("identifier:\n- scheme: ISBN-13\n  text: \"%s\"\n" % B["isbn_ebook"]) if B.get("isbn_ebook") else ""))
     emd = md.replace(TOC, "")
     emd = re.sub(r'(?ms)^::: \{custom-style="(HalfTitle|BookTitle|BookSubtitle|BookAuthor|BookLogo|ContentsTitle)"\}.*?^:::\n', "", emd)

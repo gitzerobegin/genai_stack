@@ -11,7 +11,9 @@ A desktop with ordinary internet access removes both. Use it to:
 - **resume the pipeline** from the latest checkpoint
 - **re-run any stage from scratch**
 
-`MEMORY.md` records every step taken and `CONTEXT.md` is the project briefing; follow its **House conventions** (layer order L1 → L9, Veyan branding, Mermaid diagrams, the new-baseline framing, "the view at end of Q3 2026", with no diagram-relative content). All agent prompts are in `work/prompts/`.
+`MEMORY.md` records every step taken and `CONTEXT.md` is the project briefing; follow its **House conventions** (layer order L1 → L9, Veyan branding, Mermaid diagrams, the new-baseline framing, the edition label in `edition.json`, with no diagram-relative content). All agent prompts are in `work/prompts/`.
+
+**Which edition?** A desktop gap-fill or re-run improves the **current** edition (`edition.json`: package folder, label, evidence date) and needs no other step: every tool reads the folder and label from that file. If you are producing a **new** edition (a later month, for example December 2026), start it first with `python3 -I tools/new_edition.py . --month 2026-12` and follow `REFRESH_QUARTERLY.md`. Either way, `bash tools/rebuild_all.sh` ends with `tools/check_edition.py`, which lists anything that still names a previous edition.
 
 ## 1. Set-up (once)
 

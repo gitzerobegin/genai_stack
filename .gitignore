@@ -8,6 +8,6 @@ tools/diagrams/node_modules/
 
 # No ZIP and no PDF made from a Word document (user decision, 10 October 2026)
 *.zip
-Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.pdf
-Enterprise_GenAI_Stack_Oct2026/02_Appendix/Product_Technical_Appendix.pdf
+**/01_Report/Master_Architecture.pdf
+**/02_Appendix/Product_Technical_Appendix.pdf
 **/Interior.pdf

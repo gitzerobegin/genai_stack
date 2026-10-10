@@ -9,7 +9,9 @@ For the Word/PDF edition (CP5-1 decision) these become:
   - AJ/Rec/NPV -> a small grey label only (custom-style "Claim Label")
 Fenced code blocks (diagrams) are left untouched.
 """
-import csv, glob, json, os, re
+import csv, glob, json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 
 def load_index(root):
     src = {}
@@ -24,12 +26,12 @@ def load_index(root):
                     if r.get("id"):
                         src[r["id"]] = r
     regs, prods = {}, {}
-    rp = os.path.join(root, "Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json")
+    rp = os.path.join(root, PKG + "/05_Data/regulatory_facts.json")
     if os.path.exists(rp):
         for r in json.load(open(rp, encoding="utf-8")):
             v = r.get("instrument", {})
             regs[r["id"]] = v.get("v") if isinstance(v, dict) else str(v)
-    pp = os.path.join(root, "Enterprise_GenAI_Stack_Oct2026/05_Data/products.json")
+    pp = os.path.join(root, PKG + "/05_Data/products.json")
     if os.path.exists(pp):
         for p in json.load(open(pp, encoding="utf-8")):
             v = p.get("current_name", {})

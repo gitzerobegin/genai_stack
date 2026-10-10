@@ -2,15 +2,17 @@
 """Build the offline interactive explorer (single self-contained HTML file, CP5-3).
 
 Usage: python3 -I tools/build_explorer.py <repo_root>
-Writes Enterprise_GenAI_Stack_Oct2026/04_Explorer/explorer.html
+Writes <PKG>/04_Explorer/explorer.html
 Data: 05_Data/products.json and 05_Data/views.json (seven views: re-weighted score and fit per product, from tools/build_views.py),
       synthesis Parts for the worked example / hypotheses / stacks and the view Parts XIII-XVIII (work/stageE/views/*/view.md), rendered with pandoc.
 A view selector (FS default) re-sorts and re-colours the products by that view's score and fit; the Seven views tab shows the weights and the Part.
 """
 import html, json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 root = sys.argv[1]; os.chdir(root)
-OUT = "Enterprise_GenAI_Stack_Oct2026/04_Explorer"; os.makedirs(OUT, exist_ok=True)
-prods = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/products.json", encoding="utf-8"))
+OUT = PKG + "/04_Explorer"; os.makedirs(OUT, exist_ok=True)
+prods = json.load(open(PKG + "/05_Data/products.json", encoding="utf-8"))
 NAMES = {"L9": "Evaluation & observability", "L8": "Data extraction & ingestion", "L7": "Embeddings & reranking",
          "L6": "Retrieval & knowledge stores", "L5": "Memory", "L4": "Tools, protocols & connectivity",
          "L3": "Agent frameworks & orchestration", "L2": "Inference, serving & model access", "L1": "Foundation models",
@@ -62,11 +64,11 @@ def embed_imgs(h):
         if not os.path.exists(f): return m.group(0)
         im = Image.open(f).convert("RGB"); im.thumbnail((1400, 1800)); buf = io.BytesIO(); im.save(buf, "JPEG", quality=82, optimize=True)
         return 'src="data:image/jpeg;base64,%s"' % base64.b64encode(buf.getvalue()).decode()
-    return re.sub(r'src="(Enterprise_GenAI_Stack_Oct2026/[^"]+\.(?:png|jpg|jpeg))"', sub, h)
+    return re.sub(r'src="(' + re.escape(PKG) + r'/[^"]+\.(?:png|jpg|jpeg))"', sub, h)
 extras = {k: embed_imgs(x) for k, x in extras.items()}
 
 # ---- Seven views (Stage E, Parts XIII-XVIII): re-weighted scores and fit from 05_Data/views.json (tools/build_views.py)
-VJ = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/views.json", encoding="utf-8"))
+VJ = json.load(open(PKG + "/05_Data/views.json", encoding="utf-8"))
 PARTS = {"FS": "Parts I–XII", "TS": "Part XIII", "SW": "Part XIV", "SU": "Part XV", "AT": "Part XVI", "DV": "Part XVII", "AG": "Part XVIII"}
 def view_part(vid):
     f = "work/stageE/views/%s/view.md" % vid
@@ -122,7 +124,7 @@ a{color:var(--strat)}.prose img{max-width:100%;height:auto;background:#fff;borde
 tr.cur td,tr.cur th{background:var(--chip);font-weight:600}tr.pick{cursor:pointer}td.top{color:var(--gold);font-weight:700}
 @media (max-width:760px){main{grid-template-columns:1fr}aside{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line)}section.view{padding:16px}}
 </style></head><body>
-<header><picture><source srcset="__LOCKUPW__" media="(prefers-color-scheme: dark)"><img src="__LOCKUP__" alt="Veyan" style="height:40px"></picture><div><h1>The Enterprise GenAI Stack Explorer</h1><div class="sub">The view at end of Q3 2026 · the new baseline set by this review: __N__ products in 9 layers (L1–L9) and 8 controls (C1–C8) · scores 1–5 on eight criteria, re-weighted for seven views · ⟨VF⟩ verified ⟨R⟩ reported ⟨AJ⟩ judgement ⟨Rec⟩ recommendation ⟨NPV⟩ not publicly verified</div></div>
+<header><picture><source srcset="__LOCKUPW__" media="(prefers-color-scheme: dark)"><img src="__LOCKUP__" alt="Veyan" style="height:40px"></picture><div><h1>The Enterprise GenAI Stack Explorer</h1><div class="sub">__VIEWLABEL__ · the new baseline set by this review: __N__ products in 9 layers (L1–L9) and 8 controls (C1–C8) · scores 1–5 on eight criteria, re-weighted for seven views · ⟨VF⟩ verified ⟨R⟩ reported ⟨AJ⟩ judgement ⟨Rec⟩ recommendation ⟨NPV⟩ not publicly verified</div></div>
 <label class="lenssel" for="lens">View<select id="lens"></select></label>
 <nav class="tabs"><button data-t="products" class="on">Products</button><button data-t="compare">Compare</button><button data-t="views">Seven views</button><button data-t="trace">Worked example</button><button data-t="hyp">Hypotheses</button><button data-t="stacks">Reference stacks</button><button data-t="final">Final stack</button><button id="theme" title="Toggle theme">◐</button></nav></header>
 <main><aside id="nav"></aside><section class="view" id="view"></section></main>
@@ -201,6 +203,6 @@ document.getElementById("theme").onclick=()=>{const r=document.documentElement;r
 render();
 </script></body></html>"""
 page = TEMPLATE.replace("__DATA__", json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")).replace("__EXTRAS__", json.dumps(extras, ensure_ascii=False).replace("</", "<\\/")) \
-               .replace("__NAMES__", json.dumps(NAMES)).replace("__VIEWS__", json.dumps(VIEWS, ensure_ascii=False).replace("</", "<\\/")).replace("__VMETA__", json.dumps(VMETA, ensure_ascii=False)).replace("__LOCKUPW__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_white_small.png", "rb").read()).decode()).replace("__LOCKUP__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_small.png", "rb").read()).decode()).replace("__N__", str(len(rows)))
+               .replace("__NAMES__", json.dumps(NAMES)).replace("__VIEWS__", json.dumps(VIEWS, ensure_ascii=False).replace("</", "<\\/")).replace("__VMETA__", json.dumps(VMETA, ensure_ascii=False)).replace("__LOCKUPW__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_white_small.png", "rb").read()).decode()).replace("__LOCKUP__", "data:image/png;base64," + __import__("base64").b64encode(open("brand/veyan_lockup_small.png", "rb").read()).decode()).replace("__N__", str(len(rows))).replace("__VIEWLABEL__", html.escape(E["view_label"]))
 open(os.path.join(OUT, "explorer.html"), "w", encoding="utf-8").write(page)
 print(len(page), "bytes")

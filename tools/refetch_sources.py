@@ -3,7 +3,7 @@
 
 Run this on a machine with open internet access (e.g. your desktop). For every logged source whose
 access_status is `extract` or `link-only`, it tries a direct fetch with tools/snapshot.py:
-  - PDF  -> saved as an original under Enterprise_GenAI_Stack_Oct2026/06_References/originals/
+  - PDF  -> saved as an original under <PKG>/06_References/originals/
   - HTML -> saved as a text snapshot next to the existing extract (the extract is kept)
 and rewrites the source row (access_status, archive_path) in the CSV it came from.
 Blocked/paywalled responses (401/402/403/429/451) are recorded and NOT worked around.
@@ -13,6 +13,8 @@ Usage:
 Writes work/gapfill/refetch_report.md.  Then run tools/build_dataset.py to rebuild bibliography.xlsx.
 """
 import argparse, csv, glob, json, os, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 
 ap = argparse.ArgumentParser()
 ap.add_argument("root"); ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--limit", type=int, default=0)
@@ -39,7 +41,7 @@ for path in csvs:
         tried += 1
         if a.dry_run:
             report.append("| %s | %s | (dry run) |" % (sid, url)); continue
-        out_dir = "Enterprise_GenAI_Stack_Oct2026/06_References/snapshots/" + sid.split("-")[0]
+        out_dir = PKG + "/06_References/snapshots/" + sid.split("-")[0]
         p = subprocess.run([sys.executable, "-I", "tools/snapshot.py", sid, url, out_dir], capture_output=True, text=True)
         try:
             res = json.loads(p.stdout.strip().splitlines()[-1])

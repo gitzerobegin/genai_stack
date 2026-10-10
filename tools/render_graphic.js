@@ -1,6 +1,6 @@
 // Render the stack graphic HTML to PNG (2x, 3200 px wide) and PDF (single tall page).
 // Usage: NODE_PATH=$(npm root -g) node tools/render_graphic.js <in.html> <out_basename>
-//   e.g. Enterprise_GenAI_Stack_Oct2026/08_Graphic/Enterprise_GenAI_Stack_Oct2026.html  Enterprise_GenAI_Stack_Oct2026/08_Graphic/Enterprise_GenAI_Stack_Oct2026
+//   e.g. <package>/08_Graphic/<package>.html  <package>/08_Graphic/<package>   (package from edition.json)
 const { chromium } = require("playwright");
 const path = require("path");
 (async () => {
