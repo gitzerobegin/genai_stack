@@ -1,6 +1,6 @@
 # Stage A integrity report
 
-Products: 140 · Regulatory records: 27 · Sources: 1345
+Products: 140 · Regulatory records: 27 · Sources: 1367
 
 ## Products per layer
 
@@ -31,19 +31,19 @@ Products: 140 · Regulatory records: 27 · Sources: 1345
 
 ## Source access status
 
-- extract: 866
-- snapshot: 477
+- extract: 884
+- snapshot: 481
 - link-only: 2
 
 ## Source types
 
-- primary-docs: 795
-- primary-announcement: 254
+- primary-docs: 809
+- primary-announcement: 257
 - regulatory: 118
 - primary-trust-centre: 69
-- secondary-news: 60
-- independent-technical: 24
-- secondary-aggregator: 18
+- secondary-news: 61
+- independent-technical: 25
+- secondary-aggregator: 21
 - regulator: 3
 - primary-vendor-page: 2
 - primary-registry: 1

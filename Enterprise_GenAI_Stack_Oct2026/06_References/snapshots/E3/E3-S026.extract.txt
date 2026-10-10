@@ -1,0 +1,11 @@
+SOURCE ID: E3-S026
+URL: https://cursor.com/security
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cursor enterprise security docs privacy mode SOC 2 SCIM audit logs cloud agents
+========================================================================
+
+Search-tool summary of cursor.com/security and cursor.com/help/security-and-privacy/compliance:
+- Cursor's security page lists AIUC-1, ISO/IEC 27001:2022 and ISO/IEC 42001:2023 certifications, along with a SOC 2 Type II attestation.
+- The Trust Center hosts security documents, including the SOC 2 Type II report, a penetration test report and the DPA.
+- No self-hosted deployment option was described in any result.

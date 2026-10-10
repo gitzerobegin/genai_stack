@@ -1,0 +1,11 @@
+SOURCE ID: E3-S058
+URL: https://www.anthropic.com/news/expanded-legal-protections-api-improvements
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Anthropic commercial terms indemnity; OpenAI service terms indemnification Copyright Shield
+========================================================================
+
+Search-tool summary of anthropic.com/news/expanded-legal-protections-api-improvements and Anthropic Commercial Terms PDFs (Bedrock, Dec 2023; Vertex, March 2024):
+- Anthropic's Commercial Terms of Service protect customers from copyright infringement claims and let them retain ownership of outputs; Anthropic defends customers against copyright claims tied to authorised use of its services or outputs and pays approved settlements or judgments.
+- The 2024 Commercial Terms PDFs extend coverage to patent, trade secret and trademark claims, excluding claims from customer modifications, combinations with non-Anthropic technology, customer-provided prompts and knowing infringing use.
+- These are 2024-era documents; current version not confirmed in results.

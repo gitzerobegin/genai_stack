@@ -1,0 +1,14 @@
+SOURCE ID: E2-S039
+URL: https://docs.cloud.google.com/marketplace/docs/partners/ai-agents
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Google Cloud AI agent marketplace launch Gemini Enterprise agent gallery partner agents validated A2A requirements
+========================================================================
+
+Search tool summary (results: docs.cloud.google.com/marketplace/docs/partners/ai-agents and localised copies; cloud.google.com/blog/topics/partners/google-cloud-ai-agent-marketplace; optimizely.com partner write-up; unofficial readthedocs page not relied on). docs.cloud.google.com direct fetch blocked.
+- Each agent offered through Cloud Marketplace needs an Agent Card aligned to the A2A Agent Card specification, stored as a JSON file in Cloud Storage.
+- The agent must be discoverable through primary Google surfaces such as Gemini Enterprise, use Google or third-party models hosted in Model Garden by default, and support multi-agent interoperability through A2A.
+- Agents using A2A must not include professional services, hardware or other non-software components billed through the Marketplace.
+- Pricing (docs summary): free (customer pays only for Cloud resources) or flat monthly subscription.
+- Listing: create the Agent Card, then build a listing in the Producer Portal and submit for review; once published, customers add the agent to Gemini Enterprise.
+- Partner example: Optimizely Opal described as one of the first A2A-validated agents in Gemini Enterprise, sold through Google Cloud Marketplace.

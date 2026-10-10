@@ -1,0 +1,12 @@
+SOURCE ID: E3-S046
+URL: https://docs.devin.ai/enterprise/security-access/sso/guide
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Devin docs enterprise SSO SAML audit logs data retention training
+========================================================================
+
+Search-tool summary of docs.devin.ai/enterprise/security-access/sso/guide, docs.devin.ai/desktop/accounts/sso-scim, docs.devin.ai/api-reference/overview and devin.ai/enterprise:
+- Devin Enterprise supports SSO with Okta, Microsoft Entra ID, SAML and generic OIDC; IdP group configuration. Devin Desktop docs: SSO and SCIM set-up page exists; IdP-initiated SSO is not currently supported.
+- The SSO guide recommends login-based provisioning plus the V3 API to script invites and removals (rather than SCIM) for Devin.
+- Enterprise audit logs are available through the API at enterprise scope; every login is recorded.
+- devin.ai/enterprise (marketing): "zero data retention enforced with model providers", "no training on enterprise customer data", "custom retention policies".

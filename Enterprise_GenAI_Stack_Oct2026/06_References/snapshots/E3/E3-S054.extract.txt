@@ -1,0 +1,13 @@
+SOURCE ID: E3-S054
+URL: https://ampcode.com/manual
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Amp coding agent manual models AGENTS.md MCP threads data retention
+========================================================================
+
+Search-tool summary of ampcode.com/manual, ampcode.com/security, ampcode.com/news/AGENT.md and ampcode.com/docs/sdk/python:
+- Models: the manual's introduction says Amp uses GPT-5.6, Claude Fable 5.1 and fast models, choosing each model for what it does best (vendor-selected). Another page says Amp uses Gemini 3 for code review and image generation and GPT-5.4 for the "oracle".
+- Interfaces: web (ampcode.com, no install): start a thread and Amp works in an "orb", a machine it creates for that thread. (CLI and editor extension details not returned.)
+- Amp reads AGENTS.md (following the AGENTS.md convention); if no AGENTS.md exists in a directory, Amp reads CLAUDE.md.
+- MCP: the manual has an MCP section; the Python SDK accepts MCP server configs (stdio and HTTP).
+- Thread data includes user messages, LLM responses, code snippets/files used as context, tool call results and attachments; when a thread is explicitly deleted, its data is removed within 30 days. A newer post says Amp extended its zero and minimal data retention policy to all users and workspaces, not just Enterprise.

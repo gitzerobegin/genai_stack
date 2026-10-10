@@ -1,0 +1,12 @@
+SOURCE ID: E2-S048
+URL: https://www.bakertilly.com/insights/aicpa-releases-updated-soc-2-guide
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: AICPA SOC 2 Trust Services Criteria revised points of focus 2022 SOC for service organizations aicpa-cima.com
+========================================================================
+
+Search tool summary (results: bakertilly.com; mossadams.com 2022/11; aafcpa.com 21 July 2023; barradvisory.com; trustnetinc.com; hyperproof.io; ey.com technical line 2 November 2022). AICPA's own page not returned; aicpa-cima.com direct fetch blocked.
+- AICPA issued an updated SOC 2 guide on 15 October 2022 with revised points of focus for the Description Criteria and Trust Services Criteria; titled "2017 Trust Services Criteria ... (With Revised Points of Focus - 2022)".
+- The criteria themselves did not change: Trust Services Criteria date from 2017 and Description Criteria from 2018; only points of focus were revised.
+- Themes: changing technology, threats and vulnerabilities; evolving privacy law; data management (confidentiality); distinguishing controller vs processor privacy points.
+- Sources disagree on how binding points of focus are (guidance vs must be considered).

@@ -1,0 +1,11 @@
+SOURCE ID: E3-S047
+URL: https://www.jetbrains.com/ide-services/ai-enterprise/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: JetBrains Junie enterprise JetBrains AI Enterprise on-premises bring your own model data retention SOC 2
+========================================================================
+
+Search-tool summary of jetbrains.com/ide-services/ai-enterprise/ and blog.jetbrains.com/ai/2025/08/a-simpler-more-transparent-model-for-ai-quotas/:
+- AI Enterprise lists on-premises, cloud or hybrid deployment, and connecting preferred AI providers directly using BYOK; zero data retention listed as a feature; SOC 2 attestation described.
+- August 2025 JetBrains blog: Junie is included in the AI Enterprise plan, along with a BYOK option.
+- November 2025 blog: BYOK for individual JetBrains AI users (keys stored on the user's machine) was "coming soon", targeted by year-end; rollout completion not confirmed.

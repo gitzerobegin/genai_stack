@@ -1,0 +1,10 @@
+SOURCE ID: E3-S038
+URL: https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Google Antigravity enterprise Google Cloud launch Antigravity CLI Jules
+========================================================================
+
+Search-tool summary of developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/ and antigravity.google/blog/introducing-google-antigravity-cli/:
+- Antigravity CLI is the terminal product and syncs with the Antigravity 2.0 desktop application.
+- Enterprise customers keep their existing Gemini CLI access; from 18 June 2026 Gemini CLI and Gemini Code Assist IDE extensions stop serving requests for Google AI Pro and Ultra users.

@@ -1,0 +1,239 @@
+SOURCE ID: E2-S037
+URL: https://cloud.google.com/blog/topics/partners/google-cloud-ai-agent-marketplace
+FINAL URL: https://cloud.google.com/blog/topics/partners/google-cloud-ai-agent-marketplace
+TITLE: Google Cloud AI Agent Marketplace | Google Cloud Blog
+ACCESSED: 2026-10-10
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+Google Cloud AI Agent Marketplace | Google Cloud Blog
+Jump to Content
+Cloud
+Blog
+Contact sales 
+Get started for free 
+Cloud
+Blog
+Contact sales 
+Get started for free 
+Partners
+Scaling AI agents with Google Cloud Marketplace and Gemini Enterprise
+October 14, 2025
+Pritish Sinha
+Senior Product Manager, Google Cloud
+Oliver Schulz
+Business Development Manager, Google Cloud Marketplace
+Try Gemini today
+The front door to AI in the workplace
+Try now 
+Your team wants to deploy AI agents, and you’re probably wondering: Will they work together? Can we control the costs? How do we maintain security standards? These are important questions that every enterprise faces when adopting new AI technolog
+y. 
+Google Cloud Marketplace
+
+gives you a proven path forward, whether you need to build custom AI agents, buy pre-built solutions for faster deployment, or find something tailored in between.
+
+Google Cloud Marketplace connects you with thousands of pre-vetted AI agents from established agent builders and partners which have been validated to integrate with 
+Gemini Enterprise
+. The marketplace gives leaders more control, better governance, predictable OpEx pricing models, and faster time-to-value through simplified procurement and deployment. 
+
+For agent builders, Google Cloud Marketplace offers global reach, channel sales capabilities, and co-selling opportunities with Google Cloud. This model helps agent builders monetize their AI innovations through Google Cloud's global distribution. A recently commissioned 
+Futurum Research study
+ shows that technology vendors selling through Google Cloud Marketplace see 112% larger deal sizes, longer sales agreements, faster deal cycles, and improved customer retention. 
+
+For customers: Deploy enterprise-ready AI agents quickly and easily
+
+Google Cloud Marketplace gives enterprises access to specialized, ready-to-use AI agents and agent tools. Teams can use Gemini-powered natural language search to 
+discover partner-built agents
+ that have been validated by Google Cloud for A2A and Gemini Enterprise integration.
+
+Find and purchase efficiently:
+ Customers can source high-quality and validated AI agents for their use cases from a growing ecosystem of agent builders, evaluate their capabilities, and purchase them through Google Cloud Marketplace using their existing Google Cloud account for simplified procurement and consolidated billing.  
+Employees can browse the 
+AI agent finder
+ to discover agents which match their specific use cases. For agents that have been validated for Gemini Enterprise, employees can follow their organization's standard process to request that their IT administrator procure the agents via Google Cloud Marketplace and add them to their Agent Gallery.
+
+Quick and secure setup:
+ After purchasing, administrators can immediately register new agents in their Gemini Enterprise environment. Integration is secure and managed through standard cloud protocols.
+
+Enterprise-grade governance:
+ Administrators can manage which agents can be deployed and accessed through Gemini Enterprise according to their policies.
+
+If administrators want to manage access and cost control for third-party agents along with other Google Cloud Marketplace solutions, such as datasets, agent tools, infrastructure and SaaS solutions, they can continue to do so through 
+Identity and Access Management (IAM)
+ and 
+Private Marketplace
+ capabilities.
+
+For partners: Reach enterprise customers faster
+
+For partners, making AI agents available in Gemini Enterprise creates an additional go-to-market approach where enterprise customers can adopt partner-built solutions securely and reliably. We’ve simplified partner onboarding for AI agents as a service, letting builders focus on innovation while Google Cloud Marketplace handles the transactions. The setup is straightforward.
+
+Simplified onboarding with the Agent Cards:
+ Getting started requires only a link to your Agent Card - a standard JSON file based on the Agent2Agent (A2A) protocol. Google Cloud Marketplace automatically ingests the agent's metadata, capabilities, and endpoints, significantly reducing listing process complexity.
+
+Clear agent validation framework: 
+Google Cloud has also enhanced our 
+AI agent ecosystem program
+, providing a clear framework for partners to validate that their agents use A2A and Gemini. We’ve also introduced the new "Google Cloud Ready - Gemini Enterprise" designation to recognize agents that meet our highest standards for performance and quality, helping accelerate adoption of trusted solutions and giving partners a new path to commercialize their agents.
+
+Flexible monetization:
+ Partners can choose the business model that works best for their customer use cases. Options include self-serve agents with standard subscription-based pricing, usage-based pricing or custom pricing through 
+Private Offers
+. Partners can also position agents as extensions to their existing SaaS platforms, offering them to customers with appropriate entitlements. Outcome-based pricing models are also supported, allowing partners to monetize based on business outcomes, such as number of anomalies detected, reports generated, customer support tickets resolved, and more.
+
+Automated entitlement and billing
+: When customers make a purchase, the platform instantly notifies partner systems of new entitlements through automated Pub/Sub notifications and the 
+Cloud Commerce Partner Procurement API
+. This enables automatic customer provisioning and user access authorization without manual intervention.
+
+Leading companies building AI agents today
+
+Here are some of the leading companies building AI agents for Gemini Enterprise. These partners represent different industries and use cases, showing the breadth of solutions already available to enterprise customers.
+
+Amplitude: 
+Amplitude AI Agents
+ work 24/7 as extensions of product, marketing, and data teams—analyzing behavior, proposing experiments, optimizing experiences, and tracking impact with speed and confidence.
+
+Avalara:
+
+Avalara Agentic Tax and Compliance™
+ automates compliance across the business ecosystem. Avi, an always-on Avalara Agent for compliance, goes beyond assisting to doing the work; observing, advising, and executing within the environments where business happens. 
+
+Box:
+
+The 
+Box AI Agent
+ lets users ask questions, summarize complex documents, extract data from files, and generate new content while respecting existing permissions in Box. 
+
+CARTO:
+
+CARTO’s Site Selection for Gemini Enterprise agent
+
+aids the analysis and comparison of physical commercial sites for retail, real estate, finance, and other businesses looking to expand or manage their real-world footprint.
+
+Cotality:
+
+Cotality’s Payoff Analysis AI Agent
+ empowers mortgage lenders and servicers to strengthen retention strategies and reduce portfolio runoff. It leverages origination and payoff data to deliver instant intelligence on 
+loan transactions and subsequent activities, competitor wins, 
+and recapture performance.
+
+Dun & Bradstreet:
+
+Dun & Bradstreet’s 
+Look Up agent
+ uses the globally trusted D-U-N-S® Number and advanced identity resolution to identify and match entities across internal and third-party sources and deliver a unified view of business relationships, enabling accurate, efficient data integration across enterprise workflows like marketing, sales, compliance, and risk management.
+
+Dynatrace: 
+Dynatrace’s
+ A2A integration connects its observability platform via the A2A protocol, enabling advanced analysis and automated incident response. It unifies Dynatrace AI with an organization’s chosen agents to accelerate problem remediation and prevention, while automatically optimizing cloud environments.
+
+Elastic:
+
+The 
+Elastic AI Agent
+
+provides fast, high-quality retrieval across structured and unstructured data. It helps analyze large volumes of records, technical support issues, security incidents or alerts to accelerate outcomes for investigation tasks. Uncover threats, find emerging product issues, and understand customer trends through the Elastic AI Agent.
+
+Fullstory:
+
+Fullstory's internal workflow agent
+ analyzes and quantifies gaps in organizations’ business processes and software workflows to help determine the most impactful fixes. Through pinpointing where employees face the highest friction, Fullstory’s agent shows teams exactly where to deploy AI to cut costs and boost productivity.
+
+HCLTech:
+
+HCLTech Netsight AI Agent
+ on Google Cloud delivers virtual network troubleshooting for RAN networks providing autonomous analysis to identify network anomalies, root cause, and bottlenecks. Netsight analyzes data in near real time and combines configuration data, performance analysis, and historical trend data to proactively address issues and improve network performance. 
+
+HubSpot:
+
+The 
+HubSpot Academy Agent
+ is an AI-powered assistant that brings HubSpot knowledge and documentation directly into Gemini Enterprise. By making trusted, source-linked guidance instantly accessible, it helps users get answers, learn best practices, and work with confidence in HubSpot.
+
+Invideo: 
+Invideo's 
+Video AI
+ lets
+ users 
+create videos of any length and type using just prompts. Its multi-agent system assigns specialized AI agents to every stage of production, optimizing creation and ensuring coherent output. Marketers and content creators can now produce videos that look like million-dollar productions, effortlessly and with confidence.
+
+Manhattan Associates:
+ The Solution Navigator agent provides instant answers on Manhattan Active solutions, policies, and operations to accelerate response times and efficiency.
+
+Optimizely: 
+Optimizely Opal, available on the 
+Google Cloud Marketplace
+, is the agent orchestration platform built for marketers—connecting data, content, and workflows to power intelligent automation across the Optimizely ecosystem. With pre-built and custom agents, drag-and-drop workflow design, and Gemini-powered reasoning, Opal helps teams scale marketing performance faster, with greater precision.
+
+Orion by Gravity:
+ A proactive AI analyst for enterprises. Business users can ask 
+Orion
+ any question, and behind the scenes it runs deep, multi-agent analysis. Accurate, context-aware, and proactive, Orion detects anomalies, surfaces insights, and even asks its own questions - delivering faster, smarter decisions
+.
+
+Pegasystems: 
+Pega Self Study Agent 
+enables enterprises to unlock insights from Pega technical documentation and enablement directly in Gemini Enterprise, allowing Pega enthusiasts to quickly get the answers needed to build, manage, and troubleshoot their applications. This provides real-time access to Pega's publicly available technical documentation, learning course, marketing, and enablement.
+
+Quantiphi:
+
+Quantiphi's sQrutinizer
+ is an agentic intent optimization framework that supercharges Conversational Agent performance. A semi-automated workbench monitors fallbacks and false-positives, retraining the agent in a closed-loop system. This helps customer experience teams proactively enhance accuracy and unlock the full potential of the
+ir Google Cloud agents.
+
+Quantum Metric: 
+Felix AI
+ Agentic
+
+acts as a 24/7 digital analyst, turning fragmented customer data into clear answers and next steps for every employee.
+
+S&P Global:
+
+The 
+Data Retrieval agent
+ helps users analyze earnings calls, perform market research, and retrieve financial metrics–all with direct source citations. 
+
+Supermetrics: 
+The 
+Supermetrics Marketing Intelligence Agent
+ facilitates deep, cross-channel data exploration and analysis. It simplifies your marketing data so that anyone can search, explore, and find the answers they need.
+
+Trase Systems: 
+The 
+Trase AI Agent Platform
+ tactically delivers and implements end-to-end AI agent applications to automate complex administrative workflows. Trase replaces manual, repetitive processes with autonomous AI agents that are highly secure, audit-ready, and proven to deliver measurable ROI through a shared savings model.
+
+UiPath: 
+UiPath multi-agent 
+capabilities power seamless collaboration among intelligent agents to automate complex processes. The Medical Record Summarization agent extracts and structures medical data and leverages the A2A protocol. UiPath will extend A2A integration across all agents in its orchestrator, enhancing scalability, efficiency, and human-in-the-loop decision-making.
+
+Get started
+
+The way enterprises deploy AI is changing rapidly. Google Cloud Marketplace represents an important step in building a trusted ecosystem where AI agents and agent tools work together reliably for enterprise use. 
+
+Looking for AI agents? Search for agents in our 
+discovery tool.
+
+Ready to sell agents through Google Cloud Marketplace? 
+Get started today.
+
+Interested in building Google Cloud Ready - Gemini Enterprise agents? Learn about our enhanced 
+AI Agent Program
+ and reach customers globally. 
+Posted in
+Partners
+AI & Machine Learning
+Related articles
+Data Analytics
+Modernizing Unstructured Data Workflows: Alteryx Live Query meets Google Cloud BigQuery
+By Kira Droganova • 7-minute read
+Partners
+How Box is unlocking multimodal enterprise agents with Gemini Embeddings 2
+By Sandhya Patil • 6-minute read
+Partners
+Accelerating automotive innovation with C4A-metal and Panasonic Automotive vSkipGen
+By Yarden Halperin • 5-minute read
+AI & Machine Learning
+Claude at scale on Google Cloud: Frontier AI, built for enterprise production
+By Schneider Larbi • 7-minute read

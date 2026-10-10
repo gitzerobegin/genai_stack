@@ -1,0 +1,13 @@
+SOURCE ID: E2-S042
+URL: https://aws.amazon.com/aws-startups/learn/applying-for-aws-activate-credits-a-step-by-step-guide
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: AWS Activate credits up to 100,000 eligibility startups founded funding Activate Founders Portfolio aws.amazon.com/startups/credits
+========================================================================
+
+Search tool summary (results: aws.amazon.com/aws-startups/learn/applying-for-aws-activate-credits-a-step-by-step-guide; aws.amazon.com/startups/lp/activate-benefits-overview; aws.amazon.com/de/activate/founders/; aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits; startups.aws.com copy of the same article; third-party guptadeepak.com, wring.co, startupgrantsindia.com not relied on). aws.amazon.com direct fetch blocked.
+- Portfolio tier: AWS applying guide and benefits pages give up to US$200,000 in credits for provider-backed start-ups. AWS's "everything you need to know" article says US$100,000 on one aws.amazon.com version and US$200,000 on the startups.aws.com copy (AWS materials inconsistent).
+- Additional AWS credits above US$200,000 are available for AI start-ups ready to scale beyond Activate's tiers.
+- Portfolio eligibility: affiliation with an Activate Provider (VC, accelerator, incubator) and its Organization ID; pre-Series B (most recent funding round within the last 12 months, if applicable); working company website; founded within the past 10 years.
+- Founders tier (no affiliation): US$1,000 in Activate credits; select start-ups may qualify for up to US$5,000 over time; requires an AWS account on a Paid Tier plan.
+- Credits usually expire within 1-2 years depending on the package.

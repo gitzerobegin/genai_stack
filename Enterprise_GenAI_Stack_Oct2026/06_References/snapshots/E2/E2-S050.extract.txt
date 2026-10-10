@@ -1,0 +1,11 @@
+SOURCE ID: E2-S050
+URL: https://aws.amazon.com/blogs/machine-learning/multi-tenant-rag-with-amazon-bedrock-knowledge-bases/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: AWS prescriptive guidance multi-tenant generative AI SaaS tenant isolation Amazon Bedrock RAG whitepaper
+========================================================================
+
+Search tool summary (results: aws.amazon.com/blogs/machine-learning/multi-tenant-rag-with-amazon-bedrock-knowledge-bases/; aws.amazon.com/blogs/machine-learning/building-multi-tenant-agents-with-amazon-bedrock-agentcore/ (mirrored 22 May 2026); third-party truto.one and hidekazu-konishi.com). No AWS Prescriptive Guidance document on multi-tenant generative AI was returned. aws.amazon.com direct fetch blocked.
+- Multi-tenant RAG post: three patterns (silo, pool, bridge) using Amazon Bedrock Knowledge Bases, Amazon S3 and OpenSearch Service, building on AWS's SaaS Tenant Isolation Strategies whitepaper. Silo gives the highest isolation (each tenant its own data source, e.g. a separate S3 bucket, allowing per-tenant KMS keys and lifecycle policies; entire stack per tenant).
+- Multi-tenant agents with AgentCore post: the pool model uses shared vector databases with metadata-based tenant filtering and namespace-based access control, cost-efficient for many small-to-medium tenants; retrieval should include automatic tenant filter injection and result sanitisation to help prevent cross-tenant data leakage.
+- Third-party (not AWS): where no hard boundary exists (shared pool knowledge base with code-set tenant filter), treat it as a logical boundary and compensate with defence in depth and continuous verification.

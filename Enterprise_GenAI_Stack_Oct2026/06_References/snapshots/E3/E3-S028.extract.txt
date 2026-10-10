@@ -1,0 +1,10 @@
+SOURCE ID: E3-S028
+URL: https://cursor.com/docs/cloud-agent/security
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cursor enterprise security docs privacy mode SOC 2 SCIM audit logs cloud agents
+========================================================================
+
+Search-tool summary of cursor.com/docs/cloud-agent/security (indexed at prod.cursor.com/docs/cloud-agent/security):
+- Cloud agent sessions are logged, admins can review activity from the dashboard, and every commit and pull request an agent creates is attributed in Git history.
+- Customer Managed Encryption Keys (CMEK): encrypt Cloud Agent data with your own keys.

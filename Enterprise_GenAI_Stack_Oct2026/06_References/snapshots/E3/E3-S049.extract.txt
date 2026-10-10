@@ -1,0 +1,9 @@
+SOURCE ID: E3-S049
+URL: https://blog.jetbrains.com/junie/2026/08/junie-local-launch/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: JetBrains Junie enterprise JetBrains AI Enterprise on-premises bring your own model data retention SOC 2
+========================================================================
+
+Search-tool summary of blog.jetbrains.com/junie/2026/08/junie-local-launch/:
+- Junie Local is a free, on-device option on Mac that keeps prompts, source and diffs on the user's hardware; requires specific hardware and is limited to one model.

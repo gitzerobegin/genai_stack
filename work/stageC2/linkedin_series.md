@@ -952,7 +952,7 @@ Forgetting is a feature. In a regulated firm, it has to be engineered.
 
 #### Fallback version
 
-Memory is the layer I would deliberately build last. What an agent remembers is a governance question before it is a technical one, and it is the layer worth building last.
+Memory is the layer I would deliberately build last. What an agent remembers is a governance question before it is a technical one.
 
 Memory is the one part of the stack that writes its own inputs. A mistaken "fact" extracted from one conversation can be recalled in hundreds of later ones. A stale preference can override a newer instruction. An injected instruction that lands in memory keeps working long after the original input has gone, which is why the OWASP list for agentic applications now names memory and context poisoning as a risk of its own.
 

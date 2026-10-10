@@ -1,0 +1,13 @@
+SOURCE ID: E2-S054
+URL: https://docs.mistral.ai/getting-started/models/weights
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Mistral Research License MRL non-production weights docs.mistral.ai models licenses Apache 2.0 list open models
+========================================================================
+
+Search tool summary (results: docs.mistral.ai/getting-started/models/weights; simonwillison.net Mistral tag pages and 30 May 2024 Codestral note; aiwiki.ai Mistral Large; yahoo news). docs.mistral.ai direct fetch blocked; the docs page may predate late-2025 releases.
+- Apache 2.0 (no usage constraints): Mistral 7B, Mixtral 8x7B, Mixtral 8x22B, Codestral Mamba, Mathstral, Mistral Nemo, Pixtral 12B, Mistral Small, Magistral Small, Devstral Small.
+- Mistral AI Non-Production License (MNPL): Codestral; use restricted to testing, research, personal or evaluation purposes in non-production environments.
+- Mistral Research License (MRL): Ministral 8B, Mistral Large, Pixtral Large; commercial deployment requires a separately negotiated commercial licence.
+- Mistral (quoted by Simon Willison): "renewing our commitment to using Apache 2.0 license for our general purpose models, as we progressively move away from MRL-licensed models".
+- Conflict: a wiki source says Mistral Large 3 (2 December 2025) is Apache 2.0, contradicting the docs page's MRL listing for "Mistral Large" (older generation).

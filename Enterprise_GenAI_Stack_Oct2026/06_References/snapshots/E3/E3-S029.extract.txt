@@ -1,0 +1,13 @@
+SOURCE ID: E3-S029
+URL: https://cursor.com/blog/joining-spacex
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cursor blog SpaceX Anysphere acquisition joining SpaceX
+========================================================================
+
+Search-tool summary of cursor.com/blog/joining-spacex (blog index date 14 August 2026), with SpaceX SEC filings (sec.gov EDGAR CIK 1181412: S-1, S-1/A, free-writing prospectus, Q2 2026 earnings release):
+- Cursor's announcement says it has officially been acquired by SpaceX; dated 14 August 2026 on the Cursor blog index. It describes the deal as the end of a process that began in April 2026, when Cursor and SpaceXAI announced a partnership to accelerate model training.
+- SpaceX's SEC filings value the deal at US$60 billion; the April arrangement gave SpaceX the option to acquire for US$60 billion or pay a US$10 billion breakup fee. The Q2 2026 SpaceX earnings release said the company expected to close in Q3 2026.
+- Cursor says it will get access to SpaceX's GPU fleet and points to Grok 4.6 as an early example of joint work; SpaceX's filing says Grok 4.5 was trained alongside Cursor.
+- Separately, xAI joined SpaceX (x.ai/news/xai-joins-spacex, 2 February 2026).
+- Secondary reports (aggregators) say the deal was signed 16 June 2026 and closed 14 August 2026, all-stock; not verified against a primary filing.

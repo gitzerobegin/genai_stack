@@ -1,0 +1,13 @@
+SOURCE ID: E2-S055
+URL: https://www.noze.it/en/insights/gemma-new-release/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: Gemma 4 Apache 2.0 license change Gemma Terms of Use no longer prohibited use policy Gemma 3
+========================================================================
+
+Search tool summary (results: noze.it EN/IT; levelup.gitconnected.com; betanews.com topic page; coderhouse.com explainers).
+- Gemma 4 ships under Apache 2.0, dropping the custom Gemma Terms of Use that governed previous Gemma versions.
+- Developer commentary: no "subject to Google's usage policy" condition under Apache 2.0 for Gemma 4.
+- BetaNews quotes Google framing the change around well-understood terms for modification, reuse and further development.
+- Derivatives must keep Google's original copyright notice (Apache 2.0 notice duty); Google retains copyright.
+- Release date given as 2 April 2026 in one commentary.

@@ -1,0 +1,13 @@
+SOURCE ID: E3-S055
+URL: https://docs.tabnine.com/main/welcome/readme/architecture/deployment-options
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Tabnine enterprise air-gapped self-hosted deployment Kubernetes bring your own model
+========================================================================
+
+Search-tool summary of docs.tabnine.com/main/welcome/readme/architecture/deployment-options, docs.tabnine.com/main/administering-tabnine/private-installation, docs.tabnine.com/main/welcome/readme/privacy, and Tabnine blog posts on air-gapped deployment and NVIDIA NIM:
+- Deployment: VPC, on-premises and fully air-gapped private installations; on-prem and VPC options run as Kubernetes clusters in the customer's environment and Tabnine does not have access to the customer environment. Enterprise SaaS also offered (client setup docs reference Private/Enterprise-SaaS).
+- Air-gapped: metrics can be sent to a Prometheus server and logs to the customer's log aggregator.
+- Tabnine describes itself as model-agnostic ("use any set of LLMs and SLMs within your secure environment"); integrated NVIDIA NIM microservices; air-gapped Dell AI Factory environments listed among hardware options. Marketing claims each suggestion traces to a known model version with verified hash (vendor claim).
+- Tabnine named a Visionary in the 2026 Gartner Magic Quadrant for Enterprise AI Coding Agents (vendor blog).
+- No IP indemnification, SOC 2 or ISO 27001 statement returned.

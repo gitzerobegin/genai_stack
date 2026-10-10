@@ -1,0 +1,11 @@
+SOURCE ID: E3-S044
+URL: https://docs.devin.ai/enterprise/deployment/overview
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Devin enterprise VPC deployment SOC 2 Cognition Windsurf
+========================================================================
+
+Search-tool summary of docs.devin.ai/enterprise/deployment/overview, docs.devin.ai/enterprise/deployment/dedicated_saas_private_networking and devin.ai/pricing:
+- Customer Dedicated Deployment: Cognition hosts Devin in an auto-scaling, customer-isolated environment within a single-tenant VPC; the customer's VPC links to it through AWS PrivateLink or an IPSec tunnel.
+- Pricing materials list "Deploy in your virtual private cloud (VPC)" as an Enterprise feature.
+- The dedicated-deployment page does not describe an on-premises option.

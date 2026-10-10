@@ -1,0 +1,11 @@
+SOURCE ID: E3-S056
+URL: https://www.tricentis.com/news/tricentis-acquires-tabnine
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Tricentis acquires Tabnine announcement date 2026
+========================================================================
+
+Search-tool summary of tricentis.com/news/tricentis-acquires-tabnine and Business Wire (20260730388427):
+- Press release dated Austin, Texas, 30 July 2026: Tricentis acquires Tabnine.
+- Tricentis plans to integrate Tabnine's Enterprise Context Engine (which builds a knowledge graph of a company's systems) into the Tricentis Agentic Quality Engineering Platform.
+- Trade coverage (GovConWire) reports the deal as finalised. Financial terms not disclosed in results.

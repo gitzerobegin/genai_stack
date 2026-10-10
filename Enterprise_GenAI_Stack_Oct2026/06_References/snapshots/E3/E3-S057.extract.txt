@@ -1,0 +1,12 @@
+SOURCE ID: E3-S057
+URL: https://trust.tabnine.com/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Tabnine trust center SOC 2 ISO 27001 IP indemnification no training on customer code
+========================================================================
+
+Search-tool summary of trust.tabnine.com, docs.tabnine.com/main/welcome/readme/security, tabnine.com/enterprise (plans and pricing), tabnine.com/platform-cli and docs.tabnine.com/.../provenance-and-attribution:
+- Trust Center lists GDPR, ISO 9001:2015, ISO/IEC 27001 and SOC 2 as compliance items (Type not specified on the Trust Center; a Tabnine comparison page says SOC 2 Type 2).
+- Security docs: Tabnine SaaS uses AWS and GCP. Deployment options: SaaS, VPC, on-premises or fully air-gapped.
+- Tabnine says its proprietary models were trained exclusively on permissively licensed code; an inference-time provenance check identifies the source repo and licence when output matches public GitHub code.
+- Pricing page: "IP indemnification - subject to terms and conditions"; "no storage, no training on your code, no sharing with third parties". CLI page: zero data retention, no training on your code, licence-aware safeguards, enterprise indemnification. Tabnine CLI exists.

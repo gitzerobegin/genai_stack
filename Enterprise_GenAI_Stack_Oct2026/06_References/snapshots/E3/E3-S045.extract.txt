@@ -1,0 +1,11 @@
+SOURCE ID: E3-S045
+URL: https://devin.ai/blog/windsurf-is-now-devin-desktop
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: Cognition acquires Windsurf; Windsurf renamed Devin Desktop
+========================================================================
+
+Search-tool summary of devin.ai/blog/windsurf-is-now-devin-desktop, devin.ai/blog/windsurfs-next-chapter and docs.devin.ai/desktop/changelog:
+- "The Next Chapter": Windsurf announces it is being acquired by Cognition; the team joins the company that created Devin and Windsurf's IP folds into Cognition. The retrieved text does not print a date (page age consistent with mid-2025).
+- Devin Desktop changelog dates the release note "Windsurf is now Devin Desktop" to 2 June 2026. FAQ: Devin Desktop is the new name for Windsurf; only name and branding changed; plans, pricing, extensions and settings carried over via an over-the-air update.
+- Devin Desktop adds an Agent Command Center (Kanban view); Devin Local replaces Cascade as the primary local agent; package now named devin-desktop.
