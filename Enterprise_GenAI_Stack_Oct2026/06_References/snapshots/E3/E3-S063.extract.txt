@@ -1,0 +1,12 @@
+SOURCE ID: E3-S063
+URL: https://csrc.nist.gov/pubs/sp/800/218/r1/ipd
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: NIST SP 800-218 Rev. 1 SSDF version 1.2 2026 final
+========================================================================
+
+Search-tool summary of csrc.nist.gov/pubs/sp/800/218/r1/ipd, nist.gov news (December 2025) and NIST SSDF presentations (2026):
+- NIST released the initial public draft of SP 800-218 Rev. 1 (SSDF version 1.2) on 17 December 2025, issued per Executive Order 14306; comment period closed 30 January 2026.
+- A NIST slide deck listed a "Final Update" target of 31 March 2026; a NIST DevSecOps presentation dated 20 May 2026 still describes v1.2 as a draft. No final publication found as of 10 October 2026.
+- v1.2 adds two practice groups: PO.6 (continuous improvement) and PS.4 (robust and reliable updates), and updates references to SP 800-53, SP 800-161 and SP 800-181.
+- No AI-code-generation-specific practice was found in the results for the v1.2 draft.

@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Build the print and ebook editions of the master document (for KDP or any print-on-demand service).
 
-Usage: python3 -I tools/build_print_edition.py <repo_root> [--no-pdf] [--no-epub] [--no-cover] [--cover-only]
-Run tools/build_master.py first (it writes work/stageD/Master_Architecture.pandoc.md, the source used here).
-Settings and metadata: tools/print/book.json (title, author, ISBNs, trim size, margins, paper, blurb).
+Usage: python3 -I tools/build_print_edition.py <repo_root> [--config tools/print/book.json] [--no-pdf] [--no-epub] [--no-cover] [--cover-only]
+One builder, several books, each described by a config file:
+  tools/print/book.json           the master document as a book (run tools/build_master.py first)
+  tools/print/linkedin_book.json  the LinkedIn series as a book (run tools/build_linkedin_book.py first)
+A config sets the metadata (title, author, ISBNs, blurb), trim size, margins, paper, the source markdown, the front-matter
+file and the output folder.
 
 Writes Enterprise_GenAI_Stack_Oct2026/01_Report/Print/:
   Interior.pdf          print interior: trim size, mirrored margins, recto Part openers, running heads, fonts embedded
@@ -17,12 +20,13 @@ The publishing checklist and the specification notes are in Print/Publishing_Kit
 import json, os, re, shutil, subprocess, sys, zipfile
 
 root = sys.argv[1]; os.chdir(root)
-B = json.load(open("tools/print/book.json", encoding="utf-8"))
-OUT = "Enterprise_GenAI_Stack_Oct2026/01_Report/Print"; WORK = "work/stageD/print"
+CFG = sys.argv[sys.argv.index("--config") + 1] if "--config" in sys.argv else "tools/print/book.json"
+B = json.load(open(CFG, encoding="utf-8"))
+OUT = B.get("out_dir", "Enterprise_GenAI_Stack_Oct2026/01_Report/Print"); WORK = B.get("work_dir", "work/stageD/print")
 os.makedirs(OUT, exist_ok=True); os.makedirs(WORK, exist_ok=True)
-SRC = "work/stageD/Master_Architecture.pandoc.md"
+SRC = B.get("source_md", "work/stageD/Master_Architecture.pandoc.md")
 if not os.path.exists(SRC):
-    sys.exit("Run tools/build_master.py first: %s is missing" % SRC)
+    sys.exit("Source missing: %s (run tools/build_master.py or tools/build_linkedin_book.py first)" % SRC)
 FMT = "markdown+pipe_tables+bracketed_spans+footnotes+fenced_divs+raw_attribute-implicit_figures-tex_math_dollars-raw_tex-tex_math_single_backslash"
 
 # ---------------------------------------------------------------- 1. print reference document
@@ -63,6 +67,7 @@ def make_reference():
 
 # ---------------------------------------------------------------- 2. book markdown
 def esc(s): return s.replace("*", "\\*")
+FRONT = open(B.get("front_md", "tools/print/master_front.md"), encoding="utf-8").read().replace("{evidence_date}", B["evidence_date"])
 isbn = lambda k, label: ("ISBN %s (%s)" % (B[k], label)) if B.get(k) else "ISBN (%s): to be assigned" % label
 TOC = ('```{=openxml}\n<w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \\o "1-2" \\h \\z \\u </w:instrText></w:r>'
        '<w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>Right-click and update the table of contents.</w:t></w:r><w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>\n```\n')
@@ -99,7 +104,7 @@ Published by {B['publisher']}. {B['edition']}. Evidence as of {B['evidence_date'
 
 **Trademarks.** Product and company names are trademarks or registered trademarks of their respective owners. Their mention does not imply endorsement by, or affiliation with, those owners.
 
-**How this book was made.** The research and drafting were carried out with Claude, an AI model made by Anthropic, under the author's direction, with the author's decisions recorded at five review checkpoints. Anthropic's products are assessed on the same rubric as every other vendor's; the disclosure after the contents explains how the conflict of interest was handled.
+**How this book was made.** {B['made_note']}
 
 Cover and interior design: {B['publisher']}.
 :::
@@ -109,49 +114,12 @@ Contents
 :::
 
 {TOC}
-# About this book
-
-Most enterprise GenAI diagrams are shelves of product logos. This book presents the enterprise GenAI stack as it stands at the end of Q3 2026: nine layers, from foundation models (L1) to evaluation and observability (L9), under a firm-owned control plane of eight components (C1 to C8). The popular stack diagram was its inspiration and baseline; Part XII sets out what changed since that diagram [AJ].
-
-It is written first for the people who must make GenAI work inside a regulated firm: enterprise and solution architects, technology and data leaders, model-risk, compliance and operational-resilience teams, and the engineers who build the platform. Parts XIII to XVIII re-read the same stack for technology companies, start-ups and the start-ups that sell AI tools, coding agents and agents to enterprises [AJ].
-
-| Part | What it covers |
-|---|---|
-| Disclosure and final tiers | The conflict-of-interest disclosure and the final tier decisions |
-| Part I | Executive summary: ten findings, the architecture on one page, how to read the tiers |
-| Part II | Method, evidence base, claim labels, scorecard and limitations |
-| Chapters 1 to 9 | The nine layers, L1 to L9 |
-| Chapters C1 to C8 | The eight cross-cutting enterprise controls |
-| Parts III to XI | Hypotheses, reference architecture, the financial-services view, the worked example, four reference stacks, build versus buy, lock-in, the roadmap and the final recommended stack |
-| Part XII | What changed since the popular stack diagram |
-| Parts XIII to XV | Three further views for organisations that use GenAI: technology service providers, software product companies and start-ups |
-| Parts XVI to XVIII | Three views for start-ups that sell into the enterprise stack: AI tools, agentic software-development tools and agents |
-| Annex | Sources, data and companion files |
-
-# How to read this book
-
-**If you have thirty minutes,** read Part I. **If you design platforms,** read Parts I, IV and VII, then the chapters for the layers you own. **If you own risk or compliance,** read Part V, chapter C8 and the worked example in Part VI. **If you build,** start with each chapter's decision tree (section x.9) and worked-example slice (x.12). **If you run a technology company or a start-up,** start with your view in Parts XIII to XVIII, then follow its pointers back into the chapters [AJ].
-
-Every chapter follows the same thirteen sections, so any two chapters can be read side by side [AJ]:
-
-| Section | Content | Section | Content |
-|---|---|---|---|
-| x.1 | Responsibility | x.8 | Comparison table |
-| x.2 | Why it matters | x.9 | Decision tree |
-| x.3 | Goals and KPIs | x.10 | Lock-in classification |
-| x.4 | How it works | x.11 | Regulated financial-services lens |
-| x.5 | Enterprise design principles | x.12 | Worked-example slice |
-| x.6 | Product selection criteria | x.13 | What changed since the popular stack diagram |
-| x.7 | Product deep dives | | |
-
-**Claim labels.** Every substantive sentence carries a label: verified fact (VF), reported (R), architectural judgement (AJ), recommendation (Rec) or not publicly verified (NPV). Verified and reported facts have a footnote naming the source and its access date. Part II explains the labels and the scoring rubric [AJ].
-
-**Dates.** The evidence is as of {B['evidence_date']}. Versions, owners, prices and regulatory dates move monthly; the review is refreshed each quarter [AJ].
-
-"""
+{FRONT}"""
 
 def book_body():
     s = open(SRC, encoding="utf-8").read()
+    if B.get("body_mode", "master") != "master":
+        return s
     s = s[s.index("# About this document"):]                       # drop the report's own title block
     s = s.replace("# About this document: disclosure and final tiers", "# Disclosure and final tiers", 1)
     s = re.sub(r" Editable source: `[^`]+`\.", "", s)              # figure sources live in the companion files
@@ -175,7 +143,7 @@ print("pandoc docx:", r.returncode, r.stderr[-400:])
 pages = None
 if "--no-pdf" not in sys.argv and r.returncode == 0:
     pdf = os.path.join(OUT, "Interior.pdf")
-    r2 = subprocess.run([sys.executable, "-I", "tools/print/print_pdf.py", docx, pdf, "tools/print/book.json"],
+    r2 = subprocess.run([sys.executable, "-I", "tools/print/print_pdf.py", docx, pdf, CFG],
                         capture_output=True, text=True, timeout=7200)
     print("interior pdf:", r2.returncode, (r2.stdout + r2.stderr)[-500:])
 if os.path.exists(os.path.join(OUT, "Interior.pdf")):
@@ -194,7 +162,7 @@ def cover_html(pages, mode):
                  f'<img src="../../../brand/veyan_mark.png"></div>') if pages and pages > 79 else '<div class="spine"></div>'
     front = f'''<div class="front"><img class="hero" src="../../../brand/veyan_hero.png">
  <div class="ftxt"><div class="kick">{B["short_subtitle"]}</div><div class="t">{B["title"]}</div><div class="rule"></div>
- <div class="s">Reference architecture, product assessment and the regulated financial-services view</div>
+ <div class="s">{B["cover_tagline"]}</div>
  <div class="facts">{"".join("<span>%s</span>" % f for f in B["cover_facts"])}</div>
  <div class="a">{B["author"]}</div></div><img class="lock" src="../../../brand/veyan_lockup_white.png"></div>'''
     if mode == "front":
@@ -211,7 +179,7 @@ def cover_html(pages, mode):
 .spinewrap{{position:absolute;left:{bl + tw}in;top:0;width:{spine}in;height:{H}in}}
 .front{{position:absolute;left:{bl + tw + spine}in;top:0;width:{tw + bl}in;height:{H}in;font-size:100%}}
 </style></head><body>
-<div class="back"><div class="kick">The view at end of Q3 2026</div><div class="bt">Run GenAI like the regulated system it is</div><div class="rule"></div>
+<div class="back"><div class="kick">The view at end of Q3 2026</div><div class="bt">{B["back_title"]}</div><div class="rule"></div>
 {blurb}<ul>{pts}</ul><div class="bfoot"><img src="../../../brand/veyan_lockup_white.png"><div class="barcode">Barcode area<br>(left clear for the printer)</div></div></div>
 <div class="spinewrap">{spine_txt}</div>
 {front}
