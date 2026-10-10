@@ -1,0 +1,96 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=1080">
+<title>Be one replaceable call-out</title>
+<!-- Generated from P29.md by tools/render_post_visuals.js. Edit the .md, not this file. -->
+<style>
+:root{--navy:#0B1B33;--gold:#D4A13A;--blue:#2E6DA4;--sky:#9DBBDB;--warm:#F5F1E8;--mute:#5B6B7A;--line:#D9D2C3;
+ --green:#2F7D5B;--greenbg:#E5F2EC;--amber:#B07A1A;--amberbg:#FBF0DA;--red:#B3474B;--redbg:#F7E3E3;--bluebg:#EAF1F8}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
+.card{width:var(--w);height:var(--h);background:var(--warm);display:flex;flex-direction:column;padding:54px 60px 40px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,161,58,.18),rgba(212,161,58,0) 70%)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.kick{font-size:17px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;font-weight:700}
+.title{font-size:44px;line-height:1.12;font-weight:800;letter-spacing:-.5px;margin:12px 0 0}
+.rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
+.logo{height:46px;flex:none;margin-top:2px}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.wx{display:flex;align-items:center;gap:4px;margin:0 0 12px;white-space:nowrap}
+.wx .lb{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-right:auto;padding-right:10px;overflow:hidden;text-overflow:ellipsis}
+.wx .c{font-size:11.5px;font-weight:800;border-radius:6px;padding:3px 0;width:34px;text-align:center;border:1.5px solid var(--line);color:#8792A0;background:#fff;flex:none}
+.wx .c.done{background:var(--navy);border-color:var(--navy);color:#fff}.wx .c.now{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
+.ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
+/* building blocks */
+.row{display:flex;gap:16px;align-items:stretch}.col{display:flex;flex-direction:column;gap:12px}.grow{flex:1}
+.center{align-items:center;justify-content:center;text-align:center}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:16px 18px}
+.box.navy{background:var(--navy);color:#fff;border-color:var(--navy)}.box.navy .sub{color:var(--sky)}
+.box.gold{border-color:var(--gold);background:#FBF4E4}.box.blue{border-color:var(--blue);background:var(--bluebg)}
+.box.green{border-color:var(--green);background:var(--greenbg)}.box.amber{border-color:var(--amber);background:var(--amberbg)}
+.box.red{border-color:var(--red);background:var(--redbg)}.box.grey{border-style:dashed;color:#8792A0;background:#F3F1EC}
+.box.dash{border-style:dashed}
+.h{font-weight:800;font-size:23px}.sub{font-size:18px;color:var(--mute);margin-top:4px}.small{font-size:16px}.big{font-size:56px;font-weight:800;line-height:1}
+.lab{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-weight:800;border-radius:7px;padding:2px 9px;font-size:17px;margin-right:8px}
+.code.g{background:var(--gold);color:var(--navy)}
+.chip{display:inline-block;border-radius:999px;padding:4px 13px;font-size:16px;font-weight:600;background:var(--bluebg);color:var(--navy);margin:3px 4px 3px 0}
+.chip.green{background:var(--greenbg);color:var(--green)}.chip.amber{background:var(--amberbg);color:#7A5410}.chip.red{background:var(--redbg);color:var(--red)}
+.chip.navy{background:var(--navy);color:#fff}.chip.gold{background:var(--gold);color:var(--navy)}
+.arrow{color:var(--blue);font-size:30px;line-height:1;text-align:center;font-weight:700}
+.arrow.r:after{content:"\2192"}.arrow.d:after{content:"\2193"}.arrow.l:after{content:"\2190"}.arrow.u:after{content:"\2191"}
+.flow{display:flex;flex-direction:column;gap:6px}.flow>.arrow{margin:-2px 0}
+.hflow{display:flex;align-items:center;gap:8px}
+.tag{font-size:14px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.note{font-size:17px;color:var(--mute);font-style:italic}
+table.t{border-collapse:separate;border-spacing:0;width:100%;font-size:17px;background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:16px}
+table.t td{padding:8px 12px;border-top:1px solid #ECE6DA;vertical-align:top}
+.mermaid{display:flex;justify-content:center}.mermaid svg{max-width:100%;max-height:100%}
+</style></head><body>
+<div class="card" id="card" style="--w:1080px;--h:1350px">
+ <div class="hd"><div><div class="kick">Post 29 · AI-tools start-up: to be bought, fit the buyer's control plane</div>
+  <div class="title">Be one replaceable call-out</div><div class="rule"></div></div>
+  <img class="logo" src="../veyan_lockup.png" alt="Veyan"></div>
+ <div class="body"><style>
+.ic{display:grid;grid-template-columns:42px 128px 1fr 1.12fr;gap:3px 8px;font-size:14.5px;line-height:1.2;align-items:stretch}
+.ic .hh{font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:#fff;background:var(--navy);padding:7px 9px;border-radius:8px 8px 0 0}
+.ic .hh.g{background:var(--gold);color:var(--navy)}.ic .hh.e{background:none;color:var(--blue);padding-left:0}
+.ic .k{display:flex;align-items:center}.ic .k .code{font-size:13px;padding:1px 0;margin:0;width:38px;text-align:center}
+.ic .nm{font-weight:700;display:flex;align-items:center;font-size:15px}
+.ic .x{background:#fff;border-radius:7px;padding:4px 9px;display:flex;align-items:center;color:#3E4C5C;min-height:36px}
+.ic .o{background:#FBF4E4;border-radius:7px;padding:4px 9px;display:flex;align-items:center;font-weight:600;border-left:4px solid var(--gold);min-height:36px}
+.ic .cn{display:flex;align-items:center;justify-content:center}
+.ic .cn span{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.ic .sp{grid-column:1 / -1;height:4px}
+</style>
+<div class="col" style="gap:12px">
+<div class="ic">
+<div class="hh e"></div><div class="hh e"></div><div class="hh">The buyer's stack expects</div><div class="hh g">The product should offer</div>
+<div class="k"><span class="code">L1</span></div><div class="nm">Models</div><div class="x">Two vendors, pinned, via its own cloud route</div><div class="o">No hidden model: bundled open weights or the customer's accounts</div>
+<div class="k"><span class="code">L2</span></div><div class="nm">Inference</div><div class="x">A common model API through the gateway</div><div class="o">A configurable endpoint and key</div>
+<div class="k"><span class="code">L3</span></div><div class="nm">Orchestration</div><div class="x">Deterministic workflows that retry safely</div><div class="o">Idempotent calls; a typed outcome, errors distinct from blocks</div>
+<div class="k"><span class="code">L4</span></div><div class="nm">Tools</div><div class="x">Every tool behind the governed tool gateway</div><div class="o">An agent-facing interface with authorisation enforced</div>
+<div class="k"><span class="code">L5</span></div><div class="nm">Memory</div><div class="x">Memory last; erasure by subject</div><div class="o">Stateless by default; erase and export by subject</div>
+<div class="k"><span class="code">L6</span></div><div class="nm">Stores</div><div class="x">Entitlement-filtered, rebuildable indexes</div><div class="o">The filter inside the search; rebuild from source</div>
+<div class="k"><span class="code">L7</span></div><div class="nm">Retrieval opt.</div><div class="x">Pinned embed and rerank versions</div><div class="o">Model version on every vector; customer-pinnable</div>
+<div class="k"><span class="code">L8</span></div><div class="nm">Ingestion</div><div class="x">Access rights and lineage on every chunk</div><div class="o">Preserve access metadata; emit lineage and a parse manifest</div>
+<div class="k"><span class="code">L9</span></div><div class="nm">Evaluation</div><div class="x">One telemetry spine; datasets in source control</div><div class="o">Spans to the customer's collector, pinned, no content</div>
+<div class="sp"></div>
+<div class="k"><span class="code g">C1</span></div><div class="nm">Gateway</div><div class="x">One gateway of record; detectors as call-outs</div><div class="o">A fast call-out with a published latency budget and timeout</div>
+<div class="k"><span class="code g">C2</span></div><div class="nm">Guardrails</div><div class="x">Firm-owned policy and test sets</div><div class="o">Policy as files; the customer's tests run in its CI</div>
+<div class="k"><span class="code g">C3</span></div><div class="nm">Privacy</div><div class="x">One privacy service, six enforcement points</div><div class="o">Call the customer's service; redact your own logs</div>
+<div class="k"><span class="code g">C4</span></div><div class="nm">Identity</div><div class="x">Workforce directory; agents act for users</div><div class="o">Single sign-on, provisioning, roles; workload identity</div>
+<div class="k"><span class="code g">C5</span></div><div class="nm">Configuration</div><div class="x">Source control as the configuration of record</div><div class="o">Policy and settings as code; nothing console-only</div>
+<div class="k"><span class="code g">C6</span></div><div class="nm">FinOps</div><div class="x">Cost per approved task; budgets fail closed</div><div class="o">Usage per use case in an open cost format</div>
+<div class="k"><span class="code g">C7</span></div><div class="nm">Security</div><div class="x">Signed, pinned supply chain; secrets in its vault</div><div class="o">Signed images, a component list, no standing secrets</div>
+<div class="k"><span class="code g">C8</span></div><div class="nm">Governance</div><div class="x">Firm-owned evidence store, keyed by trace ID</div><div class="o">Verdict records in the customer's store, its trace ID</div>
+</div>
+<div class="row" style="gap:12px">
+<div class="box navy grow" style="padding:10px 16px"><div class="lab" style="color:var(--gold)">The single test</div><div class="small" style="margin-top:3px;color:#fff">The buyer runs its evidence pack with the product in the path, and removes it by changing one gateway route and one manifest entry</div></div>
+<div class="box gold" style="padding:10px 16px;flex:none;width:330px"><div class="lab" style="color:#8A6418">Three forms, one build</div><div class="small" style="margin-top:3px">shared service in region · private-endpoint service · container in the customer's account</div></div>
+</div>
+</div>
+</div>
+ <div class="wx"><span class="lb">Seven lenses · AI-tools vendor</span><span class="c ">FS</span><span class="c ">TS</span><span class="c ">SW</span><span class="c ">SU</span><span class="c now">AT</span><span class="c ">DV</span><span class="c ">AG</span></div>
+ <div class="ft"><div class="cap">The integration contract a regulated buyer's stack expects of an AI-tools product, layer by layer then control by control. Generic: no vendor or standard names.</div><div class="src">Veyan · the view at end of Q3 2026<br>Source: Part XVI.4 and XVI.5</div></div>
+</div><script>document.body.dataset.done="1"</script></body></html>

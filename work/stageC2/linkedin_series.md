@@ -2725,7 +2725,7 @@ Run where the customer runs, or do not ship the feature.
 
 #### Suggested visual
 
-Weights compared with the regulated-FS view (eight paired bars, FS against SW), then the three layers whose advice changes most: L1 models (a support matrix and a bundled open-weight model replace the two-vendor portfolio), C1 gateway (routed by the customer's gateway, not the gateway of record), C7 security (sign and patch every shipped copy for the support period). A strip states the redistribution gate and the core-candidate count, 45 to 48. Source: Part XIV.1, XIV.3 and XIV.5.
+Weights compared with the regulated-FS view (eight paired bars, FS against SW), then the three layers whose advice changes most: L1 models (a support matrix and a bundled open-weight model replace the two-vendor portfolio), C1 gateway (routed by the customer's gateway, not the gateway of record), C7 security (sign and patch every shipped copy for the support period, with a redistribution gate in CI). A strip states "own a release plane, not a control plane" and the core-candidate count, 45 to 48. Source: Part XIV.1, XIV.3 and XIV.5.
 
 #### First comment
 
@@ -2919,7 +2919,7 @@ Be easy to adopt and easy to leave. Buyers notice both.
 
 #### Suggested visual
 
-The integration contract, layer by layer then control by control: seventeen rows L1 → L9 then C1 → C8, each with what the buyer's stack expects and the interface the product should offer, the product's likely home rows marked. A box beneath gives the single test (evidence pack with the product in the path; removal by one route and one manifest entry). Source: Part XVI.5.
+The integration contract, layer by layer then control by control: seventeen rows L1 → L9 then C1 → C8, each with what the buyer's stack expects and the interface the product should offer. Boxes beneath give the single test (evidence pack with the product in the path; removal by one route and one manifest entry) and the three delivery forms from one build. Source: Part XVI.4 and XVI.5.
 
 #### First comment
 
@@ -3019,7 +3019,7 @@ Trust is earned in the pull request, not the demo.
 
 #### Suggested visual
 
-The integration contract, layer by layer then control by control: seventeen rows L1 → L9 then C1 → C8, with what the buyer's stack expects and what the coding agent must do, the pull-request boundary (agent branch, customer CI, named human merge) shown as a band across it. A box gives the four properties to prove. Source: Part XVII.4 and XVII.5.
+The integration contract, layer by layer then control by control: seventeen rows L1 → L9 then C1 → C8, with what the buyer's stack expects and what the coding agent must do. A band beneath shows the pull-request boundary (agent branch, the customer's CI and scanning, a named human merges), beside a box of what the agent must never do. Source: Part XVII.4 and XVII.5.
 
 #### First comment
 
@@ -3429,4 +3429,4 @@ The three reactive templates get the same length, hashtag and emoji checks. Word
 
 Result on 9 October 2026: all 24 posts and 3 templates passed. Full posts are 261–290 words, short variants 123–142, fallback versions 269–297, and templates 231–268 (short variants 126–134). Post 0 was added later the same day and passed the same checks (full post 263 words, short variant 128, fallback 267).
 
-Posts 25–32 ("One stack, seven lenses") were added on 10 October 2026 and passed the same checks, plus a check that no weekday is named: RESULT_PLACEHOLDER
+Posts 25–32 ("One stack, seven lenses") were added on 10 October 2026 and passed the same checks, plus a check that no weekday is named in the posts or their visuals. Full posts are 287–296 words, short variants 131–141 and fallback versions 280–293. The "Views that change this advice" lines added to the first comments of Posts 1–24 left every post body unchanged.
