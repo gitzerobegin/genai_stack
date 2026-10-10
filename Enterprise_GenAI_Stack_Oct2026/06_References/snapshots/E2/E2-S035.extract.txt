@@ -1,0 +1,14 @@
+SOURCE ID: E2-S035
+URL: https://aws.amazon.com/blogs/apn/aws-partner-guide-to-ai-agents-and-tools-in-aws-marketplace
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: AWS Marketplace AI agents and tools category launch agents seller requirements
+========================================================================
+
+Search tool summary (results: aws.amazon.com/blogs/apn/aws-partner-guide-to-ai-agents-and-tools-in-aws-marketplace; docs.aws.amazon.com/marketplace/latest/userguide/listing-saas-ai-agents.html; docs.aws.eu/marketplace/latest/buyerguide/ai-agent-discovery.html; docs.aws.amazon.com/marketplace/latest/userguide/document-history.html; pymnts.com 2025; third-party tallyfy.com and an unofficial readthedocs page treated as unreliable).
+- "AI Agents and Tools" category in AWS Marketplace announced at AWS Summit New York City on 16 July 2025 (PYMNTS report); lists AI agents, MCP servers and A2A servers.
+- Publishing requires registering as an AWS Marketplace seller through AWS Partner Central; free listings allowed.
+- Delivery methods: hosted SaaS or API-based product pointing at the seller's endpoint (seller guide: create the SaaS API-based AI agent or tools product, then integrate with Marketplace APIs per the pricing model), or a container running on Amazon Bedrock AgentCore Runtime (third-party guide: ARM64 container).
+- APN blog: the API-based delivery method is eligible for the SaaS Co-Sell Benefit; free trials available for API-based listings.
+- Document history shows AgentCore integration instructions added for AI agents and MCP servers.
+- Third-party only: an MCP server entering via AgentCore Gateway without OpenAPI needs two-legged client-credentials OAuth.

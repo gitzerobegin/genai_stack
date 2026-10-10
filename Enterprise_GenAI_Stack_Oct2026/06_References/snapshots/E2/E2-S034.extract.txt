@@ -1,0 +1,14 @@
+SOURCE ID: E2-S034
+URL: https://docs.aws.amazon.com/marketplace/latest/userguide/creating-private-offer.html
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: WebSearch: AWS Marketplace private offers sellers SaaS AMI container products overview docs.aws.amazon.com marketplace userguide
+========================================================================
+
+Search tool summary (results: docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html; docs.aws.amazon.com/marketplace/latest/userguide/creating-private-offer.html; What's New 2017-11, 2023-10, 2024-05; AWS Marketplace blog on private offers best practice; third-party oneuptime.com, clazar.io not used).
+- Buyer guide: a private offer is tied to the buyer account(s) named in it; one offer can cover up to 25 accounts; accepting creates an agreement with the seller.
+- Accepting from an AWS Organizations management account can extend terms to member accounts; for AMI and container products the licence can also be shared via AWS License Manager; member accounts not previously subscribed must accept the private offer to deploy.
+- Seller guide: call-to-action buttons (request private offer / demo) on product pages for AMI, SaaS, container and CloudFormation products require membership of the APN Customer Engagements (ACE) programme.
+- Sellers view and manage private-offer agreements in the AWS Marketplace Management Portal for AMI, container, SaaS and professional services products (What's New, May 2024).
+- Sellers can issue a new private offer to change an existing SaaS contract (new entitlements, discounts, payment schedules, standardised EULA).
+- Seller private offers announced November 2017.
