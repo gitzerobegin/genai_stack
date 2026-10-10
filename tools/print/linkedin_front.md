@@ -14,7 +14,7 @@ Facts carry footnotes with their sources and the date they were checked. Version
 
 # How to read this book
 
-**Read in any order.** Each chapter stands on its own. Part II follows the stack from the bottom up, pairing each layer with its control; Part III puts the pieces together into decisions [AJ].
+**Read in any order.** Each chapter stands on its own. Part II follows the stack from the bottom up, pairing each layer with its control; Part III puts the pieces together into decisions; Part IV, "One stack, seven lenses", shows how the advice shifts for a technology service provider, a software product company, a start-up and three kinds of vendor start-up selling into the enterprise stack [AJ].
 
 **Each chapter has the same shape** [AJ]:
 
@@ -24,7 +24,8 @@ Facts carry footnotes with their sources and the date they were checked. Version
 | The figure | The same argument as one picture |
 | Behind the post | The evidence and the trade-offs |
 | What good looks like | The signal to measure, and a starting target |
-| In the worked example | The piece this chapter adds to the commentary agent |
+| In the worked example | The piece this chapter adds to the commentary agent (Parts I–III) |
+| In your lens | What changes for this kind of firm, layer by layer (Part IV) |
 | Objections worth taking seriously | The strongest counter-arguments, answered |
 | Questions for your team | What to ask tomorrow |
 | In one line | The chapter's point, if you remember nothing else |

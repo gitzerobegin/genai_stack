@@ -6,7 +6,7 @@
 |---|---|
 | **Working title** | *The Enterprise GenAI Stack, Layer by Layer: a thought-leadership series on building GenAI that regulated firms can trust* (`tools/print/linkedin_book.json`) |
 | **Author voice** | Bing Zhang: understated, specific, British spelling, no hype. Credit teams, own mistakes, let numbers speak (`anthropic-skills:linkedin-post-generator` rules). |
-| **Source of truth** | `work/stageC2/linkedin_series.md` (Post 0 and Posts 1–24, with their first comments and sources). Evidence comes from the review: `work/stageB/<L#/C#>/section.md`, `work/stageC/synthesis.md`, `Enterprise_GenAI_Stack_Oct2026/05_Data/*`. |
+| **Source of truth** | `work/stageC2/linkedin_series.md` (Post 0, Posts 1–24 and the seven-lenses Posts 25–32, with their first comments and sources). Evidence comes from the review (for Part IV, the view chapters `work/stageE/views/<V>/view.md`, Parts XIII–XVIII): `work/stageB/<L#/C#>/section.md`, `work/stageC/synthesis.md`, `Enterprise_GenAI_Stack_Oct2026/05_Data/*`. |
 | **Format** | 6 × 9 in trade paperback (KDP) and Kindle EPUB. Word (.docx) is the editable master. Built by `tools/build_linkedin_book.py`. |
 | **Length** | About 45,000–55,000 words: 25 chapters of about 1,700–2,300 words, plus front and back matter |
 
@@ -16,12 +16,13 @@
 - **Part I: The argument.** The Introduction, from Post 0.
 - **Part II: Nine layers and the controls that make them safe.** Chapters 1–18, from Posts 1–18 in series order. Each layer chapter is followed by the control that pairs with it.
 - **Part III: Putting it together.** Chapters 19–24, from Posts 19–24.
+- **Part IV: One stack, seven lenses** (added 10 October 2026). Chapters 25–32, from Posts 25–32: an opener, one chapter per other view (TS, SW, SU, AT, DV, AG) and a close on what stays the same. These chapters have no worked-example step; in its place each has "In your lens", tracing what changes for that reader.
 - **Back matter:**
   - Appendix A: the series at a glance (chapter, layer or control, the signal to measure, the target);
   - Appendix B: glossary;
   - About the author.
 
-## Each chapter: `work/stageF/linkedin_book/chapters/chNN.md` (NN = post number, 00–24)
+## Each chapter: `work/stageF/linkedin_book/chapters/chNN.md` (NN = post number, 00–32)
 
 ```
 ## <N>. <headline: the post's visual title or its tension, 4–9 words>      (Post 0: "## Introduction: <headline>")

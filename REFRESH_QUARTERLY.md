@@ -72,7 +72,7 @@ Keep the old ZIP inside the renamed folder only if you want both editions in one
 - **R4b. Further views.** Update Parts XIII–XVIII (`work/stageE/views/{TS,SW,SU,AT,DV,AG}/view.md`) with prompt R4b: new view scores, changed E1/E2 facts, the views' worked examples and roadmaps. Run `check_tags.py` on each.
 - **R4.** Update the synthesis in place: the tier table and counts, Part I, the stacks, the Part XI lists, and the calendar. Add a closing "What changed since <previous edition>" part. Then run the independent synthesis reviewer and `python3 -I tools/check_tags.py . work/stageC/synthesis.md`.
 - **R5b. The LinkedIn book.** Update the chapters whose posts or evidence changed (prompt R5b), keep `worked_example_build.json` in step, and rebuild with `python3 -I tools/build_linkedin_book.py .`. A new edition of the book needs new ISBNs if its content changes materially (`07_LinkedIn/Book/Publishing_Kit.md`).
-- **R5 (optional).** Write 2–4 LinkedIn posts on the most material changes. Give each new post a visual: copy a similar `08_Graphic/linkedin/P<NN>.md`, edit it and render it with `node tools/render_post_visuals.js`. If counts changed, update Post 0 (the series introduction) and its visual P00.
+- **R5 (optional).** Write 2–4 LinkedIn posts on the most material changes. Give each new post a visual: copy a similar `08_Graphic/linkedin/P<NN>.md`, edit it and render it with `node tools/render_post_visuals.js`. If counts changed, update Post 0 (the series introduction) and its visual P00. If any view's weights or core-candidate counts changed (`work/stageE/views/views.json`), update the seven-lenses Posts 25–32, their visuals P25–P32 and book chapters ch25–ch32.
 
 ## 6. Package (R6) → checkpoint RCP3
 
