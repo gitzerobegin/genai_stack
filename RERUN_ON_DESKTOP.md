@@ -63,7 +63,9 @@ Every deliverable is generated, so edit the source and rebuild (`bash tools/rebu
 | Report text | `work/stageC/synthesis.md` (Parts I, III–XII), `work/stageB/<L1…C8>/section.md` (chapters), `work/stageD/method.md` (Part II) | `python3 -I tools/check_tags.py . <file>` then `python3 -I tools/build_master.py .` |
 | A chapter diagram | `Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/<L1-1…C8-2>.md` (Mermaid) | `NODE_PATH=$(npm root -g) node tools/render_diagrams.js <file.md>` |
 | A LinkedIn post visual | `08_Graphic/linkedin/P<NN>.md` (HTML fragment or Mermaid; P00 is the series introduction) | `NODE_PATH=$(npm root -g) node tools/render_post_visuals.js <file.md>` |
-| A LinkedIn post | `work/stageC2/linkedin_series.md` | `python3 -I tools/build_linkedin_calendar.py .` |
+| A LinkedIn post | `work/stageC2/linkedin_series.md` (also update the matching book chapter's "The post") | `python3 -I tools/build_linkedin_calendar.py .` then `python3 -I tools/build_linkedin_book.py .` |
+| The worked example's build steps | `work/stageC2/worked_example_build.json` | `python3 -I tools/sync_worked_example.py .`, then re-render the post visuals and rebuild the calendar and the book |
+| A book chapter | `work/stageF/linkedin_book/chapters/chNN.md` (book metadata: `tools/print/linkedin_book.json`) | `python3 -I tools/check_tags.py . <file>` then `python3 -I tools/build_linkedin_book.py .` |
 | The stack graphic | `08_Graphic/Enterprise_GenAI_Stack_Oct2026.md` | `python3 -I tools/build_stack_graphic.py .` then `node tools/render_graphic.js …` (see `REFRESH_QUARTERLY.md` §6) |
 | The one-page architecture | `08_Graphic/Architecture_One_Page.html` | `node tools/render_graphic.js` on it |
 | Book title, author, ISBNs, blurb, trim, margins | `tools/print/book.json` | `python3 -I tools/build_print_edition.py .` (after `build_master.py`); read `01_Report/Print/Build_Summary.md` and `Publishing_Kit.md` |
@@ -90,6 +92,7 @@ inputs/Execution_Prompt_GenAI_Stack.md and the CP decisions recorded in checkpoi
 | Dataset / CP1 | | `tools/build_dataset.py`, `tools/build_what_changed.py`, `tools/build_cp1_what_changed.py` | `05_Data`, `06_References`, `checkpoints/CP1` |
 | B Write | `work/stage0/07_stageB_writer_brief.md`, `08_scoring_rubric.md` | `work/prompts/stageA_prime_and_stageB_prompts.md` (writer prompts) | `work/stageB/<layer>/` |
 | C, C2, D | Plan §12, §15, §14 | To be recorded in `MEMORY.md` as each stage runs | |
+| F LinkedIn book | `work/stage0/12_stageF_linkedin_book_brief.md`, `work/stageC2/linkedin_series.md`, `work/stageC2/worked_example_build.json` | `work/prompts/stageF_linkedin_book_prompts.md` (five chapter writers in parallel, five posts each) | `work/stageF/linkedin_book/chapters/ch00–ch24.md` → `python3 -I tools/build_linkedin_book.py .` → `07_LinkedIn/Book/` |
 | E Further views | `work/stage0/11_stageE_views_brief.md`, `work/stageE/views/views.json` | `work/prompts/stageE_views_prompts.md`: research agents E1 (regulation), E2 (commercial) and E3 (agentic SDLC and agent standards) in parallel, then `python3 -I tools/build_views.py .`, then six view writers (TS, SW, SU, AT, DV, AG) and one reviewer | `work/stageE/E1_regulation/`, `E2_commercial/`, `E3_agents_sdlc/`, `views/<VIEW>/view.md`, `05_Data/views.xlsx`; Parts XIII–XVIII of the master |
 
 **Before re-running from scratch:**

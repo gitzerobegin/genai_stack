@@ -119,6 +119,17 @@ Run python3 -I tools/check_tags.py . work/stageE/views/<VIEW>/view.md and fix ev
 Append a "Refresh <DATE>" note at the end of section 1 listing what changed.
 ```
 
+## R5b: The LinkedIn book (one agent per five chapters, only where posts or evidence changed)
+
+```text
+You are the Stage F refresh editor for chapters <LIST> of the LinkedIn book. Today is <DATE>.
+Read work/stage0/12_stageF_linkedin_book_brief.md, the refreshed posts in work/stageC2/linkedin_series.md, the refresh
+changes and tier_changes.md, and work/stageF/linkedin_book/chapters/chNN.md. Update "The post" to match the post's
+fallback version, and update "Behind the post", "What good looks like" and "Objections" wherever a fact, date or tier
+changed. Keep the template, the claim tags, British spelling, no weekdays, and an independent alternative beside every
+Anthropic product. Run python3 -I tools/check_tags.py on each chapter. Then python3 -I tools/build_linkedin_book.py .
+```
+
 ## R5: LinkedIn (optional)
 
 ```text

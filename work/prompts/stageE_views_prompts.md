@@ -250,3 +250,282 @@ For each view check (vendor views AT, DV, AG also against the 'Vendor views' sec
 Fix errors directly in the view files (minimal edits, keep tags), then run python3 -I tools/check_tags.py on each.
 Write work/stageE/views/review_log.md: one row per edit (view · section · before · after · reason) and a list of open questions for the reader. Do not edit any other file and do not run git.
 ```
+
+## Writers as run (verbatim, 10 October 2026)
+
+### View writer AG (Part XVIII)
+
+```text
+You are the Stage E view writer for view AG (start-up selling agents to enterprises) of an enterprise GenAI stack review. Repo: /home/user/genai_stack. Today is 10 October 2026.
+
+Read, in this order:
+1. CONTEXT.md, especially "House conventions" and the rules.
+2. work/stage0/11_stageE_views_brief.md. This is your brief: follow it exactly. That includes its "Vendor views" section: sections 3, 5, 6, 7 and 8 change, and the worked example is traced inside the customer's stack.
+3. work/stageE/views/views.json for the AG profile, weights, rationale and worked example (the accounts-payable agent). Then work/stageE/views/AG_scores.md for the re-weighted scores of the components the start-up builds on.
+4. work/stageC/synthesis.md. This is the FS master view; the FS buyer stands for the toughest enterprise customer. Read Parts I, III (especially H2 and H3), IV, V, VI (the commentary agent is the customer-built analogue), VII, IX and XI. Do not repeat it; point back to it.
+5. The evidence:
+   - work/stageE/E3_agents_sdlc/facts.md: agent standards (A2A, MCP authorisation, ID-JAG, OpenTelemetry agent spans, AGNTCY, OWASP Agentic Top 10);
+   - work/stageE/E2_commercial/facts.md: the AG group on agent marketplaces and distribution (AWS, Microsoft, Google, Salesforce);
+   - work/stageE/E1_regulation/facts.md: the AG group (AI Act provider duties, DORA flow-down, CRA, PLD);
+   - Enterprise_GenAI_Stack_Oct2026/05_Data/products.json and work/stageB/<L#|C#>/section.md (L3, L4, C1, C4, C8 and L9 matter most).
+6. work/stageE/views/TS/view.md, an example of a finished view. Match its quality and format, not its content.
+
+Write work/stageE/views/AG/view.md as Part XVIII of the master document:
+- The H1 is "# Part XVIII: The view for start-ups selling agents to enterprises". The eleven H2 sections are numbered XVIII.1 to XVIII.11, following the brief.
+- Length: 5,000–7,000 words.
+- The central argument: an agent the customer cannot govern is not bought. Set out the integration contract the agent must meet in the customer's stack: identity and delegation, the tool gateway, telemetry, evidence, configuration, cost and residency.
+- Section 4 has one Mermaid figure. Write its source to Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/AG-1.md in the same format as the existing diagrams/*.md: "# Title", "Caption: ...", then a ```mermaid block.
+  - Render it: cd /home/user/genai_stack && NODE_PATH=$(npm root -g) node tools/render_diagrams.js Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/AG-1.md
+  - Check the PNG is legible.
+  - Embed it with this exact line: ![<title>](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/AG-1.png){width=100%}
+  - Follow it with: *Figure: <caption> Editable source: `08_Graphic/diagrams/AG-1.md`.* [AJ]
+
+Rules:
+- Never use training memory as a fact source. Every fact cites an existing source ID from products.json, regulatory_facts.json or the E1/E2/E3 sources.csv files, as [VF: id] or [R: id]. If you cannot source something, mark it [NPV] or leave it out.
+- Tag judgement [AJ] and advice [Rec].
+- Quote master tiers as they are. Never invent a tier.
+- Order layers L1 → L9, then C1 → C8.
+- British spelling. No ASCII diagrams. Pipe tables.
+- Conflict of interest: the author is an Anthropic model. Name an independent alternative beside every Anthropic product or standard (MCP: OpenAPI-described tools; Claude Agent SDK: LangGraph or Pydantic AI, and so on).
+- Do not refer to "the popular stack diagram". Never name weekdays.
+- Run python3 -I tools/check_tags.py . work/stageE/views/AG/view.md. It must report no unknown source IDs and no long untagged paragraphs.
+- Edit no other files and do not run git.
+
+Report back:
+- word count;
+- tag counts;
+- the five most important points for an agent-provider start-up;
+- judgement calls where the evidence was thin.
+```
+
+### View writer AT (Part XVI)
+
+```text
+You are the Stage E view writer for view AT, the start-up selling AI tools into the enterprise stack, in an enterprise GenAI stack review. Repo: /home/user/genai_stack. Today is 10 October 2026.
+
+Read these, in this order:
+1. CONTEXT.md, especially "House conventions" and the rules.
+2. work/stage0/11_stageE_views_brief.md. This is your brief. Follow it exactly, including the "Vendor views" section: sections 3, 5, 6, 7 and 8 change, and the worked example is traced inside the customer's stack.
+3. work/stageE/views/views.json for the AT profile, weights, rationale and worked example. Then work/stageE/views/AT_scores.md for the re-weighted scores of the components the start-up builds on.
+4. work/stageC/synthesis.md. This is the FS master view, and the FS buyer is your customer. Read Parts I, IV, V, VI, VII, VIII, IX and XI. Do not repeat it; point back to it.
+5. The evidence:
+   - work/stageE/E1_regulation/facts.md and regulatory_facts.json (the AT group);
+   - work/stageE/E2_commercial/facts.md (the AT group, on assurance, private connectivity and marketplaces);
+   - work/stageE/E3_agents_sdlc/facts.md (the AT and AG standards: OpenTelemetry GenAI conventions, MCP authorisation, agent identity);
+   - Enterprise_GenAI_Stack_Oct2026/05_Data/products.json, for incumbents and ownership events per layer and control;
+   - work/stageB/<L#|C#>/section.md, for depth.
+6. work/stageE/views/TS/view.md, an example of a finished view. Match its quality and format, not its content.
+
+Write work/stageE/views/AT/view.md as Part XVI of the master document:
+- The H1 is "# Part XVI: The view for start-ups selling AI tools into the enterprise stack". The eleven H2 sections are numbered XVI.1 to XVI.11, as the brief sets out.
+- Length: 5,000–7,000 words.
+- Section 4 has one Mermaid figure. Write its source to Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/AT-1.md, in the same format as the existing diagrams/*.md: "# Title", "Caption: ...", then a ```mermaid block. Show where an AI tool plugs into the customer's control plane.
+  - Render it with: cd /home/user/genai_stack && NODE_PATH=$(npm root -g) node tools/render_diagrams.js Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/AT-1.md
+  - Look at the PNG and keep the figure legible.
+  - Embed it with this exact line: ![<title>](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/AT-1.png){width=100%}
+  - Follow it with: *Figure: <caption> Editable source: `08_Graphic/diagrams/AT-1.md`.* [AJ]
+
+Rules:
+- Never use training memory as a fact source. Every fact cites an existing source ID from products.json, regulatory_facts.json or the E1/E2/E3 sources.csv files, as [VF: id] or [R: id]. If you cannot source something, write [NPV] or leave it out. Tag judgement [AJ] and advice [Rec].
+- Quote the master tiers as they stand. Never invent a tier.
+- Order layers L1 → L9, then C1 → C8. Use British spelling, no ASCII diagrams, and pipe tables.
+- Conflict of interest: the author is an Anthropic model. Name an independent alternative beside every Anthropic product or standard.
+- Do not refer to "the popular stack diagram", and never name weekdays.
+- Run python3 -I tools/check_tags.py . work/stageE/views/AT/view.md. It must report no unknown source IDs and no long untagged paragraphs.
+- Edit no other files and do not run git.
+
+Report back:
+- word count;
+- tag counts;
+- the five most important points for an AI-tools start-up;
+- judgement calls where the evidence was thin.
+```
+
+### View writer DV (Part XVII)
+
+```text
+You are the Stage E view writer for view DV (start-up selling agentic SDLC tools to developers) of an enterprise GenAI stack review. Repo: /home/user/genai_stack. Today is 10 October 2026.
+
+Read, in this order:
+1. CONTEXT.md, especially "House conventions" and the rules.
+2. work/stage0/11_stageE_views_brief.md. This is your brief: follow it exactly. That includes its "Vendor views" section: sections 3, 5, 6, 7 and 8 change, and the worked example is traced inside the customer's stack.
+3. work/stageE/views/views.json for the DV profile, weights, rationale and worked example. Then work/stageE/views/DV_scores.md for the re-weighted scores of the components the start-up builds on.
+4. work/stageC/synthesis.md. This is the FS master view; the FS buyer stands for the toughest enterprise customer. Read Parts I, IV, V, VII, VIII, IX and XI. Do not repeat it; point back to it.
+5. The evidence:
+   - work/stageE/E3_agents_sdlc/facts.md and products.json: the coding-agent landscape (layer "DV", unscored records), secure-development guidance, the OWASP Agentic Top 10 and AGENTS.md;
+   - work/stageE/E2_commercial/facts.md: the DV group (caching, batch and flex for token-heavy coding workloads);
+   - work/stageE/E1_regulation/facts.md: the DV group (CRA, PLD, AI Act provider duties);
+   - Enterprise_GenAI_Stack_Oct2026/05_Data/products.json and work/stageB/<L#|C#>/section.md (L3, L4, C4, C5, C7 and L9 matter most).
+6. work/stageE/views/TS/view.md, an example of a finished view. Match its quality and format, not its content.
+
+Write work/stageE/views/DV/view.md as Part XVII of the master document:
+- The H1 is "# Part XVII: The view for start-ups selling agentic SDLC tools". The eleven H2 sections are numbered XVII.1 to XVII.11, following the brief.
+- Length: 5,000–7,000 words.
+- Section 5 places the product in the enterprise GenAI stack and in the customer's software-delivery chain: repository, CI, review and identity.
+- Use the landscape records to say where incumbents are and where they are moving: ownership events, deployment options and model choice. Treat every vendor even-handedly. Claude Code is an Anthropic product, so name independent alternatives beside it.
+- Section 4 has one Mermaid figure. Write its source to Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/DV-1.md in the same format as the existing diagrams/*.md: "# Title", "Caption: ...", then a ```mermaid block.
+  - Render it: cd /home/user/genai_stack && NODE_PATH=$(npm root -g) node tools/render_diagrams.js Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/DV-1.md
+  - Check the PNG is legible.
+  - Embed it with this exact line: ![<title>](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/DV-1.png){width=100%}
+  - Follow it with: *Figure: <caption> Editable source: `08_Graphic/diagrams/DV-1.md`.* [AJ]
+
+Rules:
+- Never use training memory as a fact source. Every fact cites an existing source ID from products.json, regulatory_facts.json or the E1/E2/E3 sources.csv files, as [VF: id] or [R: id]. If you cannot source something, mark it [NPV] or leave it out.
+- Tag judgement [AJ] and advice [Rec].
+- Quote master tiers as they are. Never invent a tier, and never assign tiers to the unscored DV landscape records.
+- Order layers L1 → L9, then C1 → C8.
+- British spelling. No ASCII diagrams. Pipe tables.
+- Conflict of interest: the author is an Anthropic model. Name an independent alternative beside every Anthropic product or standard.
+- Do not refer to "the popular stack diagram". Never name weekdays.
+- Run python3 -I tools/check_tags.py . work/stageE/views/DV/view.md. It must report no unknown source IDs and no long untagged paragraphs.
+- Edit no other files and do not run git.
+
+Report back:
+- word count;
+- tag counts;
+- the five most important points for an agentic-SDLC start-up;
+- judgement calls where the evidence was thin.
+```
+
+### View writer SU (Part XV)
+
+```text
+You are the Stage E view writer for view SU (Start-up technology company) of an enterprise GenAI stack review. Repo: /home/user/genai_stack. Today is 10 October 2026.
+
+Read, in this order:
+1. CONTEXT.md, especially "House conventions" and the rules.
+2. work/stage0/11_stageE_views_brief.md. This is your brief: the section list, length and rules.
+3. work/stageE/views/views.json for your view's profile, weights, rationale and worked example. Then work/stageE/views/SU_scores.md for the re-weighted scores, ranks, fits and movers.
+4. work/stageC/synthesis.md. This is the FS master view you depart from; read Parts I, IV, VI, VII (especially Stack D), VIII, IX, X and XI. Do not repeat it. Say what changes for your view and point back to it.
+5. The evidence:
+   - work/stageE/E1_regulation/facts.md and regulatory_facts.json, including the AI Act SME and start-up measures;
+   - work/stageE/E2_commercial/facts.md (start-up programmes, cost levers, assurance sequencing);
+   - work/stageE/E3_agents_sdlc/facts.md, if it exists yet;
+   - Enterprise_GenAI_Stack_Oct2026/05_Data/products.json for product facts;
+   - the chapters in work/stageB/<L#|C#>/section.md for more depth.
+
+Write work/stageE/views/SU/view.md as Part XV of the master document:
+- The H1 is "# Part XV: The view for start-ups". The eleven H2 sections are numbered XV.1 to XV.11 and follow the brief.
+- Length: 5,000–7,000 words.
+- Section 4 has one Mermaid figure:
+  - Write its source to Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/SU-1.md, in the same format as the existing diagrams/*.md: "# Title", "Caption: ...", then a ```mermaid block.
+  - Render it with: cd /home/user/genai_stack && NODE_PATH=$(npm root -g) node tools/render_diagrams.js Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/SU-1.md
+  - Look at the PNG and keep the figure legible.
+  - Embed it with this exact line: ![<title>](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/SU-1.png){width=100%}
+  - Follow it with this line: *Figure: <caption> Editable source: `08_Graphic/diagrams/SU-1.md`.* [AJ]
+
+Rules:
+- Never use training memory as a fact source. Every fact cites an existing source ID from products.json, regulatory_facts.json, or the E1/E2/E3 sources.csv, in the form [VF: id] or [R: id]. If you cannot source something, mark it [NPV] or leave it out.
+- Tag judgement [AJ] and advice [Rec].
+- Mark start-up credits and prices "(volatile; re-verify)".
+- Product tiers: quote the master tier, and say where your view's indicative fit differs. Never invent a new tier.
+- Order layers L1 → L9, then C1 → C8.
+- Use British spelling, no ASCII diagrams, and pipe tables only.
+- Conflict of interest: the author is an Anthropic model. Name an independent alternative beside every Anthropic product or standard you recommend, including start-up credit programmes.
+- Do not refer to "the popular stack diagram"; state what the stack is.
+- Never name weekdays.
+- Run: python3 -I tools/check_tags.py . work/stageE/views/SU/view.md
+  It must report no unknown source IDs and no long untagged paragraphs.
+- Edit no other files and do not run git.
+
+Report back:
+- word count;
+- tag counts;
+- the five most important departures from the FS view;
+- every judgement call where the evidence was thin.
+```
+
+### View writer SW (Part XIV)
+
+```text
+You are the Stage E view writer for view SW (Software product company) of an enterprise GenAI stack review. Repo: /home/user/genai_stack. Today is 10 October 2026.
+
+Read, in this order:
+1. CONTEXT.md, especially "House conventions" and the rules.
+2. work/stage0/11_stageE_views_brief.md. This is your brief: the section list, length and rules.
+3. work/stageE/views/views.json for your view's profile, weights, rationale and worked example. Then work/stageE/views/SW_scores.md for the re-weighted scores, ranks, fits and movers.
+4. work/stageC/synthesis.md. This is the FS master view you depart from; read Parts I, IV, VI, VII, VIII, IX, X and XI. Do not repeat it. Say what changes for your view and point back to it (e.g. "as Part VII Stack C").
+5. The evidence:
+   - work/stageE/E1_regulation/facts.md and regulatory_facts.json. The CRA, PLD and AI Act provider roles matter most for this view.
+   - work/stageE/E2_commercial/facts.md. Model licences for redistribution and marketplaces matter most.
+   - work/stageE/E3_agents_sdlc/facts.md, if it exists yet.
+   - Enterprise_GenAI_Stack_Oct2026/05_Data/products.json for product facts.
+   - The chapters in work/stageB/<L#|C#>/section.md for more depth.
+
+Write work/stageE/views/SW/view.md as Part XIV of the master document:
+- The H1 is "# Part XIV: The view for software product companies". The eleven H2 sections are numbered XIV.1 to XIV.11 and follow the brief.
+- Length: 5,000–7,000 words.
+- Section 4 has one Mermaid figure:
+  - Write its source to Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/SW-1.md, in the same format as the existing diagrams/*.md: "# Title", "Caption: ...", then a ```mermaid block.
+  - Render it with: cd /home/user/genai_stack && NODE_PATH=$(npm root -g) node tools/render_diagrams.js Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/SW-1.md
+  - Look at the PNG and keep the figure legible.
+  - Embed it with this exact line: ![<title>](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/SW-1.png){width=100%}
+  - Follow it with this line: *Figure: <caption> Editable source: `08_Graphic/diagrams/SW-1.md`.* [AJ]
+
+Rules:
+- Never use training memory as a fact source. Every fact cites an existing source ID from products.json, regulatory_facts.json, or the E1/E2/E3 sources.csv, in the form [VF: id] or [R: id]. If you cannot source something, mark it [NPV] or leave it out.
+- Tag judgement [AJ] and advice [Rec].
+- Product tiers: quote the master tier, and say where your view's indicative fit differs. Never invent a new tier.
+- Order layers L1 → L9, then C1 → C8.
+- Use British spelling, no ASCII diagrams, and pipe tables only.
+- Conflict of interest: the author is an Anthropic model. Name an independent alternative beside every Anthropic product or standard you recommend.
+- Do not refer to "the popular stack diagram"; state what the stack is.
+- Never name weekdays.
+- Run: python3 -I tools/check_tags.py . work/stageE/views/SW/view.md
+  It must report no unknown source IDs and no long untagged paragraphs.
+- Edit no other files and do not run git.
+
+Report back:
+- word count;
+- tag counts;
+- the five most important departures from the FS view;
+- every judgement call where the evidence was thin.
+```
+
+### View writer TS (Part XIII)
+
+```text
+You are the Stage E view writer for view TS (technology service provider) of an enterprise GenAI stack review. Repo: /home/user/genai_stack. Today is 10 October 2026.
+
+Read, in this order:
+1. CONTEXT.md, especially "House conventions" and the rules.
+2. work/stage0/11_stageE_views_brief.md. This is your brief: the section list, length and rules.
+3. work/stageE/views/views.json for your view's profile, weights, rationale and worked example. Then work/stageE/views/TS_scores.md for the re-weighted scores, ranks, fits and movers.
+4. work/stageC/synthesis.md. This is the FS master view you depart from; read Parts I, IV, VI, VII, VIII, IX, X and XI. Do not repeat it. Say what changes for your view and point back to it (e.g. "as Part VII Stack A").
+5. The evidence:
+   - work/stageE/E1_regulation/facts.md and regulatory_facts.json;
+   - work/stageE/E2_commercial/facts.md;
+   - work/stageE/E3_agents_sdlc/facts.md, if it exists yet;
+   - Enterprise_GenAI_Stack_Oct2026/05_Data/products.json for product facts;
+   - the chapters in work/stageB/<L#|C#>/section.md, for more depth.
+
+Write work/stageE/views/TS/view.md as Part XIII of the master document:
+- The H1 is "# Part XIII: The view for technology service providers". The eleven H2 sections are numbered XIII.1 to XIII.11 and follow the brief.
+- Length: 5,000–7,000 words.
+- Section 4 has one Mermaid figure:
+  - Write its source to Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/TS-1.md, in the same format as the existing diagrams/*.md: "# Title", "Caption: ...", then a ```mermaid block.
+  - Render it with: cd /home/user/genai_stack && NODE_PATH=$(npm root -g) node tools/render_diagrams.js Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/TS-1.md
+  - Look at the PNG and keep the figure legible.
+  - Embed it with this exact line: ![<title>](Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/TS-1.png){width=100%}
+  - Follow it with this line: *Figure: <caption> Editable source: `08_Graphic/diagrams/TS-1.md`.* [AJ]
+
+Rules:
+- Never use training memory as a fact source. Every fact cites an existing source ID from products.json, regulatory_facts.json, or the E1/E2/E3 sources.csv, in the form [VF: id] or [R: id]. If you cannot source something, mark it [NPV] or leave it out.
+- Tag judgement [AJ] and advice [Rec].
+- Product tiers: quote the master tier, and say where your view's indicative fit differs. Never invent a new tier.
+- Order layers L1 → L9, then C1 → C8.
+- Use British spelling, no ASCII diagrams, and pipe tables only.
+- Conflict of interest: the author is an Anthropic model. Name an independent alternative beside every Anthropic product or standard you recommend.
+- Do not refer to "the popular stack diagram"; state what the stack is.
+- Never name weekdays.
+- Run: python3 -I tools/check_tags.py . work/stageE/views/TS/view.md
+  It must report no unknown source IDs and no long untagged paragraphs.
+- Edit no other files and do not run git.
+
+Report back:
+- word count;
+- tag counts;
+- the five most important departures from the FS view;
+- every judgement call where the evidence was thin.
+```
+

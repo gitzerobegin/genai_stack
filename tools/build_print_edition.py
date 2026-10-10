@@ -182,6 +182,7 @@ def cover_html(pages, mode):
 .back{{position:absolute;left:0;top:0;width:{bl + tw}in;height:{H}in;padding:{bl + 0.6}in 0.7in {bl + 0.5}in {bl + 0.6}in}}
 .spinewrap{{position:absolute;left:{bl + tw}in;top:0;width:{spine}in;height:{H}in}}
 .front{{position:absolute;left:{bl + tw + spine}in;top:0;width:{tw + bl}in;height:{H}in;font-size:100%}}
+{SMALL if tw < 8 else ""}
 </style></head><body>
 <div class="back"><div class="kick">The view at end of Q3 2026</div><div class="bt">{B["back_title"]}</div><div class="rule"></div>
 {blurb}<ul>{pts}</ul><div class="bfoot"><img src="../../../brand/veyan_lockup_white.png"><div class="barcode">Barcode area<br>(left clear for the printer)</div></div></div>
@@ -189,6 +190,11 @@ def cover_html(pages, mode):
 {front}
 </body></html>''', (W, H, spine)
 
+# trade trims (for example 6 x 9 in): smaller type so the back copy clears the barcode area
+SMALL = """.back{padding:0.75in 0.55in 0.6in 0.7in !important}.back p{font-size:8.8pt;line-height:1.36;margin-bottom:6pt}.bt{font-size:16pt}
+.back ul{font-size:8.4pt;line-height:1.35}.back li{margin-bottom:3pt}.rule{margin:10pt 0 12pt}.bfoot{bottom:0.55in;left:0.7in;right:0.55in}
+.bfoot img{height:0.42in}.barcode{width:1.9in;height:1.1in}.ftxt{left:0.55in;top:1.0in;width:4.7in}.front .t{font-size:32pt}
+.front .s{font-size:11.5pt}.facts span{font-size:8.5pt;padding:3pt 8pt}.front .a{margin-top:0.7in;font-size:14pt}.lock{height:0.45in;left:0.55in;bottom:0.6in}"""
 CSS = """*{box-sizing:border-box}html,body{margin:0;padding:0}body{position:relative;background:#0B1B33;font-family:Inter,Arial,sans-serif;color:#fff;overflow:hidden}
 .kick{font-size:11pt;letter-spacing:4pt;text-transform:uppercase;color:#D4A13A;font-weight:700}
 .rule{width:0.8in;height:3pt;background:#D4A13A;margin:14pt 0 18pt}

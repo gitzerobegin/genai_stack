@@ -25,7 +25,8 @@ node tools/render_graphic.js $G/$PKG.html $G/$PKG
 node tools/render_graphic.js $G/Architecture_One_Page.html $G/Architecture_One_Page
 step "4. Explorer"
 python3 -I tools/build_explorer.py .
-step "5. LinkedIn calendar and series document"
+step "5. LinkedIn: worked-example steps into first comments, calendar and series document"
+python3 -I tools/sync_worked_example.py .
 python3 -I tools/build_linkedin_calendar.py .
 step "6. Deck"
 NODE_PATH="$PWD/tools/deck/node_modules" node tools/deck/build_deck.js .
@@ -39,6 +40,8 @@ step "7. Master document (Word, PDF)"
 python3 -I tools/build_master.py .
 step "8. Print and Kindle edition (interior PDF, cover, EPUB, KDP checks)"
 python3 -I tools/build_print_edition.py .
+step "8b. The LinkedIn series as a book (interior, cover, EPUB, KDP checks)"
+python3 -I tools/build_linkedin_book.py .
 step "9. Product technical appendix"
 python3 -I tools/build_appendix.py .
 step "10. ZIP"
