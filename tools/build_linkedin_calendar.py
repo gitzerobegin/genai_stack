@@ -6,16 +6,18 @@ Usage: python3 -I tools/build_linkedin_calendar.py <repo_root> [--start YYYY-MM-
 Without --start, dates are left blank and a 'Suggested date' formula column computes them from a single
 start-date cell you fill in (the date of Post 1). No day of the week is fixed: the first post of each week is the
 stack post, the second the control post, two days apart by default; overwrite any date freely.
-Writes Enterprise_GenAI_Stack_Oct2026/07_LinkedIn/Content_Calendar.xlsx and LinkedIn_Series.docx
+Writes <PKG>/07_LinkedIn/Content_Calendar.xlsx and LinkedIn_Series.docx
 """
 import json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
 root = sys.argv[1]; os.chdir(root)
-OUT = "Enterprise_GenAI_Stack_Oct2026/07_LinkedIn"; os.makedirs(OUT, exist_ok=True)
+OUT = PKG + "/07_LinkedIn"; os.makedirs(OUT, exist_ok=True)
 text = open("work/stageC2/linkedin_series.md", encoding="utf-8").read()
 posts = re.split(r"(?m)^(?=### Post \d+)", text)[1:]
 
@@ -70,7 +72,7 @@ ws.add_data_validation(dv); dv.add("O4:O%d" % max(ws.max_row, 4))
 ws.freeze_panes = "G4"
 wb.save(os.path.join(OUT, "Content_Calendar.xlsx"))
 # Word edition: each post's rendered visual sits under its "Suggested visual" brief (08_Graphic/linkedin/P<NN>.png)
-VDIR = "Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin"
+VDIR = PKG + "/08_Graphic/linkedin"
 def add_visual(block):
     m = re.match(r"### Post (\d+)", block)
     if not m: return block

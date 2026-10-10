@@ -4,13 +4,15 @@ report tag counts, untagged-paragraph ratio, and style-guide banned words / Amer
 Usage: python3 -I tools/check_tags.py <repo_root> work/stageB/L9/section.md [...]
 """
 import csv, glob, json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 root = sys.argv[1]; os.chdir(root)
 ids = set()
 for p in glob.glob("work/stageA/*/sources.csv") + glob.glob("work/stageA_verify/*/sources.csv") + glob.glob("work/stageB/*/sources_added*.csv") + glob.glob("work/gapfill/*/sources*.csv") + glob.glob("work/refresh/*/*/sources*.csv") + glob.glob("work/stageE/*/sources*.csv"):
     for r in csv.DictReader(open(p, encoding="utf-8")):
         if r.get("id"): ids.add(r["id"].strip())
-regs = {r["id"] for r in json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json"))}
-prods = {r["id"] for r in json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/products.json"))}
+regs = {r["id"] for r in json.load(open(PKG + "/05_Data/regulatory_facts.json"))}
+prods = {r["id"] for r in json.load(open(PKG + "/05_Data/products.json"))}
 BANNED = ["revolutionary", "game-changing", "game changing", "cutting-edge", "seamless", "leverage ", "leverages", "it's important to note"]
 US = [r"\boptimiz", r"\borganiz", r"\banalyz", r"\bbehavior", r"\bcenter\b", r"\bmodeling\b", r"\bcatalog\b", r"\bdefense\b", r"\blicense\b(?! (key|file))", r"\butiliz", r"\bprioritiz", r"\bstandardiz"]
 for f in sys.argv[2:]:

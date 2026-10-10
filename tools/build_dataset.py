@@ -4,20 +4,21 @@
 Usage: python3 -I tools/build_dataset.py <repo_root>
 
 Reads   work/stageA/*/products.json, work/stageA/*/sources.csv, work/stageA/A8_Regulation/regulatory_facts.json
-Writes  Enterprise_GenAI_Stack_Oct2026/05_Data/products.json
-        Enterprise_GenAI_Stack_Oct2026/05_Data/products.xlsx   (one row per product, fact cells flattened)
-        Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json
-        Enterprise_GenAI_Stack_Oct2026/06_References/bibliography.xlsx (sources + claim map)
+Writes  <PKG>/05_Data/products.json
+        <PKG>/05_Data/products.xlsx   (one row per product, fact cells flattened)
+        <PKG>/05_Data/regulatory_facts.json
+        <PKG>/06_References/bibliography.xlsx (sources + claim map)
         work/stageA/_integrity_report.md
 """
 import csv, glob, json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
 root = sys.argv[1]
 os.chdir(root)
-PKG = "Enterprise_GenAI_Stack_Oct2026"
 LAYER_ORDER = ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]  # layer order L1 -> L9 (user decision, 9 Oct 2026)
 
 def is_fact(x):
@@ -204,4 +205,15 @@ with open("work/stageA/_integrity_report.md", "w", encoding="utf-8") as f:
     ty = Counter(s.get("source_type", "") for s in sources.values())
     f.write("## Source types\n\n" + "\n".join("- %s: %d" % kv for kv in ty.most_common()) + "\n\n")
     f.write("## Issues (%d)\n\n" % len(issues) + "\n".join("- " + i for i in issues[:500]) + "\n")
+# Headline numbers for the deck and graphics (read by tools/deck/build_deck.js), so no count is typed by hand
+_tier = lambda p: ((p.get("classification") or {}).get("tier") or "")
+_layers = ["L%d" % i for i in range(1, 10)] + ["C%d" % i for i in range(1, 9)]
+STATS = {"edition": E["view_label"], "products": len(products), "regulatory": len(reg), "sources": len(sources),
+         "in_layers": sum(1 for p in products if str(p.get("layer", "")).startswith("L")),
+         "in_controls": sum(1 for p in products if str(p.get("layer", "")).startswith("C")),
+         "scored": sum(1 for p in products if _tier(p)),
+         "tiers": {t: sum(1 for p in products if _tier(p).startswith(t)) for t in ("Strategic", "Tactical", "Experimental")},
+         "by_layer": {"labels": _layers, **{t: [sum(1 for p in products if p.get("layer") == L and _tier(p).startswith(t)) for L in _layers]
+                                            for t in ("Strategic", "Tactical", "Experimental")}}}
+json.dump(STATS, open(PKG + "/05_Data/dataset_stats.json", "w", encoding="utf-8"), indent=1)
 print(json.dumps({"products": len(products), "regulatory": len(reg), "sources": len(sources), "issues": len(issues)}))

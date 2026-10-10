@@ -5,26 +5,31 @@ Used by the quarterly refresh (REFRESH_QUARTERLY.md, step R5) to produce the
 "What changed since the last edition" table.
 
 Usage:
-  python3 -I tools/diff_tiers.py <repo_root> <base_ref> [--base-path P] [--path P] [--out FILE]
+  python3 -I tools/diff_tiers.py <repo_root> [base_ref] [--base-path P] [--path P] [--out FILE]
 
-  base_ref    git commit or tag of the previous edition (the October 2026 baseline is
-              recorded in REFRESH_QUARTERLY.md)
+  base_ref    git commit or tag of the previous edition (default: edition.json "previous.commit",
+              written by tools/new_edition.py)
   --base-path products.json path at base_ref
-              (default Enterprise_GenAI_Stack_Oct2026/05_Data/products.json)
-  --path      products.json path now (default: same as --base-path)
+              (default: the previous edition's <package>/05_Data/products.json)
+  --path      products.json path now (default: <PKG>/05_Data/products.json for the current edition)
   --out       markdown output (default work/refresh/tier_changes.md)
 """
 import json, os, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 
-root, base = sys.argv[1], sys.argv[2]
+root = sys.argv[1]
 os.chdir(root)
+PREV = E.get("previous") or {}
+base = sys.argv[2] if len(sys.argv) > 2 and not sys.argv[2].startswith("--") else PREV.get("commit")
+if not base:
+    sys.exit("No previous edition: pass a base_ref, or start the edition with tools/new_edition.py")
 
 def arg(name, default):
     return sys.argv[sys.argv.index(name) + 1] if name in sys.argv else default
 
-DEFAULT = "Enterprise_GenAI_Stack_Oct2026/05_Data/products.json"
-base_path = arg("--base-path", DEFAULT)
-cur_path = arg("--path", base_path)
+base_path = arg("--base-path", (PREV.get("package") or PKG) + "/05_Data/products.json")
+cur_path = arg("--path", PKG + "/05_Data/products.json")
 out = arg("--out", "work/refresh/tier_changes.md")
 
 old = json.loads(subprocess.run(["git", "show", "%s:%s" % (base, base_path)], capture_output=True, text=True, check=True).stdout)

@@ -1,5 +1,5 @@
 // Render the LinkedIn post visuals: one editable Markdown source per post, rendered to HTML, PNG and PDF.
-// Sources: Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin/P<NN>.md (P00 = series introduction).
+// Sources: <package>/08_Graphic/linkedin/P<NN>.md (P00 = series introduction).
 // Each source has:
 //   # Title                                   (headline on the card)
 //   Post: Post 1 · Week 1 · L1 Foundation models   (never name a weekday)
@@ -13,7 +13,8 @@
 // documents) and P<NN>.pdf (one page, vector). Vendor-neutral: no vendor or product names on the cards.
 const fs = require("fs"), path = require("path");
 const { chromium } = require("playwright");
-const DIR = "Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin";
+const ED = require("./edition.js");   // package folder and edition label (edition.json)
+const DIR = ED.package + "/08_Graphic/linkedin";
 // The worked example's build, post by post (work/stageC2/worked_example_build.json): a progress strip on every card
 const BUILD_FILE = "work/stageC2/worked_example_build.json";
 const BUILD = fs.existsSync(BUILD_FILE) ? JSON.parse(fs.readFileSync(BUILD_FILE, "utf8")) : null;
@@ -118,7 +119,7 @@ function page(d, script, logo) {
   <img class="logo" src="${logo}" alt="Veyan"></div>
  <div class="body">${inner}</div>
  ${buildStrip(parseInt((d.post.match(/Post (\d+)/) || [])[1]))}
- <div class="ft"><div class="cap">${esc(d.cap)}</div><div class="src">Veyan · the view at end of Q3 2026${d.src ? "<br>Source: " + esc(d.src) : ""}</div></div>
+ <div class="ft"><div class="cap">${esc(d.cap)}</div><div class="src">Veyan · ${esc(ED.viewLc)}${d.src ? "<br>Source: " + esc(d.src) : ""}</div></div>
 </div>${run}</body></html>`;
 }
 (async () => {

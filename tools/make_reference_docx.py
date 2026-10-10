@@ -7,6 +7,8 @@ Adds the Veyan lockup (visual icon + word mark) to the page header, the V-and-ey
 footer, and Veyan colours to the title and heading styles. Every .docx built with --reference-doc inherits these.
 """
 import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 from docx import Document
 from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -36,7 +38,7 @@ hp.add_run().add_picture("brand/veyan_lockup.png", width=Inches(1.45))
 bottom_rule(hp)
 fp = sec.footer.add_paragraph(); fp.alignment = WD_ALIGN_PARAGRAPH.LEFT
 fp.add_run().add_picture("brand/veyan_mark.png", height=Inches(0.2))
-r = fp.add_run("   Veyan · The Enterprise GenAI Stack · the view at end of Q3 2026 · not a description of any firm's platform")
+r = fp.add_run("   Veyan · The Enterprise GenAI Stack · " + E["view_label"][0].lower() + E["view_label"][1:] + " · not a description of any firm's platform")
 r.font.size = Pt(7.5); r.font.color.rgb = GREY
 doc.save("tools/templates/reference.docx")
 print("branded tools/templates/reference.docx")

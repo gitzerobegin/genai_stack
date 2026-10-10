@@ -7,21 +7,23 @@ No PDF is made from the .docx unless --pdf is given (user decision, 10 October 2
 
 Order (plan §16): title & disclosure · Executive summary (synthesis Part I) · Method & quality rules ·
 Nine layers L1→L9 · Controls C1–C8 · remaining synthesis Parts (hypotheses … the new baseline at a glance) ·
-Annex: sources, data and companion documents. The review sets a new baseline (end of Q3 2026) and presents the stack
+Annex: sources, data and companion documents. The review sets a new baseline (edition.json) and presents the stack
 on its own terms (user decision, 10 October 2026). The LinkedIn series has one home elsewhere (07_LinkedIn) and is
 not repeated here. Each LinkedIn post visual
 (08_Graphic/linkedin/P<NN>.png) is placed in the chapter or Part it illustrates (VISUALS below).
 Writes:
-  Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.md   (full inline tags)
-  Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.docx (footnote-style tags, CP5-1)
-  Enterprise_GenAI_Stack_Oct2026/01_Report/Master_Architecture.pdf  (only with --pdf, via LibreOffice; not committed)
+  <PKG>/01_Report/Master_Architecture.md   (full inline tags)
+  <PKG>/01_Report/Master_Architecture.docx (footnote-style tags, CP5-1)
+  <PKG>/01_Report/Master_Architecture.pdf  (only with --pdf, via LibreOffice; not committed)
 """
 import collections, json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG, fill
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tagfmt import load_index, convert_markdown
 
 root = sys.argv[1]; os.chdir(root)
-OUT = "Enterprise_GenAI_Stack_Oct2026/01_Report"
+OUT = PKG + "/01_Report"
 os.makedirs(OUT, exist_ok=True)
 LAYERS = ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9"]  # L1 -> L9 (user decision, 9 Oct 2026)
 CTRLS = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]
@@ -40,7 +42,7 @@ def demote(md, levels=1):
     return "\n".join(out)
 
 # --- LinkedIn post visuals, placed where they illustrate the text (P00, the series map, stays in the LinkedIn document)
-VDIR = "Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin"
+VDIR = PKG + "/08_Graphic/linkedin"
 CHAPTER_VIS = {"L1": "P01", "C6": "P02", "L2": "P03", "C1": "P04", "L3": "P05", "C2": "P06", "L4": "P07", "C4": "P08", "L5": "P09",
                "L6": "P11", "C7": "P12", "L7": "P13", "C5": "P14", "L8": "P15", "C3": "P16", "C8": "P18"}
 # synthesis: (visual, heading the figure goes immediately before)
@@ -68,8 +70,8 @@ def place_chapter_visual(code, md):
     return re.sub(r"(?m)^(?=### %s\.1 )" % re.escape(code[1:] if code.startswith("L") else code), fig, md, count=1)
 
 # --- stats for the method chapter
-prods = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/products.json", encoding="utf-8"))
-regs = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/regulatory_facts.json", encoding="utf-8"))
+prods = json.load(open(PKG + "/05_Data/products.json", encoding="utf-8"))
+regs = json.load(open(PKG + "/05_Data/regulatory_facts.json", encoding="utf-8"))
 src, regidx, prodidx = load_index(".")
 def cells(o):
     if isinstance(o, dict) and "v" in o and "label" in o: yield o
@@ -103,9 +105,9 @@ if pre_part:
 rest = [p for p in parts if p is not exec_part and p is not pre_orig]
 
 doc = []
-doc.append("---\ntitle: \"The Enterprise GenAI Stack\"\nsubtitle: \"The view at end of Q3 2026: reference architecture and product assessment for regulated financial services, technology service providers, software companies and start-ups\"\ndate: \"%s\"\n---\n" % "Veyan · evidence as of 9 October 2026")
+doc.append("---\ntitle: \"The Enterprise GenAI Stack\"\nsubtitle: \"{VIEW_LABEL}: reference architecture and product assessment for regulated financial services, technology service providers, software companies and start-ups\"\ndate: \"%s\"\n---\n" % ("Veyan · evidence as of " + E["evidence_date"]))
 doc.append("![Veyan](brand/veyan_lockup.png){width=2.6in}\n")
-doc.append("> **The view at end of Q3 2026: a new baseline.** This review sets a new baseline for the enterprise GenAI stack, built from its own research: %s products (%s scored) across nine layers and eight controls, every claim labelled and sourced. Part XII summarises the baseline, and later quarterly editions are compared with it. Not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Part II.\n" % (stats["N_PRODUCTS"], stats["N_SCORED"]))
+doc.append("> **{VIEW_LABEL}: a new baseline.** This review sets a new baseline for the enterprise GenAI stack, built from its own research: %s products (%s scored) across nine layers and eight controls, every claim labelled and sourced. Part XII summarises the baseline, and later quarterly editions are compared with it. Not a description of any firm's actual platform or vendor choices. Disclosure: researched and drafted by an Anthropic model; see Part II.\n" % (stats["N_PRODUCTS"], stats["N_SCORED"]))
 if pre_part:
     doc.append(pre_part)
 if exec_part:
@@ -136,7 +138,7 @@ doc.append("# Annex: Sources, data and companion documents\n\nEach item below ha
            "| LinkedIn series (introduction and 24 posts, with visuals) | `07_LinkedIn/LinkedIn_Series.docx` and `Content_Calendar.xlsx` |\n"
            "| Editable sources of every figure | `08_Graphic/` (stack graphic, one-page architecture, `diagrams/`, `linkedin/`) |\n"
            "| Executive deck | `03_Slides/Executive_Deck.pptx` |\n")
-full = "\n\n".join(d for d in doc if d)
+full = fill("\n\n".join(d for d in doc if d))
 open(os.path.join(OUT, "Master_Architecture.md"), "w", encoding="utf-8").write(full)
 
 # --- Word edition with footnote-style tags

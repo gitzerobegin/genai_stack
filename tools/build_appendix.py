@@ -2,7 +2,7 @@
 """Build the Product Technical Appendix from the dataset (one entry per product record).
 
 Usage: python3 -I tools/build_appendix.py <repo_root> [--pdf]
-Writes Enterprise_GenAI_Stack_Oct2026/02_Appendix/Product_Technical_Appendix.{md,docx}
+Writes <PKG>/02_Appendix/Product_Technical_Appendix.{md,docx}
        (a PDF only with --pdf: no PDF is made from any Word document by default, user decision 10 October 2026;
         --no-pdf is still accepted and does nothing)
 Each product carries a "Fit by view" table: its score and indicative fit under the seven views
@@ -12,12 +12,14 @@ source IDs as plain text (resolve in 06_References/bibliography.xlsx).
 """
 import json, os, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG, fill
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tagfmt import load_index, convert_markdown
 
 root = sys.argv[1]; os.chdir(root)
-OUT = "Enterprise_GenAI_Stack_Oct2026/02_Appendix"; os.makedirs(OUT, exist_ok=True)
-prods = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/products.json", encoding="utf-8"))
-VJ = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/views.json", encoding="utf-8"))
+OUT = PKG + "/02_Appendix"; os.makedirs(OUT, exist_ok=True)
+prods = json.load(open(PKG + "/05_Data/products.json", encoding="utf-8"))
+VJ = json.load(open(PKG + "/05_Data/views.json", encoding="utf-8"))
 VIEWS = VJ["views"]; VFIT = {r["id"]: r for r in VJ["products"]}
 PARTS = {"FS": "Parts I–XII", "TS": "Part XIII", "SW": "Part XIV", "SU": "Part XV", "AT": "Part XVI", "DV": "Part XVII", "AG": "Part XVIII"}
 ORDER = ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]  # layer order L1 -> L9 (user decision, 9 Oct 2026)
@@ -46,8 +48,8 @@ def name(p):
     c = p.get("current_name"); return c["v"] if isinstance(c, dict) else p["id"]
 
 ncore = {v["id"]: sum(1 for r in VJ["products"] if r["fit"][v["id"]] == "Core candidate") for v in VIEWS}
-md = ["---\ntitle: \"Product Technical Appendix\"\nsubtitle: \"The Enterprise GenAI Stack: the view at end of Q3 2026\"\n---\n",
-      "This review sets a new baseline for the enterprise GenAI stack, and this appendix holds its product record: %d products across nine stack layers (L1–L9) and eight enterprise controls (C1–C8), as at the end of Q3 2026 [AJ]. Each entry gives the current facts with their claim labels and source IDs (resolve in `06_References/bibliography.xlsx`), the assessment, the classification, the scorecard (generic and regulated-FS weights) and the product's fit under each of the seven views. Fact cells marked *Not publicly verified* could not be confirmed from a public source and were never guessed. Disclosure: researched and drafted by an Anthropic model; Anthropic-related items were scored on the same rubric, an independent alternative is named beside each, and tiers set by the reader at checkpoints are noted in the relevant chapter.\n" % len(prods),
+md = ["---\ntitle: \"Product Technical Appendix\"\nsubtitle: \"The Enterprise GenAI Stack: {VIEW_LABEL_LC}\"\n---\n",
+      "This review sets a new baseline for the enterprise GenAI stack, and this appendix holds its product record: %d products across nine stack layers (L1–L9) and eight enterprise controls (C1–C8), as {AS_AT} [AJ]. Each entry gives the current facts with their claim labels and source IDs (resolve in `06_References/bibliography.xlsx`), the assessment, the classification, the scorecard (generic and regulated-FS weights) and the product's fit under each of the seven views. Fact cells marked *Not publicly verified* could not be confirmed from a public source and were never guessed. Disclosure: researched and drafted by an Anthropic model; Anthropic-related items were scored on the same rubric, an independent alternative is named beside each, and tiers set by the reader at checkpoints are noted in the relevant chapter.\n" % len(prods),
       "# The seven views\n",
       "The master document reads the stack through seven views. The regulated-financial-services view is the master (Parts I–XII); six further views follow as Parts XIII–XVIII. Every view uses the same facts and the same eight criterion scores; only the weights change, and each weight profile sums to 100 [AJ]. Each product entry below ends its scorecard with a **Fit by view** table: the product's re-weighted score (1–5) and its indicative fit under each view, computed by `tools/build_views.py` (full table in `05_Data/views.xlsx`) [AJ].\n",
       "| View | Reader | Part | Tech. | Ent. | Sec. | Dep. | Eco. | Mat. | Cost | Lock-in | Core candidates |\n|---|------------|---|" + "--:|" * len(CRIT) + "--:|"]
@@ -93,7 +95,7 @@ for L in ORDER:
                     md.append("**%s**\n\n" % lab + "\n".join("- " + str(i) for i in items) + "\n")
             if a.get("competitors"): md.append("**Nearest competitors:** " + ", ".join(map(str, a["competitors"])) + "\n")
             if a.get("fs_note"): md.append("**Regulated-FS note.** " + a["fs_note"] + "\n")
-        md.append("**Facts (as of %s)**\n\n| Field | Value | Label | Sources |\n|---------|--------------------------|--------|-----|" % (p.get("last_verified") or "October 2026"))
+        md.append("**Facts (as of %s)**\n\n| Field | Value | Label | Sources |\n|---------|--------------------------|--------|-----|" % (p.get("last_verified") or E["month_year"]))
         for k, lab in FIELDS:
             v, l, s = cell(p.get(k))
             if v: md.append("| %s | %s | %s | %s |" % (lab, v[:600], l, s))
@@ -102,7 +104,7 @@ for L in ORDER:
             dv = "; ".join("%s: %s" % (k, cell(v)[0]) for k, v in dep.items() if cell(v)[0])
             if dv: md.append("| Deployment | %s | | |" % dv)
         md.append("")
-full = "\n".join(md)
+full = fill("\n".join(md))
 open(os.path.join(OUT, "Product_Technical_Appendix.md"), "w", encoding="utf-8").write(full)
 src, regs, pr = load_index(".")
 conv = convert_markdown(full, src, regs, pr)

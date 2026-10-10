@@ -1,6 +1,6 @@
 # About this book
 
-This book sets a new baseline for the enterprise GenAI stack: the stack as it stands at the end of Q3 2026, built from the review's own research. It has nine layers, from foundation models (L1) to evaluation and observability (L9), under a firm-owned control plane of eight components (C1 to C8), with 140 products assessed on one rubric. Part XII summarises the baseline, and each later quarterly edition is compared with it [AJ].
+This book sets a new baseline for the enterprise GenAI stack: the stack as it stands {AS_AT}, built from the review's own research. It has nine layers, from foundation models (L1) to evaluation and observability (L9), under a firm-owned control plane of eight components (C1 to C8), with 140 products assessed on one rubric. Part XII summarises the baseline, and each later quarterly edition is compared with it [AJ].
 
 It is written first for the people who must make GenAI work inside a regulated firm: enterprise and solution architects, technology and data leaders, model-risk, compliance and operational-resilience teams, and the engineers who build the platform. Parts XIII to XVIII re-read the same stack for technology companies, start-ups and the start-ups that sell AI tools, coding agents and agents to enterprises [AJ].
 

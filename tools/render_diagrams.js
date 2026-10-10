@@ -1,11 +1,12 @@
 // Render the editable Mermaid diagrams to PNG (for the Word/PDF documents) and HTML (for viewing in a browser).
-// Source files: Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams/*.md — each has a "# Title" line, optional
+// Source files: <package>/08_Graphic/diagrams/*.md — each has a "# Title" line, optional
 // "Caption: ..." line, and one ```mermaid block. Edit the .md, then run:
 //   NODE_PATH=$(npm root -g) node tools/render_diagrams.js [file.md ...]      (no arguments = all diagrams)
 // Needs: cd tools/diagrams && npm install mermaid@11.17.2   (and Playwright, as for render_graphic.js)
 const fs = require("fs"), path = require("path");
 const { chromium } = require("playwright");
-const DIR = "Enterprise_GenAI_Stack_Oct2026/08_Graphic/diagrams";
+const ED = require("./edition.js");   // package folder and edition label (edition.json)
+const DIR = ED.package + "/08_Graphic/diagrams";
 const MERMAID = path.resolve("tools/diagrams/node_modules/mermaid/dist/mermaid.min.js");
 const CDN = "https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js";
 const INIT = { startOnLoad: false, theme: "base", securityLevel: "strict",
@@ -31,7 +32,7 @@ function page(d, script) {
 .k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
 .r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
 .mermaid{max-width:1300px}</style>
-<script src="${script}"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">${esc(d.title)}</div><div class="r"></div>
+<script src="${script}"></script></head><body><div id="fig"><div class="k">Veyan · ${esc(ED.viewLc)}</div><div class="t">${esc(d.title)}</div><div class="r"></div>
 <pre class="mermaid">${esc(d.code)}</pre>${d.cap ? `<div class="c">${esc(d.cap)}</div>` : ""}</div>
 <script>mermaid.initialize(${JSON.stringify(INIT)});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>`;
 }

@@ -9,9 +9,11 @@ Reads  work/stageF/linkedin_book/chapters/ch00.md … ch32.md   (one chapter per
 Writes work/stageF/linkedin_book/book.md          (inline claim tags, for editing and review)
        work/stageF/linkedin_book/book.pandoc.md   (tags as footnotes: the source for the print and Kindle build)
 Then, unless --no-print, runs tools/build_print_edition.py --config tools/print/linkedin_book.json, which writes
-Enterprise_GenAI_Stack_Oct2026/07_LinkedIn/Book/ (Interior.docx, cover, EPUB, Build_Summary.md; Interior.pdf only with --pdf).
+<PKG>/07_LinkedIn/Book/ (Interior.docx, cover, EPUB, Build_Summary.md; Interior.pdf only with --pdf).
 """
 import json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 root = sys.argv[1]; os.chdir(root); sys.path.insert(0, "tools")
 from tagfmt import load_index, convert_markdown
 

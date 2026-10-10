@@ -2,20 +2,21 @@
 """Score every product under each further view (Stage E) and write the view tables.
 
 Usage: python3 -I tools/build_views.py <repo_root>
-Reads   Enterprise_GenAI_Stack_Oct2026/05_Data/products.json (criterion scores from Stage B, unchanged)
+Reads   <PKG>/05_Data/products.json (criterion scores from Stage B, unchanged)
         work/stageE/views/views.json (one weight profile per view; FS = the master view)
-Writes  Enterprise_GenAI_Stack_Oct2026/05_Data/views.xlsx and views.json
+Writes  <PKG>/05_Data/views.xlsx and views.json
         work/stageE/views/<VIEW>_scores.md   (per-layer ranking for the view writers and the reader)
 A view re-weights the same eight criteria; it never changes a fact or a criterion score. The "fit" is
 indicative: view score >= 3.6 with no criterion at 1 and not Experimental / Not recommended in the master tiers.
 """
 import json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
 root = sys.argv[1]; os.chdir(root)
-PKG = "Enterprise_GenAI_Stack_Oct2026"
 cfg = json.load(open("work/stageE/views/views.json", encoding="utf-8"))
 CRIT = cfg["criteria"]; TH = cfg["fit_rules"]["core_threshold"]
 ORDER = ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"]

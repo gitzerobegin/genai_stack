@@ -6,11 +6,13 @@ Usage: python3 -I tools/npv_report.py <repo_root> [--include-low]
 Writes work/gapfill/npv_by_product.md and work/gapfill/npv_cells.csv
 """
 import csv, json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from edition import E, PKG
 from collections import defaultdict
 
 root = sys.argv[1]; inc_low = "--include-low" in sys.argv
 os.chdir(root)
-d = json.load(open("Enterprise_GenAI_Stack_Oct2026/05_Data/products.json", encoding="utf-8"))
+d = json.load(open(PKG + "/05_Data/products.json", encoding="utf-8"))
 SKIP = {"assessment", "classification", "scores"}
 
 def walk(o, path=""):

@@ -2,6 +2,7 @@
 # Rebuild every deliverable from the sources, in dependency order. Run from the repo root:
 #   bash tools/rebuild_all.sh            # everything (Word documents, deck, print/Kindle editions; no PDF from any .docx)
 #   bash tools/rebuild_all.sh --quick    # no deck PDF, no print edition (minutes; for checking text changes)
+# The package folder and the edition label come from edition.json. A new edition (any month): tools/new_edition.py.
 # No PDF is made from any Word document and no ZIP is made (user decision, 10 October 2026): the .docx files are the
 # deliverables, KDP takes Interior.docx for the paperback, and every file is in git.
 # Needs: python3 (+ openpyxl, python-docx), pandoc, LibreOffice with python3-uno, Node.js with Playwright
@@ -9,7 +10,7 @@
 #   (cd tools/deck && npm install)   (cd tools/diagrams && npm install)
 set -euo pipefail
 QUICK=${1:-}
-PKG=Enterprise_GenAI_Stack_Oct2026
+PKG=$(python3 -I tools/edition.py package)   # current edition's folder (edition.json; new editions: tools/new_edition.py)
 G=$PKG/08_Graphic
 export NODE_PATH="$(npm root -g)"
 step() { printf '\n=== %s\n' "$*"; }
@@ -35,6 +36,7 @@ NODE_PATH="$PWD/tools/deck/node_modules" node tools/deck/build_deck.js .
 if [ "$QUICK" = "--quick" ]; then
   python3 -I tools/build_master.py .
   python3 -I tools/build_appendix.py .
+  python3 -I tools/check_edition.py .
   echo "Quick build done (no PDFs, no print edition)."; exit 0
 fi
 python3 -I tools/docx2pdf.py $PKG/03_Slides/Executive_Deck.pptx $PKG/03_Slides/Executive_Deck.pdf
@@ -46,4 +48,6 @@ step "8b. The LinkedIn series as a book (Interior.docx, cover, EPUB, KDP checks)
 python3 -I tools/build_linkedin_book.py .
 step "9. Product technical appendix"
 python3 -I tools/build_appendix.py .
+step "10. Edition check (labels left over from the previous edition; see tools/check_edition.py)"
+python3 -I tools/check_edition.py .
 echo "All deliverables rebuilt. Review, then: git add -A && git commit && git push"
