@@ -27,6 +27,22 @@
 | Rebuild | `bash tools/rebuild_all.sh` rebuilds every deliverable in order (`--quick` skips the deck PDF and the print editions) and ends with `tools/check_edition.py`. Edition: `edition.json`; a new edition in any month: `python3 -I tools/new_edition.py . --month YYYY-MM` |
 | Next | User review and sign-off. Open questions: view lengths (AT 8,660 words; DV and AG slightly over brief; user will handle lengths), the diagrams carry the VEYAN word mark but not the V-and-eye icon, the "most state AI laws" wording; Post 32 says "From 9 December 2026" (change to "Since" if posted later). Before selling either book: complete `Publishing_Kit.md` §3 (author, ISBNs, AI disclosure, proof copy); the cover spine uses an estimated page count (confirm in KDP's previewer or build the PDF once with `--pdf`). Optional: the desktop gap-fill (`RERUN_ON_DESKTOP.md`) and a full December trial of `tools/new_edition.py` in a scratch branch. After sign-off, enter the date of Post 1 (any day) in `Content_Calendar.xlsx` cell E1. |
 
+## View codes (seven views)
+
+Two-letter codes used in file names, tables, the Explorer, the deck and the LinkedIn posts (`work/stageE/views/views.json`). Kept as they are (user, 10 October 2026).
+
+| Code | Stands for | View | Part |
+|---|---|---|---|
+| **FS** | Financial Services | Regulated financial services (the master view) | I–XII |
+| **TS** | Technology Services | Technology service provider | XIII |
+| **SW** | SoftWare | Software product company | XIV |
+| **SU** | Start-Up | Start-up technology company that adopts the stack | XV |
+| **AT** | AI Tools | Start-up selling AI tools into the enterprise stack | XVI |
+| **DV** | DeVelopers | Start-up selling agentic SDLC tools to developers (the buyer is the developer) | XVII |
+| **AG** | AGents | Start-up selling agents to enterprises (the product is the agent) | XVIII |
+
+SU uses the stack; AT, DV and AG are start-ups that sell into it.
+
 ## Run log
 
 ### Session 1: cloud container (claude.ai/code)
