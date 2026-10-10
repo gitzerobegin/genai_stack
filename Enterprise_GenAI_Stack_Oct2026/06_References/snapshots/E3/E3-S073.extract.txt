@@ -1,0 +1,12 @@
+SOURCE ID: E3-S073
+URL: https://datatracker.ietf.org/doc/draft-ietf-oauth-identity-assertion-authz-grant/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: IETF draft-ietf-oauth-identity-assertion-authz-grant status 2026; AI agent authentication draft; WIMSE
+========================================================================
+
+Search-tool summary of datatracker.ietf.org/doc/draft-ietf-oauth-identity-assertion-authz-grant/ and earlier revisions:
+- Status: Active Internet-Draft (oauth WG); revision -04 published 21 May 2026, expires 22 November 2026. Title changed from "Identity Assertion Authorization Grant" to "Identity Assertion JWT Authorization Grant".
+- -00 (September 2025): mechanism for an application to use an identity assertion to obtain an access token for a third-party API, built on token exchange and JWT bearer grants.
+- 2026 revisions add an appendix on AI agents calling external tools; in -04 the agent is an OAuth client that both the enterprise IdP and the tool's authorisation server must trust; the agent requests the ID-JAG token type through identity chaining.
+- Not an RFC; still a working-group draft.

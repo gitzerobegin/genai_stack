@@ -1,0 +1,14 @@
+SOURCE ID: E3-S077
+URL: https://slsa.dev/spec/v1.2/source-requirements
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: SLSA specification v1.2 source track AI-generated code provenance
+========================================================================
+
+Search-tool summaries of slsa.dev/spec/v1.2/source-requirements and slsa.dev/blog/2025/12/supply-chain-robots-slsa (plus ossf/tac issue #538):
+- SLSA v1.2 reintroduces the Source Track alongside the Build Track. Source Track levels: L1 version control; L2 history and provenance; L3 enforced technical controls; L4 two-party review.
+- At Source L2 the source control system issues Source Provenance Attestations for each new Source Revision, providing contemporaneous, tamper-resistant evidence of when changes were made, who made them and which technical controls were enforced.
+- Candidate tooling (slsa-framework/source-tool, source-actions) stores source provenance and a source VSA in git notes; an OpenSSF TAC funding request says the tooling still needs updating to match the final v1.2 spec, including capturing code reviewers in generated source provenance.
+- The December 2025 SLSA blog describes the Build (L0-L3) and Source (L1-L4) tracks as complementary end-to-end protection.
+- No SLSA content was found defining how AI-authored or agent-authored commits are represented; "who made them" is the closest field. Secondary (S3C2 Summit 2025 report, arXiv) participants proposed treating agent actions as supply-chain artefacts and giving agents distinct identities (discussion, not a standard).
+- One secondary reference says v1.2 was approved November 2025 (not confirmed against slsa.dev).

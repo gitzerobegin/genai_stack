@@ -1,0 +1,42 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>SW architecture: the vendor's release plane and the product inside the customer's estate</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">SW architecture: the vendor's release plane and the product inside the customer's estate</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  subgraph V["1 · Vendor: build and release plane (CRA manufacturer, AI Act provider)"]
+    direction LR
+    V1["Support matrix&lt;br/&gt;hosted models via the customer's&lt;br/&gt;account + one bundled open-weight model"]
+    V2["Release qualification&lt;br/&gt;one evaluation suite on every&lt;br/&gt;supported model, every release"]
+    V3["Licence and supply-chain gate&lt;br/&gt;redistribution review, SBOM,&lt;br/&gt;model scanning, signing"]
+    V4["Signed release&lt;br/&gt;installer, container or marketplace image,&lt;br/&gt;model pack, SBOM, support period"]
+    V1 --&gt; V2 --&gt; V3 --&gt; V4
+  end
+  subgraph P["2 · Customer estate: the product as deployed (self-managed, on-premises, air-gapped or marketplace)"]
+    direction LR
+    P1["Product's existing&lt;br/&gt;permission model&lt;br/&gt;and audit log"]
+    P2["AI feature&lt;br/&gt;workflow with one&lt;br/&gt;bounded model step"]
+    P3["Retrieval in the&lt;br/&gt;product's own database&lt;br/&gt;permission-filtered"]
+    P5["Guard, AI disclosure&lt;br/&gt;and output marking"]
+    P4["Model adapter&lt;br/&gt;OpenAI-compatible&lt;br/&gt;endpoint setting"]
+    P6["Telemetry exporter&lt;br/&gt;OTel GenAI spans,&lt;br/&gt;redaction on"]
+    P1 --&gt; P2 --&gt; P3 --&gt; P5 --&gt; P4 --&gt; P6
+  end
+  subgraph C["3 · Customer's own control plane: the product plugs in and never replaces it"]
+    direction LR
+    C4["Customer IdP&lt;br/&gt;SSO and SCIM (C4)"]
+    C1["Customer gateway (C1)&lt;br/&gt;or hyperscaler account:&lt;br/&gt;Bedrock, Foundry or Gemini&lt;br/&gt;Enterprise Agent Platform"]
+    C2["Bundled route for&lt;br/&gt;air-gapped sites:&lt;br/&gt;vLLM + open-weight model"]
+    C9["Customer OTel collector,&lt;br/&gt;SIEM and evidence store&lt;br/&gt;(L9, C8)"]
+    C4 ~~~ C1 ~~~ C2 ~~~ C9
+  end
+  V -- "customer installs or subscribes" --&gt; P
+  P -- "SSO and SCIM · model calls · OTel spans and audit events" --&gt; C
+  N["Back channel to the vendor: vulnerability and incident handling&lt;br/&gt;(CRA early warning 24 h, notification 72 h); opt-in support telemetry only"]:::note
+  C -.-&gt; N
+</pre><div class="c">The vendor qualifies every supported model, gates every redistributed component and ships a signed release; in the customer's estate the AI feature uses the product's own permissions, calls the model through the customer's gateway or cloud account (or a bundled open-weight model on air-gapped sites), and sends telemetry and audit events to the customer's own tools.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>

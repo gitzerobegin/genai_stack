@@ -1,0 +1,11 @@
+SOURCE ID: E3-S069
+URL: https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/CHANGELOG.md
+FINAL URL: https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/CHANGELOG.md
+TITLE: 
+ACCESSED: 2026-10-10
+TYPE: text snapshot (extracted, not the original page)
+========================================================================
+
+# Changelog
+
+## Unreleased

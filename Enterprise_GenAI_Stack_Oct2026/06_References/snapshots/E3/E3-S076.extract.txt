@@ -1,0 +1,11 @@
+SOURCE ID: E3-S076
+URL: https://openid.net/wp-content/uploads/2026/03/Attachment1_NIST-2025-0035-0001.pdf
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: OpenID Foundation AI Identity Management Community Group agentic AI; SPIFFE agents
+========================================================================
+
+Search-tool summary of openid.net/oidf-responds-to-nist-on-ai-agent-security/ and the attached PDF (openid.net/wp-content/uploads/2026/03/Attachment1_NIST-2025-0035-0001.pdf):
+- In March 2026 the AIIM CG Threat Modeling Subgroup filed a response to NIST's Request for Information on securing AI agent systems (docket NIST-2025-0035).
+- The submission says SPIFFE and SPIRE offer a model for workload identity that translates well to agent scenarios.
+- No official SPIFFE/SPIRE project document specifically on AI agents was found (only a third-party GitHub feature request).

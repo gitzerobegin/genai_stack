@@ -1,0 +1,14 @@
+SOURCE ID: E3-S078
+URL: https://docs.agntcy.org/
+ACCESSED: 2026-10-10
+TYPE: search-tool extract (direct fetch blocked by research-environment egress policy; not the original page)
+FOUND VIA: AGNTCY Linux Foundation project agent directory OASF 2026
+========================================================================
+
+Search-tool summary of docs.agntcy.org, dir.agntcy.org/latest/dir/dir-overview/, blogs.agntcy.org/technical/2026/02/19/directory-mcp-server.html, spec.dir.agntcy.org (draft-mp-agntcy-ads) and docs.agntcy.org/dir/hosted-agent-directory/:
+- AGNTCY describes itself as an open-source collective building components and services that let agents discover each other, verify capabilities, communicate securely and collaborate across frameworks.
+- Agent Directory Service: a federated registry for publishing, verifying and discovering agents and multi-agent applications; open source; an MCP server for the directory was announced 19 February 2026; a hosted "Outshift Agent Directory, powered by AGNTCY" exists (Outshift is Cisco's incubation unit).
+- OASF: extensible data model for describing agent attributes, skills and capabilities across A2A, MCP and more.
+- An Internet-Draft on the Agent Directory Service (January 2026) lists Cisco authors (L. Muscariello, R. Polic).
+- Linux Foundation A2A project press release says AGNTCY is integrating A2A support into its Directory, Identity, SLIM messaging and Observability components.
+- No source in results confirms AGNTCY's governance home (e.g. Linux Foundation).

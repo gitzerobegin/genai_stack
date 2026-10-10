@@ -14,6 +14,19 @@
 const fs = require("fs"), path = require("path");
 const { chromium } = require("playwright");
 const DIR = "Enterprise_GenAI_Stack_Oct2026/08_Graphic/linkedin";
+// The worked example's build, post by post (work/stageC2/worked_example_build.json): a progress strip on every card
+const BUILD_FILE = "work/stageC2/worked_example_build.json";
+const BUILD = fs.existsSync(BUILD_FILE) ? JSON.parse(fs.readFileSync(BUILD_FILE, "utf8")) : null;
+function buildStrip(postNo) {
+  if (!BUILD || postNo === null || isNaN(postNo)) return "";
+  const step = BUILD.steps.find((s) => s.post === postNo); if (!step) return "";
+  const codes = BUILD.codes, cur = codes.indexOf(step.code), all = step.code === "ALL";
+  const chips = codes.map((c, i) => {
+    const cls = all || (cur >= 0 && i < cur) ? "done" : (i === cur ? "now" : "");
+    return `<span class="c ${cls}">${c === "REG" ? "Reg" : c}</span>`;
+  }).join("");
+  return `<div class="wx"><span class="lb">Worked example · ${postNo === 0 ? "the brief" : "step " + postNo}</span>${chips}</div>`;
+}
 const MERMAID = path.resolve("tools/diagrams/node_modules/mermaid/dist/mermaid.min.js");
 const CDN = "https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js";
 const SIZES = { portrait: [1080, 1350], square: [1080, 1080], landscape: [1200, 675] };
@@ -37,6 +50,10 @@ body{font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff}
 .rule{width:72px;height:4px;background:var(--gold);margin:18px 0 0}
 .logo{height:46px;flex:none;margin-top:2px}
 .body{flex:1;display:flex;flex-direction:column;justify-content:center;margin:26px 0 18px;min-height:0;font-size:21px;line-height:1.3}
+.wx{display:flex;align-items:center;gap:4px;margin:0 0 12px;white-space:nowrap}
+.wx .lb{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-right:auto;padding-right:10px;overflow:hidden;text-overflow:ellipsis}
+.wx .c{font-size:11.5px;font-weight:800;border-radius:6px;padding:3px 0;width:34px;text-align:center;border:1.5px solid var(--line);color:#8792A0;background:#fff;flex:none}
+.wx .c.done{background:var(--navy);border-color:var(--navy);color:#fff}.wx .c.now{background:var(--gold);border-color:var(--gold);color:var(--navy)}
 .ft{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-top:2px solid var(--line);padding-top:14px;font-size:16px;color:var(--mute);line-height:1.35}
 .ft .cap{max-width:80%}.ft .src{text-align:right;white-space:nowrap}
 /* building blocks */
@@ -94,6 +111,7 @@ function page(d, script, logo) {
   <div class="title">${esc(d.title)}</div><div class="rule"></div></div>
   <img class="logo" src="${logo}" alt="Veyan"></div>
  <div class="body">${inner}</div>
+ ${buildStrip(parseInt((d.post.match(/Post (\d+)/) || [])[1]))}
  <div class="ft"><div class="cap">${esc(d.cap)}</div><div class="src">Veyan · the view at end of Q3 2026${d.src ? "<br>Source: " + esc(d.src) : ""}</div></div>
 </div>${run}</body></html>`;
 }

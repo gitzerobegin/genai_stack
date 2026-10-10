@@ -1,0 +1,52 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>The technology service provider's GenAI architecture: one estate, every call tenant-aware</title>
+<!-- Generated from the .md file of the same name by tools/render_diagrams.js. Edit the .md (Mermaid), not this file. -->
+<style>body{margin:0;font-family:Inter,Arial,sans-serif;color:#0B1B33;background:#fff}
+#fig{display:inline-block;padding:18px 22px 14px;background:#fff}
+.k{font-size:11px;letter-spacing:4px;color:#D4A13A;text-transform:uppercase}.t{font-size:19px;font-weight:800;margin:4px 0 2px}
+.r{width:48px;height:3px;background:#D4A13A;margin:6px 0 12px}.c{font-size:12.5px;color:#5B6B7A;margin-top:8px;max-width:1100px}
+.mermaid{max-width:1300px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js"></script></head><body><div id="fig"><div class="k">Veyan · the view at end of Q3 2026</div><div class="t">The technology service provider's GenAI architecture: one estate, every call tenant-aware</div><div class="r"></div>
+<pre class="mermaid">flowchart TD
+  classDef note fill:#FBF4E4,stroke:#D4A13A,stroke-dasharray:4 3;
+  T["Tenant end users and tenant admins&lt;br/&gt;customer identity; per-tenant AI settings and opt-out"]
+  subgraph CP["Provider control plane: one estate, tenant-aware"]
+    direction LR
+    ID["C4 identity&lt;br/&gt;tenant + user + agent&lt;br/&gt;in every token"]
+    APP["L3 workflow per feature&lt;br/&gt;tenant ID on every step"]
+    GW["C1 gateway&lt;br/&gt;key, quota, budget per tenant&lt;br/&gt;route by tenant residency"]
+    PG["C2 / C3 policy per tenant&lt;br/&gt;redact before any model"]
+    ID --&gt; APP --&gt; GW --&gt; PG
+  end
+  CFG["C5 manifest: global release&lt;br/&gt;plus tenant overlays"]:::note
+  CFG -.-&gt; CP
+  T --&gt; CP
+  subgraph MP["Shared model plane: L1, L2"]
+    direction LR
+    M1["Vendor A&lt;br/&gt;mid + small tier&lt;br/&gt;reserved for peak"]
+    M2["Vendor B&lt;br/&gt;qualified fallback"]
+    M3["Batch / Flex&lt;br/&gt;for async work"]
+    BYO["Tenant's own&lt;br/&gt;model account&lt;br/&gt;(optional)"]
+    M1 ~~~ M2 ~~~ M3 ~~~ BYO
+  end
+  subgraph KP["Knowledge and tools: L4 to L8, partitioned by tenant"]
+    direction LR
+    K1["Pooled index&lt;br/&gt;tenant filter injected"]
+    K2["Siloed index + key&lt;br/&gt;for tenants who pay"]
+    TL["Tenant tools via L4 gateway&lt;br/&gt;delegated per-tenant tokens"]
+    K1 ~~~ K2 ~~~ TL
+  end
+  CP --&gt; MP
+  MP ~~~ KP
+  CP --&gt; KP
+  subgraph EV["Evidence and margin: L9, C6, C8"]
+    direction LR
+    OT["L9 OTel spans&lt;br/&gt;tagged with tenant ID"]
+    FIN["C6 cost per tenant&lt;br/&gt;margin per feature"]
+    ASR["C8 evidence and&lt;br/&gt;customer assurance pack"]
+    OT --&gt; FIN
+    OT --&gt; ASR
+  end
+  MP --&gt; EV
+  KP --&gt; EV
+</pre><div class="c">The provider runs one control plane for all tenants: tenant identity travels in every token, the gateway meters, limits and routes per tenant, the knowledge plane is partitioned by tenant (pooled by default, siloed for tenants who pay for it), and every span carries the tenant ID so cost, margin and customer evidence can be reported per tenant.</div></div>
+<script>mermaid.initialize({"startOnLoad":false,"theme":"base","securityLevel":"strict","themeVariables":{"fontFamily":"Inter, Arial, sans-serif","fontSize":"15px","primaryColor":"#EEF3F8","primaryBorderColor":"#2E6DA4","primaryTextColor":"#0B1B33","secondaryColor":"#F5F1E8","secondaryBorderColor":"#D4A13A","tertiaryColor":"#FBF4E4","tertiaryBorderColor":"#D4A13A","lineColor":"#0B1B33","clusterBkg":"#F5F1E8","clusterBorder":"#D4A13A","edgeLabelBackground":"#FFFFFF"},"flowchart":{"htmlLabels":true,"curve":"basis","wrappingWidth":240,"nodeSpacing":36,"rankSpacing":44,"padding":10}});mermaid.run().then(()=>{document.body.dataset.done="1"}).catch(e=>{document.body.dataset.err=String(e && e.message || e)});</script></body></html>
